@@ -1,0 +1,60 @@
+TAP version 13
+# PROPOSAL 7 (upgrade) on the buyer timelock tl
+# can run from 2033-05-18T03:33:20Z (72.0 h after it was proposed)
+# module aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (1 bytes): the published reproducible build of c
+# argument sha256 x
+# diff against the install:
+#   EXPECTED: this is step 3 of the launch plan (deployments/launch/nft-pilot.json stages; golive-check --proposal --stage 3 holds it): the item caps back to J7
+#   LOOSENS custody cap 1:0x5af0d9827e0c53e4799bb226655a1de152a425a5: items 13 → 16 (expected: the staged step)
+#   LOOSENS custody cap 1:0xed5af388653567af2f388e6224dc7c4b3241c544: items 17 → 22 (expected: the staged step)
+#   LOOSENS custody cap 1:0x60e4d786628fea6478f785a6d7e704777c86a7c6: items 13 → 17 (expected: the staged step)
+#   LOOSENS custody cap 1:0xbd3531da5cf5857e7cfaa92426877b022e612cf8: items 3 → 4 (expected: the staged step)
+#   LOOSENS custody cap btc:0x7777777777777777777777777777777777777777: items 3 → 12 (expected: the staged step)
+#   LOOSENS custody cap btc:0x7777777777777777777777777777777777777777: value 10 ETH → 40 ETH (expected: the staged step)
+#   LOOSENS custody cap, global: items in all 51 → 62 (expected: the staged step)
+#   LOOSENS custody cap, global: value in all 85 ETH → 340 ETH (expected: the staged step)
+#   unchanged: chain_id, vault, key_name, accept_production_key_name, bridge_allowlist, btc_network, wrapper, operator, holder_deposits, wrapper_from_block, frog_funding, eth_nft, rpc_urls, btc_api_urls, evm_chains, outflow_limits
+# Check it against its announcement (H6).
+# ok   the proposal's custody caps and outflow limits are step 3 (caps back to J7) of the launch file
+# ok   the running configuration (the baseline argument) is step 2 (outflow raise)
+# ok   the change is step 3's alone (the custody caps' item counts), nothing else in the caps or limits
+# ok   every other field of the Init is the baseline's (identity, operator, providers, chains, eth_nft, deposits)
+# ok   the proposal's pair fits the exit rule: every item can leave within the timelock's 72 h less a day (A4-L-1)
+# ok   the proposal's custody caps and outflow limits are step 2 (outflow raise) of the launch file
+# ok   the running configuration (the canister's custody_caps() and custody_outflow()) is step 1 (install)
+# ok   the change is step 2's alone (outflow_limits.global_items), nothing else in the caps or limits
+# note no --baseline: the Init's other fields (identity, operator, providers, chains, eth_nft) were not compared; the monitor's argument diff shows them
+# ok   the proposal's pair fits the exit rule: every item can leave within the timelock's 72 h less a day (A4-L-1)
+# Subtest: A6-L-1: step 3 plus a x4 raise of the Bitcoin wrapper's cap, and the global caps above the sum: EXPECTED (SEV2), golive-check --proposal passes
+ok 1 - A6-L-1: step 3 plus a x4 raise of the Bitcoin wrapper's cap, and the global caps above the sum: EXPECTED (SEV2), golive-check --proposal passes
+  ---
+  duration_ms: 9.40925
+  type: 'test'
+  ...
+# Subtest: A6-L-1 (b): step 3 plus a new, unconfigured collection key: EXPECTED
+ok 2 - A6-L-1 (b): step 3 plus a new, unconfigured collection key: EXPECTED
+  ---
+  duration_ms: 3.168666
+  type: 'test'
+  ...
+# Subtest: control: step 2 with the same extras is refused (kindProblem compares every key)
+ok 3 - control: step 2 with the same extras is refused (kindProblem compares every key)
+  ---
+  duration_ms: 2.428958
+  type: 'test'
+  ...
+# Subtest: A6-I-2: golive-check --proposal with --canister only passes a step-2 argument that also names a new operator and new 4663 providers (a note, not a FAIL); the monitor does page it SEV1
+ok 4 - A6-I-2: golive-check --proposal with --canister only passes a step-2 argument that also names a new operator and new 4663 providers (a note, not a FAIL); the monitor does page it SEV1
+  ---
+  duration_ms: 3.824042
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 122.126375

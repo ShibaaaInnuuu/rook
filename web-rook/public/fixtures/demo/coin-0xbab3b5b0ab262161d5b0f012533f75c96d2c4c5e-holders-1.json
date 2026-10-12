@@ -1,0 +1,43 @@
+{
+  "coin": "0xbAB3b5B0aB262161D5b0f012533F75c96D2c4C5E",
+  "holders": 28,
+  "supplyWei": "1000000000000000000000000000",
+  "creator": "0xDe102613e2406a5766f777AC36ea1ACBAEf6dB47",
+  "complete": true,
+  "scannedThrough": 69014767,
+  "transfersFrom": 69014768,
+  "items": [
+    {
+      "rank": 26,
+      "address": "0x6d9d9AF3CBB95484244E7e0e9Fa8b3D27E69B2A8",
+      "balanceWei": "2624800953220400919429211",
+      "share": 0.0026248,
+      "isCreator": false
+    },
+    {
+      "rank": 27,
+      "address": "0xc7b7a64002257e66c71bAEb3B04845D3248d1E17",
+      "balanceWei": "2526688295658146034192480",
+      "share": 0.00252668,
+      "isCreator": false
+    },
+    {
+      "rank": 28,
+      "address": "0x2b167A26d3ABC94224470045B945A69B12B241cC",
+      "balanceWei": "1288242223587520084898496",
+      "share": 0.00128824,
+      "isCreator": false
+    }
+  ],
+  "excluded": [
+    {
+      "address": "0x07449685a56Ab798396464DfC4B1C156a66611D6",
+      "why": "curve",
+      "balanceWei": "328145091138167386445934838",
+      "share": 0.32814509
+    }
+  ],
+  "total": 28,
+  "limit": 25,
+  "offset": 25
+}

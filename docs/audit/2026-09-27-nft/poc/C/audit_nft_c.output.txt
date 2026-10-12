@@ -1,0 +1,20 @@
+AUDIT-C C-M-1 (a): one timed-out eth_call → delivery #0 Marked { why: "never sent: refused (simulation): it reverts at the pin: chain 1: eth_call: IC0406: SysTransient: Timeout expired" }; marked [0]; 0 transfers signed
+AUDIT-C C-L-1 (a): NFT at ALICE, ticket refunded, delivery Gone { why: "the ticket left Resolved before the record" }, slot still booked
+AUDIT-C C-L-3: 24 ticks, 24 refusals on Milady's cap, 0 Azuki buys; once Milady's module stops wanting, buy 0 is 0xed5af388653d228ba43d7a3d2a375a191e10c544
+AUDIT-C C-L-2 (a): 12 h, Milady's delivery waits on its own limit; Azuki's is Waiting; 0 signed
+AUDIT-C C-M-1 (b): one timed-out eth_call → the stray is Held { why: "the return cannot succeed: refused (simulation): it reverts at the pin: chain 1: eth_call: IC0406: SysTransient: Timeout expired" } for good; 0 returns signed
+AUDIT-C C-L-1 (b): re-broadcast after the refund; NFT at ALICE; delivery Gone { why: "the ticket left Resolved before the record" }
+AUDIT-C C-M-3: delivery #0 Cancelling { of: [44, 249, 210, 106, 219, 186, 36, 130, 141, 184, 88, 16, 0, 186, 187, 125, 25, 212, 167, 206, 5, 13, 45, 168, 111, 11, 18, 176, 156, 207, 240, 147], tx: [248, 111, 166, 24, 230, 36, 58, 46, 121, 233, 181, 214, 100, 172, 219, 55, 84, 191, 37, 36, 177, 182, 209, 39, 187, 136, 240, 203, 179, 185, 79, 64], nonce: 0 } for ever; ticket refunded at deliverBy+30d; owner of #77 = 0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1; book still holds it: true
+AUDIT-C C-L-2 (b): Milady deposit waits; Azuki deposit Mint, minted []
+test audit_nft_c_a_full_collection_whose_module_wants_an_item_stops_every_other_collection_from_buying ... ok
+test audit_nft_c_a_transient_read_error_at_the_simulation_marks_a_good_delivery_undeliverable_and_holds_a_stray_for_good ... ok
+test audit_nft_c_a_pause_past_the_late_window_ends_with_nft_and_refund_and_the_resume_rebroadcasts_the_refunded_delivery ... ok
+test audit_nft_c_a_read_error_as_a_transfer_beats_its_cancel_orphans_the_delivery_and_the_redeemer_keeps_nft_and_refund ... ok
+test audit_nft_c_one_collections_limit_blocks_every_other_collections_deliveries_and_deposit_mints ... ok
+AUDIT-C C-L-4: Some(saved state with a signed line at nonce 9, cursor 42, a used order) → decoded as None
+test audit_nft_c_an_eth_state_of_another_shape_decodes_as_nothing_rather_than_refusing_the_upgrade ... ok
+AUDIT-C C-H-1: 2 h with the purchase's mint waiting on H3: 0 floor posts for Milady and Azuki (both due); after: 1
+test audit_nft_c_a_purchase_mint_waiting_on_the_limit_deposits_used_up_stops_every_collections_floor_post ... ok
+AUDIT-C C-M-2: 241 h with the Milady fill unmined; Azuki ticket (deliverBy 1791117633) is Waiting, marked []; signed on Ethereum: 1
+test audit_nft_c_an_unmined_fill_holds_the_one_ethereum_line_and_another_collections_delivery_is_never_sent_or_marked ... ok
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s

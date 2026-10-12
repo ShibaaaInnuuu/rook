@@ -1,0 +1,234 @@
+TAP version 13
+# Subtest: D-H-2: the canister posts its raw reading (no floorBounds clamp); an honest +7.5 % move of the reading is judged 'a stolen key' (SEV1) and two such posts 30 min apart trigger the guardian's registry-wide pauseKeeper
+not ok 1 - D-H-2: the canister posts its raw reading (no floorBounds clamp); an honest +7.5 % move of the reading is judged 'a stolen key' (SEV1) and two such posts 30 min apart trigger the guardian's registry-wide pauseKeeper
+  ---
+  duration_ms: 3.536042
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:27:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /THE KEEPER POSTED A milady FLOOR OUTSIDE THE MODULE'S BOUNDS.*a stolen key walking the floor, or a broken feed/s. Input:
+    
+    "THE CANISTER (THIS COLLECTION'S POSTER) POSTED A milady FLOOR OUTSIDE THE MODULE'S BOUNDS: target 1 ETH, accepted 0.95325 ETH (moved 250 bps, up).\n" +
+      'The canister clamps its reading into floorBounds() before it posts, so this post is not one it would make: its key used by something else, or a broken build.\n' +
+      `If a second one follows in the same direction the guardian pauses this collection's poster. By hand: the Safe (or the guardian): cast send 0x00000000000000000000000000000000000000f5 "pause()" (this collection's floor only). block 1001, tx 0x0000000000000000000000000000000000000000000000000000000000000001\n` +
+      'https://explorer.mainnet.chain.robinhood.com/tx/0x0000000000000000000000000000000000000000000000000000000000000001'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    THE CANISTER (THIS COLLECTION'S POSTER) POSTED A milady FLOOR OUTSIDE THE MODULE'S BOUNDS: target 1 ETH, accepted 0.95325 ETH (moved 250 bps, up).
+    The canister clamps its reading into floorBounds() before it posts, so this post is not one it would make: its key used by something else, or a broken build.
+    If a second one follows in the same direction the guardian pauses this collection's poster. By hand: the Safe (or the guardian): cast send 0x00000000000000000000000000000000000000f5 "pause()" (this collection's floor only). block 1001, tx 0x0000000000000000000000000000000000000000000000000000000000000001
+    https://explorer.mainnet.chain.robinhood.com/tx/0x0000000000000000000000000000000000000000000000000000000000000001
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:37:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: D-M-1: a real 21 % drop in one collection pauses the whole registry, then every poll pages a NEW SEV1 key and calls pauseKeeper again (the key embeds nowS)
+not ok 2 - D-M-1: a real 21 % drop in one collection pauses the whole registry, then every poll pages a NEW SEV1 key and calls pauseKeeper again (the key embeds nowS)
+  ---
+  duration_ms: 24.864084
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:80:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    pauseKeeper() every poll
+    
+    0 !== 5
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 5
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:88:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D-M-1: after the Safe unpauses, the module can close at most ~5 % an hour, so the next poll pauses again: the D8 pause is sticky until the market comes back
+not ok 3 - D-M-1: after the Safe unpauses, the module can close at most ~5 % an hour, so the next poll pauses again: the D8 pause is sticky until the market comes back
+  ---
+  duration_ms: 0.616042
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:92:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    paused again within one poll of the unpause
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:97:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D-M-1: 'more than 20 % from BOTH references' is one keyless reference when CoinGecko answers 429 (measured: the 6th keyless call in a few seconds), and nothing at all when both fail
+not ok 4 - D-M-1: 'more than 20 % from BOTH references' is one keyless reference when CoinGecko answers 429 (measured: the 6th keyless call in a few seconds), and nothing at all when both fail
+  ---
+  duration_ms: 0.508208
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:101:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    OpenSea's floor_price alone paused every collection
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:105:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D-M-2: the 4663 canary judges EthNftWrapper's Undeliverable against the BITCOIN redemptions: every honest eth markUndeliverable is a false SEV1 (anyone triggers one with redeemToRelist)
+ok 5 - D-M-2: the 4663 canary judges EthNftWrapper's Undeliverable against the BITCOIN redemptions: every honest eth markUndeliverable is a false SEV1 (anyone triggers one with redeemToRelist)
+  ---
+  duration_ms: 0.744458
+  type: 'test'
+  ...
+# Subtest: D-M-2: EthNftWrapper's custodian-gated Wrapped / Deposited / Delivered are invisible to the canary (other signatures): an unbacked mint and a false recordDelivery raise nothing
+not ok 6 - D-M-2: EthNftWrapper's custodian-gated Wrapped / Deposited / Delivered are invisible to the canary (other signatures): an unbacked mint and a false recordDelivery raise nothing
+  ---
+  duration_ms: 0.296084
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:134:1'
+  failureType: 'testCodeFailure'
+  error: 'none of their topics is in SIGS'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:141:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D-M-3: no Ethereum outbound canary: a bought-not-yet-minted NFT that left the canister, and an arrived buy's ETH that left, page nothing
+not ok 7 - D-M-3: no Ethereum outbound canary: a bought-not-yet-minted NFT that left the canister, and an arrived buy's ETH that left, page nothing
+  ---
+  duration_ms: 2.579875
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:146:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    custody is read only for items the wrapper holds, and the gas pot only once an item is held
+    + actual - expected
+    
+    + [
+    +   {
+    +     key: 'eth-not-held:0x5af0d9827e0c53e4799bb226655a1de152a425a5:9180',
+    +     kind: 'custody-outbound',
+    +     persistent: true,
+    +     sev: 'SEV1',
+    +     text: 'milady: token 9180 (bought by buy #1 (Final), not yet in the wrapper) is owned by 0x0000000000000000000000000000000000000bad on Ethereum, not the custodian 0x00000000000000000000000000000000000000c0 (both providers, block 25999998). An NFT left custody without a recorded delivery or return: pause, then look.'
+    +   }
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      kind: 'custody-outbound'
+      sev: 'SEV1'
+      persistent: true
+      key: 'eth-not-held:0x5af0d9827e0c53e4799bb226655a1de152a425a5:9180'
+      text: 'milady: token 9180 (bought by buy #1 (Final), not yet in the wrapper) is owned by 0x0000000000000000000000000000000000000bad on Ethereum, not the custodian 0x00000000000000000000000000000000000000c0 (both providers, block 25999998). An NFT left custody without a recorded delivery or return: pause, then look.'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:154:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D-L-3: an inbound NFT not judged within 7,200 blocks drops out of the watchdog's window: its page stops and nothing mints or returns it
+not ok 8 - D-L-3: an inbound NFT not judged within 7,200 blocks drops out of the watchdog's window: its page stops and nothing mints or returns it
+  ---
+  duration_ms: 1.082084
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:159:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    2 h on: paged
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:166:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D-L-4: a provider ERROR is compared as if it were an owner: one flaky provider pages a new SEV2 key every poll; both failing alike is a false SEV1 custody loss
+not ok 9 - D-L-4: a provider ERROR is compared as if it were an owner: one flaky provider pages a new SEV2 key every poll; both failing alike is a false SEV1 custody loss
+  ---
+  duration_ms: 2.841625
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:173:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    the key embeds the block: one page per poll per held token
+    
+    0 !== 3
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 3
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:180:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D-L-5: one collection's failed read throws the whole ethnft checker: the next collection's floor is not compared and its guardian pause never runs
+not ok 10 - D-L-5: one collection's failed read throws the whole ethnft checker: the next collection's floor is not compared and its guardian pause never runs
+  ---
+  duration_ms: 0.888667
+  type: 'test'
+  location: '/Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:189:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///Users/jlohayon/Documents/Rook-nft/monitor/test/r1poc_nft_d.test.mjs:195:3)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 1
+# fail 9
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 317.217834

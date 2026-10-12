@@ -1,0 +1,22 @@
+{
+  "coin": "0xC1C1c1c1C1C1C1c1c1C1C1C1c1C1C1C1c1C1c1c1",
+  "holders": 1,
+  "supplyWei": null,
+  "creator": "0xF0F0F0f0f0F0F0f0f0F0f0f0f0f0F0F0f0f0f0F0",
+  "complete": true,
+  "scannedThrough": null,
+  "transfersFrom": null,
+  "items": [
+    {
+      "rank": 1,
+      "address": "0xf1f1f1F1f1f1F1F1f1F1f1F1F1F1F1f1F1f1f1F1",
+      "balanceWei": "900",
+      "share": null,
+      "isCreator": false
+    }
+  ],
+  "excluded": [],
+  "total": 1,
+  "limit": 25,
+  "offset": 0
+}

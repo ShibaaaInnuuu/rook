@@ -1,0 +1,53 @@
+{
+  "id": 58,
+  "kind": "rune",
+  "name": "PIZZA•PIZZA•PIZZA•PIZZA",
+  "ref": "843791:730",
+  "divisibility": 0,
+  "vault": "0xD9fb297067cFe581EAed6BC54748900ba1C44849",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-pizzapizzapizzapizza",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "541864416437931873",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "541864416437931873",
+    "attributedWei": "541864416437931873",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "541864416437931873",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xcFb2Fd08d31490e231587D4551e888Bd9DAEa2b4",
+      "symbol": "CHAL4SIM",
+      "depositedWei": "541864416437931873"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+# cargo test --test b3_flood b3_ -- --nocapture --test-threads=1   (private copy of autobuyer/canister-rs from the worktree (branch nft-side, fix round 3 uncommitted), toolchain 1.98.1; tests/b3_flood.rs = the CURRENT tests/audit_nft_r2.rs + review3/poc/B/b3_nft_flood.rs.snippet appended, unmodified)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+     Running tests/b3_flood.rs (target/debug/deps/b3_flood-887509c09ca63c4f)
+
+running 3 tests
+test b3_m1_a_plain_transfer_flood_permanently_starves_real_sales_holds_the_floor_and_stops_deposit_mints ...
+B3-M-1 attack: cached real sales = 5, sales counted = 5, held = None, minted = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 182]], todo left = 0
+
+thread 'b3_m1_a_plain_transfer_flood_permanently_starves_real_sales_holds_the_floor_and_stops_deposit_mints' (55182273) panicked at tests/b3_flood.rs:1412:5:
+assertion `left == right` failed: WEAKNESS: the flood starved every real sale out of the queue; none was ever read
+  left: 5
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test b3_m1_control_no_flood_the_five_real_sales_confirm_the_floor_and_the_deposit_mints ...
+B3-M-1 control: sales counted = 5, held = None, minted = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 182]]
+ok
+test b3_m1b_at_first_post_accepted_zero_the_flood_blocks_the_floor_post_entirely_module_never_gets_a_floor ...
+B3-M-1b: cached real sales = 5, module posts = 20
+
+thread 'b3_m1b_at_first_post_accepted_zero_the_flood_blocks_the_floor_post_entirely_module_never_gets_a_floor' (55182275) panicked at tests/b3_flood.rs:1436:5:
+assertion `left == right` failed: the flood starved the real sales
+  left: 5
+ right: 0
+FAILED
+
+failures:
+
+failures:
+    b3_m1_a_plain_transfer_flood_permanently_starves_real_sales_holds_the_floor_and_stops_deposit_mints
+    b3_m1b_at_first_post_accepted_zero_the_flood_blocks_the_floor_post_entirely_module_never_gets_a_floor
+
+test result: FAILED. 1 passed; 2 failed; 0 ignored; 0 measured; 23 filtered out; finished in 0.06s
+
+error: test failed, to rerun pass `--test b3_flood`

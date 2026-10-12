@@ -1,0 +1,216 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The Rook coins (ALIEN, BETA, APEA, APEB) are docs/v3/curve.md's worked examples with a few invented trades walked along the worked curve; the other coins are a recording of our staging fork, where a simulator trades. Every price is invented or simulated; nothing was bought; no wallet here is anybody."
+  },
+  "address": "0x4000000000000000000000000000000000000004",
+  "at": 1790043341,
+  "launches": [],
+  "holdings": [
+    {
+      "coin": {
+        "address": "0x2000000000000000000000000000000000000B11",
+        "symbol": "APEB",
+        "name": "Ape Coin B",
+        "kind": "curve",
+        "logoUrl": null
+      },
+      "balanceWei": "203699909072753430243392743",
+      "share": 0.2036999,
+      "valueEth": 3.2620462937297785
+    },
+    {
+      "coin": {
+        "address": "0x2000000000000000000000000000000000000a11",
+        "symbol": "APEA",
+        "name": "Ape Coin A",
+        "kind": "curve",
+        "logoUrl": null
+      },
+      "balanceWei": "154161892301364097272111076",
+      "share": 0.15416189,
+      "valueEth": 2.468745478116165
+    },
+    {
+      "coin": {
+        "address": "0x1000000000000000000000000000000000000A11",
+        "symbol": "ALIEN",
+        "name": "Alien",
+        "kind": "curve",
+        "logoUrl": null
+      },
+      "balanceWei": "119700125303276846067081979",
+      "share": 0.11970012,
+      "valueEth": 3.3250034806465796
+    },
+    {
+      "coin": {
+        "address": "0x1000000000000000000000000000000000000b11",
+        "symbol": "BETA",
+        "name": "Beta Frog",
+        "kind": "curve",
+        "logoUrl": null
+      },
+      "balanceWei": "53037791325760522962739635",
+      "share": 0.05303779,
+      "valueEth": 0.21589710355287978
+    }
+  ],
+  "trades": [
+    {
+      "id": "345:38",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "200000000000000000",
+      "coinWei": "53037791325760522962739635",
+      "feeWei": "2000000000000000",
+      "taxWei": null,
+      "price": 3.733187130359087e-9,
+      "trader": "0x4000000000000000000000000000000000000004",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000026",
+      "block": 345,
+      "logIndex": 38,
+      "at": 1790042001,
+      "coin": {
+        "address": "0x1000000000000000000000000000000000000b11",
+        "symbol": "BETA",
+        "name": "Beta Frog",
+        "kind": "curve",
+        "logoUrl": null
+      }
+    },
+    {
+      "id": "81:102",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "630000000000000000",
+      "coinWei": "46384646743891066871110767",
+      "feeWei": "6300000000000000",
+      "taxWei": null,
+      "price": 1.3446259566095376e-8,
+      "trader": "0x4000000000000000000000000000000000000004",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000066",
+      "block": 81,
+      "logIndex": 102,
+      "at": 1790041473,
+      "coin": {
+        "address": "0x2000000000000000000000000000000000000B11",
+        "symbol": "APEB",
+        "name": "Ape Coin B",
+        "kind": "curve",
+        "logoUrl": null
+      }
+    },
+    {
+      "id": "78:87",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "630000000000000000",
+      "coinWei": "38947219582040879610194579",
+      "feeWei": "6300000000000000",
+      "taxWei": null,
+      "price": 1.6013980117019624e-8,
+      "trader": "0x4000000000000000000000000000000000000004",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000057",
+      "block": 78,
+      "logIndex": 87,
+      "at": 1790041467,
+      "coin": {
+        "address": "0x2000000000000000000000000000000000000a11",
+        "symbol": "APEA",
+        "name": "Ape Coin A",
+        "kind": "curve",
+        "logoUrl": null
+      }
+    },
+    {
+      "id": "75:58",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "505000000000000000",
+      "coinWei": "35115908598890378332008895",
+      "feeWei": "5050000000000000",
+      "taxWei": null,
+      "price": 1.4237136954383058e-8,
+      "trader": "0x4000000000000000000000000000000000000004",
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000003a",
+      "block": 75,
+      "logIndex": 58,
+      "at": 1790041461,
+      "coin": {
+        "address": "0x1000000000000000000000000000000000000A11",
+        "symbol": "ALIEN",
+        "name": "Alien",
+        "kind": "curve",
+        "logoUrl": null
+      }
+    },
+    {
+      "id": "46:92",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "630000000000000000",
+      "coinWei": "157315262328862363372281976",
+      "feeWei": "6300000000000000",
+      "taxWei": null,
+      "price": 3.964650287371201e-9,
+      "trader": "0x4000000000000000000000000000000000000004",
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000005c",
+      "block": 46,
+      "logIndex": 92,
+      "at": 1790041403,
+      "coin": {
+        "address": "0x2000000000000000000000000000000000000B11",
+        "symbol": "APEB",
+        "name": "Ape Coin B",
+        "kind": "curve",
+        "logoUrl": null
+      }
+    },
+    {
+      "id": "43:77",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "630000000000000000",
+      "coinWei": "115214672719323217661916497",
+      "feeWei": "6300000000000000",
+      "taxWei": null,
+      "price": 5.413373012996427e-9,
+      "trader": "0x4000000000000000000000000000000000000004",
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000004d",
+      "block": 43,
+      "logIndex": 77,
+      "at": 1790041397,
+      "coin": {
+        "address": "0x2000000000000000000000000000000000000a11",
+        "symbol": "APEA",
+        "name": "Ape Coin A",
+        "kind": "curve",
+        "logoUrl": null
+      }
+    },
+    {
+      "id": "40:48",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "505000000000000000",
+      "coinWei": "84584216704386467735073084",
+      "feeWei": "5050000000000000",
+      "taxWei": null,
+      "price": 5.910677186351163e-9,
+      "trader": "0x4000000000000000000000000000000000000004",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000030",
+      "block": 40,
+      "logIndex": 48,
+      "at": 1790041391,
+      "coin": {
+        "address": "0x1000000000000000000000000000000000000A11",
+        "symbol": "ALIEN",
+        "name": "Alien",
+        "kind": "curve",
+        "logoUrl": null
+      }
+    }
+  ],
+  "wins": []
+}

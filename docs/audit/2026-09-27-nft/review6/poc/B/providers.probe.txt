@@ -1,0 +1,14 @@
+Read-only probes by part B, 2026-09-28 (head 26,075,509), plain curl from one host.
+
+1) Seaport 1.5 + 1.6 OrderFulfilled logs of ALL collections (what eth_sale_moves_range asks: address + topic only; the collection
+   filter is applied in the transform, AFTER the IC's response cap), ethereum-rpc.publicnode.com, ending 200 blocks under the head:
+     25 blocks:     38,910 bytes (21 logs)
+    100 blocks:    180,709 bytes (95 logs)
+    500 blocks:  1,897,071 bytes (952 logs)    <- at the 2,000,000-byte class (headers count)
+   2000 blocks:  9,876,341 bytes (5,117 logs)  <- over the IC's largest class: Seaport's half of a range read always fails
+   xrpc.cl/eth: 100 blocks 180,708 bytes; 25, 500 and 2000 blocks answered {"code":-32005,"message":"XRPC anonymous capacity temporarily busy"}
+
+2) xrpc.cl/eth rate limit, Milady Transfer logs, 100-block ranges:
+   sequential, one a second, 20 calls: 11 answered, 9 -32005 busy
+   13 identical calls at once (as 13 replicas would), three bursts 5 s apart: 6 / 3 / 5 answered, 7 / 10 / 8 busy
+   (from one IP; the IC's replicas call from their own addresses, so the real rate depends on how xrpc.cl counts)

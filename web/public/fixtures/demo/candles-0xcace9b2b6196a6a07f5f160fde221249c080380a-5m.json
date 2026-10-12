@@ -1,0 +1,72 @@
+{
+  "res": "5m",
+  "range": "5m",
+  "coin": "0xCAcE9B2B6196a6A07F5F160fDE221249c080380a",
+  "quote": "ETH",
+  "priceIs": "pair asset per whole coin",
+  "candles": [
+    {
+      "t": 1790043165,
+      "o": 1.122660071875995e-8,
+      "h": 1.122660071875995e-8,
+      "l": 1.122660071875995e-8,
+      "c": 1.122660071875995e-8,
+      "v": 0.039585552630709744,
+      "n": 1
+    },
+    {
+      "t": 1790043295,
+      "o": 1.122660071875995e-8,
+      "h": 1.122660071875995e-8,
+      "l": 1.1063468115097282e-8,
+      "c": 1.1063468115097282e-8,
+      "v": 0.020022475701650937,
+      "n": 1
+    }
+  ],
+  "marks": [
+    {
+      "id": "69024683:1",
+      "side": "sell",
+      "venue": "curve",
+      "quoteWei": "39585552630709745",
+      "coinWei": "3751116752758400018788047",
+      "feeWei": "421122900326699",
+      "taxWei": "2105614501633497",
+      "price": 1.122660071875995e-8,
+      "trader": "0xaC17774E520159cCCbF3659FcB9a3572Ccd95Ea9",
+      "recipient": "0xaC17774E520159cCCbF3659FcB9a3572Ccd95Ea9",
+      "tx": "0xed3839bfb7db97ce34a94473bf008df075a74f939a8bf676dce7e38ffb170e9e",
+      "block": 69024683,
+      "logIndex": 1,
+      "at": 1790043167
+    },
+    {
+      "id": "69024741:1",
+      "side": "sell",
+      "venue": "curve",
+      "quoteWei": "20022475701650935",
+      "coinWei": "1925300985548942626349782",
+      "feeWei": "213005060655860",
+      "taxWei": "1065025303279304",
+      "price": 1.1063468115097282e-8,
+      "trader": "0x42E60D85b11edce8c63221a396aF30E349c53e49",
+      "recipient": "0x42E60D85b11edce8c63221a396aF30E349c53e49",
+      "tx": "0xa0e338b5f3071ebbefaa23590e965ac6528c03fcd1c85abfc209b75223511dd0",
+      "block": 69024741,
+      "logIndex": 1,
+      "at": 1790043297
+    }
+  ],
+  "supplyWei": "1000000000000000000000000000",
+  "usdPerEth": 2785.144089373958,
+  "usdPerEthAt": 1790043324,
+  "usdPool": "0x52e65B17fB6E5BA00Ed806f37Afcd2DaA50271Ca",
+  "trades": 2,
+  "tradesAllTime": 117,
+  "launchedAt": 1790033933,
+  "span": 300,
+  "seconds": 5,
+  "graduation": null,
+  "pool": null
+}

@@ -1,0 +1,73 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "ordinal-penguins",
+    "name": "Ordinal Penguins",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "ordinal-penguins",
+    "description": null,
+    "image": "https://ordinals.com/content/cbda6f777157203f1eea8911fad24d25800c699bb0993cd6a0c2314969dbceb6i0",
+    "links": {
+      "website": null,
+      "x": "https://x.com/OrdinalPenguins",
+      "discord": "https://discord.gg/m2u3B8ekEs",
+      "marketplace": "https://ordinalswallet.com/collection/ordinal-penguins",
+      "explorer": "https://ordinals.com/inscription/2725"
+    },
+    "floor": null,
+    "items": null,
+    "owners": null,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "8a4bd4d4eb3a9cc20d40939ad394d4b5c0add71ac5d085697d6c30554074a000i0",
+        "name": "Ordinal Penguins #95",
+        "image": "https://ordinals.com/content/8a4bd4d4eb3a9cc20d40939ad394d4b5c0add71ac5d085697d6c30554074a000i0",
+        "url": "https://ordinals.com/inscription/8a4bd4d4eb3a9cc20d40939ad394d4b5c0add71ac5d085697d6c30554074a000i0"
+      },
+      {
+        "id": "e74963454573986c567238079ddee198e62780d3504ab82fdc1ff10008d30e04i0",
+        "name": "Ordinal Penguins #90",
+        "image": "https://ordinals.com/content/e74963454573986c567238079ddee198e62780d3504ab82fdc1ff10008d30e04i0",
+        "url": "https://ordinals.com/inscription/e74963454573986c567238079ddee198e62780d3504ab82fdc1ff10008d30e04i0"
+      },
+      {
+        "id": "c44ebc5c79d9f478967ed48f924ac76f6dd42937e89f59a6589d662d66257404i0",
+        "name": "Ordinal Penguins #12",
+        "image": "https://ordinals.com/content/c44ebc5c79d9f478967ed48f924ac76f6dd42937e89f59a6589d662d66257404i0",
+        "url": "https://ordinals.com/inscription/c44ebc5c79d9f478967ed48f924ac76f6dd42937e89f59a6589d662d66257404i0"
+      }
+    ],
+    "sources": [],
+    "rook": {
+      "kind": "later",
+      "stage": null,
+      "why": "No floor is known right now, so the rule cannot be checked against it: not listable until a source reports one."
+    },
+    "curated": true
+  }
+}

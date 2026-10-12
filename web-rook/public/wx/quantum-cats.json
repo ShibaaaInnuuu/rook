@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Quantum Cat",
+  "symbol": "wQCAT",
+  "description": "Rook's wrapped Quantum Cats token: each whole token is backed either by a Quantum Cats NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/quantum-cats.png",
+  "external_url": "https://userook.fun/#/collection/quantum-cats",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/quantum-cats.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

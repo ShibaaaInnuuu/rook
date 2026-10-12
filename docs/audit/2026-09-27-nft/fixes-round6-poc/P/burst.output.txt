@@ -1,0 +1,5 @@
+# bursts 2026-09-28 11:35:13 UTC
+https://gateway.tenderly.co/public/mainnet: 20 rounds of 13 simultaneous eth_getLogs, 1 s apart: HTTP tally {200: 248, 429: 12}; rounds with >= 9 of 13 ok (IC consensus possible): 20/20
+  a refusal: (429, b'{"id":1,"jsonrpc":"2.0","error":{"code":-32005,"message":"rate limit exceeded"}}', {})
+https://rpc.mevblocker.io: 20 rounds of 13 simultaneous eth_getLogs, 1 s apart: HTTP tally {200: 156, 429: 104}; rounds with >= 9 of 13 ok (IC consensus possible): 12/20
+  a refusal: (429, b'error code: 1015\n', {'Retry-After': '0'})

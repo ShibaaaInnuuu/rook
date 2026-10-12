@@ -1,0 +1,11 @@
+--- a/audit_nft_a3_canister.rs (adapted)
++++ b/audit_nft_a3_canister.rs (tolerant)
+@@ -26,6 +26,8 @@
+ 
+ fn a3_back(f: &mut Fake, st: &mut EthState, id: u64) -> u128 {
+     // the operator's eth_give_back (or ARRIVED_BACK_SECS with no fill: the same path from BackFunded on)
++    f.now += ef::ARRIVED_HOLD_SECS; // TOLERANT (not the PoC): the operator's give-back is refused before ARRIVED_HOLD_SECS (C3-L-2); wait it out
++    f.m(MODULE).posted_at = f.now - 60;
+     ef::give_back_now(st, id, 0, f.now).unwrap();
+     tick(f, st);
+     let ask = st.buys.iter().find(|b| b.id == id).unwrap().ask.clone().unwrap();

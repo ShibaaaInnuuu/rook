@@ -1,0 +1,183 @@
+{
+  "coin": "0x5861eAdcFaDB2c6943d09cB8C5Ff049aBcba4B69",
+  "holders": 23,
+  "supplyWei": "1000000000000000000000000000",
+  "creator": "0x4bf3b684a9252fA5BB192BcbC21B653403e7e708",
+  "complete": true,
+  "scannedThrough": 69014767,
+  "transfersFrom": 69014768,
+  "items": [
+    {
+      "rank": 1,
+      "address": "0xc7fD3Af3a3028868833f8a56a5d81DF9560DB1a6",
+      "balanceWei": "184857040506744647498159235",
+      "share": 0.18485704,
+      "isCreator": false
+    },
+    {
+      "rank": 2,
+      "address": "0x31fAc67E1B23eAA88FdaA1fc137bb4Fe4aF473a5",
+      "balanceWei": "90293414450649974521499175",
+      "share": 0.09029341,
+      "isCreator": false
+    },
+    {
+      "rank": 3,
+      "address": "0x9E64dB38a39f7475EE5813AA67471b1a5162e80A",
+      "balanceWei": "88253046516493346105377130",
+      "share": 0.08825304,
+      "isCreator": false
+    },
+    {
+      "rank": 4,
+      "address": "0xde7bA0D76bfa6b9eeEB8e2e7fA35b6Bdba408114",
+      "balanceWei": "67611214057420345166350909",
+      "share": 0.06761121,
+      "isCreator": false
+    },
+    {
+      "rank": 5,
+      "address": "0xe65a2b80718dE8deD1b3E5cAFD1f282620667AfC",
+      "balanceWei": "51789497406979495853882157",
+      "share": 0.05178949,
+      "isCreator": false
+    },
+    {
+      "rank": 6,
+      "address": "0x5f0CB769369ed526ed743E60Fb06cAc1fe8d5b9F",
+      "balanceWei": "34451805679710275158063349",
+      "share": 0.0344518,
+      "isCreator": false
+    },
+    {
+      "rank": 7,
+      "address": "0x9434b2E9F3d07E9216Ab25BC0E3f77dc75b10007",
+      "balanceWei": "26991240776755610466716095",
+      "share": 0.02699124,
+      "isCreator": false
+    },
+    {
+      "rank": 8,
+      "address": "0x42E60D85b11edce8c63221a396aF30E349c53e49",
+      "balanceWei": "25886820939440905428601566",
+      "share": 0.02588682,
+      "isCreator": false
+    },
+    {
+      "rank": 9,
+      "address": "0xd9e0Ae54BAb0f58c9488C290bf31177CD1171F47",
+      "balanceWei": "24892070896535951290552879",
+      "share": 0.02489207,
+      "isCreator": false
+    },
+    {
+      "rank": 10,
+      "address": "0x22ad28DfE7DD5e5738253D96334F2f769f31e3FE",
+      "balanceWei": "24241828956483447652560900",
+      "share": 0.02424182,
+      "isCreator": false
+    },
+    {
+      "rank": 11,
+      "address": "0x46E73d97059cE343cc8Fe3C5E264497fff448548",
+      "balanceWei": "20047581684037914235670327",
+      "share": 0.02004758,
+      "isCreator": false
+    },
+    {
+      "rank": 12,
+      "address": "0x310F725B350C80e17487737135Cc33725a392ce8",
+      "balanceWei": "14753835661367666568691304",
+      "share": 0.01475383,
+      "isCreator": false
+    },
+    {
+      "rank": 13,
+      "address": "0x49D3C89B11C7C1CE23b130a031eC6114B987dDE6",
+      "balanceWei": "10905313647955751463960282",
+      "share": 0.01090531,
+      "isCreator": false
+    },
+    {
+      "rank": 14,
+      "address": "0x5889a956Be8F96BB40119c21F63FFCB474A955Ac",
+      "balanceWei": "10033146561574337268209078",
+      "share": 0.01003314,
+      "isCreator": false
+    },
+    {
+      "rank": 15,
+      "address": "0xd5e558a1bd25B5Dd22b4BB5916D0006463F0091d",
+      "balanceWei": "8459758177836928977814782",
+      "share": 0.00845975,
+      "isCreator": false
+    },
+    {
+      "rank": 16,
+      "address": "0x2218213A19EaC10cEF6bBF26c16051F4927c2E34",
+      "balanceWei": "7877437740731104914592500",
+      "share": 0.00787743,
+      "isCreator": false
+    },
+    {
+      "rank": 17,
+      "address": "0xadb240Eb2601B05566289b1a466619acacE14415",
+      "balanceWei": "6815076822796391650215510",
+      "share": 0.00681507,
+      "isCreator": false
+    },
+    {
+      "rank": 18,
+      "address": "0xD41e735B3d5E1E7a97a4e22548E4909120b51152",
+      "balanceWei": "4482452502285892691737019",
+      "share": 0.00448245,
+      "isCreator": false
+    },
+    {
+      "rank": 19,
+      "address": "0x989969b574a9795c7F1b019fe701FC2f53695109",
+      "balanceWei": "3681841372106472746887666",
+      "share": 0.00368184,
+      "isCreator": false
+    },
+    {
+      "rank": 20,
+      "address": "0x421db60a2860C62128ad3e552e1Aa51996e47652",
+      "balanceWei": "3074298747298271507420744",
+      "share": 0.00307429,
+      "isCreator": false
+    },
+    {
+      "rank": 21,
+      "address": "0xDe102613e2406a5766f777AC36ea1ACBAEf6dB47",
+      "balanceWei": "2290259925354387084424911",
+      "share": 0.00229025,
+      "isCreator": false
+    },
+    {
+      "rank": 22,
+      "address": "0xe85A6A33E812d7350bB16933E956485Fc5288CF7",
+      "balanceWei": "1406981570435720628430152",
+      "share": 0.00140698,
+      "isCreator": false
+    },
+    {
+      "rank": 23,
+      "address": "0x4bf3b684a9252fA5BB192BcbC21B653403e7e708",
+      "balanceWei": "1189749684719446834468045",
+      "share": 0.00118974,
+      "isCreator": true
+    }
+  ],
+  "excluded": [
+    {
+      "address": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e",
+      "why": "pons-factory",
+      "balanceWei": "285714285714285714285714285",
+      "share": 0.28571428
+    }
+  ],
+  "total": 23,
+  "limit": 25,
+  "offset": 0
+}

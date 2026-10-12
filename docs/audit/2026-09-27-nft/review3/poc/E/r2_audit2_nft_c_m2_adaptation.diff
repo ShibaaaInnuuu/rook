@@ -1,0 +1,11 @@
+--- tests/audit2_nft_c.rs	2026-09-27 16:43:05
++++ tests/audit2_nft_c_m2.rs	2026-09-27 16:43:51
+@@ -606,7 +606,7 @@
+         f.now += 1_200;
+         f.m(MODULE).posted_at = f.now - 60;
+         evidence(&f, &mut st);
+-        ef::put_listing(&mut st, 0, fill_hex(), f.now).unwrap();
++        let _ = ef::put_listing(&mut st, 0, fill_hex(), f.now); // E3 adaptation: a refused hand-in is not the attack
+         for l in tick(&mut f, &mut st) {
+             if l.contains("holds the day's mint room") {
+                 waits = l;

@@ -1,0 +1,72 @@
+   Compiling etch_autobuyer v0.1.0 (/Users/jlohayon/Documents/Rook-nft/autobuyer/canister-rs)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.04s
+     Running tests/audit_nft_c.rs (target/debug/deps/audit_nft_c-7bfe8684155de583)
+
+running 8 tests
+test audit_nft_c_a_pause_past_the_late_window_ends_with_nft_and_refund_and_the_resume_rebroadcasts_the_refunded_delivery ... FAILED
+test audit_nft_c_a_read_error_as_a_transfer_beats_its_cancel_orphans_the_delivery_and_the_redeemer_keeps_nft_and_refund ... FAILED
+test audit_nft_c_one_collections_limit_blocks_every_other_collections_deliveries_and_deposit_mints ... FAILED
+test audit_nft_c_a_full_collection_whose_module_wants_an_item_stops_every_other_collection_from_buying ... FAILED
+test audit_nft_c_a_transient_read_error_at_the_simulation_marks_a_good_delivery_undeliverable_and_holds_a_stray_for_good ... FAILED
+test audit_nft_c_an_eth_state_of_another_shape_decodes_as_nothing_rather_than_refusing_the_upgrade ... ok
+test audit_nft_c_a_purchase_mint_waiting_on_the_limit_deposits_used_up_stops_every_collections_floor_post ... FAILED
+test audit_nft_c_an_unmined_fill_holds_the_one_ethereum_line_and_another_collections_delivery_is_never_sent_or_marked ... FAILED
+
+failures:
+
+---- audit_nft_c_a_pause_past_the_late_window_ends_with_nft_and_refund_and_the_resume_rebroadcasts_the_refunded_delivery stdout ----
+AUDIT-C C-L-1 (a): NFT at ALICE, ticket refunded, delivery Gone { why: "the ticket left Resolved before the record" }, slot still booked
+
+thread 'audit_nft_c_a_pause_past_the_late_window_ends_with_nft_and_refund_and_the_resume_rebroadcasts_the_refunded_delivery' (51172281) panicked at tests/audit_nft_c.rs:582:5:
+assertion `left == right` failed: the refunded ticket's delivery bytes are broadcast again before anything is decided
+  left: [0, 0, 0, 0, 0, 0, 0, 0, 118, 2, 11, 112, 147, 189, 53, 210, 82, 13, 71, 222, 215, 100, 239, 197, 84, 35, 126, 254, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 74, 129, 124, 129]
+ right: [0, 0, 0, 0, 0, 0, 0, 0, 90, 240, 217, 130, 126, 12, 83, 228, 121, 155, 178, 38, 101, 90, 29, 225, 82, 164, 37, 165, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 154, 202, 0, 35, 184, 114, 221, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 118, 2, 11, 112, 147, 189, 53, 210, 82, 13, 71, 222, 215, 100, 239, 197, 84, 35, 126, 254, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 161, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 77]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- audit_nft_c_a_read_error_as_a_transfer_beats_its_cancel_orphans_the_delivery_and_the_redeemer_keeps_nft_and_refund stdout ----
+
+thread 'audit_nft_c_a_read_error_as_a_transfer_beats_its_cancel_orphans_the_delivery_and_the_redeemer_keeps_nft_and_refund' (51172283) panicked at tests/audit_nft_c.rs:511:5:
+the line was cleared before the read that failed
+
+---- audit_nft_c_one_collections_limit_blocks_every_other_collections_deliveries_and_deposit_mints stdout ----
+
+thread 'audit_nft_c_one_collections_limit_blocks_every_other_collections_deliveries_and_deposit_mints' (51172287) panicked at tests/audit_nft_c.rs:614:5:
+assertion `left == right` failed: Azuki's delivery waits on Milady's limit
+  left: Sent { tx: [149, 134, 45, 250, 127, 42, 163, 131, 236, 48, 57, 244, 149, 8, 17, 238, 39, 213, 93, 3, 123, 230, 43, 36, 231, 117, 210, 108, 181, 122, 18, 181], nonce: 0 }
+ right: Waiting
+
+---- audit_nft_c_a_full_collection_whose_module_wants_an_item_stops_every_other_collection_from_buying stdout ----
+
+thread 'audit_nft_c_a_full_collection_whose_module_wants_an_item_stops_every_other_collection_from_buying' (51172280) panicked at tests/audit_nft_c.rs:671:5:
+Azuki has room and wants an item, but no buy starts: [[237, 90, 243, 136, 101, 61, 34, 139, 164, 61, 122, 61, 42, 55, 90, 25, 30, 16, 197, 68]]
+
+---- audit_nft_c_a_transient_read_error_at_the_simulation_marks_a_good_delivery_undeliverable_and_holds_a_stray_for_good stdout ----
+
+thread 'audit_nft_c_a_transient_read_error_at_the_simulation_marks_a_good_delivery_undeliverable_and_holds_a_stray_for_good' (51172284) panicked at tests/audit_nft_c.rs:402:5:
+Waiting
+
+---- audit_nft_c_a_purchase_mint_waiting_on_the_limit_deposits_used_up_stops_every_collections_floor_post stdout ----
+
+thread 'audit_nft_c_a_purchase_mint_waiting_on_the_limit_deposits_used_up_stops_every_collections_floor_post' (51172282) panicked at tests/audit_nft_c.rs:775:5:
+once the mint is out, posts resume
+
+---- audit_nft_c_an_unmined_fill_holds_the_one_ethereum_line_and_another_collections_delivery_is_never_sent_or_marked stdout ----
+
+thread 'audit_nft_c_an_unmined_fill_holds_the_one_ethereum_line_and_another_collections_delivery_is_never_sent_or_marked' (51172286) panicked at tests/audit_nft_c.rs:476:5:
+assertion `left == right` failed: never signed, never marked
+  left: Marked { why: "never sent: within a day of its deadline 1791117633 and never signed" }
+ right: Waiting
+
+
+failures:
+    audit_nft_c_a_full_collection_whose_module_wants_an_item_stops_every_other_collection_from_buying
+    audit_nft_c_a_pause_past_the_late_window_ends_with_nft_and_refund_and_the_resume_rebroadcasts_the_refunded_delivery
+    audit_nft_c_a_purchase_mint_waiting_on_the_limit_deposits_used_up_stops_every_collections_floor_post
+    audit_nft_c_a_read_error_as_a_transfer_beats_its_cancel_orphans_the_delivery_and_the_redeemer_keeps_nft_and_refund
+    audit_nft_c_a_transient_read_error_at_the_simulation_marks_a_good_delivery_undeliverable_and_holds_a_stray_for_good
+    audit_nft_c_an_unmined_fill_holds_the_one_ethereum_line_and_another_collections_delivery_is_never_sent_or_marked
+    audit_nft_c_one_collections_limit_blocks_every_other_collections_deliveries_and_deposit_mints
+
+test result: FAILED. 1 passed; 7 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `--test audit_nft_c`

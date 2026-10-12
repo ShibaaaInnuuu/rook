@@ -1,0 +1,69 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "basenames",
+    "name": "Basenames",
+    "chain": "base",
+    "chainName": "Base",
+    "chainId": 8453,
+    "standard": "erc721",
+    "id": "0x03c4738ee98ae44591e1a4a4f3cab6641d95dd9a",
+    "description": null,
+    "image": "https://i2c.seadn.io/base/b97b0cf09b4248668743fd5cf9f5f2e1/ebd291210059d7b74c0af44fd9c638/b0ebd291210059d7b74c0af44fd9c638.png",
+    "links": {
+      "website": "https://www.base.org/names",
+      "x": null,
+      "discord": null,
+      "marketplace": "https://opensea.io/collection/basenames",
+      "explorer": "https://basescan.org/address/0x03c4738ee98ae44591e1a4a4f3cab6641d95dd9a"
+    },
+    "floor": {
+      "native": "18979000000000",
+      "unit": "wei",
+      "eth": 0.000018979,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/basenames/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 3458560,
+    "owners": 3528034,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "unsupported",
+      "why": "Base has no native bridge route to Robinhood Chain: the home-chain vault needs one (docs/v6/home-chain-vault.md §2.3, §8.3), and a fast bridge is a different trust question that is not built. About a week down and two up through Ethereum is not a route a coin can trade against."
+    },
+    "curated": true
+  }
+}

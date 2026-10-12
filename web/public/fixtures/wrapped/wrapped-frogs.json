@@ -1,0 +1,331 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The collections, coins, items, tickets and checks are built from the worked examples in docs/v3/curve.md (frogs at 5 ETH; an ape bought FIFO for two coins), with a floor module, a treasury, a YOYO coin and an offer board given plausible books, and run through the real reserve computation. Addresses, inscription ids and transactions are invented; the explorer links point at nothing. One of the apes' two EVM providers is made to fail on purpose, to show an unverified collection."
+  },
+  "slug": "frogs",
+  "name": "Bitcoin Frogs",
+  "symbol": "wFROG",
+  "kind": "inscriptions",
+  "wrapper": "0x1000000000000000000000000000000000000001",
+  "chainId": 4663,
+  "description": "Bitcoin Frogs inscriptions held at one Bitcoin custody address.",
+  "custody": {
+    "kind": "bitcoin",
+    "address": "bc1pfixturecustodyfrogs0000000000000000000000000000000000000q",
+    "addressUrl": "https://mempool.space/address/bc1pfixturecustodyfrogs0000000000000000000000000000000000000q"
+  },
+  "supplyUnits": "6500000000000000000",
+  "itemsHeld": 6,
+  "floorWei": "646000000000000000",
+  "floorFresh": true,
+  "status": "green",
+  "coins": 3,
+  "contracts": {
+    "wrapper": "0x1000000000000000000000000000000000000001",
+    "factory": "0x1000000000000000000000000000000000000002",
+    "lock": "0x1000000000000000000000000000000000000004",
+    "router": "0x1000000000000000000000000000000000000005",
+    "queue": "0x1000000000000000000000000000000000000003",
+    "floorModule": "0x1000000000000000000000000000000000000003",
+    "treasury": "0x1000000000000000000000000000000000000006",
+    "offerBoard": "0x1000000000000000000000000000000000000007",
+    "raffleVault": null,
+    "burnVault": null,
+    "yoyoVault": "0x1000000000000000000000000000000000000008",
+    "poolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+    "v4Quoter": "0x8dc178efb8111bb0973dd9d722ebeff267c98f94",
+    "stateView": "0xf3334192d15450cdd385c8b70e03f9a6bd9e673b"
+  },
+  "coinsList": [
+    {
+      "address": "0x1000000000000000000000000000000000000C11",
+      "curve": "0x1000000000000000000000000000000000000c12",
+      "name": "Gamma Frog",
+      "symbol": "GAMMA",
+      "creator": "0x3000000000000000000000000000000000000001",
+      "policy": "yoyo",
+      "sweepOnly": false,
+      "phase": "graduated",
+      "raiseWei": "5000000000000000000",
+      "raisedWei": "5000000000000000000",
+      "launchedAt": 1790001800,
+      "feeBps": 500,
+      "launchFee": {
+        "bps": 5000,
+        "decayS": 600,
+        "extraBpsNow": 3333,
+        "endsAt": 1790002400
+      },
+      "yoyo": {
+        "openListings": 1,
+        "proceedsWei": "350000000000000000",
+        "boughtBackWei": "340000000000000000",
+        "burnedCoins": "2000000000000000000000000",
+        "markupBps": 1000,
+        "listings": [
+          {
+            "ticketId": 4,
+            "stage": "listed",
+            "askWei": "710600000000000000",
+            "proceedsWei": null,
+            "at": 1790001920,
+            "tx": "0x0000000000000000000000000000000000000000000000000000000000000012"
+          },
+          {
+            "ticketId": 3,
+            "stage": "sold",
+            "askWei": "710600000000000000",
+            "proceedsWei": "690000000000000000",
+            "at": 1790001900,
+            "tx": "0x0000000000000000000000000000000000000000000000000000000000000011"
+          }
+        ]
+      }
+    },
+    {
+      "address": "0x1000000000000000000000000000000000000b11",
+      "curve": "0x1000000000000000000000000000000000000B12",
+      "name": "Beta Frog",
+      "symbol": "BETA",
+      "creator": "0x3000000000000000000000000000000000000002",
+      "policy": "burn",
+      "sweepOnly": false,
+      "phase": "trading",
+      "raiseWei": "5000000000000000000",
+      "raisedWei": "1200000000000000000",
+      "launchedAt": 1790000600,
+      "feeBps": 300,
+      "launchFee": {
+        "bps": 5000,
+        "decayS": 600,
+        "extraBpsNow": 0,
+        "endsAt": 1790001200
+      },
+      "yoyo": null
+    },
+    {
+      "address": "0x1000000000000000000000000000000000000A11",
+      "curve": "0x1000000000000000000000000000000000000A12",
+      "name": "Alien",
+      "symbol": "ALIEN",
+      "creator": "0x3000000000000000000000000000000000000001",
+      "policy": "raffle",
+      "sweepOnly": false,
+      "phase": "graduated",
+      "raiseWei": "5000000000000000000",
+      "raisedWei": "5000000000000000000",
+      "launchedAt": 1790000020,
+      "feeBps": 100,
+      "launchFee": {
+        "bps": 5000,
+        "decayS": 600,
+        "extraBpsNow": 0,
+        "endsAt": 1790000620
+      },
+      "yoyo": null
+    }
+  ],
+  "activity": [
+    {
+      "at": 1790001980,
+      "block": 990,
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000000f",
+      "kind": "redeemed",
+      "text": "one whole token redeemed for a random item (ticket 2)"
+    },
+    {
+      "at": 1790001980,
+      "block": 990,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000014",
+      "kind": "bought-back",
+      "text": "0.34 ETH of sale proceeds bought the coin back and burned it"
+    },
+    {
+      "at": 1790001960,
+      "block": 980,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000013",
+      "kind": "sold",
+      "text": "a relisted item sold for 0.69 ETH (ticket 3)"
+    },
+    {
+      "at": 1790001920,
+      "block": 960,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000012",
+      "kind": "relisted",
+      "text": "a swept item put back on the market at 0.7106 ETH (ticket 4)"
+    },
+    {
+      "at": 1790001900,
+      "block": 950,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000011",
+      "kind": "relisted",
+      "text": "a swept item put back on the market at 0.7106 ETH (ticket 3)"
+    },
+    {
+      "at": 1790001440,
+      "block": 720,
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000000e",
+      "kind": "resolved",
+      "text": "ticket 1 drew ffffffff…f4i0"
+    },
+    {
+      "at": 1790001400,
+      "block": 700,
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000000d",
+      "kind": "redeemed",
+      "text": "one whole token redeemed for a random item (ticket 1)"
+    },
+    {
+      "at": 1790001200,
+      "block": 600,
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000000c",
+      "kind": "delivered",
+      "text": "ticket 0 delivered"
+    },
+    {
+      "at": 1790001020,
+      "block": 510,
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000000b",
+      "kind": "resolved",
+      "text": "ticket 0 drew ffffffff…f2i0"
+    },
+    {
+      "at": 1790001000,
+      "block": 500,
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000000a",
+      "kind": "redeemed",
+      "text": "one whole token redeemed for a random item (ticket 0)"
+    },
+    {
+      "at": 1790000800,
+      "block": 400,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000009",
+      "kind": "arrived",
+      "text": "ffffffff…f6i0 entered custody (a holder's deposit)"
+    },
+    {
+      "at": 1790000300,
+      "block": 150,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000008",
+      "kind": "arrived",
+      "text": "ffffffff…f5i0 entered custody (bought)"
+    },
+    {
+      "at": 1790000280,
+      "block": 140,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000007",
+      "kind": "arrived",
+      "text": "ffffffff…f4i0 entered custody (bought)"
+    },
+    {
+      "at": 1790000260,
+      "block": 130,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000006",
+      "kind": "arrived",
+      "text": "ffffffff…f3i0 entered custody (bought)"
+    },
+    {
+      "at": 1790000240,
+      "block": 120,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000005",
+      "kind": "arrived",
+      "text": "ffffffff…f2i0 entered custody (bought)"
+    },
+    {
+      "at": 1790000220,
+      "block": 110,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000004",
+      "kind": "arrived",
+      "text": "ffffffff…f1i0 entered custody (bought)"
+    },
+    {
+      "at": 1790000200,
+      "block": 100,
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000003",
+      "kind": "arrived",
+      "text": "ffffffff…f0i0 entered custody (bought)"
+    }
+  ],
+  "openTickets": [
+    {
+      "id": 1,
+      "owner": "0x3000000000000000000000000000000000000002",
+      "destination": "bc1pfixtureredeemerdestination00000000000000000000000000000qq",
+      "toBurn": false,
+      "stage": "resolved",
+      "round": 5000300,
+      "burnedAt": 1790001400,
+      "burnTx": "0x000000000000000000000000000000000000000000000000000000000000000d",
+      "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819972",
+      "itemRef": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4i0",
+      "deliverBy": 1790520400,
+      "overdue": false,
+      "deliveryTx": null,
+      "deliveryUrl": null,
+      "refundTx": null
+    },
+    {
+      "id": 2,
+      "owner": "0x3000000000000000000000000000000000000001",
+      "destination": "bc1pfixtureredeemerdestination00000000000000000000000000000qq",
+      "toBurn": false,
+      "stage": "pinned",
+      "round": 5000500,
+      "burnedAt": 1790001980,
+      "burnTx": "0x000000000000000000000000000000000000000000000000000000000000000f",
+      "itemId": null,
+      "itemRef": null,
+      "deliverBy": null,
+      "overdue": false,
+      "deliveryTx": null,
+      "deliveryUrl": null,
+      "refundTx": null
+    }
+  ],
+  "market": {
+    "shared": {
+      "reserveEth": "33000000000000000000",
+      "reserveWrapped": "51000000000000000000",
+      "lpFeePips": 3000,
+      "protocolFeePips": 500
+    },
+    "coins": {
+      "0x1000000000000000000000000000000000000a11": {
+        "curve": null,
+        "pool": {
+          "reserveWrapped": "5453000000000000000",
+          "reserveCoin": "200000000000000000000000000",
+          "lpFeePips": 10000,
+          "protocolFeePips": 1000
+        }
+      },
+      "0x1000000000000000000000000000000000000b11": {
+        "curve": {
+          "v": "3990000000000000000",
+          "t": "871263157894736842105263158",
+          "vEnd": "7790000000000000000",
+          "tEnd": "446400000000000000000000000",
+          "feeBps": 300
+        },
+        "pool": null
+      },
+      "0x1000000000000000000000000000000000000c11": {
+        "curve": null,
+        "pool": {
+          "reserveWrapped": "5453000000000000000",
+          "reserveCoin": "200000000000000000000000000",
+          "lpFeePips": 50000,
+          "protocolFeePips": 5000
+        }
+      }
+    },
+    "floorModule": {
+      "priceWei": "640000000000000000",
+      "spreadMintBps": 21,
+      "spreadBurnBps": 15,
+      "mintRoomWei": "3000000000000000000",
+      "burnRoomUnits": "625000000000000000"
+    }
+  }
+}

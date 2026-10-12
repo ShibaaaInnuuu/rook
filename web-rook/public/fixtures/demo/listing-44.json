@@ -1,0 +1,53 @@
+{
+  "id": 44,
+  "kind": "rune",
+  "name": "RSIC•GENESIS•RUNE",
+  "ref": "840000:28",
+  "divisibility": 0,
+  "vault": "0x2D086C0f68a55Aeb04B3bcf30aFaFC801f72AE22",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-rsicgenesisrune",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "493225448681324666",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "493225448681324666",
+    "attributedWei": "493225448681324666",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "493225448681324666",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x910D7616C3974D8304bAF91622c2E8CF5765233a",
+      "symbol": "ONYXSIM",
+      "depositedWei": "493225448681324666"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+609c609
+<         ef::put_listing(&mut st, 0, fill_hex(), f.now).unwrap();
+---
+>         let _ = ef::put_listing(&mut st, 0, fill_hex(), f.now); // round 3: tolerant (the buy leaves Arrived at 48 h)

@@ -1,0 +1,53 @@
+{
+  "id": 51,
+  "kind": "rune",
+  "name": "RUNES•X•BITCOIN",
+  "ref": "840000:142",
+  "divisibility": 0,
+  "vault": "0xa4a13ec43405983729Ea5B2b3C88EE6786A7db83",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-runesxbitcoin",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "822843506154221199",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "822843506154221199",
+    "attributedWei": "822843506154221199",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "822843506154221199",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xD76a6DBf54B463BD8e260cC7E2FE202dD5dF35ab",
+      "symbol": "GNEI3SIM",
+      "depositedWei": "822843506154221199"
+    }
+  ]
+}

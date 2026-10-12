@@ -1,0 +1,111 @@
+// R3 part B PoC (B3-): the SaleScan queue cap (512) + newest-first + drop-on-truncate lets a plain-transfer FLOOD permanently starve
+// real sales from ever being read, so the floor is held forever (never confirms/rises) and deposits never mint. This contradicts the
+// round-2 fix's central claim ("the sample is the whole window, so no volume of washes crowds a real sale out", ethnft.rs:601-603).
+// =====================================================================================================================================
+
+/// A plain ERC-721 Transfer of `collection` (no marketplace log): not a sale, but it IS a `Transfer` log the canister's own scan
+/// (`eth_transfer_txs` / `eth_getLogs`) returns and must fetch a receipt for. from != to, from != 0. An attacker mints these for
+/// gas only by moving a token they own between wallets (or ping-ponging one token: each tx is a distinct entry).
+fn transfer_receipt(collection: [u8; 20], token: u128, from: [u8; 20], to: [u8; 20], block: u64) -> ReceiptV {
+    ReceiptV { block, success: true, logs: vec![
+        LogV { address: collection, topics: vec![en::TRANSFER, sp::word_addr(&from), sp::word_addr(&to), tok(token)], data: vec![] },
+    ] }
+}
+
+/// Flood `n` plain transfers into blocks just under the pin (all newer than every real sale, all <= top), distinct hashes.
+fn flood(f: &mut Fake, first_byte: u8, n: usize) -> Vec<[u8; 32]> {
+    let top = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS; // 26068800
+    let mut hs = Vec::new();
+    for i in 0..n {
+        // a unique 32-byte hash from (first_byte, i)
+        let mut h = [first_byte; 32];
+        h[28..].copy_from_slice(&(i as u32).to_be_bytes());
+        // blocks 26066801 ..= top, all strictly newer than the newest real sale (26066398)
+        let block = top - (i as u64 % 1_999);
+        f.sale_receipts.insert(h, transfer_receipt(MILADY, 4_242, ATTACKER, OTHER, block));
+        hs.push(h);
+    }
+    hs
+}
+
+#[test]
+fn b3_m1_control_no_flood_the_five_real_sales_confirm_the_floor_and_the_deposit_mints() {
+    let mut f = Fake::new(false);
+    f.deposits_on = true;
+    let mut st = EthState::default();
+    deposit_tx(&mut f, [0x91; 32], MILADY, WRAPPER, 950, RECIPIENT, ETH_PIN - 1);
+    ef::put_deposit(&mut st, &f.cfg(), [0x91; 32], f.now).unwrap();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 93 * E / 100;
+    f.m(MODULE).bounds = (93 * E / 100, 93 * E / 100);
+    for _ in 0..8 {
+        f.now += 600;
+        evidence(&f, &mut st);
+        tick(&mut f, &mut st);
+    }
+    let r = st.reading(&MILADY).unwrap().post.clone();
+    println!("B3-M-1 control: sales counted = {}, held = {:?}, minted = {:?}", r.sales, r.held, f.items);
+    assert_eq!(r.sales, 5, "the five real sales are read and counted");
+    assert!(r.held.is_none(), "the floor is CONFIRMED");
+    assert_eq!(f.items, vec![tok(950)], "the deposit mints against a confirmed floor");
+}
+
+#[test]
+fn b3_m1_a_plain_transfer_flood_permanently_starves_real_sales_holds_the_floor_and_stops_deposit_mints() {
+    let mut f = Fake::new(false);
+    f.deposits_on = true;
+    let mut st = EthState::default();
+    deposit_tx(&mut f, [0x91; 32], MILADY, WRAPPER, 950, RECIPIENT, ETH_PIN - 1);
+    ef::put_deposit(&mut st, &f.cfg(), [0x91; 32], f.now).unwrap();
+    f.finalized = ETH_PIN;
+    // the module already has an accepted floor (the first post happened long ago), so floor_from HOLDS rather than errs
+    f.m(MODULE).accepted = 93 * E / 100;
+    f.m(MODULE).bounds = (0, u128::MAX);
+
+    // the attacker floods 520 plain transfers (gas only), all newer than every real sale. 520 > SALE_TODO_MAX (512), so the newest
+    // 512 fill the todo queue; the real sales (older, in `older`, appended AFTER `newer`) are truncated OUT and, their block range
+    // already scanned, are NEVER re-fetched.
+    assert!(520 > en::SALE_TODO_MAX);
+    flood(&mut f, 0xc0, 520);
+
+    // run many passes: 520 floods / 16-a-pass ~ 33 passes to drain the queue; give it 60
+    for _ in 0..60 {
+        f.now += 600;
+        evidence(&f, &mut st);
+        tick(&mut f, &mut st);
+    }
+
+    // the real sales were never read: not one is in the cache
+    let reals = real_sales();
+    let cached_reals = st.sale_cache.iter().flatten().filter(|c| c.collection == MILADY && reals.contains(&c.hash)).count();
+    let r = st.reading(&MILADY).unwrap().post.clone();
+    println!("B3-M-1 attack: cached real sales = {cached_reals}, sales counted = {}, held = {:?}, minted = {:?}, todo left = {}",
+        r.sales, r.held, f.items, st.sale_scan.iter().flatten().find(|s| s.collection == MILADY).map(|s| s.todo.len()).unwrap_or(0));
+    assert_eq!(cached_reals, 0, "WEAKNESS: the flood starved every real sale out of the queue; none was ever read");
+    assert_eq!(r.sales, 0, "WEAKNESS: zero counted sales, so the floor can never confirm or rise");
+    assert!(r.held.is_some(), "WEAKNESS: the floor is held (cannot rise) for as long as the flood is kept up");
+    assert!(f.items.is_empty(), "WEAKNESS: the deposit (D5 on) can never mint: it waits indefinitely at gas-only attacker cost");
+}
+
+#[test]
+fn b3_m1b_at_first_post_accepted_zero_the_flood_blocks_the_floor_post_entirely_module_never_gets_a_floor() {
+    // aggravation: before a collection's FIRST post accepted == 0, so floor_from returns Err (no held fallback). A launch-time
+    // flood starves the 3 counted sales the first post needs -> the module never receives ANY floor -> mints, burns and
+    // graduation fills revert Stale from genesis.
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 0;              // never posted yet
+    f.m(MODULE).bounds = (0, u128::MAX);
+    flood(&mut f, 0xd0, 520);
+    for _ in 0..60 {
+        f.now += 600;
+        evidence(&f, &mut st);
+        tick(&mut f, &mut st);
+    }
+    let cached_reals = st.sale_cache.iter().flatten().filter(|c| c.collection == MILADY && real_sales().contains(&c.hash)).count();
+    println!("B3-M-1b: cached real sales = {cached_reals}, module posts = {}", f.m(MODULE).posted.len());
+    assert_eq!(cached_reals, 0, "the flood starved the real sales");
+    assert!(f.m(MODULE).posted.is_empty(), "WEAKNESS: the module NEVER gets a first floor: it is stale from genesis");
+    assert!(st.reading(&MILADY).is_none(), "no reading: floor_from errs at accepted 0 with no counted sales");
+}

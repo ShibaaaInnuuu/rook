@@ -1,0 +1,31 @@
+--- a/review3/poc/E/didcheck/main.rs
++++ b/didcheck/src/main.rs (run)
+@@ -27,16 +27,16 @@
+         BPhase::Stuck { why: "x".into() }, BPhase::BackFunded { wei: 5, since: 6 },
+         BPhase::BackSending { wei: 5, order_id: [1; 32], value: 4, min_out: 3, deadline: 9, tx: tk },
+         BPhase::BackBridging { order_id: [1; 32], value: 4, min_out: 3, deadline: 9, since: 7 }];
+-    let w = Watch { order_id: [1; 32], value: 5, min_out: 4, deadline: 9, balance_after: 1, eth_before: 2, eth_out_before: 3 };
++    let w = Watch { order_id: [1; 32], value: 5, min_out: 4, deadline: 9, balance_after: 1, eth_before: 2, eth_out_before: 3, pin: None };
+     let mut st = EthState::default();
+     st.buys = phases.into_iter().enumerate().map(|(i, phase)| EthBuy { id: i as u64, collection: [0x5a; 20], module: [0xbb; 20], wrapper: [0xaa; 20],
+-        advanced: 7, attempts: 1, phase, orders: vec![], deposits: vec![], ask: None, last: Some(w.clone()), note: String::new() }).collect();
++        advanced: 7, attempts: 1, phase, orders: vec![], deposits: vec![], ask: None, last: Some(w.clone()), note: String::new(), sweep: None, arrived_at: None, back_at: None, ended_at: None }).collect();
+     let dph = vec![DPhase::Waiting, DPhase::Sent { tx: tk, nonce: 1 }, DPhase::Moved { tx: tk, block: 2 }, DPhase::Record { tx: tk },
+         DPhase::Recording { tx: tk }, DPhase::Recorded { tx: tk }, DPhase::Cancelling { of: tk, tx: tk, nonce: 1 },
+         DPhase::MarkAfter { why: "w".into(), block: 3 }, DPhase::Mark { why: "m".into() }, DPhase::Marking { why: "m".into() },
+         DPhase::Marked { why: "m".into() }, DPhase::Gone { why: "g".into() }];
+     st.deliveries = dph.into_iter().enumerate().map(|(i, phase)| Delivery { wrapper: [0xaa; 20], collection: [0x5a; 20], ticket: i as u128, token: tk,
+-        destination: [0x44; 20], deliver_by: 9, phase, note: String::new(), refused_since: Some(1) }).collect();
++        destination: [0x44; 20], deliver_by: 9, phase, note: String::new(), refused_since: Some(1), sent: None }).collect();
+     let xph = vec![XPhase::Seen, XPhase::Mint, XPhase::Minting, XPhase::Minted, XPhase::Return { why: "r".into() }, XPhase::Returning { tx: tk },
+         XPhase::Returned { tx: tk }, XPhase::Held { why: "h".into() }, XPhase::Refused { why: "f".into() }];
+     st.deposits = xph.into_iter().map(|phase| DepositRec { tx: tk, collection: [0x5a; 20], token: tk, recipient: [0; 20], from: [0; 20], block: 1, phase,
+@@ -73,7 +73,7 @@
+     s.readings = vec![Reading { collection: [1; 20], post: FloorPost { price: 1, confidence: 1, depth: 1, listing: 1, sale_median: 1, sale_p25: 1, listings: 1,
+         sales: 1, clamped: false, held: Some("h".into()) }, at: 1, pin: 1, due: true, module_posted_at: Some(1) }];
+     s.sale_cache = Some(vec![CachedSales { collection: [1; 20], hash: tk, block: 1, sales: vec![(tk, 1, [1; 20], [2; 20])] }]);
+-    s.sale_scan = Some(vec![SaleScan { collection: [1; 20], down: 1, up: 2, chunk: 3, todo: vec![(tk, 1)] }]);
++    s.sale_scan = Some(vec![SaleScan { collection: [1; 20], down: 1, up: 2, chunk: 3, todo: vec![(tk, 1)], pend: None, rescan: None, judged: None }]);
+     s.last_mined = Some((1, 2));
+     s.halted = Some("h".into());
+     check(&s, "readings (held), sale_cache, sale_scan, last_mined, halted");

@@ -1,0 +1,38 @@
+# bash golive_harness.sh <private copy: script/golive-check.sh + deployments/launch/ from the worktree>   (review3/poc/A/golive_harness.sh with golive_harness.adaptations.diff: the functions re-extracted at their round-3 lines, the stubbed chain at the operator's J1 values and answering name()/symbol()/registry.guardian(); the monitor template filled as the PoC fills it)
+== control: the committed launch file and the filled template: no FAIL
+FAIL the monitor configuration /var/folders/qf/0b761bb15zxb199bq60jzp7m0000gn/T/tmp.vIg8xeTpdM/mon.json: a <placeholder> is left in the monitor file (timelock, buyer, expect.proposers[0], expect.proposers[1], expect.guardians[0], expect.guardians[1], expect.guardians[2], install_arg_hex and 3 more)
+   (10 monitor ok lines)
+   (45 launch ok lines)
+== 1 PASSES (weakness): name/symbol/slug are never read by --launch (rotated here: nothing changes, so a rotated deploy is not caught either)
+FAIL milady wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Bored Ape', found 'Wrapped Milady'
+FAIL milady wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wBAYC', found 'wMIL'
+FAIL milady stack file's slug = the launch file's slug (A3-L-2): expected 'bayc', found 'milady'
+FAIL azuki wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Milady', found 'Wrapped Azuki'
+FAIL azuki wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wMIL', found 'wAZUKI'
+FAIL azuki stack file's slug = the launch file's slug (A3-L-2): expected 'milady', found 'azuki'
+FAIL mayc wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Azuki', found 'Wrapped Mutant Ape'
+FAIL mayc wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wAZUKI', found 'wMAYC'
+FAIL mayc stack file's slug = the launch file's slug (A3-L-2): expected 'azuki', found 'mayc'
+FAIL pudgypenguins wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Mutant Ape', found 'Wrapped Pudgy Penguin'
+FAIL pudgypenguins wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wMAYC', found 'wPPG'
+FAIL pudgypenguins stack file's slug = the launch file's slug (A3-L-2): expected 'mayc', found 'pudgypenguins'
+FAIL bayc wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Pudgy Penguin', found 'Wrapped Bored Ape'
+FAIL bayc wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wPPG', found 'wBAYC'
+FAIL bayc stack file's slug = the launch file's slug (A3-L-2): expected 'pudgypenguins', found 'bayc'
+FAIL the monitor configuration /var/folders/qf/0b761bb15zxb199bq60jzp7m0000gn/T/tmp.vIg8xeTpdM/mon.json: a <placeholder> is left in the monitor file (timelock, buyer, expect.proposers[0], expect.proposers[1], expect.guardians[0], expect.guardians[1], expect.guardians[2], install_arg_hex and 3 more)
+   (10 monitor ok lines)
+   (30 launch ok lines)
+== 2 PASSES (weakness): D8 references swapped between Milady and MAYC (floors 0.93 / 0.86 ETH: within D8's 20 %, silent)
+FAIL the monitor configuration /var/folders/qf/0b761bb15zxb199bq60jzp7m0000gn/T/tmp.vIg8xeTpdM/mon-swapped.json: a <placeholder> is left in the monitor file (timelock, buyer, expect.proposers[0], expect.proposers[1], expect.guardians[0], expect.guardians[1], expect.guardians[2], install_arg_hex and 3 more)
+   (10 monitor ok lines)
+   (45 launch ok lines)
+== 3-5 PASSES (weakness): guardian not the registry's, <p1>/<runner host> placeholders, one Ethereum provider twice, evm.chain_id 1
+FAIL the monitor configuration /var/folders/qf/0b761bb15zxb199bq60jzp7m0000gn/T/tmp.vIg8xeTpdM/mon-other.json: a <placeholder> is left in the monitor file (timelock, buyer, expect.proposers[0], expect.proposers[1], expect.guardians[0], expect.guardians[1], expect.guardians[2], install_arg_hex and 3 more); eth_nft.eth_rpc names fewer than two Ethereum providers (counted by host: 1); evm.chain_id is 1, not 4663 (Robinhood Chain)
+FAIL the monitor's evm.guardian.address is registry.guardian() (A3-L-3): expected 0x1111111111111111111111111111111111111111, the chain says 0x000000000000000000000000000000000000dead
+   (10 monitor ok lines)
+   (45 launch ok lines)
+   placeholders left in the file that passed: <...> <buyer canister id> <g1> <g2> <g3> <indexer host> <p1> <p2> <reconciler host> <runner host> <the filled file> <the pre-handover reinstall's argument, as Candid hex (4449444c...), from the ceremony log> <timelock canister id> 
+== 6 control: no pause_on_no_good_post_h: FAILs
+FAIL the monitor configuration /var/folders/qf/0b761bb15zxb199bq60jzp7m0000gn/T/tmp.vIg8xeTpdM/mon-nopause.json: evm.guardian.pause_on_no_good_post_h is not armed (2 to 160 hours); a <placeholder> is left in the monitor file (timelock, buyer, expect.proposers[0], expect.proposers[1], expect.guardians[0], expect.guardians[1], expect.guardians[2], install_arg_hex and 3 more)
+   (10 monitor ok lines)
+   (45 launch ok lines)

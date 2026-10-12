@@ -1,0 +1,16 @@
+# The canonical build of the buyer and the timelock (docs/v2/timelock-controller.md, "Reproducible build").
+# Platform pinned (linux/amd64) because the IC's guidance is that Rust builds on different platforms can differ; base image pinned
+# by digest, not tag, because a tag can be moved. Nothing is downloaded after the dependency fetch, which `--locked` pins.
+FROM --platform=linux/amd64 rust@sha256:ff521445a372125ed4f76e1453a1f8098f2d05332d1601d30db1c1f62757e730
+ENV CARGO_HOME=/cargo PATH=/cargo/bin:$PATH SOURCE_DATE_EPOCH=0 LC_ALL=C TZ=UTC
+RUN rustup target add wasm32-unknown-unknown
+WORKDIR /build
+COPY rust-toolchain.toml ./
+COPY canister-rs/Cargo.toml canister-rs/Cargo.lock canister-rs/
+COPY canister-rs/src canister-rs/src
+COPY canister-rs/tests canister-rs/tests
+COPY timelock-rs/Cargo.toml timelock-rs/Cargo.lock timelock-rs/
+COPY timelock-rs/src timelock-rs/src
+COPY timelock-rs/examples timelock-rs/examples
+COPY scripts/reproducible-build.sh scripts/
+RUN scripts/reproducible-build.sh native

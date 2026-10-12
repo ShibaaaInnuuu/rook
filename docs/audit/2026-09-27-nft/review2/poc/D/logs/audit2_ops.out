@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: D2-M-2: 12 wash sales between two wallets, newer than the real ones, fill every slot the runner hands in: the canister counts at most 2 (< min_sales 3), no post, the module goes stale
+ok 1 - D2-M-2: 12 wash sales between two wallets, newer than the real ones, fill every slot the runner hands in: the canister counts at most 2 (< min_sales 3), no post, the module goes stale
+  ---
+  duration_ms: 20.522083
+  type: 'test'
+  ...
+# Subtest: D2-L-2: the sale verdict is remembered per transaction, not per collection: a tx that is a sale of Azuki but only a transfer of Milady is judged 'no sale' under Milady first, and never handed in for Azuki
+ok 2 - D2-L-2: the sale verdict is remembered per transaction, not per collection: a tx that is a sale of Azuki but only a transfer of Milady is judged 'no sale' under Milady first, and never handed in for Azuki
+  ---
+  duration_ms: 3.097125
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 402.6465

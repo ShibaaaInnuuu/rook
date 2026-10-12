@@ -1,0 +1,10 @@
+
+running 3 tests
+restored: 65536 bytes, 2 buys, pending Some(7)
+test r6_e_saved_1dc2a61_restores_with_nothing_lost ... ok
+largest round-5 probe: 519068 bytes, decoded in 23.461292ms (debug build)
+test r6_e_probe_largest_round5_state_decodes_fast ... ok
+test r6_e6_i1_the_h3_guard_misses_these_mutations ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.14s
+

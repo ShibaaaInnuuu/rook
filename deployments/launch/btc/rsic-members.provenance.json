@@ -1,0 +1,39 @@
+{
+  "slug": "rsic",
+  "taken_at": "2026-10-10T07:25:44.063Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 20998,
+  "root": "0x5c441d676fa812fb48a667eb00759806668b5c0a354fc447e164bf3525d82fee",
+  "proof_depth": 15,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/rsic/inscriptions",
+      "count": 20998,
+      "unique": 20998,
+      "left_out": []
+    },
+    {
+      "name": "ord-grandchildren",
+      "url": "https://ordinals.com/r/children/aa84eca1e3a967674cbfe7efc72eda3b080918de5a1fe49a4fda00e29fd11fb0i0 → each child's /r/children (10 parents)",
+      "count": 21000,
+      "unique": 21000,
+      "left_out": [
+        "e6cf5180e15def57e383965f2287e3fe195657de6de8335dd5be21011476eecdi564",
+        "656f3f81b8fd3e8e7e4c554c859127ad031c474b99bfe3185bedb444375cf136i682"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/rsic.json",
+      "count": 19244,
+      "not_in_members": [
+        "e6cf5180e15def57e383965f2287e3fe195657de6de8335dd5be21011476eecdi564",
+        "656f3f81b8fd3e8e7e4c554c859127ad031c474b99bfe3185bedb444375cf136i682"
+      ],
+      "members_missing": 1756
+    }
+  ]
+}

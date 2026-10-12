@@ -1,0 +1,111 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The collections, coins, items, tickets and checks are built from the worked examples in docs/v3/curve.md (frogs at 5 ETH; an ape bought FIFO for two coins), with a floor module, a treasury, a YOYO coin and an offer board given plausible books, and run through the real reserve computation. Addresses, inscription ids and transactions are invented; the explorer links point at nothing. One of the apes' two EVM providers is made to fail on purpose, to show an unverified collection."
+  },
+  "slug": "apes",
+  "name": "Bored Ape Yacht Club",
+  "symbol": "wAPE",
+  "kind": "nft",
+  "wrapper": "0x2000000000000000000000000000000000000001",
+  "chainId": 4663,
+  "description": "Bored Apes held at the canister's own address on Ethereum.",
+  "custody": {
+    "kind": "evm",
+    "chainId": 1,
+    "chainName": "Ethereum",
+    "collection": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
+    "custodian": "0x2000000000000000000000000000000000000c05",
+    "addressUrl": "https://etherscan.io/address/0x2000000000000000000000000000000000000c05",
+    "providers": [
+      "https://eth.fixture-provider-a.invalid",
+      "https://eth.fixture-provider-b.invalid"
+    ]
+  },
+  "supplyUnits": "1000000000000000000",
+  "itemsHeld": 1,
+  "floorWei": null,
+  "floorFresh": false,
+  "status": "unverified",
+  "coins": 2,
+  "contracts": {
+    "wrapper": "0x2000000000000000000000000000000000000001",
+    "factory": "0x2000000000000000000000000000000000000002",
+    "lock": null,
+    "router": null,
+    "queue": "0x2000000000000000000000000000000000000003",
+    "floorModule": null,
+    "treasury": null,
+    "offerBoard": null,
+    "raffleVault": null,
+    "burnVault": null,
+    "yoyoVault": null,
+    "poolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+    "v4Quoter": "0x8dc178efb8111bb0973dd9d722ebeff267c98f94",
+    "stateView": "0xf3334192d15450cdd385c8b70e03f9a6bd9e673b"
+  },
+  "coinsList": [
+    {
+      "address": "0x2000000000000000000000000000000000000B11",
+      "curve": "0x2000000000000000000000000000000000000B12",
+      "name": "Ape Coin B",
+      "symbol": "APEB",
+      "creator": "0x3000000000000000000000000000000000000002",
+      "policy": "raffle",
+      "sweepOnly": false,
+      "phase": "graduating",
+      "raiseWei": "5000000000000000000",
+      "raisedWei": "5000000000000000000",
+      "launchedAt": 1790000060,
+      "feeBps": 0,
+      "launchFee": null,
+      "yoyo": null
+    },
+    {
+      "address": "0x2000000000000000000000000000000000000a11",
+      "curve": "0x2000000000000000000000000000000000000a12",
+      "name": "Ape Coin A",
+      "symbol": "APEA",
+      "creator": "0x3000000000000000000000000000000000000001",
+      "policy": "raffle",
+      "sweepOnly": false,
+      "phase": "graduated",
+      "raiseWei": "5000000000000000000",
+      "raisedWei": "5000000000000000000",
+      "launchedAt": 1790000040,
+      "feeBps": 0,
+      "launchFee": null,
+      "yoyo": null
+    }
+  ],
+  "activity": [
+    {
+      "at": 1790000400,
+      "block": 200,
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000001d",
+      "kind": "arrived",
+      "text": "#8520 entered custody (bought)"
+    }
+  ],
+  "openTickets": [],
+  "market": {
+    "shared": {
+      "reserveEth": "20000000000000000000",
+      "reserveWrapped": "3921568627450980392",
+      "lpFeePips": 3000,
+      "protocolFeePips": 500
+    },
+    "coins": {
+      "0x2000000000000000000000000000000000000a11": {
+        "curve": null,
+        "pool": {
+          "reserveWrapped": "684000000000000000",
+          "reserveCoin": "200000000000000000000000000",
+          "lpFeePips": 10000,
+          "protocolFeePips": 1000
+        }
+      }
+    },
+    "floorModule": null
+  }
+}

@@ -1,0 +1,27 @@
+--- a/didcheck/src/main.rs (run)
++++ b/didcheck/src/bin/diag.rs
+@@ -69,6 +69,24 @@
+         s.pending = Some(HomeTx { step, raw: vec![], hash: tk, nonce: 1 });
+         check(&s, &format!("Step case {i}"));
+     }
++    // DIAGNOSTIC (not the reviewer's PoC): round 3's new Step case and every new optional field PRESENT
++    {
++        let mut s = EthState::default();
++        s.pending = Some(HomeTx { step: Step::Sent { wrapper: [1; 20], ticket: 3 }, raw: vec![], hash: tk, nonce: 1 });
++        check(&s, "DIAG Step::Sent (round 3)");
++        let mut s = EthState::default();
++        let w = Watch { order_id: [1; 32], value: 5, min_out: 4, deadline: 9, balance_after: 1, eth_before: 2, eth_out_before: 3, pin: Some(7) };
++        s.buys = vec![EthBuy { id: 1, collection: [0x5a; 20], module: [0xbb; 20], wrapper: [0xaa; 20], advanced: 7, attempts: 1,
++            phase: BPhase::Arrived { wei: 5, since: 3 }, orders: vec![], deposits: vec![], ask: None, last: Some(w), note: String::new(),
++            sweep: Some(true), arrived_at: Some(1), back_at: Some(2), ended_at: Some(3) }];
++        s.deliveries = vec![Delivery { wrapper: [0xaa; 20], collection: [0x5a; 20], ticket: 1, token: tk, destination: [0x44; 20], deliver_by: 9,
++            phase: DPhase::Moved { tx: tk, block: 2 }, note: String::new(), refused_since: Some(1), sent: Some(true) }];
++        s.sale_scan = Some(vec![SaleScan { collection: [1; 20], down: 1, up: 2, chunk: 3, todo: vec![(tk, 1)], pend: Some(vec![]),
++            rescan: Some((4, 5)), judged: Some(vec![(6, 7)]) }]);
++        s.leftover = Some(vec![([1; 20], 8)]);
++        s.sweep_after = Some(9);
++        check(&s, "DIAG every round-3 opt field present (Watch.pin, EthBuy.arrived_at/back_at/ended_at/sweep, Delivery.sent, SaleScan.pend/rescan/judged, leftover, sweep_after)");
++    }
+     let mut s = EthState::default();
+     s.readings = vec![Reading { collection: [1; 20], post: FloorPost { price: 1, confidence: 1, depth: 1, listing: 1, sale_median: 1, sale_p25: 1, listings: 1,
+         sales: 1, clamped: false, held: Some("h".into()) }, at: 1, pin: 1, due: true, module_posted_at: Some(1) }];

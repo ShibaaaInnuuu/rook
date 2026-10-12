@@ -1,0 +1,53 @@
+--- /Users/jlohayon/Documents/Rook-nft/autobuyer/canister-rs/tests/audit_nft_r3.rs	2026-09-27 18:55:10
++++ tests/r4_c.rs	2026-09-27 19:53:23
+@@ -144,6 +144,8 @@
+     pin_back: Option<(u64, u128)>,
+     /// round 3 (E3-L-*): the next mined transaction's gas (else 21,000 gwei)
+     fee_of: Option<u128>,
++    /// review round 4 (C4-H-1): the 4663 pin one bucket back: (what the balance there has more, how many of our home txs it does not show yet)
++    home_back: Option<(u128, u64)>,
+ }
+ 
+ fn word(v: u128) -> Vec<u8> {
+@@ -187,7 +189,7 @@
+             stale_nonce: None, finalized: ETH_PIN - 100, owners: HashMap::new(), eth_signed: vec![], receipts: HashMap::new(),
+             receipt_err: HashMap::new(), plan_err: vec![], wait_prefix: vec![], broadcasts: vec![], listing_total: 45 * E / 100, sale_receipts, our_logs: HashMap::new(), noted: vec![],
+             sale_err: vec![], sale_reads: 0, log_ranges: vec![], deposit_txs: HashMap::new(), caps: custodycap::stage0(&keys), book: Book::default(), outflow: vec![], drop_milady: false, real_outflow: None, pin_back: None,
+-            fee_of: None,
++            fee_of: None, home_back: None,
+         }
+     }
+     fn m(&mut self, module: [u8; 20]) -> &mut Module {
+@@ -357,14 +359,20 @@
+         })
+     }
+     async fn home_clock(&mut self) -> Result<Clock, String> { Ok(Clock { time: self.now, parent_block: 26_000_000 }) }
+-    async fn home_balance(&mut self) -> Result<u128, String> { Ok(self.home_balance) }
++    async fn home_balance(&mut self) -> Result<u128, String> { Ok(self.home_balance + self.home_back.map_or(0, |b| b.0)) }
+     async fn home_sign(&mut self, to: [u8; 20], value: u128, data: &[u8]) -> Result<(Vec<u8>, [u8; 32], u64), String> {
+-        let raw = [&to[..], &value.to_be_bytes(), &self.home_nonce.to_be_bytes(), data].concat();
+-        Ok((raw.clone(), keccak(&raw), self.home_nonce))
++        // the nonce as the tick's pin shows it (canister: `evm_nonce` at the pin), as `home_nonce` below
++        let n = self.home_nonce - self.home_back.map_or(0, |b| b.1);
++        let raw = [&to[..], &value.to_be_bytes(), &n.to_be_bytes(), data].concat();
++        Ok((raw.clone(), keccak(&raw), n))
+     }
+     async fn home_broadcast(&mut self, raw: &[u8]) {
+         let h = keccak(raw);
+         if self.home_sent.contains_key(&h) {
++            return;
++        }
++        // review round 4: a transaction at a nonce already used on chain is refused by every provider ("nonce too low")
++        if u64::from_be_bytes(raw[36..44].try_into().unwrap()) < self.home_nonce {
+             return;
+         }
+         let to: [u8; 20] = raw[..20].try_into().unwrap();
+@@ -379,7 +387,7 @@
+             None => EvmView::NotYet,
+         }
+     }
+-    async fn home_nonce(&mut self) -> Result<u64, String> { Ok(self.home_nonce) }
++    async fn home_nonce(&mut self) -> Result<u64, String> { Ok(self.home_nonce - self.home_back.map_or(0, |b| b.1)) }
+     async fn home_finalized_time(&mut self) -> Result<u64, String> { Ok(self.now.saturating_sub(self.home_final_lag).saturating_add(1)) }
+ 
+     async fn eth_pin(&mut self) -> Result<EthPin, String> {

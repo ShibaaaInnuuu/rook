@@ -1,0 +1,72 @@
+{
+ "scenario": "tensor_core_otc",
+ "note": "OTC Desks (Metaplex Core, collection with a Royalties plugin only) listed on Tensor Marketplace",
+ "slot": 455291579,
+ "unix_time": 1791643154,
+ "facts": {
+  "venue": "tensor_listing",
+  "list_state": "cbzWgVQWQjSa3fvFfxhwX1YAXzC1RKym4P4GT8n7xHH",
+  "asset": "6yZLpMz3eaiEArDvtZG13FHPVXTn1boKtK8LEp8NNtz8",
+  "owner": "DtHoVN1m4z1UZMZqEfT8GALKTUxuN7gvCEvXWQJ51Q2v",
+  "maker_broker": "DrFkK9QyDPDHHAgRi5jkAFkqeNDf4wkcyDtAv2CeL9tk",
+  "rent_payer": "DtHoVN1m4z1UZMZqEfT8GALKTUxuN7gvCEvXWQJ51Q2v",
+  "fee_vault": "8eEAq5g3dqQwhNQd9imcnUpxmJrq5VFTHuiE5tMoo2zW",
+  "collection": "D7sLW9uKZG3G7bNbWfMHvKSgVhU9nXdv7huTfepF5Jrh",
+  "standard": "core",
+  "creators": [
+   "BZcvtxDy4WihU24k3pezzajuiqYtTUHPfH7b5m26BucR"
+  ]
+ },
+ "accounts": [
+  {
+   "pubkey": "cbzWgVQWQjSa3fvFfxhwX1YAXzC1RKym4P4GT8n7xHH",
+   "lamports": 2818185,
+   "owner": "TCMPhJdwDryooaGtiocG1u3xcYbRpiJzb283XfCZsDp",
+   "executable": false,
+   "data": "TvJZiqHdsEsB/r9v3KfBo49MexyPWy3uv6L9S6PqBuVFZ8Iav7EFRw7LWMeHXfTFHyh4XI6Z8rzXNVZBn37WrcK/SwxrK/UCsVXAodQMCAAAAACx/IBsAAAAAAABvupggnN3bR3gRv0jua3JI99Tj6UkJB7PX12Cqhy/QMG/b9ynwaOPTHscj1st7r+i/Uuj6gblRWfCGr+xBUcOywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+  },
+  {
+   "pubkey": "DtHoVN1m4z1UZMZqEfT8GALKTUxuN7gvCEvXWQJ51Q2v",
+   "lamports": 734584235,
+   "owner": "11111111111111111111111111111111",
+   "executable": false,
+   "data": ""
+  },
+  {
+   "pubkey": "8eEAq5g3dqQwhNQd9imcnUpxmJrq5VFTHuiE5tMoo2zW",
+   "lamports": 10228158,
+   "owner": "11111111111111111111111111111111",
+   "executable": false,
+   "data": ""
+  },
+  {
+   "pubkey": "DrFkK9QyDPDHHAgRi5jkAFkqeNDf4wkcyDtAv2CeL9tk",
+   "lamports": 121088121265,
+   "owner": "11111111111111111111111111111111",
+   "executable": false,
+   "data": ""
+  },
+  {
+   "pubkey": "6yZLpMz3eaiEArDvtZG13FHPVXTn1boKtK8LEp8NNtz8",
+   "lamports": 1473200,
+   "owner": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d",
+   "executable": false,
+   "data": "AQke5LeDgNTAAlrt+cocahGrlIP/kv+lqh1KRNmZJ2GMArQOpLLFziNwVw6BcxUmLKoA/5cOoHve8/HnHY8I3nrGDgAAAE9UQyBEZXNrICMxMjg1SQAAAGh0dHBzOi8vYXJ3ZWF2ZS5uZXQvOUlsZkp1T282YlIzOFVWODdxeERlT3p2S3BGNl9HYnExOFJvUW52cU95dy8xMjg1Lmpzb24A"
+  },
+  {
+   "pubkey": "D7sLW9uKZG3G7bNbWfMHvKSgVhU9nXdv7huTfepF5Jrh",
+   "lamports": 2213280,
+   "owner": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d",
+   "executable": false,
+   "data": "BX+YUXQpf3+DutSCYYjBslxCJp99u9r75nOZ7yaVmm9lCQAAAE9UQyBEZXNrcz8AAABodHRwczovL2Fyd2VhdmUubmV0L1FsSVN3Q0RmdlhYeUZsV0hOWUZ2enFtY3A2MkdBMWhIOVR5eXQ0TEFBb0kSCQAAEgkAAAOrAAAAAAAAAAD0AQEAAACc8BSZxPTBtUGi+D/qrCOC5ku4IOyvur7tOTnuv37a1mQABAEAAAAAAoIAAAAAAAAAAAAAAA=="
+  },
+  {
+   "pubkey": "BZcvtxDy4WihU24k3pezzajuiqYtTUHPfH7b5m26BucR",
+   "lamports": 4651188,
+   "owner": "11111111111111111111111111111111",
+   "executable": false,
+   "data": ""
+  }
+ ],
+ "absent": []
+}

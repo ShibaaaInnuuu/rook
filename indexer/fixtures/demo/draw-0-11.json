@@ -1,0 +1,111 @@
+{
+  "id": "0-11",
+  "listingId": 0,
+  "acquisitionId": 11,
+  "type": "draw",
+  "state": "won",
+  "mode": "draw-weighted",
+  "assetRef": "0000000000000000000000000000000000000000000000000000000000000000i11",
+  "openedAt": 1790026645,
+  "challengeEnds": 1790027545,
+  "challengeEndsIn": null,
+  "root": "0xd56158fd9533a990e855f4d25150e7aaa1aa8020a42bddc8e1973998979621f8",
+  "uri": "https://staging-chain-production.up.railway.app/snapshots/snapshot-0x7d1559b38f932accb78bf680293e30d802bf5588-69015929-weighted.json",
+  "total": "535425511",
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": "npm run snapshot -- --coin 0x7D1559b38f932aCCb78Bf680293E30D802BF5588 --block <block from the published file> --kind weighted",
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": {
+    "round": 20835255,
+    "pinnedAt": 1790026779,
+    "drandUrl": "https://api.drand.sh/04f1e9062b8a81f848fded9c12306733282b2727ecced50032187751166ec8c3/public/20835255",
+    "winningTicket": "112776643",
+    "resolvedAt": 1790026841,
+    "winner": "0xCf99588BEAF2a2a9aa0678831A0419B99ba6e505",
+    "destination": null,
+    "destinationSetAt": null,
+    "deliveredTxid": null,
+    "deliveredAt": null,
+    "overdue": false,
+    "voided": null
+  },
+  "distribution": null,
+  "timeline": [
+    {
+      "at": 1790026634,
+      "block": 69015926,
+      "tx": "0x67adde9536edb5165ebfd92339493e718b05be2f3edc79a9bff091dc7a03400a",
+      "event": "Receipted",
+      "detail": {
+        "id": "10",
+        "acquisitionId": "11",
+        "coin": "0x7d1559b38f932accb78bf680293e30d802bf5588",
+        "assetRef": "0000000000000000000000000000000000000000000000000000000000000000i11",
+        "amount": "1",
+        "btcTxid": "0xe2f5275f4371476285fd46379344d2ff08ae96ccd267fdda609ef044be30042f",
+        "satsPaid": "150000"
+      }
+    },
+    {
+      "at": 1790026645,
+      "block": 69015929,
+      "tx": "0x4137b38ba138ff24799ada9cb71fd357339d9c59a01956411afcf36f602e1367",
+      "event": "Chosen",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "11",
+        "mode": 3,
+        "named": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "at": 1790026645,
+      "block": 69015930,
+      "tx": "0xd6f01955100fda6c21d2cbac006a851ca336583fa17623c2a5cc54883a376bb0",
+      "event": "DrawOpened",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "11",
+        "root": "0xd56158fd9533a990e855f4d25150e7aaa1aa8020a42bddc8e1973998979621f8",
+        "totalTickets": "535425511",
+        "uri": "https://staging-chain-production.up.railway.app/snapshots/snapshot-0x7d1559b38f932accb78bf680293e30d802bf5588-69015929-weighted.json",
+        "challengeEnds": "1790027545"
+      }
+    },
+    {
+      "at": 1790026779,
+      "block": 69015963,
+      "tx": "0x31f3c1c58689bfd0902e6f8c78f2c7ee7d7bc5660dfe300c839c6925a2f7fe5c",
+      "event": "DrawPinned",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "11",
+        "round": "20835255"
+      }
+    },
+    {
+      "at": 1790026841,
+      "block": 69015976,
+      "tx": "0xaa4cc12e512504b1bedd579efb42e98b2f888ce75ed0ebec0366d33bfc22906e",
+      "event": "DrawResolved",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "11",
+        "winningTicket": "112776643"
+      }
+    },
+    {
+      "at": 1790026852,
+      "block": 69015980,
+      "tx": "0xf0895be802ce4e91c63a7303f9ab7d297e59edbf0c6f3dcb2b70999200806616",
+      "event": "Won",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "11",
+        "winner": "0xcf99588beaf2a2a9aa0678831a0419b99ba6e505"
+      }
+    }
+  ]
+}

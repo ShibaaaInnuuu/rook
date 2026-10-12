@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "owner": "0x3000000000000000000000000000000000000002",
+  "destination": "bc1pfixtureredeemerdestination00000000000000000000000000000qq",
+  "toBurn": false,
+  "stage": "resolved",
+  "round": 5000300,
+  "burnedAt": 1790001400,
+  "burnTx": "0x000000000000000000000000000000000000000000000000000000000000000d",
+  "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819972",
+  "itemRef": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4i0",
+  "deliverBy": 1790520400,
+  "overdue": false,
+  "deliveryTx": null,
+  "deliveryUrl": null,
+  "refundTx": null
+}

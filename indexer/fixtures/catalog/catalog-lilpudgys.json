@@ -1,0 +1,107 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "lilpudgys",
+    "name": "Lil Pudgys",
+    "chain": "ethereum",
+    "chainName": "Ethereum",
+    "chainId": 1,
+    "standard": "erc721",
+    "id": "0x524cab2ec69124574082676e6f654a18df49a048",
+    "description": null,
+    "image": "https://i2c.seadn.io/collection/lilpudgys/image/9289b91d3d0cefccfe6b9c7f83f471/649289b91d3d0cefccfe6b9c7f83f471.png",
+    "links": {
+      "website": "https://www.pudgypenguins.com/",
+      "x": "https://x.com/pudgypenguins",
+      "discord": "https://discord.gg/pudgypenguins",
+      "marketplace": "https://opensea.io/collection/lilpudgys",
+      "explorer": "https://etherscan.io/address/0x524cab2ec69124574082676e6f654a18df49a048"
+    },
+    "floor": {
+      "native": "339908050000000000",
+      "unit": "wei",
+      "eth": 0.33990805,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/lilpudgys/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 21929,
+    "owners": 10446,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1",
+        "name": "Lil Pudgy #1",
+        "image": "https://api.pudgypenguins.io/lil/image/1",
+        "url": "https://etherscan.io/nft/0x524cab2ec69124574082676e6f654a18df49a048/1"
+      },
+      {
+        "id": "2",
+        "name": "Lil Pudgy #2",
+        "image": "https://api.pudgypenguins.io/lil/image/2",
+        "url": "https://etherscan.io/nft/0x524cab2ec69124574082676e6f654a18df49a048/2"
+      },
+      {
+        "id": "3",
+        "name": "Lil Pudgy #3",
+        "image": "https://api.pudgypenguins.io/lil/image/3",
+        "url": "https://etherscan.io/nft/0x524cab2ec69124574082676e6f654a18df49a048/3"
+      },
+      {
+        "id": "4",
+        "name": "Lil Pudgy #4",
+        "image": "https://api.pudgypenguins.io/lil/image/4",
+        "url": "https://etherscan.io/nft/0x524cab2ec69124574082676e6f654a18df49a048/4"
+      },
+      {
+        "id": "7",
+        "name": "Lil Pudgy #7",
+        "image": "https://api.pudgypenguins.io/lil/image/7",
+        "url": "https://etherscan.io/nft/0x524cab2ec69124574082676e6f654a18df49a048/7"
+      },
+      {
+        "id": "8",
+        "name": "Lil Pudgy #8",
+        "image": "https://api.pudgypenguins.io/lil/image/8",
+        "url": "https://etherscan.io/nft/0x524cab2ec69124574082676e6f654a18df49a048/8"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.34 ETH, 0.408 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

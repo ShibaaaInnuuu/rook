@@ -1,0 +1,14 @@
+# against a78a542's .did (the round-6 build)
+service_compatible(HEAD .did, OLD .did): Ok(())
+ok: eth-state-round7.hex: 2860 bytes; differences []
+ok: eth-state-round6.hex: 2774 bytes; differences []
+ok: eth-state-round5.hex: 2955 bytes; differences []
+ok: eth-state-round4.hex: 2938 bytes; differences []
+ok: eth-state-round2.hex: 2698 bytes; differences []
+# control: the fixtures through a78a542's .did (OLD=1) name the round-7 fields
+service_compatible(HEAD .did, OLD .did): Ok(())
+MISMATCH: eth-state-round7.hex: 2860 bytes; differences [".1_527_319_925[0].1_092_621_625: in the Rust type, not in the .did", ".1_527_319_925[0].1_635_982_539: in the Rust type, not in the .did", ".1_527_319_925[0].3_420_691_513: in the Rust type, not in the .did", ".1_527_319_925[0].3_838_719_659:
+MISMATCH: eth-state-round6.hex: 2774 bytes; differences [".1_527_319_925[0].1_092_621_625: in the Rust type, not in the .did", ".1_527_319_925[0].1_635_982_539: in the Rust type, not in the .did", ".1_527_319_925[0].3_420_691_513: in the Rust type, not in the .did", ".1_527_319_925[0].3_838_719_659:
+MISMATCH: eth-state-round5.hex: 2955 bytes; differences [".1_527_319_925[0].1_092_621_625: in the Rust type, not in the .did", ".1_527_319_925[0].1_635_982_539: in the Rust type, not in the .did", ".1_527_319_925[0].3_420_691_513: in the Rust type, not in the .did", ".1_527_319_925[0].3_838_719_659:
+MISMATCH: eth-state-round4.hex: 2938 bytes; differences [".1_527_319_925[0].1_092_621_625: in the Rust type, not in the .did", ".1_527_319_925[0].1_635_982_539: in the Rust type, not in the .did", ".1_527_319_925[0].3_420_691_513: in the Rust type, not in the .did", ".1_527_319_925[0].3_838_719_659:
+MISMATCH: eth-state-round2.hex: 2698 bytes; differences [".1_527_319_925[0].1_092_621_625: in the Rust type, not in the .did", ".1_527_319_925[0].1_635_982_539: in the Rust type, not in the .did", ".1_527_319_925[0].3_420_691_513: in the Rust type, not in the .did", ".1_527_319_925[0].3_838_719_659:

@@ -1,0 +1,34 @@
+# A stand-in for rook_core's `convert` (and nothing else), deployed at rook_core's program id in rook_backing's LiteSVM
+# tests until the real rook_core builds. Its own workspace so the main workspace never builds it:
+#   CARGO_TARGET_DIR=../../target/mock cargo build-sbf --sbf-out-dir ../fixtures
+[package]
+name = "mock_rook_core"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+custom-heap = []
+custom-panic = []
+anchor-debug = []
+idl-build = []
+
+[dependencies]
+anchor-lang = "1.2.1"
+anchor-spl = { version = "1.2.1", default-features = false, features = ["token", "token_2022", "solana-v3"] }
+
+[workspace]
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+
+[lints.rust]
+unexpected_cfgs = { level = "allow" }

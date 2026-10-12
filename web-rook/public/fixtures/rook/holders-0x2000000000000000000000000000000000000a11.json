@@ -1,0 +1,51 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The Rook coins (ALIEN, BETA, APEA, APEB) are docs/v3/curve.md's worked examples with a few invented trades walked along the worked curve; the other coins are a recording of our staging fork, where a simulator trades. Every price is invented or simulated; nothing was bought; no wallet here is anybody."
+  },
+  "kind": "curve",
+  "coin": "0x2000000000000000000000000000000000000a11",
+  "holders": 5,
+  "supplyWei": "1000000000000000000000000000",
+  "complete": true,
+  "items": [
+    {
+      "rank": 1,
+      "address": "0x4000000000000000000000000000000000000002",
+      "balanceWei": "283827762228723781316066095",
+      "share": 0.28382776,
+      "label": null
+    },
+    {
+      "rank": 2,
+      "address": "0x4000000000000000000000000000000000000003",
+      "balanceWei": "203699909072753430243392743",
+      "share": 0.2036999,
+      "label": null
+    },
+    {
+      "rank": 3,
+      "address": "0x4000000000000000000000000000000000000004",
+      "balanceWei": "154161892301364097272111076",
+      "share": 0.15416189,
+      "label": null
+    },
+    {
+      "rank": 4,
+      "address": "0x4000000000000000000000000000000000000005",
+      "balanceWei": "88019928783869883247846969",
+      "share": 0.08801992,
+      "label": null
+    },
+    {
+      "rank": 5,
+      "address": "0x4000000000000000000000000000000000000001",
+      "balanceWei": "69437198959887604773891767",
+      "share": 0.06943719,
+      "label": null
+    }
+  ],
+  "total": 5,
+  "limit": 25,
+  "offset": 0
+}

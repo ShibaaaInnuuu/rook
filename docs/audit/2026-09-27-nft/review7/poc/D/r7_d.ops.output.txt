@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: holds: 0, negative, NaN, fractions, above the cadence are refused
+ok 1 - holds: 0, negative, NaN, fractions, above the cadence are refused
+  ---
+  duration_ms: 0.862583
+  type: 'test'
+  ...
+# Subtest: WEAKNESS (D7-I-3, cosmetic): 0x3c / 6e1 are read as 60, and 301..600 is accepted though the runbook says keep it <= 300 (the 4663 state reach)
+ok 2 - WEAKNESS (D7-I-3, cosmetic): 0x3c / 6e1 are read as 60, and 301..600 is accepted though the runbook says keep it <= 300 (the 4663 state reach)
+  ---
+  duration_ms: 0.152
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 544.176042

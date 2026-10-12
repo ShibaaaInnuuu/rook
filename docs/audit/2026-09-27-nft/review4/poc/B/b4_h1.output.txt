@@ -1,0 +1,13 @@
+
+running 2 tests
+test b4_h1_a_one_oversized_block_stalls_the_walk_back_and_burns_the_log_budget_every_pass ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+control: 5 of 5 real sales read, 101 log reads
+attack: 3 of 5 real sales read after 72 passes; scan down 26060020 (bottom 26018400), chunk 25; failed log reads per pass: first [33, 52, 52], last [52, 52, 52]; total 3725
+reading: Some((3, None))
+ok
+test b4_h1_b_an_oversized_new_block_stops_every_newer_sale_for_the_window ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+after a day: 0 of the 40 newer sales read (all final and in the window); scan up 26068831 (the oversized block 26068850), chunk 25; failed reads per pass [51, 52, 52]..[52, 52, 52]
+ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+

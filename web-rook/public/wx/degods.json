@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped DeGods (Solana)",
+  "symbol": "wDEGOD",
+  "description": "Rook's wrapped DeGods (Solana) token: each whole token is backed either by a DeGods (Solana) NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/degods.png",
+  "external_url": "https://userook.fun/#/collection/degods",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/degods.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

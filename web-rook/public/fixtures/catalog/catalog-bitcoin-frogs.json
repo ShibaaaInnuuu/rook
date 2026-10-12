@@ -1,0 +1,90 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "bitcoin-frogs",
+    "name": "Bitcoin Frogs",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "bitcoin-frogs",
+    "description": "10,000 timeless frog collectibles stored on Bitcoin blockchain. Launched for free on 8 March 2023",
+    "image": "https://ordinals.com/content/d19981a198e4a8419c8be18588d9e4919cea294deefdb5f9261a30242df578b7i0",
+    "links": {
+      "website": "https://www.bitcoinfrogs.com",
+      "x": "https://x.com/BitcoinFrogs",
+      "discord": "https://discord.gg/ymZmyBzaSR",
+      "marketplace": "https://ordinalswallet.com/collection/bitcoin-frogs",
+      "explorer": "https://ordinals.com/inscription/381224"
+    },
+    "floor": {
+      "native": "433069",
+      "unit": "sats",
+      "eth": 0.1366881292806868,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:bitcoin-frogs/escrows",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 10000,
+    "owners": 5143,
+    "listed": 79,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": 6,
+    "sample": [
+      {
+        "id": "186107dc867835019c6a396c3c8fb973d701def2f2adaa5a6bbfe4360e4f0ffbi0",
+        "name": "Bitcoin Frog #2866",
+        "image": "https://ordinals.com/content/186107dc867835019c6a396c3c8fb973d701def2f2adaa5a6bbfe4360e4f0ffbi0",
+        "url": "https://ordinals.com/inscription/186107dc867835019c6a396c3c8fb973d701def2f2adaa5a6bbfe4360e4f0ffbi0"
+      },
+      {
+        "id": "2a1c9d4e582350d481ba4007584aa3fa3ed4d3a2e9ec6778a0c1d7f03a6dcca4i0",
+        "name": "Bitcoin Frog #1887",
+        "image": "https://ordinals.com/content/2a1c9d4e582350d481ba4007584aa3fa3ed4d3a2e9ec6778a0c1d7f03a6dcca4i0",
+        "url": "https://ordinals.com/inscription/2a1c9d4e582350d481ba4007584aa3fa3ed4d3a2e9ec6778a0c1d7f03a6dcca4i0"
+      },
+      {
+        "id": "3fc5ed63a307ad1117c753ace4c910bf4222705ac630234e08278c89c6ae95e1i0",
+        "name": "Bitcoin Frog #4054",
+        "image": "https://ordinals.com/content/3fc5ed63a307ad1117c753ace4c910bf4222705ac630234e08278c89c6ae95e1i0",
+        "url": "https://ordinals.com/inscription/3fc5ed63a307ad1117c753ace4c910bf4222705ac630234e08278c89c6ae95e1i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "live",
+      "slug": "frogs",
+      "coins": 3,
+      "why": "Listed on Rook as a nest, with 3 coins sweeping it."
+    },
+    "curated": true
+  }
+}

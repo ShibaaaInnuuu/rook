@@ -1,0 +1,15 @@
+[package]
+name = "rook-sim-harness"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Bitcoin-half simulation: the canister's own frog flow (frogflow::tick_full, frogbuy::judge, sighash, psbt::finalize) run natively against a real regtest bitcoind and ord. Not part of the canister build."
+
+[workspace]
+
+[dependencies]
+etch_autobuyer = { path = "../../../../autobuyer/canister-rs" }
+serde_json = "1"
+hex = "0.4.3"
+sha2 = "0.10"
+k256 = { version = "0.13", default-features = false, features = ["schnorr", "arithmetic"] }

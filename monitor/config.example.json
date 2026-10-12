@@ -1,0 +1,114 @@
+{
+  "//": "K6 monitor configuration (docs/v6/k6-watcher-canary.md, docs/audit/2026-09-26/fixes-W2-monitor.md). Public identifiers only; the Telegram token is ALERT_TELEGRAM_BOT_TOKEN and the optional guardian key MONITOR_GUARDIAN_KEY, never here. Replace every <...> from deployments/canister-ic.json, deployments/stack-4663.json and the ceremony log.",
+  "network": "ic",
+  "timelock": "<timelock canister id>",
+  "buyer": "<buyer canister id>",
+  "//min_fee_pool_sats": "the custody fee pool's minimum largest usable entry, in sats (default 20000; script/golive-check.sh --min-fee-pool-sats). Below it: SEV2. At or above it but under the conflict-out's 100,000-sat ceiling: an INFO note (in a large fee spike a stuck delivery is cancelled more slowly; the gated Wrapper keeps that from becoming a loss)",
+  "min_fee_pool_sats": 20000,
+  "expect": {
+    "proposers": [
+      "<p1>",
+      "<p2>"
+    ],
+    "guardians": [
+      "<g1>",
+      "<g2>",
+      "<g3>"
+    ],
+    "veto": "2",
+    "delay": "259200"
+  },
+  "builds_file": "../deployments/canister-ic.json",
+  "//builds": "or inline: [{ \"commit\": \"<git sha>\", \"buyer\": \"<buyer.wasm sha256>\", \"timelock\": \"<timelock.wasm sha256>\", \"timelock_rehearsal\": \"<timelock-rehearsal.wasm sha256>\" }]",
+  "install_arg_hex": "<the pre-handover reinstall's argument, as Candid hex (4449444c...), from the ceremony log>",
+  "bitcoin": {
+    "providers": [
+      "https://mempool.space/api",
+      "https://blockstream.info/api"
+    ],
+    "addresses": {
+      "custody": "<custody_address>",
+      "float": "<float_address>",
+      "buyer": "<buyer_address>"
+    },
+    "expect_inbound": [
+      {
+        "address": "custody",
+        "min_sats": 1000,
+        "note": "the G2/G10 drill's test deposit"
+      }
+    ]
+  },
+  "evm": {
+    "rpcs": [
+      "https://rpc.mainnet.chain.robinhood.com",
+      "https://robinhood.drpc.org"
+    ],
+    "chain_id": 4663,
+    "//stack": "the stack file, inline (preferred: the image has no deployments/), or evm.stack_file (a path relative to this file); it names the registry, every wrapper, module and sweep vault",
+    "stack": "<the contents of deployments/stack-4663.json>",
+    "confirmations": 20,
+    "//guardian": "OPTIONAL (fixes-W2-monitor.md §1.4). Remove this block to run without a guardian. With it, MONITOR_GUARDIAN_KEY must be the key of this address (a fresh, code-less EOA with a little ETH), and registry.setGuardian(address) must have been made by the Safe",
+    "guardian": {
+      "address": "<the guardian EOA>",
+      "auto_pause": true,
+      "auto_cancel": true,
+      "//pause_on_floor_walk": "false (default): a floor walked at the band's edge pages SEV1 but the guardian does not pause on it (an honest keeper in a real crash posts at the edge too)",
+      "pause_on_floor_walk": false,
+      "//pause_on_no_good_post_h": "OPTIONAL (R3-check A3-I1, fixes-R4-services.md §8): hours without a good floor post after which the guardian pauses the keeper, so holders can burn (at the frozen floor, never above the backing: r4-contracts A3-M1) instead of waiting for the 7-day escape. Omit to never pause on it (a pause also stops draws and graduations); 12 is a reasonable value"
+    },
+    "//rpcs": "the canary's two providers, which must agree on every log. Measured 2026-09-26: rpc.ordofi.network answers every eth_getLogs with -32005 'busy' (fine for eth_call), robinhood.drpc.org serves eth_getLogs over ~100-block spans only (set its span in draws.providers). Two that serve logs: Robinhood and drpc",
+    "//from_block": "optional, and only EARLIER than the stack file's fromBlock (a later one is refused); normally leave it out"
+  },
+  "draws": {
+    "//": "fixes-R3-services.md §1: each provider keeps its own holder index (<state dir>/holders-<host>.json), read forward from a saved cursor; a root is verified when verify_quorum providers reproduce it. The exclusions are read from tools/snapshot/exclusions.json (shipped in the image); do not copy them here",
+    "providers": [
+      {
+        "url": "https://rpc.mainnet.chain.robinhood.com",
+        "span": 10000
+      },
+      {
+        "url": "https://robinhood.drpc.org",
+        "span": 100
+      },
+      {
+        "url": "https://rpc.ordofi.network",
+        "span": 10000
+      }
+    ],
+    "verify_quorum": 2,
+    "//deadline_s": "an Open draw not verified this many seconds before its pin is SEV1, and (pause_unverified) the guardian pauses the keeper: requestDraw reverts while paused",
+    "deadline_s": 360,
+    "pause_unverified": true,
+    "//pause_on_degraded": "false (default, fixes-R4-services.md §3): at the deadline the guardian pauses only on evidence (a caught-up index computing another root, a dissent confirmed after a rebuild, a failure no degraded state explains); a draw unverified only because the providers are behind, stuck or throttled is SEV1 and escalated by hand. true: pause on any unverified draw (round 3's rule; outsiders can then cause pauses)",
+    "pause_on_degraded": false,
+    "//reconcile": "true (default, R3-check L-F): a few coins a poll are checked against totalSupply()/balanceOf at the index's cursor, and rebuilt on a mismatch",
+    "reconcile": true
+  },
+  "liveness": [
+    {
+      "name": "keeper",
+      "url": "https://<keeper host>/healthz"
+    },
+    {
+      "name": "resolver",
+      "url": "https://<standalone resolver host>/healthz"
+    },
+    {
+      "name": "runner",
+      "url": "https://<runner host>/healthz"
+    },
+    {
+      "name": "reconciler",
+      "url": "https://<reconciler host>/healthz"
+    },
+    {
+      "name": "indexer",
+      "url": "https://<indexer host>/healthz"
+    }
+  ],
+  "acknowledged": [],
+  "every_secs": 60,
+  "heartbeat_hour_utc": 12,
+  "state": "/data/monitor-state.json"
+}

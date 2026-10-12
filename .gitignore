@@ -1,0 +1,37 @@
+out/
+cache/
+broadcast/
+.env
+.env.*
+node_modules/
+
+# tools
+tools/*/node_modules/
+keeper/node_modules/
+keeper/journal/
+snapshot-0x*.json
+deployments/31337.json
+web/public/local/
+web/node_modules/
+web/dist/
+deployments/9466301.json
+
+# what a catalogue fetch with no key writes: not ranked by this week, not read by the site, never committed (docs/phase9.md §11)
+web/public/catalogue/catalogue.unranked.json
+web/public/catalogue/img-unranked/
+
+# python bytecode (script/depth_probe.py is imported by golive-check and its tests)
+__pycache__/
+
+# Solana launch secrets (audit A6-01, docs/v9/audit-2026-10/a6-launch-ops.md): the reserved program keypairs, the ceremony payer and
+# the day-1 config / mint keypairs must never be committed. ceremony-day1.sh / deploy-later.sh refuse a keys directory inside any git
+# work tree; this is the second layer.
+*keypair*.json
+ceremony-payer.json
+day1/
+day1-plan.json
+
+# the filled ceremony input (its Helius URL holds a key) and the install arguments made from it (docs/v9/ceremony-commands.md)
+deployments/launch/ceremony-input.json
+ops/ceremony/out/
+ops/ceremony/.dfx/

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "canisters": {
+    "autobuyer_timelock": {
+      "type": "custom",
+      "candid": "../canister-rs/etch_autobuyer.did",
+      "wasm": "../canister-rs/target/wasm32-unknown-unknown/release/etch_autobuyer.wasm",
+      "build": []
+    },
+    "timelock": {
+      "type": "custom",
+      "candid": "etch_timelock.did",
+      "wasm": "target/wasm32-unknown-unknown/release/etch_timelock.wasm",
+      "build": []
+    },
+    "autobuyer_trust": {
+      "type": "custom",
+      "candid": "../canister-rs/etch_autobuyer.did",
+      "wasm": "../canister-rs/target/wasm32-unknown-unknown/release/etch_autobuyer.wasm",
+      "build": []
+    },
+    "timelock_trust": {
+      "type": "custom",
+      "candid": "etch_timelock.did",
+      "wasm": "target/wasm32-unknown-unknown/release/etch_timelock.wasm",
+      "build": []
+    },
+    "autobuyer_chunked": {
+      "type": "custom",
+      "candid": "../canister-rs/etch_autobuyer.did",
+      "wasm": "../canister-rs/target/wasm32-unknown-unknown/release/etch_autobuyer.wasm",
+      "build": []
+    },
+    "timelock_chunked": {
+      "type": "custom",
+      "candid": "etch_timelock.did",
+      "wasm": "target/wasm32-unknown-unknown/release/etch_timelock.wasm",
+      "build": []
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4943",
+      "type": "ephemeral"
+    }
+  }
+}

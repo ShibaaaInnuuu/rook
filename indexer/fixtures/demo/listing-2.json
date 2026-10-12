@@ -1,0 +1,58 @@
+{
+  "id": 2,
+  "kind": "inscriptions",
+  "name": "Pixel Pepes",
+  "ref": "pixel-pepes",
+  "divisibility": 0,
+  "vault": "0xa9eb52Df9B6D568cC7Eb63b5c253213A2Fa07b6F",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-pixel-pepes",
+  "membershipRoot": "0x1fe966b2005483a0022805b99bf6499ad6c7dfaef2a99f5f9cfb065ec501d2cd",
+  "paused": false,
+  "coins": 2,
+  "depositedWei": "227502256608639586",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "227502256608639586",
+    "attributedWei": "227502256608639586",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "227502256608639586",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x895E0e215912c442f9bf69649A4d652712a0852A",
+      "symbol": "BASASIM",
+      "depositedWei": "23757575757575757"
+    },
+    {
+      "address": "0x538FF50B4D022759857BBEF97dCead7e13307c0b",
+      "symbol": "BASA5SIM",
+      "depositedWei": "203744680851063829"
+    }
+  ]
+}

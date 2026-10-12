@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "omb",
+    "name": "Ordinal Maxi Biz (OMB)",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "omb",
+    "description": "--- .-. -.. .. -. .- .-.. / -- .- -..- .. / -... .. --.. / -.--. --- -- -... -.--.-",
+    "image": "https://ipfs.filebase.io/ipfs/bafybeidb7ltjitqivbcp22iktp5vmciee4dwzrjobwjnlzt5dkgyepj5ne",
+    "links": {
+      "website": null,
+      "x": "https://x.com/OrdinalMaxiBiz",
+      "discord": null,
+      "marketplace": "https://ordinalswallet.com/collection/omb",
+      "explorer": "https://ordinals.com/inscription/89945"
+    },
+    "floor": {
+      "native": "2158273",
+      "unit": "sats",
+      "eth": 0.6812085345453398,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:omb/escrows",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 9001,
+    "owners": null,
+    "listed": 10,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "934a35b0258bfe8a1b8b503b17ca8d19eb92ce5f81e244522f2c876ac249b645i0",
+        "name": "#83294130",
+        "image": "https://ordinals.com/content/934a35b0258bfe8a1b8b503b17ca8d19eb92ce5f81e244522f2c876ac249b645i0",
+        "url": "https://ordinals.com/inscription/934a35b0258bfe8a1b8b503b17ca8d19eb92ce5f81e244522f2c876ac249b645i0"
+      },
+      {
+        "id": "56cd3b11af539973b7dbc9e7fc25cc17e104cd2098ae7c5a38007864f7a63fa2i0",
+        "name": "#60580295",
+        "image": "https://ordinals.com/content/56cd3b11af539973b7dbc9e7fc25cc17e104cd2098ae7c5a38007864f7a63fa2i0",
+        "url": "https://ordinals.com/inscription/56cd3b11af539973b7dbc9e7fc25cc17e104cd2098ae7c5a38007864f7a63fa2i0"
+      },
+      {
+        "id": "d328778fd1d1c2208252f96c3cb09b5e0392b976a037d339b2b9944f1def029ci0",
+        "name": "#60578441",
+        "image": "https://ordinals.com/content/d328778fd1d1c2208252f96c3cb09b5e0392b976a037d339b2b9944f1def029ci0",
+        "url": "https://ordinals.com/inscription/d328778fd1d1c2208252f96c3cb09b5e0392b976a037d339b2b9944f1def029ci0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.681 ETH, 0.817 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

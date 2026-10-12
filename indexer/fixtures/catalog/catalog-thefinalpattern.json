@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "thefinalpattern",
+    "name": "The Final Pattern",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "thefinalpattern",
+    "description": "The last piece of the Uncommon Patterns collection was sent to Satoshi's wallet as a burn action, and fractionalized into 2,025 individual pieces, each inscribed on sats from the historic block 78, which was the first block mined by Hal Fin",
+    "image": "https://ordinals.com/content/ff7f9cad39406d93ebba654ae7ba72dbd83ecfda7c002083d251925cc6d42db6i0",
+    "links": {
+      "website": "https://uncommon.nullish.org/airdrop",
+      "x": "https://x.com/null_ish",
+      "discord": "https://discord.gg/rAQDwwXYbS",
+      "marketplace": "https://ordinalswallet.com/collection/thefinalpattern",
+      "explorer": "https://ordinals.com/inscription/971192"
+    },
+    "floor": {
+      "native": "251798",
+      "unit": "sats",
+      "eth": 0.07947416595650664,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 2025,
+    "owners": null,
+    "listed": 34,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "a5478083a396b8bab5edfdd6faa270d0ba8f382564cdb3e308a42482688ba5d9i0",
+        "name": "The Final Pattern #51",
+        "image": "https://ordinals.com/content/a5478083a396b8bab5edfdd6faa270d0ba8f382564cdb3e308a42482688ba5d9i0",
+        "url": "https://ordinals.com/inscription/a5478083a396b8bab5edfdd6faa270d0ba8f382564cdb3e308a42482688ba5d9i0"
+      },
+      {
+        "id": "ebc3af880a53108fed0f446927f432bcf86b0bd5c3beaee85b978418d1fae90di0",
+        "name": "The Final Pattern #1881",
+        "image": "https://ordinals.com/content/ebc3af880a53108fed0f446927f432bcf86b0bd5c3beaee85b978418d1fae90di0",
+        "url": "https://ordinals.com/inscription/ebc3af880a53108fed0f446927f432bcf86b0bd5c3beaee85b978418d1fae90di0"
+      },
+      {
+        "id": "0ee218811c406b3ecd3bdf463f7de4b9e909132b97a34524a23ca31b8bac0cd2i0",
+        "name": "The Final Pattern #428",
+        "image": "https://ordinals.com/content/0ee218811c406b3ecd3bdf463f7de4b9e909132b97a34524a23ca31b8bac0cd2i0",
+        "url": "https://ordinals.com/inscription/0ee218811c406b3ecd3bdf463f7de4b9e909132b97a34524a23ca31b8bac0cd2i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.079 ETH, 0.095 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

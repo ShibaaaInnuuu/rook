@@ -1,0 +1,5 @@
+reach from the pin 4169, first resolving tick 300 s after signing: MINED
+reach from the pin 4169, first resolving tick 420 s after signing: UNIDENTIFIED
+reach from the pin 5192, first resolving tick 420 s after signing: MINED
+reach from the pin 5192, first resolving tick 540 s after signing: UNIDENTIFIED
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.02s

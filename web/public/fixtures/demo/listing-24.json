@@ -1,0 +1,53 @@
+{
+  "id": 24,
+  "kind": "inscriptions",
+  "name": "BTC OPERATORS",
+  "ref": "btc-operators",
+  "divisibility": 0,
+  "vault": "0xc284b5C39A7Ff43d218C7491D16b940b24Da2552",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-btc-operators",
+  "membershipRoot": "0x1f0f01d5e0e0ddbe78468bffad8fe48a1392f3b0beb5959e10115e39ca3e7a9b",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "24774663300753272",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "24774663300753272",
+    "attributedWei": "24774663300753272",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "24774663300753272",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xce7C92035f8f5b26C658522BFa5348f87e047Ca6",
+      "symbol": "MARB3SIM",
+      "depositedWei": "24774663300753272"
+    }
+  ]
+}

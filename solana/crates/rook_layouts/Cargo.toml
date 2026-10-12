@@ -1,0 +1,9 @@
+[package]
+name = "rook_layouts"
+version = "0.1.0"
+description = "The byte layouts one Rook program reads of the other's accounts (no dependencies; each owning program tests its struct against these)."
+edition.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "rook_layouts"

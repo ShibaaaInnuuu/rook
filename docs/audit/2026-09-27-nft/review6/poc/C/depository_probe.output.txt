@@ -1,0 +1,11 @@
+# Read-only eth_call probes, 2026-09-28 (cast 1.x, from 0x…dEaD, no transaction sent). Relay depository 0x4cd00e387622c35bddb9b4c962c136462338bc31.
+# allocator() selector 0xaa5dcecc followed by 32 arbitrary bytes (standing in for an order id): SUCCEEDS (Solidity ignores trailing calldata).
+# An unknown selector 0x01020304 + 32 bytes: reverts (no fallback). Same contract code on both chains.
+== https://rpc.mainnet.chain.robinhood.com (4663)
+cast call $D 0xaa5dcecc<32 bytes>  -> 0x00000000000000000000000063c1d3e9c646184529c5694630a01c00df171b56
+cast call $D 0x01020304<32 bytes>  -> error code 3: execution reverted
+cast code $D                       -> 0x608060405260043610…
+== https://ethereum-rpc.publicnode.com (1)
+cast call $D 0xaa5dcecc<32 bytes>  -> 0x00000000000000000000000063c1d3e9c646184529c5694630a01c00df171b56
+cast call $D 0x01020304<32 bytes>  -> error code 3: execution reverted
+cast code $D                       -> 0x608060405260043610…

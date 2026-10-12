@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ETH to ckETH</title>
+<style>
+  :root { --bg: #fff; --fg: #111; --muted: #666; --line: #ddd; --accent: #2a5bd7; --bad: #b00020; --good: #0a7a3d; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #121212; --fg: #eee; --muted: #999; --line: #333; --accent: #7aa2ff; --bad: #ff6b81; --good: #4cd38a; } }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, sans-serif; margin: 0; padding: 24px 16px; }
+  main { max-width: 560px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p { margin: 6px 0; } .muted { color: var(--muted); font-size: 13px; }
+  label { display: block; margin: 16px 0 4px; font-weight: 600; }
+  input, select { width: 100%; box-sizing: border-box; padding: 8px; font: 14px ui-monospace, monospace; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; }
+  button { margin-top: 16px; padding: 10px 16px; font-size: 15px; border: 0; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: default; }
+  code { font: 12px ui-monospace, monospace; word-break: break-all; }
+  .box { border: 1px solid var(--line); border-radius: 6px; padding: 10px; margin-top: 12px; }
+  .bad { color: var(--bad); } .good { color: var(--good); }
+</style>
+</head>
+<body>
+<main>
+  <h1>ETH → ckETH</h1>
+  <p class="muted">Turns ETH into ckETH on the Internet Computer for one IC principal. From Ethereum it calls DFINITY's ckETH helper directly. From another chain, Relay bridges the ETH and makes that same helper call on Ethereum, in one transaction you sign. About 20 minutes after the deposit lands on Ethereum, the principal holds the ckETH. Your wallet shows every transaction before you sign it.</p>
+
+  <button id="connect">Connect wallet</button>
+  <p id="acct" class="muted"></p>
+
+  <label for="chain">Your ETH is on</label>
+  <select id="chain"></select>
+
+  <label for="principal">IC principal (who receives the ckETH)</label>
+  <input id="principal" value="ih4wp-rvfmw-iimsu-qnmdv-63mci-c6s5k-6dfao-fmrkp-3nsmu-mf5ul-hqe" spellcheck="false">
+  <p id="pcheck" class="muted"></p>
+
+  <label for="amount">ckETH to receive (ETH)</label>
+  <input id="amount" value="0.004" inputmode="decimal">
+  <p class="muted">At most 0.05 ETH from this page. 0.004 is about 3.3 ICP, about 7 T cycles at today's rates. From another chain you pay this plus Relay's fee, about 1 %.</p>
+
+  <button id="quote" disabled>Check</button>
+  <div class="box" id="plan" hidden></div>
+
+  <button id="send" disabled>Send</button>
+  <p id="status"></p>
+</main>
+<script>
+// lib-start: pure functions, tested by ops/rehearsal/cketh/check.mjs
+const HELPER = "0x18901044688d3756c35ed2b36d93e6a5b8e00e68";        // get_minter_info deposit_with_subaccount_helper_contract_address, 2026-10-09
+const SELECTOR = "17c819c4";                                        // depositEth(bytes32 principal, bytes32 subaccount)
+const RELAY_DEPOSITORY = "0x4cd00e387622c35bddb9b4c962c136462338bc31"; // the same address on every chain Relay quoted (measured 2026-10-09)
+const MAX_WEI = 50000000000000000n;                                 // 0.05 ETH
+const MAX_FEE_BPS = 300n;                                           // refuse a Relay quote costing more than 3 % over the amount
+const CHAINS = [
+  { id: 1, name: "Ethereum (direct, no bridge)", rpc: "https://ethereum-rpc.publicnode.com", explorer: "https://etherscan.io" },
+  { id: 4663, name: "Robinhood Chain", rpc: "https://rpc.mainnet.chain.robinhood.com", explorer: "https://robinhoodchain.blockscout.com" },
+  { id: 8453, name: "Base", rpc: "https://mainnet.base.org", explorer: "https://basescan.org" },
+  { id: 42161, name: "Arbitrum One", rpc: "https://arb1.arbitrum.io/rpc", explorer: "https://arbiscan.io" },
+  { id: 10, name: "Optimism", rpc: "https://mainnet.optimism.io", explorer: "https://optimistic.etherscan.io" },
+];
+
+function crc32(bytes) {
+  let c = ~0 >>> 0;
+  for (const b of bytes) { c ^= b; for (let k = 0; k < 8; k++) c = (c >>> 1) ^ (0xedb88320 & -(c & 1)); }
+  return ~c >>> 0;
+}
+/** Principal text → its bytes, with the checksum verified (throws on a typo). */
+function principalBytes(text) {
+  const s = text.trim().toLowerCase().replace(/-/g, "");
+  if (!/^[a-z2-7]+$/.test(s)) throw new Error("not a principal (letters a-z and digits 2-7, in dashed groups)");
+  const A = "abcdefghijklmnopqrstuvwxyz234567";
+  let bits = 0, val = 0; const out = [];
+  for (const ch of s) { val = ((val << 5) | A.indexOf(ch)) & 0xffff; bits += 5; if (bits >= 8) { bits -= 8; out.push((val >>> bits) & 0xff); } }
+  const all = Uint8Array.from(out);
+  if (all.length < 4) throw new Error("too short");
+  const body = all.slice(4), sum = ((all[0] << 24) | (all[1] << 16) | (all[2] << 8) | all[3]) >>> 0;
+  if (crc32(body) !== sum) throw new Error("checksum mismatch: a character is wrong");
+  if (body.length > 29) throw new Error("too long");
+  // the text must be exactly the canonical form of what it decodes to: a typo in the last character (which only carries padding bits)
+  // or a missing dash passes the checksum but not this
+  let enc = "", v = 0, n = 0;
+  for (const x of all) { v = ((v << 8) | x) & 0xffff; n += 8; while (n >= 5) { n -= 5; enc += A[(v >>> n) & 31]; } }
+  if (n > 0) enc += A[(v << (5 - n)) & 31];
+  const canonical = enc.match(/.{1,5}/g).join("-");
+  if (canonical !== text.trim().toLowerCase()) throw new Error("not the exact text of a principal: check every character and dash");
+  return body;
+}
+/** The minter's 32-byte form: length, then bytes, zero-padded (dfinity/ic encode_principal). */
+function principal32Hex(text) {
+  const b = principalBytes(text), out = new Uint8Array(32);
+  out[0] = b.length; out.set(b, 1);
+  return [...out].map((x) => x.toString(16).padStart(2, "0")).join("");
+}
+function calldata(text) { return "0x" + SELECTOR + principal32Hex(text) + "0".repeat(64); }
+/** "0.004" → wei, exactly (no floats). */
+function toWei(s) {
+  const m = /^\s*(\d+)(?:\.(\d{0,18}))?\s*$/.exec(s);
+  if (!m) throw new Error("not an amount");
+  return BigInt(m[1]) * 10n ** 18n + BigInt((m[2] || "").padEnd(18, "0"));
+}
+const fmt = (w) => (Number(w) / 1e18).toFixed(6);
+/** The Relay quote body: deliver exactly `wei` on Ethereum and spend it on the helper deposit. */
+function relayBody(user, origin, wei, text) {
+  return { user, originChainId: origin, destinationChainId: 1, originCurrency: "0x0000000000000000000000000000000000000000",
+    destinationCurrency: "0x0000000000000000000000000000000000000000", amount: wei.toString(), tradeType: "EXACT_OUTPUT",
+    refundTo: user, slippageTolerance: "50", txs: [{ to: HELPER, value: wei.toString(), data: calldata(text) }] };
+}
+/** Refuses a quote that is not one native deposit to Relay's depository, on the right chain, from this account, within the fee cap,
+ *  whose committed order carries exactly our helper call. Returns the transaction to sign. */
+function judgeRelay(q, user, origin, wei, text) {
+  const need = (c, why) => { if (!c) throw new Error("Relay quote refused: " + why); };
+  need(Array.isArray(q?.steps) && q.steps.length === 1, "not exactly one step");
+  const s = q.steps[0];
+  need(s.id === "deposit" && s.kind === "transaction" && s.items?.length === 1, "not a single deposit transaction");
+  const d = s.items[0].data || {};
+  need(Number(d.chainId) === origin, "the deposit is on chain " + d.chainId);
+  need(String(d.to).toLowerCase() === RELAY_DEPOSITORY, "the deposit goes to " + d.to + ", not Relay's depository");
+  need(!d.from || String(d.from).toLowerCase() === user.toLowerCase(), "the quote was made for another sender");
+  const value = BigInt(d.value);
+  need(value >= wei && value * 10000n <= wei * (10000n + MAX_FEE_BPS), "it asks " + fmt(value) + " ETH for " + fmt(wei) + " (more than 3 % over)");
+  const calls = JSON.stringify(q?.protocol?.v2?.orderData?.output?.calls ?? []).toLowerCase();
+  need(calls.includes(HELPER.slice(2)) && calls.includes(principal32Hex(text)), "the order does not carry the helper deposit for this principal");
+  return { to: d.to, data: d.data, value: "0x" + value.toString(16), chainId: origin };
+}
+// lib-end
+
+const $ = (id) => document.getElementById(id);
+let account = null, prepared = null;
+for (const c of CHAINS) $("chain").append(new Option(c.name, String(c.id)));
+const chainOf = () => CHAINS.find((c) => c.id === Number($("chain").value));
+const say = (el, text, cls) => { $(el).textContent = text; $(el).className = cls; };
+
+function inputsOk() {
+  try { calldata($("principal").value); say("pcheck", "Checksum ok.", "muted good"); }
+  catch (e) { say("pcheck", e.message, "bad"); return false; }
+  try { const w = toWei($("amount").value); return w > 0n && w <= MAX_WEI; } catch { return false; }
+}
+function reset() { prepared = null; $("plan").hidden = true; $("send").disabled = true; $("quote").disabled = !(account && inputsOk()); }
+for (const id of ["principal", "amount", "chain"]) $(id).addEventListener("input", reset);
+
+async function onChain(id) {
+  const hex = "0x" + id.toString(16), c = CHAINS.find((x) => x.id === id);
+  try { await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: hex }] }); }
+  catch (e) {
+    if (e.code !== 4902) throw e;
+    await window.ethereum.request({ method: "wallet_addEthereumChain", params: [{ chainId: hex, chainName: c.name, rpcUrls: [c.rpc],
+      nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 }, blockExplorerUrls: [c.explorer] }] });
+  }
+}
+
+$("connect").onclick = async () => {
+  if (!window.ethereum) return say("acct", "No wallet found in this browser.", "bad");
+  try { [account] = await window.ethereum.request({ method: "eth_requestAccounts" }); say("acct", "Connected: " + account, "muted good"); }
+  catch (e) { account = null; say("acct", e.message || String(e), "bad"); }
+  reset();
+};
+
+$("quote").onclick = async () => {
+  reset();
+  const c = chainOf(), wei = toWei($("amount").value), text = $("principal").value;
+  try {
+    if (c.id === 1) {
+      prepared = { to: HELPER, data: calldata(text), value: "0x" + wei.toString(16), chainId: 1 };
+      $("plan").innerHTML = `<div>One transaction on <b>Ethereum</b>: <b>${fmt(wei)} ETH</b> to the ckETH helper.</div><div class="muted">to</div><code>${HELPER}</code><div class="muted">data</div><code>${prepared.data}</code>`;
+    } else {
+      say("status", "Asking Relay for a quote…", "muted");
+      const r = await fetch("https://api.relay.link/quote/v2", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(relayBody(account, c.id, wei, text)) });
+      const q = await r.json();
+      if (!r.ok) throw new Error("Relay refused: " + (q.message || r.status));
+      prepared = judgeRelay(q, account, c.id, wei, text);
+      const fee = BigInt(prepared.value) - wei;
+      $("plan").innerHTML = `<div>One transaction on <b>${c.name}</b>: <b>${fmt(BigInt(prepared.value))} ETH</b> to Relay (fee ${fmt(fee)} ETH). Relay then delivers ${fmt(wei)} ETH to the ckETH helper on Ethereum for this principal. If it cannot, it refunds you on ${c.name}.</div><div class="muted">to</div><code>${prepared.to}</code><div class="muted">Relay request</div><code>${q.steps[0].requestId}</code>`;
+      say("status", "Checked: Relay's order carries the helper deposit for this principal.", "muted good");
+    }
+    $("plan").hidden = false; $("send").disabled = false;
+  } catch (e) { say("status", e.message || String(e), "bad"); }
+};
+
+$("send").onclick = async () => {
+  try {
+    const c = chainOf();
+    await onChain(prepared.chainId);
+    const tx = { from: account, to: prepared.to, data: prepared.data, value: prepared.value };
+    say("status", "Checking the transaction…", "muted");
+    await window.ethereum.request({ method: "eth_estimateGas", params: [tx] });   // a revert stops here, before anything is signed
+    say("status", "Confirm in your wallet…", "muted");
+    const hash = await window.ethereum.request({ method: "eth_sendTransaction", params: [tx] });
+    $("status").innerHTML = `Sent on ${c.name}: <a href="${c.explorer}/tx/${hash}" target="_blank" rel="noopener">${hash}</a><br>`
+      + (c.id === 1 ? "The ckETH arrives about 20 minutes after it mines." : "Relay usually fills in under a minute; the ckETH arrives about 20 minutes after that.")
+      + " Send this hash to Claude for the swap to ICP and cycles.";
+    $("status").className = "good"; $("send").disabled = true;
+  } catch (e) { say("status", e.message || String(e), "bad"); }
+};
+</script>
+</body>
+</html>

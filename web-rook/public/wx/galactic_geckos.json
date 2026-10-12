@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Galactic Geckos",
+  "symbol": "wGECKO",
+  "description": "Rook's wrapped Galactic Geckos token: each whole token is backed either by a Galactic Geckos NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/galactic_geckos.png",
+  "external_url": "https://userook.fun/#/collection/galactic_geckos",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/galactic_geckos.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

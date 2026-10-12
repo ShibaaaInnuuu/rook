@@ -1,0 +1,119 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "theapehood",
+    "name": "Ape Hood",
+    "chain": "robinhood",
+    "chainName": "Robinhood Chain",
+    "chainId": 4663,
+    "standard": "erc721",
+    "id": "0x47484196a99df52bf8fe53fb664c54821c13219d",
+    "description": "An ERC-721 collection on Robinhood Chain, in Nosh's collection registry.",
+    "image": "https://i2c.seadn.io/collection/theapehood/image_type_logo/430de8434ef7d7357128c112d6069c/ec430de8434ef7d7357128c112d6069c.png",
+    "links": {
+      "website": "https://basedapes.wtf/apehood",
+      "x": "https://x.com/theapehood",
+      "discord": null,
+      "marketplace": "https://opensea.io/collection/theapehood",
+      "explorer": "https://explorer.mainnet.chain.robinhood.com/address/0x47484196a99df52bf8fe53fb664c54821c13219d"
+    },
+    "floor": {
+      "native": "18900000000000000",
+      "unit": "wei",
+      "eth": 0.0189,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/theapehood/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 3333,
+    "owners": 784,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1",
+        "name": "1",
+        "image": "https://cdn.basedapes.wtf/apehood/images/1/1-1.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x47484196a99df52bf8fe53fb664c54821c13219d/instance/1"
+      },
+      {
+        "id": "2",
+        "name": "2",
+        "image": "https://cdn.basedapes.wtf/apehood/images/2/generated-e268b9b10c9d78cd.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x47484196a99df52bf8fe53fb664c54821c13219d/instance/2"
+      },
+      {
+        "id": "3",
+        "name": "3",
+        "image": "https://cdn.basedapes.wtf/apehood/images/3/generated-9b5cccd360870b8f.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x47484196a99df52bf8fe53fb664c54821c13219d/instance/3"
+      },
+      {
+        "id": "4",
+        "name": "4",
+        "image": "https://cdn.basedapes.wtf/apehood/images/4/generated-6dbd647da1f1ce23.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x47484196a99df52bf8fe53fb664c54821c13219d/instance/4"
+      },
+      {
+        "id": "5",
+        "name": "5",
+        "image": "https://cdn.basedapes.wtf/apehood/images/5/generated-fe199ae4b83d745a.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x47484196a99df52bf8fe53fb664c54821c13219d/instance/5"
+      },
+      {
+        "id": "6",
+        "name": "6",
+        "image": "https://cdn.basedapes.wtf/apehood/images/6.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x47484196a99df52bf8fe53fb664c54821c13219d/instance/6"
+      },
+      {
+        "id": "7",
+        "name": "7",
+        "image": "https://cdn.basedapes.wtf/apehood/images/7/generated-5d241ccabb47fc21.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x47484196a99df52bf8fe53fb664c54821c13219d/instance/7"
+      },
+      {
+        "id": "8",
+        "name": "8",
+        "image": "https://cdn.basedapes.wtf/apehood/images/8/generated-62c633151c13baa9.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x47484196a99df52bf8fe53fb664c54821c13219d/instance/8"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.019 ETH, 0.023 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

@@ -1,0 +1,187 @@
+// =====================================================================================================================================
+// Review round 6, part B: PoCs (docs/audit/2026-09-27-nft/review6/poc/B). A PASSING test shows the weakness is present.
+// =====================================================================================================================================
+
+fn quiet(f: &mut Fake, st: &mut EthState) -> Vec<String> {
+    f.now += 1_200;
+    f.m(MODULE).posted_at = f.now - 60;
+    evidence(f, st);
+    block_on(ef::tick(f, st, false))
+}
+fn scan_of(st: &EthState) -> ef::SaleScan {
+    st.sale_scan.iter().flatten().find(|s| s.collection == MILADY).unwrap().clone()
+}
+fn newer_sales(f: &mut Fake, first: u64, every: u64, n: u64, tag: u8) -> Vec<([u8; 32], u64)> {
+    let mut v = vec![];
+    for i in 0..n {
+        let mut h = [tag; 32];
+        h[..8].copy_from_slice(&(i + 1).to_be_bytes());
+        let s = { let mut a = [0x71u8; 20]; a[0] = tag; a[12..].copy_from_slice(&i.to_be_bytes()); a };
+        let b = { let mut a = [0x72u8; 20]; a[0] = tag; a[12..].copy_from_slice(&i.to_be_bytes()); a };
+        let blk = first + every * i;
+        f.sale_receipts.insert(h, sale_receipt(MILADY, (tag as u128) * 1_000_000 + i as u128, 94 * E / 100, s, b, blk));
+        v.push((h, blk));
+    }
+    v
+}
+
+/// The scan after a gap of `gap` blocks with no pass (the runner down, the cycles under the floor, ...): the window read at
+/// ETH_PIN, then the gap, then `passes` passes 100 blocks apart; honest sales one every 100 blocks after the gap.
+/// Returns (first pass a newer sale is read, newer sales read after a day, after `passes`, how many were final, lag after a day).
+fn after_gap(depth: Option<u64>, raw: bool, gap: u64, passes: usize) -> (Option<usize>, usize, usize, usize, u64, u32) {
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.log_depth = depth;
+    f.depth_raw = raw;
+    f.finalized = ETH_PIN;
+    f.pin_now = Some(ETH_PIN);
+    f.m(MODULE).accepted = 93 * E / 100;
+    for _ in 0..4 { quiet(&mut f, &mut st); }
+    let mut pin = ETH_PIN + gap;
+    f.now += gap * 12;
+    let top_gap = pin - en::SALE_FINAL_DEPTH_BLOCKS;
+    let new = newer_sales(&mut f, top_gap + 50, 100, passes as u64, 0x5e);
+    let hs: Vec<[u8; 32]> = new.iter().map(|x| x.0).collect();
+    let (mut first, mut day, mut lag_day) = (None, 0, 0);
+    for i in 0..passes {
+        pin += 100;
+        f.pin_now = Some(pin);
+        f.finalized = pin;
+        quiet(&mut f, &mut st);
+        if first.is_none() && cached(&st, &hs) > 0 { first = Some(i + 1); }
+        if i + 1 == 72 { day = cached(&st, &hs); lag_day = (pin - en::SALE_FINAL_DEPTH_BLOCKS).saturating_sub(scan_of(&st).up); }
+    }
+    let top = pin - en::SALE_FINAL_DEPTH_BLOCKS;
+    (first, day, cached(&st, &hs), new.iter().filter(|x| x.1 <= top).count(), lag_day, f.log_fails)
+}
+
+#[test]
+fn r6_b_m1_a_a_gap_past_the_providers_log_depth_freezes_the_forward_walk_until_the_window_resets() {
+    // control: providers that serve the whole window
+    let c = after_gap(None, false, 12_000, 72);
+    println!("control (deep providers), a 12,000-block gap (~40 h): first newer sale read at pass {:?}; after a day {} of {} final; lag {}",
+        c.0, c.1, c.3, c.4);
+    assert!(c.0.is_some_and(|p| p <= 3));
+    // publicnode's ~10,000-block log depth, the refusal as the canister really sees it (message dropped by the transform)
+    for (raw, name) in [(false, "transformed (-32602, message dropped: Other)"), (true, "raw message (\"Archive ...\": Deep)")] {
+        let r = after_gap(Some(10_000), raw, 12_000, 504);
+        println!("log depth 10,000, {name}: 12,000-block gap: first newer sale read at pass {:?} of 504; after a day {} read, lag {} blocks; \
+            after a week {} of {} final newer sales read; {} failed log reads", r.0, r.1, r.4, r.2, r.3, r.5);
+        assert_eq!(r.1, 0, "no newer sale read for a day");
+        assert!(r.4 > 10_000, "the forward walk stays behind the provider's depth");
+        assert!(r.0.map_or(true, |p| p > 300), "not before the window resets (~384 passes): {:?}", r.0);
+    }
+}
+
+#[test]
+fn r6_b_m1_b_the_transform_drops_the_providers_words_so_deep_and_most_too_big_shapes_are_dead() {
+    use ef::{scan_error, ScanErr};
+    // what `rpc_once_with` returns for a provider's error, through the real transforms (`eth_transfer_logs` / `eth_sale_logs`)
+    let seen = |raw: &str| {
+        let b = en::transfer_logs_body(raw.as_bytes());
+        let v: serde_json::Value = serde_json::from_slice(&b).unwrap();
+        let s = en::sale_logs_body(raw.as_bytes(), &MILADY);
+        assert_eq!(b, s, "both transforms agree");
+        format!("chain 1: eth_getLogs: no result: {}", v.get("error").map(|e| e.to_string()).unwrap_or_default())
+    };
+    let cases = [
+        (r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32602,"message":"Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"}}"#, "publicnode archive (fixer: Deep)"),
+        (r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32602,"message":"Log response size exceeded. You can make eth_getLogs requests with up to a 2K block range"}}"#, "size exceeded (fixer: TooBig)"),
+        (r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"block range is too wide"}}"#, "range too wide (fixer: TooBig)"),
+        (r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"query timeout exceeded"}}"#, "timeout (fixer: TooBig)"),
+        (r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32701,"message":"broker: node error"}}"#, "publicnode 5,000 blocks"),
+        (r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32005,"message":"query returned more than 10000 results"}}"#, "result cap (fixer: TooBig)"),
+        (r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32005,"message":"XRPC anonymous capacity temporarily busy"}}"#, "xrpc.cl rate limit (HTTP 429)"),
+    ];
+    let mut got = vec![];
+    for (raw, name) in cases {
+        let s = seen(raw);
+        let c = scan_error(&s);
+        println!("{name}: the canister sees `{s}` -> {c:?}");
+        got.push(c);
+    }
+    assert_eq!(got, vec![ScanErr::Other, ScanErr::Other, ScanErr::Other, ScanErr::Other, ScanErr::Other, ScanErr::TooBig, ScanErr::TooBig],
+        "only the code survives: Deep never fires; a rate limit (-32005) is taken as too big");
+}
+
+/// A week at xrpc.cl's measured rate limit: `pct` % of log reads (each marketplace query on its own) answered -32005.
+fn busy_week(pct: u64, cap: Option<u64>, passes: usize) -> (usize, usize, usize, usize, usize, usize, u32) {
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.pin_now = Some(ETH_PIN);
+    f.m(MODULE).accepted = 93 * E / 100;
+    f.seaport_range_cap = cap;
+    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+    // honest sales over the whole window already (one every 400 blocks) and one every 100 blocks from now on
+    let old = newer_sales(&mut f, top0 - en::SALE_WINDOW_BLOCKS + 200, 400, 120, 0x6a);
+    let new = newer_sales(&mut f, top0 + 50, 100, passes as u64, 0x5e);
+    f.busy_pct = pct;
+    let mut pin = ETH_PIN;
+    let mut max_bad = 0;
+    for _ in 0..passes {
+        pin += 100;
+        f.pin_now = Some(pin);
+        f.finalized = pin;
+        quiet(&mut f, &mut st);
+        max_bad = max_bad.max(scan_of(&st).bad.map_or(0, |b| b.len()));
+    }
+    let top = pin - en::SALE_FINAL_DEPTH_BLOCKS;
+    let bottom = top - en::SALE_WINDOW_BLOCKS;
+    let sc = scan_of(&st);
+    // sales that should be counted: final, in the window, and old enough (a day under the head) that any healthy scan has read them
+    let due: Vec<[u8; 32]> = old.iter().chain(new.iter()).filter(|x| x.1 >= bottom && x.1 + 7_200 <= top).map(|x| x.0).collect();
+    let read = cached(&st, &due);
+    // lost for good: in a block the scan will never read again (done_big after a busy Seaport half, a skip given up)
+    let never: Vec<u64> = sc.done_big.iter().flatten().copied().chain(sc.skipped.iter().flatten().filter(|s| s.1 == u64::MAX).map(|s| s.0)).collect();
+    let lost = old.iter().chain(new.iter()).filter(|x| never.contains(&x.1) && cached(&st, &[x.0]) == 0).count();
+    let pending_bad = due.iter().filter(|h| cached(&st, &[**h]) == 0).count();
+    let blk_of: std::collections::HashMap<[u8; 32], u64> = old.iter().chain(new.iter()).map(|x| (x.0, x.1)).collect();
+    let in_bad = due.iter().filter(|h| cached(&st, &[**h]) == 0 && sc.bad.iter().flatten().any(|(a, b)| *a <= blk_of[*h] && blk_of[*h] <= *b)).count();
+    let in_skip = due.iter().filter(|h| cached(&st, &[**h]) == 0 && sc.skipped.iter().flatten().any(|s| s.0 == blk_of[*h])).count();
+    let in_pend = due.iter().filter(|h| cached(&st, &[**h]) == 0 && sc.pend.iter().flatten().any(|m| m.hash == **h)).count();
+    let judged_no = due.iter().filter(|h| cached(&st, &[**h]) == 0 && sc.judged.iter().flatten().any(|j| j.0 == u64::from_be_bytes(h[..8].try_into().unwrap()))).count();
+    println!("  uncounted: in a deferred range {in_bad}, in a skipped block {in_skip}, queued {in_pend}, judged no-sale {judged_no}; the rest ({}) nowhere: lost for good", pending_bad - in_bad - in_skip - in_pend - judged_no);
+    println!("  uncounted due sales: {pending_bad}; of them in a block never read again: {lost}; sc.skipped {:?}", sc.skipped.as_ref().map(|s| s.len()));
+    (read, due.len(), lost, max_bad, sc.bad.map_or(0, |b| b.len()), sc.done_big.map_or(0, |d| d.len()), f.busy_hits)
+}
+
+#[test]
+fn r6_b_m2_a_rate_limit_answers_are_taken_as_too_big() {
+    for (pct, cap) in [(0, None), (0, Some(520)), (30, Some(520)), (50, Some(520))] {
+        let r = busy_week(pct, cap, 504);
+        println!("busy {pct} %, Seaport range cap {cap:?}: a week: {} of {} due sales counted; lost for good (done_big / given up) {}; \
+            SaleScan.bad at most {} ({} at the end); done_big {}; busy answers {}", r.0, r.1, r.2, r.3, r.4, r.5, r.6);
+    }
+}
+
+#[test]
+fn r6_b_l_sixteen_unreadable_old_receipts_hold_every_newer_sale() {
+    for stuck in [false, true] {
+        let mut f = Fake::new(false);
+        let mut st = EthState::default();
+        f.finalized = ETH_PIN;
+        f.pin_now = Some(ETH_PIN);
+        f.m(MODULE).accepted = 93 * E / 100;
+        let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+        // 16 old honest moves (transfers, sales) whose receipts one provider no longer serves (null vs the other's receipt)
+        let old = newer_sales(&mut f, top0 - 30_000, 10, 16, 0x6b);
+        if stuck { f.receipt_disagree = old.iter().map(|x| x.0).collect(); }
+        for _ in 0..8 { quiet(&mut f, &mut st); }
+        let new = newer_sales(&mut f, top0 + 50, 100, 144, 0x5e);
+        let hs: Vec<[u8; 32]> = new.iter().map(|x| x.0).collect();
+        let mut pin = ETH_PIN;
+        for _ in 0..144 {
+            pin += 100;
+            f.pin_now = Some(pin);
+            f.finalized = pin;
+            quiet(&mut f, &mut st);
+        }
+        let top = pin - en::SALE_FINAL_DEPTH_BLOCKS;
+        let fin = new.iter().filter(|x| x.1 <= top).count();
+        let r = st.reading(&MILADY);
+        println!("16 old receipts unreadable: {stuck}: after two days {} of {} final newer sales read; reading: {:?} sales, held {:?}",
+            cached(&st, &hs), fin, r.map(|r| r.post.sales), r.map(|r| r.post.held.is_some()));
+        if stuck { assert_eq!(cached(&st, &hs), 0, "head-of-line: no newer receipt is ever judged"); } else { assert!(cached(&st, &hs) + 2 >= fin); }
+    }
+}

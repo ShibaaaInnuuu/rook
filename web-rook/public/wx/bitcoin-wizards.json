@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Bitcoin Wizard",
+  "symbol": "wBWIZ",
+  "description": "Rook's wrapped Bitcoin Wizards token: each whole token is backed either by a Bitcoin Wizards NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/bitcoin-wizards.png",
+  "external_url": "https://userook.fun/#/collection/bitcoin-wizards",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/bitcoin-wizards.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

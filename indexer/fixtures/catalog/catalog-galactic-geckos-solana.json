@@ -1,0 +1,53 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "galactic-geckos-solana",
+    "name": "Galactic Geckos",
+    "chain": "other",
+    "chainName": "Solana",
+    "chainId": null,
+    "standard": "other",
+    "id": "galactic-geckos-solana",
+    "description": null,
+    "image": "https://i2c.seadn.io/solana/HVhC63czpGLeyLK6wpMkxfDjtzZtnFv5HEXAoLhs7f4T/42c4ae4cae4a483fe3d58f47d64b03/5f42c4ae4cae4a483fe3d58f47d64b03.jpeg",
+    "links": {
+      "website": null,
+      "x": null,
+      "discord": null,
+      "marketplace": "https://opensea.io/collection/galactic-geckos-solana",
+      "explorer": null
+    },
+    "floor": null,
+    "items": null,
+    "owners": null,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [],
+    "sources": [],
+    "rook": {
+      "kind": "unsupported",
+      "why": "Solana is not a chain a vault here can hold on: the home-chain vault is an EVM contract with a native bridge to Robinhood Chain (docs/v6/home-chain-vault.md §2), and the canister holds Bitcoin only."
+    },
+    "curated": true
+  }
+}

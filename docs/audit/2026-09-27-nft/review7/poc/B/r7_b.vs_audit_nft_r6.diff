@@ -1,0 +1,232 @@
+--- tests/audit_nft_r6.rs	2026-09-28 09:26:13
++++ tests/r7_b.rs	2026-09-28 09:29:21
+@@ -223,6 +223,14 @@
+     state_depth: Option<u64>,
+     /// F6: every wrapper mintDeposit's estimate reverts (a paused listing: `ListingPaused`; or `MintRateLimited`)
+     mint_estimate_refuse: bool,
++    // ---- review round 7, part B (review7/poc/B) ----
++    /// R7: log reads overlapping [x, y] are refused, the next n times, by ONE provider with words of the `deep` class ("missing trie
++    /// node": a load-balanced backend that is not an archive), through the canister's transform
++    deep_once: Option<(u64, u64, u32)>,
++    /// R7: these receipts' reads are answered as a rate limit (one provider's `rate limit` words, or an HTTP 429 page), for ever
++    receipt_busy: Vec<[u8; 32]>,
++    /// R7: percent of log reads whose 13 replicas got mixed answers (some 429, some a result): the IC's divergence reject
++    diverge_pct: u64,
+ }
+ 
+ fn word(v: u128) -> Vec<u8> {
+@@ -250,10 +258,22 @@
+     format!("chain 1: eth_getLogs: no result: {}", v.get("error").map(|e| e.to_string()).unwrap_or_default())
+ }
+ /// xrpc.cl's anonymous rate limit (HTTP 429, measured), as the canister sees it
++/// R7: the IC's reject of an outcall whose replicas got different answers (some a 429, some a result), as `rpc_once_with` /
++/// `outcall_error` render it (`format!("{e:?}")` of `ic_cdk::call::Error::CallRejected`) and `nftnet::ask` prefixes it
++fn diverge_t() -> String {
++    "chain 1: eth_getLogs: CallRejected(CallRejected { raw_reject_code: 2, reject_message: \"No consensus could be reached. Replicas had different responses. Details: request_id: 1502433, timeout: 1716366433434690578, hashes: [f3a1…: 9, 7c02…: 4]\" })".to_string()
++}
+ fn busy_t() -> String {
+     seen_as(r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32005,"message":"XRPC anonymous capacity temporarily busy"}}"#)
+ }
+ impl Fake {
++    fn diverge(&mut self) -> bool {
++        if self.diverge_pct == 0 { return false; }
++        self.busy_seed = self.busy_seed.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407);
++        let b = (self.busy_seed >> 33) % 100 < self.diverge_pct;
++        if b { self.busy_hits += 1; }
++        b
++    }
+     fn busy(&mut self) -> bool {
+         if self.busy_pct == 0 { return false; }
+         self.busy_seed = self.busy_seed.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407);
+@@ -304,7 +324,7 @@
+             hide: vec![], unsure: false, real_advance: false, identify: false, sent_tx: HashMap::new(), payout_balance_fail: false,
+             bal_fail: None, big_sale_blocks: vec![], dense_blocks: vec![], odd_blocks: vec![], receipt_bytes: 0, mint_revert: 0, mint_log: vec![], item_of_err: 0, item_src: HashMap::new(),
+             log_depth: None, depth_raw: false, receipt_disagree: vec![], busy_pct: 0, busy_seed: 0x1234_5678, busy_hits: 0, seaport_range_cap: None, depth_plain: false, partial: false, payout_logs: HashMap::new(),
+-            live_pin: None, state_depth: None, mint_estimate_refuse: false,
++            live_pin: None, state_depth: None, mint_estimate_refuse: false, deep_once: None, receipt_busy: vec![], diverge_pct: 0,
+         }
+     }
+     fn m(&mut self, module: [u8; 20]) -> &mut Module {
+@@ -718,6 +738,9 @@
+         }
+         self.sale_reads += 1;
+         self.receipt_bytes += 2 * 32_000;
++        if self.receipt_busy.contains(&h) {
++            return Err(format!("chain 1: eth_getTransactionReceipt: no result: {}", serde_json::from_slice::<serde_json::Value>(&etch_autobuyer::pin::busy_body()).unwrap()["error"]));
++        }
+         if self.receipt_disagree.contains(&h) {
+             return Err("chain 1: providers disagree on eth_getTransactionReceipt; nothing is believed".into());
+         }
+@@ -740,6 +763,15 @@
+     async fn eth_transfer_moves(&mut self, collection: [u8; 20], from: u64, to: u64) -> Result<Vec<en::Move>, String> {
+         self.log_ranges.push((from, to));
+         if let Some(e) = self.too_deep(from) { return Err(e); }
++        if let Some((x, y, n)) = self.deep_once {
++            if n > 0 && from <= y && x <= to {
++                self.deep_once = Some((x, y, n - 1));
++                self.log_fails += 1;
++                self.logs_bytes += 2 * 64_000;
++                return Err(seen_as(r#"{"jsonrpc":"2.0","id":1,"error":{"code":4444,"message":"pruned history unavailable"}}"#));
++            }
++        }
++        if self.diverge() { self.log_fails += 1; self.logs_bytes += 2 * 64_000; return Err(diverge_t()); }
+         if self.busy() { self.log_fails += 1; self.logs_bytes += 2 * 64_000; return Err(busy_t()); }
+         if self.odd_blocks.iter().any(|b| from <= *b && *b <= to) {
+             self.log_fails += 1;
+@@ -1728,4 +1760,156 @@
+     assert_eq!(candid::decode_one::<EthState>(&bytes).unwrap(), st);
+     let fixture = include_str!("fixtures/eth-state-round6.hex").trim();
+     assert_eq!(hex::encode(&bytes), fixture, "tests/fixtures/eth-state-round6.hex is stale: write the new bytes there (and run the monitor's and ops' tests)");
++}
++
++// =====================================================================================================================================
++// Review round 7, part B (review7/poc/B): the scan after fix round 6
++// =====================================================================================================================================
++
++/// A gap of `gap` blocks with no pass and honest sales INSIDE it (one every 100 blocks) and after it; `deep` = one provider refuses the
++/// hole's lower part ONCE with `deep`-class words. Returns (gap sales counted, gap sales final, newer counted, newer final, scan).
++fn gap_with_sales(gap: u64, deep: Option<(u64, u64)>, passes: usize) -> (usize, usize, usize, usize, ef::SaleScan, Vec<String>) {
++    let mut f = Fake::new(false);
++    let mut st = EthState::default();
++    f.finalized = ETH_PIN;
++    f.pin_now = Some(ETH_PIN);
++    f.m(MODULE).accepted = 93 * E / 100;
++    for _ in 0..4 { quiet(&mut f, &mut st); }
++    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
++    let mut pin = ETH_PIN + gap;
++    f.now += gap * 12;
++    let top_gap = pin - en::SALE_FINAL_DEPTH_BLOCKS;
++    let inside = newer_sales(&mut f, top0 + 50, 100, (top_gap - top0) / 100 - 1, 0x4d);
++    let new = newer_sales(&mut f, top_gap + 50, 100, passes as u64, 0x5e);
++    if let Some((a, b)) = deep {
++        f.deep_once = Some((top0 + a, top0 + b, 1));
++    }
++    let mut lines = vec![];
++    for _ in 0..passes {
++        pin += 100;
++        f.pin_now = Some(pin);
++        f.finalized = pin;
++        lines.extend(quiet(&mut f, &mut st));
++    }
++    let top = pin - en::SALE_FINAL_DEPTH_BLOCKS;
++    let bottom = top - en::SALE_WINDOW_BLOCKS;
++    let ins: Vec<[u8; 32]> = inside.iter().filter(|x| x.1 >= bottom).map(|x| x.0).collect();
++    let nw: Vec<[u8; 32]> = new.iter().filter(|x| x.1 <= top).map(|x| x.0).collect();
++    (cached(&st, &ins), ins.len(), cached(&st, &nw), nw.len(), scan_of(&st), lines)
++}
++
++#[test]
++fn r7_b_l1_a_one_transient_deep_answer_in_the_hole_gives_up_the_rest_of_the_hole_for_good() {
++    // control: a 12,000-block gap (the runner down 40 h) on a deep pair: every sale in the gap is counted
++    let c = gap_with_sales(12_000, None, 144);
++    println!("control: gap sales {} of {}; newer {} of {}; lost {:?}; hole {:?}", c.0, c.1, c.2, c.3, c.4.lost, c.4.hole);
++    assert!(c.0 + 1 >= c.1);
++    // ONE answer with `deep` words from ONE of the two providers (a backend without the history, or a lying provider), once, on a
++    // read of the hole's lower part: the rest of the hole is recorded lost and never read again, for the whole week, although both
++    // providers serve it from the next read on
++    let r = gap_with_sales(12_000, Some((1_000, 3_000)), 144);
++    println!("one deep answer: gap sales {} of {} after TWO DAYS (every later read of both providers served); newer {} of {}; lost {:?}; hole {:?}", r.0, r.1, r.2, r.3,
++        r.4.lost, r.4.hole);
++    for l in r.5.iter().filter(|l| l.contains("NOT counted")).take(1) { println!("  note: {}", &l[..l.len().min(400)]); }
++    assert!(r.4.lost.is_some(), "recorded lost");
++    assert!(r.0 + 20 < r.1, "attack: the gap's older sales are never counted although served again: {} of {}", r.0, r.1);
++}
++
++#[test]
++fn r7_b_l1_b_a_busy_answer_is_unbounded_16_receipts_hold_every_newer_sale_with_no_page() {
++    // B6-L-1's shape with a provider's rate-limit words (or a 429) instead of a null: not a failure, so no rfail, no retry bound, no page
++    let mut f = Fake::new(false);
++    let mut st = EthState::default();
++    f.finalized = ETH_PIN;
++    f.pin_now = Some(ETH_PIN);
++    f.m(MODULE).accepted = 93 * E / 100;
++    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
++    let old = newer_sales(&mut f, top0 - 30_000, 10, 16, 0x6b);
++    f.receipt_busy = old.iter().map(|x| x.0).collect();
++    for _ in 0..8 { quiet(&mut f, &mut st); }
++    let new = newer_sales(&mut f, top0 + 50, 100, 144, 0x5e);
++    let hs: Vec<[u8; 32]> = new.iter().map(|x| x.0).collect();
++    let mut pin = ETH_PIN;
++    for _ in 0..144 {
++        pin += 100;
++        f.pin_now = Some(pin);
++        f.finalized = pin;
++        quiet(&mut f, &mut st);
++    }
++    let top = pin - en::SALE_FINAL_DEPTH_BLOCKS;
++    let fin = new.iter().filter(|x| x.1 <= top).count();
++    let sc = scan_of(&st);
++    println!("16 old receipts answered busy: after two days {} of {} final newer sales read; rfail {:?}; behind {:?}; lost {:?}; hole {:?}",
++        cached(&st, &hs), fin, sc.rfail.map(|v| v.len()), sc.behind, sc.lost, sc.hole);
++    assert!(cached(&st, &hs) * 10 < fin, "attack: the newer sales wait behind the busy receipts: {} of {}", cached(&st, &hs), fin);
++    assert!(scan_of(&st).rfail.is_none(), "and nothing the monitor pages on is set");
+ }
++
++#[test]
++fn r7_b_l2_the_scan_lag_page_cannot_fire_the_reanchor_keeps_behind_under_a_day() {
++    // every log read of the Ethereum pair answered busy for three days (MEV Blocker's Cloudflare 1015 for the subnet's IPs, or one
++    // provider lying): no sale is counted; the monitor's eth-scan-behind pages at behind >= 7,200 (monitor/src/ethnft.mjs:18,150)
++    let mut f = Fake::new(false);
++    let mut st = EthState::default();
++    f.finalized = ETH_PIN;
++    f.pin_now = Some(ETH_PIN);
++    f.m(MODULE).accepted = 93 * E / 100;
++    for _ in 0..4 { quiet(&mut f, &mut st); }
++    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
++    let new = newer_sales(&mut f, top0 + 50, 100, 216, 0x5e);
++    let hs: Vec<[u8; 32]> = new.iter().map(|x| x.0).collect();
++    f.busy_pct = 100;
++    let (mut pin, mut max_behind, mut pages) = (ETH_PIN, 0u64, 0usize);
++    for i in 0..216u64 {
++        pin += 97 + (i * 7919) % 7; // 97..103 blocks a 20-minute pass (Ethereum's missed slots), not exactly 100
++        f.pin_now = Some(pin);
++        f.finalized = pin;
++        quiet(&mut f, &mut st);
++        let b = scan_of(&st).behind.unwrap_or(0);
++        max_behind = max_behind.max(b);
++        if b >= 7_200 { pages += 1; }
++    }
++    let sc = scan_of(&st);
++    println!("three days all busy: newer sales counted {} of {}; behind at most {max_behind} (the page needs 7,200): {pages} pass(es) would page; \
++        hole {:?} (SEV3, not persistent); lost {:?}", cached(&st, &hs), hs.len(), sc.hole, sc.lost);
++    assert_eq!(cached(&st, &hs), 0);
++    assert!(max_behind <= 7_200, "behind is at most SALE_REANCHOR_LAG_BLOCKS at a pass's end: the page's >= 7,200 holds only at equality");
++    assert!(pages * 100 <= 216, "attack: three days with no sale counted, and the lag page's condition held on {pages} of 216 passes (by chance)");
++}
++
++fn diverge_week(pct: u64, cap: Option<u64>, passes: usize) -> (usize, usize, usize, usize) {
++    let mut f = Fake::new(false);
++    let mut st = EthState::default();
++    f.finalized = ETH_PIN;
++    f.pin_now = Some(ETH_PIN);
++    f.m(MODULE).accepted = 93 * E / 100;
++    f.seaport_range_cap = cap;
++    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
++    let old = newer_sales(&mut f, top0 - en::SALE_WINDOW_BLOCKS + 200, 400, 120, 0x6a);
++    let new = newer_sales(&mut f, top0 + 50, 100, passes as u64, 0x5e);
++    f.diverge_pct = pct;
++    let (mut pin, mut max_bad) = (ETH_PIN, 0);
++    for _ in 0..passes {
++        pin += 100;
++        f.pin_now = Some(pin);
++        f.finalized = pin;
++        quiet(&mut f, &mut st);
++        max_bad = max_bad.max(scan_of(&st).bad.map_or(0, |b| b.len()));
++    }
++    let top = pin - en::SALE_FINAL_DEPTH_BLOCKS;
++    let bottom = top - en::SALE_WINDOW_BLOCKS;
++    let due: Vec<[u8; 32]> = old.iter().chain(new.iter()).filter(|x| x.1 >= bottom && x.1 + 7_200 <= top).map(|x| x.0).collect();
++    (cached(&st, &due), due.len(), max_bad, f.busy_hits as usize)
++}
++
++#[test]
++fn r7_b_i1_a_replica_mixed_rate_limit_is_still_too_big() {
++    use ef::{scan_error, ScanErr};
++    assert_eq!(scan_error(&diverge_t()), ScanErr::TooBig, "the IC's divergence reject says `timeout:` -> limit");
++    assert_eq!(scan_error("chain 1: eth_getLogs: CallRejected(CallRejected { raw_reject_code: 2, reject_message: \"Timeout expired\" })"), ScanErr::TooBig);
++    for (pct, cap) in [(0, Some(520)), (30, Some(520)), (50, Some(520))] {
++        let r = diverge_week(pct, cap, 504);
++        println!("replica-mixed rate limit on {pct} % of log reads (Seaport range cap 520): a week: {} of {} due sales counted; SaleScan.bad at most {}; \
++            divergent answers {}", r.0, r.1, r.2, r.3);
++    }
++}

@@ -1,0 +1,53 @@
+test audit_nft_b_h1_the_sale_band_drives_the_post_away_from_every_real_listing ... FAILED
+test audit_nft_b_m2_a_transport_error_at_the_transfer_simulation_marks_the_ticket_undeliverable_a_week_early ... FAILED
+test audit_nft_b_m5_a_collection_at_its_custody_cap_that_still_wants_blocks_every_other_collections_buys ... FAILED
+test audit_nft_b_m3_a_read_error_while_superseding_orphans_a_delivery_that_did_move_so_the_redeemer_keeps_nft_and_refund ... FAILED
+test audit_nft_b_m4_a_nonce_read_at_a_lower_pin_strands_a_delivery_with_no_mark_and_no_retry ... FAILED
+test audit_nft_b_h1_self_trades_handed_in_as_the_latest_transfer_txs_set_the_modules_floor ... FAILED
+test audit_nft_b_m1_one_oversized_or_unreadable_sale_receipt_voids_the_whole_evidence_pass ... FAILED
+test audit_nft_b_m4_the_same_for_a_fill_strands_the_arrived_eth_and_every_later_buy ... FAILED
+test audit_nft_b_h2_the_days_global_mint_limit_reached_by_one_collection_stops_the_other_collections_floor_posts ... FAILED
+test audit_nft_b_h2_one_deposit_into_a_capped_collection_stops_the_floor_posts_of_every_collection ... FAILED
+test audit_nft_b_m5_one_arrived_buy_that_cannot_fill_blocks_every_collection_and_has_no_exit ... FAILED
+
+failures:
+
+thread 'audit_nft_b_h1_the_sale_band_drives_the_post_away_from_every_real_listing' (51178439) panicked at tests/audit_nft_b_r1.rs:448:62:
+called `Result::unwrap()` on an `Err` value: "0 verified sales count (distinct sellers and buyers, no self-trade, within 30 % of the listing floor); 3 are needed"
+
+thread 'audit_nft_b_m2_a_transport_error_at_the_transfer_simulation_marks_the_ticket_undeliverable_a_week_early' (51178443) panicked at tests/audit_nft_b_r1.rs:531:5:
+assertion `left == right` failed: marked undeliverable at once, 7 days before its deadline
+  left: []
+ right: [0]
+thread 'audit_nft_b_m5_a_collection_at_its_custody_cap_that_still_wants_blocks_every_other_collections_buys' (51178447) panicked at tests/audit_nft_b_r1.rs:636:9:
+["eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum"]
+
+thread 'audit_nft_b_m3_a_read_error_while_superseding_orphans_a_delivery_that_did_move_so_the_redeemer_keeps_nft_and_refund' (51178444) panicked at tests/audit_nft_b_r1.rs:554:5:
+the line was dropped before the read
+
+thread 'audit_nft_b_m4_a_nonce_read_at_a_lower_pin_strands_a_delivery_with_no_mark_and_no_retry' (51178445) panicked at tests/audit_nft_b_r1.rs:585:5:
+assertion `left == right` failed: signed at a nonce already used
+  left: 1
+ right: 0
+thread 'audit_nft_b_h1_self_trades_handed_in_as_the_latest_transfer_txs_set_the_modules_floor' (51178438) panicked at tests/audit_nft_b_r1.rs:476:52:
+posted
+
+thread 'audit_nft_b_m1_one_oversized_or_unreadable_sale_receipt_voids_the_whole_evidence_pass' (51178442) panicked at tests/audit_nft_b_r1.rs:498:5:
+five good sales and three good listings, and still no post
+
+thread 'audit_nft_b_m4_the_same_for_a_fill_strands_the_arrived_eth_and_every_later_buy' (51178446) panicked at tests/audit_nft_b_r1.rs:617:5:
+Buying { arrived: 498443962449863321, token: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 220], total: 450000000000000000, tx: [148, 122, 250, 248, 155, 30, 103, 232, 91, 37, 149, 174, 101, 88, 255, 227, 14, 67, 144, 28, 77, 205, 169, 160, 43, 14, 157, 89, 38, 57, 54, 135] }
+
+thread 'audit_nft_b_h2_the_days_global_mint_limit_reached_by_one_collection_stops_the_other_collections_floor_posts' (51178441) panicked at tests/audit_nft_b_r1.rs:757:5:
+assertion failed: f.m(MODULE2).posted.is_some()
+
+thread 'audit_nft_b_h2_one_deposit_into_a_capped_collection_stops_the_floor_posts_of_every_collection' (51178440) panicked at tests/audit_nft_b_r1.rs:700:13:
+Returning { tx: [73, 109, 143, 163, 126, 175, 78, 177, 85, 50, 97, 132, 49, 178, 245, 146, 98, 29, 136, 60, 216, 66, 106, 215, 206, 8, 200, 109, 3, 200, 57, 229] }
+
+thread 'audit_nft_b_m5_one_arrived_buy_that_cannot_fill_blocks_every_collection_and_has_no_exit' (51178448) panicked at tests/audit_nft_b_r1.rs:662:5:
+assertion `left == right` failed: no Azuki buy in five hours
+  left: 2
+ right: 1
+test result: FAILED. 0 passed; 11 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+error: test failed, to rerun pass `--test audit_nft_b_r1`

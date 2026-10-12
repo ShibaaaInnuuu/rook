@@ -1,0 +1,188 @@
+
+> test
+> tsx --test test/*.test.ts
+
+TAP version 13
+# Subtest: the catalogue becomes listings: every collection that has an inscription id, and every rune, with the registry's own fields
+ok 1 - the catalogue becomes listings: every collection that has an inscription id, and every rune, with the registry's own fields
+  ---
+  duration_ms: 816.378583
+  type: 'test'
+  ...
+# Subtest: the membership root is marked a PLACEHOLDER, covers exactly the ids we have, and its proofs are ones OpenZeppelin accepts
+ok 2 - the membership root is marked a PLACEHOLDER, covers exactly the ids we have, and its proofs are ones OpenZeppelin accepts
+  ---
+  duration_ms: 898.831792
+  type: 'test'
+  ...
+# Subtest: a real chain is refused the fixture members: a listing there commits to real ids or it is not built
+ok 3 - a real chain is refused the fixture members: a listing there commits to real ids or it is not built
+  ---
+  duration_ms: 787.2
+  type: 'test'
+  ...
+# Subtest: runes get no cap: the catalogue has no rune floor, so nothing is posted and the vault refuses to buy
+ok 4 - runes get no cap: the catalogue has no rune floor, so nothing is posted and the vault refuses to buy
+  ---
+  duration_ms: 775.899542
+  type: 'test'
+  ...
+# Subtest: the Bitcoin address is a marker nobody can be paid at, and one per vault
+ok 5 - the Bitcoin address is a marker nobody can be paid at, and one per vault
+  ---
+  duration_ms: 787.780417
+  type: 'test'
+  ...
+# Subtest: what could not be listed is recorded, with the reason
+ok 6 - what could not be listed is recorded, with the reason
+  ---
+  duration_ms: 832.873833
+  type: 'test'
+  ...
+# Subtest: coins spread across the whole inventory, weighted by the catalogue's own volume, a rune every fourth
+ok 7 - coins spread across the whole inventory, weighted by the catalogue's own volume, a rune every fourth
+  ---
+  duration_ms: 845.37375
+  type: 'test'
+  ...
+# Subtest: the weights say which of the catalogue's volume figures they came from, and never mix two windows
+ok 8 - the weights say which of the catalogue's volume figures they came from, and never mix two windows
+  ---
+  duration_ms: 782.629875
+  type: 'test'
+  ...
+# Subtest: every vault in the catalogue is created in batches, the count is written after every batch, and a restart finishes rather than repeats
+ok 9 - every vault in the catalogue is created in batches, the count is written after every batch, and a restart finishes rather than repeats
+  ---
+  duration_ms: 1631.295375
+  type: 'test'
+  ...
+# Subtest: an interrupted inventory is finished by the next boot, and the count was honest while it filled
+ok 10 - an interrupted inventory is finished by the next boot, and the count was honest while it filled
+  ---
+  duration_ms: 1654.075709
+  type: 'test'
+  ...
+# Subtest: the creator refuses any chain that is not ours, whatever it is told
+ok 11 - the creator refuses any chain that is not ours, whatever it is told
+  ---
+  duration_ms: 0.715833
+  type: 'test'
+  ...
+# Subtest: the proxy forwards by ALLOWLIST: every admin namespace, every unsigned send and every method nobody has thought of yet is refused
+ok 12 - the proxy forwards by ALLOWLIST: every admin namespace, every unsigned send and every method nobody has thought of yet is refused
+  ---
+  duration_ms: 1.462334
+  type: 'test'
+  ...
+# Subtest: a batch is judged call by call, a smuggled admin call is refused while its neighbours go through, and a long batch is refused whole
+ok 13 - a batch is judged call by call, a smuggled admin call is refused while its neighbours go through, and a long batch is refused whole
+  ---
+  duration_ms: 1.824583
+  type: 'test'
+  ...
+# Subtest: windows: a cap per key per window, which resets when the window has passed
+ok 14 - windows: a cap per key per window, which resets when the window has passed
+  ---
+  duration_ms: 0.10475
+  type: 'test'
+  ...
+# Subtest: the faucet: an address once a day, a place N times a day, never one of the deployment's own addresses; admin calls never reach the node
+ok 15 - the faucet: an address once a day, a place N times a day, never one of the deployment's own addresses; admin calls never reach the node
+  ---
+  duration_ms: 50.506375
+  type: 'test'
+  ...
+# Subtest: the bootstrap deploys to our own chains from this machine, and to nothing else
+ok 16 - the bootstrap deploys to our own chains from this machine, and to nothing else
+  ---
+  duration_ms: 0.322416
+  type: 'test'
+  ...
+# Subtest: the upstream shim: reads only, and a state read the real RPC calls too old is asked again at latest, and counted
+ok 17 - the upstream shim: reads only, and a state read the real RPC calls too old is asked again at latest, and counted
+  ---
+  duration_ms: 9.396625
+  type: 'test'
+  ...
+# Subtest: moods: a runner only ever buys, so a staging chain can actually reach a graduated coin; a fader mostly sells
+ok 18 - moods: a runner only ever buys, so a staging chain can actually reach a graduated coin; a fader mostly sells
+  ---
+  duration_ms: 0.908084
+  type: 'test'
+  ...
+# Subtest: moods: bursts need a rest first, a snipe happens once in a coin's first seconds, and launches start fast then settle
+ok 19 - moods: bursts need a rest first, a snipe happens once in a coin's first seconds, and launches start fast then settle
+  ---
+  duration_ms: 0.1005
+  type: 'test'
+  ...
+# Subtest: identity: every mood and every creator tax is used, names say they are simulated, and a logo fits Pons's 512-byte cap
+ok 20 - identity: every mood and every creator tax is used, names say they are simulated, and a logo fits Pons's 512-byte cap
+  ---
+  duration_ms: 1.084083
+  type: 'test'
+  ...
+# Subtest: the spreader holds one item in each state that would otherwise empty, and never more than one
+ok 21 - the spreader holds one item in each state that would otherwise empty, and never more than one
+  ---
+  duration_ms: 0.22975
+  type: 'test'
+  ...
+# Subtest: a purchase is identified by its vault as well as its number, because every vault counts from zero
+ok 22 - a purchase is identified by its vault as well as its number, because every vault counts from zero
+  ---
+  duration_ms: 0.116709
+  type: 'test'
+  ...
+# Subtest: the spreader never stalls a cold chain: nothing is held back until something has got past that state
+ok 23 - the spreader never stalls a cold chain: nothing is held back until something has got past that state
+  ---
+  duration_ms: 0.104209
+  type: 'test'
+  ...
+# Subtest: the spreader asks for the states the operator's ordinary path never reaches, once each
+ok 24 - the spreader asks for the states the operator's ordinary path never reaches, once each
+  ---
+  duration_ms: 0.109584
+  type: 'test'
+  ...
+# Subtest: a receipt deadline is three days, which staging never reaches, so one release is aged — but only when others can be spared
+ok 25 - a receipt deadline is three days, which staging never reaches, so one release is aged — but only when others can be spared
+  ---
+  duration_ms: 0.217208
+  type: 'test'
+  ...
+# Subtest: choices cover every mode a creator can pick, and a rune listing can only be pro rata
+ok 26 - choices cover every mode a creator can pick, and a rune listing can only be pro rata
+  ---
+  duration_ms: 0.237583
+  type: 'test'
+  ...
+# Subtest: a winner's address is a published test vector nobody holds, and it is one the CONTRACT accepts as taproot
+ok 27 - a winner's address is a published test vector nobody holds, and it is one the CONTRACT accepts as taproot
+  ---
+  duration_ms: 0.339875
+  type: 'test'
+  ...
+# Subtest: the simulator refuses any node but ours: a public address, and any chain id that is not the staging one
+ok 28 - the simulator refuses any node but ours: a public address, and any chain id that is not the staging one
+  ---
+  duration_ms: 21.369875
+  type: 'test'
+  ...
+# Subtest: no key is ever logged or written: the simulator's sources hold no path from a private key to output
+ok 29 - no key is ever logged or written: the simulator's sources hold no path from a private key to output
+  ---
+  duration_ms: 1.337667
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10331.570958

@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Runestone",
+  "symbol": "wRUNESTONE",
+  "description": "Rook's wrapped Runestone token: each whole token is backed either by a Runestone NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/runestone.png",
+  "external_url": "https://userook.fun/#/collection/runestone",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/runestone.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

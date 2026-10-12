@@ -1,0 +1,53 @@
+{
+  "id": 34,
+  "kind": "inscriptions",
+  "name": "Ordinals Cartel",
+  "ref": "ordinals-cartel",
+  "divisibility": 0,
+  "vault": "0x3202F8f300726df053BBBd1d3dceEDde8dE96B8e",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-ordinals-cartel",
+  "membershipRoot": "0x1f1a92e5282ec84d1c07b1d5978ca8013d3ad8e0dc483a770a6685584b0a26d2",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "63405689736134173",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "63405689736134173",
+    "attributedWei": "63405689736134173",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "63405689736134173",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x8eDceaC978C506b5470109a23B4D25a19c35b821",
+      "symbol": "MARB4SIM",
+      "depositedWei": "63405689736134173"
+    }
+  ]
+}

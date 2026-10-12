@@ -1,0 +1,18 @@
+{
+  "name": "rook-monitor",
+  "private": true,
+  "type": "module",
+  "description": "K6: watcher v2 (timelock proposals, decoded argument diffs, certified controllers and module hashes) and the custody canary (Bitcoin and 4663), alerting to Telegram. Public reads only. docs/v6/k6-watcher-canary.md",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/main.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@icp-sdk/core": "6.1.0",
+    "@noble/hashes": "1.8.0",
+    "viem": "2.56.9"
+  }
+}

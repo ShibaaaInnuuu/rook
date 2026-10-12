@@ -1,0 +1,6 @@
+
+running 1 test
+test r6_e6_i2_a_two_step_chain_move_keeps_the_old_chains_floors ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 37 filtered out; finished in 0.00s
+

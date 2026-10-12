@@ -1,0 +1,25 @@
+# The fueler (docs/v7/cycles-from-fees.md §4.2, v1): the platform's ops share of the fees becomes the canisters' cycles, with no human.
+# Build context: the REPO ROOT:   docker build -f ops/Dockerfile.fueler .
+# The image carries only what src/fueler.ts loads (src/fuel/, and the Relay judge it reuses: ethnft, relay; ic for the IC host; identity
+# for the PEM parser; log). Not the runner, the offer tool or the reconciler. ops/test/guards.test.ts holds this list to its imports.
+# At run time (Railway, its OWN service, never the runner's): FUELER_EVM_KEY and FUELER_IC_IDENTITY_PEM (secrets, its own keys), the
+# variables of deployments/launch/railway/fueler.env.example. FUEL_HOME=books (the default, docs/v9/canister-only-solana.md §9.2; the Solana
+# leg: docs/v9/fueler-solana.md) adds the Solana hot key: FUELER_SOL_KEYPAIR (sealed variable, the solana-keygen JSON) or FUELER_SOL_KEYPAIR_FILE (a 0600 file on the /data volume); the image
+# carries no key. One-shot plan, nothing signed: `node --import tsx src/fueler.ts --dry-run [--assume-cycles-t N] [--assume-sol N]`. A volume at /data keeps the journal: without it a restart forgets a run
+# in flight (it would not pay twice — the nonce and the ledger's dedup hold — but it could not finish the run by itself).
+# Audit E-16: it runs as `node`: the entrypoint makes the root-owned volume writable by `node` and drops to it.
+FROM node:22-alpine
+RUN apk add --no-cache su-exec
+WORKDIR /app/ops
+COPY ops/package.json ops/package-lock.json ./
+RUN npm ci --omit=dev --no-audit --no-fund
+COPY ops/tsconfig.json ./
+COPY ops/src/fueler.ts ops/src/ic.ts ops/src/identity.ts ops/src/log.ts ops/src/relay.ts ops/src/ethnft.ts src/
+COPY ops/src/fuel src/fuel
+COPY --chmod=0755 ops/docker/drop-to-node.sh /usr/local/bin/drop-to-node
+ENV NODE_ENV=production FUELER_STATE_DIR=/data PORT=8080 DATA_DIRS=/data
+RUN mkdir -p /data && chown node:node /data
+EXPOSE 8080
+HEALTHCHECK --interval=120s --timeout=5s --start-period=60s CMD wget -qO- "http://127.0.0.1:${PORT:-8080}/healthz" >/dev/null || exit 1
+ENTRYPOINT ["drop-to-node"]
+CMD ["node", "--import", "tsx", "src/fueler.ts"]

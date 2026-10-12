@@ -1,0 +1,34 @@
+Review round 7, the test bar at a78a542 (branch nft-side), run 2026-09-28 in the worktree (no tracked file changed; logs were kept
+under /tmp/rook-r7-T and removed afterwards). `git diff 2d747ba..HEAD -- autobuyer/` is empty: the canister and timelock sources are
+2d747ba's, the commit fixes-round6 §11 built.
+
+forge test --no-match-path "test/fork/*"          1115 passed, 0 failed (126 suites)             = fixes-round6 §11
+Seaport fork proof (anvil --fork-url eth.drpc.org
+  --fork-block-number 26055690, port 18742)       2/2 passed                                     = §11
+canister cargo test (cargo 1.98.1)                699 passed, 0 failed                           = §11
+timelock cargo test / --features rehearsal        15 / 15 passed                                 = §11
+ops                                               60 passed; typecheck clean                     = §11
+monitor                                           214 passed                                     = §11
+keeper                                            150 passed; typecheck clean                    = §11
+indexer                                           135 passed; typecheck clean                    = §11
+web-rook                                          72 passed; typecheck clean                     = §11
+staging                                           29 passed; typecheck clean                     = §11
+tools/snapshot                                    19 passed; tsc --noEmit clean                  = §11
+
+scripts/golive-dryrun.sh stack (STACK_PORT=18751 DRYRUN_PORT=18704): DRY RUN: ALL PASS
+  146 checks ok (v3-v6 stack); 536 (five-collection NFT stack); 664 (the launch go/no-go read on the COMMITTED
+  deployments/launch/nft-pilot.json, step 1, install argument on rpc.mevblocker.io + gateway.tenderly.co: 6 keyless provider
+  hosts); 52 "ok   refused" lines, among them the round-5 pair (xrpc.cl + publicnode) refused under --phase1 (B6-M-1), one
+  host twice (A4-L-3), J7's 61 at 24 a day, a both-at-once and a caps-first --proposal, a --proposal without its step;
+  --stage 2 and --proposal steps 2 and 3 pass.                                                   = §11
+
+Reproducible build: git archive of a78a542's autobuyer/ (= 2d747ba's), docker build --no-cache --platform linux/amd64
+-f Dockerfile.build (the first attempt died when Docker Desktop's daemon exited mid-compile, host memory pressure from
+parallel review builds; Docker was restarted and the build re-run from scratch with --no-cache)
+00d2d63530fee23d98a762c5ce81657a3f8bda65e7dd9459deb9c110a28ed3f1  buyer.wasm  (7,076,857 bytes; gzip -9 -n 1,345,257 < 2,000,000)
+b23a190365d4c5b2bfc41bd9e9caf147bf2eba50ba3b3d477e2be372840edc41  timelock.wasm
+2145099ea00214e8b521d456f6fc48145c7139f1ecd0c5643393c09c688e62f4  timelock-rehearsal.wasm
+All three identical to fixes-round6 §11 (the in-build shasum and the extracted files agree).
+
+Removed afterwards: the build image (rook-r7-t-build), the export, the extracted wasm, the fork anvil, the dry run's anvils (it
+stops its own; no stray deployment files left), /tmp/rook-r7-T. Docker's shared build cache was left alone.

@@ -1,0 +1,1907 @@
+{
+  "id": 1,
+  "kind": "rune",
+  "name": "DEMO•RUNE",
+  "ref": "840000:1",
+  "divisibility": 2,
+  "vault": "0x1c42E376a4dE31c667d06942b4E98A7C660d261c",
+  "btcVault": "bc1p-local-demo-not-a-real-address",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 8,
+  "depositedWei": "1569293426519830475",
+  "acquisitions": 26,
+  "capWei": "3998984384918",
+  "capExpiry": 1790046335,
+  "capExpired": false,
+  "openDeclarations": 1,
+  "live": {
+    "balanceWei": "300965646023421759",
+    "attributedWei": "91433944592979317",
+    "waitingWei": "0",
+    "reservedWei": "61706185238062426",
+    "spendableWei": "29727759354916891",
+    "bondWei": "209531701430442442",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [
+    {
+      "at": 1790027213,
+      "tx": "0x78c4125eadf9c8c427e7e53189af3bc666b9169fced281fdaa86e4e98b3c473e",
+      "type": "posted",
+      "who": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "amountWei": "35167508240241979"
+    },
+    {
+      "at": 1790024539,
+      "tx": "0x421d14179a23d6ca45a462a7cd1525d2de3069a1a80019521cfe08707323e8fe",
+      "type": "posted",
+      "who": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "amountWei": "37768225202320046"
+    },
+    {
+      "at": 1790023614,
+      "tx": "0xd795d40883c7664101dadb7dc76f5d36adcd6caa57b70befc66552fc965bdcd2",
+      "type": "posted",
+      "who": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "amountWei": "59920264813572256"
+    },
+    {
+      "at": 1790022894,
+      "tx": "0x1659b970690f5a1a57cc934e0c20a57c5a1a53c3bb5ec23cddc553df293d98e5",
+      "type": "posted",
+      "who": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "amountWei": "76675703174308161"
+    },
+    {
+      "at": 1790022887,
+      "tx": "0xec92d51e2384dc6c038eacfa35de4956fc8277cff556ff1fa96919b8a0432154",
+      "type": "slashed",
+      "who": null,
+      "amountWei": "73749691707264040"
+    },
+    {
+      "at": 1790022731,
+      "tx": "0xcdd4c969b6a8bf06c8442a281298ce9fcdb889c7f46bb0e7229c819a5f36f012",
+      "type": "posted",
+      "who": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "amountWei": "12043506469201614"
+    },
+    {
+      "at": 1790022327,
+      "tx": "0xbbf765b248225b29a9ae4fa416e484dd58b52f425199b1f933a2cb4bb74ca112",
+      "type": "posted",
+      "who": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "amountWei": "61706185238062426"
+    }
+  ],
+  "capHistory": [
+    {
+      "at": 1790042735,
+      "capWei": "3998984384918",
+      "expiry": 1790046335
+    },
+    {
+      "at": 1790040026,
+      "capWei": "3998984384918",
+      "expiry": 1790043626
+    },
+    {
+      "at": 1790037322,
+      "capWei": "3998984384918",
+      "expiry": 1790040922
+    },
+    {
+      "at": 1790034615,
+      "capWei": "3998984384918",
+      "expiry": 1790038215
+    },
+    {
+      "at": 1790031912,
+      "capWei": "3998984384918",
+      "expiry": 1790035512
+    },
+    {
+      "at": 1790029211,
+      "capWei": "3971607017974",
+      "expiry": 1790032811
+    },
+    {
+      "at": 1790025360,
+      "capWei": "3977212811909",
+      "expiry": 1790028960
+    },
+    {
+      "at": 1790022327,
+      "capWei": "3991775647050",
+      "expiry": 1790025927
+    },
+    {
+      "at": 1790015560,
+      "capWei": "3998984384918",
+      "expiry": 1790019160
+    }
+  ],
+  "declarations": [
+    {
+      "purchaseId": 15,
+      "status": "settled",
+      "maxEthWei": "50604787990350188",
+      "quantity": "1265441",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790033196,
+      "releasableAt": 1790036796,
+      "releasableIn": null,
+      "releasedAt": 1790033324,
+      "releasedWei": "50604787990350188",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790292524,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+          "amountWei": "50604787990350188"
+        }
+      ],
+      "tx": "0x8d3a66f65c195ef9cce02b32c3faf4db0e91c2b751a57586522011c0ec71f587"
+    },
+    {
+      "purchaseId": 14,
+      "status": "settled",
+      "maxEthWei": "72379777834198737",
+      "quantity": "1809954",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790032436,
+      "releasableAt": 1790036036,
+      "releasableIn": null,
+      "releasedAt": 1790032564,
+      "releasedWei": "72379777834198737",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790291764,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+          "amountWei": "72379777834198737"
+        }
+      ],
+      "tx": "0xbea04c230f34ea25be1a1dd3d4b62a01671bab65ffafe1b803e8e7a66fed3f1d"
+    },
+    {
+      "purchaseId": 13,
+      "status": "settled",
+      "maxEthWei": "121216782338461578",
+      "quantity": "3052084",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790031536,
+      "releasableAt": 1790035136,
+      "releasableIn": null,
+      "releasedAt": 1790031663,
+      "releasedWei": "121216782338461578",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790290863,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+          "amountWei": "42599126665554832"
+        },
+        {
+          "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+          "amountWei": "19107088832361037"
+        },
+        {
+          "coin": "0x19f6b2953f1d075c064Bed75DC0c68524c066fec",
+          "amountWei": "31206174544466910"
+        },
+        {
+          "coin": "0x5d2E13bD4770a30D3E7471B6b9CF7d51e9834a70",
+          "amountWei": "11996181851142556"
+        },
+        {
+          "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+          "amountWei": "16308210444936243"
+        }
+      ],
+      "tx": "0xa1f715d112ead9f8d0cf4c45cf0b17e38c952f629008f3b8432754bd5bd7e1a2"
+    },
+    {
+      "purchaseId": 12,
+      "status": "settled",
+      "maxEthWei": "181141183347056884",
+      "quantity": "4560904",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790029211,
+      "releasableAt": 1790032811,
+      "releasableIn": null,
+      "releasedAt": 1790029336,
+      "releasedWei": "181141183347056884",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790288536,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+          "amountWei": "181141183347056884"
+        }
+      ],
+      "tx": "0xd9be26a6a102a9abe9fe3b796e8d07476dc996000dcaee6383fded921aa1f383"
+    },
+    {
+      "purchaseId": 11,
+      "status": "settled",
+      "maxEthWei": "209531701430442442",
+      "quantity": "5268305",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790027213,
+      "releasableAt": 1790030813,
+      "releasableIn": null,
+      "releasedAt": 1790027336,
+      "releasedWei": "209531701430442442",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790286536,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+          "amountWei": "209531701430442442"
+        }
+      ],
+      "tx": "0x2c4237296929f5f11995c47191a5efb4225c4cffefc37bf777bba27897ef2254"
+    },
+    {
+      "purchaseId": 10,
+      "status": "settled",
+      "maxEthWei": "105076292061254778",
+      "quantity": "2641958",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790026666,
+      "releasableAt": 1790030266,
+      "releasableIn": null,
+      "releasedAt": 1790026789,
+      "releasedWei": "105076292061254778",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790285989,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+          "amountWei": "101787669716220436"
+        },
+        {
+          "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+          "amountWei": "3288622345034342"
+        }
+      ],
+      "tx": "0x773c67d24d7f2239d400b69a2f8fdd44afb03f98e74daae065154bbfd422cbc5"
+    },
+    {
+      "purchaseId": 9,
+      "status": "settled",
+      "maxEthWei": "104878823445143496",
+      "quantity": "2636993",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790026348,
+      "releasableAt": 1790029948,
+      "releasableIn": null,
+      "releasedAt": 1790026475,
+      "releasedWei": "104878823445143496",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790285675,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x2a240243DD22019232C47097A06a508927C115A3",
+          "amountWei": "61706205472320698"
+        },
+        {
+          "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+          "amountWei": "30363406080000000"
+        },
+        {
+          "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+          "amountWei": "12809211892822798"
+        }
+      ],
+      "tx": "0x08c48310ae5b9da0d18ae451f02f112b25e283e61435684dd7589b06763403fc"
+    },
+    {
+      "purchaseId": 8,
+      "status": "settled",
+      "maxEthWei": "51277329797124117",
+      "quantity": "1289278",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790026172,
+      "releasableAt": 1790029772,
+      "releasableIn": null,
+      "releasedAt": 1790026297,
+      "releasedWei": "51277329797124117",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790285497,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+          "amountWei": "45646956655857885"
+        },
+        {
+          "coin": "0x2a240243DD22019232C47097A06a508927C115A3",
+          "amountWei": "5630373141266232"
+        }
+      ],
+      "tx": "0x7a4757a962968faa30830ae0945532e096a889d2e443dc365616cf6646a5d3f8"
+    },
+    {
+      "purchaseId": 7,
+      "status": "settled",
+      "maxEthWei": "76502245246863282",
+      "quantity": "1923514",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790025945,
+      "releasableAt": 1790029545,
+      "releasableIn": null,
+      "releasedAt": 1790026067,
+      "releasedWei": "76502245246863282",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790285267,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+          "amountWei": "76502245246863282"
+        }
+      ],
+      "tx": "0x82027a60387cf38da1cd1df8a493e350fc13e4b2f3279e6810a0a4448b2a7a2b"
+    },
+    {
+      "purchaseId": 6,
+      "status": "settled",
+      "maxEthWei": "117614694083566615",
+      "quantity": "2957214",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790025360,
+      "releasableAt": 1790028960,
+      "releasableIn": null,
+      "releasedAt": 1790025482,
+      "releasedWei": "117614694083566615",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790284682,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+          "amountWei": "51234952787570031"
+        },
+        {
+          "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+          "amountWei": "10471265302725903"
+        },
+        {
+          "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+          "amountWei": "55908475993270681"
+        }
+      ],
+      "tx": "0x8b7721116116803ce33ddbd4ce95fbe77a3645980498ab5afe58e91b660e24c9"
+    },
+    {
+      "purchaseId": 5,
+      "status": "settled",
+      "maxEthWei": "174364193190200463",
+      "quantity": "4368086",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790024540,
+      "releasableAt": 1790028140,
+      "releasableIn": null,
+      "releasedAt": 1790024662,
+      "releasedWei": "174364193190200463",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790283862,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0x3f21c85E9A2177A8d6633F07aD8F895AD7FB9022",
+          "amountWei": "10366893958273681"
+        },
+        {
+          "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+          "amountWei": "163997299231926782"
+        }
+      ],
+      "tx": "0x5be3cc566aa9adc7d89035b3646bb12df0d6a24ce89d57d5f4cdfa3aa9ceb264"
+    },
+    {
+      "purchaseId": 4,
+      "status": "settled",
+      "maxEthWei": "80698734424674562",
+      "quantity": "2021625",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790023615,
+      "releasableAt": 1790027215,
+      "releasableIn": null,
+      "releasedAt": 1790023739,
+      "releasedWei": "80698734424674562",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790282939,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+          "amountWei": "25430039559502844"
+        },
+        {
+          "coin": "0x3f21c85E9A2177A8d6633F07aD8F895AD7FB9022",
+          "amountWei": "55268694865171718"
+        }
+      ],
+      "tx": "0x28a44b0064ddba60914b0924f1cd31304812b9732552803e0aabcdd24184b4a5"
+    },
+    {
+      "purchaseId": 3,
+      "status": "settled",
+      "maxEthWei": "55897233563205855",
+      "quantity": "1400310",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790022955,
+      "releasableAt": 1790026555,
+      "releasableIn": null,
+      "releasedAt": 1790023604,
+      "releasedWei": "55897233563205855",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790282804,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+          "amountWei": "55897233563205855"
+        }
+      ],
+      "tx": "0xe93c9635a0810704c2756078e86f4fe1061ec9dcc33fd0a2a97878defccb51b8"
+    },
+    {
+      "purchaseId": 2,
+      "status": "settled",
+      "maxEthWei": "76675703174308161",
+      "quantity": "1920842",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790022894,
+      "releasableAt": 1790026494,
+      "releasableIn": null,
+      "releasedAt": 1790023016,
+      "releasedWei": "76675703174308161",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790282216,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [
+        {
+          "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+          "amountWei": "76675703174308161"
+        }
+      ],
+      "tx": "0xb77a69f97fa86b4e8d2e384e2885399536061f6acdbf770ec85b9b4a17ff88ba"
+    },
+    {
+      "purchaseId": 1,
+      "status": "written-off",
+      "maxEthWei": "73749691707264040",
+      "quantity": "1847541",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790022732,
+      "releasableAt": 1790026332,
+      "releasableIn": null,
+      "releasedAt": 1790022854,
+      "releasedWei": "73749691707264040",
+      "purchaser": "0xB451850F62540105B26271570Ef4404a6c639D31",
+      "deadline": 1790282054,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": "0",
+      "bondSlashedWei": "73749691707264040",
+      "charges": [
+        {
+          "coin": "0x3f21c85E9A2177A8d6633F07aD8F895AD7FB9022",
+          "amountWei": "56627149960283164"
+        },
+        {
+          "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+          "amountWei": "17122541746980876"
+        }
+      ],
+      "tx": "0x9ecaeba87694ba3a3ca7a5f932d97d64a09fa5db960dd025a1cf69545df9c0c4"
+    },
+    {
+      "purchaseId": 0,
+      "status": "declared",
+      "maxEthWei": "61706185238062426",
+      "quantity": "1545833",
+      "capRef": "staging-fixture:fixture:840000:1",
+      "declaredAt": 1790022328,
+      "releasableAt": 1790025928,
+      "releasableIn": 0,
+      "releasedAt": null,
+      "releasedWei": null,
+      "purchaser": null,
+      "deadline": null,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [],
+      "tx": "0x826e723e021608d73f0442862c188f4bfe2066991dc1b76e0c9165874b36d092"
+    }
+  ],
+  "acquisitionsRecent": [
+    {
+      "listingId": 1,
+      "acquisitionId": 25,
+      "purchaseId": 15,
+      "kind": "rune",
+      "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "1265441",
+      "btcTxid": "6950c0144cc39e6c9f23568e7cc97f8115d383218ddb631a03f0167bff43dc33",
+      "satsPaid": "1000",
+      "settledAt": 1790033388,
+      "tx": "0x2e1d226116fab60eb35c8899feee972f7a197cf23715254606b2941211a1d805",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/6950c0144cc39e6c9f23568e7cc97f8115d383218ddb631a03f0167bff43dc33"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "6950c0144cc39e6c9f23568e7cc97f8115d383218ddb631a03f0167bff43dc33",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 24,
+      "purchaseId": 14,
+      "kind": "rune",
+      "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "1809954",
+      "btcTxid": "5177fd65421ccd86f4e912ae440722847295f26c9d8b666b749e85a098f3b9eb",
+      "satsPaid": "1000",
+      "settledAt": 1790032629,
+      "tx": "0x9b12e5433f621d18eca6d8c609491fdd11db1b04f4396508e9047730843d777a",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/5177fd65421ccd86f4e912ae440722847295f26c9d8b666b749e85a098f3b9eb"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "5177fd65421ccd86f4e912ae440722847295f26c9d8b666b749e85a098f3b9eb",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 23,
+      "purchaseId": 13,
+      "kind": "rune",
+      "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "410622",
+      "btcTxid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+      "satsPaid": "1000",
+      "settledAt": 1790031729,
+      "tx": "0xca6398b50a358fbda01ec57fe94a1e5556baf2f2545e4e5a9235a0858d4f2faa",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 22,
+      "purchaseId": 13,
+      "kind": "rune",
+      "coin": "0x5d2E13bD4770a30D3E7471B6b9CF7d51e9834a70",
+      "coinSymbol": "SCHISIM",
+      "assetRef": "840000:1",
+      "amount": "302048",
+      "btcTxid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+      "satsPaid": "1000",
+      "settledAt": 1790031729,
+      "tx": "0xca6398b50a358fbda01ec57fe94a1e5556baf2f2545e4e5a9235a0858d4f2faa",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 21,
+      "purchaseId": 13,
+      "kind": "rune",
+      "coin": "0x19f6b2953f1d075c064Bed75DC0c68524c066fec",
+      "coinSymbol": "GABBSIM",
+      "assetRef": "840000:1",
+      "amount": "785731",
+      "btcTxid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+      "satsPaid": "1000",
+      "settledAt": 1790031729,
+      "tx": "0xca6398b50a358fbda01ec57fe94a1e5556baf2f2545e4e5a9235a0858d4f2faa",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 20,
+      "purchaseId": 13,
+      "kind": "rune",
+      "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "481092",
+      "btcTxid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+      "satsPaid": "1000",
+      "settledAt": 1790031729,
+      "tx": "0xca6398b50a358fbda01ec57fe94a1e5556baf2f2545e4e5a9235a0858d4f2faa",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 19,
+      "purchaseId": 13,
+      "kind": "rune",
+      "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "1072591",
+      "btcTxid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+      "satsPaid": "1000",
+      "settledAt": 1790031729,
+      "tx": "0xca6398b50a358fbda01ec57fe94a1e5556baf2f2545e4e5a9235a0858d4f2faa",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "3961d6072415e75a7a5489ca7b8b1a91b21aae30ae9d43eb5d0a8d7a3809213d",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 18,
+      "purchaseId": 12,
+      "kind": "rune",
+      "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "4560904",
+      "btcTxid": "39e7c19342b66b63fe1210de8c47440090540fd7db26a6de0c43810e94d92a24",
+      "satsPaid": "1000",
+      "settledAt": 1790029398,
+      "tx": "0x314b4e14859f32bbf0887d68959c3bc30efda9e6871651fe098f6de42ebe0ef7",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/39e7c19342b66b63fe1210de8c47440090540fd7db26a6de0c43810e94d92a24"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "39e7c19342b66b63fe1210de8c47440090540fd7db26a6de0c43810e94d92a24",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 17,
+      "purchaseId": 11,
+      "kind": "rune",
+      "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "5268305",
+      "btcTxid": "b7021959299b8d4ea73fb9303d833ae610ba71bdadd828e6ed64eb34f6268332",
+      "satsPaid": "1000",
+      "settledAt": 1790027408,
+      "tx": "0x21f7dd25b8b72f8e3bd772ed539e3482ef0bd9d4d923cc13a826a4b9871cda16",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/b7021959299b8d4ea73fb9303d833ae610ba71bdadd828e6ed64eb34f6268332"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "b7021959299b8d4ea73fb9303d833ae610ba71bdadd828e6ed64eb34f6268332",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 16,
+      "purchaseId": 10,
+      "kind": "rune",
+      "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "82687",
+      "btcTxid": "3ab621dd1a768dad2cdb6a423dc019a40e59b5438fe7159dabf86d5f5f24026d",
+      "satsPaid": "1000",
+      "settledAt": 1790026852,
+      "tx": "0xeec9b87d1282b030db47dd7dae13ee4083e61265829b080867819b1378c08d71",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/3ab621dd1a768dad2cdb6a423dc019a40e59b5438fe7159dabf86d5f5f24026d"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "3ab621dd1a768dad2cdb6a423dc019a40e59b5438fe7159dabf86d5f5f24026d",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 15,
+      "purchaseId": 10,
+      "kind": "rune",
+      "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "2559271",
+      "btcTxid": "3ab621dd1a768dad2cdb6a423dc019a40e59b5438fe7159dabf86d5f5f24026d",
+      "satsPaid": "1000",
+      "settledAt": 1790026852,
+      "tx": "0xeec9b87d1282b030db47dd7dae13ee4083e61265829b080867819b1378c08d71",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/3ab621dd1a768dad2cdb6a423dc019a40e59b5438fe7159dabf86d5f5f24026d"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "3ab621dd1a768dad2cdb6a423dc019a40e59b5438fe7159dabf86d5f5f24026d",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 14,
+      "purchaseId": 9,
+      "kind": "rune",
+      "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "322066",
+      "btcTxid": "1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f",
+      "satsPaid": "1000",
+      "settledAt": 1790026538,
+      "tx": "0xd890d48b3916068dd1ba27625fa661b96777c03a6439df57be69be7f1324859d",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 13,
+      "purchaseId": 9,
+      "kind": "rune",
+      "coin": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "763434",
+      "btcTxid": "1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f",
+      "satsPaid": "1000",
+      "settledAt": 1790026538,
+      "tx": "0xd890d48b3916068dd1ba27625fa661b96777c03a6439df57be69be7f1324859d",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 12,
+      "purchaseId": 9,
+      "kind": "rune",
+      "coin": "0x2a240243DD22019232C47097A06a508927C115A3",
+      "coinSymbol": "GABBSIM",
+      "assetRef": "840000:1",
+      "amount": "1551493",
+      "btcTxid": "1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f",
+      "satsPaid": "1000",
+      "settledAt": 1790026538,
+      "tx": "0xd890d48b3916068dd1ba27625fa661b96777c03a6439df57be69be7f1324859d",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "1390cf36b86ebb7749ad0a9d330f30e2c8378494f8879793e8e4cd950627aa7f",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 11,
+      "purchaseId": 8,
+      "kind": "rune",
+      "coin": "0x2a240243DD22019232C47097A06a508927C115A3",
+      "coinSymbol": "GABBSIM",
+      "assetRef": "840000:1",
+      "amount": "141566",
+      "btcTxid": "71f1dfc4ed46990234cc362ede3c44306cab2d851ceb1ae47853ff77c8e95fbe",
+      "satsPaid": "1000",
+      "settledAt": 1790026359,
+      "tx": "0x79ce4aed464a2180298a755976b41df30a89de758bd8ee5e312947f482067c3a",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/71f1dfc4ed46990234cc362ede3c44306cab2d851ceb1ae47853ff77c8e95fbe"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "71f1dfc4ed46990234cc362ede3c44306cab2d851ceb1ae47853ff77c8e95fbe",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 10,
+      "purchaseId": 8,
+      "kind": "rune",
+      "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "1147712",
+      "btcTxid": "71f1dfc4ed46990234cc362ede3c44306cab2d851ceb1ae47853ff77c8e95fbe",
+      "satsPaid": "1000",
+      "settledAt": 1790026359,
+      "tx": "0x79ce4aed464a2180298a755976b41df30a89de758bd8ee5e312947f482067c3a",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/71f1dfc4ed46990234cc362ede3c44306cab2d851ceb1ae47853ff77c8e95fbe"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "71f1dfc4ed46990234cc362ede3c44306cab2d851ceb1ae47853ff77c8e95fbe",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 9,
+      "purchaseId": 7,
+      "kind": "rune",
+      "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "1923514",
+      "btcTxid": "66c9c2b4e747af66adeddcd1fd527e6a22d82f5f62944846fbc298b3df39dc53",
+      "satsPaid": "1000",
+      "settledAt": 1790026129,
+      "tx": "0xb9373fd3bfd92b7fc1c72607d3dc993a38cd458bf0c7d06dff10cc18aa855a58",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/66c9c2b4e747af66adeddcd1fd527e6a22d82f5f62944846fbc298b3df39dc53"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "66c9c2b4e747af66adeddcd1fd527e6a22d82f5f62944846fbc298b3df39dc53",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 8,
+      "purchaseId": 6,
+      "kind": "rune",
+      "coin": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "1405721",
+      "btcTxid": "2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3",
+      "satsPaid": "1000",
+      "settledAt": 1790025546,
+      "tx": "0xee7ddf68843e3d733ee676fbd8ed60699f847e70fb1267687575e36c0ec42925",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 7,
+      "purchaseId": 6,
+      "kind": "rune",
+      "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "263281",
+      "btcTxid": "2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3",
+      "satsPaid": "1000",
+      "settledAt": 1790025546,
+      "tx": "0xee7ddf68843e3d733ee676fbd8ed60699f847e70fb1267687575e36c0ec42925",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 6,
+      "purchaseId": 6,
+      "kind": "rune",
+      "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "1288212",
+      "btcTxid": "2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3",
+      "satsPaid": "1000",
+      "settledAt": 1790025546,
+      "tx": "0xee7ddf68843e3d733ee676fbd8ed60699f847e70fb1267687575e36c0ec42925",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "2f02d113467645ad25ab4ec54aa25bf5949cc655d3a450e2b3c0b20c8b7e59d3",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 5,
+      "purchaseId": 5,
+      "kind": "rune",
+      "coin": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+      "coinSymbol": "MARBSIM",
+      "assetRef": "840000:1",
+      "amount": "4108380",
+      "btcTxid": "8276c811d47fb40068ff610277369ead389e098c57f0e6e95c441779f32d4447",
+      "satsPaid": "1000",
+      "settledAt": 1790024727,
+      "tx": "0x9c6c242eef5453a363ecd010ebfdcc3f52013492a6686b04e8f9579ac64c40d4",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/8276c811d47fb40068ff610277369ead389e098c57f0e6e95c441779f32d4447"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "8276c811d47fb40068ff610277369ead389e098c57f0e6e95c441779f32d4447",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 4,
+      "purchaseId": 5,
+      "kind": "rune",
+      "coin": "0x3f21c85E9A2177A8d6633F07aD8F895AD7FB9022",
+      "coinSymbol": "GABBSIM",
+      "assetRef": "840000:1",
+      "amount": "259706",
+      "btcTxid": "8276c811d47fb40068ff610277369ead389e098c57f0e6e95c441779f32d4447",
+      "satsPaid": "1000",
+      "settledAt": 1790024727,
+      "tx": "0x9c6c242eef5453a363ecd010ebfdcc3f52013492a6686b04e8f9579ac64c40d4",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/8276c811d47fb40068ff610277369ead389e098c57f0e6e95c441779f32d4447"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "8276c811d47fb40068ff610277369ead389e098c57f0e6e95c441779f32d4447",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 3,
+      "purchaseId": 4,
+      "kind": "rune",
+      "coin": "0x3f21c85E9A2177A8d6633F07aD8F895AD7FB9022",
+      "coinSymbol": "GABBSIM",
+      "assetRef": "840000:1",
+      "amount": "1384565",
+      "btcTxid": "6749835e03ba31f379674c9f6719767d99dce352af4b027d3ccca35c322c4bd0",
+      "satsPaid": "1000",
+      "settledAt": 1790023804,
+      "tx": "0xb55737abc996c198dba3849d14970cc756230e2c4650ac818f86c2258771fb2b",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/6749835e03ba31f379674c9f6719767d99dce352af4b027d3ccca35c322c4bd0"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "6749835e03ba31f379674c9f6719767d99dce352af4b027d3ccca35c322c4bd0",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 2,
+      "purchaseId": 4,
+      "kind": "rune",
+      "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "637060",
+      "btcTxid": "6749835e03ba31f379674c9f6719767d99dce352af4b027d3ccca35c322c4bd0",
+      "satsPaid": "1000",
+      "settledAt": 1790023804,
+      "tx": "0xb55737abc996c198dba3849d14970cc756230e2c4650ac818f86c2258771fb2b",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/6749835e03ba31f379674c9f6719767d99dce352af4b027d3ccca35c322c4bd0"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "6749835e03ba31f379674c9f6719767d99dce352af4b027d3ccca35c322c4bd0",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 1,
+      "purchaseId": 3,
+      "kind": "rune",
+      "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "1400310",
+      "btcTxid": "e4b33eaa318a04604a41abdd27e8409c24642583be9a519ca6640c5141d066f7",
+      "satsPaid": "1000",
+      "settledAt": 1790023667,
+      "tx": "0x34a655b55bb5bb33307658ec1f68576eb93838dbe54d17b40182f802279d8265",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/e4b33eaa318a04604a41abdd27e8409c24642583be9a519ca6640c5141d066f7"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "e4b33eaa318a04604a41abdd27e8409c24642583be9a519ca6640c5141d066f7",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 0,
+      "purchaseId": 2,
+      "kind": "rune",
+      "coin": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+      "coinSymbol": "QUARSIM",
+      "assetRef": "840000:1",
+      "amount": "1920842",
+      "btcTxid": "647ae5160d813462d2e4052b9c61621ffca15c7ed040533ba2434994eec503ec",
+      "satsPaid": "1000",
+      "settledAt": 1790023604,
+      "tx": "0x784e675dc1f29d02a17cd83c8924a1b80b9d69b91fe10d90ed5576b737e6262c",
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-open",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/647ae5160d813462d2e4052b9c61621ffca15c7ed040533ba2434994eec503ec"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1p-local-demo-not-a-real-address"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:1"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "647ae5160d813462d2e4052b9c61621ffca15c7ed040533ba2434994eec503ec",
+          "runeId": "840000:1",
+          "address": "bc1p-local-demo-not-a-real-address",
+          "expectAtLeast": "37116508",
+          "indexerPath": "/v1/indexer/address/bc1p-local-demo-not-a-real-address/runes/840000:1/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    }
+  ],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x3f21c85E9A2177A8d6633F07aD8F895AD7FB9022",
+      "symbol": "GABBSIM",
+      "depositedWei": "65635588823445399"
+    },
+    {
+      "address": "0xB25Be6Eb8583625DEf4a09D642666Ce70Dd7F818",
+      "symbol": "QUARSIM",
+      "depositedWei": "168474241599742763"
+    },
+    {
+      "address": "0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194",
+      "symbol": "MARBSIM",
+      "depositedWei": "378673017024182489"
+    },
+    {
+      "address": "0x2a240243DD22019232C47097A06a508927C115A3",
+      "symbol": "GABBSIM",
+      "depositedWei": "67336578613586930"
+    },
+    {
+      "address": "0x14e27c8BC862b98A40a9D80F7dce32De75A92993",
+      "symbol": "QUARSIM",
+      "depositedWei": "311761648337396119"
+    },
+    {
+      "address": "0x02154d760Ff1783A71e0397b88C6C82ce20A4516",
+      "symbol": "MARBSIM",
+      "depositedWei": "466924039868088500"
+    },
+    {
+      "address": "0x5d2E13bD4770a30D3E7471B6b9CF7d51e9834a70",
+      "symbol": "SCHISIM",
+      "depositedWei": "24527504233815254"
+    },
+    {
+      "address": "0x19f6b2953f1d075c064Bed75DC0c68524c066fec",
+      "symbol": "GABBSIM",
+      "depositedWei": "85960808019573021"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+probe/target/
+.dfx/
+*.wasm
+canister_ids.json

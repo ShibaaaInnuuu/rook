@@ -1,0 +1,36 @@
+# cargo test --test audit3_nft_e -- --nocapture (toolchain 1.98.1, a private copy of autobuyer/canister-rs at 4949da0 plus this file; the tests' own harness is tests/audit_nft_r2.rs's, copied, with the pin_back and fee_of switches).
+# Summary (every test PASSES = the weakness is present):
+AUDIT3-E E3-M-1b: watch eth_before 508443962449863321 (real balance 12979000000000000), eth_out_before 495464962449863321 (eth_out 495464962449863321)
+AUDIT3-E E3-M-1a: Azuki Arrived { wei: 495464962449863321, since: 1790512833 }; our real Ethereum balance 12979000000000000; Milady's fill took 495464962449863321
+AUDIT3-E E3-M-1a: earmarked 495464962449863321 wei; balance 12979000000000000 wei
+AUDIT3-E E3-M-1b: Azuki Stuck { why: "order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2 is past its deadline with no arrival of 488475083200866055 wei on Ethereum and no refund" }, watched true, relay_busy true, earmarked 0, balance 511422962449863321 (498443962449863321 arrived, nobody's)
+AUDIT3-E E3-M-1b: eth_give_back: Ok("buy 1: 2200000000000000 wei goes back to the module at the next tick") (home balance 2400000000000000)
+test e3_m1_a_watch_taken_at_a_pin_that_moved_back_never_sees_the_real_arrival_and_holds_the_relay_leg ... ok
+AUDIT3-E E3-L-3: after 3 days: Milady buys 1 (the Stuck one Stuck { why: "the fill mined but ownerOf is 0x0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e" }); module in transit true; eth_give_back: Err("refused: buy 0 is Stuck { why: \"the fill mined but ownerOf is 0x0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e\" }; only a funded, arrived (or stuck while bridging) buy gives its ETH back"); an upgrade dropping Milady: ["buy 0 of 0x5af0d9827e0c53e4799bb226655a1de152a425a5 is Stuck { why: \"the fill mined but ownerOf is 0x0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e\" }"]
+test e3_l3_a_post_arrival_stuck_buy_is_open_for_ever_with_no_exit ... ok
+AUDIT3-E E3-M-1a: the way back: ["eth line: waits: buy 1: the way back needs 492524962449863321 wei (value and gas), over the 12979000000000000 that is this buy's"]
+test e3_m1_a_pin_that_moves_back_reads_a_counted_fill_as_another_collections_arrival ... ok
+AUDIT3-E E3-L-1: after 5 days: 24 reverted fills; the deposit Mint (waited 360 ticks); the buy Arrived { wei 497939962449863321, since +416400 s }; never went back
+test e3_l1_a_fill_that_reverts_restarts_the_arrived_hold_so_a_seller_can_hold_deposits_and_defer_the_way_back_indefinitely ... ok
+AUDIT3-E E3-L-2: after 10 days: Milady BackFunded { wei: 498443962449863321, since: 1790685633 } (note: buy 0: the way back waits: another buy holds the Relay leg); Azuki Bridging { order_id: [188, 233, 176, 202, 2, 95, 202, 53, 100, 157, 60, 96, 65, 23, 246, 66, 102, 120, 66, 1, 124, 101, 39, 252, 46, 207, 0, 46, 188, 46, 105, 226], value: 500000000000000000, min_out: 488475083200866055, deadline: 1791117628, since: 1790512833 } (watched true); 720 arrival refusals; balance 993887924899726642 vs earmarks 498443962449863321; relay_busy true
+AUDIT3-E E3-L-2: after a 0.01 ETH top-up: Azuki Arrived { wei: 500000000000000000, since: 1791376833 }
+test e3_l2_gas_drift_into_an_earmark_deadlocks_the_next_arrival_with_the_way_back ... ok
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.76s
+
+# Selected tick lines (the canister's own log) showing each mechanism, de-duplicated in order:
+  | eth buy 0: ARRIVED (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): 498443962449863321 wei at our Ethereum address: the runner is asked for a listing
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth line: buy 0: STUCK: mined but the token is not ours
+  | eth buy 0: STUCK
+  | eth buy 1: waits: 498443962449863321 wei would be this buy's, but our Ethereum balance 993887924899726642 holds only 495443962449863321 beside the other buys' earmarks: nothing is earmarked on ETH that is not there (C2-M-1); read again next tick
+  | eth line: waits: the Ethereum pin 26068920 is below the block 26068925 of our last mined transaction: waiting
+  | eth buy 1: ARRIVED (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): 495464962449863321 wei at our Ethereum address: the runner is asked for a listing
+  | eth buy 1: STUCK: past the order's deadline
+  | eth buy 1: STUCK: still watching for a late fill or refund
+  | eth buy 1: GOING BACK: 495464962449863321 wei has waited at our Ethereum address for a listing; 492464962449863321 wei goes back to 4663 through Relay (the runner is asked for a quote), then to the module
+  | eth line: waits: buy 1: the way back needs 492524962449863321 wei (value and gas), over the 12979000000000000 that is this buy's
+AUDIT3-E E3-M-1a: the way back: ["eth line: waits: buy 1: the way back needs 492524962449863321 wei (value and gas), over the 12979000000000000 that is this buy's"]
+  | eth buy 0: GOING BACK: 498443962449863321 wei has waited at our Ethereum address for a listing; 495443962449863321 wei goes back to 4663 through Relay (the runner is asked for a quote), then to the module
+  | eth line: waits: buy 0: the way back waits: another buy holds the Relay leg
+AUDIT3-E E3-L-2: after 10 days: Milady BackFunded { wei: 498443962449863321, since: 1790685633 } (note: buy 0: the way back waits: another buy holds the Relay leg); Azuki Bridging { order_id: [188, 233, 176, 202, 2, 95, 202, 53, 100, 157, 60, 96, 65, 23, 246, 66, 102, 120, 66, 1, 124, 101, 39, 252, 46, 207, 0, 46, 188, 46, 105, 226], value: 500000000000000000, min_out: 488475083200866055, deadline: 1791117628, since: 1790512833 } (watched true); 720 arrival refusals; balance 993887924899726642 vs earmarks 498443962449863321; relay_busy true
+  | eth buy 1: ARRIVED (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): 500000000000000000 wei at our Ethereum address: the runner is asked for a listing

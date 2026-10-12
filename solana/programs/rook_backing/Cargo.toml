@@ -1,0 +1,58 @@
+[package]
+name = "rook_backing"
+version = "0.1.0"
+description = "Created with Anchor"
+edition.workspace = true
+rust-version.workspace = true
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "rook_backing"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+# Opt-in: run `back` against the real rook_core (its LiteSVM suite builds the registry/listing/module/wrapper).
+#   cargo test -p rook_backing --features real-rook-core --test real_rook_core
+real-rook-core = ["dep:rook_core"]
+
+
+[dependencies]
+anchor-lang = "1.2.1"
+anchor-spl = { version = "1.2.1", default-features = false, features = ["token", "token_2022", "associated_token", "mint", "solana-v3"] }
+bytemuck = { version = "1.24", features = ["derive", "min_const_generics"] }
+rook_layouts = { path = "../../crates/rook_layouts" }
+rook_core = { path = "../rook_core", features = ["no-entrypoint"], optional = true }
+
+[dev-dependencies]
+litesvm = "0.10.0"
+solana-message = "3.0.1"
+solana-transaction = "3.0.2"
+solana-signer = "3.0.0"
+solana-keypair = "3.0.1"
+solana-account = "3.4.0"
+solana-compute-budget-interface = "3.1.0"
+serde_json = "1"
+base64 = "0.22"
+
+
+[[test]]
+name = "q1_meteora_dbc"
+path = "../../tests/q1_meteora_dbc.rs"
+
+[[test]]
+name = "q2_wx_pool"
+path = "../../tests/q2_wx_pool.rs"
+
+[[test]]
+name = "real_rook_core"
+required-features = ["real-rook-core"]
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }

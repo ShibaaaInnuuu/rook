@@ -1,0 +1,31 @@
+# review4/poc/E/audit4_nft_e.tests.rs re-run on 1dc2a61: the CURRENT tests/audit_nft_r3.rs + audit4_nft_e.harness.diff + the PoC appended (the reviewer's recipe); '  | ' lines removed
+
+running 5 tests
+test e4_control_eight_deposits_wait_for_the_days_room_without_a_freeze ...
+ok
+test e4_control_without_the_home_pin_moving_back_the_fill_arrives ...
+ok
+test e4_h1_nine_deposits_of_one_collection_in_a_day_trip_the_mint_tripwire_and_pause_the_canister ...
+AUDIT4-E after 40 ticks (24000 s): minted 3 deposits; mint asks 4; frozen None; paused false
+
+thread 'e4_h1_nine_deposits_of_one_collection_in_a_day_trip_the_mint_tripwire_and_pause_the_canister' (60897457) panicked at tests/r4e_rerun.rs:1354:5:
+WEAKNESS: honest deposits froze custody and paused the canister
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test e4_l1_j7_custody_cannot_all_leave_within_the_delay_at_the_global_item_limit ... AUDIT4-E J7: 61 items in all at 24 a day: exit_fits = false; the default 30 at 6 a day: false
+ok
+test e4_m1_a_home_pin_that_moves_back_reads_our_own_relay_deposit_as_a_refund ...
+AUDIT4-E: Milady's deposit took 500000000000000000 wei on 4663 (advanced 500200000000000000)
+AUDIT4-E after one tick at the lower home pin: Funded { wei: 500000000000000000, since: 1790512833 }, watch false; eth buy 0: REFUNDED: 500000000000000000 wei back; attempt 2 of 3 next
+AUDIT4-E the new quote: Some("eth: the home-chain act waits: eth buy 0: our balance 2200000000000000 is under the deposit's 500000000000000000")
+AUDIT4-E give back: buy 0: 2000000000000000 wei goes back to the module at the next tick; returned 2000000000000000 of 500200000000000000 advanced; our Ethereum balance 508443962449863321 of which earmarked 0, leftover booked 0
+ok
+
+failures:
+
+failures:
+    e4_h1_nine_deposits_of_one_collection_in_a_day_trip_the_mint_tripwire_and_pause_the_canister
+
+test result: FAILED. 4 passed; 1 failed; 0 ignored; 0 measured; 17 filtered out; finished in 0.04s
+
+error: test failed, to rerun pass `--test r4e_rerun`

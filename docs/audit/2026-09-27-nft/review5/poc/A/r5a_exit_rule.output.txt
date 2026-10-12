@@ -1,0 +1,32 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.92s
+     Running unittests src/lib.rs (target/debug/deps/etch_autobuyer-9d9c2bc1e6dcbc1a)
+
+running 4 tests
+ok
+test canister::r5a::option_c_sequence_through_the_upgrade_check ... install J7 61 @ 24/day:                    REFUSED (refused)
+install (a) 48 @ 24/day:                   ACCEPTED
+install (a) 48 @ 31/day:                   REFUSED (refused)
+(a) -> 48 @ 31 (outflow first):            ACCEPTED
+48 @ 31 -> 61 @ 31 (caps second):          ACCEPTED
+(a) -> 61 @ 24 (caps first):               REFUSED (refused)
+(a) -> 61 @ 31 (both in one upgrade):      ACCEPTED
+(a) -> 48 @ 96:                            ACCEPTED
+(a) -> 48 @ 97:                            REFUSED (refused)
+(a) -> 48 @ per 22 / 31:                   ACCEPTED
+61 @ 31 -> 61 @ 24 (outflow lowered):      REFUSED (refused)
+install (b) J7 per-collection, global 48:  ACCEPTED
+ok
+test canister::r5a::weakness_lowering_caps_and_outflow_together_passes_while_custody_holds_more ... 61 @ 31 -> caps 12 @ 6/day (custody still holds 61): ACCEPTED
+  held 61, limits 3/6 a day: 12 leave within 48 h, 49 cannot
+ok
+test canister::r5a::weakness_the_check_passes_but_the_delivery_order_leaves_items_past_the_usable_days ... (a) at install: 13/17/13/3/2 @ 12/24: the rule says fits; Azuki's tickets first: left 0; Azuki's last: 43 of 48 out in 48 h, left: azuki 5
+(c) interim: 13/17/13/3/2 @ 12/31: the rule says fits; Azuki's tickets first: left 0; Azuki's last: 45 of 48 out in 48 h, left: azuki 3
+(c) end: J7 16/22/17/4/2 @ 12/31: the rule says fits; Azuki's tickets first: left 0; Azuki's last: 52 of 61 out in 48 h, left: azuki 9
+(b) held at the 48 cap: 16/22/10/0/0 @ 12/24: the rule says fits; Azuki's tickets first: left 0; Azuki's last: 40 of 48 out in 48 h, left: azuki 8
+(d) J7 @ 12/24, 96 h delay (72 h usable): the rule says fits; Azuki's tickets first: left 0; Azuki's last: 60 of 61 out in 72 h, left: azuki 1
+J7 @ 22/31: worst left over the orders tried: 0
+J7 @ 12/42: worst left over the orders tried: 0
+ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 359 filtered out; finished in 0.35s
+

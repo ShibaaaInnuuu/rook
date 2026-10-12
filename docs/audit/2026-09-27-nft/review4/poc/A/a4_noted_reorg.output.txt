@@ -1,0 +1,17 @@
+     Running tests/ethnft.rs (/private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/r4A-716425366/target/debug/deps/ethnft-3f07a2d059200b51)
+
+running 1 test
+eth: ticket 0: resolved to token 0x000000000000000000000000000000000000000000000000000000000000004d, delivery to 0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1 due by 1791117633
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: transferFrom of 0x000000000000000000000000000000000000000000000000000000000000004d to 0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1 signed, saved and sent (0x2cf9d26adbba24828db8581000babb7d19d4a7ce050d2da86f0b12b09ccff093, nonce 0)
+eth line: delivery #0: mined in block 26068923: waiting for finality
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: moved in block 26068923; finalized 26068828: waiting
+eth delivery #0: noteSent (its transfer mined; the late window can no longer refund it): Sent { wrapper: [170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170], ticket: 0 } signed, saved and sent (nonce 0)
+eth: Sent { wrapper: [170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170], ticket: 0 } mined (success): noted sent: the wrapper's late window no longer refunds it
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: moved in block 26068923; finalized 26068828: waiting
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: waits: final by block 26068923, but our delivery 0x2cf9d26adbba24828db8581000babb7d19d4a7ce050d2da86f0b12b09ccff093 is not seen at the pin now: read again next tick
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: waits: final by block 26068923, but our delivery 0x2cf9d26adbba24828db8581000babb7d19d4a7ce050d2da86f0b12b09ccff093 is not seen at the pin now: read again next tick
+after 30 days: Moved { tx: [44, 249, 210, 106, 219, 186, 36, 130, 141, 184, 88, 16, 0, 186, 187, 125, 25, 212, 167, 206, 5, 13, 45, 168, 111, 11, 18, 176, 156, 207, 240, 147], block: 26068923 }; note: final by block 26068923, but our delivery 0x2cf9d26adbba24828db8581000babb7d19d4a7ce050d2da86f0b12b09ccff093 is not seen at the pin now: read again next tick
+test a4_l2_a_noted_delivery_dropped_by_a_reorg_before_finality_has_no_way_to_a_mark ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 29 filtered out; finished in 0.10s
+

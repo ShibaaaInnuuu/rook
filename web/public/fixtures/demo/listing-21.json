@@ -1,0 +1,53 @@
+{
+  "id": 21,
+  "kind": "inscriptions",
+  "name": "Bitcoin Punks i2",
+  "ref": "bitcoin-punks-i2",
+  "divisibility": 0,
+  "vault": "0xC46eCe33fac9d2a08f3E215AAb2f2aF02Ed7FD3a",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-bitcoin-punks-i2",
+  "membershipRoot": "0x3242605857bebfd24450dd40378e9f779df49325defe5c64758c664000315dd3",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "123463715172001121",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "123463715172001121",
+    "attributedWei": "123463715172001121",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "123463715172001121",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x3c8a753Df9B3FF7E900691Ec122792AB64b39CEd",
+      "symbol": "JASP2SIM",
+      "depositedWei": "123463715172001121"
+    }
+  ]
+}

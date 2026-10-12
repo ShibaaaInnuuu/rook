@@ -1,0 +1,253 @@
+
+// =====================================================================================================================================
+// Review round 5, part B (independent re-review of B4-H-1's fix at 1dc2a61). Appended to a copy of tests/audit_nft_r4.rs with
+// r5_b.harness.diff applied. Each test prints what it measures; a test named `..._weakness` asserts the weakness (it turns red once
+// fixed); the controls inside them assert what holds.
+// =====================================================================================================================================
+
+fn quiet(f: &mut Fake, st: &mut EthState) -> Vec<String> {
+    f.now += 1_200;
+    f.m(MODULE).posted_at = f.now - 60;
+    evidence(f, st);
+    block_on(ef::tick(f, st, false))
+}
+fn scan_of(st: &EthState) -> ef::SaleScan {
+    st.sale_scan.iter().flatten().find(|s| s.collection == MILADY).unwrap().clone()
+}
+/// `n` honest newer sales, one every `every` blocks from `first` (distinct tokens, sellers, buyers).
+fn newer_sales(f: &mut Fake, first: u64, every: u64, n: u64) -> Vec<([u8; 32], u64)> {
+    let mut v = vec![];
+    for i in 0..n {
+        let mut h = [0x5e; 32];
+        h[..8].copy_from_slice(&(i + 1).to_be_bytes());
+        let s = { let mut a = [0x71u8; 20]; a[12..].copy_from_slice(&i.to_be_bytes()); a };
+        let b = { let mut a = [0x72u8; 20]; a[12..].copy_from_slice(&i.to_be_bytes()); a };
+        let blk = first + every * i;
+        f.sale_receipts.insert(h, sale_receipt(MILADY, 30_000 + i as u128, 94 * E / 100, s, b, blk));
+        v.push((h, blk));
+    }
+    v
+}
+struct Run { read_day: usize, read_end: usize, final_end: usize, up_lag_day: u64, up_lag_end: u64, max_fails: u32, max_bytes: u64,
+    total_fails: u32, max_bad: usize, first_read_pass: Option<usize>, past_attack_pass: Option<usize>, passes_held: usize,
+    passes_no_reading: usize, sales_counted_end: u32, held_end: bool, posted_end: bool }
+
+/// The window read first (4 passes at ETH_PIN), then the attacker's oversized blocks `attack` appear (their marketplace logs read fine
+/// and hold no sale of the collection, as on mainnet; or are oversized too with `sale_logs_big`), and `passes` passes run with the
+/// pin moving 100 blocks a pass (the runner's 1,200 s).
+fn run(attack: &[u64], sale_logs_big: bool, sales: (u64, u64, u64), passes: usize) -> Run {
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 93 * E / 100;
+    for _ in 0..4 { quiet(&mut f, &mut st); }
+    assert_eq!(cached(&st, &real_sales()), 5);
+    f.big_blocks = attack.to_vec();
+    for b in attack {
+        if sale_logs_big { f.big_sale_blocks.push(*b); } else { f.sale_moves.insert(*b, vec![]); }
+    }
+    let new = newer_sales(&mut f, sales.0, sales.1, sales.2);
+    let hs: Vec<[u8; 32]> = new.iter().map(|x| x.0).collect();
+    let (mut max_fails, mut max_bytes, mut max_bad) = (0, 0, 0);
+    let (mut read_day, mut up_lag_day) = (0, 0);
+    let (mut first_read_pass, mut past_attack_pass) = (None, None);
+    let last_attack = attack.iter().copied().max().unwrap_or(0);
+    let (mut passes_held, mut passes_no_reading) = (0, 0);
+    let mut pin = ETH_PIN;
+    for i in 0..passes {
+        pin += 100;
+        f.pin_now = Some(pin);
+        f.finalized = pin;
+        let (b0, l0) = (f.logs_bytes, f.log_fails);
+        quiet(&mut f, &mut st);
+        max_fails = max_fails.max(f.log_fails - l0);
+        max_bytes = max_bytes.max(f.logs_bytes - b0);
+        max_bad = max_bad.max(scan_of(&st).bad.map_or(0, |b| b.len()));
+        match st.reading(&MILADY) {
+            None => passes_no_reading += 1,
+            Some(r) if r.post.held.is_some() => passes_held += 1,
+            _ => {}
+        }
+        if first_read_pass.is_none() && cached(&st, &hs) > 0 { first_read_pass = Some(i + 1); }
+        if past_attack_pass.is_none() && scan_of(&st).up >= last_attack { past_attack_pass = Some(i + 1); }
+        if i + 1 == 72 {
+            read_day = cached(&st, &hs);
+            up_lag_day = (pin - en::SALE_FINAL_DEPTH_BLOCKS).saturating_sub(scan_of(&st).up);
+        }
+    }
+    let top = pin - en::SALE_FINAL_DEPTH_BLOCKS;
+    let sc = scan_of(&st);
+    let r = st.reading(&MILADY);
+    Run { read_day, read_end: cached(&st, &hs), final_end: new.iter().filter(|x| x.1 <= top).count(), up_lag_day,
+        up_lag_end: top.saturating_sub(sc.up), max_fails, max_bytes, total_fails: f.log_fails, max_bad, first_read_pass, past_attack_pass,
+        passes_held, passes_no_reading, sales_counted_end: r.map_or(0, |r| r.post.sales), held_end: r.is_some_and(|r| r.post.held.is_some()),
+        posted_end: r.is_some() }
+}
+fn show(name: &str, attack_blocks: usize, r: &Run) {
+    println!("{name}: {attack_blocks} oversized block(s): newer sales read after a day {} / at the end {} of {} final; forward walk behind \
+        the final head by {} blocks after a day, {} at the end; failed log reads: at most {} a pass, {} in all; reserved bytes: at most {} a pass; \
+        SaleScan.bad at most {} ranges; first newer sale read at pass {:?}; the walk past the last oversized block at pass {:?}; passes with a \
+        HELD reading {}, with no reading {}; the last reading: {} sales counted, held {}, a reading {}",
+        r.read_day, r.read_end, r.final_end, r.up_lag_day, r.up_lag_end, r.max_fails, r.total_fails, r.max_bytes, r.max_bad,
+        r.first_read_pass, r.past_attack_pass, r.passes_held, r.passes_no_reading, r.sales_counted_end, r.held_end, r.posted_end);
+}
+
+/// B5-M-1 (a): the fix's own case (one oversized block just past what was read) heals in a few passes (control). A burst of oversized
+/// blocks one block apart (every other block: each isolated by a full bisection, ~9 failed reads, at 2 a walk a pass) holds the forward
+/// walk ~4 passes per attacker block: 126 of them (~250 blocks, ~50 minutes, paid once) hold every newer sale unread for a week.
+#[test]
+fn r5_b5_m1_a_burst_of_oversized_blocks_one_apart_holds_every_newer_sale_for_about_a_week_weakness() {
+    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+    let sales = (top0 + 300, 100, 60); // an honest sale every 100 blocks after the burst
+    let one = run(&[top0 + 1], false, sales, 144);
+    show("control (the fix's case, 2 days)", 1, &one);
+    assert!(one.read_end + 2 >= one.final_end, "control: the newer sales are read");
+    let burst: Vec<u64> = (0..126).map(|j| top0 + 1 + 2 * j).collect();
+    let r = run(&burst, false, sales, 504);
+    show("burst of 126 every other block (a week of passes)", burst.len(), &r);
+    assert!(r.max_fails <= 2 * en::SALE_SCAN_FAILS_PER_WALK, "the per-walk cap holds");
+    assert_eq!(r.read_day, 0, "WEAKNESS: no newer sale read after a day");
+    assert!(r.first_read_pass.is_none_or(|p| p >= 480), "WEAKNESS: the first newer sale is read only after ~a week: {:?}", r.first_read_pass);
+}
+
+/// B5-M-1 (b, sustained): one oversized block a pass (every 100 blocks), for a week. The forward walk resolves one in ~2-3 passes, so it
+/// falls further behind every pass, until it is under the window's start and the scan resets (then (c) applies).
+#[test]
+fn r5_b5_m1_b_one_oversized_block_a_pass_keeps_the_forward_walk_falling_behind_weakness() {
+    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+    let attack: Vec<u64> = (0..504).map(|j| top0 + 1 + 100 * j).collect();
+    let sales = (top0 + 50, 100, 504);
+    let r = run(&attack, false, sales, 504);
+    show("one oversized block a pass (a week)", attack.len(), &r);
+    assert!(r.up_lag_end > r.up_lag_day && r.up_lag_day > 2_000, "WEAKNESS: the forward walk falls further behind: {} then {}", r.up_lag_day, r.up_lag_end);
+    assert!(r.read_end < r.final_end / 2, "WEAKNESS: fewer than half the newer sales read in a week: {} of {}", r.read_end, r.final_end);
+}
+
+/// B5-M-1 (c): while the scan has no anchor (`up == 0`: at a collection's launch, and after a window reset), only the first read runs
+/// (down from the newest final block) and nothing else: an oversized block in the upper half of every pass's new blocks fails it twice a
+/// pass, for ever. One every 50 blocks, at any offset, does it at the runner's 1,200 s cadence: no sale is read, no first post.
+/// Control: one every 100 blocks at an offset in the lower half of each pass's new blocks: the first read lands and the first post follows.
+#[test]
+fn r5_b5_m1_c_no_anchor_an_oversized_block_every_50_blocks_keeps_the_first_read_from_ever_landing_weakness() {
+    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+    let mut out = vec![];
+    for (name, attack) in [("control: one every 100 blocks, in the lower half of each pass's new blocks", (0..200u64).map(|j| top0 - 480 + 100 * j).collect::<Vec<_>>()),
+        ("one every 50 blocks, offset 17", (0..400u64).map(|j| top0 - 483 + 50 * j).collect()),
+        ("one every 50 blocks, offset 41", (0..400u64).map(|j| top0 - 459 + 50 * j).collect())] {
+        let mut f = Fake::new(false);
+        let mut st = EthState::default();
+        f.finalized = ETH_PIN;
+        f.m(MODULE).accepted = 93 * E / 100;
+        f.big_blocks = attack.clone();
+        for b in &attack { f.sale_moves.insert(*b, vec![]); }
+        let mut pin = ETH_PIN;
+        let (mut first, mut max_bad, mut max_bytes) = (None, 0, 0);
+        for i in 0..144 {
+            pin += 100;
+            f.pin_now = Some(pin);
+            f.finalized = pin;
+            let b0 = f.logs_bytes;
+            quiet(&mut f, &mut st);
+            max_bytes = max_bytes.max(f.logs_bytes - b0);
+            max_bad = max_bad.max(scan_of(&st).bad.map_or(0, |b| b.len()));
+            if first.is_none() && st.reading(&MILADY).is_some_and(|r| r.post.sales >= 3) { first = Some(i + 1); }
+        }
+        let sc = scan_of(&st);
+        println!("{name}: first reading with >= 3 counted sales at pass {first:?}; {} of 5 real sales read in 2 days; scan up {}; \
+            {} failed reads; SaleScan.bad at most {max_bad}; at most {max_bytes} bytes a pass", cached(&st, &real_sales()), sc.up, f.log_fails);
+        out.push((first, cached(&st, &real_sales())));
+    }
+    assert!(out[0].0.is_some(), "control: the first post is made");
+    assert!(out[1..].iter().all(|(p, n)| p.is_none() && *n == 0), "WEAKNESS: no sale read and no first post in two days: {out:?}");
+}
+
+/// B5-M-2: a range a provider refuses with an ERROR of its own (a result-count cap: two adjacent blocks of ~5,001 self-transfers each,
+/// ~60 M gas in all) is not the IC's size reject: it takes round 2's path (`Got::Failed`: halve down to 25 blocks, the same start
+/// asked again, nothing remembered, no bisection to one block, no marketplace route). The forward walk never passes it.
+#[test]
+fn r5_b5_m2_a_provider_result_cap_error_still_stalls_the_forward_walk_for_the_window_weakness() {
+    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 93 * E / 100;
+    for _ in 0..4 { quiet(&mut f, &mut st); }
+    f.dense_blocks = vec![top0 + 60, top0 + 61];
+    for b in &f.dense_blocks.clone() { f.sale_moves.insert(*b, vec![]); }
+    let new = newer_sales(&mut f, top0 + 100, 100, 40);
+    let hs: Vec<[u8; 32]> = new.iter().map(|x| x.0).collect();
+    let mut pin = ETH_PIN;
+    let mut per_pass = vec![];
+    for _ in 0..72 {
+        pin += 100;
+        f.pin_now = Some(pin);
+        f.finalized = pin;
+        let l0 = f.log_fails;
+        quiet(&mut f, &mut st);
+        per_pass.push(f.log_fails - l0);
+    }
+    let sc = scan_of(&st);
+    let got = cached(&st, &hs);
+    println!("B5-M-2: after a day {got} of the 40 newer sales read; scan up {} (the dense pair at {}), chunk {}, bad {:?}, skipped {:?}; \
+        failed reads a pass {:?}..{:?}", sc.up, top0 + 60, sc.chunk, sc.bad, sc.skipped, &per_pass[..4], &per_pass[68..]);
+    assert_eq!(got, 0, "WEAKNESS: no sale newer than the dense pair is read");
+    assert!(sc.up < top0 + 61, "WEAKNESS: the forward walk is stuck before the pair");
+}
+
+/// Cycles (B5-L-1): the per-pass reservation is checked BEFORE each `scan_read` only; one read of a single known-oversized block reserves
+/// its Transfer logs AND its marketplace logs (2 x 4.928 MB) with no check between them. (a) consecutive oversized blocks whose
+/// marketplace logs are over the class too, walked naturally; (b) the backward walk's front on a known one-block range (the rest of a
+/// two-block bisection) after the forward walk spent its two failures: the pass reserves 19.7 MB, over the fix's own test bound
+/// (12 MB + 2 x 2.464 MB) and its stated worst (12.16 MB, "about 126 B cycles").
+#[test]
+fn r5_b5_l1_cycles_a_pass_reserves_more_than_the_12_mb_budget_weakness() {
+    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+    let burst: Vec<u64> = (0..12).map(|j| top0 + 1 + j).collect();
+    let r = run(&burst, true, (top0 + 300, 100, 10), 72);
+    show("(a) 12 consecutive oversized blocks, marketplace logs oversized too", burst.len(), &r);
+    // (b)
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 93 * E / 100;
+    for _ in 0..4 { quiet(&mut f, &mut st); }
+    let d = 26_040_000u64;
+    {
+        let sc = st.sale_scan.as_mut().unwrap().iter_mut().find(|s| s.collection == MILADY).unwrap();
+        sc.down = d; // the walk back has blocks under d still to read (as during the initial window read)
+        sc.bad = Some(vec![(d - 1, d - 1)]); // the rest of a two-block bisection
+    }
+    f.big_blocks = vec![top0 + 1, d - 1];
+    f.big_sale_blocks = vec![d - 1];
+    f.pin_now = Some(ETH_PIN + 100);
+    f.finalized = ETH_PIN + 100;
+    let b0 = f.logs_bytes;
+    quiet(&mut f, &mut st);
+    let one = f.logs_bytes - b0;
+    println!("(b) one pass reserved {one} bytes ({:.0} B cycles at 10,400 a byte); the fix's test bound {}, its stated worst 12,160,000",
+        one as f64 * 10_400.0 / 1e9, en::SALE_SCAN_BYTES_PER_PASS + 2 * 2_464_000);
+    assert!(one > en::SALE_SCAN_BYTES_PER_PASS + 2 * 2_464_000, "WEAKNESS: a pass reserved {one} bytes");
+}
+
+/// B4-L-2 re-check: a single oversized block the walk already resolved is not remembered (only an unreadable one is, in `skipped`), so a
+/// re-read of dropped blocks whose hull spans it pays its whole bisection again (and its marketplace logs).
+#[test]
+fn r5_b4_l2_a_rescan_hull_over_a_resolved_oversized_block_pays_its_bisection_again() {
+    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 93 * E / 100;
+    let blk = top0 - 3_000;
+    f.big_blocks = vec![blk];
+    f.sale_moves.insert(blk, vec![]);
+    for _ in 0..30 { quiet(&mut f, &mut st); }
+    let first = f.log_fails;
+    // two honest overflows far apart: the hull spans the resolved block
+    st.sale_scan.as_mut().unwrap().iter_mut().find(|s| s.collection == MILADY).unwrap().rescan = Some((blk - 4_000, blk + 2_000));
+    let b0 = f.logs_bytes;
+    for _ in 0..30 { quiet(&mut f, &mut st); }
+    println!("B4-L-2: the oversized block's first bisection cost {first} failed reads; the re-read of a hull over it {} more ({} bytes)",
+        f.log_fails - first, f.logs_bytes - b0);
+    assert!(f.log_fails - first >= first - 1, "WEAKNESS: the bisection is paid again");
+}

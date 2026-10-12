@@ -1,0 +1,650 @@
+
+> test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: dedup: a key is sent once; a persistent one again after 6 hours; every alert needs a key and a known kind
+ok 1 - dedup: a key is sent once; a persistent one again after 6 hours; every alert needs a key and a known kind
+  ---
+  duration_ms: 0.857875
+  type: 'test'
+  ...
+# Subtest: a failed post is not recorded, so it is sent next time; the ones before it are not sent twice
+ok 2 - a failed post is not recorded, so it is sent next time; the ones before it are not sent twice
+  ---
+  duration_ms: 1.073667
+  type: 'test'
+  ...
+# Subtest: the heartbeat: once a day, at or after the configured hour
+ok 3 - the heartbeat: once a day, at or after the configured hour
+  ---
+  duration_ms: 1.08425
+  type: 'test'
+  ...
+# Subtest: format: severity and kind first, a test marked as a test, long text cut under Telegram's limit
+ok 4 - format: severity and kind first, a test marked as a test, long text cut under Telegram's limit
+  ---
+  duration_ms: 0.188
+  type: 'test'
+  ...
+# Subtest: Telegram: the token only in the request path, scrubbed from errors, absent from JSON; --dry-run prints
+ok 5 - Telegram: the token only in the request path, scrubbed from errors, absent from JSON; --dry-run prints
+  ---
+  duration_ms: 28.610167
+  type: 'test'
+  ...
+# Subtest: --test-alert all posts exactly one alert of each kind, marked TEST, and the token appears in no output
+ok 6 - --test-alert all posts exactly one alert of each kind, marked TEST, and the token appears in no output
+  ---
+  duration_ms: 478.333375
+  type: 'test'
+  ...
+# Subtest: the poll commits a checker's new state only when its alerts were delivered; a silent checker becomes an alert
+ok 7 - the poll commits a checker's new state only when its alerts were delivered; a silent checker becomes an alert
+  ---
+  duration_ms: 2.647
+  type: 'test'
+  ...
+# Subtest: the configuration refuses what would make the monitor lie
+ok 8 - the configuration refuses what would make the monitor lie
+  ---
+  duration_ms: 0.247333
+  type: 'test'
+  ...
+# Subtest: E-08b regression: Telegram FAILS CLOSED — no token or no chat id is a startup refusal, never an alert 'sent' to the log
+ok 9 - E-08b regression: Telegram FAILS CLOSED — no token or no chat id is a startup refusal, never an alert 'sent' to the log
+  ---
+  duration_ms: 579.617208
+  type: 'test'
+  ...
+# Subtest: every Rust-encoded argument decodes, with every field the canister's Init has
+ok 10 - every Rust-encoded argument decodes, with every field the canister's Init has
+  ---
+  duration_ms: 6.53775
+  type: 'test'
+  ...
+# Subtest: the stage-0 numbers mirrored here are the canister's own (its custody_caps() and custody_outflow() replies at stage 0)
+ok 11 - the stage-0 numbers mirrored here are the canister's own (its custody_caps() and custody_outflow() replies at stage 0)
+  ---
+  duration_ms: 0.47975
+  type: 'test'
+  ...
+# Subtest: neutral: the same argument, and null written out as the stage-0 numbers it means, are no change at all
+ok 12 - neutral: the same argument, and null written out as the stage-0 numbers it means, are no change at all
+  ---
+  duration_ms: 4.12325
+  type: 'test'
+  ...
+# Subtest: tightening: lower caps and limits are said, in words, and are not an emergency
+ok 13 - tightening: lower caps and limits are said, in words, and are not an emergency
+  ---
+  duration_ms: 1.664916
+  type: 'test'
+  ...
+# Subtest: loosening: stage 0 → 1 is CRITICAL, line by line, loosening first, with the guardians' instruction
+ok 14 - loosening: stage 0 → 1 is CRITICAL, line by line, loosening first, with the guardians' instruction
+  ---
+  duration_ms: 1.047167
+  type: 'test'
+  ...
+# Subtest: the H5 fields: operator, providers and identity changes are CRITICAL even with no bound moving
+ok 15 - the H5 fields: operator, providers and identity changes are CRITICAL even with no bound moving
+  ---
+  duration_ms: 1.251458
+  type: 'test'
+  ...
+# Subtest: the module hash: a published build is named; anything else is UNKNOWN and CRITICAL, even with a neutral argument
+ok 16 - the module hash: a published build is named; anything else is UNKNOWN and CRITICAL, even with a neutral argument
+  ---
+  duration_ms: 0.414708
+  type: 'test'
+  ...
+# Subtest: an argument this monitor cannot fully read is CRITICAL: an unknown field, garbage, or no baseline
+ok 17 - an argument this monitor cannot fully read is CRITICAL: an unknown field, garbage, or no baseline
+  ---
+  duration_ms: 4.450459
+  type: 'test'
+  ...
+# Subtest: controllers and roles proposals
+ok 18 - controllers and roles proposals
+  ---
+  duration_ms: 0.697
+  type: 'test'
+  ...
+# Subtest: wei reads as ETH
+ok 19 - wei reads as ETH
+  ---
+  duration_ms: 0.370541
+  type: 'test'
+  ...
+# Subtest: R2-M1a inverted: RPC B answering -32005 to EVERY eth_getLogs no longer blinds the draw check: the draw is read from the vault's state, recomputed, and the guardian pauses then cancels
+ok 20 - R2-M1a inverted: RPC B answering -32005 to EVERY eth_getLogs no longer blinds the draw check: the draw is read from the vault's state, recomputed, and the guardian pauses then cancels
+  ---
+  duration_ms: 16.791125
+  type: 'test'
+  ...
+# Subtest: R2-M1b inverted: the holder index reads the history once, then only the new blocks: 60 days in, a poll is one eth_getLogs, and a root needs none
+ok 21 - R2-M1b inverted: the holder index reads the history once, then only the new blocks: 60 days in, a poll is one eth_getLogs, and a root needs none
+  ---
+  duration_ms: 2.72225
+  type: 'test'
+  ...
+# Subtest: R2-M1c inverted: the monitor starts from the stack file's L2 fromBlock (as the keeper does), and a configured start later than it is refused
+ok 22 - R2-M1c inverted: the monitor starts from the stack file's L2 fromBlock (as the keeper does), and a configured start later than it is refused
+  ---
+  duration_ms: 1.5005
+  type: 'test'
+  ...
+# Subtest: R2-L2: the draw exclusions are the published tools/snapshot/exclusions.json; a hand copy that drifted is refused at start
+ok 23 - R2-L2: the draw exclusions are the published tools/snapshot/exclusions.json; a hand copy that drifted is refused at start
+  ---
+  duration_ms: 1.20375
+  type: 'test'
+  ...
+# Subtest: R2-M2 inverted: two draws that can never be recomputed do not starve a third: the forged one is recomputed the same poll and cancelled; the stuck ones page SEV1 at their deadline
+ok 24 - R2-M2 inverted: two draws that can never be recomputed do not starve a third: the forged one is recomputed the same poll and cancelled; the stuck ones page SEV1 at their deadline
+  ---
+  duration_ms: 6.687458
+  type: 'test'
+  ...
+# Subtest: R2-M3 inverted: a stolen key posting AT floorBounds() (target == accepted, never clamped) is paged SEV1 within three posts, and the day's move is paged; the guardian pauses only when told to
+ok 25 - R2-M3 inverted: a stolen key posting AT floorBounds() (target == accepted, never clamped) is paged SEV1 within three posts, and the day's move is paged; the guardian pauses only when told to
+  ---
+  duration_ms: 17.384917
+  type: 'test'
+  ...
+# Subtest: R2-S1 (monitor side): a draw Resolved for more than an hour and never claimed is paged
+ok 26 - R2-S1 (monitor side): a draw Resolved for more than an hour and never claimed is paged
+  ---
+  duration_ms: 3.24225
+  type: 'test'
+  ...
+# Subtest: R2-S8 (monitor side): the keeper's 503 /healthz with alert kinds is paged with the kinds, never the texts
+ok 27 - R2-S8 (monitor side): the keeper's 503 /healthz with alert kinds is paged with the kinds, never the texts
+  ---
+  duration_ms: 0.880333
+  type: 'test'
+  ...
+# Subtest: the fixtures are what the explorers served: both providers, the same two transactions
+ok 28 - the fixtures are what the explorers served: both providers, the same two transactions
+  ---
+  duration_ms: 2.344917
+  type: 'test'
+  ...
+# Subtest: a spend that matches a canister record (a delivery, same destination) raises nothing, and is judged once
+ok 29 - a spend that matches a canister record (a delivery, same destination) raises nothing, and is judged once
+  ---
+  duration_ms: 4.29725
+  type: 'test'
+  ...
+# Subtest: a spend no record names is SEV1 with the transaction, both links and PAUSE NOW, and keeps repeating
+ok 30 - a spend no record names is SEV1 with the transaction, both links and PAUSE NOW, and keeps repeating
+  ---
+  duration_ms: 31.584333
+  type: 'test'
+  ...
+# Subtest: a spend that matches a delivery record by txid but pays another destination is SEV1
+ok 31 - a spend that matches a delivery record by txid but pays another destination is SEV1
+  ---
+  duration_ms: 2.2145
+  type: 'test'
+  ...
+# Subtest: provider disagreement over an unexplained spend: SEV1 at once, naming both sides, never guessing
+ok 32 - provider disagreement over an unexplained spend: SEV1 at once, naming both sides, never guessing
+  ---
+  duration_ms: 1.577958
+  type: 'test'
+  ...
+# Subtest: provider disagreement over a recorded spend: nothing during propagation, SEV2 after 15 min, again after an hour
+ok 33 - provider disagreement over a recorded spend: nothing during propagation, SEV2 after 15 min, again after an hour
+  ---
+  duration_ms: 3.873791
+  type: 'test'
+  ...
+# Subtest: both confirmed at different blocks: SEV2, not a guess
+ok 34 - both confirmed at different blocks: SEV2, not a guess
+  ---
+  duration_ms: 0.681167
+  type: 'test'
+  ...
+# Subtest: one provider down is not a disagreement: an unexplained spend is still SEV1, marked one provider only
+ok 35 - one provider down is not a disagreement: an unexplained spend is still SEV1, marked one provider only
+  ---
+  duration_ms: 1.403916
+  type: 'test'
+  ...
+# Subtest: inbound: the expected test deposit is confirmed once; anything unexplained is INFO; a recorded purchase is silent
+ok 36 - inbound: the expected test deposit is confirmed once; anything unexplained is INFO; a recorded purchase is silent
+  ---
+  duration_ms: 3.028333
+  type: 'test'
+  ...
+# Subtest: fetch: the first page, then older pages until a judged txid, and a clear error on a bad answer
+ok 37 - fetch: the first page, then older pages until a judged txid, and a clear error on a bad answer
+  ---
+  duration_ms: 1.834208
+  type: 'test'
+  ...
+# Subtest: the poll reads the explorers FIRST and the canister's records SECOND, and a silent provider becomes an alert after 30 min
+ok 38 - the poll reads the explorers FIRST and the canister's records SECOND, and a silent provider becomes an alert after 30 min
+  ---
+  duration_ms: 4.072334
+  type: 'test'
+  ...
+# Subtest: the records index: every txid the canister vouches for, from each kind of record
+ok 39 - the records index: every txid the canister vouches for, from each kind of record
+  ---
+  duration_ms: 1.287792
+  type: 'test'
+  ...
+# Subtest: the stage numbers: Empty is 8, appended after Announced
+ok 40 - the stage numbers: Empty is 8, appended after Announced
+  ---
+  duration_ms: 0.59775
+  type: 'test'
+  ...
+# Subtest: an empty open pages SEV2 (the keeper says nobody held a whole coin) and is tracked for the recompute like any list
+ok 41 - an empty open pages SEV2 (the keeper says nobody held a whole coin) and is tracked for the recompute like any list
+  ---
+  duration_ms: 3.736834
+  type: 'test'
+  ...
+# Subtest: the recompute of an empty draw: nobody eligible reproduces the sentinel alone (verified); holders at the snapshot make it a confirmed bad root (pause, then cancel)
+ok 42 - the recompute of an empty draw: nobody eligible reproduces the sentinel alone (verified); holders at the snapshot make it a confirmed bad root (pause, then cancel)
+  ---
+  duration_ms: 1.221042
+  type: 'test'
+  ...
+# Subtest: DrawEmpty pages the close: SEV2 when verified, SEV1 when it closed unverified or as a confirmed bad root
+ok 43 - DrawEmpty pages the close: SEV2 when verified, SEV1 when it closed unverified or as a confirmed bad root
+  ---
+  duration_ms: 0.889875
+  type: 'test'
+  ...
+# Subtest: the topics are the compiled ABI's event signatures (values from `cast keccak`)
+ok 44 - the topics are the compiled ABI's event signatures (values from `cast keccak`)
+  ---
+  duration_ms: 0.696792
+  type: 'test'
+  ...
+# Subtest: Deposited decodes: the inscription, the outpoint, the deposit flag, the recipient
+ok 45 - Deposited decodes: the inscription, the outpoint, the deposit flag, the recipient
+  ---
+  duration_ms: 0.695792
+  type: 'test'
+  ...
+# Subtest: a mint, a delivery record and an arrival that the canister's records back raise nothing
+ok 46 - a mint, a delivery record and an arrival that the canister's records back raise nothing
+  ---
+  duration_ms: 2.976625
+  type: 'test'
+  ...
+# Subtest: a mint no record names is SEV1 (an unbacked mint), and stays open until acknowledged
+ok 47 - a mint no record names is SEV1 (an unbacked mint), and stays open until acknowledged
+  ---
+  duration_ms: 3.729084
+  type: 'test'
+  ...
+# Subtest: a delivery record with no delivery behind it (a keeper-made record, T4) is SEV1
+ok 48 - a delivery record with no delivery behind it (a keeper-made record, T4) is SEV1
+  ---
+  duration_ms: 2.016875
+  type: 'test'
+  ...
+# Subtest: each frog backs one arrival: the second arrival at the same cost is SEV1
+ok 49 - each frog backs one arrival: the second arrival at the same cost is SEV1
+  ---
+  duration_ms: 1.248792
+  type: 'test'
+  ...
+# Subtest: paths that are OFF in Phase 1, and a mint-limit raise, alert as SEV2; a log from another contract is ignored
+ok 50 - paths that are OFF in Phase 1, and a mint-limit raise, alert as SEV2; a log from another contract is ignored
+  ---
+  duration_ms: 4.523375
+  type: 'test'
+  ...
+# Subtest: two RPCs: the same logs agree; a missing or altered log is a disagreement, kept aside and re-read while the cursor goes on (E-06)
+ok 51 - two RPCs: the same logs agree; a missing or altered log is a disagreement, kept aside and re-read while the cursor goes on (E-06)
+  ---
+  duration_ms: 2.955083
+  type: 'test'
+  ...
+# Subtest: E-06 regression: a persistent one-log RPC disagreement no longer silences the canary; the later unbacked mint is alerted, the dispute repeats, and the checker turns unhealthy
+ok 52 - E-06 regression: a persistent one-log RPC disagreement no longer silences the canary; the later unbacked mint is alerted, the dispute repeats, and the checker turns unhealthy
+  ---
+  duration_ms: 6.168292
+  type: 'test'
+  ...
+# Subtest: a cursor stuck behind while the heads move is a watcher-error and degrades the checker (one RPC not keeping up)
+ok 53 - a cursor stuck behind while the heads move is a watcher-error and degrades the checker (one RPC not keeping up)
+  ---
+  duration_ms: 0.934125
+  type: 'test'
+  ...
+# Subtest: off unless configured; a key without config, config without a key, a bad key, the wrong address, no registry: each refuses to start
+ok 54 - off unless configured; a key without config, config without a key, a bad key, the wrong address, no registry: each refuses to start
+  ---
+  duration_ms: 4.098833
+  type: 'test'
+  ...
+# Subtest: pauseKeeper: checks both RPCs' chain, the guardian's code and the registry's guardian, then signs pauseKeeper() for 4663 to both RPCs
+ok 55 - pauseKeeper: checks both RPCs' chain, the guardian's code and the registry's guardian, then signs pauseKeeper() for 4663 to both RPCs
+  ---
+  duration_ms: 12.06225
+  type: 'test'
+  ...
+# Subtest: it will not act on a wrong chain, with code at its address (EIP-7702), or when the registry names another guardian; nor twice
+ok 56 - it will not act on a wrong chain, with code at its address (EIP-7702), or when the registry names another guardian; nor twice
+  ---
+  duration_ms: 2.418375
+  type: 'test'
+  ...
+# Subtest: cancelDraw: only an Open or Announced draw; the fee and gas caps refuse rather than overpay
+ok 57 - cancelDraw: only an Open or Announced draw; the fee and gas caps refuse rather than overpay
+  ---
+  duration_ms: 5.384625
+  type: 'test'
+  ...
+# Subtest: R2-L3: an action is done only when its receipt says success; not mined in time is pending (retried next poll); a revert throws
+ok 58 - R2-L3: an action is done only when its receipt says success; not mined in time is pending (retried next poll); a revert throws
+  ---
+  duration_ms: 7.381791
+  type: 'test'
+  ...
+# Subtest: a healthy stack pages nothing
+ok 59 - a healthy stack pages nothing
+  ---
+  duration_ms: 12.09925
+  type: 'test'
+  ...
+# Subtest: a configured guardian the registry does not name is paged (it could not act)
+ok 60 - a configured guardian the registry does not name is paged (it could not act)
+  ---
+  duration_ms: 5.926875
+  type: 'test'
+  ...
+# Subtest: the keeper paused: SEV1 at once, persistent, confirmed on the second RPC; a second RPC that disagrees is a disagreement, not a page
+ok 61 - the keeper paused: SEV1 at once, persistent, confirmed on the second RPC; a second RPC that disagrees is a disagreement, not a page
+  ---
+  duration_ms: 14.371292
+  type: 'test'
+  ...
+# Subtest: a stale floor pages after 15 min (not before), no good post after 45 min, the stale fallback at once, a stale cap after 15 min
+ok 62 - a stale floor pages after 15 min (not before), no good post after 45 min, the stale fallback at once, a stale cap after 15 min
+  ---
+  duration_ms: 11.045709
+  type: 'test'
+  ...
+# Subtest: a ticket Pinned an hour past its round, a draw Announced for an hour, a draw Pinned an hour past its round: each SEV2 (nobody resolves)
+ok 63 - a ticket Pinned an hour past its round, a draw Announced for an hour, a draw Pinned an hour past its round: each SEV2 (nobody resolves)
+  ---
+  duration_ms: 4.517416
+  type: 'test'
+  ...
+# Subtest: liveness: a service not answering 200 for 10 min is SEV2 (repeated), its return is said once
+ok 64 - liveness: a service not answering 200 for 10 min is SEV2 (repeated), its return is said once
+  ---
+  duration_ms: 0.396583
+  type: 'test'
+  ...
+# Subtest: the decoder knows the new Init fields: switching holder deposits on is CRITICAL, the scanner's first block a WARN; an argument from before still decodes
+ok 65 - the decoder knows the new Init fields: switching holder deposits on is CRITICAL, the scanner's first block a WARN; an argument from before still decodes
+  ---
+  duration_ms: 8.743584
+  type: 'test'
+  ...
+# Subtest: the canary vouches for every txid the canister saved: a delivery's earlier (re-priced) version, a conflict-out, a float abandon
+ok 66 - the canary vouches for every txid the canister saved: a delivery's earlier (re-priced) version, a conflict-out, a float abandon
+  ---
+  duration_ms: 20.286625
+  type: 'test'
+  ...
+# Subtest: canister health: the scanner failing for an hour, TICKET LOGS NOT READ, no UniSat, a parked deposit
+ok 67 - canister health: the scanner failing for an hour, TICKET LOGS NOT READ, no UniSat, a parked deposit
+  ---
+  duration_ms: 1.355833
+  type: 'test'
+  ...
+# Subtest: the limiter's Return flow and acknowledged keys decode; the timelock's NotStopped / NotStarted have words
+ok 68 - the limiter's Return flow and acknowledged keys decode; the timelock's NotStopped / NotStarted have words
+  ---
+  duration_ms: 0.65675
+  type: 'test'
+  ...
+# Subtest: discovery and balances: RAFFLE coins join from their Launched block, a BURN coin does not, and balances at any block match a full replay
+ok 69 - discovery and balances: RAFFLE coins join from their Launched block, a BURN coin does not, and balances at any block match a full replay
+  ---
+  duration_ms: 5.685958
+  type: 'test'
+  ...
+# Subtest: a provider that serves 100-block spans (drpc's free plan) is paged at 100 and gets there; its learned span stays
+ok 70 - a provider that serves 100-block spans (drpc's free plan) is paged at 100 and gets there; its learned span stays
+  ---
+  duration_ms: 38.380625
+  type: 'test'
+  ...
+# Subtest: a throttling provider (-32005, as rpc.ordofi.network answers every eth_getLogs) cools down: the update returns an error, never throws, and costs a few calls, not thousands
+ok 71 - a throttling provider (-32005, as rpc.ordofi.network answers every eth_getLogs) cools down: the update returns an error, never throws, and costs a few calls, not thousands
+  ---
+  duration_ms: 0.348542
+  type: 'test'
+  ...
+# Subtest: compaction folds old logs into the base and every root inside the retention stays exact; the file survives a restart
+ok 72 - compaction folds old logs into the base and every root inside the retention stays exact; the file survives a restart
+  ---
+  duration_ms: 1.5935
+  type: 'test'
+  ...
+# Subtest: the whole poll from two indexes, no injected recompute: an honest root is verified; a forged one is bad on both, and the guardian pauses then cancels
+ok 73 - the whole poll from two indexes, no injected recompute: an honest root is verified; a forged one is bad on both, and the guardian pauses then cancels
+  ---
+  duration_ms: 16.755625
+  type: 'test'
+  ...
+# Subtest: SeedCarried pages SEV2 (the draw reuses its origin's snapshot time); DrawVoided of an Announced draw pages; a void of a resolved one does not
+ok 74 - SeedCarried pages SEV2 (the draw reuses its origin's snapshot time); DrawVoided of an Announced draw pages; a void of a resolved one does not
+  ---
+  duration_ms: 3.461
+  type: 'test'
+  ...
+# Subtest: the draws' state: a carried Announced draw pages from the vault's state alone, and the holder indexes hold its ORIGIN's window
+ok 75 - the draws' state: a carried Announced draw pages from the vault's state alone, and the holder indexes hold its ORIGIN's window
+  ---
+  duration_ms: 13.295709
+  type: 'test'
+  ...
+# Subtest: the holder index: a held coin is never folded past its hold, and a coin already folded past a new hold is rebuilt from its launch
+ok 76 - the holder index: a held coin is never folded past its hold, and a coin already folded past a new hold is rebuilt from its launch
+  ---
+  duration_ms: 0.316917
+  type: 'test'
+  ...
+# Subtest: the keeper paused: the page says each module burns at the backing per unit (exitAtBacking)
+ok 77 - the keeper paused: the page says each module burns at the backing per unit (exitAtBacking)
+  ---
+  duration_ms: 8.06075
+  type: 'test'
+  ...
+# Subtest: Undeliverable is matched against the canister's attestation: a refused redemption's Sent or Done passes; Due, none, or not refused is SEV1
+ok 78 - Undeliverable is matched against the canister's attestation: a refused redemption's Sent or Done passes; Due, none, or not refused is SEV1
+  ---
+  duration_ms: 3.795625
+  type: 'test'
+  ...
+# Subtest: a conflict-out re-priced: the canary matches every version (the earlier one, OUT_TXID, is what confirmed)
+ok 79 - a conflict-out re-priced: the canary matches every version (the earlier one, OUT_TXID, is what confirmed)
+  ---
+  duration_ms: 1.194458
+  type: 'test'
+  ...
+# Subtest: the canister's new fields decode from its own encoding and page: an unreadable ticket, a block read by ticket, a quarantined fee entry
+ok 80 - the canister's new fields decode from its own encoding and page: an unreadable ticket, a block read by ticket, a quarantined fee entry
+  ---
+  duration_ms: 2.854625
+  type: 'test'
+  ...
+# Subtest: the canister's alert lines page with what they mean; a markUndeliverable Due or Sent for a day pages, Done never
+ok 81 - the canister's alert lines page with what they mean; a markUndeliverable Due or Sent for a day pages, Done never
+  ---
+  duration_ms: 1.24525
+  type: 'test'
+  ...
+# Subtest: the timelock's Started event and Status.running decode (an unknown variant tag would fail the whole history) and have words
+ok 82 - the timelock's Started event and Status.running decode (an unknown variant tag would fail the whole history) and have words
+  ---
+  duration_ms: 10.564875
+  type: 'test'
+  ...
+# Subtest: the stack file names what is watched: registry, wrapper, module, and all three vaults
+ok 83 - the stack file names what is watched: registry, wrapper, module, and all three vaults
+  ---
+  duration_ms: 1.435333
+  type: 'test'
+  ...
+# Subtest: cast-encoded stack events decode
+ok 84 - cast-encoded stack events decode
+  ---
+  duration_ms: 4.239833
+  type: 'test'
+  ...
+# Subtest: FloorPosted: a good post is quiet; low confidence is SEV2; a post the module clamped is SEV1; two clamped the same way within 6 h trigger the guardian
+ok 85 - FloorPosted: a good post is quiet; low confidence is SEV2; a post the module clamped is SEV1; two clamped the same way within 6 h trigger the guardian
+  ---
+  duration_ms: 1.843833
+  type: 'test'
+  ...
+# Subtest: CapPosted: 110% of the floor is quiet; above 125% is SEV2; ANY cap on the YOYO vault is SEV1
+ok 86 - CapPosted: 110% of the floor is quiet; above 125% is SEV2; ANY cap on the YOYO vault is SEV1
+  ---
+  duration_ms: 0.286833
+  type: 'test'
+  ...
+# Subtest: draws, the pause, the guardian and role rotations
+ok 87 - draws, the pause, the guardian and role rotations
+  ---
+  duration_ms: 1.57125
+  type: 'test'
+  ...
+# Subtest: the tree is tools/snapshot's: its committed weighted fixture is reproduced leaf for leaf and root for root
+ok 88 - the tree is tools/snapshot's: its committed weighted fixture is reproduced leaf for leaf and root for root
+  ---
+  duration_ms: 0.737375
+  type: 'test'
+  ...
+# Subtest: v2: the root is tools/snapshot v2's committed fixture (the keeper's builder), sentinel and all, byte for byte
+ok 89 - v2: the root is tools/snapshot v2's committed fixture (the keeper's builder), sentinel and all, byte for byte
+  ---
+  duration_ms: 0.559959
+  type: 'test'
+  ...
+# Subtest: v2's sentinel leaf is SweepVault.leaf(address(0), totalTickets, snapshotAt), as cast hashes it, and it moves the root
+ok 90 - v2's sentinel leaf is SweepVault.leaf(address(0), totalTickets, snapshotAt), as cast hashes it, and it moves the root
+  ---
+  duration_ms: 0.820625
+  type: 'test'
+  ...
+# Subtest: recompute: the snapshot block by time, the Transfer logs paged under a 10,000-block limit, the weighted tree with its sentinel
+ok 91 - recompute: the snapshot block by time, the Transfer logs paged under a 10,000-block limit, the weighted tree with its sentinel
+  ---
+  duration_ms: 69.727125
+  type: 'test'
+  ...
+# Subtest: verdict: both reproduce the chain → verified; both the same other root → bad (confirmed); they differ → disagree; one failed → pending
+ok 92 - verdict: both reproduce the chain → verified; both the same other root → bad (confirmed); they differ → disagree; one failed → pending
+  ---
+  duration_ms: 0.471875
+  type: 'test'
+  ...
+# Subtest: a confirmed bad root: SEV1, the guardian pauses the keeper FIRST and then cancels the draw, once (R2-L3)
+ok 93 - a confirmed bad root: SEV1, the guardian pauses the keeper FIRST and then cancels the draw, once (R2-L3)
+  ---
+  duration_ms: 3.595917
+  type: 'test'
+  ...
+# Subtest: a root both RPCs reproduce is verified and nothing is done; recomputations that differ page a disagreement and do nothing
+ok 94 - a root both RPCs reproduce is verified and nothing is done; recomputations that differ page a disagreement and do nothing
+  ---
+  duration_ms: 2.204125
+  type: 'test'
+  ...
+# Subtest: no guardian (the operator's choice): a confirmed trigger pages ACT BY HAND with the Safe's exact call; a runaway floor pauses when there is one
+ok 95 - no guardian (the operator's choice): a confirmed trigger pages ACT BY HAND with the Safe's exact call; a runaway floor pauses when there is one
+  ---
+  duration_ms: 3.632292
+  type: 'test'
+  ...
+# Subtest: a draw not verified 10 minutes before its window ends is said (SEV2), 6 minutes before it is SEV1 and the guardian pauses, and a failing guardian says ACT BY HAND NOW
+ok 96 - a draw not verified 10 minutes before its window ends is said (SEV2), 6 minutes before it is SEV1 and the guardian pauses, and a failing guardian says ACT BY HAND NOW
+  ---
+  duration_ms: 2.551458
+  type: 'test'
+  ...
+# Subtest: the first poll says what it watches and judges what is pending, and a clean canister raises nothing else
+ok 97 - the first poll says what it watches and judges what is pending, and a clean canister raises nothing else
+  ---
+  duration_ms: 7.781834
+  type: 'test'
+  ...
+# Subtest: the baseline is the last EXECUTED upgrade's argument, not a vetoed or pending one; else the install argument
+ok 98 - the baseline is the last EXECUTED upgrade's argument, not a vetoed or pending one; else the install argument
+  ---
+  duration_ms: 0.961833
+  type: 'test'
+  ...
+# Subtest: a new proposal after that is diffed against the executed one, so undoing a tightening is called loosening
+ok 99 - a new proposal after that is diffed against the executed one, so undoing a tightening is called loosening
+  ---
+  duration_ms: 5.219625
+  type: 'test'
+  ...
+# Subtest: the live caps must match the baseline, or the diff proves nothing
+ok 100 - the live caps must match the baseline, or the diff proves nothing
+  ---
+  duration_ms: 1.0315
+  type: 'test'
+  ...
+# Subtest: the tripwire freeze and a misconfigured timelock are said
+ok 101 - the tripwire freeze and a misconfigured timelock are said
+  ---
+  duration_ms: 1.293625
+  type: 'test'
+  ...
+# Subtest: certified: the buyer must be controlled by the timelock alone, the timelock by nobody, both running published builds
+ok 102 - certified: the buyer must be controlled by the timelock alone, the timelock by nobody, both running published builds
+  ---
+  duration_ms: 0.34825
+  type: 'test'
+  ...
+# Subtest: certified: a change with no Executed is SEV1; with Executed it is news; an upgrade running right now gets one poll
+ok 103 - certified: a change with no Executed is SEV1; with Executed it is news; an upgrade running right now gets one poll
+  ---
+  duration_ms: 0.513041
+  type: 'test'
+  ...
+# Subtest: the watcher keeps the old certified value for a canister on hold, and reports it next poll if Executed never comes
+ok 104 - the watcher keeps the old certified value for a canister on hold, and reports it next poll if Executed never comes
+  ---
+  duration_ms: 2.307666
+  type: 'test'
+  ...
+# Subtest: events after the first poll are said once each, in v1's words; a pause is SEV2
+ok 105 - events after the first poll are said once each, in v1's words; a pause is SEV2
+  ---
+  duration_ms: 1.252166
+  type: 'test'
+  ...
+# Subtest: cycles: one alert per crossing, each way, at the canister's threshold and at 2 T for the buyer
+ok 106 - cycles: one alert per crossing, each way, at the canister's threshold and at 2 T for the buyer
+  ---
+  duration_ms: 0.397875
+  type: 'test'
+  ...
+1..106
+# tests 106
+# suites 0
+# pass 106
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1549.25925

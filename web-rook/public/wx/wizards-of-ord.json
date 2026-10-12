@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Wizard of Ord",
+  "symbol": "wWOO",
+  "description": "Rook's wrapped The Wizards of Ord token: each whole token is backed either by a The Wizards of Ord NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/wizards-of-ord.png",
+  "external_url": "https://userook.fun/#/collection/wizards-of-ord",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/wizards-of-ord.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

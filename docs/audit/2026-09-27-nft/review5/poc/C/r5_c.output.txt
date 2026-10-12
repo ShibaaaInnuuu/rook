@@ -1,0 +1,68 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.18s
+     Running tests/r5_c.rs (target/debug/deps/r5_c-190c951480193043)
+
+running 27 tests
+test c5_l1_a_the_judge_credits_another_relay_payment_from_the_shared_solver_paid_from_the_frog_sides_eth ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+C5-L-1(a): a solver payment of another order (mined in block 1, before Milady's order existed) credited as Milady's payout: 485535083200866034 wei of the frog side's ETH paid into Milady's module (fundReserve)
+ok
+test c5_l1_b_the_judge_takes_our_own_deposit_or_any_call_carrying_the_id_at_the_amount_the_operator_states ... C5-L-1(b): our own deposit and a stranger's 0-value call naming the id are both judged payouts of 5 ETH
+ok
+test c5_l1_c_a_payout_is_credited_from_a_watched_orders_unread_refund_and_that_order_then_holds_the_relay_leg ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+C5: Milady's way back (buy 0, 495443962449863321 wei) is written off; Azuki's order (buy 1, 500000000000000000 wei) is Bridging
+C5-L-1(c): Azuki's refund 495000000000000000 went to Milady's module (495000000000000000); Azuki is Funded { wei: 495000000000000000, since: 1791381693 }, holding the Relay leg (true), with 2400000000000000 wei at our 4663 address
+ok
+test c5_l3_a_failed_balance_read_after_the_judge_marks_a_payout_credited_that_was_never_applied ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+C5-L-3: the claim was refused (eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: refused, nothing credited: chain 1: eth_getBalance: HTTP 429 Too Many Requests), yet late.credited = Some(([90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90], 498443962449863321, false)), st.credited = Some(1), the buy is Stuck { why: "its order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2 is past its deadline with no arrival on Ethereum and no refund on 4663: written off by the operator; eth_give_back(0) closes it as a loss, eth_credit_payout credits a late payout of it" }
+C5-L-3: handed in again: refused: buy 0's written-off order was credited already; 498443962449863321 wei on Ethereum is nobody's, the operator's only exit is the loss
+ok
+test c5_m1_a_payout_after_the_write_off_is_still_read_as_another_collections_refund ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+C5: Milady's way back (buy 0, 495443962449863321 wei) is written off; Azuki's order (buy 1, 500000000000000000 wei) is Bridging
+C5-M-1: Milady's late payout 485535083200866034 was read as Azuki's refund; Azuki bridged twice; Milady's module got 0; 511352841698860608 wei at our Ethereum address is nobody's
+ok
+test r4_b4_h1_a_one_oversized_block_no_longer_stalls_the_walk_back_or_burns_the_budget ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 3 sales counted; the transfer logs of blocks 26059801..26060300 are over the largest response class: read by halves from now on; the transfer logs of blocks 26059926..26060050 are over the largest response class: read by halves from now on; 0 transaction(s) and blocks 26018400..26060051 still to read)
+B4-H-1 (a): 5 of 5 real sales read; failed reads per pass [2, 2, 2, 0, 0, 0, 0, 0] (total 6); bytes a pass at most 12160000; skipped Some([(26060000, 18446744073709551615, 3)])
+ok
+test r4_b4_h1_b_an_oversized_new_block_no_longer_stops_every_newer_sale ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+B4-H-1 (b): 40 of the 40 newer sales read in a day; failed reads per pass [2, 1, 0, 0, 0, 0, 0, 0] (total 3)
+ok
+test r4_b4_h1_c_a_sale_in_the_oversized_block_is_read_through_the_marketplaces_own_logs ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 3 sales counted; the transfer logs of blocks 26059801..26060300 are over the largest response class: read by halves from now on; the transfer logs of blocks 26059926..26060050 are over the largest response class: read by halves from now on; 0 transaction(s) and blocks 26018400..26060051 still to read)
+ok
+test r4_b4_h1_d_under_the_evidence_cycles_floor_the_floor_is_still_posted ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+ok
+test r4_b4_h1_the_marketplace_sale_logs_of_a_block_keep_only_the_collections_sales ... ok
+test r4_b4_i3_a_pin_that_moves_back_no_longer_resets_the_scan ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+ok
+test r4_b4_l1_a_dropped_range_is_read_again_even_while_a_flood_keeps_the_queue_full ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+ok
+test r4_c4_h1_a_4663_pin_one_bucket_back_neither_reads_a_phantom_refund_nor_signs_at_a_used_nonce ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+ok
+test r4_c4_h1b_a_home_act_at_a_lower_pin_after_a_mined_one_is_never_signed_at_the_used_nonce ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read): a post is due
+ok
+test r4_c4_h1c_a_home_transaction_already_at_a_used_nonce_is_dropped_and_its_step_done_again ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read): a post is due
+ok
+test r4_c4_m1_a_late_way_back_payout_is_read_by_its_own_still_open_watch ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+C4-M-1: the late payout 485535083200866034 came back to the module: returnAdvance of 485535083200866034
+ok
+test r4_c4_m1_the_payout_judge ... ok
+test r4_c4_m1b_a_late_payout_is_never_read_as_another_collections_refund ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+ok
+test r4_c4_m1c_a_payout_after_the_write_off_is_credited_to_its_own_order_by_its_transaction ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+ok
+test r4_c4_m1d_eth_give_back_on_a_watched_forward_stuck_pays_only_its_measured_refund ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+ok
+test r4_e4_h1_a_weeks_deposits_and_buys_at_j7s_caps_never_trip_any_h3_tripwire ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+E4-H-1 (a week): minted 16 Miladys and 22 Azukis; the most mint asks in a window: Milady 4, Azuki 4, all 8
+ok
+test r4_e4_h1_nine_deposits_of_one_collection_in_a_day_never_trip_the_mint_tripwire ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+E4-H-1: 9 deposits over 3 days: 9 minted; the most mint asks in a window 4; frozen None
+ok
+test r4_e4_i2_no_deposit_mints_before_its_module_has_a_floor ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read): a post is due
+ok
+test r4_e4_m1_a_home_pin_that_moves_back_no_longer_reads_our_own_relay_deposit_as_a_refund ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+ok
+test r4_every_h3_ask_is_keyed_per_logical_outflow ... ok
+test r4_states_saved_by_the_old_builds_restore_with_nothing_lost_and_the_new_fields_absent ... ok
+test r4_the_round_4_state_fixture_is_what_the_canister_encodes ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.72s
+

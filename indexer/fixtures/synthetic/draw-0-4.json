@@ -1,0 +1,75 @@
+{
+  "id": "0-4",
+  "listingId": 0,
+  "acquisitionId": 4,
+  "type": "draw",
+  "state": "won",
+  "mode": "named",
+  "assetRef": "abci4",
+  "openedAt": null,
+  "challengeEnds": null,
+  "challengeEndsIn": null,
+  "root": null,
+  "uri": null,
+  "total": null,
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": null,
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": {
+    "round": null,
+    "pinnedAt": null,
+    "drandUrl": null,
+    "winningTicket": null,
+    "resolvedAt": null,
+    "winner": "0xf1f1f1F1f1f1F1F1f1F1f1F1F1F1F1f1F1f1f1F1",
+    "destination": null,
+    "destinationSetAt": null,
+    "deliveredTxid": null,
+    "deliveredAt": null,
+    "overdue": false,
+    "voided": null
+  },
+  "distribution": null,
+  "timeline": [
+    {
+      "at": 1800000960,
+      "block": 180,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Receipted",
+      "detail": {
+        "id": "0",
+        "acquisitionId": "4",
+        "coin": "0xc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0",
+        "assetRef": "abci4",
+        "amount": "1",
+        "btcTxid": "0x4242424242424242424242424242424242424242424242424242424242424242",
+        "satsPaid": "1"
+      }
+    },
+    {
+      "at": 1800001056,
+      "block": 188,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Chosen",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "4",
+        "mode": 5,
+        "named": "0xf1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      }
+    },
+    {
+      "at": 1800001068,
+      "block": 189,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Won",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "4",
+        "winner": "0xf1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: D3-M-1: a delivery of ours mined, and the redeemer sold the NFT on before the 4663 record: SEV1 'an NFT left custody ... pause, then look'
+ok 1 - D3-M-1: a delivery of ours mined, and the redeemer sold the NFT on before the 4663 record: SEV1 'an NFT left custody ... pause, then look'
+  ---
+  duration_ms: 70.030958
+  type: 'test'
+  ...
+# Subtest: D3-M-1 (b): a delivery pending a day before its deadline is cancelled; the transfer mined first (Cancelling, the canister not yet ticked): SEV1
+ok 2 - D3-M-1 (b): a delivery pending a day before its deadline is cancelled; the transfer mined first (Cancelling, the canister not yet ticked): SEV1
+  ---
+  duration_ms: 3.116583
+  type: 'test'
+  ...
+# Subtest: D3-L-1: token 9180 was redeemed to X long ago (Recorded); it came back (a deposit) and is held again; it leaves custody to X with no delivery: no SEV1
+ok 3 - D3-L-1: token 9180 was redeemed to X long ago (Recorded); it came back (a deposit) and is held again; it leaves custody to X with no delivery: no SEV1
+  ---
+  duration_ms: 8.221209
+  type: 'test'
+  ...
+# Subtest: D3-L-2: Relay's arrival lands after the canary's block but before its second records read (canister pin newer): SEV1 'ETH left without a fill of ours'
+ok 4 - D3-L-2: Relay's arrival lands after the canary's block but before its second records read (canister pin newer): SEV1 'ETH left without a fill of ours'
+  ---
+  duration_ms: 4.973209
+  type: 'test'
+  ...
+# Subtest: D3-I-1: right after eth_give_back (BackFunded since 0), the way-back page fires at once with an absurd wait
+ok 5 - D3-I-1: right after eth_give_back (BackFunded since 0), the way-back page fires at once with an absurd wait
+  ---
+  duration_ms: 0.190125
+  type: 'test'
+  ...
+# Subtest: D3-I-2: the line is our cancel of a fill; a transaction not ours takes that nonce and empties the address: no SEV1 from the canary
+ok 6 - D3-I-2: the line is our cancel of a fill; a transaction not ours takes that nonce and empties the address: no SEV1 from the canary
+  ---
+  duration_ms: 4.72025
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1069.29475

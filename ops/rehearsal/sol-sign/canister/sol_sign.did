@@ -1,0 +1,146 @@
+type CallSample = record {
+  method : text;
+  cycles : nat;
+  latency_ms : nat64;
+  providers : nat32;
+  outcome : text;
+};
+// # HTTP Header.
+// 
+// Represents a HTTP header.
+// 
+// See [`HttpRequestArgs::headers`] and [`HttpRequestResult::headers`].
+type HttpHeader = record {
+  // Value of the header.
+  value : text;
+  // Name of the header.
+  name : text;
+};
+// # HTTP Request Result
+// 
+// Result type of [`http_request`](https://internetcomputer.org/docs/current/references/ic-interface-spec/#ic-http_request).
+type HttpRequestResult = record {
+  // The response status (e.g. 200, 404).
+  status : nat;
+  // The response’s body.
+  body : blob;
+  // List of HTTP response headers and their corresponding values.
+  headers : vec HttpHeader;
+};
+type Identity = record { address : text; latency_ms : nat64; key_name : text };
+type Init = record {
+  // ≥ 2 keyless devnet providers
+  rpc_urls : vec text;
+  mode : Mode;
+  // `key_1` (dfx 0.32 local replica: its only Ed25519 key), `test_key_1` (IC mainnet, test key), `key_1` (production)
+  key_name : text;
+  // sendTransaction as a replicated outcall (every replica sends) or a non-replicated one (one replica sends; cheaper)
+  replicated_send : bool;
+};
+type Metrics = record {
+  calls : vec CallSample;
+  signs : vec SignSample;
+  cycles : nat;
+};
+type Mode = variant { Blockhash; Nonce };
+type NonceReport = record {
+  rent_lamports : nat64;
+  signature : opt text;
+  tx_bytes : nat32;
+  nonce_account : text;
+  created_now : bool;
+  // the current durable nonce, when the account is initialised at finalized
+  durable_nonce : opt text;
+  providers : vec text;
+};
+type Result = variant { Ok : NonceReport; Err : text };
+type Result_1 = variant { Ok : SendReport; Err : text };
+type Result_2 = variant { Ok : StatusReport; Err : text };
+type Result_3 = variant { Ok : Identity; Err : text };
+type SendReport = record {
+  signature : text;
+  tx_bytes : nat32;
+  last_valid_height : opt nat64;
+  history : vec text;
+  lifetime : text;
+  sends : nat32;
+  resigned : bool;
+  intent : nat64;
+  recent_blockhash : text;
+  latency_ms : nat64;
+  // each provider's answer to sendTransaction, classified by the transform
+  providers : vec text;
+  // sha256 of the bytes sent: equal across `send_transfer` and every `resend` unless `resigned`
+  tx_sha256 : text;
+};
+type SignSample = record {
+  // what `ic0.cost_sign_with_schnorr` said and ic-cdk attached
+  cost_api : nat;
+  latency_ms : nat64;
+  // the canister's balance before − after the call (attached − refunded, plus the call's own execution)
+  balance_delta : nat;
+  message_bytes : nat32;
+};
+type SlotProbe = record {
+  agreed : opt nat64;
+  providers : vec text;
+  bucket : nat64;
+  refused : opt text;
+};
+type StatusReport = record {
+  signature : text;
+  durable_nonce_now : opt text;
+  agreed : opt text;
+  finalized : bool;
+  intent : nat64;
+  // each provider's `getSignatureStatuses` (transformed), and the agreed verdict
+  providers : vec text;
+  balance_lamports : opt nat64;
+  failed : opt text;
+};
+// # Transform Args.
+// 
+// ```text
+// record {
+// response : http_response;
+// context : blob;
+// }
+// ```
+// 
+// See [`TransformContext`].
+type TransformArgs = record {
+  // Context for response transformation
+  context : blob;
+  // Raw response from remote service, to be transformed
+  response : HttpRequestResult;
+};
+service : (Init) -> {
+  // The nonce account at `create_with_seed(me, NONCE_SEED, System)`, authority = this canister. One signature (the seed account needs
+  // no key of its own). The creating transaction itself uses the FALLBACK lifetime (there is no nonce yet).
+  create_nonce_account : () -> (Result);
+  // Forget the saved line (the spike's own reset; the real canister never does this).
+  drop_line : () -> ();
+  // The expiry drill (fallback lifetime): sign and SAVE a transfer but do not send it, so that it expires unsent; a later `resend()`
+  // must prove expiry, re-sign the same intent, and land exactly one of the two signatures.
+  hold_transfer : (text, nat64) -> (Result_1);
+  metrics : () -> (Metrics) query;
+  // Rebroadcast the SAVED bytes (unchanged; `tx_sha256` proves it). Under the fallback lifetime, first ask whether the bytes can never
+  // land (expiry proven); only then re-sign the SAME intent on a fresh blockhash and save the new bytes.
+  resend : (opt bool) -> (Result_1);
+  // The saved bytes, base64 (the run script checks them against the CLI's decoder; nothing secret: a signed public transaction).
+  saved_tx : () -> (opt text) query;
+  // A new intent: sign ONCE under the current lifetime, SAVE the bytes, send them. Refused while the line's previous transaction is not
+  // finalized (one transaction in flight per nonce account / line).
+  send_transfer : (text, nat64) -> (Result_1);
+  set_mode : (Mode) -> ();
+  // Any signature (the nonce account's creation).
+  sig_status : (text) -> (Result_2);
+  // The provider-agreement probe: `getSlot(finalized)` at a bucket (1 = raw, 20 = the fallback's rounding).
+  slot_agreement : (nat64) -> (SlotProbe);
+  // The canister's Solana address: the threshold Ed25519 public key at the empty derivation path, base58.
+  sol_address : () -> (Result_3);
+  // The one transform every outcall names.
+  sol_tf : (TransformArgs) -> (HttpRequestResult) query;
+  // The line's transaction at `finalized`, through both providers.
+  status : () -> (Result_2);
+}

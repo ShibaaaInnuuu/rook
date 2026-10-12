@@ -1,0 +1,53 @@
+{
+  "id": 12,
+  "kind": "inscriptions",
+  "name": "Space Pepes",
+  "ref": "space-pepes",
+  "divisibility": 0,
+  "vault": "0xDF2f5C235C7c5CCF7aC39760D2211A962323882e",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-space-pepes",
+  "membershipRoot": "0x011bd54a302c82c293578e03327e5d8cbb3efe7085038427cab2427b3809dcd4",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "83170567085382334",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "83170567085382334",
+    "attributedWei": "83170567085382334",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "83170567085382334",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xB2528Da2b232ca034D7F08A89093B424FaB63967",
+      "symbol": "BASA2SIM",
+      "depositedWei": "83170567085382334"
+    }
+  ]
+}

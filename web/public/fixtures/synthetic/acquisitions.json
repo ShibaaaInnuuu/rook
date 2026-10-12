@@ -1,0 +1,283 @@
+{
+  "items": [
+    {
+      "listingId": 0,
+      "acquisitionId": 4,
+      "purchaseId": 0,
+      "kind": "inscriptions",
+      "coin": "0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0",
+      "coinSymbol": null,
+      "assetRef": "abci4",
+      "amount": "1",
+      "btcTxid": "4242424242424242424242424242424242424242424242424242424242424242",
+      "satsPaid": "1",
+      "settledAt": 1800000960,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "purchaseSpentWei": "55",
+      "purchaseAcquisitions": 5,
+      "delivery": {
+        "mode": "named",
+        "state": "won",
+        "winner": "0xf1f1f1F1f1f1F1F1f1F1f1F1F1F1F1f1F1f1f1F1",
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/4242424242424242424242424242424242424242424242424242424242424242"
+          },
+          {
+            "label": "the inscription",
+            "url": "https://ordinals.com/inscription/abci4"
+          }
+        ],
+        "check": {
+          "kind": "inscription",
+          "txid": "4242424242424242424242424242424242424242424242424242424242424242",
+          "inscriptionId": "abci4",
+          "address": null,
+          "expect": "the inscription's current owner is `address`, until it is delivered"
+        },
+        "note": "A receipt is the attestor's word. These links let anyone check it against Bitcoin; this API has not."
+      }
+    },
+    {
+      "listingId": 0,
+      "acquisitionId": 3,
+      "purchaseId": 0,
+      "kind": "inscriptions",
+      "coin": "0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0",
+      "coinSymbol": null,
+      "assetRef": "abci3",
+      "amount": "1",
+      "btcTxid": "4242424242424242424242424242424242424242424242424242424242424242",
+      "satsPaid": "1",
+      "settledAt": 1800000948,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "purchaseSpentWei": "55",
+      "purchaseAcquisitions": 5,
+      "delivery": {
+        "mode": "hold",
+        "state": "held",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/4242424242424242424242424242424242424242424242424242424242424242"
+          },
+          {
+            "label": "the inscription",
+            "url": "https://ordinals.com/inscription/abci3"
+          }
+        ],
+        "check": {
+          "kind": "inscription",
+          "txid": "4242424242424242424242424242424242424242424242424242424242424242",
+          "inscriptionId": "abci3",
+          "address": null,
+          "expect": "the inscription's current owner is `address`, until it is delivered"
+        },
+        "note": "A receipt is the attestor's word. These links let anyone check it against Bitcoin; this API has not."
+      }
+    },
+    {
+      "listingId": 0,
+      "acquisitionId": 2,
+      "purchaseId": 0,
+      "kind": "inscriptions",
+      "coin": "0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0",
+      "coinSymbol": null,
+      "assetRef": "abci2",
+      "amount": "1",
+      "btcTxid": "4242424242424242424242424242424242424242424242424242424242424242",
+      "satsPaid": "1",
+      "settledAt": 1800000936,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "purchaseSpentWei": "55",
+      "purchaseAcquisitions": 5,
+      "delivery": {
+        "mode": "unset",
+        "state": "voided",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/4242424242424242424242424242424242424242424242424242424242424242"
+          },
+          {
+            "label": "the inscription",
+            "url": "https://ordinals.com/inscription/abci2"
+          }
+        ],
+        "check": {
+          "kind": "inscription",
+          "txid": "4242424242424242424242424242424242424242424242424242424242424242",
+          "inscriptionId": "abci2",
+          "address": null,
+          "expect": "the inscription's current owner is `address`, until it is delivered"
+        },
+        "note": "A receipt is the attestor's word. These links let anyone check it against Bitcoin; this API has not."
+      }
+    },
+    {
+      "listingId": 0,
+      "acquisitionId": 1,
+      "purchaseId": 0,
+      "kind": "inscriptions",
+      "coin": "0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0",
+      "coinSymbol": null,
+      "assetRef": "abci1",
+      "amount": "1",
+      "btcTxid": "4242424242424242424242424242424242424242424242424242424242424242",
+      "satsPaid": "1",
+      "settledAt": 1800000924,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "purchaseSpentWei": "55",
+      "purchaseAcquisitions": 5,
+      "delivery": {
+        "mode": "unset",
+        "state": "cancelled",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/4242424242424242424242424242424242424242424242424242424242424242"
+          },
+          {
+            "label": "the inscription",
+            "url": "https://ordinals.com/inscription/abci1"
+          }
+        ],
+        "check": {
+          "kind": "inscription",
+          "txid": "4242424242424242424242424242424242424242424242424242424242424242",
+          "inscriptionId": "abci1",
+          "address": null,
+          "expect": "the inscription's current owner is `address`, until it is delivered"
+        },
+        "note": "A receipt is the attestor's word. These links let anyone check it against Bitcoin; this API has not."
+      }
+    },
+    {
+      "listingId": 1,
+      "acquisitionId": 0,
+      "purchaseId": 0,
+      "kind": "rune",
+      "coin": "0xC1C1c1c1C1C1C1c1c1C1C1C1c1C1C1C1c1C1c1c1",
+      "coinSymbol": null,
+      "assetRef": "840000:3",
+      "amount": "900",
+      "btcTxid": "5555555555555555555555555555555555555555555555555555555555555555",
+      "satsPaid": "90000",
+      "settledAt": 1800000792,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "purchaseSpentWei": "0",
+      "purchaseAcquisitions": 1,
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-rolled",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1pnew"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:3"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "5555555555555555555555555555555555555555555555555555555555555555",
+          "runeId": "840000:3",
+          "address": "bc1pnew",
+          "expectAtLeast": "600",
+          "indexerPath": "/v1/indexer/address/bc1pnew/runes/840000:3/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    },
+    {
+      "listingId": 0,
+      "acquisitionId": 0,
+      "purchaseId": 0,
+      "kind": "inscriptions",
+      "coin": "0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0",
+      "coinSymbol": null,
+      "assetRef": "abci0",
+      "amount": "1",
+      "btcTxid": "4242424242424242424242424242424242424242424242424242424242424242",
+      "satsPaid": "150000",
+      "settledAt": 1800000576,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "purchaseSpentWei": "55",
+      "purchaseAcquisitions": 5,
+      "delivery": {
+        "mode": "draw-weighted",
+        "state": "delivered",
+        "winner": "0xf1f1f1F1f1f1F1F1f1F1f1F1F1F1F1f1F1f1f1F1",
+        "destination": "bc1pfixed",
+        "deliveredTxid": "7777777777777777777777777777777777777777777777777777777777777777",
+        "overdue": true,
+        "secondsToDeliver": 36
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/4242424242424242424242424242424242424242424242424242424242424242"
+          },
+          {
+            "label": "the inscription",
+            "url": "https://ordinals.com/inscription/abci0"
+          }
+        ],
+        "check": {
+          "kind": "inscription",
+          "txid": "4242424242424242424242424242424242424242424242424242424242424242",
+          "inscriptionId": "abci0",
+          "address": null,
+          "expect": "the inscription's current owner is `address`, until it is delivered"
+        },
+        "note": "A receipt is the attestor's word. These links let anyone check it against Bitcoin; this API has not."
+      }
+    }
+  ],
+  "total": 6,
+  "limit": 200,
+  "offset": 0
+}

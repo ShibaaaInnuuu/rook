@@ -1,0 +1,133 @@
+{
+  "id": "0-3",
+  "listingId": 0,
+  "acquisitionId": 3,
+  "type": "draw",
+  "state": "delivered",
+  "mode": "draw-weighted",
+  "assetRef": "0000000000000000000000000000000000000000000000000000000000000000i3",
+  "openedAt": 1790023803,
+  "challengeEnds": 1790024703,
+  "challengeEndsIn": null,
+  "root": "0xebc2574c3802b2d97bb327643869df5d892d901ce0c66fdcde1d4cb214b83e00",
+  "uri": "https://staging-chain-production.up.railway.app/snapshots/snapshot-0xa998d0e33b8b4a463c27ba421d16259cfcda71c9-69015223-weighted.json",
+  "total": "668248335",
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": "npm run snapshot -- --coin 0xA998d0E33b8B4A463C27bA421D16259CFcDA71c9 --block <block from the published file> --kind weighted",
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": {
+    "round": 20834309,
+    "pinnedAt": 1790023939,
+    "drandUrl": "https://api.drand.sh/04f1e9062b8a81f848fded9c12306733282b2727ecced50032187751166ec8c3/public/20834309",
+    "winningTicket": "210109199",
+    "resolvedAt": 1790024010,
+    "winner": "0x9cb23BaBEe8a8415eD70111a0027eDdbd01C041E",
+    "destination": "bc1p0xlxvlhemja6c4dqv22uapctqupfhlxm9h8z3k2e72q4k9hcz7vqzk5jj0",
+    "destinationSetAt": 1790024038,
+    "deliveredTxid": "4d4694d8d56a7091f2438ed19e3a3d29ac99e14db8c44ba8091d4d038808b4f1",
+    "deliveredAt": 1790024163,
+    "overdue": false,
+    "voided": null
+  },
+  "distribution": null,
+  "timeline": [
+    {
+      "at": 1790023781,
+      "block": 69015218,
+      "tx": "0x16b474964d759e21d2ad66e1fce81df0df6d12ce8c1a822837d16fa194c40249",
+      "event": "Receipted",
+      "detail": {
+        "id": "4",
+        "acquisitionId": "3",
+        "coin": "0xa998d0e33b8b4a463c27ba421d16259cfcda71c9",
+        "assetRef": "0000000000000000000000000000000000000000000000000000000000000000i3",
+        "amount": "1",
+        "btcTxid": "0xfcc3bf009f1658de90c91bf01c7cdbb3bc90b87a8caee92208badebd926137d9",
+        "satsPaid": "150000"
+      }
+    },
+    {
+      "at": 1790023796,
+      "block": 69015222,
+      "tx": "0xb9cda57a0744196b0d20b4c175529745fd6eeba5717c61f3006d4049e31bfd71",
+      "event": "Chosen",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "3",
+        "mode": 3,
+        "named": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "at": 1790023803,
+      "block": 69015224,
+      "tx": "0xc324e377d7b20757e2cfe6187f081289bb2ac3419b4160f7ae553352f8093db7",
+      "event": "DrawOpened",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "3",
+        "root": "0xebc2574c3802b2d97bb327643869df5d892d901ce0c66fdcde1d4cb214b83e00",
+        "totalTickets": "668248335",
+        "uri": "https://staging-chain-production.up.railway.app/snapshots/snapshot-0xa998d0e33b8b4a463c27ba421d16259cfcda71c9-69015223-weighted.json",
+        "challengeEnds": "1790024703"
+      }
+    },
+    {
+      "at": 1790023939,
+      "block": 69015254,
+      "tx": "0xc9babf5c8c3fedec998f29bf90667a59eb3d1c8ab322e759d2af468d2b755cfe",
+      "event": "DrawPinned",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "3",
+        "round": "20834309"
+      }
+    },
+    {
+      "at": 1790024010,
+      "block": 69015267,
+      "tx": "0x33b3f6d3fd2304665f1e8d3b7e72b1384f02edf7ab9132b7815ec09136c413b9",
+      "event": "DrawResolved",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "3",
+        "winningTicket": "210109199"
+      }
+    },
+    {
+      "at": 1790024020,
+      "block": 69015268,
+      "tx": "0x70644f04a2159ef873d792138fde9dc7f439a56846f05c061fe6a6bb15d61233",
+      "event": "Won",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "3",
+        "winner": "0x9cb23babee8a8415ed70111a0027eddbd01c041e"
+      }
+    },
+    {
+      "at": 1790024038,
+      "block": 69015275,
+      "tx": "0x54ff9371670a47e9f01d5f93b4b9ba89a68e69f501bbdc3678af30f581e66db3",
+      "event": "DestinationSet",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "3",
+        "destination": "bc1p0xlxvlhemja6c4dqv22uapctqupfhlxm9h8z3k2e72q4k9hcz7vqzk5jj0"
+      }
+    },
+    {
+      "at": 1790024163,
+      "block": 69015302,
+      "tx": "0x92166bf653256405fca0d4076da6ea43eb55b68223e4411f0545af25eaea66ce",
+      "event": "Delivered",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "3",
+        "txid": "0x4d4694d8d56a7091f2438ed19e3a3d29ac99e14db8c44ba8091d4d038808b4f1"
+      }
+    }
+  ]
+}

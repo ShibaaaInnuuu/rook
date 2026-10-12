@@ -1,0 +1,6 @@
+--- the canister's custody_caps(): J7's per-collection caps, global_max_items 61
+    J7 total read (capsread): ok
+    exit read (canexit, 12/24): FAIL the canister's pair: custody holds up to 61 items in all and lets 24 out a day in all: 48 can leave within the timelock's 72 h less a day and 13 cannot (A4
+--- the canister's custody_caps(): J7's per-collection caps, global_max_items 48
+    J7 total read (capsread): 48 items and 75000000000000000000 wei in all, under the collections sum of 61 and 75000000000000000000
+    exit read (canexit, 12/24): ok   the canister's pair: every item can leave within the timelock's 72 h less a day: each collection at 12 a day, and 48 items in all at 24 a day (48 can leave

@@ -1,0 +1,113 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "lazy-lions",
+    "name": "Lazy Lions",
+    "chain": "ethereum",
+    "chainName": "Ethereum",
+    "chainId": 1,
+    "standard": "erc721",
+    "id": "0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0",
+    "description": null,
+    "image": "https://i2c.seadn.io/ethereum/5baba2c55f724962b7bd617069a2a84d/eb9880330f77bfb91178fbd47b6172/a6eb9880330f77bfb91178fbd47b6172.png",
+    "links": {
+      "website": "http://lazylionsnft.com",
+      "x": "https://x.com/LazyLionsNFT",
+      "discord": "https://discord.gg/lazy-lions-869565356400844820",
+      "marketplace": "https://opensea.io/collection/lazy-lions",
+      "explorer": "https://etherscan.io/address/0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0"
+    },
+    "floor": {
+      "native": "45044230000000000",
+      "unit": "wei",
+      "eth": 0.04504423,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/lazy-lions/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 10078,
+    "owners": 4595,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1",
+        "name": "#1",
+        "image": "https://ipfs.filebase.io/ipfs/QmSyRmfc79TS7tLQkWTZQ1Z3UPUv296sDT8pvbtit7DVbA",
+        "url": "https://etherscan.io/nft/0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0/1"
+      },
+      {
+        "id": "2",
+        "name": "#2",
+        "image": "https://ipfs.filebase.io/ipfs/QmbrCwaDeKKbJiQFmzK8fFH2kdUscWvkFrA7uLwWzvVdAy",
+        "url": "https://etherscan.io/nft/0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0/2"
+      },
+      {
+        "id": "3",
+        "name": "#3",
+        "image": "https://ipfs.filebase.io/ipfs/QmTuQtA3qM3gd6dXHLFcUCdkoZ4DsNrrtAKeEFEQc19uJB",
+        "url": "https://etherscan.io/nft/0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0/3"
+      },
+      {
+        "id": "4",
+        "name": "#4",
+        "image": "https://ipfs.filebase.io/ipfs/QmWqbk5BBzfXwcLjmYTA6jiV1eifgvMAkBcaB5N4XiShQd",
+        "url": "https://etherscan.io/nft/0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0/4"
+      },
+      {
+        "id": "5",
+        "name": "#5",
+        "image": "https://ipfs.filebase.io/ipfs/QmeviJZr3vP8MEwhBbAkUytbGBct1onEqCTokE9FJoyWgs",
+        "url": "https://etherscan.io/nft/0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0/5"
+      },
+      {
+        "id": "6",
+        "name": "#6",
+        "image": "https://ipfs.filebase.io/ipfs/QmdFWXG3tWAJRBiiDrsQRc8xQjcYynsXWxF8adDE5cdN2L",
+        "url": "https://etherscan.io/nft/0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0/6"
+      },
+      {
+        "id": "8",
+        "name": "#8",
+        "image": "https://ipfs.filebase.io/ipfs/QmQkCJGeomxtDef6MGT5RJXAZfP1P4XVaE8k53QegpUdrp",
+        "url": "https://etherscan.io/nft/0x8943c7bac1914c9a7aba750bf2b6b09fd21037e0/8"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.045 ETH, 0.054 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

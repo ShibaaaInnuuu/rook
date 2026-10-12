@@ -1,0 +1,101 @@
+TAP version 13
+# DIAG D3-M-1 Sent, owner BUYER2 (resold): SEV1 eth-not-held = true
+# DIAG D3-M-1 Moved, owner BUYER2 (resold): SEV1 eth-not-held = false
+# DIAG D3-M-1 Record, owner BUYER2 (resold): SEV1 eth-not-held = false
+# DIAG D3-M-1 Recording, owner BUYER2 (resold): SEV1 eth-not-held = false
+# DIAG D3-M-1 (b) Cancelling, owner DEST: SEV1 eth-not-held = false
+# DIAG D3-M-1 (b) without ticket(): SEV1 = true; text: milady: token 9180 (held by the wrapper as item 0) is owned by 0x000000000000000000000000000000000000d00d on Ethereum, not the custodian 0x00000000000000000000000000000000000000c0 (both providers, block 25999998). An NFT left custody without a delivery of ours of this item: pause, then look. ticket 3 of the wrapper could not be read (unexpected https://home eth_call 0xc129ff32): not exempted
+# Subtest: DIAG D3-M-1 with ticket(uint256) answered
+ok 1 - DIAG D3-M-1 with ticket(uint256) answered
+  ---
+  duration_ms: 53.1865
+  type: 'test'
+  ...
+# Subtest: D3-M-1: a delivery of ours mined, and the redeemer sold the NFT on before the 4663 record: SEV1 'an NFT left custody ... pause, then look'
+ok 2 - D3-M-1: a delivery of ours mined, and the redeemer sold the NFT on before the 4663 record: SEV1 'an NFT left custody ... pause, then look'
+  ---
+  duration_ms: 45.490292
+  type: 'test'
+  ...
+# Subtest: D3-M-1 (b): a delivery pending a day before its deadline is cancelled; the transfer mined first (Cancelling, the canister not yet ticked): SEV1
+ok 3 - D3-M-1 (b): a delivery pending a day before its deadline is cancelled; the transfer mined first (Cancelling, the canister not yet ticked): SEV1
+  ---
+  duration_ms: 6.764083
+  type: 'test'
+  ...
+# Subtest: D3-L-1: token 9180 was redeemed to X long ago (Recorded); it came back (a deposit) and is held again; it leaves custody to X with no delivery: no SEV1
+not ok 4 - D3-L-1: token 9180 was redeemed to X long ago (Recorded); it came back (a deposit) and is held again; it leaves custody to X with no delivery: no SEV1
+  ---
+  duration_ms: 2.428666
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/r4partD-svc-7f3a/monitor/test/audit3_nft_d.test.mjs:85:1'
+  failureType: 'testCodeFailure'
+  error: 'the wrapper holds item 9180 NOW, no delivery of it is open, and it is at X: masked by the old record'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/r4partD-svc-7f3a/monitor/test/audit3_nft_d.test.mjs:90:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D3-L-2: Relay's arrival lands after the canary's block but before its second records read (canister pin newer): SEV1 'ETH left without a fill of ours'
+not ok 5 - D3-L-2: Relay's arrival lands after the canary's block but before its second records read (canister pin newer): SEV1 'ETH left without a fill of ours'
+  ---
+  duration_ms: 1.691792
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/r4partD-svc-7f3a/monitor/test/audit3_nft_d.test.mjs:103:1'
+  failureType: 'testCodeFailure'
+  error: 'an honest arrival reads as ETH stolen'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/r4partD-svc-7f3a/monitor/test/audit3_nft_d.test.mjs:113:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D3-I-1: right after eth_give_back (BackFunded since 0), the way-back page fires at once with an absurd wait
+not ok 6 - D3-I-1: right after eth_give_back (BackFunded since 0), the way-back page fires at once with an absurd wait
+  ---
+  duration_ms: 6.785875
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/r4partD-svc-7f3a/monitor/test/audit3_nft_d.test.mjs:117:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(a && a.key.endsWith(":0") && /30000000 min/.test(a.text), a?.text)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/r4partD-svc-7f3a/monitor/test/audit3_nft_d.test.mjs:122:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D3-I-2: the line is our cancel of a fill; a transaction not ours takes that nonce and empties the address: no SEV1 from the canary
+ok 7 - D3-I-2: the line is our cancel of a fill; a transaction not ours takes that nonce and empties the address: no SEV1 from the canary
+  ---
+  duration_ms: 2.193375
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 4
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 253.087167

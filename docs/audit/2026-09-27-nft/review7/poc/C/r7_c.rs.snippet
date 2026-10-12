@@ -1,0 +1,109 @@
+// Review round 7, part C: PoCs appended to a private copy of tests/audit_nft_r6.rs (its fake world and helpers, unchanged).
+// Run: cargo test --test audit_nft_r6 r7_c -- --nocapture   (in /tmp/rook-r7-C/canister-rs)
+// A passing PoC shows the weakness is present.
+
+fn unhex(s: &str) -> Vec<u8> {
+    hex::decode(s.trim_start_matches("0x")).unwrap()
+}
+
+/// Ethereum mainnet, block 0x18dd4e1, tx 0x86eee61f…d84d: a real call of Relay's depository `execute` paying a user
+/// (0x008c…8442) 0.00099125 ETH, and the `RelayCallExecuted` it emitted (read-only `eth_getTransactionByHash` / `eth_getLogs`,
+/// 2026-09-28, gateway.tenderly.co/public/mainnet).
+const REAL_EXEC_INPUT: &str = "0x2d9fb4780000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000018000000000000000000000000000000000000000000000000000000000000000608b63e87370d4d3321cc451378ea3f90173d85481023d26a0315f93fae4ad01ed000000000000000000000000000000000000000000000000000000006ab9bf2000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000008c8607387c8f5540287070c08c3e9acd4e844200000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000003858960223400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000041aa7a8a8ca3c89a97279e84cc926d3e2bd1d7ec6b216e559ed2ee81381edc7e044b9862b4b8d21a82a1301aa3700e0528e916e66cb4f873e3cd260cd70fb45e471c00000000000000000000000000000000000000000000000000000000000000";
+const REAL_EXEC_LOG_DATA: &str = "0x84334077101689714321be1e7c88eeaf265d4d8b7c5b91cbc197b6704cbe66590000000000000000000000000000000000000000000000000000000000000040000000000000000000000000008c8607387c8f5540287070c08c3e9acd4e84420000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000385896022340000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+const REAL_USER: [u8; 20] = [0x00, 0x8c, 0x86, 0x07, 0x38, 0x7c, 0x8f, 0x55, 0x40, 0x28, 0x70, 0x70, 0xc0, 0x8c, 0x3e, 0x9a, 0xcd, 0x4e, 0x84, 0x42];
+
+/// The depository's EIP-712 struct hash of a one-call CallRequest (RelayDepository.sol `_hashCallRequest`): the `id` of every
+/// RelayCallExecuted that `execute` emits (`_executeCalls(structHash, request.calls)`).
+fn call_request_struct_hash(to: &[u8; 20], data: &[u8], value: u128, allow_failure: bool, nonce: &[u8; 32], expiration: u128) -> [u8; 32] {
+    let call_th = keccak(b"Call(address to,bytes data,uint256 value,bool allowFailure)");
+    let req_th = keccak(b"CallRequest(Call[] calls,uint256 nonce,uint256 expiration)Call(address to,bytes data,uint256 value,bool allowFailure)");
+    let call_hash = keccak(&[call_th.to_vec(), addr_word(to), keccak(data).to_vec(), word(value), word(allow_failure as u128)].concat());
+    keccak(&[req_th.to_vec(), keccak(&call_hash).to_vec(), nonce.to_vec(), word(expiration)].concat())
+}
+
+#[test]
+fn r7_c_l1_a_the_real_event_id_is_the_call_requests_struct_hash_so_a_real_depository_payout_never_names_the_order() {
+    // 1. The decoder reads the REAL encoding (one topic, the id in the data) correctly.
+    let real = LogV { address: rc::RELAY_DEPOSITORY_4663, topics: vec![rc::RELAY_CALL_EXECUTED], data: unhex(REAL_EXEC_LOG_DATA) };
+    let (id, to, value) = rc::call_executed(&real).expect("decoded");
+    assert_eq!((to, value), (REAL_USER, 0x0003_8589_6022_3400u128));
+    // 2. That id is the CallRequest's struct hash (nonce 0x8b63…01ed, expiration 0x6ab9bf20), neither Relay's request id nor any
+    //    deposit id: it is computed by the depository, so no order id can ever be it.
+    let input = unhex(REAL_EXEC_INPUT);
+    let nonce: [u8; 32] = input[4 + 96..4 + 128].try_into().unwrap();
+    assert_eq!(id, call_request_struct_hash(&REAL_USER, &[], 0x0003_8589_6022_3400, false, &nonce, 0x6ab9bf20));
+    println!("real RelayCallExecuted id = 0x{} = struct hash of the CallRequest", hx(&id));
+
+    // 3. The same real shape re-targeted to OUR address, as Relay's depository would pay a late refund of our written-off order:
+    //    the call's data is empty, the nonce is the allocator's, the id is the struct hash. The order's own ids appear nowhere.
+    let w = ef::Watch { order_id: [0x0d; 32], value: 5 * E, min_out: 49 * E / 10, deadline: 1, balance_after: 0, eth_before: 0,
+        eth_out_before: 0, pin: Some(26_000_000), solver: Some(SOLVER), request_id: Some([0x17; 32]), home_pin: Some(70_000_000) };
+    let o = ef::LateOrder { watch: w.clone(), back: false, let_go_at: 2, credited: None, released_at: None };
+    let refund = 49 * E / 10;
+    let mut ours = input.clone();
+    ours[4 + 7 * 32 + 12..4 + 8 * 32].copy_from_slice(&US);              // calls[0].to = us
+    ours[4 + 9 * 32..4 + 10 * 32].copy_from_slice(&word(refund));         // calls[0].value
+    let rid = call_request_struct_hash(&US, &[], refund, false, &nonce, 0x6ab9bf20);
+    let ev = LogV { address: rc::RELAY_DEPOSITORY_4663, topics: vec![rc::RELAY_CALL_EXECUTED],
+        data: [rid.to_vec(), word(0x40), addr_word(&US), word(0x80), word(refund), word(0), word(0)].concat() };
+    assert_eq!(rc::call_executed(&ev), Some((rid, US, refund)), "Relay's record, paying us");
+    let t = ef::PayoutTx { from: REAL_USER, to: rc::RELAY_DEPOSITORY_4663, value: 0, input: ours, block: 70_000_001, success: true };
+    let r0 = ef::judge_payout(&o, &t, &[ev.clone()], &[0x01; 32], true, &US, 0, &[]);
+    let r1 = ef::judge_payout(&o, &t, &[ev.clone()], &[0x01; 32], true, &US, refund, &[]);
+    println!("a real-shape depository refund to us, no amount stated: {r0:?}");
+    println!("the same, the operator stating the record's amount:   {r1:?}");
+    assert!(r0.as_ref().unwrap_err().contains("does not name") && r1.as_ref().unwrap_err().contains("does not name"),
+        "a real depository payout to us is never creditable: the only credit path left for it is the event id the contract never sets");
+    // the fixer's test shape (topics [sig, order id], an id Relay's depository never emits) is what credits
+    let fixers = LogV { address: rc::RELAY_DEPOSITORY_4663, topics: vec![rc::RELAY_CALL_EXECUTED, w.order_id],
+        data: [word(0x20), addr_word(&US), word(0x80), word(refund), word(0), word(0)].concat() };
+    assert_eq!(ef::judge_payout(&o, &t, &[fixers], &[0x01; 32], true, &US, 0, &[]), Ok(refund));
+}
+
+#[test]
+fn r7_c_i1_every_execution_paying_us_in_one_transaction_is_summed_whatever_its_id() {
+    // C7-I-1: to_us sums every RelayCallExecuted paying us in the receipt, not only the one(s) naming this order. A Relay batch that
+    // pays us for two orders (one named in the input) is credited in full to the one order (bounded by the order's value).
+    let w = ef::Watch { order_id: [0x0d; 32], value: 5 * E, min_out: 49 * E / 10, deadline: 1, balance_after: 0, eth_before: 0,
+        eth_out_before: 0, pin: Some(26_000_000), solver: Some(SOLVER), request_id: None, home_pin: Some(70_000_000) };
+    let o = ef::LateOrder { watch: w.clone(), back: false, let_go_at: 2, credited: None, released_at: None };
+    let t = ef::PayoutTx { from: SOLVER, to: rc::RELAY_DEPOSITORY_4663, value: 0, input: [vec![0x2d, 0x9f, 0xb4, 0x78], w.order_id.to_vec()].concat(),
+        block: 70_000_001, success: true };
+    let ex = |id: [u8; 32], v: u128| LogV { address: rc::RELAY_DEPOSITORY_4663, topics: vec![rc::RELAY_CALL_EXECUTED],
+        data: [id.to_vec(), word(0x40), addr_word(&US), word(0x80), word(v), word(0), word(0)].concat() };
+    let r = ef::judge_payout(&o, &t, &[ex([0x51; 32], 3 * E), ex([0x52; 32], 2 * E)], &[0x01; 32], true, &US, 0, &[]);
+    println!("two executions paying us, 3 + 2 ETH, credited to one order: {r:?}");
+    assert_eq!(r, Ok(5 * E));
+}
+
+#[test]
+fn r7_c_i2_a_claim_waiting_behind_its_buys_4663_transaction_goes_stale_after_600_s_and_is_dropped() {
+    // Judgment call 6: the kept claim is refused as stale once HANDIN_TTL_SECS (600 s) have passed while the buy's transaction is
+    // still out; nothing re-hands it in: the operator must.
+    let mut f = Fake::new(true);
+    let mut st = EthState::default();
+    let (mid, amount) = milady_written_off(&mut f, &mut st);
+    ef::give_back_now(&mut st, mid, f.home_balance, f.now).unwrap();
+    f.now += 600;
+    tick(&mut f, &mut st);
+    assert!(matches!(st.pending.as_ref().map(|p| &p.step), Some(ef::Step::GiveBack { .. })));
+    let oid = st.buy(mid).unwrap().late.as_ref().unwrap().watch.order_id;
+    let payout = amount / 100 * 98;
+    f.home_balance += payout;
+    f.payouts.insert((true, PAYOUT_TX), ef::PayoutTx { from: SOLVER, to: US, value: payout, input: oid.to_vec(), block: HOME_PIN + 5, success: true });
+    ef::put_payout(&mut st, mid, true, PAYOUT_TX, 0, f.now).unwrap();
+    let hash = st.pending.as_ref().unwrap().hash;
+    f.hide.push(hash);
+    f.home_nonce -= 1;
+    let mut all = Vec::new();
+    for _ in 0..3 {
+        f.now += 240;
+        all.extend(tick(&mut f, &mut st));
+    }
+    let all = all.join("\n");
+    println!("{}", all.lines().filter(|l| l.contains("payout")).collect::<Vec<_>>().join("\n"));
+    assert!(all.contains("stale"), "dropped as stale after 600 s");
+    assert!(st.inbox.payouts.as_ref().is_none_or(|v| v.is_empty()), "nothing kept: the operator must hand it in again");
+    assert!(st.buy(mid).unwrap().late.as_ref().unwrap().credited.is_none() && st.late_hold() == Some(mid));
+}

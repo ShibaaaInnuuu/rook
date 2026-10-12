@@ -1,0 +1,20 @@
+229a230,231
+>     // R2 adaptation: the trait gained home_finalized_time (H9 carried over); the home chain is taken as final at once
+>     async fn home_finalized_time(&mut self) -> Result<u64, String> { Ok(self.now + 86_400) }
+262a265,266
+>                 // R2 adaptation: the canister now reads floorBounds() before a post (D-H-2); no bound here
+>                 else if s == ef::FLOOR_BOUNDS { [word(0), word(u128::MAX)].concat() }
+444c448
+<     let up = en::floor_from(&seen, &[3 * E / 2; 3], &p).unwrap();
+---
+>     let up = en::floor_from(&seen, &r2_sales(3 * E / 2), &p).unwrap();
+448c452
+<     let down = en::floor_from(&seen, &[93 * E / 1_000; 3], &p).unwrap();
+---
+>     let down = en::floor_from(&seen, &r2_sales(93 * E / 1_000), &p).unwrap();
+753a758,762
+> }
+> 
+> // R2 adaptation: floor_from now takes Sales; the strongest wash for the attacker (distinct token, seller and buyer each)
+> fn r2_sales(price: u128) -> Vec<en::Sale> {
+>     (1..=3u8).map(|i| en::Sale { token: sp::word_u128(100 + i as u128), price, seller: [0x10 + i; 20], buyer: [0x20 + i; 20], block: 1 }).collect()

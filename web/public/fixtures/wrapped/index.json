@@ -1,0 +1,18 @@
+{
+  "kind": "wrapped",
+  "note": "FIXTURE. Nothing on this page is deployed. The collections, coins, items, tickets and checks are built from the worked examples in docs/v3/curve.md (frogs at 5 ETH; an ape bought FIFO for two coins), with a floor module, a treasury, a YOYO coin and an offer board given plausible books, and run through the real reserve computation. Addresses, inscription ids and transactions are invented; the explorer links point at nothing. One of the apes' two EVM providers is made to fail on purpose, to show an unverified collection.",
+  "generatedAt": 1790002030,
+  "files": {
+    "/v1/wrapped": "wrapped.json",
+    "/v1/reserves": "reserves.json",
+    "/v1/wrapped/frogs": "wrapped-frogs.json",
+    "/v1/reserves/frogs": "reserves-frogs.json",
+    "/v1/wrapped/frogs/tickets/0": "ticket-frogs-0.json",
+    "/v1/wrapped/frogs/tickets/1": "ticket-frogs-1.json",
+    "/v1/wrapped/frogs/tickets/2": "ticket-frogs-2.json",
+    "/v1/handins/frogs": "handins-frogs.json",
+    "/v1/wrapped/apes": "wrapped-apes.json",
+    "/v1/reserves/apes": "reserves-apes.json",
+    "/v1/handins/apes": "handins-apes.json"
+  }
+}

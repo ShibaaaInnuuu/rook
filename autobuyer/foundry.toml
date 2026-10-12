@@ -1,0 +1,10 @@
+# The v2 sketch is compiled on its own so it can never be mistaken for, or linked into, the v1 contracts in ../src.
+[profile.default]
+src = "contracts"
+test = "contracts"
+out = "out"
+cache_path = "cache"
+libs = ["../lib"]
+remappings = ["forge-std/=../lib/forge-std/src/"]
+solc = "0.8.24"
+fuzz = { runs = 512 }

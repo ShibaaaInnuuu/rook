@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Claynosaurz",
+  "symbol": "wCLAYNO",
+  "description": "Rook's wrapped Claynosaurz token: each whole token is backed either by a Claynosaurz NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/claynosaurz.png",
+  "external_url": "https://userook.fun/#/collection/claynosaurz",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/claynosaurz.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

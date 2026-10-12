@@ -1,0 +1,16 @@
+[package]
+name = "rook_sol_multisig_offline"
+version = "0.1.0"
+edition = "2021"
+description = "Spike S3, native: verify the canister's 3-signer transaction off-chain and derive the threshold Ed25519 public keys offline (ic-ed25519)."
+publish = false
+
+[dependencies]
+ic-ed25519 = "=0.6.0"
+ed25519-dalek = "2"
+base64 = "0.22.1"
+bs58 = "0.5"
+serde_json = "1"
+hex = "0.4"
+# from_text (the "convert" feature) for the canister id
+ic_principal = { version = "0.1", features = ["convert"] }

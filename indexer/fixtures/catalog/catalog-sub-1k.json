@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "sub-1k",
+    "name": "Sub 1k",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "sub-1k",
+    "description": "Sub 1k",
+    "image": "https://media.ordinalswallet.com/bb03339529898a85a7a0887dae6af517234d367ff630aa01b4dc00f9f37feb1b.png",
+    "links": {
+      "website": null,
+      "x": null,
+      "discord": null,
+      "marketplace": "https://ordinalswallet.com/collection/sub-1k",
+      "explorer": null
+    },
+    "floor": {
+      "native": "3494347",
+      "unit": "sats",
+      "eth": 1.1029091310797587,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 999,
+    "owners": null,
+    "listed": 31,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "8b84670859e6a4b78ab8049105b7f04e3c3e47e78719dd74084856132973bc4ei0",
+        "name": "Interstellar Landing",
+        "image": "https://ordinals.com/content/8b84670859e6a4b78ab8049105b7f04e3c3e47e78719dd74084856132973bc4ei0",
+        "url": "https://ordinals.com/inscription/8b84670859e6a4b78ab8049105b7f04e3c3e47e78719dd74084856132973bc4ei0"
+      },
+      {
+        "id": "9f0bfadb03c137c54d2a77768f61691eee2ccf64ad307109b92c14b76d73c28ai0",
+        "name": "Planetary Ordinal #7",
+        "image": "https://ordinals.com/content/9f0bfadb03c137c54d2a77768f61691eee2ccf64ad307109b92c14b76d73c28ai0",
+        "url": "https://ordinals.com/inscription/9f0bfadb03c137c54d2a77768f61691eee2ccf64ad307109b92c14b76d73c28ai0"
+      },
+      {
+        "id": "5d66923d0edf103ef26fbe9c19ea17ef235fd53f8b42ee8b2e31b807baddca0bi0",
+        "name": "#481",
+        "image": "https://ordinals.com/content/5d66923d0edf103ef26fbe9c19ea17ef235fd53f8b42ee8b2e31b807baddca0bi0",
+        "url": "https://ordinals.com/inscription/5d66923d0edf103ef26fbe9c19ea17ef235fd53f8b42ee8b2e31b807baddca0bi0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (1.103 ETH, 1.323 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

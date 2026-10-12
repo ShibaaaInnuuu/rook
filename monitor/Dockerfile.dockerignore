@@ -1,0 +1,8 @@
+*
+!monitor/package.json
+!monitor/package-lock.json
+!monitor/src
+!monitor/fixtures
+!scripts/timelock-watch.mjs
+!ops/docker/drop-to-node.sh
+!tools/snapshot/exclusions.json

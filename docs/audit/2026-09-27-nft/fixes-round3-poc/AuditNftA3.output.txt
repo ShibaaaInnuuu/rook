@@ -1,0 +1,33 @@
+# forge test --match-path "test/audit_nft_a3/*" -vv   (private copy of the forge project from the worktree: src/ test/ script/ lib/ cache/ out/ foundry.toml remappings.txt; review3/poc/A/AuditNftA3.t.sol at test/audit_nft_a3/, unmodified; forge Version: 1.8.1)
+Compiling 30 files with Solc 0.8.28
+Solc 0.8.28 finished in 10.30s
+Compiler run successful with warnings:
+Ran 4 tests for test/audit_nft_a3/AuditNftA3.t.sol:AuditNftA3
+[PASS] test_A3_I1_pooledFloorRiseTest_theThirdGraduationBranchIsDead() (gas: 37097276)
+Logs:
+  third graduation: maxItemCost 7444906451612903228 netUnits 2301707900747035968
+  graduations until the gate lets the pool convert 8
+
+[PASS] test_A3_L1_oneWayBackAtTheJudgesFeeBound_weakness() (gas: 10442158)
+Logs:
+  advanced 6489000000000000000 returned 6102401920000000000
+  backing/unit before 6489000000000000003 after 6269406605294117650
+
+[PASS] test_A3_L1_repeatedWayBacks_eatTheBAYCPoolUntilTheGateStops_weakness() (gas: 17074661)
+Logs:
+  start: netUnits 1760517799352750808 backing/unit 6489000000000000003
+         revenue 0 surplus 0
+  trip 1 6489000000000000000 6439175534848000000
+  trip 2 6460698971080941180 6411077906555823611
+  trip 3 6432513476709137267 6383094982459489628
+  trip 4 6404443045232774913 6355226294296965150
+  trips before the gate refused 4
+  backing/unit after 6376487206925485911 total cost 198080774862574971
+
+[PASS] test_A3_control_aShortReturnIsTakenFromRevenueThenSurplusThenTheUnits() (gas: 6000170)
+Logs:
+  milady: revenue 0 -> 0
+
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 11.47ms (20.70ms CPU time)
+
+Ran 1 test suite in 13.28ms (11.47ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

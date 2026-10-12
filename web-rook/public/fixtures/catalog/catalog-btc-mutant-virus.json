@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "btc-mutant-virus",
+    "name": "BTC Mutant Virus",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "btc-mutant-virus",
+    "description": null,
+    "image": "https://ordinals.com/content/ff80a10092fcceede4ead779fda7596df714c70fb085dad4d892ea817009deb8i0",
+    "links": {
+      "website": null,
+      "x": "https://x.com/btcordinal",
+      "discord": "https://discord.com/invite/btcmachine",
+      "marketplace": "https://ordinalswallet.com/collection/btc-mutant-virus",
+      "explorer": "https://ordinals.com/inscription/9724096"
+    },
+    "floor": {
+      "native": "97636",
+      "unit": "sats",
+      "eth": 0.030816526212795504,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 777,
+    "owners": null,
+    "listed": 15,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "f8da03ab82716a847b60ca20a9359b23f2fc5b677e541764f1a77f004ca35ab7i0",
+        "name": "Mutant Virus #650",
+        "image": "https://ordinals.com/content/f8da03ab82716a847b60ca20a9359b23f2fc5b677e541764f1a77f004ca35ab7i0",
+        "url": "https://ordinals.com/inscription/f8da03ab82716a847b60ca20a9359b23f2fc5b677e541764f1a77f004ca35ab7i0"
+      },
+      {
+        "id": "2f26dc4b2ecbcbf4f9155c804345b2508767ea26c2cb4ff1d00f41db8b7e3dfei0",
+        "name": "Mutant Virus #275",
+        "image": "https://ordinals.com/content/2f26dc4b2ecbcbf4f9155c804345b2508767ea26c2cb4ff1d00f41db8b7e3dfei0",
+        "url": "https://ordinals.com/inscription/2f26dc4b2ecbcbf4f9155c804345b2508767ea26c2cb4ff1d00f41db8b7e3dfei0"
+      },
+      {
+        "id": "beb5b00676cae1e2842b82116d4a7a2cbac377bc467d7a49d2f17b63e6c78f59i0",
+        "name": "Mutant Virus #571",
+        "image": "https://ordinals.com/content/beb5b00676cae1e2842b82116d4a7a2cbac377bc467d7a49d2f17b63e6c78f59i0",
+        "url": "https://ordinals.com/inscription/beb5b00676cae1e2842b82116d4a7a2cbac377bc467d7a49d2f17b63e6c78f59i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.031 ETH, 0.037 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

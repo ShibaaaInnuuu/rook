@@ -1,0 +1,37 @@
+{
+  "slug": "cents",
+  "taken_at": "2026-10-10T07:25:07.433Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 10000,
+  "root": "0xa12652ab5011a1d680d7c69414232d1a271a54513173d189103a2afef5ce4849",
+  "proof_depth": 14,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/cents/inscriptions",
+      "count": 10000,
+      "unique": 10000,
+      "left_out": []
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/c871da405f1e0b955d135e789da88fe5a2c5d15c15d485235c7f10a05a827f71i0",
+      "count": 10001,
+      "unique": 10001,
+      "left_out": [
+        "bd77f96589139cb5f26196d75744a7ce04aaa0f554cd646455b381dfb39930e9i0"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/cents.json",
+      "count": 10001,
+      "not_in_members": [
+        "bd77f96589139cb5f26196d75744a7ce04aaa0f554cd646455b381dfb39930e9i0"
+      ],
+      "members_missing": []
+    }
+  ]
+}

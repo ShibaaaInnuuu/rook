@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "canisters": {
+    "rooksol": {
+      "type": "custom",
+      "candid": "../../../autobuyer/canister-rs/etch_autobuyer.did",
+      "wasm": "../../../autobuyer/canister-rs/target/wasm32-unknown-unknown/release/etch_autobuyer.wasm",
+      "build": "true"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4957",
+      "type": "ephemeral"
+    }
+  }
+}

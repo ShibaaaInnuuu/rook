@@ -1,0 +1,317 @@
+{
+ "SvmOrderIdentity": {
+  "type": "object",
+  "description": "Identity of an order that settles through a Solana marketplace program. Such an order has no Seaport order hash, so `order_hash` is absent from its payload and it is addressed instead by `id`, the transaction signature that created it joined to the onchain state account holding it. Pass that `id` wherever an endpoint takes an order hash.",
+  "properties": {
+   "id": {
+    "type": "string",
+    "description": "`creation_signature:order_state`. This is what an endpoint expecting an order hash takes for a Solana order, for example `GET /api/v2/orders/chain/solana/protocol/{protocol_address}/{order_hash}`. Base58 and case-sensitive; do not lowercase it.",
+    "example": "5j7s1QzqC8sT4Kz1oB9dYnUZ4qHnKX6h9YmZ6Zt7Zb3Q:CvhyBLWDcNwMatkNvMYuHALvbG1NzYrGw32dGzREaQKc"
+   },
+   "order_state": {
+    "type": "string",
+    "description": "Address of the onchain account holding the order's state. The second half of `id`."
+   },
+   "creation_signature": {
+    "type": "string",
+    "description": "Signature of the transaction that created the order. The first half of `id`."
+   },
+   "asset_id": {
+    "type": "string",
+    "description": "Mint of the asset the order is for, where the program records one. Absent otherwise."
+   },
+   "maker": {
+    "type": "string",
+    "description": "Wallet that created the order."
+   }
+  },
+  "required": [
+   "creation_signature",
+   "id",
+   "maker",
+   "order_state"
+  ]
+ },
+ "SvmInstructionResponse": {
+  "type": "object",
+  "description": "A Solana instruction to include in the transaction",
+  "properties": {
+   "program_id": {
+    "type": "string",
+    "description": "Base58-encoded program address the instruction invokes",
+    "example": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4"
+   },
+   "accounts": {
+    "type": "array",
+    "description": "Accounts the instruction reads or writes, in order",
+    "items": {
+     "$ref": "#/components/schemas/SvmInstructionAccountResponse"
+    }
+   },
+   "data": {
+    "type": [
+     "string",
+     "null"
+    ],
+    "description": "Hex-encoded instruction payload, optionally 0x-prefixed",
+    "example": "01020304"
+   }
+  },
+  "required": [
+   "accounts",
+   "program_id"
+  ]
+ },
+ "SvmInstructionAccountResponse": {
+  "type": "object",
+  "description": "An account referenced by a Solana instruction",
+  "properties": {
+   "pubkey": {
+    "type": "string",
+    "description": "Base58-encoded account address",
+    "example": "So11111111111111111111111111111111111111112"
+   },
+   "signer": {
+    "type": "boolean",
+    "description": "Whether the account must sign the transaction"
+   },
+   "writable": {
+    "type": "boolean",
+    "description": "Whether the instruction writes to the account"
+   }
+  },
+  "required": [
+   "pubkey",
+   "signer",
+   "writable"
+  ]
+ },
+ "SvmTransactionDetailsResponse": {
+  "type": "object",
+  "description": "Everything needed to compile and sign a Solana v0 transaction. The client supplies a recent blockhash.",
+  "properties": {
+   "from": {
+    "type": "string",
+    "description": "Base58-encoded address the transaction is built for"
+   },
+   "instructions": {
+    "type": "array",
+    "description": "Instructions to include, in order",
+    "items": {
+     "$ref": "#/components/schemas/SvmInstructionResponse"
+    }
+   },
+   "address_lookup_tables": {
+    "type": "array",
+    "description": "Base58-encoded address lookup tables the compiled message must reference to stay under the transaction size limit",
+    "items": {
+     "type": "string"
+    }
+   },
+   "transaction_config": {
+    "anyOf": [
+     {
+      "$ref": "#/components/schemas/SvmTransactionConfigResponse"
+     },
+     {
+      "type": "null"
+     }
+    ],
+    "description": "Present only when the transaction may be compiled as a v1 message. A v1 compiler drops the ComputeBudget instructions from `instructions` and places these values in the message header; legacy/v0 compilers ignore this field"
+   }
+  },
+  "required": [
+   "address_lookup_tables",
+   "from",
+   "instructions"
+  ]
+ },
+ "SvmTransactionConfigResponse": {
+  "type": "object",
+  "description": "Compute budget a v1 Solana message carries inline instead of as instructions",
+  "properties": {
+   "priority_fee_lamports": {
+    "type": [
+     "string",
+     "null"
+    ],
+    "description": "Total priority fee in lamports, as a decimal string",
+    "example": "5000"
+   },
+   "compute_unit_limit": {
+    "type": [
+     "integer",
+     "null"
+    ],
+    "format": "int32",
+    "description": "Compute unit limit",
+    "example": 200000
+   },
+   "loaded_accounts_data_size_limit": {
+    "type": [
+     "integer",
+     "null"
+    ],
+    "format": "int32",
+    "description": "Loaded accounts data size limit in bytes"
+   },
+   "heap_size_bytes": {
+    "type": [
+     "integer",
+     "null"
+    ],
+    "format": "int32",
+    "description": "Requested heap frame size in bytes"
+   }
+  }
+ },
+ "FulfillmentActionsResponse": {
+  "type": "object",
+  "description": "Response containing blockchain actions to execute to fulfill an order",
+  "properties": {
+   "steps": {
+    "type": "array",
+    "description": "Ordered list of blockchain actions to execute. May include approval actions (e.g. setApprovalForAll) and a createListingsAction containing the Seaport order to sign. Serialized using proto3 JSON format \u2014 fields with default values (empty string, 0, false) may be omitted.",
+    "items": {
+     "$ref": "#/components/schemas/JsonNode"
+    }
+   }
+  },
+  "required": [
+   "steps"
+  ]
+ },
+ "FullfillListingRequest": {
+  "type": "object",
+  "properties": {
+   "listing": {
+    "$ref": "#/components/schemas/ListingObject"
+   },
+   "fulfiller": {
+    "$ref": "#/components/schemas/FulfillerObject"
+   },
+   "consideration": {
+    "$ref": "#/components/schemas/ConsiderationObject"
+   },
+   "recipient": {
+    "type": "string"
+   },
+   "units_to_fill": {
+    "type": [
+     "integer",
+     "null"
+    ],
+    "format": "int64",
+    "description": "Optional quantity of units to fulfill; defaults to remaining units for listings"
+   },
+   "include_optional_creator_fees": {
+    "type": [
+     "boolean",
+     "null"
+    ],
+    "default": false,
+    "description": "Whether to include optional creator fees in the fulfillment. If creator fees are already required, this is a no-op. Defaults to false."
+   }
+  },
+  "required": [
+   "fulfiller",
+   "listing"
+  ]
+ },
+ "Order": {
+  "type": "object",
+  "properties": {
+   "order_hash": {
+    "type": "string",
+    "description": "Seaport order hash, a 0x-prefixed 32-byte value. Absent on an order that settles through a Solana marketplace program, which has no Seaport identity and carries `svm_order` instead. Every EVM order has one."
+   },
+   "chain": {
+    "type": "string"
+   },
+   "protocol_data": {
+    "$ref": "#/components/schemas/ProtocolData"
+   },
+   "protocol_address": {
+    "type": "string"
+   },
+   "asset": {
+    "anyOf": [
+     {
+      "$ref": "#/components/schemas/OrderAsset"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "remaining_quantity": {
+    "type": "integer",
+    "format": "int64"
+   },
+   "order_created_at": {
+    "type": [
+     "integer",
+     "null"
+    ],
+    "format": "int64"
+   },
+   "protocol": {
+    "type": "string",
+    "description": "Marketplace protocol a Solana order settles through, which is what tells you which identity shape the order uses. Absent on a Seaport order, whose payload is unchanged. Only orders we can build fulfillment for carry a value here."
+   },
+   "svm_order": {
+    "$ref": "#/components/schemas/SvmOrderIdentity",
+    "description": "Identity of a Solana order, present in place of `order_hash`. A client that assumes `order_hash` is always set should read this field first and fall back to `order_hash`."
+   }
+  },
+  "required": [
+   "chain",
+   "remaining_quantity"
+  ]
+ },
+ "path:/api/v2/listings/fulfillment/actions": {
+  "post": {
+   "tags": [
+    "Listing Endpoints"
+   ],
+   "summary": "Get listing fulfillment actions",
+   "description": "Returns the blockchain actions needed to fulfill a listing, for listings that cannot be fulfilled with Seaport calldata. A Solana listing is always fulfilled this way, because it settles through an onchain program rather than a signed order. The listing is addressed by the same identifier the get-order endpoint uses.",
+   "operationId": "create_listing_fulfillment_actions",
+   "requestBody": {
+    "content": {
+     "application/json": {
+      "schema": {
+       "$ref": "#/components/schemas/FullfillListingRequest"
+      }
+     }
+    },
+    "required": true
+   },
+   "responses": {
+    "200": {
+     "description": "Listing fulfillment actions retrieved successfully",
+     "content": {
+      "*/*": {
+       "schema": {
+        "$ref": "#/components/schemas/FulfillmentActionsResponse"
+       }
+      }
+     }
+    },
+    "400": {
+     "description": "The request is invalid. Possible reasons: order not found, order not valid, order is not a listing, or no actions could be composed.",
+     "content": {
+      "*/*": {
+       "schema": {
+        "$ref": "#/components/schemas/FulfillmentActionsResponse"
+       }
+      }
+     }
+    },
+    "500": {
+     "$ref": "#/components/responses/InternalError"
+    }
+   }
+  }
+ }
+}

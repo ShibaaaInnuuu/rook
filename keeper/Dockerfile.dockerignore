@@ -1,0 +1,12 @@
+*
+!keeper/package.json
+!keeper/package-lock.json
+!keeper/tsconfig.json
+!keeper/src
+!keeper/service
+!tools/snapshot/package.json
+!tools/snapshot/package-lock.json
+!tools/snapshot/src
+!tools/snapshot/exclusions.json
+!deployments
+!ops/docker/drop-to-node.sh

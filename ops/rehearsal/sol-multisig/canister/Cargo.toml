@@ -1,0 +1,22 @@
+[package]
+name = "rook_sol_multisig"
+version = "0.1.0"
+edition = "2021"
+description = "Spike S3 (docs/v9/canister-only-solana.md §1.1, §6.1, §15): one legacy Solana transaction signed by three threshold-Ed25519 derivation paths of one canister (K_main fee payer + nonce authority, K_int[n], K_coll[i]). Local replica only."
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+candid = "=0.10.35"
+ic-cdk = "=0.19.0"
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.10"
+base64 = "0.22.1"
+futures = { version = "0.3", default-features = false, features = ["alloc"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1

@@ -1,0 +1,86 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The collections, coins, items, tickets and checks are built from the worked examples in docs/v3/curve.md (frogs at 5 ETH; an ape bought FIFO for two coins), with a floor module, a treasury, a YOYO coin and an offer board given plausible books, and run through the real reserve computation. Addresses, inscription ids and transactions are invented; the explorer links point at nothing. One of the apes' two EVM providers is made to fail on purpose, to show an unverified collection."
+  },
+  "slug": "apes",
+  "name": "Bored Ape Yacht Club",
+  "symbol": "wAPE",
+  "kind": "nft",
+  "wrapper": "0x2000000000000000000000000000000000000001",
+  "wrapperUrl": "https://explorer.mainnet.chain.robinhood.com/address/0x2000000000000000000000000000000000000001",
+  "custody": {
+    "kind": "evm",
+    "chainId": 1,
+    "chainName": "Ethereum",
+    "collection": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
+    "custodian": "0x2000000000000000000000000000000000000c05",
+    "addressUrl": "https://etherscan.io/address/0x2000000000000000000000000000000000000c05",
+    "providers": [
+      "https://eth.fixture-provider-a.invalid",
+      "https://eth.fixture-provider-b.invalid"
+    ]
+  },
+  "status": "unverified",
+  "reasons": [
+    "1 item could not be verified (no block to read at: eth.fixture-provider-b.invalid: eth_chainId: HTTP 503)"
+  ],
+  "computedAt": 1790002030,
+  "lastGreenAt": null,
+  "block": 1000,
+  "equation": {
+    "itemsInCustody": 0,
+    "itemsUnverified": 1,
+    "itemsElsewhere": 0,
+    "ticketsInFlight": 0,
+    "backingUnits": "0",
+    "backingUnitsIfUnverifiedHold": "1000000000000000000",
+    "ethBackedUnits": "0",
+    "reserveUnits": "0",
+    "floatUnits": "0",
+    "convertibleUnits": "0",
+    "escrowWei": "0",
+    "supplyUnits": "1000000000000000000",
+    "heldOnChain": 1,
+    "openTicketsOnChain": 0,
+    "heldInLedger": 1,
+    "holds": null
+  },
+  "floorModule": {
+    "kind": "absent",
+    "note": "no Floor Module is deployed for this collection: every wX is backed by an item"
+  },
+  "treasury": {
+    "kind": "absent",
+    "note": "no protocol treasury is named: nothing funds reserves or floats, and no loan is owed"
+  },
+  "protocolLiquidity": {
+    "kind": "absent",
+    "note": "no liquidity lock is named for this collection"
+  },
+  "items": [
+    {
+      "itemId": "0",
+      "ref": "8520",
+      "refUrl": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/8520",
+      "arrival": {
+        "how": "purchase",
+        "tx": "0xc3d3dd4800000000000000000000000000000000000000000000000000000000",
+        "txUrl": "https://etherscan.io/tx/0xc3d3dd4800000000000000000000000000000000000000000000000000000000",
+        "mintTx": "0x000000000000000000000000000000000000000000000000000000000000001d",
+        "mintedAt": 1790000400,
+        "mintBlock": 200
+      },
+      "promisedTo": null,
+      "check": {
+        "verdict": "unverified",
+        "reason": "no block to read at: eth.fixture-provider-b.invalid: eth_chainId: HTTP 503",
+        "checkedAt": 1790002030,
+        "atBlock": null,
+        "sources": [],
+        "arrivalTx": null
+      }
+    }
+  ],
+  "ticketsInFlight": []
+}

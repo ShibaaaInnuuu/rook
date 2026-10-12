@@ -1,0 +1,752 @@
+
+> test
+> node --experimental-sqlite --no-warnings --import tsx --test test/*.test.ts
+
+TAP version 13
+# Subtest: every endpoint answers in its documented shape, from the recorded run
+ok 1 - every endpoint answers in its documented shape, from the recorded run
+  ---
+  duration_ms: 237.190084
+  type: 'test'
+  ...
+# Subtest: read-only, and says so: 404, 405, CORS for anyone, short caching on data and none on health, no cookie ever
+ok 2 - read-only, and says so: 404, 405, CORS for anyone, short caching on data and none on health, no cookie ever
+  ---
+  duration_ms: 72.354916
+  type: 'test'
+  ...
+# Subtest: rate limited per client: a burst, then 429 with Retry-After; X-Forwarded-For is believed only when told a proxy sets it
+ok 3 - rate limited per client: a burst, then 429 with Retry-After; X-Forwarded-For is believed only when told a proxy sets it
+  ---
+  duration_ms: 129.68275
+  type: 'test'
+  ...
+# Subtest: R2 E-12: address forms are all refused (no gap found)
+ok 4 - R2 E-12: address forms are all refused (no gap found)
+  ---
+  duration_ms: 7.019375
+  type: 'test'
+  ...
+# Subtest: R2 E-12: a redirect to a private host through the guard is refused
+ok 5 - R2 E-12: a redirect to a private host through the guard is refused
+  ---
+  duration_ms: 26.639041
+  type: 'test'
+  ...
+# Subtest: R2 N-1 (fixed): a TLS server answering HTTP/1.1 999 rejects the fetch; the process lives
+ok 6 - R2 N-1 (fixed): a TLS server answering HTTP/1.1 999 rejects the fetch; the process lives
+  ---
+  duration_ms: 722.19075
+  type: 'test'
+  ...
+# Subtest: R2 N-1 (fixed): a TLS server answering HTTP/1.1 600 rejects the fetch; the process lives
+ok 7 - R2 N-1 (fixed): a TLS server answering HTTP/1.1 600 rejects the fetch; the process lives
+  ---
+  duration_ms: 635.884875
+  type: 'test'
+  ...
+# Subtest: R2 N-1 (fixed): a TLS server answering HTTP/1.1 1000 rejects the fetch; the process lives
+ok 8 - R2 N-1 (fixed): a TLS server answering HTTP/1.1 1000 rejects the fetch; the process lives
+  ---
+  duration_ms: 534.072375
+  type: 'test'
+  ...
+# Subtest: R2 N-1 (fixed): a TLS server answering HTTP/1.1 199 rejects the fetch; the process lives
+ok 9 - R2 N-1 (fixed): a TLS server answering HTTP/1.1 199 rejects the fetch; the process lives
+  ---
+  duration_ms: 388.213542
+  type: 'test'
+  ...
+# Subtest: DrawEmpty folds a draw to `empty`: no winner, final (nothing to void), its carried seed used up rather than passed on
+ok 10 - DrawEmpty folds a draw to `empty`: no winner, final (nothing to void), its carried seed used up rather than passed on
+  ---
+  duration_ms: 3.526167
+  type: 'test'
+  ...
+# Subtest: DrawEmpty is the committed SweepVault's event (skipped without out/)
+ok 11 - DrawEmpty is the committed SweepVault's event (skipped without out/)
+  ---
+  duration_ms: 0.348125
+  type: 'test'
+  ...
+# Subtest: an empty draw's published list (no entries) is judged: it rebuilds to the sentinel alone; a list with holders does not
+ok 12 - an empty draw's published list (no entries) is judged: it rebuilds to the sentinel alone; a list with holders does not
+  ---
+  duration_ms: 33.596458
+  type: 'test'
+  ...
+# Subtest: the listing rule carries G7's numbers: stage 0 admits a floor up to 8.333 ETH, stage 1 up to 33.333, stage 2 up to 133.333, stage 3 up to 533.333
+ok 13 - the listing rule carries G7's numbers: stage 0 admits a floor up to 8.333 ETH, stage 1 up to 33.333, stage 2 up to 133.333, stage 3 up to 533.333
+  ---
+  duration_ms: 1.110166
+  type: 'test'
+  ...
+# Subtest: status: live wins; Base, Solana and non-721s are unsupported with the reason; Robinhood Chain's own collections are held; no floor is `later` with no stage; the floor decides the rest
+ok 14 - status: live wins; Base, Solana and non-721s are unsupported with the reason; Robinhood Chain's own collections are held; no floor is `later` with no stage; the floor decides the rest
+  ---
+  duration_ms: 2.144208
+  type: 'test'
+  ...
+# Subtest: each source's answer is parsed strictly: a floor is the cheapest open listing, a volume only when the list reaches back that far, a foreign-currency floor is no floor, an item without an id is no item
+ok 15 - each source's answer is parsed strictly: a floor is the cheapest open listing, a volume only when the list reaches back that far, a foreign-currency floor is no floor, an item without an id is no item
+  ---
+  duration_ms: 3.345292
+  type: 'test'
+  ...
+# Subtest: the committed seed parses: five chains, Nosh's twelve on Robinhood Chain, the old site's fifty on Bitcoin with item samples, every entry a marketplace link, every EVM entry a lower-case contract, every record dated
+ok 16 - the committed seed parses: five chains, Nosh's twelve on Robinhood Chain, the old site's fifty on Bitcoin with item samples, every entry a marketplace link, every EVM entry a lower-case contract, every record dated
+  ---
+  duration_ms: 13.686333
+  type: 'test'
+  ...
+# Subtest: before any refresh the catalogue is the seed's dated records, flagged stale, with the seed's rate, and live nests found by contract or by name
+ok 17 - before any refresh the catalogue is the seed's dated records, flagged stale, with the seed's rate, and live nests found by contract or by name
+  ---
+  duration_ms: 382.7375
+  type: 'test'
+  ...
+# Subtest: a refresh puts the sources' figures on the seed: fresh floors, counts, volumes, item samples, per-entry source rows with HTTP codes, and the User-Agent on every request
+ok 18 - a refresh puts the sources' figures on the seed: fresh floors, counts, volumes, item samples, per-entry source rows with HTTP codes, and the User-Agent on every request
+  ---
+  duration_ms: 87.826916
+  type: 'test'
+  ...
+# Subtest: pictures: fetched from the URL the catalogue holds, only from public https hosts, only when they are pictures, cached and bounded; a miss is null
+ok 19 - pictures: fetched from the URL the catalogue holds, only from public https hosts, only when they are pictures, cached and bounded; a miss is null
+  ---
+  duration_ms: 8.409458
+  type: 'test'
+  ...
+# Subtest: when every source fails, or none was ever reached, the seed is served flagged stale — and nothing is invented
+ok 20 - when every source fails, or none was ever reached, the seed is served flagged stale — and nothing is invented
+  ---
+  duration_ms: 25.127083
+  type: 'test'
+  ...
+# Subtest: list() answers from the snapshot at once and refreshes behind it, once per TTL; requests to one host are spaced
+ok 21 - list() answers from the snapshot at once and refreshes behind it, once per TTL; requests to one host are spaced
+  ---
+  duration_ms: 66.075041
+  type: 'test'
+  ...
+# Subtest: a nest Rook lists that the seed does not name is still in the catalogue, from this indexer's own reads, marked uncurated
+ok 22 - a nest Rook lists that the seed does not name is still in the catalogue, from this indexer's own reads, marked uncurated
+  ---
+  duration_ms: 134.388667
+  type: 'test'
+  ...
+# Subtest: the contract's own tokenURI through a public RPC, keyless: from the first of ids 1, 0, 2 that answers, skipping burned ids, else tokenByIndex; data:, ipfs:// and https metadata; a gateway that limits is asked under the next name
+ok 23 - the contract's own tokenURI through a public RPC, keyless: from the first of ids 1, 0, 2 that answers, skipping burned ids, else tokenByIndex; data:, ipfs:// and https metadata; a gateway that limits is asked under the next name
+  ---
+  duration_ms: 5.866
+  type: 'test'
+  ...
+# Subtest: GET /v1/rook/catalog, /v1/rook/catalog/:slug, the picture routes, and the index names them
+ok 24 - GET /v1/rook/catalog, /v1/rook/catalog/:slug, the picture routes, and the index names them
+  ---
+  duration_ms: 150.649209
+  type: 'test'
+  ...
+# Subtest: candle bucketing: a trade lands in the bucket its second belongs to, the boundary second opens the next one, and a bucket nobody traded in is left out
+ok 25 - candle bucketing: a trade lands in the bucket its second belongs to, the boundary second opens the next one, and a bucket nobody traded in is left out
+  ---
+  duration_ms: 3.030042
+  type: 'test'
+  ...
+# Subtest: the price is the curve's, not the fee's: a buy and the sell after it are continuous, and the gross prices they hide are not
+ok 26 - the price is the curve's, not the fee's: a buy and the sell after it are continuous, and the gross prices they hide are not
+  ---
+  duration_ms: 0.25675
+  type: 'test'
+  ...
+# Subtest: a coin that has never traded: an empty series, no invented price, and a 404 for a coin that was never launched
+ok 27 - a coin that has never traded: an empty series, no invented price, and a 404 for a coin that was never launched
+  ---
+  duration_ms: 2.188709
+  type: 'test'
+  ...
+# Subtest: a single trade: one candle, opening at its own price, and one mark
+ok 28 - a single trade: one candle, opening at its own price, and one mark
+  ---
+  duration_ms: 1.279417
+  type: 'test'
+  ...
+# Subtest: curve to pool: the trades of both venues are one series, graduation is a fact in the data, and the price does not jump at it
+ok 29 - curve to pool: the trades of both venues are one series, graduation is a fact in the data, and the price does not jump at it
+  ---
+  duration_ms: 3.696042
+  type: 'test'
+  ...
+# Subtest: the cursor pages a coin's trades without repeating or skipping one, whatever lands between pages
+ok 30 - the cursor pages a coin's trades without repeating or skipping one, whatever lands between pages
+  ---
+  duration_ms: 3.376333
+  type: 'test'
+  ...
+# Subtest: the API serves both, and the shapes are the documented ones
+ok 31 - the API serves both, and the shapes are the documented ones
+  ---
+  duration_ms: 9.668708
+  type: 'test'
+  ...
+# Subtest: trades and pools are derived: rebuilding from the events table gives exactly the same rows
+ok 32 - trades and pools are derived: rebuilding from the events table gives exactly the same rows
+  ---
+  duration_ms: 7.758959
+  type: 'test'
+  ...
+# Subtest: a curve or a pool that is not ours changes nothing: an unknown curve's trade, and a pool of somebody else's token
+ok 33 - a curve or a pool that is not ours changes nothing: an unknown curve's trade, and a pool of somebody else's token
+  ---
+  duration_ms: 2.728042
+  type: 'test'
+  ...
+# Subtest: 24-hour volume on a coin summary: the quote leg of every trade in the window, the same trades the chart counts
+ok 34 - 24-hour volume on a coin summary: the quote leg of every trade in the window, the same trades the chart counts
+  ---
+  duration_ms: 142.105084
+  type: 'test'
+  ...
+# Subtest: a day with no trade in it has volume 0, which is a fact, and never null
+ok 35 - a day with no trade in it has volume 0, which is a fact, and never null
+  ---
+  duration_ms: 13.715791
+  type: 'test'
+  ...
+# Subtest: the logo is decoded from the launch transaction and served as CoinSummary.logoUrl
+ok 36 - the logo is decoded from the launch transaction and served as CoinSummary.logoUrl
+  ---
+  duration_ms: 70.731
+  type: 'test'
+  ...
+# Subtest: a hostile logo, an empty one and an unreadable transaction all serve null, so the coin keeps its monogram
+ok 37 - a hostile logo, an empty one and an unreadable transaction all serve null, so the coin keeps its monogram
+  ---
+  duration_ms: 30.817834
+  type: 'test'
+  ...
+# Subtest: a coin indexed before the logo existed is filled in by the follower's own retry, and asked only once
+ok 38 - a coin indexed before the logo existed is filled in by the follower's own retry, and asked only once
+  ---
+  duration_ms: 35.112666
+  type: 'test'
+  ...
+# Subtest: every event folds: listings, coins, fees, the purchase state machine, bonds, draws, distributions and payouts
+ok 39 - every event folds: listings, coins, fees, the purchase state machine, bonds, draws, distributions and payouts
+  ---
+  duration_ms: 47.351958
+  type: 'test'
+  ...
+# Subtest: a draw: its states in order, the FIRST destination time kept when the address is corrected, a txid as explorers print it
+ok 40 - a draw: its states in order, the FIRST destination time kept when the address is corrected, a txid as explorers print it
+  ---
+  duration_ms: 7.193083
+  type: 'test'
+  ...
+# Subtest: a rune distribution: claims add up, the roll-over is kept, and the verification hint asks a runes indexer for at least what is still undelivered
+ok 41 - a rune distribution: claims add up, the roll-over is kept, and the verification hint asks a runes indexer for at least what is still undelivered
+  ---
+  duration_ms: 8.3585
+  type: 'test'
+  ...
+# Subtest: the fold is a function of the events: rebuilding from the events table gives byte-for-byte the tables that incremental application gave, however often
+ok 42 - the fold is a function of the events: rebuilding from the events table gives byte-for-byte the tables that incremental application gave, however often
+  ---
+  duration_ms: 10.178708
+  type: 'test'
+  ...
+# Subtest: a log from an address that was never learnt as a vault or a router changes nothing
+ok 43 - a log from an address that was never learnt as a vault or a router changes nothing
+  ---
+  duration_ms: 1.595625
+  type: 'test'
+  ...
+# Subtest: the story leaves nothing out: every event the indexer declares is emitted in it at least once
+ok 44 - the story leaves nothing out: every event the indexer declares is emitted in it at least once
+  ---
+  duration_ms: 1.821583
+  type: 'test'
+  ...
+# Subtest: the recorded local run, replayed with no node: a coin, its harvest split 80/20, a purchase settled with a receipt, a draw resolved by a real drand round and delivered
+ok 45 - the recorded local run, replayed with no node: a coin, its harvest split 80/20, a purchase settled with a receipt, a draw resolved by a real drand round and delivered
+  ---
+  duration_ms: 64.350125
+  type: 'test'
+  ...
+# Subtest: idempotent and resumable: a second pass adds nothing, and a follower started again on the same file carries on from its cursor
+ok 46 - idempotent and resumable: a second pass adds nothing, and a follower started again on the same file carries on from its cursor
+  ---
+  duration_ms: 14.687042
+  type: 'test'
+  ...
+# Subtest: confirmations: nothing past head − N is indexed
+ok 47 - confirmations: nothing past head − N is indexed
+  ---
+  duration_ms: 3.438458
+  type: 'test'
+  ...
+# Subtest: a reorg: when the node no longer agrees with the cursor block's hash, everything above the newest block it still agrees with is dropped and the tables are rebuilt from what remains
+ok 48 - a reorg: when the node no longer agrees with the cursor block's hash, everything above the newest block it still agrees with is dropped and the tables are rebuilt from what remains
+  ---
+  duration_ms: 9.276875
+  type: 'test'
+  ...
+# Subtest: no deployment file, a file for another chain, or a broken one: it idles, says so, and every list is empty — nothing is invented
+ok 49 - no deployment file, a file for another chain, or a broken one: it idles, says so, and every list is empty — nothing is invented
+  ---
+  duration_ms: 4.966875
+  type: 'test'
+  ...
+# Subtest: a node that fails is an error in /v1/health, not a crash and not a changed table
+ok 50 - a node that fails is an error in /v1/health, not a crash and not a changed table
+  ---
+  duration_ms: 24.830667
+  type: 'test'
+  ...
+# Subtest: it cannot send: the one JSON-RPC function refuses every method that is not a read, before any request is made
+ok 51 - it cannot send: the one JSON-RPC function refuses every method that is not a read, before any request is made
+  ---
+  duration_ms: 1.535125
+  type: 'test'
+  ...
+# Subtest: there is no signer in this package: no account, wallet, private-key or signing import or call anywhere in src/ or scripts/
+ok 52 - there is no signer in this package: no account, wallet, private-key or signing import or call anywhere in src/ or scripts/
+  ---
+  duration_ms: 31.832667
+  type: 'test'
+  ...
+# Subtest: docs/phase4.md §4: the indexer contacts the chain RPC and nothing else — no venue, no explorer, no drand; their URLs appear only inside strings handed to the reader
+ok 53 - docs/phase4.md §4: the indexer contacts the chain RPC and nothing else — no venue, no explorer, no drand; their URLs appear only inside strings handed to the reader
+  ---
+  duration_ms: 8.524792
+  type: 'test'
+  ...
+# Subtest: the event ABIs are the contracts': every event forge compiled is declared here with the same signature (skipped when out/ is absent)
+ok 54 - the event ABIs are the contracts': every event forge compiled is declared here with the same signature (skipped when out/ is absent)
+  ---
+  duration_ms: 0.104458
+  type: 'test'
+  ...
+# Subtest: the staging chain id is the repository's one number: src/main.ts holds the only copy here, and it equals staging/chain-id.json
+ok 55 - the staging chain id is the repository's one number: src/main.ts holds the only copy here, and it equals staging/chain-id.json
+  ---
+  duration_ms: 8.185125
+  type: 'test'
+  ...
+# Subtest: a balance is the sum of a coin's Transfer deltas: the mint lands, the burn leaves, and the zero address is never a holder
+ok 56 - a balance is the sum of a coin's Transfer deltas: the mint lands, the burn leaves, and the zero address is never a holder
+  ---
+  duration_ms: 8.010334
+  type: 'test'
+  ...
+# Subtest: balances come from the events alone: a rebuild reproduces them, and the order the deltas arrive in cannot change them
+ok 57 - balances come from the events alone: a rebuild reproduces them, and the order the deltas arrive in cannot change them
+  ---
+  duration_ms: 32.894667
+  type: 'test'
+  ...
+# Subtest: identity first: a coin's mint sits seven logs ahead of the Launched that says the coin is ours, and is folded anyway
+ok 58 - identity first: a coin's mint sits seven logs ahead of the Launched that says the coin is ours, and is folded anyway
+  ---
+  duration_ms: 1.69625
+  type: 'test'
+  ...
+# Subtest: the plumbing is not a holder: the curve, the router, the factory, the PoolManager and the hook are excluded, and said out loud
+ok 59 - the plumbing is not a holder: the curve, the router, the factory, the PoolManager and the hook are excluded, and said out loud
+  ---
+  duration_ms: 5.839125
+  type: 'test'
+  ...
+# Subtest: a share is a fraction of the supply, and an unread supply is null rather than NaN
+ok 60 - a share is a fraction of the supply, and an unread supply is null rather than NaN
+  ---
+  duration_ms: 20.35775
+  type: 'test'
+  ...
+# Subtest: paging: rank is over the whole list rather than the page, and a coin nobody holds is an empty list, not an error
+ok 61 - paging: rank is over the whole list rather than the page, and a coin nobody holds is an empty list, not an error
+  ---
+  duration_ms: 3.136917
+  type: 'test'
+  ...
+# Subtest: the creator is marked where they hold, and the creator's own address is served so a page can mark it
+ok 62 - the creator is marked where they hold, and the creator's own address is served so a page can mark it
+  ---
+  duration_ms: 79.888708
+  type: 'test'
+  ...
+# Subtest: the API: a holders page, its limit clamped, and a 404 for a coin nobody launched
+ok 63 - the API: a holders page, its limit clamped, and a 404 for a coin nobody launched
+  ---
+  duration_ms: 23.03575
+  type: 'test'
+  ...
+# Subtest: the backfill is bounded, resumable and finite: two ranges a pass, oldest first, and then it never runs again
+ok 64 - the backfill is bounded, resumable and finite: two ranges a pass, oldest first, and then it never runs again
+  ---
+  duration_ms: 48.353959
+  type: 'test'
+  ...
+# Subtest: while the backfill runs, a holder count is null rather than the tail of a coin's history
+ok 65 - while the backfill runs, a holder count is null rather than the tail of a coin's history
+  ---
+  duration_ms: 20.772292
+  type: 'test'
+  ...
+# Subtest: a database that never followed a chain is complete: nothing was skipped because nothing was ever indexed
+ok 66 - a database that never followed a chain is complete: nothing was skipped because nothing was ever indexed
+  ---
+  duration_ms: 5.13525
+  type: 'test'
+  ...
+# Subtest: a logo is kept byte for byte when it could be an image, and dropped when it could not
+ok 67 - a logo is kept byte for byte when it could be an image, and dropped when it could not
+  ---
+  duration_ms: 0.622542
+  type: 'test'
+  ...
+# Subtest: a coin's whole supply is read from the chain at launch and served on its summary
+ok 68 - a coin's whole supply is read from the chain at launch and served on its summary
+  ---
+  duration_ms: 16.198791
+  type: 'test'
+  ...
+# Subtest: a supply that would not read is null, never a guessed billion, and the follower asks again within the hour
+ok 69 - a supply that would not read is null, never a guessed billion, and the follower asks again within the hour
+  ---
+  duration_ms: 16.180042
+  type: 'test'
+  ...
+# Subtest: dollars per ETH is one pool's sqrt price squared, and the measured staging reading round-trips
+ok 70 - dollars per ETH is one pool's sqrt price squared, and the measured staging reading round-trips
+  ---
+  duration_ms: 0.081291
+  type: 'test'
+  ...
+# Subtest: the rate is cached, re-read only every few minutes, and never read per request
+ok 71 - the rate is cached, re-read only every few minutes, and never read per request
+  ---
+  duration_ms: 1.300958
+  type: 'test'
+  ...
+# Subtest: no pool, a pool that will not answer, and a rate gone stale are all null rather than a guess
+ok 72 - no pool, a pool that will not answer, and a rate gone stale are all null rather than a guess
+  ---
+  duration_ms: 2.282459
+  type: 'test'
+  ...
+# Subtest: the chart carries the supply and the rate, and says which pool the rate came from
+ok 73 - the chart carries the supply and the rate, and says which pool the rate came from
+  ---
+  duration_ms: 10.333292
+  type: 'test'
+  ...
+# Subtest: every range divides its window into time, and none of them can produce one candle per trade
+ok 74 - every range divides its window into time, and none of them can produce one candle per trade
+  ---
+  duration_ms: 0.134541
+  type: 'test'
+  ...
+# Subtest: `all` measures the coin's own life, and a coin twenty minutes old is not one box
+ok 75 - `all` measures the coin's own life, and a coin twenty minutes old is not one box
+  ---
+  duration_ms: 0.07875
+  type: 'test'
+  ...
+# Subtest: a coin opens on the finest range its own age can fill
+ok 76 - a coin opens on the finest range its own age can fill
+  ---
+  duration_ms: 0.226709
+  type: 'test'
+  ...
+# Subtest: rangeOf refuses what it does not know instead of quietly serving something else
+ok 77 - rangeOf refuses what it does not know instead of quietly serving something else
+  ---
+  duration_ms: 0.310667
+  type: 'test'
+  ...
+# Subtest: the candles endpoint serves ranges, still serves res, and says which it drew
+ok 78 - the candles endpoint serves ranges, still serves res, and says which it drew
+  ---
+  duration_ms: 5.141625
+  type: 'test'
+  ...
+# Subtest: R3 §4: a resolved ticket refunds 30 days after deliverBy, or 72 h once the custodian attests Undeliverable; pinned refunds unchanged
+ok 79 - R3 §4: a resolved ticket refunds 30 days after deliverBy, or 72 h once the custodian attests Undeliverable; pinned refunds unchanged
+  ---
+  duration_ms: 1.1565
+  type: 'test'
+  ...
+# Subtest: R3 N-2: SeedCarried names the draw's seed origin; the snapshot time comes only from SnapshotFixed, never from this draw's announcedAt
+ok 80 - R3 N-2: SeedCarried names the draw's seed origin; the snapshot time comes only from SnapshotFixed, never from this draw's announcedAt
+  ---
+  duration_ms: 0.331041
+  type: 'test'
+  ...
+# Subtest: R3 ABIs are the committed contracts': SeedCarried, Undeliverable, carriedSeed/seedOrigin, holdsRefunds, exitAtBacking, undeliverable (skipped without out/)
+ok 81 - R3 ABIs are the committed contracts': SeedCarried, Undeliverable, carriedSeed/seedOrigin, holdsRefunds, exitAtBacking, undeliverable (skipped without out/)
+  ---
+  duration_ms: 0.118916
+  type: 'test'
+  ...
+# Subtest: the curve reader folds Bought/Sold into curve-side prices and Transfers into balances; a second read is incremental
+ok 82 - the curve reader folds Bought/Sold into curve-side prices and Transfers into balances; a second read is incremental
+  ---
+  duration_ms: 7.57125
+  type: 'test'
+  ...
+# Subtest: market and chart arithmetic: change against the price a day earlier, the day's volume, candles at the asked resolution
+ok 83 - market and chart arithmetic: change against the price a day earlier, the day's volume, candles at the asked resolution
+  ---
+  duration_ms: 0.653666
+  type: 'test'
+  ...
+# Subtest: the board lists both kinds of coin, and each coin answers chart, trades and holders in one shape
+ok 84 - the board lists both kinds of coin, and each coin answers chart, trades and holders in one shape
+  ---
+  duration_ms: 203.801875
+  type: 'test'
+  ...
+# Subtest: a vault's money out is summed over every purchase, not over the page of declarations
+ok 85 - a vault's money out is summed over every purchase, not over the page of declarations
+  ---
+  duration_ms: 28.772292
+  type: 'test'
+  ...
+# Subtest: what a vault has bought: a count for a collection, a quantity for a rune, and never one standing in for the other
+ok 86 - what a vault has bought: a count for a collection, a quantity for a rune, and never one standing in for the other
+  ---
+  duration_ms: 6.576625
+  type: 'test'
+  ...
+# Subtest: the held figure the page prints is the one the verification hint hands a runes indexer
+ok 87 - the held figure the page prints is the one the verification hint hands a runes indexer
+  ---
+  duration_ms: 6.297791
+  type: 'test'
+  ...
+# Subtest: a receipt carries its purchase's cost and how many receipts share it, undivided
+ok 88 - a receipt carries its purchase's cost and how many receipts share it, undivided
+  ---
+  duration_ms: 3.303959
+  type: 'test'
+  ...
+# Subtest: sats are per purchase and amounts are per row, which is why nothing sums the first
+ok 89 - sats are per purchase and amounts are per row, which is why nothing sums the first
+  ---
+  duration_ms: 3.018125
+  type: 'test'
+  ...
+# Subtest: a cap is served from both ends of its hour, and a vault that never had one has neither
+ok 90 - a cap is served from both ends of its hour, and a vault that never had one has neither
+  ---
+  duration_ms: 9.745083
+  type: 'test'
+  ...
+# Subtest: docs/phase4.md §3, by hand: a 0.1 ETH cap, nothing spendable, a 1% tax — 0.1 / (0.80 × 1.70%) = 7.3529… ETH of volume
+ok 91 - docs/phase4.md §3, by hand: a 0.1 ETH cap, nothing spendable, a 1% tax — 0.1 / (0.80 × 1.70%) = 7.3529… ETH of volume
+  ---
+  duration_ms: 0.633208
+  type: 'test'
+  ...
+# Subtest: what is already there counts: spendable balance, and 80% of what one harvest() would move
+ok 92 - what is already there counts: spendable balance, and 80% of what one harvest() would move
+  ---
+  duration_ms: 0.678708
+  type: 'test'
+  ...
+# Subtest: the target is never under the keeper's 0.05 ETH minimum declaration; a rune's target IS that minimum whatever its unit cap
+ok 93 - the target is never under the keeper's 0.05 ETH minimum declaration; a rune's target IS that minimum whatever its unit cap
+  ---
+  duration_ms: 0.065917
+  type: 'test'
+  ...
+# Subtest: MIN_ENTRY: a coin not yet in the queue has fees WAITING that are not spendable; it needs at least the rest of 0.01 ETH, and its waiting fees then count
+ok 94 - MIN_ENTRY: a coin not yet in the queue has fees WAITING that are not spendable; it needs at least the rest of 0.01 ETH, and its waiting fees then count
+  ---
+  duration_ms: 0.103917
+  type: 'test'
+  ...
+# Subtest: every reason it refuses to give a number, and that a refusal still shows its inputs
+ok 95 - every reason it refuses to give a number, and that a refusal still shows its inputs
+  ---
+  duration_ms: 0.145333
+  type: 'test'
+  ...
+# Subtest: a higher creator tax shortens it in proportion: 10% tax needs 1.70/10.70 of what 1% needs
+ok 96 - a higher creator tax shortens it in proportion: 10% tax needs 1.70/10.70 of what 1% needs
+  ---
+  duration_ms: 0.052083
+  type: 'test'
+  ...
+# Subtest: E-12: every private, loopback, link-local (metadata), CGNAT, ULA, multicast and reserved address is refused; public ones pass
+ok 97 - E-12: every private, loopback, link-local (metadata), CGNAT, ULA, multicast and reserved address is refused; public ones pass
+  ---
+  duration_ms: 5.56975
+  type: 'test'
+  ...
+# Subtest: E-12: a public name that resolves to a private address is refused before any request (10.0.0.5.nip.io, a name pointing at fd12::)
+ok 98 - E-12: a public name that resolves to a private address is refused before any request (10.0.0.5.nip.io, a name pointing at fd12::)
+  ---
+  duration_ms: 1.102417
+  type: 'test'
+  ...
+# Subtest: E-12: the production transport checks the address inside the socket's own lookup (no rebinding window): a name that resolves to loopback is refused at connect
+ok 99 - E-12: the production transport checks the address inside the socket's own lookup (no rebinding window): a name that resolves to loopback is refused at connect
+  ---
+  duration_ms: 34.385333
+  type: 'test'
+  ...
+# Subtest: E-12: redirects are followed by hand and re-checked: to a private host, to http, or a fourth hop is refused; an honest hop is followed
+ok 100 - E-12: redirects are followed by hand and re-checked: to a private host, to http, or a fourth hop is refused; an honest hop is followed
+  ---
+  duration_ms: 4.444083
+  type: 'test'
+  ...
+# Subtest: E-12: bodies are read under a cap (with and without content-length), and the whole request has one deadline
+ok 101 - E-12: bodies are read under a cap (with and without content-length), and the whole request has one deadline
+  ---
+  duration_ms: 57.314417
+  type: 'test'
+  ...
+# Subtest: E-12: metadataOf and getJson refuse a private host before any request (they had no host check at all)
+ok 102 - E-12: metadataOf and getJson refuse a private host before any request (they had no host check at all)
+  ---
+  duration_ms: 0.305625
+  type: 'test'
+  ...
+# Subtest: a ticket refunded while pinned (acquisitionId = type(uint256).max) is refunded unresolved: no item goes back to the set; refund times follow the contract
+ok 103 - a ticket refunded while pinned (acquisitionId = type(uint256).max) is refunded unresolved: no item goes back to the set; refund times follow the contract
+  ---
+  duration_ms: 0.425625
+  type: 'test'
+  ...
+# Subtest: the tree is SweepVault.leaf's: double-hashed abi.encode(holder, first, end); the sentinel is leaf(address(0), totalTickets, snapshotAt); proofs verify
+ok 104 - the tree is SweepVault.leaf's: double-hashed abi.encode(holder, first, end); the sentinel is leaf(address(0), totalTickets, snapshotAt); proofs verify
+  ---
+  duration_ms: 4.298708
+  type: 'test'
+  ...
+# Subtest: the draws fold through every stage, newest first, with the times anyone may void them
+ok 105 - the draws fold through every stage, newest first, with the times anyone may void them
+  ---
+  duration_ms: 0.555709
+  type: 'test'
+  ...
+# Subtest: the published list: rebuilt with the sentinel it matches the root and yields the winner's claim; a truncated total or an edited list differs
+ok 106 - the published list: rebuilt with the sentinel it matches the root and yields the winner's claim; a truncated total or an edited list differs
+  ---
+  duration_ms: 4.770916
+  type: 'test'
+  ...
+# Subtest: the published list is fetched under the E-12 rules: https or ipfs only, a private host refused, an oversized list refused
+ok 107 - the published list is fetched under the E-12 rules: https or ipfs only, a private host refused, an oversized list refused
+  ---
+  duration_ms: 1.222875
+  type: 'test'
+  ...
+# Subtest: the wave-2 signatures are the contracts': draw and pause events, the curve's gates, the factory's launch gate, the module's surplus (skipped without out/)
+ok 108 - the wave-2 signatures are the contracts': draw and pause events, the curve's gates, the factory's launch gate, the module's surplus (skipped without out/)
+  ---
+  duration_ms: 0.13
+  type: 'test'
+  ...
+# Subtest: green only when every item is found, every read is fresh, and (held − in flight) × 1 + ETH-backed = supply exactly
+ok 109 - green only when every item is found, every read is fresh, and (held − in flight) × 1 + ETH-backed = supply exactly
+  ---
+  duration_ms: 1.877375
+  type: 'test'
+  ...
+# Subtest: a mismatch is red in either direction: under-backed, and more backing than supply (the books are wrong)
+ok 110 - a mismatch is red in either direction: under-backed, and more backing than supply (the books are wrong)
+  ---
+  duration_ms: 0.159167
+  type: 'test'
+  ...
+# Subtest: an item a source places elsewhere is red, even while other sources failed
+ok 111 - an item a source places elsewhere is red, even while other sources failed
+  ---
+  duration_ms: 0.217458
+  type: 'test'
+  ...
+# Subtest: a partial source failure is unverified, never green, and it names what failed
+ok 112 - a partial source failure is unverified, never green, and it names what failed
+  ---
+  duration_ms: 0.100875
+  type: 'test'
+  ...
+# Subtest: stale reads are unverified: an old item check, an old wrapper read, an old Floor Module read
+ok 113 - stale reads are unverified: an old item check, an old wrapper read, an old Floor Module read
+  ---
+  duration_ms: 0.09
+  type: 'test'
+  ...
+# Subtest: failed reads of the wrapper, the Floor Module or the log are unverified, with the reason
+ok 114 - failed reads of the wrapper, the Floor Module or the log are unverified, with the reason
+  ---
+  duration_ms: 0.069333
+  type: 'test'
+  ...
+# Subtest: the wrapper's books disagreeing with its own events is red
+ok 115 - the wrapper's books disagreeing with its own events is red
+  ---
+  duration_ms: 0.106625
+  type: 'test'
+  ...
+# Subtest: the ledger: arrivals, purchases told from deposits, deliveries leave, refunds stay, tickets in flight
+ok 116 - the ledger: arrivals, purchases told from deposits, deliveries leave, refunds stay, tickets in flight
+  ---
+  duration_ms: 0.619166
+  type: 'test'
+  ...
+# Subtest: Bitcoin: ord and both explorers agreeing is in custody; ord elsewhere is elsewhere; an explorer outage or disagreement is unverified
+ok 117 - Bitcoin: ord and both explorers agreeing is in custody; ord elsewhere is elsewhere; an explorer outage or disagreement is unverified
+  ---
+  duration_ms: 11.603
+  type: 'test'
+  ...
+# Subtest: EVM: ownerOf on every provider at one pinned block; disagreement and outages are unverified; a revert everywhere is elsewhere
+ok 118 - EVM: ownerOf on every provider at one pinned block; disagreement and outages are unverified; a revert everywhere is elsewhere
+  ---
+  duration_ms: 11.651958
+  type: 'test'
+  ...
+# Subtest: the service over the worked examples: frogs green, apes green, and one explorer down makes frogs unverified
+ok 119 - the service over the worked examples: frogs green, apes green, and one explorer down makes frogs unverified
+  ---
+  duration_ms: 137.273125
+  type: 'test'
+  ...
+# Subtest: the endpoints: configured collections answer; none configured says so; unknown slugs are 404
+ok 120 - the endpoints: configured collections answer; none configured says so; unknown slugs are 404
+  ---
+  duration_ms: 75.70375
+  type: 'test'
+  ...
+# Subtest: the offer board (docs/v6/offer-handins.md): what is open, cheapest first; what each hand-in became; what was paid
+ok 121 - the offer board (docs/v6/offer-handins.md): what is open, cheapest first; what each hand-in became; what was paid
+  ---
+  duration_ms: 46.325584
+  type: 'test'
+  ...
+# Subtest: a config must say where every item is checked
+ok 122 - a config must say where every item is checked
+  ---
+  duration_ms: 0.274791
+  type: 'test'
+  ...
+# Subtest: an incomplete event log is unverified even when the arithmetic on what was read looks under-backed
+ok 123 - an incomplete event log is unverified even when the arithmetic on what was read looks under-backed
+  ---
+  duration_ms: 0.034375
+  type: 'test'
+  ...
+1..123
+# tests 123
+# suites 0
+# pass 123
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2989.498542

@@ -1,0 +1,24 @@
+{
+  "res": "5m",
+  "range": "5m",
+  "coin": "0x8eDceaC978C506b5470109a23B4D25a19c35b821",
+  "quote": "ETH",
+  "priceIs": "pair asset per whole coin",
+  "candles": [],
+  "marks": [],
+  "supplyWei": "1000000000000000000000000000",
+  "usdPerEth": 2785.144089373958,
+  "usdPerEthAt": 1790043324,
+  "usdPool": "0x52e65B17fB6E5BA00Ed806f37Afcd2DaA50271Ca",
+  "trades": 0,
+  "tradesAllTime": 67,
+  "launchedAt": 1790036491,
+  "span": 300,
+  "seconds": 5,
+  "graduation": {
+    "at": 1790041367,
+    "block": 69023777,
+    "tx": "0x30cc42c0906e908bbab23092c048075410c549116610ed348311d0a2e87116b2"
+  },
+  "pool": null
+}

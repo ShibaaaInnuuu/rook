@@ -1,0 +1,11 @@
+146a147,148
+>     /// round 4 (E4): the HOME pin moved back below a spend of ours on 4663: what that spend took is still in the balance there
+>     home_pin_back: Option<u128>,
+190c192
+<             fee_of: None,
+---
+>             fee_of: None, home_pin_back: None,
+360c362
+<     async fn home_balance(&mut self) -> Result<u128, String> { Ok(self.home_balance) }
+---
+>     async fn home_balance(&mut self) -> Result<u128, String> { Ok(self.home_balance + self.home_pin_back.unwrap_or(0)) }

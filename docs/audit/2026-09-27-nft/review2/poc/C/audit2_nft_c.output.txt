@@ -1,0 +1,768 @@
+warning: constant `BOB` is never used
+  --> tests/audit2_nft_c.rs:44:7
+   |
+44 | const BOB: [u8; 20] = [0xb0; 20];
+   |       ^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `ATTACKER` is never used
+  --> tests/audit2_nft_c.rs:45:7
+   |
+45 | const ATTACKER: [u8; 20] = [0xee; 20];
+   |       ^^^^^^^^
+
+warning: constant `TRANSIENT` is never used
+  --> tests/audit2_nft_c.rs:52:7
+   |
+52 | const TRANSIENT: &str = "unread (simulation): the providers did not all answer alike (1 ok, 0 revert, 1 failed: chain 1: eth_call: I...
+   |       ^^^^^^^^^
+
+warning: constant `REVERTS` is never used
+  --> tests/audit2_nft_c.rs:55:7
+   |
+55 | const REVERTS: &str = "refused (simulation): it reverts at the pin on every provider: no result: {\"code\":3,\"reverted\":true}";
+   |       ^^^^^^^
+
+warning: function `resolved` is never used
+   --> tests/audit2_nft_c.rs:428:4
+    |
+428 | fn resolved(f: &mut Fake, second: bool, token: u128, dest: [u8; 20], deliver_by: u64) {
+    |    ^^^^^^^^
+
+warning: function `held_id` is never used
+   --> tests/audit2_nft_c.rs:434:4
+    |
+434 | fn held_id(c: [u8; 20], token: u128) -> String {
+    |    ^^^^^^^
+
+warning: function `fill_custody` is never used
+   --> tests/audit2_nft_c.rs:437:4
+    |
+437 | fn fill_custody(f: &mut Fake, collection: [u8; 20], n: u32) {
+    |    ^^^^^^^^^^^^
+
+warning: `etch_autobuyer` (test "audit2_nft_c") generated 7 warnings
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running tests/audit2_nft_c.rs (target/debug/deps/audit2_nft_c-da98771682a390b7)
+
+running 5 tests
+test c2_a_fill_mined_at_the_pin_but_not_yet_counted_when_the_next_deposit_is_watched_is_read_as_that_buys_arrival ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+  | eth buy 0: ARRIVED: 498443962449863321 wei at our Ethereum address (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): the runner is asked for a listing
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth buy 1: wanted for 0xed5af388653d228ba43d7a3d2a375a191e10c544 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: the fill of 0x00000000000000000000000000000000000000000000000000000000000023dc for 495443962449863321 wei (cap 495443962449863321) signed, saved and sent (0x2c31128b973786d9b558c00ea97048a2219951265abaa2809700953f163e7b6e)
+  | eth buy 1: advance of 500200000000000000 wei: Advance { buy: 1 } signed, saved and sent (nonce 2)
+  | eth: Advance { buy: 1 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth line: 0x2c31128b973786d9b558c00ea97048a2219951265abaa2809700953f163e7b6e (nonce 0) not mined yet; sent again
+  | eth line: waits: chain 1: eth_getTransactionReceipt: HTTP 429 Too Many Requests
+  | eth buy 1: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 1 } signed, saved and sent (nonce 3)
+  | eth: Deposit { buy: 1 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth line: buy 0: 0x00000000000000000000000000000000000000000000000000000000000023dc is ours (block 26068923): waiting for finality
+  | eth buy 0: bought in block 26068923; finalized is 26068828: waiting for finality
+  | eth buy 1: ARRIVED: 495464962449863321 wei at our Ethereum address (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): the runner is asked for a listing
+  | eth buy 0: bought in block 26068923; finalized is 26068828: waiting for finality
+AUDIT2-C C2-M-1: Azuki Arrived { wei: 495464962449863321, since: 1790512833 }; Relay has sent nothing to Ethereum (balance 12979000000000000 → 12979000000000000)
+AUDIT2-C C2-M-1: Azuki earmark 495464962449863321 wei; the address holds 12979000000000000 wei (gas pot 10000000000000000)
+ok
+test c2_a_stuck_after_arrival_holds_the_relay_leg_then_re_arrives_eth_already_spent_and_stalls_every_other_collection ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+  | eth buy 0: ARRIVED: 498443962449863321 wei at our Ethereum address (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): the runner is asked for a listing
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth buy 0: the fill of 0x00000000000000000000000000000000000000000000000000000000000023dc for 450000000000000000 wei (cap 495443962449863321) signed, saved and sent (0xf5188eaaebfe17e3f57f6ff511f4cb4d75d529f40abb412cc4443b36ce9fc048)
+  | eth line: buy 0: STUCK: mined but the token is not ours
+  | eth buy 0: ARRIVED late: 498443962449863321 wei
+  | eth buy 1: wanted for 0xed5af388653d228ba43d7a3d2a375a191e10c544 (the module wants 1 item(s)): the advance is next
+  | eth buy 1: advance of 500200000000000000 wei: Advance { buy: 1 } signed, saved and sent (nonce 2)
+AUDIT2-C C2-L-1: re-ARRIVED with 498443962449863321 wei earmarked; the address holds 58422962449863321 wei in all (gas pot 10000000000000000)
+  | eth: Advance { buy: 1 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 1: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 1 } signed, saved and sent (nonce 3)
+  | eth: Deposit { buy: 1 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth buy 1: bridging for 0 s; no arrival or refund yet
+  | eth buy 1: ARRIVED: 498443962449863321 wei at our Ethereum address (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): the runner is asked for a listing
+  | eth floor 0xed5af388653d228ba43d7a3d2a375a191e10c544: 670000000000000000 wei (listing 670000000000000000, sale median 670000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 1: the listing is refused: refused (over cap): the order costs 450000000000000000 wei; the recorded cap is 55422962449863321
+  | eth floor 0xed5af388653d228ba43d7a3d2a375a191e10c544: 670000000000000000 wei (listing 670000000000000000, sale median 670000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 1: the listing is refused: refused (over cap): the order costs 450000000000000000 wei; the recorded cap is 55422962449863321
+  | eth floor 0xed5af388653d228ba43d7a3d2a375a191e10c544: 670000000000000000 wei (listing 670000000000000000, sale median 670000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 1: the listing is refused: refused (over cap): the order costs 450000000000000000 wei; the recorded cap is 55422962449863321
+AUDIT2-C C2-L-1: Azuki's arrived buy, a 0.45 ETH listing: ["eth line: waits: buy 1: the listing is refused: refused (over cap): the order costs 450000000000000000 wei; the recorded cap is 55422962449863321"]
+ok
+test c2_an_arrived_buy_that_cannot_fill_keeps_every_deposit_of_its_collection_unminted_indefinitely ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+  | eth buy 0: ARRIVED: 498443962449863321 wei at our Ethereum address (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): the runner is asked for a listing
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: token 0x00000000000000000000000000000000000000000000000000000000000003b6 for 0x4444444444444444444444444444444444444444: waiting for finality
+  | eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: final: mintDeposit is next
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, sale median 910000000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+AUDIT2-C C2-M-2: after 3 days: deposit Mint; buy Arrived { wei: 498443962449863321, since: 1790512833 }
+ok
+test c2_an_nft_side_line_inside_a_decodable_eth_state_is_what_the_probe_sees ... AUDIT2-C C2-I-1: the element decodes; line = None; delivery phase = Sent { tx: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], nonce: 9 }: the probe sees element 13 present
+ok
+test c2_an_upgrade_dropping_a_collection_whose_buy_holds_the_relay_leg_stops_every_other_collections_buys_for_good ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+AUDIT2-C C2-L-2: buys [(false, Funded { wei: 500000000000000000, since: 1790512833 })]; relay_busy true
+ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+

@@ -1,0 +1,7 @@
+
+running 1 test
+AUDIT4-E probe cost: 4194304 bytes of stable memory; the probe 1.3369425s; lost []
+test e4_probe_cost_on_the_largest_state_the_code_allows ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 1.37s
+

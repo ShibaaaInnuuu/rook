@@ -1,0 +1,8 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.19s
+     Running tests/audit_nft_r5.rs (target/debug/deps/audit_nft_r5-c4e07894d8db3865)
+
+running 1 test
+test r6_e6_i1_the_h3_guard_misses_these_mutations ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.14s
+

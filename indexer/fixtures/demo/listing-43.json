@@ -1,0 +1,53 @@
+{
+  "id": 43,
+  "kind": "rune",
+  "name": "SATOSHI•NAKAMOTO",
+  "ref": "840000:22",
+  "divisibility": 8,
+  "vault": "0x154155371207224DEAa30892153b6799ff94d67a",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-satoshinakamoto",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "196158912534991256",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "196158912534991256",
+    "attributedWei": "196158912534991256",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "196158912534991256",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xf9a5C82e9A9216dae8278014f7fF2eB6690099fE",
+      "symbol": "CHALSIM",
+      "depositedWei": "196158912534991256"
+    }
+  ]
+}

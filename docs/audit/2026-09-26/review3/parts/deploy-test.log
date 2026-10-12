@@ -1,0 +1,38 @@
+ok   refuses without the confirm string
+ok   refuses a confirm typed for another chain
+ok   refuses a confirm typed for another deployer
+ok   refuses when a private key is in the environment
+ok   refuses an owner who is the deployer
+ok   refuses with no owner
+ok   refuses a signer flag on the local chain
+ok   refuses an RPC that reports no chain
+ok   the script itself refuses where Pons is not deployed
+ok   refuses --label test off Robinhood Chain
+ok   refuses a label that is not 'test'
+ok   refuses an argument it does not know
+ok   staging is deployed to from this machine only
+ok   staging refuses Robinhood Chain's confirm
+ok   staging refuses a hardware-wallet flag
+ok   refuses Robinhood's public testnet (46630)
+ok   refuses --account on the local chain
+ok   refuses --account with no name
+ok   refuses two signer flags
+ok   refuses ETH_KEYSTORE in the environment
+ok   refuses ETH_KEYSTORE_ACCOUNT in the environment
+ok   refuses ETH_PASSWORD in the environment
+ok   4663: no signer is refused
+ok   4663: a Ledger is still accepted
+ok   4663: a Trezor is still accepted
+ok   4663: a keystore whose address is the deployer's
+ok   4663: the keystore's address in capitals, with 0x
+ok   4663: a keystore for another address
+ok   4663: a keystore that does not exist
+ok   4663: a keystore name that climbs out
+ok   4663: a keystore name that looks like a flag
+ok   4663: a keystore only in FOUNDRY_KEYSTORES_DIR (forge would not read it)
+ok   4663: a keystore with no address, cast names the deployer
+ok   4663: a keystore with no address, cast names another
+ok   4663: a keystore with no address that cast cannot open
+ok   4663: FOUNDRY_KEYSTORES_DIR set elsewhere is refused
+ok   4663: FOUNDRY_KEYSTORES_DIR set to forge's own directory is accepted
+EXIT 0

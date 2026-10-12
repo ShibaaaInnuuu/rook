@@ -1,0 +1,703 @@
+{
+ "source": {
+  "kind": "fixture",
+  "note": "FIXTURE. Nothing here is deployed. A Milady vault of 20 items and 9 tickets, drawn with REAL drand evmnet beacons (rounds served by api.drand.sh and api2.drand.sh on 2026-09-27) through EthNftWrapper's own formula, over an invented Robinhood Chain and Ethereum. The collection's address is Milady's; the wrapper, custodian, module, transactions and every trait are invented, and the explorer links point at nothing. Ticket 4's burn is made to look back-dated and ticket 5's batch unreadable, to show the verifier's timing flag."
+ },
+ "slug": "milady",
+ "name": "Milady Maker",
+ "chainId": 1,
+ "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+ "wrapper": "0x3000000000000000000000000000000000000001",
+ "beacon": "0x30000000000000000000000000000000000000BE",
+ "computedAt": 1790550030,
+ "state": {
+  "block": 74315515,
+  "at": 1790550028,
+  "ticketCount": 9,
+  "nextToResolve": 8,
+  "held": 13,
+  "openTickets": 2,
+  "free": [
+   12,
+   1,
+   2,
+   13,
+   4,
+   5,
+   9,
+   10,
+   15
+  ],
+  "pending": [
+   {
+    "itemId": 17,
+    "stamp": 8
+   },
+   {
+    "itemId": 18,
+    "stamp": 8
+   },
+   {
+    "itemId": 19,
+    "stamp": 9
+   }
+  ],
+  "pinned": [
+   {
+    "id": 8,
+    "round": 21009649,
+    "burnedAt": 1790549960
+   }
+  ],
+  "items": [
+   {
+    "itemId": 1,
+    "tokenId": "24",
+    "how": "purchase",
+    "arrivalTx": "0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2",
+    "mintedAt": 1789714512,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 2,
+    "tokenId": "389",
+    "how": "purchase",
+    "arrivalTx": "0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b",
+    "mintedAt": 1789743024,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 4,
+    "tokenId": "208",
+    "how": "purchase",
+    "arrivalTx": "0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734",
+    "mintedAt": 1789800048,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 5,
+    "tokenId": "161",
+    "how": "purchase",
+    "arrivalTx": "0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9",
+    "mintedAt": 1789828560,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 9,
+    "tokenId": "291",
+    "how": "purchase",
+    "arrivalTx": "0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04",
+    "mintedAt": 1789942608,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 10,
+    "tokenId": "102",
+    "how": "purchase",
+    "arrivalTx": "0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a",
+    "mintedAt": 1789971120,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 12,
+    "tokenId": "304",
+    "how": "purchase",
+    "arrivalTx": "0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017",
+    "mintedAt": 1790028144,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 13,
+    "tokenId": "206",
+    "how": "purchase",
+    "arrivalTx": "0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174",
+    "mintedAt": 1790056656,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 15,
+    "tokenId": "146",
+    "how": "deposit",
+    "arrivalTx": "0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453",
+    "mintedAt": 1790230000,
+    "state": "free",
+    "stamp": null,
+    "promisedTo": null
+   },
+   {
+    "itemId": 16,
+    "tokenId": "237",
+    "how": "purchase",
+    "arrivalTx": "0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3",
+    "mintedAt": 1790380000,
+    "state": "promised",
+    "stamp": null,
+    "promisedTo": 7
+   },
+   {
+    "itemId": 17,
+    "tokenId": "117",
+    "how": "purchase",
+    "arrivalTx": "0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd",
+    "mintedAt": 1790490000,
+    "state": "pending",
+    "stamp": 8,
+    "promisedTo": null
+   },
+   {
+    "itemId": 18,
+    "tokenId": "213",
+    "how": "purchase",
+    "arrivalTx": "0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b",
+    "mintedAt": 1790546400,
+    "state": "pending",
+    "stamp": 8,
+    "promisedTo": null
+   },
+   {
+    "itemId": 19,
+    "tokenId": "118",
+    "how": "deposit",
+    "arrivalTx": "0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf",
+    "mintedAt": 1790549980,
+    "state": "pending",
+    "stamp": 9,
+    "promisedTo": null
+   }
+  ]
+ },
+ "stateError": null,
+ "proofs": [
+  {
+   "ticket": 7,
+   "owner": "0x7100000000000000000000000000000000000008",
+   "destination": "0x7000000000000000000000000000000000000008",
+   "toBurn": false,
+   "burnTx": "0xadee4686bf4a5936c5127d8dc32f26a8fa9b34fa25affc655ba87440e8ef4cf8",
+   "burnBlock": 73317825,
+   "burnAt": 1790450259,
+   "round": 20976415,
+   "resolveTx": "0x5badbde95e0593e876d8ffac5dc50a596f1d80c63c4491a021837351bdf45f10",
+   "resolveBlock": 73318575,
+   "resolvedAt": 1790450334,
+   "beacon": {
+    "signature": "0x06c811ddded45f6e571f50ad551b68c3f9e05b41273ee8a6bff0dfcbaff6511c0c8942f4fffb8c417b45c0516167afeb6263ded99a9be8ca0eebad29dfb35773",
+    "randomness": "0x7ecd8db7bc9eb0871282bc29f25575134e047be41fde290b5a51d32972964e5d",
+    "relays": [
+     "api.drand.sh",
+     "api2.drand.sh"
+    ]
+   },
+   "freeSet": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    16,
+    10,
+    15,
+    9
+   ],
+   "freeSetRead": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    16,
+    10,
+    15,
+    9
+   ],
+   "freeSetNote": "a replay of the wrapper's events, and its views at block 73318574",
+   "itemId": 16,
+   "tokenId": "237",
+   "delivery": null,
+   "posting": {
+    "batch": 283549,
+    "parentBlock": 26063623,
+    "postedAt": 1790450399,
+    "note": "batch 283549, 8302 Ethereum confirmations as rh-a.fixture.invalid counts them (± a block: two nodes' heads)"
+   }
+  },
+  {
+   "ticket": 6,
+   "owner": "0x7100000000000000000000000000000000000007",
+   "destination": "0x7000000000000000000000000000000000000007",
+   "toBurn": false,
+   "burnTx": "0x358fe1083c5f58cfa3ffd3cb6a8dc13a8fb3a084f2f0369d1277ff8a3427f262",
+   "burnBlock": 72817455,
+   "burnAt": 1790400222,
+   "round": 20959736,
+   "resolveTx": "0xf6215fae049c1523015f8b143d57913ef1f6bd6e071ee534e04d2941f768c236",
+   "resolveBlock": 72818205,
+   "resolvedAt": 1790400297,
+   "beacon": {
+    "signature": "0x00df97769529307cad908b36b7e7f98da4c7700bd1af1a8a83be7c1f30b98e612935e1a0056fb312e20d8808add29933e2747012cfb0fca0034509be126feb0c",
+    "randomness": "0x4919c006a1f4c57ea68502f55b5ba363f02b9d9344164a67c9bc65eede3c4388",
+    "relays": [
+     "api.drand.sh",
+     "api2.drand.sh"
+    ]
+   },
+   "freeSet": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    6,
+    10,
+    15,
+    9,
+    16
+   ],
+   "freeSetRead": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    6,
+    10,
+    15,
+    9,
+    16
+   ],
+   "freeSetNote": "a replay of the wrapper's events, and its views at block 72818204",
+   "itemId": 6,
+   "tokenId": "186",
+   "delivery": {
+    "tx": "0x4759754502a36b5546696085929448bf0695595077d1d8d565f137a94e790062",
+    "url": "https://etherscan.io/tx/0x4759754502a36b5546696085929448bf0695595077d1d8d565f137a94e790062",
+    "at": 1790401797
+   },
+   "posting": {
+    "batch": 283298,
+    "parentBlock": 26059454,
+    "postedAt": 1790400371,
+    "note": "batch 283298, 12471 Ethereum confirmations as rh-a.fixture.invalid counts them (± a block: two nodes' heads)"
+   }
+  },
+  {
+   "ticket": 5,
+   "owner": "0x7100000000000000000000000000000000000006",
+   "destination": "0x7000000000000000000000000000000000000006",
+   "toBurn": false,
+   "burnTx": "0x8e65d024aeb4e0096d2ea6d584597abfce8ad3cf95c854d07a8d4802fb72d2c1",
+   "burnBlock": 72317085,
+   "burnAt": 1790350185,
+   "round": 20943057,
+   "resolveTx": "0xeb6075636079c29c6ef63deed78dce0c167031b141e859e198c800e80e22b0fe",
+   "resolveBlock": 72317835,
+   "resolvedAt": 1790350260,
+   "beacon": {
+    "signature": "0x143506f534d36aaef66125e055a62f8576f5dac1a6d1ded054deaf243146dd2a2ea0504c8eaa7ba2594a157b74065bed792884c0e1c3e4567cabb5f34f5de43f",
+    "randomness": "0x5254735dd1461b4f631d7ec12264924b805f7ca7ad5a6795137ec2a98c2db18a",
+    "relays": [
+     "api.drand.sh",
+     "api2.drand.sh"
+    ]
+   },
+   "freeSet": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    6,
+    14,
+    15,
+    9,
+    10
+   ],
+   "freeSetRead": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    6,
+    14,
+    15,
+    9,
+    10
+   ],
+   "freeSetNote": "a replay of the wrapper's events, and its views at block 72317834",
+   "itemId": 14,
+   "tokenId": "78",
+   "delivery": {
+    "tx": "0xfd590bf528ef12c44dd67f0dc6279120646c46878450d325f150b92c8b0bdac5",
+    "url": "https://etherscan.io/tx/0xfd590bf528ef12c44dd67f0dc6279120646c46878450d325f150b92c8b0bdac5",
+    "at": 1790351760
+   },
+   "posting": {
+    "batch": null,
+    "parentBlock": null,
+    "postedAt": null,
+    "note": "the batch could not be read: execution reverted: block not found in any batch"
+   }
+  },
+  {
+   "ticket": 4,
+   "owner": "0x7100000000000000000000000000000000000005",
+   "destination": "0x7000000000000000000000000000000000000005",
+   "toBurn": false,
+   "burnTx": "0x2fa9ea1ee47cf277bd6bbccd294649a7b8d4f5f016362609a7fa025cf06c3254",
+   "burnBlock": 71816715,
+   "burnAt": 1790300148,
+   "round": 20926378,
+   "resolveTx": "0x8e9431e9b67074793e18e4ac98e725b3d28ef9da634222c061b8a4ed8dbcaed1",
+   "resolveBlock": 71817465,
+   "resolvedAt": 1790300223,
+   "beacon": {
+    "signature": "0x1e77f5f3b4eeefb77703440440505fbcb48e23913e2492617d20ace207c868752f9887e414175007721d0466f7ad6d8b2231c7f29dbbb0e4a55c0701b6c20dda",
+    "randomness": "0x3c295411f3fa2af0261f5f452d3a965a4addb5bde35e269d334102b227a8cde2",
+    "relays": [
+     "api.drand.sh",
+     "api2.drand.sh"
+    ]
+   },
+   "freeSet": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    6,
+    7,
+    15,
+    9,
+    10,
+    14
+   ],
+   "freeSetRead": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    6,
+    7,
+    15,
+    9,
+    10,
+    14
+   ],
+   "freeSetNote": "a replay of the wrapper's events, and its views at block 71817464",
+   "itemId": 7,
+   "tokenId": "95",
+   "delivery": {
+    "tx": "0x20aecc98557c80b05c73388bb5cd516f190dc0ca301340a5e58266a1a379a31b",
+    "url": "https://etherscan.io/tx/0x20aecc98557c80b05c73388bb5cd516f190dc0ca301340a5e58266a1a379a31b",
+    "at": 1790301723
+   },
+   "posting": {
+    "batch": 282798,
+    "parentBlock": 26051182,
+    "postedAt": 1790301107,
+    "note": "batch 282798, 20743 Ethereum confirmations as rh-a.fixture.invalid counts them (± a block: two nodes' heads)"
+   }
+  },
+  {
+   "ticket": 3,
+   "owner": "0x7100000000000000000000000000000000000004",
+   "destination": "0x000000000000000000000000000000000000dEaD",
+   "toBurn": true,
+   "burnTx": "0xd1f9970f34011086891513a23f4fb659f71ad3204b01363c9a0e7137b16fbfaf",
+   "burnBlock": 71316345,
+   "burnAt": 1790250111,
+   "round": 20909699,
+   "resolveTx": "0x06157bf6a08fefde42332f6ed2b1d16c86036506da01cffd28974b7ca201def1",
+   "resolveBlock": 71317095,
+   "resolvedAt": 1790250186,
+   "beacon": {
+    "signature": "0x16d29d362efffc715503587485d494afbf3fc6a5a78c7051091660077798f1cc117ba04b2ea8f646d0da7c38f84f74624e8987daa709f531efd8e97f368ad22a",
+    "randomness": "0xaf85d1621d84d44b33e0b9e4b47bb32d1f79931ab16b3a7e2f16d8df51985459",
+    "relays": [
+     "api.drand.sh",
+     "api2.drand.sh"
+    ]
+   },
+   "freeSet": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    14,
+    15
+   ],
+   "freeSetRead": [
+    12,
+    1,
+    2,
+    13,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    14,
+    15
+   ],
+   "freeSetNote": "a replay of the wrapper's events, and its views at block 71317094",
+   "itemId": 8,
+   "tokenId": "220",
+   "delivery": {
+    "tx": "0x3b7aa9072f26749b0fa2e1c542effbf68686b418bfb67e18387b191dc0f4669f",
+    "url": "https://etherscan.io/tx/0x3b7aa9072f26749b0fa2e1c542effbf68686b418bfb67e18387b191dc0f4669f",
+    "at": 1790251686
+   },
+   "posting": {
+    "batch": 282548,
+    "parentBlock": 26046944,
+    "postedAt": 1790250251,
+    "note": "batch 282548, 24981 Ethereum confirmations as rh-a.fixture.invalid counts them (± a block: two nodes' heads)"
+   }
+  },
+  {
+   "ticket": 2,
+   "owner": "0x7100000000000000000000000000000000000003",
+   "destination": "0x7000000000000000000000000000000000000003",
+   "toBurn": false,
+   "burnTx": "0x321759dbedd64ba4bd251732713b72ae6fc133dba7c33fb53b9c0798036b36dd",
+   "burnBlock": 70815975,
+   "burnAt": 1790200074,
+   "round": 20893020,
+   "resolveTx": "0xa4bde9012370aef7a49feff573992dea1df09cc809cccb772880216cdb3a0e1d",
+   "resolveBlock": 70816725,
+   "resolvedAt": 1790200149,
+   "beacon": {
+    "signature": "0x0e903e6c48e3a9b0505aaa4ac429234c060cb710fcfcfb82b5d6505946b3f5f11ef2088fe27551386e6806420fa908da2922556bd6951e372e29a902d4693d96",
+    "randomness": "0x8da047a13873ab039d094cdabc3ef063898e7e58b64f7776fac047dc013afd93",
+    "relays": [
+     "api.drand.sh",
+     "api2.drand.sh"
+    ]
+   },
+   "freeSet": [
+    12,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    13
+   ],
+   "freeSetRead": [
+    12,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    13
+   ],
+   "freeSetNote": "a replay of the wrapper's events, and its views at block 70816724",
+   "itemId": 3,
+   "tokenId": "278",
+   "delivery": {
+    "tx": "0xdf9b3af9c9d08133fa9763bd682d0fbccccd779ae4f7092cd472dd2269fe7332",
+    "url": "https://etherscan.io/tx/0xdf9b3af9c9d08133fa9763bd682d0fbccccd779ae4f7092cd472dd2269fe7332",
+    "at": 1790201649
+   },
+   "posting": {
+    "batch": 282298,
+    "parentBlock": 26042776,
+    "postedAt": 1790200235,
+    "note": "batch 282298, 29149 Ethereum confirmations as rh-a.fixture.invalid counts them (± a block: two nodes' heads)"
+   }
+  },
+  {
+   "ticket": 1,
+   "owner": "0x7100000000000000000000000000000000000002",
+   "destination": "0x7000000000000000000000000000000000000002",
+   "toBurn": false,
+   "burnTx": "0xa8df32b6639b3dfb71ef6ee6807f7a6a68f441d4a5989b6ece1161bbd860bfed",
+   "burnBlock": 70315605,
+   "burnAt": 1790150037,
+   "round": 20876341,
+   "resolveTx": "0xce70d8bcf11e693ba56360c156afcdb87984f614c7193f65624bdb55bafce2a4",
+   "resolveBlock": 70316355,
+   "resolvedAt": 1790150112,
+   "beacon": {
+    "signature": "0x24a5c7f9909c6703e16c2870a03480a9163c843a62c89e575b0a86dacfcab0c501d0276bfbe40a8dc97f19003cefe3b3c1fbb89e26dd8cfb6431abb06788c1dc",
+    "randomness": "0x4535f901801a8fc96ba6eddb6fd35dfe196051ed87780120c3317df7e4cbcd95",
+    "relays": [
+     "api.drand.sh",
+     "api2.drand.sh"
+    ]
+   },
+   "freeSet": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    13,
+    12
+   ],
+   "freeSetRead": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    13,
+    12
+   ],
+   "freeSetNote": "a replay of the wrapper's events, and its views at block 70316354",
+   "itemId": 0,
+   "tokenId": "4",
+   "delivery": {
+    "tx": "0x158abd398c73281d426043be3f23431cb3bd391b8c5b32f0ce0ecf8f551c89ea",
+    "url": "https://etherscan.io/tx/0x158abd398c73281d426043be3f23431cb3bd391b8c5b32f0ce0ecf8f551c89ea",
+    "at": 1790151612
+   },
+   "posting": {
+    "batch": 282048,
+    "parentBlock": 26038605,
+    "postedAt": 1790150183,
+    "note": "batch 282048, 33320 Ethereum confirmations as rh-a.fixture.invalid counts them (± a block: two nodes' heads)"
+   }
+  },
+  {
+   "ticket": 0,
+   "owner": "0x7100000000000000000000000000000000000001",
+   "destination": "0x7000000000000000000000000000000000000001",
+   "toBurn": false,
+   "burnTx": "0x68c52dc36616265d95e8c7f40cb4233cfa88bdcb1c022cedfe7c5118623a7127",
+   "burnBlock": 69815235,
+   "burnAt": 1790100000,
+   "round": 20859662,
+   "resolveTx": "0x0d57cc813dd5fb9f32e09cac5e7c3e757f3ee36e2775f7bf726ffefa3ff1928d",
+   "resolveBlock": 69815985,
+   "resolvedAt": 1790100075,
+   "beacon": {
+    "signature": "0x011dc6861bbc09918e9c4447058ddcd600e7016903aa021d10c5e531f4a39e5925927891286b5cf2a19098baa1c4d5ad2ebe2272b911e1e8c0566a0c18398a40",
+    "randomness": "0x2b4fcca4d066838fefbfb9e3341a3cebc6b0ae98b1ffacf2d82646d3cddc0d83",
+    "relays": [
+     "api.drand.sh",
+     "api2.drand.sh"
+    ]
+   },
+   "freeSet": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "freeSetRead": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "freeSetNote": "a replay of the wrapper's events, and its views at block 69815984",
+   "itemId": 11,
+   "tokenId": "62",
+   "delivery": {
+    "tx": "0x76454d148d9f0967c2470d0326c301cce9f38ae6e3fb3c3c4ec5383686ab3780",
+    "url": "https://etherscan.io/tx/0x76454d148d9f0967c2470d0326c301cce9f38ae6e3fb3c3c4ec5383686ab3780",
+    "at": 1790101575
+   },
+   "posting": {
+    "batch": 281797,
+    "parentBlock": 26034433,
+    "postedAt": 1790100119,
+    "note": "batch 281797, 37492 Ethereum confirmations as rh-a.fixture.invalid counts them (± a block: two nodes' heads)"
+   }
+  }
+ ],
+ "snapshot": {
+  "url": "/v1/v8/snapshots/milady",
+  "sha256": "0x6dcd281e6ce44034d11ab21ed7662fab8c2e5d319fc41d063439fb55e59db73d",
+  "pinnedIn": "deployments/launch/nft-pilot.json (fixture: not pinned anywhere)",
+  "ipfsCid": null,
+  "takenAt": 1789513200,
+  "tokenCount": 400,
+  "drift": null
+ },
+ "links": {
+  "wrapper": "https://explorer.mainnet.chain.robinhood.com/address/0x3000000000000000000000000000000000000001",
+  "tx": "https://explorer.mainnet.chain.robinhood.com/tx/",
+  "ethTx": "https://etherscan.io/tx/",
+  "ethNft": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/"
+ }
+}

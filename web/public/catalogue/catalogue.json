@@ -1,0 +1,2683 @@
+{
+  "fetchedAt": "2026-09-23T01:40:21.490Z",
+  "rankedBy": "collections: lifetime volume from Ordinals Wallet's keyless index -- the whole history of a market, NOT this week, because the index carries a weekly figure but it is non-zero on 29 of 1,076 collections (2.7%), so there is no week to rank fifty by. Lifetime here is ACROSS ALL MARKETPLACES, not Ordinals Wallet's own book. Runes: UniSat's volume over the seven days before this file was fetched (their own day7)",
+  "ranking": {
+    "window": "day7",
+    "unit": "sats",
+    "collections": {
+      "said": "lifetime volume from Ordinals Wallet's keyless index -- the whole history of a market, NOT this week, because the index carries a weekly figure but it is non-zero on 29 of 1,076 collections (2.7%), so there is no week to rank fifty by. Lifetime here is ACROSS ALL MARKETPLACES, not Ordinals Wallet's own book",
+      "field": "volumeAllTimeSats",
+      "source": "Ordinals Wallet",
+      "window": null,
+      "why": "UniSat's own fills -- the only weekly figure obtainable anywhere -- named 4 collections over 66 fills in 7 days, which is not a top 50",
+      "want": 50,
+      "kept": 50,
+      "named": 0
+    },
+    "runes": {
+      "said": "UniSat's volume over the seven days before this file was fetched (their own day7)",
+      "field": "volume7dSats",
+      "source": "UniSat",
+      "window": "day7",
+      "want": 50,
+      "kept": 50
+    }
+  },
+  "collectionSource": "Ordinals Wallet",
+  "runeSource": "UniSat (the ranking) and ord (ordinals.com) (every rune fact)",
+  "attribution": [
+    {
+      "name": "UniSat",
+      "url": "https://unisat.io",
+      "used": "the runes' seven-day ranking"
+    },
+    {
+      "name": "Ordinals Wallet",
+      "url": "https://ordinalswallet.com",
+      "used": "the collection list and its ranking by lifetime volume, its floors, its thumbnails, and the inscription ids behind the artwork"
+    },
+    {
+      "name": "ord",
+      "url": "https://ordinals.com",
+      "used": "rune facts and inscription artwork"
+    }
+  ],
+  "notes": [
+    "COLLECTIONS ARE ORDERED BY LIFETIME VOLUME, NOT BY THIS WEEK. No marketplace states a Bitcoin collection's weekly volume -- UniSat's windowed endpoint answers an empty list for every window, its per-collection one takes no window, and Magic Eden's whole Bitcoin API answers nothing live (docs/phase9.md §11.1, §11.2). The week was asked for on this run anyway, and UniSat's own fills -- the only weekly figure obtainable anywhere -- named 4 collections over 66 fills in 7 days, which is not a top 50. So the collections are ordered by the whole history of a market and say so here, in `rankedBy`, in `ranking.collections` and on every screen. The runes below ARE this week's. Two lists, two windows, each said out loud: nothing here prints one as the other.",
+    "The runes are the 50 most-traded of the week that ord could resolve. UniSat ranked a pool of 80 tickers and the list was filled from the top of it in order, so a ticker ord could not resolve -- or resolved to a different rune id than UniSat named -- was made up from the next most-traded rune rather than leaving the list short. Nothing below a rune that was kept was promoted above it.",
+    "No rune carries a floor: UniSat's runes calls answered none, so the site prints no price for one rather than inventing a number no marketplace gave.",
+    "2 collections had no usable image and draw their carved monogram instead."
+  ],
+  "collections": [
+    {
+      "id": "ow:nodemonkes",
+      "slug": "nodemonkes",
+      "name": "NodeMonkes",
+      "kind": "inscriptions",
+      "description": "The first 10k collection inscribed on bitcoin.",
+      "supply": 10000,
+      "floorSats": 3274431,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 466103859395,
+      "volumeOnOrdinalsWalletSats": 171634542,
+      "listed": 7,
+      "verified": false,
+      "first": 83522,
+      "last": 111319,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/nodemonkes",
+      "image": "/catalogue/img/nodemonkes-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "eea8471351d3c9e4798cfe32b5505529211441ef66be7804458ee53e6178aec3i0",
+          "num": 88292,
+          "name": "nodemonke 2225"
+        },
+        {
+          "id": "51f5c803c2bf536c897e0aa172d994b663475a9e8160ac0e5ff6ff66c26bb426i0",
+          "num": 85790,
+          "name": "nodemonke 1363"
+        },
+        {
+          "id": "bad9f5701da37a80bbadbfadc33695cf9bdecd95921d1236d7fac74cbfc26bc9i0",
+          "num": 92295,
+          "name": "nodemonke 2921"
+        }
+      ]
+    },
+    {
+      "id": "ow:sub-100k",
+      "slug": "sub-100k",
+      "name": "Sub 100k",
+      "kind": "inscriptions",
+      "description": "Sub 100k",
+      "supply": 99866,
+      "floorSats": 43165,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 372889025598,
+      "volumeOnOrdinalsWalletSats": 17004014878,
+      "listed": 1664,
+      "verified": false,
+      "first": null,
+      "last": 99999,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/sub-100k",
+      "image": "/catalogue/img/sub-100k-0.png",
+      "imageFrom": "Ordinals Wallet",
+      "items": []
+    },
+    {
+      "id": "ow:bitcoin-puppets",
+      "slug": "bitcoin-puppets",
+      "name": "Bitcoin Puppets",
+      "kind": "inscriptions",
+      "description": "Not intended for use as anything but art. No roadmap, promises or guarantees or any of that nonsense. Don't treat this like a goddamn corporation , okay?\n\nP.S. All art seen is copylefted under the VPL license (Copyleft (c) All Rights Revers",
+      "supply": 10001,
+      "floorSats": 3288797,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 293471309716,
+      "volumeOnOrdinalsWalletSats": 126855701,
+      "listed": 12,
+      "verified": false,
+      "first": 53105612,
+      "last": 55543825,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bitcoin-puppets",
+      "image": "/catalogue/img/bitcoin-puppets-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "803bd81822432470c6ebfbb13fcd19d16a38235da0d9a6d4aefd6af0269f79f2i0",
+          "num": 53114731,
+          "name": "Bitcoin Puppet #8969"
+        },
+        {
+          "id": "cb5dbbf27058872e59888f8e34136059775e5021f8e479a4f6d4fb9bdefe0a37i0",
+          "num": 53149085,
+          "name": "Bitcoin Puppet #7780"
+        },
+        {
+          "id": "b59c4e2e386a2b805d44f3d39dd6fafec676592232f65766079da95709d25749i0",
+          "num": 53154406,
+          "name": "Bitcoin Puppet #2886"
+        }
+      ]
+    },
+    {
+      "id": "ow:omb",
+      "slug": "omb",
+      "name": "Ordinal Maxi Biz (OMB)",
+      "kind": "inscriptions",
+      "description": "--- .-. -.. .. -. .- .-.. / -- .- -..- .. / -... .. --.. / -.--. --- -- -... -.--.-",
+      "supply": 9001,
+      "floorSats": 2158273,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 277712400051,
+      "volumeOnOrdinalsWalletSats": null,
+      "listed": 10,
+      "verified": false,
+      "first": 89945,
+      "last": 85579619,
+      "sampleInscription": "557a07821c8209b8085965b570dd6d2ae5f30313f01f0281da7b8167d8ef9bb4i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/omb",
+      "image": "/catalogue/img/omb-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "934a35b0258bfe8a1b8b503b17ca8d19eb92ce5f81e244522f2c876ac249b645i0",
+          "num": 83294130,
+          "name": null
+        },
+        {
+          "id": "56cd3b11af539973b7dbc9e7fc25cc17e104cd2098ae7c5a38007864f7a63fa2i0",
+          "num": 60580295,
+          "name": null
+        },
+        {
+          "id": "d328778fd1d1c2208252f96c3cb09b5e0392b976a037d339b2b9944f1def029ci0",
+          "num": 60578441,
+          "name": null
+        }
+      ]
+    },
+    {
+      "id": "ow:runestone",
+      "slug": "runestone",
+      "name": "Runestone",
+      "kind": "inscriptions",
+      "description": "112,383 runestones airdropped to the earliest ordinals enjoyers",
+      "supply": 112384,
+      "floorSats": 116032,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 263850814024,
+      "volumeOnOrdinalsWalletSats": 5874516354,
+      "listed": 170,
+      "verified": false,
+      "first": 63140674,
+      "last": 64543066,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/runestone",
+      "image": "/catalogue/img/runestone-0.png",
+      "imageFrom": "Ordinals Wallet",
+      "items": []
+    },
+    {
+      "id": "ow:quantum_cats",
+      "slug": "quantum_cats",
+      "name": "Quantum Cats",
+      "kind": "inscriptions",
+      "description": "The Quantum Cats by Taproot Wizards are on a mission to revive Satoshi's beloved pet and scripting function, OP_CAT.",
+      "supply": 3313,
+      "floorSats": 1901336,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 146221131552,
+      "volumeOnOrdinalsWalletSats": 42000000,
+      "listed": 1,
+      "verified": false,
+      "first": 53785860,
+      "last": 53790605,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/quantum_cats",
+      "image": "/catalogue/img/quantum-cats-0.webp",
+      "imageFrom": "Ordinals Wallet",
+      "items": []
+    },
+    {
+      "id": "ow:bitcoin-frogs",
+      "slug": "bitcoin-frogs",
+      "name": "Bitcoin Frogs",
+      "kind": "inscriptions",
+      "description": "10,000 timeless frog collectibles stored on Bitcoin blockchain. Launched for free on 8 March 2023",
+      "supply": 10000,
+      "floorSats": 433069,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 141570174556,
+      "volumeOnOrdinalsWalletSats": 7046704874,
+      "listed": 79,
+      "verified": true,
+      "first": 381224,
+      "last": 412389,
+      "sampleInscription": "659e684ff344c7d7be30bf608e214dcad96596589ddc738bd72e2eed6faf5a62i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bitcoin-frogs",
+      "image": "/catalogue/img/bitcoin-frogs-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "186107dc867835019c6a396c3c8fb973d701def2f2adaa5a6bbfe4360e4f0ffbi0",
+          "num": 412199,
+          "name": "Bitcoin Frog #2866"
+        },
+        {
+          "id": "2a1c9d4e582350d481ba4007584aa3fa3ed4d3a2e9ec6778a0c1d7f03a6dcca4i0",
+          "num": 407744,
+          "name": "Bitcoin Frog #1887"
+        },
+        {
+          "id": "3fc5ed63a307ad1117c753ace4c910bf4222705ac630234e08278c89c6ae95e1i0",
+          "num": 411147,
+          "name": "Bitcoin Frog #4054"
+        }
+      ]
+    },
+    {
+      "id": "ow:rsic",
+      "slug": "rsic",
+      "name": "RSIC METAPROTOCOL",
+      "kind": "inscriptions",
+      "description": "21000 Rune Specific Inscription Circuits.",
+      "supply": 20998,
+      "floorSats": 204522,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 119600183560,
+      "volumeOnOrdinalsWalletSats": 519544532,
+      "listed": 23,
+      "verified": false,
+      "first": 56718386,
+      "last": 56745946,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/rsic",
+      "image": "/catalogue/img/rsic-0.png",
+      "imageFrom": "Ordinals Wallet",
+      "items": []
+    },
+    {
+      "id": "ow:sub-10k",
+      "slug": "sub-10k",
+      "name": "Sub 10K",
+      "kind": "inscriptions",
+      "description": "Sub 10K",
+      "supply": 9898,
+      "floorSats": 596094,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 67007598019,
+      "volumeOnOrdinalsWalletSats": 5747052069,
+      "listed": 124,
+      "verified": false,
+      "first": null,
+      "last": 9999,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/sub-10k",
+      "image": "/catalogue/img/sub-10k-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "8b8d93920030b03dafc7bf2aa4379505d939ebf3649e7a2fd62d7ef43c5bdfa8i0",
+          "num": 4884,
+          "name": "Bitcoin Toad #46"
+        },
+        {
+          "id": "f613a49d7b94a2bce14f9283bf9b86e73939324e7491e74ce9d0863c380adbb2i0",
+          "num": 5970,
+          "name": null
+        },
+        {
+          "id": "28f1006293b975ede2094158b04631b0e6850e1ab1c0bc84d77432ce332cee42i0",
+          "num": 9404,
+          "name": null
+        }
+      ]
+    },
+    {
+      "id": "ow:dmtnatcats",
+      "slug": "dmtnatcats",
+      "name": "Natcats",
+      "kind": "inscriptions",
+      "description": "Natcats is the first art collection created from Digital Matter. Each Natcat has unique traits, and is generated autonomously through the Bitcoin blockchain.",
+      "supply": 8060,
+      "floorSats": 398766,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 54557655935,
+      "volumeOnOrdinalsWalletSats": 27318619,
+      "listed": 33,
+      "verified": false,
+      "first": 60274209,
+      "last": 60830515,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/dmtnatcats",
+      "image": "/catalogue/img/dmtnatcats-0.png",
+      "imageFrom": "Ordinals Wallet",
+      "items": []
+    },
+    {
+      "id": "ow:sub-1k",
+      "slug": "sub-1k",
+      "name": "Sub 1k",
+      "kind": "inscriptions",
+      "description": "Sub 1k",
+      "supply": 999,
+      "floorSats": 3494347,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 33330293383,
+      "volumeOnOrdinalsWalletSats": 1658100045,
+      "listed": 31,
+      "verified": false,
+      "first": null,
+      "last": 999,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/sub-1k",
+      "image": "/catalogue/img/sub-1k-0.jpg",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "8b84670859e6a4b78ab8049105b7f04e3c3e47e78719dd74084856132973bc4ei0",
+          "num": 834,
+          "name": "Interstellar Landing"
+        },
+        {
+          "id": "9f0bfadb03c137c54d2a77768f61691eee2ccf64ad307109b92c14b76d73c28ai0",
+          "num": 976,
+          "name": "Planetary Ordinal #7"
+        },
+        {
+          "id": "5d66923d0edf103ef26fbe9c19ea17ef235fd53f8b42ee8b2e31b807baddca0bi0",
+          "num": 481,
+          "name": null
+        }
+      ]
+    },
+    {
+      "id": "ow:bitcoinpunks",
+      "slug": "bitcoinpunks",
+      "name": "Bitcoin Punks",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 10000,
+      "floorSats": 331534,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 32113008404,
+      "volumeOnOrdinalsWalletSats": 4221057327,
+      "listed": 89,
+      "verified": true,
+      "first": 89,
+      "last": 34399,
+      "sampleInscription": "3eb58bce372ef28c6b8b955da67086bd06221f1556b03f0cf355c1172165e9adi0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bitcoinpunks",
+      "image": "/catalogue/img/bitcoinpunks-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "dd02dea1001e8c9fc2f8fe146e7ba07b1fa6d462d9ff7bf2194880a6d3adf508i0",
+          "num": 28131,
+          "name": "Bitcoin Punk #7916"
+        },
+        {
+          "id": "596360f9f9b3b8590ee344ae9f084c6e374f6b3cde06a68eb08d55dc68ca9aafi0",
+          "num": 25572,
+          "name": "Bitcoin Punk #4103"
+        },
+        {
+          "id": "b416ea4501d2d9893e5e5908afe96377dd0203da49737c79848cbb039130d540i0",
+          "num": 30360,
+          "name": "Bitcoin Punk #4524"
+        }
+      ]
+    },
+    {
+      "id": "ow:taproot-wizards",
+      "slug": "taproot-wizards",
+      "name": "Taproot Wizards",
+      "kind": "inscriptions",
+      "description": "magic internet jpegs",
+      "supply": 2106,
+      "floorSats": null,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 27178337358,
+      "volumeOnOrdinalsWalletSats": null,
+      "listed": null,
+      "verified": false,
+      "first": 652,
+      "last": 14163842,
+      "sampleInscription": "0301e0480b374b32851a9462db29dc19fe830a7f7d7a88b81612b9d42099c0aei0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/taproot-wizards",
+      "image": "/catalogue/img/taproot-wizards-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "0f35c3fa8e1d7b31158d2e5ddb399af2b67c9e4571f966fee56aaef7b7010b00i0",
+          "num": 148700,
+          "name": "Wizard #0126"
+        },
+        {
+          "id": "e9e519278454e452dc30002811709d30a5bf68279e501b229c2bd67679443600i0",
+          "num": 148027,
+          "name": "Wizard #1888"
+        },
+        {
+          "id": "5f9bb524322365e300b19852684de58b5df92115d254edee8f58dcd96e883900i0",
+          "num": 148618,
+          "name": "Wizard #0798"
+        }
+      ]
+    },
+    {
+      "id": "ow:bitcoin-wizards",
+      "slug": "bitcoin-wizards",
+      "name": "Bitcoin Wizards",
+      "kind": "inscriptions",
+      "description": "Bitcoin Wizard is a bitcoin ordinal NFT project celebrating the 10th anniversary of the original Bitcoin Wizard created by mavensbot. Magic Internet Money is the iconic ad that promoted the bitcoin subreddit. Originally created on Mon Feb 1",
+      "supply": 1337,
+      "floorSats": 5549845,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 22615345502,
+      "volumeOnOrdinalsWalletSats": 536679803,
+      "listed": 11,
+      "verified": false,
+      "first": 139898,
+      "last": 142119,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bitcoin-wizards",
+      "image": "/catalogue/img/bitcoin-wizards-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "7fd0c7f491cb4484dfb624746b1b1433bedf41d93ddda6562d15dab11a84020ei0",
+          "num": 139955,
+          "name": "Bitcoin Wizard #56"
+        },
+        {
+          "id": "ac17b20a17f3259be8c4c1a6d6609e888b536b72ad3d419292a4e56c51235937i0",
+          "num": 140528,
+          "name": "Bitcoin Wizard #618"
+        },
+        {
+          "id": "67f620d47b765b07764a14550498d59702a5dc2bd52d27ee6ef811b8e982ba2ai0",
+          "num": 141091,
+          "name": "Bitcoin Wizard #1027"
+        }
+      ]
+    },
+    {
+      "id": "ow:pixel-pepes",
+      "slug": "pixel-pepes",
+      "name": "Pixel Pepes",
+      "kind": "inscriptions",
+      "description": "The first ever airdrop on the Bitcoin network. 1563 rare Pixel Pepes airdropped to users who had made a transaction on ordinalswallet.com before block 777888.",
+      "supply": 1563,
+      "floorSats": 411099,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 20520837549,
+      "volumeOnOrdinalsWalletSats": 17661894649,
+      "listed": 228,
+      "verified": true,
+      "first": 170111,
+      "last": 171690,
+      "sampleInscription": "80b39fcf004acfd256455caa2a3c1466d2de166f70229778a27342f09b7d4253i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/pixel-pepes",
+      "image": "/catalogue/img/pixel-pepes-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "2249ec3499ce4d831f7b71288e037ec7f439321dc7a5b930c414d0d3f08371dci0",
+          "num": 171500,
+          "name": "Pixel Pepes #932"
+        },
+        {
+          "id": "c7892d4bf5a8065095ed0cba3eda723b6576ec446bc373502a54e85a24a6a81di0",
+          "num": 170312,
+          "name": "Pixel Pepes #445"
+        },
+        {
+          "id": "d4109c5fb6c253fb00d8cc267b51040e3295cef92766cf4e8beca73c049e20cbi0",
+          "num": 171403,
+          "name": "Pixel Pepes #315"
+        }
+      ]
+    },
+    {
+      "id": "ow:opium",
+      "slug": "opium",
+      "name": "O.P.I.U.M.",
+      "kind": "inscriptions",
+      "description": "Ord Puppet Inu Undoxxed Millionaire is an esoteric and absurd collection of 777 hand puppets, created with basic tools, lots of effort and passion. These puppets are a product of the fringes of the karmic grid, where the most unconventional",
+      "supply": 777,
+      "floorSats": null,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 17542025913,
+      "volumeOnOrdinalsWalletSats": 437858073,
+      "listed": null,
+      "verified": false,
+      "first": 353182,
+      "last": 671978,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/opium",
+      "image": "/catalogue/img/opium-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "8ed075d870a9e755f3433e088269e2675bec3caa39959bbdc9fc382e792d0a00i0",
+          "num": 596211,
+          "name": "O.P.I.U.M #636"
+        },
+        {
+          "id": "9cc8ed615cb9b51d8a5ae60781ae6c7526458bd12662ca178b66437eeb92b100i0",
+          "num": 590417,
+          "name": "O.P.I.U.M #696"
+        },
+        {
+          "id": "e29a3bd7762ca86e16a0854360a6d2343abe642ba5c6789239d2a2e2612e6601i0",
+          "num": 594817,
+          "name": "O.P.I.U.M #500"
+        }
+      ]
+    },
+    {
+      "id": "ow:wizards",
+      "slug": "wizards",
+      "name": "The Wizards of Ord",
+      "kind": "inscriptions",
+      "description": "3,333 wizards inscribed exclusively on the historic block 78 sats.",
+      "supply": 3333,
+      "floorSats": 1541623,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 16762063433,
+      "volumeOnOrdinalsWalletSats": 950000,
+      "listed": 3,
+      "verified": false,
+      "first": 11301998,
+      "last": 11339544,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/wizards",
+      "image": "/catalogue/img/wizards-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "90fc64aee2e49d7dce8a7ce8ff0d653eb9bf5bb680bb4d19cc89620613e70b27i0",
+          "num": 11336522,
+          "name": "Wizard #1126"
+        },
+        {
+          "id": "ce63b40237e8f026b60ad6ae7de382b4fac713555b442efba24a1fdb4d1881b9i0",
+          "num": 11302162,
+          "name": "Wizard #189"
+        },
+        {
+          "id": "99fc95d9482c621a68e82cb1c0b2dc96537a3f00d2502f2cdaa0ffe92b5e0f1fi0",
+          "num": 11338116,
+          "name": "Wizard #3037"
+        }
+      ]
+    },
+    {
+      "id": "ow:bbc",
+      "slug": "bbc",
+      "name": "Bitcoin Bear Cubs",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 10000,
+      "floorSats": 287769,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 13488976315,
+      "volumeOnOrdinalsWalletSats": 93898669,
+      "listed": 55,
+      "verified": false,
+      "first": 616105,
+      "last": 658557,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bbc",
+      "image": "/catalogue/img/bbc-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "6448769f53452e6ed8b2f898160555f309674e6a211cb8a81bd98c3f6c709e8ai0",
+          "num": 643061,
+          "name": "Bitcoin Bear Cub #4828"
+        },
+        {
+          "id": "4aa9824ce4a6af1eba148324fcde05ff681fd904cc3fd5567593c77d28993a6ci0",
+          "num": 643576,
+          "name": "Bitcoin Bear Cub #5051"
+        },
+        {
+          "id": "65b27471fa8e5090c4d5123accda96fdaa16476b06dd397673962f4cac11d291i0",
+          "num": 621912,
+          "name": "Bitcoin Bear Cub #1556"
+        }
+      ]
+    },
+    {
+      "id": "ow:dogepunks",
+      "slug": "dogepunks",
+      "name": "DogePunks",
+      "kind": "inscriptions",
+      "description": "Own a piece of history with DogePunks, 10.000 unique inspired by Dogecoin and CryptoPunks on the Bitcoin blockchain",
+      "supply": 10001,
+      "floorSats": 56526,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 11464147553,
+      "volumeOnOrdinalsWalletSats": 2061994419,
+      "listed": 255,
+      "verified": false,
+      "first": 383632,
+      "last": 641330,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/dogepunks",
+      "image": "/catalogue/img/dogepunks-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "1f00b10833ab87f6617722b2eeda5d93684d69f3afa29c1e2d41c50ae411d21ci0",
+          "num": 537307,
+          "name": "Doge #8885"
+        },
+        {
+          "id": "6d2d27eebda0487d2f6f88ccea2995fbba187114c22ec1301e3dcce717c1950ei0",
+          "num": 532541,
+          "name": "Doge #6514"
+        },
+        {
+          "id": "eb31a3016c6c0d869ba7f0d4425cb914ed7a9c106126d92f95110434168decf7i0",
+          "num": 528003,
+          "name": "Doge #140"
+        }
+      ]
+    },
+    {
+      "id": "ow:naked-bitcoin-frogs-misprints",
+      "slug": "naked-bitcoin-frogs-misprints",
+      "name": "Naked Bitcoin Frogs Misprints",
+      "kind": "inscriptions",
+      "description": "These are not part of the official Bitcoin Frogs collection.",
+      "supply": 3355,
+      "floorSats": 503597,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 9265941003,
+      "volumeOnOrdinalsWalletSats": 316924904,
+      "listed": 43,
+      "verified": false,
+      "first": 354054,
+      "last": 419899,
+      "sampleInscription": "bc568abf9492dc141ab7ea31e20435b13c0d0e468f5ddff2273c01b34437a473i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/naked-bitcoin-frogs-misprints",
+      "image": "/catalogue/img/naked-bitcoin-frogs-misprints-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "4bd7f236f5626f8870e9f403ca2d967b4de98f161767acb4ce15d9984dfbf1b7i0",
+          "num": 357953,
+          "name": null
+        },
+        {
+          "id": "702be55eeef8d33940af2739c93ec539dca08f5599806c1d922f3b9b65e7c2a1i0",
+          "num": 389163,
+          "name": null
+        },
+        {
+          "id": "33c5077621bd2962feedac096d8b6d25d94f33663e1f87fc13bdf164e0cfdb95i0",
+          "num": 355576,
+          "name": null
+        }
+      ]
+    },
+    {
+      "id": "ow:bitcoin-bandits",
+      "slug": "bitcoin-bandits",
+      "name": "Bitcoin Bandits",
+      "kind": "inscriptions",
+      "description": "BITCOIN BANDITS ARE HERE ON BTC TO RAID THE BEST MINTS, FIND THE BEST ALPHA AND FIND THOSE SATS. JOIN US IN OUR WAY TO GLORY!",
+      "supply": 512,
+      "floorSats": 200000000,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 8472609613,
+      "volumeOnOrdinalsWalletSats": 401540132,
+      "listed": 1,
+      "verified": false,
+      "first": 58735,
+      "last": 60326,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bitcoin-bandits",
+      "image": "/catalogue/img/bitcoin-bandits-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "09ce47ad3ceab4b371ba53ea58f44a2c1689ab0925d2c3ba47839cc1b602993di0",
+          "num": 59081,
+          "name": "Bitcoin Bandit #50"
+        },
+        {
+          "id": "3560270e0c383b2ab4a3d9fd19f559c0628fa3bfccbcc37bd63f8044e56f0301i0",
+          "num": 59452,
+          "name": "Bitcoin Bandit #157"
+        },
+        {
+          "id": "bedfb1363f205ddb769c269e336a17507dc5b914f7b530b8de9bb6ee19958c01i0",
+          "num": 60101,
+          "name": "Bitcoin Bandit #402"
+        }
+      ]
+    },
+    {
+      "id": "ow:btc-machines",
+      "slug": "btc-machines",
+      "name": "BTC Machines",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 777,
+      "floorSats": 2626411,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 8400659685,
+      "volumeOnOrdinalsWalletSats": 2738504269,
+      "listed": 6,
+      "verified": true,
+      "first": 38347,
+      "last": 81532,
+      "sampleInscription": "eb860b2254c3a7da96ee910e28669343719e8ae4f9f8d2e749f3cad61d3146d3i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/btc-machines",
+      "image": "/catalogue/img/btc-machines-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "463de095f3b7dfa60cfd492c54ed98e325cb5fece3c29f9f011a692c59288bc3i0",
+          "num": 75983,
+          "name": "BTC Machine #369"
+        },
+        {
+          "id": "cdad5ae77accf19f0c2b4889fec1be940273963595a0d37432d2a152e1444a0di0",
+          "num": 56260,
+          "name": "BTC Machine #96"
+        },
+        {
+          "id": "4b488cfa3b5f695fe8d60e5556622674cc7f565939a4e1c4aebde1208be3eaf2i0",
+          "num": 75929,
+          "name": "BTC Machine #322"
+        }
+      ]
+    },
+    {
+      "id": "ow:honey-badgers",
+      "slug": "honey-badgers",
+      "name": "Honey Badgers",
+      "kind": "inscriptions",
+      "description": "Honey Badgers are a gen 10k collection inscribed on the BTC Blockchain through Ordinals. It's an experiment to see if a native NFT community can emerge and thrive on the native BTC ecosystem.",
+      "supply": 9999,
+      "floorSats": 71942,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 6536341886,
+      "volumeOnOrdinalsWalletSats": 86125265,
+      "listed": 45,
+      "verified": false,
+      "first": 81557,
+      "last": 1029518,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/honey-badgers",
+      "image": "/catalogue/img/honey-badgers-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "251c4ac33fb13a494d8b26bd9eb9d3771df9141a784e204179a7aaa3190c87b2i0",
+          "num": 1011129,
+          "name": null
+        },
+        {
+          "id": "b7ffa5a19df1f49b6a231666d82e45c256c13d3cd6f1fa8aee5903dc9385d14ci0",
+          "num": 927553,
+          "name": null
+        },
+        {
+          "id": "bec89c8c6a3d974d2519db0d574b8771da43e71f166bed745aa1a694cd845731i0",
+          "num": 915443,
+          "name": null
+        }
+      ]
+    },
+    {
+      "id": "ow:ordinal-punks",
+      "slug": "ordinal-punks",
+      "name": "Ordinal Punks",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 100,
+      "floorSats": null,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 6529847666,
+      "volumeOnOrdinalsWalletSats": 277000013,
+      "listed": null,
+      "verified": false,
+      "first": 407,
+      "last": 642,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/ordinal-punks",
+      "image": "/catalogue/img/ordinal-punks-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "01972f2c7aabdc5d087c254c260cc3e6e80fe1876d594366a17e55be55b04701i0",
+          "num": 441,
+          "name": "Punk #24"
+        },
+        {
+          "id": "ab2014c4c61d62cbe4150d473eb834005603f996310a3e6211626ae4473a3d02i0",
+          "num": 485,
+          "name": "Punk #49"
+        },
+        {
+          "id": "c904da508e7c0481a51a14b40ce095949a57ec53088050c118bd351d3f73ec02i0",
+          "num": 587,
+          "name": "Punk #61"
+        }
+      ]
+    },
+    {
+      "id": "ow:cents",
+      "slug": "cents",
+      "name": "CENTS",
+      "kind": "inscriptions",
+      "description": "After more than a century in circulation, the penny has become both a worthless relic of inflation and a prized collector's item. A unit of currency, a piece of metal, a ghost of value.The last copper pennies were minted in 1982, after whic",
+      "supply": 10000,
+      "floorSats": 452209,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 5997433476,
+      "volumeOnOrdinalsWalletSats": 4933184,
+      "listed": 29,
+      "verified": false,
+      "first": 65890305,
+      "last": 66156170,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/cents",
+      "image": "/catalogue/img/cents-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "6ab4fb13dfa8566bb069f488de5423229a6680484a4a7bdd090b702227bfe0a5i1",
+          "num": 65957537,
+          "name": "Cent #5025"
+        },
+        {
+          "id": "c2cf084e7cb938d55aa9909e830f5628bdbf0051ba096c1c434d822f157efa9ci0",
+          "num": 65980614,
+          "name": "Cent #9333"
+        },
+        {
+          "id": "dcebd2d3b3dd1eb7819d9cf4faa21339f6da326844089767c35b92203f162d4ai0",
+          "num": 65957727,
+          "name": "Cent #9996"
+        }
+      ]
+    },
+    {
+      "id": "ow:distortion",
+      "slug": "distortion",
+      "name": "Distortion",
+      "kind": "inscriptions",
+      "description": "Distortion is a fully hand-typed 100% on-chain art collection limited to 1,111 pieces. It is designed to be displayed with no external browser libraries (e.g. p5js).",
+      "supply": 1111,
+      "floorSats": 513874,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 4402883511,
+      "volumeOnOrdinalsWalletSats": 102538981,
+      "listed": 9,
+      "verified": false,
+      "first": 24010,
+      "last": 44016,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/distortion",
+      "image": "/catalogue/img/distortion-0.svg",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "1a6031cd8d35ab91fa537f409a132b8c63abd992a4ae432e20d70f82b3ff44dei0",
+          "num": 42591,
+          "name": "Distortion #429"
+        },
+        {
+          "id": "f4e2d3c18ce4bd0138900ea13b8a44add99a569d7153edd7fbe36a113b656441i0",
+          "num": 40438,
+          "name": "Distortion #69"
+        },
+        {
+          "id": "94ce9d34c7b815a6f1eed9f2514c257ae1fecab81dee85b18492ecdb4778661ci0",
+          "num": 43701,
+          "name": "Distortion #907"
+        }
+      ]
+    },
+    {
+      "id": "ow:bitglyphs",
+      "slug": "bitglyphs",
+      "name": "BitGlyphs",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 1024,
+      "floorSats": null,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 4376468515,
+      "volumeOnOrdinalsWalletSats": 13580008,
+      "listed": null,
+      "verified": false,
+      "first": 150409,
+      "last": 6891440,
+      "sampleInscription": "ffb7a281d273aafbd988d64f9c0135492c66e35f0a8038420560363174ff4b38i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bitglyphs",
+      "image": "/catalogue/img/bitglyphs-0.svg",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "bfe219707b85eda41f1ee2e0d9a90d4f3b1d2cb52a2d84bfca017baf87683500i0",
+          "num": 1147215,
+          "name": "BitGlyph #542"
+        },
+        {
+          "id": "7e23347dd30b48a1abc3a746d95d0c36a417f13d799d09bfb18e55f296179300i0",
+          "num": 1148705,
+          "name": "BitGlyph #833"
+        },
+        {
+          "id": "5197781ef3bd084a8ba9603aaa5b0e538e4831a33f9ab4c7f85419ccea58a900i0",
+          "num": 1148057,
+          "name": "BitGlyph #706"
+        }
+      ]
+    },
+    {
+      "id": "ow:ordinal-jomo",
+      "slug": "ordinal-jomo",
+      "name": "JOMOHippo",
+      "kind": "inscriptions",
+      "description": "JOMO IS A HIPPO FULL OF PERSONALITY. NOT WORRIED, NOT SORRY, OFTEN LAZY, SOMETIMES SILLY, BUT HAPPY.",
+      "supply": 2600,
+      "floorSats": 195272,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 4263012464,
+      "volumeOnOrdinalsWalletSats": 131723895,
+      "listed": 37,
+      "verified": false,
+      "first": 333888,
+      "last": 522075,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/ordinal-jomo",
+      "image": "/catalogue/img/ordinal-jomo-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "50a9c3434b60541ccabdd9609e730fb9b37ebd489da819e4644a40f71955757ai0",
+          "num": 502617,
+          "name": "JOMOHippo #1285"
+        },
+        {
+          "id": "be7dd4c857fbe8a58ff0116b857497f0a015761eb3104f168c918f57d082e77bi0",
+          "num": 518700,
+          "name": "JOMOHippo #1649"
+        },
+        {
+          "id": "74c2e2fa7c034b0444b98464cfa245a38153244d419d1b8ae128422a0e5336f0i0",
+          "num": 504124,
+          "name": "JOMOHippo #1170"
+        }
+      ]
+    },
+    {
+      "id": "ow:thefinalpattern",
+      "slug": "thefinalpattern",
+      "name": "The Final Pattern",
+      "kind": "inscriptions",
+      "description": "The last piece of the Uncommon Patterns collection was sent to Satoshi's wallet as a burn action, and fractionalized into 2,025 individual pieces, each inscribed on sats from the historic block 78, which was the first block mined by Hal Fin",
+      "supply": 2025,
+      "floorSats": 251798,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 4148857924,
+      "volumeOnOrdinalsWalletSats": 46439972,
+      "listed": 34,
+      "verified": false,
+      "first": 971192,
+      "last": 11577171,
+      "sampleInscription": "ff7f9cad39406d93ebba654ae7ba72dbd83ecfda7c002083d251925cc6d42db6i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/thefinalpattern",
+      "image": "/catalogue/img/thefinalpattern-0.svg",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "a5478083a396b8bab5edfdd6faa270d0ba8f382564cdb3e308a42482688ba5d9i0",
+          "num": 972462,
+          "name": "The Final Pattern #51"
+        },
+        {
+          "id": "ebc3af880a53108fed0f446927f432bcf86b0bd5c3beaee85b978418d1fae90di0",
+          "num": 11577169,
+          "name": "The Final Pattern #1881"
+        },
+        {
+          "id": "0ee218811c406b3ecd3bdf463f7de4b9e909132b97a34524a23ca31b8bac0cd2i0",
+          "num": 973201,
+          "name": "The Final Pattern #428"
+        }
+      ]
+    },
+    {
+      "id": "ow:pingoos",
+      "slug": "pingoos",
+      "name": "Pingoos",
+      "kind": "inscriptions",
+      "description": "Pingoos by Egloo Labs. The coldest Ordinal colony in the Arctic.",
+      "supply": 1250,
+      "floorSats": 298047,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 4146982234,
+      "volumeOnOrdinalsWalletSats": 122457799,
+      "listed": 37,
+      "verified": false,
+      "first": 352688,
+      "last": 430964,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/pingoos",
+      "image": "/catalogue/img/pingoos-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "67ead5b7fbf62ee4a189d2df9ef01e0a168574e9f35c91501dd5dbf93ab97492i0",
+          "num": 353621,
+          "name": "Pingoos #213"
+        },
+        {
+          "id": "423054a6a0fa1520707d132d2d0fb65ef60286d9b8c5785561cae93070e59c1bi0",
+          "num": 397648,
+          "name": "Pingoos #737"
+        },
+        {
+          "id": "16be7e9b34be4b82f13f52f3de7caaa1b7f63e42ce0af3a4d45696fc1eb81a72i0",
+          "num": 398326,
+          "name": "Pingoos #892"
+        }
+      ]
+    },
+    {
+      "id": "ow:ordibots",
+      "slug": "ordibots",
+      "name": "OrdiBots",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 1000,
+      "floorSats": 359712,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 3865208219,
+      "volumeOnOrdinalsWalletSats": 1454645007,
+      "listed": 63,
+      "verified": false,
+      "first": 8400075,
+      "last": 9012249,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/ordibots",
+      "image": null,
+      "imageFrom": null,
+      "items": []
+    },
+    {
+      "id": "ow:mnchrms",
+      "slug": "mnchrms",
+      "name": "MNCHRMS",
+      "kind": "inscriptions",
+      "description": "MNCHRMS, pronounced \"monochromes\", is a 10101 PFP collection on Bitcoin Ordinals. Using only black (hex code #000000) and white (hex code #FFFFFF) colors, MNCHRMS is bold, timeless, simple yet striking making it the fitting, classic, and pe",
+      "supply": 10101,
+      "floorSats": 113052,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 3473081733,
+      "volumeOnOrdinalsWalletSats": 84981934,
+      "listed": 75,
+      "verified": false,
+      "first": 1114751,
+      "last": 11311378,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/mnchrms",
+      "image": "/catalogue/img/mnchrms-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "2878139e00ea9225c4e9abcbad18d25eb378e28302272daad2450df185672b26i0",
+          "num": 10292219,
+          "name": "MNCHRMS #6192"
+        },
+        {
+          "id": "152cd62890acfe66da40b6d080694077db735ab6d9d704110207fdccafd4e231i0",
+          "num": 10292221,
+          "name": "MNCHRMS #6146"
+        },
+        {
+          "id": "7555457bd4ef04551dbecb6a10d2104538dd8486d26b28498d18aeb4d84ec19ei0",
+          "num": 10297172,
+          "name": "MNCHRMS #3800"
+        }
+      ]
+    },
+    {
+      "id": "ow:btc-mutant-virus",
+      "slug": "btc-mutant-virus",
+      "name": "BTC Mutant Virus",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 777,
+      "floorSats": 97636,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 3421781322,
+      "volumeOnOrdinalsWalletSats": 132869979,
+      "listed": 15,
+      "verified": false,
+      "first": 9724096,
+      "last": 9724918,
+      "sampleInscription": "ff80a10092fcceede4ead779fda7596df714c70fb085dad4d892ea817009deb8i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/btc-mutant-virus",
+      "image": "/catalogue/img/btc-mutant-virus-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "f8da03ab82716a847b60ca20a9359b23f2fc5b677e541764f1a77f004ca35ab7i0",
+          "num": 9724917,
+          "name": "Mutant Virus #650"
+        },
+        {
+          "id": "2f26dc4b2ecbcbf4f9155c804345b2508767ea26c2cb4ff1d00f41db8b7e3dfei0",
+          "num": 9724656,
+          "name": "Mutant Virus #275"
+        },
+        {
+          "id": "beb5b00676cae1e2842b82116d4a7a2cbac377bc467d7a49d2f17b63e6c78f59i0",
+          "num": 9724886,
+          "name": "Mutant Virus #571"
+        }
+      ]
+    },
+    {
+      "id": "ow:unordinals",
+      "slug": "unordinals",
+      "name": "Unordinals",
+      "kind": "inscriptions",
+      "description": "what is dead may never die",
+      "supply": 1000,
+      "floorSats": 2261048,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 3043381011,
+      "volumeOnOrdinalsWalletSats": 61703085,
+      "listed": 17,
+      "verified": false,
+      "first": 44713,
+      "last": 55634,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/unordinals",
+      "image": "/catalogue/img/unordinals-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "361e1313ba9e7b50929f7e1f338d8dda110e2a460b69fc807a645c4c5ba43671i0",
+          "num": 53866,
+          "name": "Unordinals #749"
+        },
+        {
+          "id": "a9e7545dba3bfcda2e5c47d107bcd502b006c9b20b836d73b581c9e02e1938b9i0",
+          "num": 53393,
+          "name": "Unordinals #694"
+        },
+        {
+          "id": "595034cf837bff564ee03d0969559f53954ccbda180ca9b6918f1a02f69c64d0i0",
+          "num": 47444,
+          "name": "Unordinals #258"
+        }
+      ]
+    },
+    {
+      "id": "ow:btc-virus",
+      "slug": "btc-virus",
+      "name": "BTC Virus",
+      "kind": "inscriptions",
+      "description": "10k BTC Virus",
+      "supply": 9992,
+      "floorSats": 70914,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 2796598846,
+      "volumeOnOrdinalsWalletSats": 756080102,
+      "listed": 191,
+      "verified": false,
+      "first": 468990,
+      "last": 481164,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/btc-virus",
+      "image": "/catalogue/img/btc-virus-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "6fac40b0b559a379123fb145f312381b65f0e9768d5c7d7ced0aa2eeb740bf36i0",
+          "num": 473197,
+          "name": "BTC Virus #3737"
+        },
+        {
+          "id": "7403517bc645c04ddc1a16ba2f83733cdfae70a58ead0990c998eb99773e3cb0i0",
+          "num": 478002,
+          "name": "BTC Virus #5315"
+        },
+        {
+          "id": "0f67c4ca4015fdfca3091084e372756d6fe9154dbf09cf5b84d62381f7bbfa3bi0",
+          "num": 473364,
+          "name": "BTC Virus #7673"
+        }
+      ]
+    },
+    {
+      "id": "ow:megapunks",
+      "slug": "megapunks",
+      "name": "MegaPunks",
+      "kind": "inscriptions",
+      "description": "MegaPunks are a 10,000 Ordinal NFT collection by Megapont.",
+      "supply": 10000,
+      "floorSats": 308324,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 2754491518,
+      "volumeOnOrdinalsWalletSats": 35012860,
+      "listed": 9,
+      "verified": false,
+      "first": 219219,
+      "last": 328418,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/megapunks",
+      "image": "/catalogue/img/megapunks-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "3e2d37c58932b0c0b335e0f2287e42d630c0400dbb329b82cef63b71306ae828i0",
+          "num": 242834,
+          "name": null
+        },
+        {
+          "id": "3a523ddbfc0506f257f2b68ea25887082d08c6009c816a49d80848f5478914d1i0",
+          "num": 293889,
+          "name": null
+        },
+        {
+          "id": "a2bdcbf399b40322fa41a44d728fec562f33f979844a73c286055e0bebed4d05i0",
+          "num": 322528,
+          "name": null
+        }
+      ]
+    },
+    {
+      "id": "ow:unisat-og-pass",
+      "slug": "unisat-og-pass",
+      "name": "UniSat OG PASS",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 173,
+      "floorSats": 1540596,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 2717828875,
+      "volumeOnOrdinalsWalletSats": 1777369090,
+      "listed": 8,
+      "verified": false,
+      "first": 837771,
+      "last": 10760709,
+      "sampleInscription": "b6ef5e4121d81fe11e55fd38c680064ea69addb42787e63ec6982d7349c69b3bi0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/unisat-og-pass",
+      "image": "/catalogue/img/unisat-og-pass-0.svg",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "a05eb591d4e655697baf60b7995a984a27d4fb26126ed651b8b34b4c0f6d8cd9i0",
+          "num": 839259,
+          "name": "OG PASS #10069"
+        },
+        {
+          "id": "6575774203b5f7302480d9dd98958ce8f966f3c86ec13a1218a5c0f5d81f7506i0",
+          "num": 1053118,
+          "name": "OG PASS #10113"
+        },
+        {
+          "id": "1ec24fd77f3f114eb9bc3d4870e896c20d65346bf0fb2c28ce764e22407197d2i0",
+          "num": 839255,
+          "name": "OG PASS #10035"
+        }
+      ]
+    },
+    {
+      "id": "ow:pepe-pepita",
+      "slug": "pepe-pepita",
+      "name": "Pepe & Pepita",
+      "kind": "inscriptions",
+      "description": "Pepe & Pepita",
+      "supply": 4405,
+      "floorSats": 16000,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 2613771803,
+      "volumeOnOrdinalsWalletSats": 1595300925,
+      "listed": 593,
+      "verified": false,
+      "first": 7066715,
+      "last": 11379279,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/pepe-pepita",
+      "image": "/catalogue/img/pepe-pepita-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "482298e8a942d5e9b073d662584fe33ee2023376a4e8f702cbab8b1fbdbbeeeci0",
+          "num": 7280286,
+          "name": "Pepe & Pepita #2351"
+        },
+        {
+          "id": "538d167b3f9bfc0a7968f77a24a779aa01d0d138a2fde057e4e2d02b5081bfc5i0",
+          "num": 7126455,
+          "name": "Pepe & Pepita #580"
+        },
+        {
+          "id": "34c6aeabef0d4c4ad015b7d5031acadc120ae46bd333d452783da4cc33f3cbfci0",
+          "num": 7280896,
+          "name": "Pepe & Pepita #1803"
+        }
+      ]
+    },
+    {
+      "id": "ow:bitcoin-burials",
+      "slug": "bitcoin-burials",
+      "name": "Bitcoin Burials",
+      "kind": "inscriptions",
+      "description": "Bitcoin Burials is a 10k Ordinals collection of lovingly crafted headstones in a pixel art style each engraved with the BTC logo and a date tied to an Obituary predicting Bitcoin's death as selected from an historic archive. Making Bitcoin ",
+      "supply": 10000,
+      "floorSats": 82219,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 2430969871,
+      "volumeOnOrdinalsWalletSats": 37070896,
+      "listed": 61,
+      "verified": false,
+      "first": 1192332,
+      "last": 13926563,
+      "sampleInscription": "4bc60b81abd6b4c7cb49bf78762cea9006e3186ae5327e2cb75b5b1a6c9e72d8i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bitcoin-burials",
+      "image": "/catalogue/img/bitcoin-burials-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "01acdc8f34181eed8cd6763cd72402f708492692d3076d6f901fff4ce9f48a3ai0",
+          "num": 1324014,
+          "name": "Bitcoin Burial #132"
+        },
+        {
+          "id": "9c872ee5f969cad4bb38cead061ef1b80609c43dc6815a2b14fb56743b395a1fi0",
+          "num": 9515744,
+          "name": "Bitcoin Burial #6759"
+        },
+        {
+          "id": "4b764e9be2cc5573a271a1752704147e6eedd6773dc65c68d8c03af7cbe2d8f6i0",
+          "num": 9518836,
+          "name": "Bitcoin Burial #5554"
+        }
+      ]
+    },
+    {
+      "id": "ow:bitbonnies",
+      "slug": "bitbonnies",
+      "name": "BitBonnies",
+      "kind": "inscriptions",
+      "description": "999 BitBonnies living on Bitcoin's blockchain in eternity",
+      "supply": 999,
+      "floorSats": 267214,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 2389061084,
+      "volumeOnOrdinalsWalletSats": 360323,
+      "listed": 18,
+      "verified": false,
+      "first": 210126,
+      "last": 229660,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bitbonnies",
+      "image": "/catalogue/img/bitbonnies-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "1aa488a37dc392d0f901d92c9c8a8ba0085ef9bedd865c856f092c107548002ei0",
+          "num": 218593,
+          "name": "BitBonnie #916"
+        },
+        {
+          "id": "393423a15ae7b7a48fe6be734b427abc53928689f7144e7325c2667c85d0daa1i0",
+          "num": 226314,
+          "name": "BitBonnie #982"
+        },
+        {
+          "id": "c11290f74ce5f1545096b748042d3541b9926b655acd58850ad7123f825b66adi0",
+          "num": 215949,
+          "name": "BitBonnie #837"
+        }
+      ]
+    },
+    {
+      "id": "ow:bury",
+      "slug": "bury",
+      "name": "Bitcoin Burials",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 9064,
+      "floorSats": 82219,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 2280709706,
+      "volumeOnOrdinalsWalletSats": 30034120,
+      "listed": 28,
+      "verified": false,
+      "first": 1192332,
+      "last": 9734036,
+      "sampleInscription": "fff257f8c5cdd30796d1e49c305717aa6ad69d2bcdccd08d1805f6db186aaa99i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/bury",
+      "image": "/catalogue/img/bury-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "9c872ee5f969cad4bb38cead061ef1b80609c43dc6815a2b14fb56743b395a1fi0",
+          "num": 9515744,
+          "name": "Bitcoin Burial #6759"
+        },
+        {
+          "id": "01acdc8f34181eed8cd6763cd72402f708492692d3076d6f901fff4ce9f48a3ai0",
+          "num": 1324014,
+          "name": "Bitcoin Burial #132"
+        },
+        {
+          "id": "32176ea0e86a4c8d6116af0f6ada03a3df2e204a29f933c65215496dd9ab667fi0",
+          "num": 9529511,
+          "name": "Bitcoin Burial #2631"
+        }
+      ]
+    },
+    {
+      "id": "ow:btcdomain",
+      "slug": "btcdomain",
+      "name": "BTCDomain",
+      "kind": "inscriptions",
+      "description": "BTCDomain is a bitcoin native domain system empowered by ordinals tech and zk tech, working on both your btc address and your bitcoin website. All data storage and resolution are based on bitcoin mainnet.",
+      "supply": 6017,
+      "floorSats": 21000,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 2129003996,
+      "volumeOnOrdinalsWalletSats": 93000,
+      "listed": 90,
+      "verified": false,
+      "first": 320840,
+      "last": 21378559,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/btcdomain",
+      "image": "/catalogue/img/btcdomain-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": []
+    },
+    {
+      "id": "ow:astral-babes",
+      "slug": "astral-babes",
+      "name": "Astral Babes",
+      "kind": "inscriptions",
+      "description": "Astral Babes are divine feminine goddesses from the astral planet Hiranyaloka on a mission to raise the spiritual vibration of everyone they encounter.",
+      "supply": 2913,
+      "floorSats": 513874,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 1976108419,
+      "volumeOnOrdinalsWalletSats": 211380428,
+      "listed": 33,
+      "verified": false,
+      "first": 2439,
+      "last": 212385,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/astral-babes",
+      "image": "/catalogue/img/astral-babes-0.webp",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "3d1e9164cc86dedaa00c4ae0b0b9de26817f6fcbc3a9541f2903b2b9fdb8f823i0",
+          "num": 59351,
+          "name": "Inscription #59351"
+        },
+        {
+          "id": "d38abb9b0fadb32efd219b44338019bb382476757a0e707453b2e82a5a4c3ba1i0",
+          "num": 62099,
+          "name": "Inscription #62099"
+        },
+        {
+          "id": "9ff28a282f5a565ee802ebe1437bf49b1d5bc33962728c66f429739ad7f243d0i0",
+          "num": 200834,
+          "name": "Inscription #200834"
+        }
+      ]
+    },
+    {
+      "id": "ow:ordinal-penguins",
+      "slug": "ordinal-penguins",
+      "name": "Ordinal Penguins",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 100,
+      "floorSats": null,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 1975054538,
+      "volumeOnOrdinalsWalletSats": 142690043,
+      "listed": null,
+      "verified": false,
+      "first": 2725,
+      "last": 3646,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/ordinal-penguins",
+      "image": "/catalogue/img/ordinal-penguins-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "8a4bd4d4eb3a9cc20d40939ad394d4b5c0add71ac5d085697d6c30554074a000i0",
+          "num": 3608,
+          "name": "Ordinal Penguins #95"
+        },
+        {
+          "id": "e74963454573986c567238079ddee198e62780d3504ab82fdc1ff10008d30e04i0",
+          "num": 3582,
+          "name": "Ordinal Penguins #90"
+        },
+        {
+          "id": "c44ebc5c79d9f478967ed48f924ac76f6dd42937e89f59a6589d662d66257404i0",
+          "num": 3392,
+          "name": "Ordinal Penguins #12"
+        }
+      ]
+    },
+    {
+      "id": "ow:inscribed-pepes",
+      "slug": "inscribed-pepes",
+      "name": "Inscribed Pepes",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 69,
+      "floorSats": null,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 1889196718,
+      "volumeOnOrdinalsWalletSats": null,
+      "listed": null,
+      "verified": false,
+      "first": 2115,
+      "last": 2189,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/inscribed-pepes",
+      "image": "/catalogue/img/inscribed-pepes-0.jpg",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "abb4384f00b2ba359695736cd590edb61ca89fa66a6bd75ab86587b718903301i0",
+          "num": 2178,
+          "name": "Inscribed Pepe #58"
+        },
+        {
+          "id": "fcf41c60eee2141a9beaaeb00f237612522fc772c5142177d7cf074ce34a0c06i0",
+          "num": 2117,
+          "name": "Inscribed Pepe #3"
+        },
+        {
+          "id": "e341890780ac783877847dbbd9b58d01dab0e1b99705b12509e68aeaf6d87009i0",
+          "num": 2163,
+          "name": "Inscribed Pepe #43"
+        }
+      ]
+    },
+    {
+      "id": "ow:tradfilines",
+      "slug": "tradfilines",
+      "name": "Tradfilines",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 500,
+      "floorSats": 27900000,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 1720846999,
+      "volumeOnOrdinalsWalletSats": 240986715,
+      "listed": 1,
+      "verified": false,
+      "first": 1317,
+      "last": 3042,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/tradfilines",
+      "image": "/catalogue/img/tradfilines-0.svg",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "418d90f864e8bff09e758e347a96d6101196018f7e5ee8b7fa6e5a40c865ccd6i0",
+          "num": 1750,
+          "name": null
+        },
+        {
+          "id": "ff8b595d6dfdaf57437f863c25d3efc30a86723598e4c77467c9d9cea8268900i0",
+          "num": 1974,
+          "name": null
+        },
+        {
+          "id": "2cea82f9c3243c406f926dedd945c92d9c885b8698ad01ca3d58534449c8bc00i0",
+          "num": 2889,
+          "name": null
+        }
+      ]
+    },
+    {
+      "id": "ow:planetary-ordinals",
+      "slug": "planetary-ordinals",
+      "name": "Planetary Ordinals",
+      "kind": "inscriptions",
+      "description": null,
+      "supply": 69,
+      "floorSats": 20554984,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 1690903692,
+      "volumeOnOrdinalsWalletSats": 1007598981,
+      "listed": 11,
+      "verified": true,
+      "first": 463,
+      "last": 1103,
+      "sampleInscription": "b533f0a73d9a6d15a7761517f32a4a2fd2263b074ada30464c90ad70c3b4377bi0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/planetary-ordinals",
+      "image": "/catalogue/img/planetary-ordinals-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "15e3761e082e19602dd06606ef01098032b73b23cff6206ea0eb9d6a3549919ci0",
+          "num": 1034,
+          "name": "Planetary Ordinal #6"
+        },
+        {
+          "id": "afc450753cdf9c0a7ca4809da3a3d4f3b526411356aa52491980cde898dbee7ei0",
+          "num": 1095,
+          "name": "Planetary Ordinal #45"
+        },
+        {
+          "id": "6dcaa4e184ff0f6c6407dee996d096f640321fa0184a29ea39d60eec81c8f517i0",
+          "num": 1040,
+          "name": "Planetary Ordinal #65"
+        }
+      ]
+    },
+    {
+      "id": "ow:sats",
+      "slug": "sats",
+      "name": "SATS",
+      "kind": "inscriptions",
+      "description": "SATS by VIVID represent the exploration of color and geometry in its minimal expression inspired by architectural brutalism and street art photography. SATS holders will gain access to future drops and collections.",
+      "supply": 99,
+      "floorSats": null,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 1646991958,
+      "volumeOnOrdinalsWalletSats": 15380005,
+      "listed": null,
+      "verified": false,
+      "first": 8815,
+      "last": 49891,
+      "sampleInscription": "6e83c7dd560483df724b92a2f4b302d265e1ebd1aa054c83a159f462a8128c8fi0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/sats",
+      "image": "/catalogue/img/sats-0.png",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "9a5cb7f3f8ca00972948b0d452cc94ade3bd121d905d1ef3d1bb9d9a3cdb4301i0",
+          "num": 41908,
+          "name": "SAT #85"
+        },
+        {
+          "id": "72b1cba0edca006f9a7356f9016f670e2fa818211d64391ce3765e2b17571003i0",
+          "num": 41484,
+          "name": "SAT #68"
+        },
+        {
+          "id": "57224bb7609a8b76cccdd87e326d08a42004487a1e9939a9a62cc66566f2d004i0",
+          "num": 40314,
+          "name": "SAT #55"
+        }
+      ]
+    },
+    {
+      "id": "ow:recursivefrogs",
+      "slug": "recursivefrogs",
+      "name": "Recursive Frogs",
+      "kind": "inscriptions",
+      "description": "The first 1k high-definition image NFT on Recursive Inscriptions. The most memeable frogs NFT in existence.",
+      "supply": 1000,
+      "floorSats": 390000,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 1637107775,
+      "volumeOnOrdinalsWalletSats": 1349992,
+      "listed": 3,
+      "verified": false,
+      "first": 12195274,
+      "last": 12317143,
+      "sampleInscription": "5b796a8615091defdc1a9281a563808eba65d76965cbab0f24f597a197a04103i0",
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/recursivefrogs",
+      "image": null,
+      "imageFrom": null,
+      "items": [
+        {
+          "id": "1b6c33d484c5e966a802cb35a668c654b426e5a9b9c17181914f84b9b01b865di0",
+          "num": 12211466,
+          "name": "Recursive Frog #865"
+        }
+      ]
+    },
+    {
+      "id": "ow:apes-on-bitcoin",
+      "slug": "apes-on-bitcoin",
+      "name": "Apes on Bitcoin",
+      "kind": "inscriptions",
+      "description": "The first Apes on Bitcoin Ordinals with inscriptions ranging from #646 to #5943 (100units) Not affiliated with larvalabs or any other project",
+      "supply": 100,
+      "floorSats": 114000000,
+      "volume7dSats": null,
+      "volumeAllTimeSats": 1632051862,
+      "volumeOnOrdinalsWalletSats": 85775005,
+      "listed": 3,
+      "verified": false,
+      "first": 646,
+      "last": 5943,
+      "sampleInscription": null,
+      "source": "Ordinals Wallet",
+      "sourceUrl": "https://ordinalswallet.com/collection/apes-on-bitcoin",
+      "image": "/catalogue/img/apes-on-bitcoin-0.jpg",
+      "imageFrom": "ord content gateway",
+      "items": [
+        {
+          "id": "f834ed227a9047c14510911e61f0691fcec7393cfe222a786c349b8fbd620c5ci0",
+          "num": 1064,
+          "name": "wen utility?"
+        },
+        {
+          "id": "b4c3a9c9bee9c035024350e8803e299db1144dd6500f962afc8cfabc5c91fd07i0",
+          "num": 1006,
+          "name": "diamond hands"
+        },
+        {
+          "id": "3102b773b1981a62238365728dd3aea79f96a67a49a2ad1fd3d7fbec2ed1917fi0",
+          "num": 654,
+          "name": "ape maxi"
+        }
+      ]
+    }
+  ],
+  "runes": [
+    {
+      "id": "rune:1:0",
+      "slug": "uncommongoods",
+      "name": "UNCOMMON•GOODS",
+      "kind": "rune",
+      "runeId": "1:0",
+      "symbol": "⧉",
+      "divisibility": 0,
+      "supply": "153802774",
+      "etchedBlock": 1,
+      "mintable": true,
+      "floorSats": null,
+      "volume7dSats": 89504074,
+      "holders": 247348,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/UNCOMMONGOODS"
+    },
+    {
+      "id": "rune:840000:3",
+      "slug": "doggotothemoon",
+      "name": "DOG•GO•TO•THE•MOON",
+      "kind": "rune",
+      "runeId": "840000:3",
+      "symbol": "🐕",
+      "divisibility": 5,
+      "supply": "100000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 61324125,
+      "holders": 85950,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/DOGGOTOTHEMOON"
+    },
+    {
+      "id": "rune:840000:41",
+      "slug": "pupsworldpeace",
+      "name": "PUPS•WORLD•PEACE",
+      "kind": "rune",
+      "runeId": "840000:41",
+      "symbol": "P",
+      "divisibility": 18,
+      "supply": "1000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 4965058,
+      "holders": 12323,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/PUPSWORLDPEACE"
+    },
+    {
+      "id": "rune:840000:2",
+      "slug": "decentralized",
+      "name": "DECENTRALIZED",
+      "kind": "rune",
+      "runeId": "840000:2",
+      "symbol": "⚡",
+      "divisibility": 2,
+      "supply": "21000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 2559837,
+      "holders": 38418,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/DECENTRALIZED"
+    },
+    {
+      "id": "rune:846326:1291",
+      "slug": "digibytebitcoin",
+      "name": "DIGIBYTE•BITCOIN",
+      "kind": "rune",
+      "runeId": "846326:1291",
+      "symbol": "D",
+      "divisibility": 5,
+      "supply": "21000000000",
+      "etchedBlock": 846326,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 2498241,
+      "holders": 17412,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/DIGIBYTEBITCOIN"
+    },
+    {
+      "id": "rune:845764:84",
+      "slug": "billiondollarcat",
+      "name": "BILLION•DOLLAR•CAT",
+      "kind": "rune",
+      "runeId": "845764:84",
+      "symbol": "🐱",
+      "divisibility": 0,
+      "supply": "1000000000",
+      "etchedBlock": 845764,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 1046704,
+      "holders": 13074,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/BILLIONDOLLARCAT"
+    },
+    {
+      "id": "rune:840000:1229",
+      "slug": "anarchocatbus",
+      "name": "ANARCHO•CATBUS",
+      "kind": "rune",
+      "runeId": "840000:1229",
+      "symbol": "🖕",
+      "divisibility": 10,
+      "supply": "21000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 938777,
+      "holders": 2080,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/ANARCHOCATBUS"
+    },
+    {
+      "id": "rune:840000:1",
+      "slug": "zzzzzfehuzzzzz",
+      "name": "Z•Z•Z•Z•Z•FEHU•Z•Z•Z•Z•Z",
+      "kind": "rune",
+      "runeId": "840000:1",
+      "symbol": "ᚠ",
+      "divisibility": 2,
+      "supply": "111111111",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 497650,
+      "holders": 27830,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/ZZZZZFEHUZZZZZ"
+    },
+    {
+      "id": "rune:865193:4006",
+      "slug": "gizmoimaginarykitten",
+      "name": "GIZMO•IMAGINARY•KITTEN",
+      "kind": "rune",
+      "runeId": "865193:4006",
+      "symbol": "😺",
+      "divisibility": 8,
+      "supply": "1000000000",
+      "etchedBlock": 865193,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 248798,
+      "holders": 7606,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/GIZMOIMAGINARYKITTEN"
+    },
+    {
+      "id": "rune:866807:12",
+      "slug": "mementomori",
+      "name": "MEMENTO•MORI",
+      "kind": "rune",
+      "runeId": "866807:12",
+      "symbol": "💀",
+      "divisibility": 0,
+      "supply": "100000000",
+      "etchedBlock": 866807,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 173028,
+      "holders": 7242,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/MEMENTOMORI"
+    },
+    {
+      "id": "rune:840000:22",
+      "slug": "satoshinakamoto",
+      "name": "SATOSHI•NAKAMOTO",
+      "kind": "rune",
+      "runeId": "840000:22",
+      "symbol": "丰",
+      "divisibility": 8,
+      "supply": "21000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 149187,
+      "holders": 14795,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/SATOSHINAKAMOTO"
+    },
+    {
+      "id": "rune:840091:438",
+      "slug": "venturecaterpillar",
+      "name": "VENTURE•CATERPILLAR",
+      "kind": "rune",
+      "runeId": "840091:438",
+      "symbol": "🐛",
+      "divisibility": 3,
+      "supply": "3333333333",
+      "etchedBlock": 840091,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 142025,
+      "holders": 395,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/VENTURECATERPILLAR"
+    },
+    {
+      "id": "rune:840127:179",
+      "slug": "waddlewaddlepengu",
+      "name": "WADDLE•WADDLE•PENGU",
+      "kind": "rune",
+      "runeId": "840127:179",
+      "symbol": "🐧",
+      "divisibility": 18,
+      "supply": "1000000000",
+      "etchedBlock": 840127,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 80380,
+      "holders": 4918,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/WADDLEWADDLEPENGU"
+    },
+    {
+      "id": "rune:872119:457",
+      "slug": "organicbitcorn",
+      "name": "ORGANIC•BITCORN",
+      "kind": "rune",
+      "runeId": "872119:457",
+      "symbol": "🌽",
+      "divisibility": 0,
+      "supply": "21000000000",
+      "etchedBlock": 872119,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 47375,
+      "holders": 7706,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/ORGANICBITCORN"
+    },
+    {
+      "id": "rune:922823:680",
+      "slug": "ombitcoin",
+      "name": "OMBITCOIN",
+      "kind": "rune",
+      "runeId": "922823:680",
+      "symbol": "Ω",
+      "divisibility": 0,
+      "supply": "2100000000",
+      "etchedBlock": 922823,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 42000,
+      "holders": 385,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/OMBITCOIN"
+    },
+    {
+      "id": "rune:840000:134",
+      "slug": "supermariocoin",
+      "name": "SUPER•MARIO•COIN",
+      "kind": "rune",
+      "runeId": "840000:134",
+      "symbol": "🍄",
+      "divisibility": 0,
+      "supply": "210000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 16475,
+      "holders": 6794,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/SUPERMARIOCOIN"
+    },
+    {
+      "id": "rune:840785:435",
+      "slug": "bitcoinswapnet",
+      "name": "BITCOIN•SWAP•NET",
+      "kind": "rune",
+      "runeId": "840785:435",
+      "symbol": "4",
+      "divisibility": 0,
+      "supply": "2000000004",
+      "etchedBlock": 840785,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 16000,
+      "holders": 3354,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/BITCOINSWAPNET"
+    },
+    {
+      "id": "rune:951566:623",
+      "slug": "usdwwwusdbcapp",
+      "name": "USD•WWW•USDBC•APP",
+      "kind": "rune",
+      "runeId": "951566:623",
+      "symbol": null,
+      "divisibility": 2,
+      "supply": "280000000",
+      "etchedBlock": 951566,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 13950,
+      "holders": 797,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/USDWWWUSDBCAPP"
+    },
+    {
+      "id": "rune:840000:45",
+      "slug": "magicinternetmoney",
+      "name": "MAGIC•INTERNET•MONEY",
+      "kind": "rune",
+      "runeId": "840000:45",
+      "symbol": "🧙",
+      "divisibility": 0,
+      "supply": "21000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 12956,
+      "holders": 21939,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/MAGICINTERNETMONEY"
+    },
+    {
+      "id": "rune:840000:142",
+      "slug": "runesxbitcoin",
+      "name": "RUNES•X•BITCOIN",
+      "kind": "rune",
+      "runeId": "840000:142",
+      "symbol": "✖",
+      "divisibility": 0,
+      "supply": "210000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 11340,
+      "holders": 102657,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/RUNESXBITCOIN"
+    },
+    {
+      "id": "rune:840000:25",
+      "slug": "memeeconomics",
+      "name": "MEME•ECONOMICS",
+      "kind": "rune",
+      "runeId": "840000:25",
+      "symbol": "$",
+      "divisibility": 0,
+      "supply": "21000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 8000,
+      "holders": 2769,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/MEMEECONOMICS"
+    },
+    {
+      "id": "rune:870513:1035",
+      "slug": "barrelsofoil",
+      "name": "BARRELS•OF•OIL",
+      "kind": "rune",
+      "runeId": "870513:1035",
+      "symbol": "🛢",
+      "divisibility": 0,
+      "supply": "21000000000000",
+      "etchedBlock": 870513,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": 6609,
+      "holders": 69649,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/BARRELSOFOIL"
+    },
+    {
+      "id": "rune:840000:28",
+      "slug": "rsicgenesisrune",
+      "name": "RSIC•GENESIS•RUNE",
+      "kind": "rune",
+      "runeId": "840000:28",
+      "symbol": "⧈",
+      "divisibility": 0,
+      "supply": "21000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 91904,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/RSICGENESISRUNE"
+    },
+    {
+      "id": "rune:840202:2950",
+      "slug": "bitcoinpepematrix",
+      "name": "BITCOIN•PEPE•MATRIX",
+      "kind": "rune",
+      "runeId": "840202:2950",
+      "symbol": "ℙ",
+      "divisibility": 0,
+      "supply": "6942069420",
+      "etchedBlock": 840202,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 6636,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/BITCOINPEPEMATRIX"
+    },
+    {
+      "id": "rune:840000:453",
+      "slug": "ordinalsaredead",
+      "name": "ORDINALS•ARE•DEAD",
+      "kind": "rune",
+      "runeId": "840000:453",
+      "symbol": "💀",
+      "divisibility": 0,
+      "supply": "444395556",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 5147,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/ORDINALSAREDEAD"
+    },
+    {
+      "id": "rune:840010:4",
+      "slug": "wankomankorunes",
+      "name": "WANKO•MANKO•RUNES",
+      "kind": "rune",
+      "runeId": "840010:4",
+      "symbol": "🐶",
+      "divisibility": 0,
+      "supply": "75250000",
+      "etchedBlock": 840010,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 5367,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/WANKOMANKORUNES"
+    },
+    {
+      "id": "rune:840000:35",
+      "slug": "lobothewolfpup",
+      "name": "LOBO•THE•WOLF•PUP",
+      "kind": "rune",
+      "runeId": "840000:35",
+      "symbol": "🐺",
+      "divisibility": 8,
+      "supply": "21000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 51089,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/LOBOTHEWOLFPUP"
+    },
+    {
+      "id": "rune:840000:120",
+      "slug": "bitcoinworldorder",
+      "name": "BITCOIN•WORLD•ORDER",
+      "kind": "rune",
+      "runeId": "840000:120",
+      "symbol": "₿",
+      "divisibility": 0,
+      "supply": "21000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 2256,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/BITCOINWORLDORDER"
+    },
+    {
+      "id": "rune:840000:52",
+      "slug": "hodldiamonddick",
+      "name": "HODL•DIAMOND•DICK",
+      "kind": "rune",
+      "runeId": "840000:52",
+      "symbol": "Ʉ",
+      "divisibility": 3,
+      "supply": "1000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 5869,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/HODLDIAMONDDICK"
+    },
+    {
+      "id": "rune:840000:55",
+      "slug": "pepewithonkers",
+      "name": "PEPE•WIT•HONKERS",
+      "kind": "rune",
+      "runeId": "840000:55",
+      "symbol": "ꙭ",
+      "divisibility": 4,
+      "supply": "6359500785",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 4881,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/PEPEWITHONKERS"
+    },
+    {
+      "id": "rune:840000:328",
+      "slug": "thetickeriselsa",
+      "name": "THE•TICKER•IS•ELSA",
+      "kind": "rune",
+      "runeId": "840000:328",
+      "symbol": "🐶",
+      "divisibility": 1,
+      "supply": "1000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 1922,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/THETICKERISELSA"
+    },
+    {
+      "id": "rune:840053:5016",
+      "slug": "satoshinakamotoinu",
+      "name": "SATOSHI•NAKAMOTO•INU",
+      "kind": "rune",
+      "runeId": "840053:5016",
+      "symbol": "🐕",
+      "divisibility": 8,
+      "supply": "21000000000000000",
+      "etchedBlock": 840053,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 2212,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/SATOSHINAKAMOTOINU"
+    },
+    {
+      "id": "rune:840000:65",
+      "slug": "cookthemempool",
+      "name": "COOK•THE•MEMPOOL",
+      "kind": "rune",
+      "runeId": "840000:65",
+      "symbol": "♨",
+      "divisibility": 0,
+      "supply": "904955310",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 22778,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/COOKTHEMEMPOOL"
+    },
+    {
+      "id": "rune:874542:2344",
+      "slug": "satsbitcoinunisat",
+      "name": "SATS•BITCOIN•UNISAT",
+      "kind": "rune",
+      "runeId": "874542:2344",
+      "symbol": null,
+      "divisibility": 0,
+      "supply": "100000000",
+      "etchedBlock": 874542,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 212,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/SATSBITCOINUNISAT"
+    },
+    {
+      "id": "rune:840000:127",
+      "slug": "pepetoshinakamoto",
+      "name": "PEPETOSHI•NAKAMOTO",
+      "kind": "rune",
+      "runeId": "840000:127",
+      "symbol": "🐸",
+      "divisibility": 8,
+      "supply": "4206900000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 3399,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/PEPETOSHINAKAMOTO"
+    },
+    {
+      "id": "rune:846400:165",
+      "slug": "saikohamster",
+      "name": "SAIKO•HAMSTER",
+      "kind": "rune",
+      "runeId": "846400:165",
+      "symbol": "🐹",
+      "divisibility": 0,
+      "supply": "21000000",
+      "etchedBlock": 846400,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 2540,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/SAIKOHAMSTER"
+    },
+    {
+      "id": "rune:840100:3142",
+      "slug": "inunimakemasen",
+      "name": "INU•NI•MAKEMASEN",
+      "kind": "rune",
+      "runeId": "840100:3142",
+      "symbol": "🐶",
+      "divisibility": 8,
+      "supply": "21000000",
+      "etchedBlock": 840100,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 2070,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/INUNIMAKEMASEN"
+    },
+    {
+      "id": "rune:840000:63",
+      "slug": "dopeassticker",
+      "name": "DOPE•ASS•TICKER",
+      "kind": "rune",
+      "runeId": "840000:63",
+      "symbol": "ⵚ",
+      "divisibility": 0,
+      "supply": "21000000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 7191,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/DOPEASSTICKER"
+    },
+    {
+      "id": "rune:840042:929",
+      "slug": "rarepupspupcash",
+      "name": "RARE•PUPS•PUPCASH",
+      "kind": "rune",
+      "runeId": "840042:929",
+      "symbol": "☮",
+      "divisibility": 8,
+      "supply": "1000000000",
+      "etchedBlock": 840042,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 1277,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/RAREPUPSPUPCASH"
+    },
+    {
+      "id": "rune:840000:149",
+      "slug": "dopegrandmacoin",
+      "name": "DOPE•GRANDMA•COIN",
+      "kind": "rune",
+      "runeId": "840000:149",
+      "symbol": "👵",
+      "divisibility": 0,
+      "supply": "21000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 2430,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/DOPEGRANDMACOIN"
+    },
+    {
+      "id": "rune:840256:35",
+      "slug": "bamkofnakamotodollar",
+      "name": "BAMK•OF•NAKAMOTO•DOLLAR",
+      "kind": "rune",
+      "runeId": "840256:35",
+      "symbol": "🏦",
+      "divisibility": 8,
+      "supply": "21000000000",
+      "etchedBlock": 840256,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 2744,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/BAMKOFNAKAMOTODOLLAR"
+    },
+    {
+      "id": "rune:842549:80",
+      "slug": "funnyfishmask",
+      "name": "FUNNY•FISH•MASK",
+      "kind": "rune",
+      "runeId": "842549:80",
+      "symbol": "🤪",
+      "divisibility": 0,
+      "supply": "1000000000000",
+      "etchedBlock": 842549,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 5250,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/FUNNYFISHMASK"
+    },
+    {
+      "id": "rune:842166:27",
+      "slug": "epicepicepicepic",
+      "name": "EPIC•EPIC•EPIC•EPIC",
+      "kind": "rune",
+      "runeId": "842166:27",
+      "symbol": "💥",
+      "divisibility": 2,
+      "supply": "1000000000",
+      "etchedBlock": 842166,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 89365,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/EPICEPICEPICEPIC"
+    },
+    {
+      "id": "rune:840423:849",
+      "slug": "memepoolspace",
+      "name": "MEMEPOOL•SPACE",
+      "kind": "rune",
+      "runeId": "840423:849",
+      "symbol": "⏹",
+      "divisibility": 0,
+      "supply": "2100000000",
+      "etchedBlock": 840423,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 6052,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/MEMEPOOLSPACE"
+    },
+    {
+      "id": "rune:840870:690",
+      "slug": "mryenjapanesebusinessman",
+      "name": "MR•YEN•JAPANESE•BUSINESSMAN",
+      "kind": "rune",
+      "runeId": "840870:690",
+      "symbol": "👴",
+      "divisibility": 0,
+      "supply": "21000000",
+      "etchedBlock": 840870,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 1768,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/MRYENJAPANESEBUSINESSMAN"
+    },
+    {
+      "id": "rune:840612:3293",
+      "slug": "seppukuinmayandgoaway",
+      "name": "SEPPUKU•IN•MAY•AND•GO•AWAY",
+      "kind": "rune",
+      "runeId": "840612:3293",
+      "symbol": null,
+      "divisibility": 0,
+      "supply": "21000000",
+      "etchedBlock": 840612,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 1410,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/SEPPUKUINMAYANDGOAWAY"
+    },
+    {
+      "id": "rune:840167:2916",
+      "slug": "allyourtickerssuck",
+      "name": "ALL•YOUR•TICKERS•SUCK",
+      "kind": "rune",
+      "runeId": "840167:2916",
+      "symbol": "🚮",
+      "divisibility": 0,
+      "supply": "21000000",
+      "etchedBlock": 840167,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 1451,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/ALLYOURTICKERSSUCK"
+    },
+    {
+      "id": "rune:840000:56",
+      "slug": "koalaonimpala",
+      "name": "KOALA•ON•IMPALA",
+      "kind": "rune",
+      "runeId": "840000:56",
+      "symbol": "🐨",
+      "divisibility": 8,
+      "supply": "21000000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 1011,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/KOALAONIMPALA"
+    },
+    {
+      "id": "rune:840028:1699",
+      "slug": "caseysmomhasgotitgoingon",
+      "name": "CASEYS•MOM•HAS•GOT•IT•GOING•ON",
+      "kind": "rune",
+      "runeId": "840028:1699",
+      "symbol": null,
+      "divisibility": 0,
+      "supply": "95000000",
+      "etchedBlock": 840028,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 1450,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/CASEYSMOMHASGOTITGOINGON"
+    },
+    {
+      "id": "rune:840000:112",
+      "slug": "bitcoindrugmoney",
+      "name": "BITCOIN•DRUG•MONEY",
+      "kind": "rune",
+      "runeId": "840000:112",
+      "symbol": "💊",
+      "divisibility": 2,
+      "supply": "69420000",
+      "etchedBlock": 840000,
+      "mintable": false,
+      "floorSats": null,
+      "volume7dSats": null,
+      "holders": 1177,
+      "source": "ord (ordinals.com)",
+      "sourceUrl": "https://ordinals.com/rune/BITCOINDRUGMONEY"
+    }
+  ]
+}

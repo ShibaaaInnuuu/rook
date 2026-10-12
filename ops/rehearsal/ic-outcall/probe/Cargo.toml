@@ -1,0 +1,28 @@
+[package]
+name = "rook_outcall_probe"
+version = "0.1.0"
+edition = "2021"
+description = "Go-live rehearsal (docs/v7/phase1-nft.md §5.1): the buyer's Ethereum reads through its own transforms, from a throwaway canister on the launch subnet. Read-only; signs and sends nothing."
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# the buyer's own versions (autobuyer/canister-rs/Cargo.lock), so the outcall API and the JSON handling are the same
+candid = "=0.10.35"
+ic-cdk = "=0.19.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "=1.0.151"
+hex = "0.4.3"
+sha2 = "0.10"
+
+[dev-dependencies]
+# NATIVE tests only (never in the wasm: linking the buyer's crate into a canister would export every buyer endpoint): the copied
+# transform bodies are held byte for byte to the buyer's own functions on real provider answers
+etch_autobuyer = { path = "../../../../autobuyer/canister-rs" }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1

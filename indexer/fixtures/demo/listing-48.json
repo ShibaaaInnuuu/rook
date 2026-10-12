@@ -1,0 +1,53 @@
+{
+  "id": 48,
+  "kind": "rune",
+  "name": "EPIC•EPIC•EPIC•EPIC",
+  "ref": "842166:27",
+  "divisibility": 2,
+  "vault": "0x7c76dd485800C245cC7da3D26d726E59e86FD875",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-epicepicepicepic",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "280953972687254684",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "280953972687254684",
+    "attributedWei": "280953972687254684",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "280953972687254684",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x56d371802CB4aeeeb0D337540F898360473C82F4",
+      "symbol": "CHAL2SIM",
+      "depositedWei": "280953972687254684"
+    }
+  ]
+}

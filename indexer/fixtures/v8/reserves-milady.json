@@ -1,0 +1,1077 @@
+{
+ "source": {
+  "kind": "fixture",
+  "note": "FIXTURE. Nothing here is deployed. A Milady vault of 20 items and 9 tickets, drawn with REAL drand evmnet beacons (rounds served by api.drand.sh and api2.drand.sh on 2026-09-27) through EthNftWrapper's own formula, over an invented Robinhood Chain and Ethereum. The collection's address is Milady's; the wrapper, custodian, module, transactions and every trait are invented, and the explorer links point at nothing. Ticket 4's burn is made to look back-dated and ticket 5's batch unreadable, to show the verifier's timing flag."
+ },
+ "slug": "milady",
+ "name": "Milady Maker",
+ "symbol": "wMIL",
+ "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+ "custodian": "0x3000000000000000000000000000000000000c05",
+ "wrapper": "0x3000000000000000000000000000000000000001",
+ "moduleAddress": "0x30000000000000000000000000000000000000f1",
+ "providers": {
+  "eth": [
+   "eth-a.fixture.invalid",
+   "eth-b.fixture.invalid"
+  ],
+  "home": [
+   "rh-a.fixture.invalid",
+   "rh-b.fixture.invalid"
+  ]
+ },
+ "status": "green",
+ "reasons": [],
+ "warnings": [],
+ "computedAt": 1790550030,
+ "lastGreenAt": 1790550030,
+ "limits": {
+  "maxAgeS": 3600,
+  "redAfterS": 10800,
+  "cadenceS": 600
+ },
+ "homeBlock": 74315515,
+ "homeAt": 1790550028,
+ "ethBlock": 26071860,
+ "ethAt": 1790549243,
+ "numbers": [
+  {
+   "key": "supply",
+   "label": "wX in circulation (totalSupply)",
+   "value": "12850000000000000000",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "held",
+   "label": "items the wrapper holds (held)",
+   "value": "13",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "openTickets",
+   "label": "tickets in flight (openTickets)",
+   "value": "2",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "ledger",
+   "label": "items in the wrapper's own events",
+   "value": "13",
+   "sources": [
+    "the wrapper's events from block 65000000 to 74315515"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": "the fold of Wrapped, Deposited, Redeemed, Resolved, Delivered, Refunded"
+  },
+  {
+   "key": "finalized",
+   "label": "Ethereum finalized block the custody reads are made at (the lower of the providers')",
+   "value": "26071860",
+   "sources": [
+    "eth-a.fixture.invalid",
+    "eth-b.fixture.invalid"
+   ],
+   "block": 26071860,
+   "at": 1790549243,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "inCustody",
+   "label": "items owned by the custodian at the finalized block, by every provider",
+   "value": "13",
+   "sources": [
+    "eth-a.fixture.invalid",
+    "eth-b.fixture.invalid"
+   ],
+   "block": 26071860,
+   "at": 1790549243,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "arrivals",
+   "label": "arrival transactions checked (final, status 1, the transfer to the custodian, the fill or the claim)",
+   "value": "13 / 13",
+   "sources": [
+    "eth-a.fixture.invalid",
+    "eth-b.fixture.invalid"
+   ],
+   "block": 26071860,
+   "at": 1790549243,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "E",
+   "label": "ETH-backed units at the module (E)",
+   "value": "1850000000000000000",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "C",
+   "label": "convertible units (C)",
+   "value": "350000000000000000",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "R",
+   "label": "standing reserve units (R)",
+   "value": "500000000000000000",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "T",
+   "label": "the unit in transit (T)",
+   "value": "1000000000000000000",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "escrow",
+   "label": "ETH in the module's pots (escrowBalance)",
+   "value": "799000000000000000",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "moduleBalance",
+   "label": "the module's ETH (eth_getBalance)",
+   "value": "811000000000000000",
+   "sources": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ],
+   "block": 74315515,
+   "at": 1790550028,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "key": "custodianEth",
+   "label": "the custodian's ETH on Ethereum (earmarks + leftovers + the gas pot; backs no unit)",
+   "value": "1121100000000000000",
+   "sources": [
+    "eth-a.fixture.invalid",
+    "eth-b.fixture.invalid"
+   ],
+   "block": 26071860,
+   "at": 1790549243,
+   "ok": true,
+   "note": ""
+  }
+ ],
+ "equation": {
+  "inCustody": 13,
+  "unverified": 0,
+  "elsewhere": 0,
+  "ticketsInFlight": 2,
+  "ethBackedUnits": "1850000000000000000",
+  "backingUnits": "12850000000000000000",
+  "bestCaseUnits": "12850000000000000000",
+  "supplyUnits": "12850000000000000000",
+  "holds": true
+ },
+ "items": [
+  {
+   "itemId": 1,
+   "tokenId": "24",
+   "how": "purchase",
+   "arrivalTx": "0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2",
+   "arrivalUrl": "https://etherscan.io/tx/0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2",
+   "mintedAt": 1789714512,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/24",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26002199,
+    "final": true,
+    "pricePaidWei": "941000000000000000",
+    "detail": "a Seaport fill of #24 to the custodian for 941000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "950703051765441100",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 2,
+   "tokenId": "389",
+   "how": "purchase",
+   "arrivalTx": "0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b",
+   "arrivalUrl": "https://etherscan.io/tx/0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b",
+   "mintedAt": 1789743024,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/389",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26004575,
+    "final": true,
+    "pricePaidWei": "942000000000000000",
+    "detail": "a Seaport fill of #389 to the custodian for 942000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "951713363191334237",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 4,
+   "tokenId": "208",
+   "how": "purchase",
+   "arrivalTx": "0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734",
+   "arrivalUrl": "https://etherscan.io/tx/0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734",
+   "mintedAt": 1789800048,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/208",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26009327,
+    "final": true,
+    "pricePaidWei": "944000000000000000",
+    "detail": "a Seaport fill of #208 to the custodian for 944000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "953733986043120509",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 5,
+   "tokenId": "161",
+   "how": "purchase",
+   "arrivalTx": "0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9",
+   "arrivalUrl": "https://etherscan.io/tx/0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9",
+   "mintedAt": 1789828560,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/161",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26011703,
+    "final": true,
+    "pricePaidWei": "945000000000000000",
+    "detail": "a Seaport fill of #161 to the custodian for 945000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "954744297469013645",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 9,
+   "tokenId": "291",
+   "how": "purchase",
+   "arrivalTx": "0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04",
+   "arrivalUrl": "https://etherscan.io/tx/0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04",
+   "mintedAt": 1789942608,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/291",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26021207,
+    "final": true,
+    "pricePaidWei": "949000000000000000",
+    "detail": "a Seaport fill of #291 to the custodian for 949000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "958785543172586189",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 10,
+   "tokenId": "102",
+   "how": "purchase",
+   "arrivalTx": "0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a",
+   "arrivalUrl": "https://etherscan.io/tx/0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a",
+   "mintedAt": 1789971120,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/102",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26023583,
+    "final": true,
+    "pricePaidWei": "950000000000000000",
+    "detail": "a Seaport fill of #102 to the custodian for 950000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "959795854598479326",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 12,
+   "tokenId": "304",
+   "how": "purchase",
+   "arrivalTx": "0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017",
+   "arrivalUrl": "https://etherscan.io/tx/0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017",
+   "mintedAt": 1790028144,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/304",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26028335,
+    "final": true,
+    "pricePaidWei": "952000000000000000",
+    "detail": "a Seaport fill of #304 to the custodian for 952000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "961816477450265598",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 13,
+   "tokenId": "206",
+   "how": "purchase",
+   "arrivalTx": "0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174",
+   "arrivalUrl": "https://etherscan.io/tx/0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174",
+   "mintedAt": 1790056656,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/206",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26030711,
+    "final": true,
+    "pricePaidWei": "953000000000000000",
+    "detail": "a Seaport fill of #206 to the custodian for 953000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "962826788876158734",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 15,
+   "tokenId": "146",
+   "how": "deposit",
+   "arrivalTx": "0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453",
+   "arrivalUrl": "https://etherscan.io/tx/0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453",
+   "mintedAt": 1790230000,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/146",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26045156,
+    "final": true,
+    "pricePaidWei": null,
+    "detail": "the holder's own deposit, claiming for 0x4100000000000000000000000000000000000010 on chain 4663",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": null
+  },
+  {
+   "itemId": 16,
+   "tokenId": "237",
+   "how": "purchase",
+   "arrivalTx": "0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3",
+   "arrivalUrl": "https://etherscan.io/tx/0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3",
+   "mintedAt": 1790380000,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/237",
+   "promisedTo": 7,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26057656,
+    "final": true,
+    "pricePaidWei": "956000000000000000",
+    "detail": "a Seaport fill of #237 to the custodian for 956000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "965857723153838142",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 17,
+   "tokenId": "117",
+   "how": "purchase",
+   "arrivalTx": "0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd",
+   "arrivalUrl": "https://etherscan.io/tx/0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd",
+   "mintedAt": 1790490000,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/117",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26066823,
+    "final": true,
+    "pricePaidWei": "957000000000000000",
+    "detail": "a Seaport fill of #117 to the custodian for 957000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "966868034579731278",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 18,
+   "tokenId": "213",
+   "how": "purchase",
+   "arrivalTx": "0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b",
+   "arrivalUrl": "https://etherscan.io/tx/0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b",
+   "mintedAt": 1790546400,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/213",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26071523,
+    "final": true,
+    "pricePaidWei": "958000000000000000",
+    "detail": "a Seaport fill of #213 to the custodian for 958000000000000000 wei",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": {
+    "advancedWei": "970000000000000000",
+    "costWei": "967878346005624415",
+    "expectedCostWei": null,
+    "ok": null
+   }
+  },
+  {
+   "itemId": 19,
+   "tokenId": "118",
+   "how": "deposit",
+   "arrivalTx": "0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf",
+   "arrivalUrl": "https://etherscan.io/tx/0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf",
+   "mintedAt": 1790549980,
+   "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/118",
+   "promisedTo": null,
+   "owners": [
+    {
+     "source": "eth-a.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    },
+    {
+     "source": "eth-b.fixture.invalid",
+     "owner": "0x3000000000000000000000000000000000000c05",
+     "reverted": false,
+     "error": null
+    }
+   ],
+   "ownerBlock": 26071860,
+   "ownerAt": 1790549243,
+   "verdict": "in-custody",
+   "reason": null,
+   "arrival": {
+    "verdict": "ok",
+    "block": 26071821,
+    "final": true,
+    "pricePaidWei": null,
+    "detail": "the holder's own deposit, claiming for 0x4100000000000000000000000000000000000014 on chain 4663",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ]
+   },
+   "cost": null
+  }
+ ],
+ "module": {
+  "address": "0x30000000000000000000000000000000000000f1",
+  "ethBackedUnits": "1850000000000000000",
+  "reserveUnits": "500000000000000000",
+  "convertibleUnits": "350000000000000000",
+  "transitUnits": "1000000000000000000",
+  "escrowWei": "799000000000000000",
+  "revenueWei": "12000000000000000",
+  "advancedWei": "970000000000000000",
+  "advancedAt": 1790542800,
+  "balanceWei": "811000000000000000"
+ },
+ "advance": {
+  "open": true,
+  "advancedWei": "970000000000000000",
+  "advancedAt": 1790542800,
+  "phase": "Arrived",
+  "where": "at the canister's address on Ethereum, earmarked for this buy",
+  "relay": {
+   "orderId": "0x0c4c008e033c3cb748253391f1fd306aa3dbbc14087076809e24414dc0ab93bc",
+   "status": null,
+   "url": "https://relay.link/transaction/0x0c4c008e033c3cb748253391f1fd306aa3dbbc14087076809e24414dc0ab93bc"
+  },
+  "overdue": false
+ },
+ "gas": {
+  "custodianWei": "1121100000000000000",
+  "earmarkedWei": "960100000000000000",
+  "leftoverWei": "21000000000000000",
+  "potWei": "140000000000000000",
+  "sources": [
+   "eth-a.fixture.invalid",
+   "eth-b.fixture.invalid"
+  ]
+ },
+ "strays": [
+  {
+   "tokenId": "399",
+   "from": "0x6600000000000000000000000000000000000001",
+   "tx": "0xdea61660a954b48dff8bd92f4463b88710ac562fb86f08025082f6e833562a40",
+   "block": 26071773,
+   "at": 1790548199,
+   "state": "not a valid claim of this wrapper: being returned to its sender, or held",
+   "overdue": false
+  }
+ ],
+ "canister": {
+  "readAt": 1790549880,
+  "how": "query",
+  "buys": [
+   {
+    "id": "0",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x1afc24805341bbde1384040f6b3e00a20277fbf331163c2d92d971a4f6515ea6",
+    "tokenId": "4",
+    "tx": "0xb58f0d1ef00be1e5ac2159063996b40c909d96eb250649fc1ea45209d04ee92e",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "1",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x9bc29d6aa900b32382a624c1b24025a4854ff4286f32c7c86d17dc8f7d49ba81",
+    "tokenId": "24",
+    "tx": "0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "2",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x48e17e67fb5ecc412f790cbd743eb115cbff9349522882a53d5129e73c8b0d36",
+    "tokenId": "389",
+    "tx": "0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "4",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x6fd132b3f897a50c5ed0720328d4024bedd6a7fb300eecc5671e9d783126781e",
+    "tokenId": "208",
+    "tx": "0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "5",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x8b2c1912f961ad088fd87afc7da8122235285c27b5286cc20c69a3d4a167f801",
+    "tokenId": "161",
+    "tx": "0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "6",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x29a39c55c933c259051bcd21af9c65e72d6e4f1543b87444485c8830448ff0a1",
+    "tokenId": "186",
+    "tx": "0x60b1fc1f6987f4a385bd79c7fd5a9d30a5b0e55729039e2f0313a7dba5459306",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "7",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x24310f03cac72f2fe459c3600d98ed2d115179c6d62c6b5fce180c786e096c16",
+    "tokenId": "95",
+    "tx": "0x469eedad1432001fab0acf843cca85fa94f9fdf37a20fa082837681444ec243d",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "9",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x7aab83e81e385bc24894dd9fd3caba071031a0f59cd50108e2826922a2e4b07e",
+    "tokenId": "291",
+    "tx": "0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "10",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x3c0cf520d255cfdcffda5a1835a5c622121b0a4c55d1a51882b82e9cdcf90c85",
+    "tokenId": "102",
+    "tx": "0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "11",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0xbcb839b1cb28e41981a4d6dc6531526311c9b2797d696ed317e700100d3cfade",
+    "tokenId": "62",
+    "tx": "0xa842eec861424d6bef485fba1c0a5fc19f47f26ef576a7e954e0d1811c9430b8",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "12",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0xd4c6e9ff73bb4459ea150089dca5b7c53345a6cce457b98132e322858067b3ca",
+    "tokenId": "304",
+    "tx": "0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "13",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0xfd5769e767e75f2a02b4de71eb231884408cf5cdf0564de930facb1e5b4b83cf",
+    "tokenId": "206",
+    "tx": "0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "14",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x77397f5e915e43df9fd449c8632f06e2f5ac109fc445501f6649c5cb5c98cfa2",
+    "tokenId": "78",
+    "tx": "0x4db7f197cc818d86014ad1024eb772942e5a03bb884d91a01228249a4fe33ca0",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "16",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x78dbe57313fcfb21215b3628a5e87bf3b47c74a8e4f290d76b46833af5190ce6",
+    "tokenId": "237",
+    "tx": "0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "17",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x34f1bef184420f29c143710b2de674c4e29f6b3f67972d38935963b9d941f71f",
+    "tokenId": "117",
+    "tx": "0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "18",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Settled",
+    "advancedWei": "970000000000000000",
+    "orderId": "0x1c5572a8bcef9a99e2070215023730bb6f67fd1982d1a30ee6923ab1d74cc584",
+    "tokenId": "213",
+    "tx": "0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b",
+    "note": "bought the cheapest verified listing"
+   },
+   {
+    "id": "20",
+    "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+    "phase": "Arrived",
+    "advancedWei": "960100000000000000",
+    "orderId": "0x0c4c008e033c3cb748253391f1fd306aa3dbbc14087076809e24414dc0ab93bc",
+    "tokenId": null,
+    "tx": null,
+    "note": "arrived at the canister's Ethereum address; waiting for a listing under the bound"
+   }
+  ],
+  "deliveries": [
+   {
+    "ticket": 7,
+    "tokenId": "237",
+    "phase": "Pinned",
+    "deliverBy": 1791055134,
+    "tx": null
+   }
+  ],
+  "deposits": [
+   {
+    "tx": "0x8eabfc2dff76c58d234c2dae95fda1fc46ae79cb486ce3872d4cca4d21898bda",
+    "tokenId": "278"
+   },
+   {
+    "tx": "0x4173146f805fe27da231526c35d32252515c89ce3deda082025016e8ff2e4431",
+    "tokenId": "220"
+   },
+   {
+    "tx": "0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453",
+    "tokenId": "146"
+   },
+   {
+    "tx": "0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf",
+    "tokenId": "118"
+   }
+  ],
+  "leftoverWei": "21000000000000000",
+  "caps": {
+   "maxItems": 16,
+   "maxValueWei": "15000000000000000000",
+   "itemsHeld": 13,
+   "itemsInFlight": 1,
+   "valueWei": "12220000000000000000"
+  }
+ },
+ "canisterNote": "The canister's own records (eth_nft_state(), an ICP query: one replica's answer, not certified), read 2026-09-27T22:58:00.000Z. They explain; they never turn anything green.",
+ "links": {
+  "wrapper": "https://explorer.mainnet.chain.robinhood.com/address/0x3000000000000000000000000000000000000001",
+  "custodian": "https://etherscan.io/address/0x3000000000000000000000000000000000000c05",
+  "module": "https://explorer.mainnet.chain.robinhood.com/address/0x30000000000000000000000000000000000000f1",
+  "collection": "https://etherscan.io/address/0x5af0d9827e0c53e4799bb226655a1de152a425a5"
+ },
+ "served": {
+  "status": "green",
+  "reasons": [],
+  "ageS": 0
+ }
+}

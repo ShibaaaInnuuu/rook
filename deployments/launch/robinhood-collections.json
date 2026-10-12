@@ -1,0 +1,42 @@
+{
+  "_": "Robinhood Chain (4663) NFT collections that passed scripts/measure-robinhood-nfts.mjs (2026-10-11T23:09Z, 22.815 SOL/ETH). EthNft listings on chain 4663 on the books home; pinned after the ceremony once the 4663 evm_chains entry (Seaport 1.6's code hash) is read back. Floors and tiers in graduation-tiers.json. StonkBrokers is token-bound (ERC-6551 accounts holding tokenized stocks): priced and bought as the NFT only: audit C3-01, the canister refuses it unless eth_nft names its nft_value_bps (the share of a full account's price that is the bare NFT; every listing and sale is taken at that share), which the operator sets from sales of drained accounts before it is pinned, so none is written here; custodyItems / custodyWei are what the canister's stage 0 enforces for a 4663 collection (audit C3-08: FIRST_MAX_ITEMS items, each at most maxPurchaseWei); the custody of tokenized stocks is a legal question the operator has not resolved (docs: Risks).",
+  "chainId": 4663,
+  "collections": [
+    {
+      "slug": "stonkbrokers",
+      "name": "Wrapped StonkBrokers",
+      "symbol": "wSTONKBROK",
+      "chainId": 4663,
+      "collection": "0x539cdd042c2f3d93ebc5be7dfff0c79f3b4fabf0",
+      "maxPurchaseWei": "1840000000000000000",
+      "custodyItems": 3,
+      "custodyWei": "5520000000000000000",
+      "openseaSlug": "stonkbrokers-434284142",
+      "tokenBound": true,
+      "nftValueBps": 9500,
+      "_nftValue": "Recommended 2026-10-12 from a sample of 16 accounts (#1 \u2026 #4444) read on chain: most hold ~0 ETH and nothing else; a few hold $3\u2013233 of USDG; one holds 0.13 NVDA (Robinhood tokenized stock). Against a 1.47 ETH floor the contents are ~0\u20137 %, so the bare NFT is ~95 % of a full account's price. Set as eth_nft.collections[i].nft_value_bps = 9500 (audit C3-01). The account implementation (0xe946\u20267c4b) has no lock; the NFT is ERC-721C with NO transfer validator set today, but its owner (0x17e9\u2026c66f) can set one at any time (setTransferValidator), which could block Rook's purchases or deliveries."
+    },
+    {
+      "slug": "chainmancers",
+      "name": "Wrapped Chain Mancers",
+      "symbol": "wCHAINMANC",
+      "chainId": 4663,
+      "collection": "0x797a2e030b7e49107c8f07bf0300ea9cae88ca57",
+      "maxPurchaseWei": "420000000000000000",
+      "custodyItems": 3,
+      "custodyWei": "1260000000000000000",
+      "openseaSlug": "chain-mancers"
+    },
+    {
+      "slug": "rekttradooors",
+      "name": "Wrapped Rekt Tradooors",
+      "symbol": "wREKTTRADO",
+      "chainId": 4663,
+      "collection": "0x7b3ecfa33657de415ff269dc97dfa82954cee706",
+      "maxPurchaseWei": "80000000000000000",
+      "custodyItems": 3,
+      "custodyWei": "240000000000000000",
+      "openseaSlug": "rekt-tradooor"
+    }
+  ]
+}

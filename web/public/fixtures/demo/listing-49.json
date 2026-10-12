@@ -1,0 +1,53 @@
+{
+  "id": 49,
+  "kind": "rune",
+  "name": "LOBO•THE•WOLF",
+  "ref": "874473:1305",
+  "divisibility": 8,
+  "vault": "0xC47d52fbD2f0e279fFaE83e28Ea0874C11F7989b",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-lobothewolf",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "23757575757575757",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "23757575757575757",
+    "attributedWei": "23757575757575757",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "23757575757575757",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x13B641FcA019DEfF6DC4CD4bB3b2F389CB76A48C",
+      "symbol": "ONYX2SIM",
+      "depositedWei": "23757575757575757"
+    }
+  ]
+}

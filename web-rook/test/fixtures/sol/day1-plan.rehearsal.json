@@ -1,0 +1,381 @@
+{
+  "_": "Day 1 of the Solana launch without deploying Rook's programs (docs/v9/launch-day1-solana.md). No secret in this file.",
+  "ceremony_payer": "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+  "cluster": "mainnet-beta",
+  "config_rent_lamports": null,
+  "fund_wallet": "GGgXnNgtY4ySfz8PLAAwkoh8Ztj7p6jrM9towSaa6Wuy",
+  "generated_at": 1791610104,
+  "genesis": null,
+  "genesis_rook": {
+    "config": "5KQf379LSg6gjw1FAr1w5gSpQggdAq5MGpv1BvRTkQ9i",
+    "creator_after": "GGgXnNgtY4ySfz8PLAAwkoh8Ztj7p6jrM9towSaa6Wuy",
+    "fee_claimer": "GGgXnNgtY4ySfz8PLAAwkoh8Ztj7p6jrM9towSaa6Wuy",
+    "mint": "GtYxorjKpZsKGGidxCJSqtgzSsiABJX9HGzP5rRDHHcL",
+    "name": "ROOK",
+    "pool": "4MuPfMfJ17KiiF3EvpALuVk8PgSKnKGGE61r9pjW1mMZ",
+    "signers": [
+      "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+      "5KQf379LSg6gjw1FAr1w5gSpQggdAq5MGpv1BvRTkQ9i",
+      "GtYxorjKpZsKGGidxCJSqtgzSsiABJX9HGzP5rRDHHcL"
+    ],
+    "symbol": "ROOK",
+    "unsigned_message_b64": "AwAJEDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZQCXzMO1gaeGGcn/2TGeQO4G1yBkpFimLCYlQ8vGQWc3sFBCfzmrBLM8kssptdwHKWEfzoIdA2Al8GhSO0qc4wTHt6lLsk/5LQ7RjvIBWFdVz4A0KvuL2k/7DlkelVmSoX3nsgzAkyyjXaWnvx2yrZuEhFTC6YhSEIF1fK7WpDfd9bXWu/gyHY39rSdZIJgwY6qdqlUyhGdh5DTnvkGHyE5VtfbOqLYXC7ckRtQlfmqjmgTnpg/9++TI/g17wbDR6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAAabiFf+q4GE+2h/Y0YYwDXaxDncGus7VZig8AAAAAABBt324ddloZPZy+FGzut5rBy0he1fWzeROoz1hX7/AKkJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSQtwZbHj0XxFOJ1Sf2sEw81YuGxzGqD9tUm20bwD+ClGbNbMgMewCyTCECA4Qz9Iqg/KjufoGQM8D+H7pyjf9QzaY2gfcoa8yAZxniwrUKIBVyQ7/JZosRUgvFOEPtzbCOLjtqyBSAm59IlDwu27ygk60254Ex7ni2tCjnbHWOPMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECAAFAoAaBgALCAEPDwkABw0LgwLJz/NyS28vvQBlzR0AAAAAPAAKAAAAAAAAAAqdfAAAAAAAAAAAAQEABgAyADIAEmXKEwAAAFaRXBbLw1EBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgEAgMakfo0DAACAxqR+jQMAZAEAAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAABYh5MZKw9HBQAAAAAAAAAAurjHAbMxc8jFF//6/wQAAJtXaU6pGlyEscT+/wAAAADdRRd4O1TR30zXAgAAAAAACxABDgACCQMEBQYMAAoKBw0LbIxV17BmNmhPBAAAAFJPT0sEAAAAUk9PS1AAAABodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZHdlYnp3cmsvcmF3L3VwbG9hZC92MTc5MTYwNzkwNy9yb29rLXRva2VuL3Jvb2suanNvbgsGAwEADw0LCBQHqSE6k6Yh",
+    "uri": "https://res.cloudinary.com/ddwebzwrk/raw/upload/v1791607907/rook-token/rook.json"
+  },
+  "lamports_per_signature": 5000,
+  "listings": [
+    {
+      "claimer": "DNXeQX5J4RtAkvRm4ibMrpa8dNaW7T7bLhMkwPRbockd",
+      "config": "3KtbKAKPjTthnar3Vrp1KqZnfskRniT4haEv9of8hFuq",
+      "listing": "2FV456Um23zza4A8buzA4Lc4dEVjYeTmv2CpqvGmSRE8",
+      "listing_id": 0,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "3KtbKAKPjTthnar3Vrp1KqZnfskRniT4haEv9of8hFuq"
+      ],
+      "slug": "milady",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZIo4pyXWs6nxNIp2No8wjf/UBVAz6QJYNg2gqD2LE2eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSWzWzIDHsAskwhAgOEM/SKoPyo7n6BkDPA/h+6co3/UMt9AXJnpzeSUcq1K3eFpnjtsiAvm9/C9SJgUOFcjUl54AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQcHBAACBgWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "23YZo6DGdUZiggw1uNZGrrWCuvybgj7L1zfy5Kkx1Hi4",
+      "config": "8kgi9VcScxwaUNLxERbGEttmznjyMZGsSZfqSRtq8AZK",
+      "listing": "H2bX1osaYS15CneRTvjrMvmLdJKyCjEbriXrJxmy7yFX",
+      "listing_id": 1,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "8kgi9VcScxwaUNLxERbGEttmznjyMZGsSZfqSRtq8AZK"
+      ],
+      "slug": "azuki",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZczKuz/JUZR5EZqu5XA8VIb3XJW9rFG5MAI2MIuD05w4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSQ+CiijBiFAmlCoxUHiGUqLmUitOTPxrF17ZqIdsJC5dbNbMgMewCyTCECA4Qz9Iqg/KjufoGQM8D+H7pyjf9QwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQYGBAACBwWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "AqdsCkK8huf66yzC3GhkbyZDV7YKjdxEe6s9Rv2r54hQ",
+      "config": "9tyMQHR5Z3mVJH4BizAN6GDFmagtLdE9Zb8FwTL7kMAb",
+      "listing": "6BgtU8Gh1xaMm9mHimkCSHBUv2kztY9XirrBfBkDXPeU",
+      "listing_id": 2,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "9tyMQHR5Z3mVJH4BizAN6GDFmagtLdE9Zb8FwTL7kMAb"
+      ],
+      "slug": "mayc",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZhC3Vc9y4y4ycgzxY0bkWCHnfg/aXEe1pXYPBgXn9/HQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSWzWzIDHsAskwhAgOEM/SKoPyo7n6BkDPA/h+6co3/UMki6+xR8yK6m9cQk6MBxBoLglLEtGjQj8/vHjGYSNXiMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQcHBAACBgWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "7znNnFEc2v37JsbQDmMX6hADQHFRBy7cwpWWxTT8oLHT",
+      "config": "GJJdugYVUXSEDLJGrXZRd4cB4k1dcK9PjyQpZ6xJMtWg",
+      "listing": "GaQvRBcAP3AqErpQqNhrAbfqospz2eM2U8NCdCRrziMi",
+      "listing_id": 3,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "GJJdugYVUXSEDLJGrXZRd4cB4k1dcK9PjyQpZ6xJMtWg"
+      ],
+      "slug": "pudgypenguins",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZ404ef5RSSVCwkMoaBhMe9joHR7RRnaDh7MFXTDZ1l7UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSWfziLArRq5iJ2NNReMXa+NxyIcltO5Wmpqd7rpX5i1GbNbMgMewCyTCECA4Qz9Iqg/KjufoGQM8D+H7pyjf9QwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQYGBAACBwWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 255
+    },
+    {
+      "claimer": "9zS1Vx1QSszWUCviFZbLpjiD93tLBxkVPard1pxNgWyJ",
+      "config": "5PXsRyMRkqxe3HxeySYgWhH8w76fmreu51QzdHcT6wWq",
+      "listing": "5FxhUt7rxWH7jmVgE1HT8BGXQVbciEiTu6PkmueSnRkm",
+      "listing_id": 4,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "5PXsRyMRkqxe3HxeySYgWhH8w76fmreu51QzdHcT6wWq"
+      ],
+      "slug": "bayc",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZQTRuBCsycRn5wR6XG/gLD8uVNswUnfN9a1ZsPQmvBKIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSWzWzIDHsAskwhAgOEM/SKoPyo7n6BkDPA/h+6co3/UMhZPg/DQBxxKi+SCuewBPY9mRxHiJo96QkqFYA5IKVV0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQcHBAACBgWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 510
+    },
+    {
+      "claimer": "3bjDX7QrANZ9gJdfBfUK27qxSqWPyxe1h2UVTYq6Qbdt",
+      "config": "Firobp1AtL5jwhnmy89kAUFuS13GbBuyHJoVc2Sj3pCT",
+      "listing": "HncvstXuiNsGpo3nES3kamLhDXscP1c7JknGoC4WCcTk",
+      "listing_id": 5,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "Firobp1AtL5jwhnmy89kAUFuS13GbBuyHJoVc2Sj3pCT"
+      ],
+      "slug": "doodles",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZ2ry+Oq/3VcZXooMQfx/zgd4FqFXKEwt5A8ep5+9c44QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSSac2t9yv40kTXuZHglIN1DxFI1G50YBT9PiF6vnO+DLbNbMgMewCyTCECA4Qz9Iqg/KjufoGQM8D+H7pyjf9QwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQYGBAACBwWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "8a77GUjUkPx9mobLnFJJP1GYEJpk95v13ah9yKdFtBtZ",
+      "config": "GohfzCtMeWguJGV4Y8Vrog1YoHXGbxVFG3LqGC4cLhzJ",
+      "listing": "F4JYHtX1hodNmFgSVfZwzt8Gnd3i6eRiyTMQRp2WSKuk",
+      "listing_id": 6,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "GohfzCtMeWguJGV4Y8Vrog1YoHXGbxVFG3LqGC4cLhzJ"
+      ],
+      "slug": "moonbirds",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZ6tYCYNrQmLMf0Ky09SMtlTL4cGhRPTazIPjVH1oHleMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSWzWzIDHsAskwhAgOEM/SKoPyo7n6BkDPA/h+6co3/UMcHzhrw6LqN21UWEuXQFyU27OQHCbn+h/Z+F7T1UADu4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQcHBAACBgWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "HgvG58GMXDq7DT7GLni8WALUcdq9am8tcts6hvGLtXyD",
+      "config": "GRXcBKJNAn1HZ9CbBY5R8D8cCwTGB74KxhUuZZZrSy2p",
+      "listing": "821hEGLHVqnc1SbCfB1H9emHN34e66M2uXMPYBa8YaNX",
+      "listing_id": 7,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "GRXcBKJNAn1HZ9CbBY5R8D8cCwTGB74KxhUuZZZrSy2p"
+      ],
+      "slug": "clonex",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZ5SfZp1YxqkTXFXxKkzUMmT4sHC9I1fyTaZABzO1thEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSWzWzIDHsAskwhAgOEM/SKoPyo7n6BkDPA/h+6co3/UM9/TdDMxgm8oEYwWRp0ciwcoBiEtPXhOggdeltAiFJbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQcHBAACBgWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "6Tdmr6AcVWY1cCNiB8ubMkQhR3P2MGiXE6p3QFZVzkSa",
+      "config": "4m53UM7KSFeFqwamktyCFXfx6xKf6kKjn5xoXfnpGtcH",
+      "listing": "DZ8NWcF9VhZvZeTeRKD1WeCZyENKn4WY3JAyMisi89SZ",
+      "listing_id": 8,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "4m53UM7KSFeFqwamktyCFXfx6xKf6kKjn5xoXfnpGtcH"
+      ],
+      "slug": "lilpudgys",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZN90v98MWG16p6lbs6Sahkz/G/i8U47yImTurWlgiBhIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSVEdHYJ9xFVTIgEEs45+3AyidX+8cP1OQ8m8mOv/ORx/bNbMgMewCyTCECA4Qz9Iqg/KjufoGQM8D+H7pyjf9QwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQYGBAACBwWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "JCJ3LgDF1X2DmCnX6oaUTJ8U6zkWsfeWf2w1tM79Vh1q",
+      "config": "CJLLtJaE737125vhz8kmX5kq6GQNoGaEN8uadbTQwhkd",
+      "listing": "n35PidWaEejEjXMkmxCPq5aJ2QwGGTXcoTBCyG3fpVQ",
+      "listing_id": 9,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "CJLLtJaE737125vhz8kmX5kq6GQNoGaEN8uadbTQwhkd"
+      ],
+      "slug": "checks",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZp+FNC62TI5D6k4gEJZCzgfv07OfmyJaIRH9Xkg+zZiIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSWzWzIDHsAskwhAgOEM/SKoPyo7n6BkDPA/h+6co3/UM/3tVjvER+5BiifrO3hMRICtBr/TngTLwgX3L9PvWyPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQcHBAACBgWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "9dD5YFuLMPtYeJ9sVLMfJDdptQbNKXy3VnoHEFoCA3rg",
+      "config": "6SYCCvBEye5rKScpAoDwTN4WNiBMXutYAmcfHPCShFe",
+      "listing": "GSXDDGMc34h5EmTM6oV6vYutLkFYNFJu9LGoR7HYBCmb",
+      "listing_id": 10,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "6SYCCvBEye5rKScpAoDwTN4WNiBMXutYAmcfHPCShFe"
+      ],
+      "slug": "identitymd",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZAWTHnUQnUvX7JRru4PWrkJy9mcE4Fou3M14raum0BEkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSWzWzIDHsAskwhAgOEM/SKoPyo7n6BkDPA/h+6co3/UMgCQPvEK7cJXOqAHeGt4Gs+BANXCkEzQlx2q81RPHk2EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQcHBAACBgWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 170
+    },
+    {
+      "claimer": "73K8ZMDvStS9Prb4P5ris5Btyriep148qZGKznrMLH7J",
+      "config": "8L6kQrbjMTpeWUzKPpk4e4n6B5T5UUi14Y5HZS5kNktg",
+      "listing": "2pysXkDURkbhqmTYBANpUqmnyYoSyS6XSWr3hRuErB5C",
+      "listing_id": 11,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "8L6kQrbjMTpeWUzKPpk4e4n6B5T5UUi14Y5HZS5kNktg"
+      ],
+      "slug": "bitcoin-frogs",
+      "unsigned_message_b64": "AgAGCDWbomT6x2NkqJKeapPhj+axaaglU0e1BkevOSdeFFnZbOZX+vnZnOHrXIkO3MLVe+Mt5eqAE9k41qT7YYam5nkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAEJYAylJPext9bMscOXOqAzDRkD2mAcybXe48ZitMrRSVm9yH5gu8XLJBpDqvUrJgldqsSz6vW7iX+WIxd3/CVFbNbMgMewCyTCECA4Qz9Iqg/KjufoGQM8D+H7pyjf9QwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAAUCYOoAAAUIAQYGBAACBwWDAsnP83JLby+9AGXNHQAAAAA8AAoAAAAAAAAACp18AAAAAAAAAAABAQAGADIAMgASZcoTAAAA1j6zPe2r3QEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQCAxqR+jQMAAIDGpH6NAwAAATIAAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAE9XdjvZV7sDAAAAAAAAAAAMwPDikdxQM8yLpT+bCgAAm1dpTqkaXISxxP7/AAAAAGTRDzDzkOd1dNcCAAAAAAA=",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "6Xvd1RPsXUebntvXZneStxs2is5fCjhXWHP1a5E1A4tr",
+      "config": "42GXuPffxrk3Qi6xo665JAMfhesagCQZhf5Zr65vRpYb",
+      "listing": "5w5nrrEgU2d6bUW2st5PgwVtrDNNrvFjyvom8RGReCAp",
+      "listing_id": 12,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "42GXuPffxrk3Qi6xo665JAMfhesagCQZhf5Zr65vRpYb"
+      ],
+      "slug": "nodemonkes",
+      "_": "added by hand for docs/v9/ordinals-collections.md: listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "7J9Tf6KaKX5zLMRZA7reNYC7FQBuTHHoEnNcisTW1kKN",
+      "config": "CVduade8ukuEp4BU4Dxav62Ae88qPjbc3TkVK7Ui88JK",
+      "listing": "CMsJbWo2dvPwbtyC9Zn6Nfm7DXokQg46GrFP8JsGST8E",
+      "listing_id": 13,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "CVduade8ukuEp4BU4Dxav62Ae88qPjbc3TkVK7Ui88JK"
+      ],
+      "slug": "omb",
+      "_": "added by hand for docs/v9/ordinals-collections.md: listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "2yA8A971MvqT3otQyoWNpqazmopHAKppTJ4KSokRXGLr",
+      "config": "4vVjhdB3KZp5xmyX82qqgZkMKMh1bVCbWcrrDBdrvHbh",
+      "listing": "9hDMCPZQzptymCPAQJo4k4Cezqd5bJESaTn8rkPsWtQ",
+      "listing_id": 14,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "4vVjhdB3KZp5xmyX82qqgZkMKMh1bVCbWcrrDBdrvHbh"
+      ],
+      "slug": "bitcoin-puppets",
+      "_": "added by hand for docs/v9/ordinals-collections.md: listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "DVCjDVFPNE9hgyRGyynofEvspuCWKkasu2ZvVSvQee6d",
+      "config": "AEYVJqGGg2vkBQpSc7HuyJMx7QgLYq4uBp5sgNHNuuE7",
+      "listing": "GawfJ2ognu3nunfMLGRxKGJ7XuWSZWQUtrmA2FHjyC43",
+      "listing_id": 15,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "AEYVJqGGg2vkBQpSc7HuyJMx7QgLYq4uBp5sgNHNuuE7"
+      ],
+      "slug": "bitcoin-punks",
+      "_": "added by hand for docs/v9/ordinals-collections.md: listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "9sYQtpY4tEJrtXiTw9atVMM46xtHW9EKhErhSSXtWqes",
+      "config": "NpY12HGx5jBuU4keSrpMqUhCjdSJBBjiyVBmkCaXr9S",
+      "listing": "G17aqpiW27UwSb2jvdRPE5YetqyGtPhYwvSvEM4pNmP2",
+      "listing_id": 16,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "NpY12HGx5jBuU4keSrpMqUhCjdSJBBjiyVBmkCaXr9S"
+      ],
+      "slug": "natcats",
+      "_": "added by hand for docs/v9/ordinals-collections.md: listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "93Z52wPcFqzVcbxiZhS4cPXook51jN5TCcSBwPgACctx",
+      "config": "48wSUCqxdHqxNWJtjsJpwDdrZTgTWErnyfLCFNq14bC9",
+      "listing": "CGzZUMH1ExxpvFaf6Mkuhe4GXoz7Pk7dME9quH5ypeVw",
+      "listing_id": 17,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "48wSUCqxdHqxNWJtjsJpwDdrZTgTWErnyfLCFNq14bC9"
+      ],
+      "slug": "runestone",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "3RZcZcn9EEzq7YuH1bYj7BuLVNmYEX9fYNiTTMwZoP2e",
+      "config": "BSeE51hy76w8FoEvt45a68T9MzL1q9DnNNDgmhywoCFw",
+      "listing": "F7KGjLg4oYu9FgsGFQFXf9VFm5MDPYDi3NJbP4bXLFme",
+      "listing_id": 18,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "BSeE51hy76w8FoEvt45a68T9MzL1q9DnNNDgmhywoCFw"
+      ],
+      "slug": "bitcoin-weirdos",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "CHCnRDjcg3iusUHRza9kPUB6x9QUrdHmJCPEv7tiyWGs",
+      "config": "3DV58seWsFGyM3HVywLMqgQo5SHyqYvyBU5PYY9CS2wM",
+      "listing": "BUWUpTiwWdEzCdQwrDapnv7g7dbL6g843w5n8X8sy6E9",
+      "listing_id": 19,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "3DV58seWsFGyM3HVywLMqgQo5SHyqYvyBU5PYY9CS2wM"
+      ],
+      "slug": "cents",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "FpSYbQte3bVYKWNdTmVpeq2c1ouELPasy9LV8kht8cBk",
+      "config": "2RCsBLNByQrsnU8p2Sq1gDToKvR1jxAZ4BXrwUdHr1CS",
+      "listing": "DcSQq6PPVBLpHoBrjfcZPKsMtBuCQQoKHhUUXtNXDJzn",
+      "listing_id": 20,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "2RCsBLNByQrsnU8p2Sq1gDToKvR1jxAZ4BXrwUdHr1CS"
+      ],
+      "slug": "rsic",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "BKrGBrDGAtUJmGRNCeCDUqphLWg3NyxcQrq2p1jeeF94",
+      "config": "AEhVsiYoDLeQ9Ph1SyjVQFesTtz3m4Q8jxLkve58NJXH",
+      "listing": "2PUZYowtUPhps3qWmF3K5ufPZ9jsaobj1Nd6wxzXnSsS",
+      "listing_id": 21,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "AEhVsiYoDLeQ9Ph1SyjVQFesTtz3m4Q8jxLkve58NJXH"
+      ],
+      "slug": "pizza-ninjas",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "4q6zH38djwjMJtQgmq5e7rGmNdam3sbYoWau5KTxS1YY",
+      "config": "8RAtoUoFGLozBv7bsGyN1UuFQMcPpT38AGeLLgjT912E",
+      "listing": "HNpxaP7WrYRrNFdXB4MtmAgCUWDegzqoYGEsUV1QgYb8",
+      "listing_id": 22,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "8RAtoUoFGLozBv7bsGyN1UuFQMcPpT38AGeLLgjT912E"
+      ],
+      "slug": "quantum-cats",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "FLBviEUQmwZYDQyTPVtX3s4nUAruyyoLjQumbv5GXUhS",
+      "config": "AztzwsUe9A6WcjrtS5tPCD9CQ92nWBJ6sGoHKkhBknNG",
+      "listing": "3LC93n1Z31ptwo1rVpt3cKQjUELcR6AZzKBNQH9MoyDo",
+      "listing_id": 23,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "AztzwsUe9A6WcjrtS5tPCD9CQ92nWBJ6sGoHKkhBknNG"
+      ],
+      "slug": "wizards-of-ord",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    },
+    {
+      "claimer": "CE9fLZPMfSypJ2RYgXREMpxceZaewrFrKFbm76k7Lo6Q",
+      "config": "Ds2wjst9WwToupQnuaW6SPcnkRKMf7H6Yhdciobjq11N",
+      "listing": "FCZ8hHgonNPCjU9dXVe8bJucpY8wXQVmkgRbnH2BL4G8",
+      "listing_id": 24,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "Ds2wjst9WwToupQnuaW6SPcnkRKMf7H6Yhdciobjq11N"
+      ],
+      "slug": "taproot-wizards",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 170
+    },
+    {
+      "claimer": "GDjgkGHVhCY8m4674TkckCSjJR9aTsYUDcNqRPj7cZy7",
+      "config": "DKCQ7ye6Lqjd9AGqQphWKANMvokobZ87k5SX8HWEWnFv",
+      "listing": "9v3diBAKfXDaECqSEryhgGLYPTUnbH5CxmsK9paYksVn",
+      "listing_id": 25,
+      "signers": [
+        "4cGFc2ifQPeCeGS3acifyRnRebC6wWyKG2HBPHKzU7m2",
+        "DKCQ7ye6Lqjd9AGqQphWKANMvokobZ87k5SX8HWEWnFv"
+      ],
+      "slug": "bitcoin-wizards",
+      "_": "added by hand for docs/v9/ordinals-collections.md (ids 17-25): listing / claimer derived as rook-ceremony day1 derives them, config a fresh key, no message (the rehearsal predates the listing)",
+      "graduation_sol": 85
+    }
+  ],
+  "pins": {
+    "collection_config_parameters_sha256": "8db45a9b15b109d19ccf95f047c1135447b71468e4baa7eaa62c69f93a53ae1c",
+    "file": "ops/solana/day1-pins.json",
+    "genesis_rook_config_parameters_sha256": "c50f8c33187b9125db17d9eb720b598cee2568d2d1ca5fbc97248ff55aa5fe96"
+  },
+  "reviewed_by": null,
+  "rook_backing": "11111111111111111111111111111113",
+  "rook_backing_converter": "ACm22ePfUPC9wrqPeybgAYoC5YjvhzS3Xw4HzE9TZS4",
+  "rook_core": "11111111111111111111111111111112",
+  "rook_core_registry": "7sS6woQKq27UPpg6GSFBz1577GprCSqXBSnsEmUpPmx",
+  "rook_core_treasury": "BTBnsKc4AKDYM5Z5fYLHkuiPw47kEpV9rsnFmNogo9GD",
+  "rpc_used": false,
+  "total_lamports": 0,
+  "total_sol": "0.000000000",
+  "transactions_to_send": 0
+}

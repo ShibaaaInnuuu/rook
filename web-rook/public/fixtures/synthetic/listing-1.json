@@ -1,0 +1,137 @@
+{
+  "id": 1,
+  "kind": "rune",
+  "name": "DOG",
+  "ref": "840000:3",
+  "divisibility": null,
+  "vault": "0xA1A1a1a1A1A1A1A1A1a1a1a1a1a1A1A1a1A1a1a1",
+  "btcVault": "bc1pnew",
+  "membershipRoot": null,
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "0",
+  "acquisitions": 1,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "capPostedAt": null,
+  "openDeclarations": 1,
+  "autonomous": false,
+  "buyer": null,
+  "maxInFlightWei": null,
+  "live": null,
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [
+    {
+      "purchaseId": 0,
+      "status": "declared",
+      "maxEthWei": "50",
+      "quantity": "900",
+      "capRef": "fixture:dog",
+      "declaredAt": 1800000780,
+      "releasableAt": 1800003900,
+      "releasableIn": 2400,
+      "releasedAt": null,
+      "releasedWei": null,
+      "purchaser": null,
+      "deadline": null,
+      "overdue": false,
+      "returnedWei": "0",
+      "writtenOffWei": null,
+      "bondSlashedWei": "0",
+      "charges": [],
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999"
+    }
+  ],
+  "acquisitionsRecent": [
+    {
+      "listingId": 1,
+      "acquisitionId": 0,
+      "purchaseId": 0,
+      "kind": "rune",
+      "coin": "0xC1C1c1c1C1C1C1c1c1C1C1C1c1C1C1C1c1C1c1c1",
+      "coinSymbol": null,
+      "assetRef": "840000:3",
+      "amount": "900",
+      "btcTxid": "5555555555555555555555555555555555555555555555555555555555555555",
+      "satsPaid": "90000",
+      "settledAt": 1800000792,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "purchaseSpentWei": "0",
+      "purchaseAcquisitions": 1,
+      "delivery": {
+        "mode": "pro-rata",
+        "state": "distribution-rolled",
+        "winner": null,
+        "destination": null,
+        "deliveredTxid": null,
+        "overdue": false,
+        "secondsToDeliver": null
+      },
+      "verify": {
+        "links": [
+          {
+            "label": "the Bitcoin transaction",
+            "url": "https://mempool.space/tx/5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          {
+            "label": "the listing's Bitcoin address",
+            "url": "https://mempool.space/address/bc1pnew"
+          },
+          {
+            "label": "the rune",
+            "url": "https://ordinals.com/rune/840000:3"
+          }
+        ],
+        "check": {
+          "kind": "rune",
+          "txid": "5555555555555555555555555555555555555555555555555555555555555555",
+          "runeId": "840000:3",
+          "address": "bc1pnew",
+          "expectAtLeast": "600",
+          "indexerPath": "/v1/indexer/address/bc1pnew/runes/840000:3/balance",
+          "expect": "the address's balance of the rune is at least the undelivered total"
+        },
+        "note": "`indexerPath` is UniSat's documented Open API path (it needs the reader's own key); any runes indexer answers the same question. A receipt is the attestor's word; this API has not checked it."
+      }
+    }
+  ],
+  "releasedWei": "0",
+  "returnedWei": "0",
+  "spentWei": "0",
+  "holdings": {
+    "receipts": 1,
+    "delivered": 0,
+    "inscriptionsHeld": null,
+    "runeUnits": {
+      "received": "900",
+      "delivered": "0",
+      "paidOut": "300",
+      "held": "600"
+    }
+  },
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 1,
+    "medianS": 12,
+    "maxS": 12
+  },
+  "minimumPayout": {
+    "units": "250",
+    "expiry": 1800090000,
+    "expired": false
+  },
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xC1C1c1c1C1C1C1c1c1C1C1C1c1C1C1C1c1C1c1c1",
+      "symbol": null,
+      "depositedWei": "0"
+    }
+  ]
+}

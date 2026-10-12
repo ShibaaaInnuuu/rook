@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Azuki",
+  "symbol": "wAZUKI",
+  "description": "Rook's wrapped Azuki token: each whole token is backed either by a Azuki NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/azuki.png",
+  "external_url": "https://userook.fun/#/collection/azuki",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/azuki.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

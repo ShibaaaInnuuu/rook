@@ -1,0 +1,16 @@
+
+running 1 test
+AUDIT4-E after 40 ticks (24000 s): minted 3 deposits; mint asks 4; frozen None; paused false
+
+thread 'e4_h1_nine_deposits_of_one_collection_in_a_day_trip_the_mint_tripwire_and_pause_the_canister' (59522329) panicked at tests/r4_e.rs:1354:5:
+WEAKNESS: honest deposits froze custody and paused the canister
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test e4_h1_nine_deposits_of_one_collection_in_a_day_trip_the_mint_tripwire_and_pause_the_canister ... FAILED
+
+failures:
+
+failures:
+    e4_h1_nine_deposits_of_one_collection_in_a_day_trip_the_mint_tripwire_and_pause_the_canister
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.01s
+

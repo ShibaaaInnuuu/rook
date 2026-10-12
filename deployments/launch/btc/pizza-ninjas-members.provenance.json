@@ -1,0 +1,33 @@
+{
+  "slug": "pizza-ninjas",
+  "taken_at": "2026-10-10T07:24:33.627Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 2920,
+  "root": "0x230aa6d2b7b22d202022427e17d1445a7bf49c6e99da088a3102cd97cc847c55",
+  "proof_depth": 12,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/pizza-ninjas/inscriptions",
+      "count": 2920,
+      "unique": 2920,
+      "left_out": []
+    },
+    {
+      "name": "ord-children",
+      "url": "https://ordinals.com/r/children/80da3cecac858f2757c5b338be15980bdc9d9570d4e86765b4948be8143c82e1i0",
+      "count": 2920,
+      "unique": 2920,
+      "left_out": []
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/pizza-ninjas.json",
+      "count": 2022,
+      "not_in_members": [],
+      "members_missing": 898
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Bitcoin Punk",
+  "symbol": "wBPUNK",
+  "description": "Rook's wrapped Bitcoin Punks token: each whole token is backed either by a Bitcoin Punks NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/bitcoin-punks.png",
+  "external_url": "https://userook.fun/#/collection/bitcoin-punks",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/bitcoin-punks.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

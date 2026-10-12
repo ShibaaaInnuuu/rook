@@ -1,0 +1,48 @@
+Ran 1 test for test/audit_nft_a/AuditNftA.t.sol:AuditNftA_L3_PauseIsGlobal
+[PASS] test_A_L3_oneCollectionsPauseHaltsAnotherCollection() (gas: 807810)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 12.23ms (1.50ms CPU time)
+
+Ran 2 tests for test/audit_nft_a/AuditNftA.t.sol:AuditNftA_M2_RelistFreeze
+[FAIL: NotSupported()] test_A_M2_threeUnitsFreezeEveryRedemptionIndefinitely_atNoCost() (gas: 781367)
+[FAIL: NotSupported()] test_A_M2b_withoutTheMarkTheCycleIsLonger_stillFree() (gas: 307143)
+Suite result: FAILED. 0 passed; 2 failed; 0 skipped; finished in 12.22ms (3.07ms CPU time)
+
+Ran 1 test for test/audit_nft_a/AuditNftA.t.sol:AuditNftA_L1_MintRoomStarvation
+[PASS] test_A_L1_threeDepositsHoldAnOpenAdvanceForADay() (gas: 2063116)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 12.51ms (1.62ms CPU time)
+
+Ran 1 test for test/audit_nft_a/AuditNftA.t.sol:AuditNftA_L2_DeployerKeepsMintLimit
+[PASS] test_A_L2_theDeployKeyCutsMintsAfterLaunch() (gas: 508767)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 12.28ms (1.47ms CPU time)
+
+Ran 6 tests for test/audit_nft_a/AuditNftA.t.sol:AuditNftA_M1_DepositBurn
+[PASS] test_A_M1_control_anHonestFloorLoses() (gas: 1888724)
+[PASS] test_A_M1a_graduationDuringTheInflation_depositsAndBurnsTakeTheGap() (gas: 2313820)
+[PASS] test_A_M1b_graduationAtTheTrueFloor_theBetaCapLimitsTheGap() (gas: 2138036)
+[PASS] test_A_M1c_atTheGuardiansThreshold_plus19pct() (gas: 2292098)
+[PASS] test_A_M1d_honestRank2Floor_rank1ListingTwoPctUnder_stillProfits() (gas: 1896239)
+[PASS] test_A_M1e_aFillClosesTheHonestGapOnlyOverItsWindow() (gas: 5003039)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 14.70ms (14.70ms CPU time)
+
+Ran 2 tests for test/audit_nft_a/AuditNftA.t.sol:AuditNftA_Holds_LedgerWithDeposits
+[FAIL: NotSupported(); counterexample: calldata=0x06b2baaf0000000000000000000000000000000000000000000000000000000000004b07 args=[19207 [1.92e4]]] testFuzz_A_ledgerHoldsWithDepositsRelistAndAdvances(uint256) (runs: 3, μ: 16727146, ~: 16852466)
+[FAIL: NotSupported()] test_A_ledgerHolds_theRunReachesEveryAction() (gas: 339738389)
+Suite result: FAILED. 0 passed; 2 failed; 0 skipped; finished in 116.67ms (148.45ms CPU time)
+
+Ran 6 test suites in 122.73ms (180.61ms CPU time): 9 tests passed, 4 failed, 0 skipped (13 total tests)
+
+Failing tests:
+Encountered 2 failing tests in test/audit_nft_a/AuditNftA.t.sol:AuditNftA_Holds_LedgerWithDeposits
+[FAIL: NotSupported(); counterexample: calldata=0x06b2baaf0000000000000000000000000000000000000000000000000000000000004b07 args=[19207 [1.92e4]]] testFuzz_A_ledgerHoldsWithDepositsRelistAndAdvances(uint256) (runs: 3, μ: 16727146, ~: 16852466)
+[FAIL: NotSupported()] test_A_ledgerHolds_theRunReachesEveryAction() (gas: 339738389)
+
+Encountered 2 failing tests in test/audit_nft_a/AuditNftA.t.sol:AuditNftA_M2_RelistFreeze
+[FAIL: NotSupported()] test_A_M2_threeUnitsFreezeEveryRedemptionIndefinitely_atNoCost() (gas: 781367)
+[FAIL: NotSupported()] test_A_M2b_withoutTheMarkTheCycleIsLonger_stillFree() (gas: 307143)
+
+Encountered a total of 4 failing tests, 9 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 4 failed tests
+Tip: Run `forge test --debug --match-test <TEST_NAME>` to inspect one failing test in the debugger
+
+Fuzz seed: 0x9a97d53a2a3bd963c5a2b78b26cf13435cfba23d563991d89a5e8a0a4a23e6e2 (use `--fuzz-seed` to reproduce)

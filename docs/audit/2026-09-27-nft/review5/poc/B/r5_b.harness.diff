@@ -1,0 +1,27 @@
+162a163,167
+>     /// review round 5 (B): blocks whose marketplace sale logs are over the largest class too (reserved as EthNet does: every class, both providers)
+>     big_sale_blocks: Vec<u64>,
+>     /// review round 5 (B): blocks with ~5,001 Transfer logs each (~3 MB: one alone is over the IC's 2 MB class); a range holding two or
+>     /// more is over a provider's 10,000-results cap, which answers a JSON-RPC error (small) instead of the logs
+>     dense_blocks: Vec<u64>,
+209c214
+<             sale_moves: HashMap::new(), payouts: HashMap::new(),
+---
+>             sale_moves: HashMap::new(), payouts: HashMap::new(), big_sale_blocks: vec![], dense_blocks: vec![],
+411a417,421
+>         if self.big_sale_blocks.contains(&block) {
+>             self.log_fails += 1;
+>             self.logs_bytes += 2 * (64_000 + 400_000 + 2_000_000);
+>             return Err(format!("chain 1: eth_getLogs: {}Http body exceeds size limit of 2000000 bytes", etch_autobuyer::evmread::SIZE_REJECT));
+>         }
+494c504,505
+<         if self.big_blocks.iter().any(|b| from <= *b && *b <= to) {
+---
+>         let dense = self.dense_blocks.iter().filter(|b| from <= **b && **b <= to).count();
+>         if dense >= 2 {
+495a507,511
+>             self.logs_bytes += 2 * 64_000;
+>             return Err("chain 1: eth_getLogs: no result: {\"code\":-32005,\"message\":\"query returned more than 10000 results\"}".into());
+>         }
+>         if dense == 1 || self.big_blocks.iter().any(|b| from <= *b && *b <= to) {
+>             self.log_fails += 1;

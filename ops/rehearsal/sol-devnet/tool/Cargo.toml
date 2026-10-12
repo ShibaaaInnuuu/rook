@@ -1,0 +1,42 @@
+# The devnet rehearsal's operator tool (docs/v9/rehearsal-sol-devnet.md): rook_core / rook_backing instructions built from the programs'
+# own types, signed with operator keypairs, sent through JSON-RPC (curl). Its own workspace (like ops/rehearsal/sol-sign/canister); its
+# lockfile starts from solana/Cargo.lock so the program crates resolve to the versions the programs were tested with; its own target/
+# (anchor build rewrites solana/target/debug with idl-build features).
+[package]
+name = "rook-devnet"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "rook-devnet"
+path = "src/main.rs"
+
+# Day 1 of the mainnet launch without deploying the programs (ops/solana/ceremony-day1.sh, docs/v9/launch-day1-solana.md).
+[[bin]]
+name = "rook-ceremony"
+path = "src/ceremony.rs"
+
+[dependencies]
+rook_core = { path = "../../../../solana/programs/rook_core", features = ["no-entrypoint"] }
+rook_backing = { path = "../../../../solana/programs/rook_backing", features = ["no-entrypoint"] }
+anchor-lang = "1.2.1"
+anchor-spl = { version = "1.2.1", default-features = false, features = ["token", "token_2022", "associated_token", "mint", "solana-v3"] }
+solana-keypair = "3.0.1"
+solana-signer = "3.0.0"
+solana-message = { version = "3.0.1", features = ["bincode"] }
+solana-transaction = { version = "3.0.2", features = ["bincode"] }
+solana-compute-budget-interface = "3.1.0"
+serde_json = "1"
+sha2 = "0.10"
+base64 = "0.22"
+# `rook-ceremony accept-owner --ledger usb://ledger`: the fund wallet signs accept_owner on its Ledger (the same locator and derivation
+# path syntax as the solana CLI's `usb://ledger?key=…`); additive to the lockfile, no existing version changed.
+solana-remote-wallet = { version = "3.1.14", features = ["agave-unstable-api"] }
+solana-derivation-path = "3.0.0"
+uriparse = "0.6.4"
+
+[workspace]
+
+[profile.release]
+overflow-checks = true

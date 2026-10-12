@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped CloneX",
+  "symbol": "wCLONEX",
+  "description": "Rook's wrapped CloneX token: each whole token is backed either by a CloneX NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/clonex.png",
+  "external_url": "https://userook.fun/#/collection/clonex",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/clonex.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

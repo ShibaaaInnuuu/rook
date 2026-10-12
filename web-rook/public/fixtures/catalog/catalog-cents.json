@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "cents",
+    "name": "CENTS",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "cents",
+    "description": "After more than a century in circulation, the penny has become both a worthless relic of inflation and a prized collector's item. A unit of currency, a piece of metal, a ghost of value.The last copper pennies were minted in 1982, after whic",
+    "image": "https://ipfs.filebase.io/ipfs/bafkreibh4kboemiiod5btnvxsmimsk6eglfpoe5thwcqbxmjfalmfr44lq",
+    "links": {
+      "website": "https://www.sovrn.art/cents",
+      "x": "https://x.com/sovrnart",
+      "discord": "https://discord.gg/inscribingatlantis",
+      "marketplace": "https://ordinalswallet.com/collection/cents",
+      "explorer": "https://ordinals.com/inscription/65890305"
+    },
+    "floor": {
+      "native": "452209",
+      "unit": "sats",
+      "eth": 0.14272922387400183,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 10000,
+    "owners": null,
+    "listed": 29,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "6ab4fb13dfa8566bb069f488de5423229a6680484a4a7bdd090b702227bfe0a5i1",
+        "name": "Cent #5025",
+        "image": "https://ordinals.com/content/6ab4fb13dfa8566bb069f488de5423229a6680484a4a7bdd090b702227bfe0a5i1",
+        "url": "https://ordinals.com/inscription/6ab4fb13dfa8566bb069f488de5423229a6680484a4a7bdd090b702227bfe0a5i1"
+      },
+      {
+        "id": "c2cf084e7cb938d55aa9909e830f5628bdbf0051ba096c1c434d822f157efa9ci0",
+        "name": "Cent #9333",
+        "image": "https://ordinals.com/content/c2cf084e7cb938d55aa9909e830f5628bdbf0051ba096c1c434d822f157efa9ci0",
+        "url": "https://ordinals.com/inscription/c2cf084e7cb938d55aa9909e830f5628bdbf0051ba096c1c434d822f157efa9ci0"
+      },
+      {
+        "id": "dcebd2d3b3dd1eb7819d9cf4faa21339f6da326844089767c35b92203f162d4ai0",
+        "name": "Cent #9996",
+        "image": "https://ordinals.com/content/dcebd2d3b3dd1eb7819d9cf4faa21339f6da326844089767c35b92203f162d4ai0",
+        "url": "https://ordinals.com/inscription/dcebd2d3b3dd1eb7819d9cf4faa21339f6da326844089767c35b92203f162d4ai0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.143 ETH, 0.171 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

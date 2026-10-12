@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "dogepunks",
+    "name": "DogePunks",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "dogepunks",
+    "description": "Own a piece of history with DogePunks, 10.000 unique inspired by Dogecoin and CryptoPunks on the Bitcoin blockchain",
+    "image": "https://ordinals.com/content/a4dd23ce0651cca0683983dc6411616e8ef9b38658266b641f53b66e2bfc9e7di0",
+    "links": {
+      "website": null,
+      "x": "https://x.com/DogePunksBTC",
+      "discord": "https://discord.gg/dogepunks",
+      "marketplace": "https://ordinalswallet.com/collection/dogepunks",
+      "explorer": "https://ordinals.com/inscription/383632"
+    },
+    "floor": {
+      "native": "56526",
+      "unit": "sats",
+      "eth": 0.017841113530915633,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 10001,
+    "owners": null,
+    "listed": 255,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1f00b10833ab87f6617722b2eeda5d93684d69f3afa29c1e2d41c50ae411d21ci0",
+        "name": "Doge #8885",
+        "image": "https://ordinals.com/content/1f00b10833ab87f6617722b2eeda5d93684d69f3afa29c1e2d41c50ae411d21ci0",
+        "url": "https://ordinals.com/inscription/1f00b10833ab87f6617722b2eeda5d93684d69f3afa29c1e2d41c50ae411d21ci0"
+      },
+      {
+        "id": "6d2d27eebda0487d2f6f88ccea2995fbba187114c22ec1301e3dcce717c1950ei0",
+        "name": "Doge #6514",
+        "image": "https://ordinals.com/content/6d2d27eebda0487d2f6f88ccea2995fbba187114c22ec1301e3dcce717c1950ei0",
+        "url": "https://ordinals.com/inscription/6d2d27eebda0487d2f6f88ccea2995fbba187114c22ec1301e3dcce717c1950ei0"
+      },
+      {
+        "id": "eb31a3016c6c0d869ba7f0d4425cb914ed7a9c106126d92f95110434168decf7i0",
+        "name": "Doge #140",
+        "image": "https://ordinals.com/content/eb31a3016c6c0d869ba7f0d4425cb914ed7a9c106126d92f95110434168decf7i0",
+        "url": "https://ordinals.com/inscription/eb31a3016c6c0d869ba7f0d4425cb914ed7a9c106126d92f95110434168decf7i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.018 ETH, 0.021 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

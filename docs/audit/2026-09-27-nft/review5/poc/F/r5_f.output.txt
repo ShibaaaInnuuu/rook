@@ -1,0 +1,32 @@
+# cargo test --test r5_f f5_ -- --nocapture --test-threads=1   (per-tick '  | ' lines removed)
+# harness: tests/audit_nft_r4.rs + r5_f.harness.diff, then r5_f.tests.rs appended; on nft-side HEAD 1dc2a61 (src/ identical to the worktree), toolchain 1.98.1
+running 8 tests
+test f5_l1_the_ethereum_pin_floor_is_not_keyed_by_chain_and_survives_a_chain_move ... F5-L-1: Ethereum: the pin 9300000 is below block 26068928 (a pin already read: a provider's head fell back): nothing is read there this tick (C4-H-1)
+F5-L-1: Ethereum: our nonce at this pin is 0, below 40 (already read: the pin is behind our own mined transactions): nothing is signed there (C4-H-1)
+ok
+test f5_m1_a_a_mined_relay_deposit_seen_nowhere_for_an_hour_is_deposited_again ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+F5-M-1(a): eth: Deposit { buy: 0 } (nonce 1) DROPPED: its nonce was taken by another transaction of ours (3600 s seen nowhere, the chain at nonce 2); taken back as a revert: the deposit reverted: the ETH is still ours; a new quote is asked
+F5-M-1(a): Relay deposits 2, 4663 balance 1502200000000000000 -> 502200000000000000 (spent 1000000000000000000 for ONE buy of 500000000000000000)
+ok
+test f5_m1_a_control_without_other_eth_the_buy_holds_the_relay_leg_and_the_first_fill_is_nobodys ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+F5-M-1(a control): after 3 days: Funded { wei: 500000000000000000, since: 1790517033 }; earmarked on Ethereum 0; last tick: eth: the home-chain act waits: eth buy 0: our balance 2200000000000000 is under the deposit's 500000000000000000
+ok
+test f5_m1_b_a_mined_fund_reserve_seen_nowhere_for_an_hour_is_paid_again ...   | eth buy 7: fundReserve of 300000000000000000: GiveBack { buy: 7 } signed, saved and sent (nonce 0)
+F5-M-1(b): eth: GiveBack { buy: 7 } (nonce 0) DROPPED: its nonce was taken by another transaction of ours (3600 s seen nowhere, the chain at nonce 1); taken back as a revert: returnAdvance reverted: sent again next tick
+F5-M-1(b): fundReserve calls 2; paid in 600000000000000000 for a sweep of 300000000000000000; the sweep is Returned { wei: 300000000000000000 }
+ok
+test f5_m1_c2_on_the_real_module_the_taken_back_advance_holds_the_relay_leg_for_every_collection ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+F5-M-1(c2): after a day: Milady Some(NeedAdvance) (in the Relay leg: true), Azuki None, module transit true; last tick: eth: the home-chain act waits: eth buy 0: would not succeed now: execution reverted: AdvanceOpen()
+ok
+test f5_m1_c_a_mined_advance_seen_nowhere_for_an_hour_orphans_the_advance ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+F5-M-1(c): eth: Advance { buy: 0 } (nonce 0) DROPPED: its nonce was taken by another transaction of ours (3600 s seen nowhere, the chain at nonce 1); taken back as a revert: the advance reverted: nothing was paid
+F5-M-1(c): after a day: module transit true, advances sent 1, open buys [], ETH tracked by any buy 0, 4663 balance over the start 500200000000000000
+ok
+test f5_m1_d_the_hour_is_not_reset_by_a_provider_that_shows_the_transaction ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read): a post is due
+F5-M-1(d): 3660 s after the first unseen read, the FIRST further unseen read drops it: eth: Post { collection: [90, 240, 217, 130, 126, 12, 83, 228, 121, 155, 178, 38, 101, 90, 29, 225, 82, 164, 37, 165] } (nonce 0) DROPPED: its nonce was taken by another transaction of ours (3660 s seen nowhere, the chain at nonce 1); taken back as a revert: postFloor reverted (the module's keeper, a pause?)
+ok
+test f5_m1_e_a_mined_return_advance_seen_nowhere_holds_the_relay_leg_for_good ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+F5-M-1(e): buy 0: 500000000000000000 wei goes back to the module at the next tick
+F5-M-1(e): after a day: Milady Some(Returning { wei: 500000000000000000 }) (Relay leg held: true), Azuki None; operator exit: Err("refused: buy 0 is Returning { wei: 500000000000000000 }; only a funded, arrived, going-back or stuck buy has an exit here"); last tick: eth: the home-chain act waits: eth buy 0: our balance 2200000000000000 is under the 500000000000000000 to return
+ok
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 22 filtered out; finished in 0.18s

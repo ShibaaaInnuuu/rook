@@ -1,0 +1,205 @@
+{
+  "_": "Each listing's graduation tier: the migration_quote_threshold (SOL) of its day-1 DBC config (operator decision 2026-10-10, docs/v9/graduation-tiers.md). launch-params.mjs listingOrder() and rook-ceremony (listing_order_from_pilot) put it in listing_order as graduation_sol, so the pins (day1-pins.json listing_order) commit it; the tier's curve is launch-params.mjs GRADUATION_TIERS, pinned as day1-pins.json tiers.<sol>. A listing's tier is fixed by its day-1 config; changing it later means a new DBC config for that listing (rook_backing MAX_CONFIGS 8 per partner), not an edit here.",
+  "rule": "tier = the smallest of tiers_sol whose NFT buying power per graduation, tier x 0.5 (migration fee) x 0.75 (1 - reserve_bps 25 %) / 1.03 (conv_bps 3 %), is >= 1.33 x the collection's floor in SOL",
+  "tiers_sol": [
+    85,
+    170,
+    255,
+    510
+  ],
+  "taken_at": "2026-10-10T07:30Z",
+  "rates": {
+    "sol_per_eth": "22.693637936",
+    "sol_per_eth_source": "launch-params.mjs median of Coinbase, OKX, Kraken, KuCoin (spread 12 bps)",
+    "sol_per_btc": "752.216",
+    "sol_per_btc_source": "Coinbase BTC-USD 82,570.71 / SOL-USD 109.77 (Kraken SOLXBT 0.0013294)"
+  },
+  "floor_reference": "CoinGecko's NFT floor (the monitor's D8 reference; for Ordinals the canister buys only after the wake check puts Ordinals Wallet's book within 20 % of it, so 1.33 x covers the book too). Identity MD: OpenSea (its only D8 reference), from the repository",
+  "collections": {
+    "milady": {
+      "tier": 85,
+      "floor": "0.82 ETH",
+      "floor_sol": "18.61",
+      "nfts_per_graduation": "1.66",
+      "source": "coingecko milady-maker"
+    },
+    "azuki": {
+      "tier": 85,
+      "floor": "0.604 ETH",
+      "floor_sol": "13.71",
+      "nfts_per_graduation": "2.26",
+      "source": "coingecko azuki"
+    },
+    "mayc": {
+      "tier": 85,
+      "floor": "0.818 ETH",
+      "floor_sol": "18.56",
+      "nfts_per_graduation": "1.67",
+      "source": "coingecko mutant-ape-yacht-club"
+    },
+    "pudgypenguins": {
+      "tier": 255,
+      "floor": "2.6 ETH",
+      "floor_sol": "59.00",
+      "nfts_per_graduation": "1.57",
+      "source": "coingecko pudgy-penguins"
+    },
+    "bayc": {
+      "tier": 510,
+      "floor": "6.03 ETH",
+      "floor_sol": "136.84",
+      "nfts_per_graduation": "1.36",
+      "source": "coingecko bored-ape-yacht-club"
+    },
+    "doodles": {
+      "tier": 85,
+      "floor": "0.262 ETH",
+      "floor_sol": "5.95",
+      "nfts_per_graduation": "5.20",
+      "source": "coingecko doodles-official"
+    },
+    "moonbirds": {
+      "tier": 85,
+      "floor": "0.392323 ETH",
+      "floor_sol": "8.90",
+      "nfts_per_graduation": "3.48",
+      "source": "coingecko moonbirds"
+    },
+    "clonex": {
+      "tier": 85,
+      "floor": "0.149 ETH",
+      "floor_sol": "3.38",
+      "nfts_per_graduation": "9.15",
+      "source": "coingecko clonex"
+    },
+    "lilpudgys": {
+      "tier": 85,
+      "floor": "0.257 ETH",
+      "floor_sol": "5.83",
+      "nfts_per_graduation": "5.31",
+      "source": "coingecko lilpudgys"
+    },
+    "checks": {
+      "tier": 85,
+      "floor": "0.152999 ETH",
+      "floor_sol": "3.47",
+      "nfts_per_graduation": "8.91",
+      "source": "coingecko checks-vv-originals"
+    },
+    "identitymd": {
+      "tier": 170,
+      "floor": "1.78 ETH",
+      "floor_sol": "40.39",
+      "nfts_per_graduation": "1.53",
+      "source": "docs/v7/dormant-collections.md (2026-10-09, OpenSea ~1.78 ETH): no keyless live source (CoinGecko does not list it; OpenSea's API needs a key)"
+    },
+    "bitcoin-frogs": {
+      "tier": 85,
+      "floor": "0.004 BTC",
+      "floor_sol": "3.01",
+      "nfts_per_graduation": "10.29",
+      "source": "coingecko bitcoin-frogs"
+    },
+    "nodemonkes": {
+      "tier": 85,
+      "floor": "0.02318 BTC",
+      "floor_sol": "17.44",
+      "nfts_per_graduation": "1.77",
+      "source": "coingecko nodemonkes"
+    },
+    "omb": {
+      "tier": 85,
+      "floor": "0.0175 BTC",
+      "floor_sol": "13.16",
+      "nfts_per_graduation": "2.35",
+      "source": "coingecko ordinal-maxi-biz-omb"
+    },
+    "bitcoin-puppets": {
+      "tier": 85,
+      "floor": "0.01024 BTC",
+      "floor_sol": "7.70",
+      "nfts_per_graduation": "4.02",
+      "source": "coingecko bitcoin-puppets"
+    },
+    "bitcoin-punks": {
+      "tier": 85,
+      "floor": "0.00314253 BTC",
+      "floor_sol": "2.36",
+      "nfts_per_graduation": "13.09",
+      "source": "coingecko bitcoin-punks"
+    },
+    "natcats": {
+      "tier": 85,
+      "floor": "0.00284 BTC",
+      "floor_sol": "2.14",
+      "nfts_per_graduation": "14.49",
+      "source": "coingecko natcats"
+    },
+    "runestone": {
+      "tier": 85,
+      "floor": "0.001388 BTC",
+      "floor_sol": "1.04",
+      "nfts_per_graduation": "29.64",
+      "source": "coingecko runestone"
+    },
+    "bitcoin-weirdos": {
+      "tier": 85,
+      "floor": "0.0006499 BTC",
+      "floor_sol": "0.49",
+      "nfts_per_graduation": "63.30",
+      "source": "coingecko bitcoin-weirdos"
+    },
+    "cents": {
+      "tier": 85,
+      "floor": "0.00515 BTC",
+      "floor_sol": "3.87",
+      "nfts_per_graduation": "7.99",
+      "source": "coingecko cents"
+    },
+    "rsic": {
+      "tier": 85,
+      "floor": "0.00074525 BTC",
+      "floor_sol": "0.56",
+      "nfts_per_graduation": "55.20",
+      "source": "coingecko rsic-metaprotocol"
+    },
+    "pizza-ninjas": {
+      "tier": 85,
+      "floor": "0.00872 BTC",
+      "floor_sol": "6.56",
+      "nfts_per_graduation": "4.72",
+      "source": "coingecko pizza-ninjas"
+    },
+    "quantum-cats": {
+      "tier": 85,
+      "floor": "0.01044696 BTC",
+      "floor_sol": "7.86",
+      "nfts_per_graduation": "3.94",
+      "source": "coingecko quantum-cats"
+    },
+    "wizards-of-ord": {
+      "tier": 85,
+      "floor": "0.0054 BTC",
+      "floor_sol": "4.06",
+      "nfts_per_graduation": "7.62",
+      "source": "coingecko the-wizards-of-ord"
+    },
+    "taproot-wizards": {
+      "tier": 170,
+      "floor": "0.047 BTC",
+      "floor_sol": "35.35",
+      "nfts_per_graduation": "1.75",
+      "source": "coingecko taproot-wizards"
+    },
+    "bitcoin-wizards": {
+      "tier": 85,
+      "floor": "0.0135 BTC",
+      "floor_sol": "10.15",
+      "nfts_per_graduation": "3.05",
+      "source": "coingecko bitcoin-wizards"
+    },
+    "stonkbrokers": {"tier": 170, "floor": "1.47 ETH", "floor_sol": "33.54", "nfts_per_graduation": "1.85", "source": "opensea (Robinhood Chain), 2026-10-11T23:09Z, 22.815 SOL/ETH (scripts/measure-robinhood-nfts.mjs)"},
+    "chainmancers": {"tier": 85, "floor": "0.275 ETH", "floor_sol": "6.27", "nfts_per_graduation": "4.93", "source": "opensea (Robinhood Chain), 2026-10-11T23:09Z, 22.815 SOL/ETH (scripts/measure-robinhood-nfts.mjs)"},
+    "rekttradooors": {"tier": 85, "floor": "0.053 ETH", "floor_sol": "1.21", "nfts_per_graduation": "25.59", "source": "opensea (Robinhood Chain), 2026-10-11T23:09Z, 22.815 SOL/ETH (scripts/measure-robinhood-nfts.mjs)"}
+  }
+}

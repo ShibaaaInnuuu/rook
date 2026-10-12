@@ -1,0 +1,6 @@
+# Pinned so the canisters' wasm is reproducible (docs/v2/timelock-controller.md, "Reproducible build"). Changing this changes
+# every module hash; it is a reviewed change, like any other.
+[toolchain]
+channel = "1.98.1"
+targets = ["wasm32-unknown-unknown"]
+profile = "minimal"

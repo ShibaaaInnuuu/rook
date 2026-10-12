@@ -1,0 +1,120 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "boredapeyachtclub",
+    "name": "Bored Ape Yacht Club",
+    "chain": "ethereum",
+    "chainName": "Ethereum",
+    "chainId": 1,
+    "standard": "erc721",
+    "id": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
+    "description": null,
+    "image": "https://i2c.seadn.io/collection/boredapeyachtclub/image/1a09c26b1c30427b26944c47fc7bb9/d81a09c26b1c30427b26944c47fc7bb9.png",
+    "links": {
+      "website": "http://www.boredapeyachtclub.com/",
+      "x": "https://x.com/BoredApeYC",
+      "discord": "https://discord.gg/3P5K3dzgdB",
+      "marketplace": "https://opensea.io/collection/boredapeyachtclub",
+      "explorer": "https://etherscan.io/address/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"
+    },
+    "floor": {
+      "native": "6847000000000000000",
+      "unit": "wei",
+      "eth": 6.847,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/boredapeyachtclub/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 9997,
+    "owners": 5597,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": 1,
+    "sample": [
+      {
+        "id": "1",
+        "name": "#1",
+        "image": "https://ipfs.filebase.io/ipfs/QmPbxeGcXhYQQNgsC6a36dDyYUcHgMLnGKnF8pVFmGsvqi",
+        "url": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/1"
+      },
+      {
+        "id": "2",
+        "name": "#2",
+        "image": "https://ipfs.filebase.io/ipfs/QmcJYkCKK7QPmYWjp4FD2e3Lv5WCGFuHNUByvGKBaytif4",
+        "url": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/2"
+      },
+      {
+        "id": "3",
+        "name": "#3",
+        "image": "https://ipfs.filebase.io/ipfs/QmYxT4LnK8sqLupjbS6eRvu1si7Ly2wFQAqFebxhWntcf6",
+        "url": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/3"
+      },
+      {
+        "id": "4",
+        "name": "#4",
+        "image": "https://ipfs.filebase.io/ipfs/QmSg9bPzW9anFYc3wWU5KnvymwkxQTpmqcRSfYj7UmiBa7",
+        "url": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/4"
+      },
+      {
+        "id": "5",
+        "name": "#5",
+        "image": "https://ipfs.filebase.io/ipfs/QmNwbd7ctEhGpVkP8nZvBBQfiNeFKRdxftJAxxEdkUKLcQ",
+        "url": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/5"
+      },
+      {
+        "id": "6",
+        "name": "#6",
+        "image": "https://ipfs.filebase.io/ipfs/QmWBgfBhyVmHNhBfEQ7p1P4Mpn7pm5b8KgSab2caELnTuV",
+        "url": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/6"
+      },
+      {
+        "id": "7",
+        "name": "#7",
+        "image": "https://ipfs.filebase.io/ipfs/QmRsJLrg27GQ1ZWyrXZFuJFdU5bapfzsyBfm3CAX1V1bw6",
+        "url": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/7"
+      },
+      {
+        "id": "8",
+        "name": "#8",
+        "image": "https://ipfs.filebase.io/ipfs/QmXEqPbvM4aq1SQSXN8DSuEcSo5SseYW1izYQbsGB8yn9x",
+        "url": "https://etherscan.io/nft/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/8"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "live",
+      "slug": "apes",
+      "coins": 2,
+      "why": "Listed on Rook as a nest, with 2 coins sweeping it."
+    },
+    "curated": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Rekt Tradooors",
+  "symbol": "wREKTTRADO",
+  "description": "Rook's wrapped Rekt Tradooors token: each whole token is backed either by a Rekt Tradooors NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/rekttradooors.png",
+  "external_url": "https://userook.fun/#/collection/rekttradooors",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/rekttradooors.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

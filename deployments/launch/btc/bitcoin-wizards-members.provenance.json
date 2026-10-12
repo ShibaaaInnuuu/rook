@@ -1,0 +1,44 @@
+{
+  "slug": "bitcoin-wizards",
+  "taken_at": "2026-10-10T07:24:53.920Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 1337,
+  "root": "0x53daf6fc65bea13920360cdd299077ee401229e7d18bddc5d6728a541f56fb8c",
+  "proof_depth": 11,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/bitcoin-wizards/inscriptions",
+      "count": 1337,
+      "unique": 1337,
+      "left_out": []
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/da62a85d243fd8f02b7ae44b5e41d511cacdd0d5c45f33223ae369a349172ac0i0",
+      "count": 1338,
+      "unique": 1338,
+      "left_out": [
+        "b1c5baa2593b256068635bbc475e0cc439d66c2dcf12e9de6f3aaeaf96ff818bi0"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/bitcoin-wizards.json",
+      "count": 1338,
+      "not_in_members": [
+        "b1c5baa2593b256068635bbc475e0cc439d66c2dcf12e9de6f3aaeaf96ff818bi0"
+      ],
+      "members_missing": []
+    },
+    {
+      "name": "ordinalswallet-github",
+      "url": "https://raw.githubusercontent.com/ordinals-wallet/ordinals-collections/main/collections/bitcoin-wizards/inscriptions.json",
+      "count": 1337,
+      "not_in_members": [],
+      "members_missing": []
+    }
+  ]
+}

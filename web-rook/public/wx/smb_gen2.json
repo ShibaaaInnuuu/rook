@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped SMB Gen2",
+  "symbol": "wSMBGEN2",
+  "description": "Rook's wrapped SMB Gen2 token: each whole token is backed either by a SMB Gen2 NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/smb_gen2.png",
+  "external_url": "https://userook.fun/#/collection/smb_gen2",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/smb_gen2.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

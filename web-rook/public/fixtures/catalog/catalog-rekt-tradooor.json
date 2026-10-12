@@ -1,0 +1,119 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "rekt-tradooor",
+    "name": "Rekt Tradooor",
+    "chain": "robinhood",
+    "chainName": "Robinhood Chain",
+    "chainId": 4663,
+    "standard": "erc721",
+    "id": "0x7b3ecfa33657de415ff269dc97dfa82954cee706",
+    "description": "An ERC-721 collection on Robinhood Chain, in Nosh's collection registry.",
+    "image": "https://i2c.seadn.io/collection/rekt-tradooors/image_type_logo/0a5ffadcb8a27634b216fcbb0af6d1/9b0a5ffadcb8a27634b216fcbb0af6d1.gif",
+    "links": {
+      "website": "https://tradooor.rekt.com/",
+      "x": "https://x.com/rektguy",
+      "discord": null,
+      "marketplace": "https://opensea.io/collection/rekt-tradooor",
+      "explorer": "https://explorer.mainnet.chain.robinhood.com/address/0x7b3ecfa33657de415ff269dc97dfa82954cee706"
+    },
+    "floor": {
+      "native": "41936750000000000",
+      "unit": "wei",
+      "eth": 0.04193675,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/rekt-tradooor/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 9973,
+    "owners": 2023,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1",
+        "name": "Tradooor #1: Robinhood",
+        "image": "https://ipfs.filebase.io/ipfs/QmQsLPUfWTzjwPYzyojjqfZBwDaXN7YnqeX93D3ARRpMcR/1",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x7b3ecfa33657de415ff269dc97dfa82954cee706/instance/1"
+      },
+      {
+        "id": "2",
+        "name": "Tradooor #2: Vlad Tenev",
+        "image": "https://ipfs.filebase.io/ipfs/QmQsLPUfWTzjwPYzyojjqfZBwDaXN7YnqeX93D3ARRpMcR/2",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x7b3ecfa33657de415ff269dc97dfa82954cee706/instance/2"
+      },
+      {
+        "id": "3",
+        "name": "Tradooor #3: Pons",
+        "image": "https://ipfs.filebase.io/ipfs/QmQsLPUfWTzjwPYzyojjqfZBwDaXN7YnqeX93D3ARRpMcR/3",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x7b3ecfa33657de415ff269dc97dfa82954cee706/instance/3"
+      },
+      {
+        "id": "4",
+        "name": "Tradooor #4: BR4ted",
+        "image": "https://ipfs.filebase.io/ipfs/QmQsLPUfWTzjwPYzyojjqfZBwDaXN7YnqeX93D3ARRpMcR/4",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x7b3ecfa33657de415ff269dc97dfa82954cee706/instance/4"
+      },
+      {
+        "id": "5",
+        "name": "Tradooor #5: OttoSuwen",
+        "image": "https://ipfs.filebase.io/ipfs/QmQsLPUfWTzjwPYzyojjqfZBwDaXN7YnqeX93D3ARRpMcR/5",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x7b3ecfa33657de415ff269dc97dfa82954cee706/instance/5"
+      },
+      {
+        "id": "6",
+        "name": "Tradooor #6: Nooman",
+        "image": "https://ipfs.filebase.io/ipfs/QmQsLPUfWTzjwPYzyojjqfZBwDaXN7YnqeX93D3ARRpMcR/6",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x7b3ecfa33657de415ff269dc97dfa82954cee706/instance/6"
+      },
+      {
+        "id": "7",
+        "name": "Tradooor #7: TMA",
+        "image": "https://ipfs.filebase.io/ipfs/QmQsLPUfWTzjwPYzyojjqfZBwDaXN7YnqeX93D3ARRpMcR/7",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x7b3ecfa33657de415ff269dc97dfa82954cee706/instance/7"
+      },
+      {
+        "id": "8",
+        "name": "Tradooor #8: Orangie",
+        "image": "https://ipfs.filebase.io/ipfs/QmQsLPUfWTzjwPYzyojjqfZBwDaXN7YnqeX93D3ARRpMcR/8",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0x7b3ecfa33657de415ff269dc97dfa82954cee706/instance/8"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.042 ETH, 0.05 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

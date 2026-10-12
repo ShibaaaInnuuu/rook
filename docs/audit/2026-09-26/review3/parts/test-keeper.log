@@ -1,0 +1,846 @@
+
+> test
+> tsx --test test/*.test.ts
+
+TAP version 13
+# honest floor 536999 sats (L 565262, S 382330)
+#   k=1: target +7.27% (conf 3901, depth 3); one hour's post as built +4.99%, now +1.99%
+#   k=3: target +81.81% (conf 2725, depth 3); one hour's post as built skip, now skip
+# Subtest: R2-S1 (fixed): a forged file's entries do not prove against the on-chain root, so the resolver claims from the chain rebuild
+ok 1 - R2-S1 (fixed): a forged file's entries do not prove against the on-chain root, so the resolver claims from the chain rebuild
+  ---
+  duration_ms: 367.12525
+  type: 'test'
+  ...
+# Subtest: R2-S1 (fixed): with no source that proves (forged file, no copy, a chain rebuild that does not match), the draw pages claim-stuck after 1 h and is voided after 7 days; one rebuild per draw
+ok 2 - R2-S1 (fixed): with no source that proves (forged file, no copy, a chain rebuild that does not match), the draw pages claim-stuck after 1 h and is voided after 7 days; one rebuild per draw
+  ---
+  duration_ms: 506.859333
+  type: 'test'
+  ...
+# Subtest: R2-S2 (fixed): one relay of three answering other bytes no longer stops the open; the beacon picks, and the liar is an alert
+ok 3 - R2-S2 (fixed): one relay of three answering other bytes no longer stops the open; the beacon picks, and the liar is an alert
+  ---
+  duration_ms: 202.504917
+  type: 'test'
+  ...
+# Subtest: R2-S3 (fixed): after a self-transfer attempt, the re-price of the ORIGINAL call keeps the call's own gas, not 21,000
+ok 4 - R2-S3 (fixed): after a self-transfer attempt, the re-price of the ORIGINAL call keeps the call's own gas, not 21,000
+  ---
+  duration_ms: 92.695916
+  type: 'test'
+  ...
+# Subtest: R2-S3 (fixed): a replacement the node refuses for a reason that is not its price is not recorded, so it is never the base of the next re-price
+ok 5 - R2-S3 (fixed): a replacement the node refuses for a reason that is not its price is not recorded, so it is never the base of the next re-price
+  ---
+  duration_ms: 59.84875
+  type: 'test'
+  ...
+# Subtest: R2-S4 (fixed): buying the one cheap listing of the recorded 2026-09-23 book no longer lifts the posted floor at the module's full rate
+ok 6 - R2-S4 (fixed): buying the one cheap listing of the recorded 2026-09-23 book no longer lifts the posted floor at the module's full rate
+  ---
+  duration_ms: 7.176042
+  type: 'test'
+  ...
+# Subtest: R2-S5 (fixed): on 4663 a mirror requires its own base URL off the keeper's host, and publish reads the mirror's object back too
+ok 7 - R2-S5 (fixed): on 4663 a mirror requires its own base URL off the keeper's host, and publish reads the mirror's object back too
+  ---
+  duration_ms: 2.307
+  type: 'test'
+  ...
+# Subtest: R2-S6 (fixed): fetchText stops reading at the cap, and refuses a host that resolves to a private address before it asks
+ok 8 - R2-S6 (fixed): fetchText stops reading at the cap, and refuses a host that resolves to a private address before it asks
+  ---
+  duration_ms: 6.496
+  type: 'test'
+  ...
+# Subtest: R2-S7 (fixed): the keeper image installs production dependencies only and runs as node
+ok 9 - R2-S7 (fixed): the keeper image installs production dependencies only and runs as node
+  ---
+  duration_ms: 0.776792
+  type: 'test'
+  ...
+# Subtest: R2-S8 (fixed): alerts in force for KEEPER_ALERT_PASSES passes turn /healthz 503, and the kinds (never the texts) are what it names
+ok 10 - R2-S8 (fixed): alerts in force for KEEPER_ALERT_PASSES passes turn /healthz 503, and the kinds (never the texts) are what it names
+  ---
+  duration_ms: 0.458625
+  type: 'test'
+  ...
+# Subtest: structurally unable to send: no source file constructs a signer, holds a key, or names a send method or a buy endpoint
+ok 11 - structurally unable to send: no source file constructs a signer, holds a key, or names a send method or a buy endpoint
+  ---
+  duration_ms: 2.46575
+  type: 'test'
+  ...
+# Subtest: the one RPC function refuses every method that is not a read, before any request is made
+ok 12 - the one RPC function refuses every method that is not a read, before any request is made
+  ---
+  duration_ms: 21.104417
+  type: 'test'
+  ...
+# Subtest: reading the contracts is eth_call and nothing else
+ok 13 - reading the contracts is eth_call and nothing else
+  ---
+  duration_ms: 30.762291
+  type: 'test'
+  ...
+# Subtest: the Magic Eden source reads and nothing else: GET only, spaced out, and an answer it does not understand is an error, not a price
+ok 14 - the Magic Eden source reads and nothing else: GET only, spaced out, and an answer it does not understand is an error, not a price
+  ---
+  duration_ms: 0.41525
+  type: 'test'
+  ...
+# Subtest: the assumed interface: every selector is the keccak of its signature (a rename changes one line)
+ok 15 - the assumed interface: every selector is the keccak of its signature (a rename changes one line)
+  ---
+  duration_ms: 7.662167
+  type: 'test'
+  ...
+# Subtest: §5.2 the band: pro rata to the time since the last post, capped at an hour, and inside the chain's own bounds
+ok 16 - §5.2 the band: pro rata to the time since the last post, capped at an hour, and inside the chain's own bounds
+  ---
+  duration_ms: 0.301209
+  type: 'test'
+  ...
+# Subtest: §5.2 skip, keep, post: no floor, low confidence, within 1%, the TTL refresh, the first post
+ok 17 - §5.2 skip, keep, post: no floor, low confidence, within 1%, the TTL refresh, the first post
+  ---
+  duration_ms: 1.368875
+  type: 'test'
+  ...
+# Subtest: §5.2 stepping: a 30% move is walked at the chain's pace; every post is inside the pro-rata rule, and inside a rolling-hour chain's floorBounds()
+ok 18 - §5.2 stepping: a 30% move is walked at the chain's pace; every post is inside the pro-rata rule, and inside a rolling-hour chain's floorBounds()
+  ---
+  duration_ms: 3.969583
+  type: 'test'
+  ...
+# Subtest: readPosted: eth_call only; a module without floorBounds() reads as no bounds
+ok 19 - readPosted: eth_call only; a module without floorBounds() reads as no bounds
+  ---
+  duration_ms: 1.311917
+  type: 'test'
+  ...
+# Subtest: the staging poster: sends the stepped postFloor as the module's keeper, and refuses anything but the staging chain on this machine
+ok 20 - the staging poster: sends the stepped postFloor as the module's keeper, and refuses anything but the staging chain on this machine
+  ---
+  duration_ms: 1.541125
+  type: 'test'
+  ...
+# frogs: {
+#   L: 565262n,
+#   S: 382330n,
+#   floor: 536999n,
+#   conf: 5204,
+#   depth: 3,
+#   upCost10: 998331n,
+#   wei: 168560173268880657n,
+#   excludedSales: [
+#     'S-item-repeat', 'S-bundle', 'S-item-repeat', 'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-window',      'S-window',
+#     'S-window',      'S-window', 'S-repeat'
+#   ]
+# }
+# bayc: {
+#   L: 6098400000000000000n,
+#   S: 6660000000000000000n,
+#   conf: 8782,
+#   depth: 12,
+#   upCost10: 63964899999900000000n,
+#   bundle: 8,
+#   wash: 5,
+#   outlier: 0,
+#   repeat: 15,
+#   self: 0
+# }
+# Subtest: §1.4 the statistic: lower median of the lowest five listings, one per seller, blended down toward the sales median
+ok 21 - §1.4 the statistic: lower median of the lowest five listings, one per seller, blended down toward the sales median
+  ---
+  duration_ms: 18.101209
+  type: 'test'
+  ...
+# Subtest: §1.5 confidence: count × spread × sales × agreement, in bps
+ok 22 - §1.5 confidence: count × spread × sales × agreement, in bps
+  ---
+  duration_ms: 1.096584
+  type: 'test'
+  ...
+# Subtest: L-unverified and L-extras: ord must say the outpoint carries exactly the one inscription and no rune
+ok 23 - L-unverified and L-extras: ord must say the outpoint carries exactly the one inscription and no rune
+  ---
+  duration_ms: 0.434125
+  type: 'test'
+  ...
+# Subtest: L-currency, L-extras, L-unfillable, L-stale on EVM orders
+ok 24 - L-currency, L-extras, L-unfillable, L-stale on EVM orders
+  ---
+  duration_ms: 0.569333
+  type: 'test'
+  ...
+# Subtest: scenario: a fake cheap listing must survive thirty minutes of snipers, and alone moves the median one step
+ok 25 - scenario: a fake cheap listing must survive thirty minutes of snipers, and alone moves the median one step
+  ---
+  duration_ms: 1.335167
+  type: 'test'
+  ...
+# Subtest: scenario: a delist burst excludes the wallet for six hours after its last event, whatever it lists
+ok 26 - scenario: a delist burst excludes the wallet for six hours after its last event, whatever it lists
+  ---
+  duration_ms: 5.124083
+  type: 'test'
+  ...
+# Subtest: L-seller-dup: one wallet, or one cluster, is one vote
+ok 27 - L-seller-dup: one wallet, or one cluster, is one vote
+  ---
+  duration_ms: 0.46125
+  type: 'test'
+  ...
+# Subtest: scenario: wash sales — self-sales, both-direction pairs and sub-quarter transfers are dropped, and cannot lift the floor anyway
+ok 28 - scenario: wash sales — self-sales, both-direction pairs and sub-quarter transfers are dropped, and cannot lift the floor anyway
+  ---
+  duration_ms: 0.307917
+  type: 'test'
+  ...
+# Subtest: S-bundle, S-outlier, S-repeat, S-window
+ok 29 - S-bundle, S-outlier, S-repeat, S-window
+  ---
+  duration_ms: 0.715291
+  type: 'test'
+  ...
+# Subtest: scenario: a bought-out bottom — the cost to raise the floor is the sum of what has to be bought
+ok 30 - scenario: a bought-out bottom — the cost to raise the floor is the sum of what has to be bought
+  ---
+  duration_ms: 0.870958
+  type: 'test'
+  ...
+# Subtest: §3.1 frogs, recorded: without ord every Bitcoin listing is unverified and nothing is posted; with ord clean, the measured floor
+ok 31 - §3.1 frogs, recorded: without ord every Bitcoin listing is unverified and nothing is posted; with ord clean, the measured floor
+  ---
+  duration_ms: 10.747708
+  type: 'test'
+  ...
+# Subtest: §3.2 BAYC, recorded: the week's Seaport fills as a proxy ladder, the sales rules on real wash and bundle patterns
+ok 32 - §3.2 BAYC, recorded: the week's Seaport fills as a proxy ladder, the sales rules on real wash and bundle patterns
+  ---
+  duration_ms: 1.699292
+  type: 'test'
+  ...
+# Subtest: OpenSea: GETs with the key read at call time; the key is in no log line and no error; plain ETH listings only
+ok 33 - OpenSea: GETs with the key read at call time; the key is in no log line and no error; plain ETH listings only
+  ---
+  duration_ms: 68.775042
+  type: 'test'
+  ...
+# Subtest: Ordinals Wallet and ord: GET only, spaced out, strict, and an unanswered outpoint stays unverified
+ok 34 - Ordinals Wallet and ord: GET only, spaced out, strict, and an unanswered outpoint stays unverified
+  ---
+  duration_ms: 2.844042
+  type: 'test'
+  ...
+# Subtest: docs/phase4.md §5 — dry-run is the default and the only mode, and the smallest valid configuration is one address
+ok 35 - docs/phase4.md §5 — dry-run is the default and the only mode, and the smallest valid configuration is one address
+  ---
+  duration_ms: 4.246375
+  type: 'test'
+  ...
+# Subtest: it refuses to start on contradictions and unknowns, and says all of them at once
+ok 36 - it refuses to start on contradictions and unknowns, and says all of them at once
+  ---
+  duration_ms: 0.497208
+  type: 'test'
+  ...
+# Subtest: KEEPER_MODE=local while pointed at anything that is not this machine is a contradiction, and stops it
+ok 37 - KEEPER_MODE=local while pointed at anything that is not this machine is a contradiction, and stops it
+  ---
+  duration_ms: 0.121792
+  type: 'test'
+  ...
+# Subtest: the journal: whole lines, flushed; a torn final line from a crash is removed on the next start and nothing good is lost
+ok 38 - the journal: whole lines, flushed; a torn final line from a crash is removed on the next start and nothing good is lost
+  ---
+  duration_ms: 35.343542
+  type: 'test'
+  ...
+# Subtest: backoff: 1, 2, 4, 8 … capped at 60 s; it gives the pass up after its tries; and what another try cannot fix is thrown at once
+ok 39 - backoff: 1, 2, 4, 8 … capped at 60 s; it gives the pass up after its tries; and what another try cannot fix is thrown at once
+  ---
+  duration_ms: 1.685459
+  type: 'test'
+  ...
+# Subtest: health: 200 while passes keep completing, 503 after a run of failures or a silence of three intervals; GET /healthz only
+ok 40 - health: 200 while passes keep completing, 503 after a run of failures or a silence of three intervals; GET /healthz only
+  ---
+  duration_ms: 78.0145
+  type: 'test'
+  ...
+# Subtest: logs are one JSON object a line, bigints are strings, and a URL is cut down to its host so that a keyed RPC URL never reaches a log
+ok 41 - logs are one JSON object a line, bigints are strings, and a URL is cut down to its host so that a keyed RPC URL never reaches a log
+  ---
+  duration_ms: 1.093417
+  type: 'test'
+  ...
+# Subtest: firstEmptyBlock: the first block of the window with no ticket, or null when every moment has one
+ok 42 - firstEmptyBlock: the first block of the window with no ticket, or null when every moment has one
+  ---
+  duration_ms: 1.609458
+  type: 'test'
+  ...
+# Subtest: a draw voided before its pin: the next announcement carries its seed; the keeper opens it at the ORIGIN's snapshot time, read on chain
+ok 43 - a draw voided before its pin: the next announcement carries its seed; the keeper opens it at the ORIGIN's snapshot time, read on chain
+  ---
+  duration_ms: 340.680208
+  type: 'test'
+  ...
+# Subtest: a young coin whose snapshot window has an empty moment is not announced (a snapshot there would be a round with no winner)
+ok 44 - a young coin whose snapshot window has an empty moment is not announced (a snapshot there would be a round with no winner)
+  ---
+  duration_ms: 186.800333
+  type: 'test'
+  ...
+# Subtest: a carried snapshot time with no ticket: announced, opened EMPTY (the sentinel alone), closed with no winner; the carry is consumed (fixes-R3-carry)
+ok 45 - a carried snapshot time with no ticket: announced, opened EMPTY (the sentinel alone), closed with no winner; the carry is consumed (fixes-R3-carry)
+  ---
+  duration_ms: 310.94475
+  type: 'test'
+  ...
+# Subtest: a draw with its own seed whose snapshot turns out empty is opened empty, not left to be voided and carried (fixes-R3-carry)
+ok 46 - a draw with its own seed whose snapshot turns out empty is opened empty, not left to be voided and carried (fixes-R3-carry)
+  ---
+  duration_ms: 209.665875
+  type: 'test'
+  ...
+# Subtest: the first day of a stack: the window reaches before the stack's first block, so nothing is announced, and the pass goes on
+ok 47 - the first day of a stack: the window reaches before the stack's first block, so nothing is announced, and the pass goes on
+  ---
+  duration_ms: 145.990625
+  type: 'test'
+  ...
+# Subtest: no sender without KEEPER_MODE=local — and the node is not even asked
+ok 48 - no sender without KEEPER_MODE=local — and the node is not even asked
+  ---
+  duration_ms: 10.770375
+  type: 'test'
+  ...
+# Subtest: no sender for any chain the node reports other than 31337: Robinhood Chain, mainnet, anything
+ok 49 - no sender for any chain the node reports other than 31337: Robinhood Chain, mainnet, anything
+  ---
+  duration_ms: 3.288125
+  type: 'test'
+  ...
+# Subtest: with both, it sends — and asks the node which chain it is again before every send, so a repointed RPC is refused mid-run
+ok 50 - with both, it sends — and asks the node which chain it is again before every send, so a repointed RPC is refused mid-run
+  ---
+  duration_ms: 0.669833
+  type: 'test'
+  ...
+# Subtest: the ability to send lives in ONE file, and no file anywhere in this package holds or reads a key
+ok 51 - the ability to send lives in ONE file, and no file anywhere in this package holds or reads a key
+  ---
+  duration_ms: 3.309459
+  type: 'test'
+  ...
+# Subtest: §12.2: one POST to OpenSea's v2 listings fulfillment route, the key in x-api-key, the canister named as fulfiller
+ok 52 - §12.2: one POST to OpenSea's v2 listings fulfillment route, the key in x-api-key, the canister named as fulfiller
+  ---
+  duration_ms: 69.798625
+  type: 'test'
+  ...
+# Subtest: the recipient in our calldata is the fulfiller we asked for, whatever OpenSea's answer names
+ok 53 - the recipient in our calldata is the fulfiller we asked for, whatever OpenSea's answer names
+  ---
+  duration_ms: 0.676
+  type: 'test'
+  ...
+# Subtest: an answer that is not what was asked for is refused, before anything reaches the canister
+ok 54 - an answer that is not what was asked for is refused, before anything reaches the canister
+  ---
+  duration_ms: 7.066292
+  type: 'test'
+  ...
+# Subtest: a 429 waits out Retry-After and is retried through backoff.ts; a rejected key or a missing listing is not retried
+ok 55 - a 429 waits out Retry-After and is retried through backoff.ts; a rejected key or a missing listing is not retried
+  ---
+  duration_ms: 3.619458
+  type: 'test'
+  ...
+# Subtest: no key, no request; an unknown chain, no request
+ok 56 - no key, no request; an unknown chain, no request
+  ---
+  duration_ms: 1.048625
+  type: 'test'
+  ...
+# Subtest: the key never reaches a log line: not as a field, not nested, not inside an error, not from a retry
+ok 57 - the key never reaches a log line: not as a field, not nested, not inside an error, not from a retry
+  ---
+  duration_ms: 28.071084
+  type: 'test'
+  ...
+# Subtest: only opensea.ts reads the key, and only to put it in the one header
+ok 58 - only opensea.ts reads the key, and only to put it in the one header
+  ---
+  duration_ms: 0.823917
+  type: 'test'
+  ...
+# Subtest: agree: three providers place the frog on the same satpoint at the same height, and the merged answer carries every fact
+ok 59 - agree: three providers place the frog on the same satpoint at the same height, and the merged answer carries every fact
+  ---
+  duration_ms: 50.222375
+  type: 'test'
+  ...
+# Subtest: disagree: one provider naming another outpoint, offset or set of inscriptions is unverified, and nothing is believed
+ok 60 - disagree: one provider naming another outpoint, offset or set of inscriptions is unverified, and nothing is believed
+  ---
+  duration_ms: 2.493958
+  type: 'test'
+  ...
+# Subtest: one down: a provider that errors, or answers something unreadable, makes the read unverified; a spent output is null on both sides
+ok 61 - one down: a provider that errors, or answers something unreadable, makes the read unverified; a spent output is null on both sides
+  ---
+  duration_ms: 0.903583
+  type: 'test'
+  ...
+# Subtest: rate limited: a 429 parks that provider for Retry-After (capped at a minute), the read is 'rate-limited' until then, and the park expires
+ok 62 - rate limited: a 429 parks that provider for Retry-After (capped at a minute), the read is 'rate-limited' until then, and the park expires
+  ---
+  duration_ms: 3.582583
+  type: 'test'
+  ...
+# Subtest: stale: providers at heights more than one block apart, or a height that moves during a read, are not the same question
+ok 63 - stale: providers at heights more than one block apart, or a height that moves during a read, are not the same question
+  ---
+  duration_ms: 1.218584
+  type: 'test'
+  ...
+# Subtest: unsupported: fewer than two providers answering a read is unverified, and the floor's ord sees null (L-unverified)
+ok 64 - unsupported: fewer than two providers answering a read is unverified, and the floor's ord sees null (L-unverified)
+  ---
+  duration_ms: 1.051625
+  type: 'test'
+  ...
+# Subtest: tx facts: UniSat's confirmations against esplora's; a mempool transaction is 0, one no explorer knows is null
+ok 65 - tx facts: UniSat's confirmations against esplora's; a mempool transaction is 0, one no explorer knows is null
+  ---
+  duration_ms: 1.612459
+  type: 'test'
+  ...
+# Subtest: listings: one provider's book, cached 45 s; a listing never moves money by itself
+ok 66 - listings: one provider's book, cached 45 s; a listing never moves money by itself
+  ---
+  duration_ms: 0.924667
+  type: 'test'
+  ...
+# Subtest: the key: read at call time, into one header of one host; missing means no request; never in a log line or an error
+ok 67 - the key: read at call time, into one header of one host; missing means no request; never in a log line or an error
+  ---
+  duration_ms: 2.315125
+  type: 'test'
+  ...
+# Subtest: an unverified read is logged once an hour per kind, not once a tick
+ok 68 - an unverified read is logged once an hour per kind, not once a tick
+  ---
+  duration_ms: 20.211833
+  type: 'test'
+  ...
+# Subtest: merging: facts one provider lacks are filled from another; a fact both give must match; rune names compare without spacers
+ok 69 - merging: facts one provider lacks are filled from another; a fact both give must match; rune names compare without spacers
+  ---
+  duration_ms: 19.795125
+  type: 'test'
+  ...
+# Subtest: only ordapi.ts reads UNISAT_API_KEY, and only to put it in the one header
+ok 70 - only ordapi.ts reads UNISAT_API_KEY, and only to put it in the one header
+  ---
+  duration_ms: 4.415958
+  type: 'test'
+  ...
+# Subtest: a paused listing, a vault blocked by an overdue receipt, and a full set of open purchases each get no declaration, and say which
+ok 71 - a paused listing, a vault blocked by an overdue receipt, and a full set of open purchases each get no declaration, and say which
+  ---
+  duration_ms: 2.222917
+  type: 'test'
+  ...
+# Subtest: the cap is the floor through the bridge plus 5%, so the bridge's cost is inside it; a fresh close cap is kept, a stale or moved one re-posted
+ok 72 - the cap is the floor through the bridge plus 5%, so the bridge's cost is inside it; a fresh close cap is kept, a stale or moved one re-posted
+  ---
+  duration_ms: 0.19975
+  type: 'test'
+  ...
+# Subtest: a declaration never exceeds the balance or cap × quantity, never more than three inscriptions, and nothing under 0.05 ETH
+ok 73 - a declaration never exceeds the balance or cap × quantity, never more than three inscriptions, and nothing under 0.05 ETH
+  ---
+  duration_ms: 0.200833
+  type: 'test'
+  ...
+# Subtest: a rune: the cap is per WHOLE unit and the quantity is raw units, exactly as the vault's bound computes it
+ok 74 - a rune: the cap is per WHOLE unit and the quantity is raw units, exactly as the vault's bound computes it
+  ---
+  duration_ms: 0.246792
+  type: 'test'
+  ...
+# Subtest: the policy's numbers are the documented ones
+ok 75 - the policy's numbers are the documented ones
+  ---
+  duration_ms: 0.158333
+  type: 'test'
+  ...
+# Subtest: staging: sends only with KEEPER_MODE=staging, only through a node on this machine, and only if that node says the staging chain id — never 4663, never 46630
+ok 76 - staging: sends only with KEEPER_MODE=staging, only through a node on this machine, and only if that node says the staging chain id — never 4663, never 46630
+  ---
+  duration_ms: 3.157167
+  type: 'test'
+  ...
+# Subtest: tier 2 signs on FIVE facts together and says which is missing: mode, latch, confirm string, a deployment labelled test naming this signer, and a node that says 4663
+ok 77 - tier 2 signs on FIVE facts together and says which is missing: mode, latch, confirm string, a deployment labelled test naming this signer, and a node that says 4663
+  ---
+  duration_ms: 33.1095
+  type: 'test'
+  ...
+# Subtest: tier 2's commands: a declaration over the test's ceiling is refused before anything is armed, and --dry signs nothing
+ok 78 - tier 2's commands: a declaration over the test's ceiling is refused before anything is armed, and --dry signs nothing
+  ---
+  duration_ms: 1.072916
+  type: 'test'
+  ...
+# Subtest: where sending code may live: src/ none at all; local/ 31337; staging/ 9466301 and keyless; live/ the only place a key is read, and only through arm()
+ok 79 - where sending code may live: src/ none at all; local/ 31337; staging/ 9466301 and keyless; live/ the only place a key is read, and only through arm()
+  ---
+  duration_ms: 1.739417
+  type: 'test'
+  ...
+# Subtest: the staging collection: 1,024 fixture members, the root script/Deploy.s.sol lists on the fork, and proofs that OpenZeppelin's MerkleProof accepts
+ok 80 - the staging collection: 1,024 fixture members, the root script/Deploy.s.sol lists on the fork, and proofs that OpenZeppelin's MerkleProof accepts
+  ---
+  duration_ms: 47.835334
+  type: 'test'
+  ...
+# Subtest: no chain id, no start: KEEPER_CHAIN_ID has no default and must be a number
+ok 81 - no chain id, no start: KEEPER_CHAIN_ID has no default and must be a number
+  ---
+  duration_ms: 1.067709
+  type: 'test'
+  ...
+# Subtest: dry run is the default; send needs KEEPER_MODE=send, and --dry-run always wins
+ok 82 - dry run is the default; send needs KEEPER_MODE=send, and --dry-run always wins
+  ---
+  duration_ms: 0.139958
+  type: 'test'
+  ...
+# Subtest: the RPCs: Robinhood's own and ordofi by default (never robinhood.drpc.org); https only, plain http only for this machine
+ok 83 - the RPCs: Robinhood's own and ordofi by default (never robinhood.drpc.org); https only, plain http only for this machine
+  ---
+  duration_ms: 2.38275
+  type: 'test'
+  ...
+# Subtest: a fixture floor is never sent to 4663; every problem is listed at once; unknown flags are refused
+ok 84 - a fixture floor is never sent to 4663; every problem is listed at once; unknown flags are refused
+  ---
+  duration_ms: 0.926
+  type: 'test'
+  ...
+# Subtest: the caps: defaults, bounds, and a per-transaction cap above the day's is refused
+ok 85 - the caps: defaults, bounds, and a per-transaction cap above the day's is refused
+  ---
+  duration_ms: 1.064084
+  type: 'test'
+  ...
+# Subtest: the stack file: its chain id and label must be the keeper's, and every address it posts to must be there
+ok 86 - the stack file: its chain id and label must be the keeper's, and every address it posts to must be there
+  ---
+  duration_ms: 0.527833
+  type: 'test'
+  ...
+# Subtest: the signer: unset is null (a dry run); a malformed key is refused WITHOUT repeating it; the scrubber cuts it in any case
+ok 87 - the signer: unset is null (a dry run); a malformed key is refused WITHOUT repeating it; the scrubber cuts it in any case
+  ---
+  duration_ms: 39.281417
+  type: 'test'
+  ...
+# Subtest: the draw: announced at the slot; opened once two relays serve the seed round and the beacon verifies it; the snapshot at the last block ≤ snapshotAt, with the sentinel; published and read back
+ok 88 - the draw: announced at the slot; opened once two relays serve the seed round and the beacon verifies it; the snapshot at the last block ≤ snapshotAt, with the sentinel; published and read back
+  ---
+  duration_ms: 224.809083
+  type: 'test'
+  ...
+# Subtest: the resolver finishes the draw with no keeper power: requestDraw after the challenge window, resolve with the pinned round, claim for the winner with the published proof
+ok 89 - the resolver finishes the draw with no keeper power: requestDraw after the challenge window, resolve with the pinned round, claim for the winner with the published proof
+  ---
+  duration_ms: 387.719666
+  type: 'test'
+  ...
+# Subtest: claims never depend on the file alone: with the published file gone, the resolver rebuilds the tree from the chain and claims only under the draw's root
+ok 90 - claims never depend on the file alone: with the published file gone, the resolver rebuilds the tree from the chain and claims only under the draw's root
+  ---
+  duration_ms: 327.3215
+  type: 'test'
+  ...
+# Subtest: drand: two relays must agree; one relay down is 'waiting'; a relay serving other bytes is outvoted by the beacon and alerted (R2-S2)
+ok 91 - drand: two relays must agree; one relay down is 'waiting'; a relay serving other bytes is outvoted by the beacon and alerted (R2-S2)
+  ---
+  duration_ms: 155.607
+  type: 'test'
+  ...
+# Subtest: never a quiet skip: a slot whose due draw is not announced in the window is an alert; a draw not opened in time is voided by the resolver
+ok 92 - never a quiet skip: a slot whose due draw is not announced in the window is an alert; a draw not opened in time is voided by the resolver
+  ---
+  duration_ms: 257.119292
+  type: 'test'
+  ...
+# Subtest: E-11: a log scan over the provider's 10,000-log cap is split, not skipped; logs are cached, so the next draw reads only new blocks
+ok 93 - E-11: a log scan over the provider's 10,000-log cap is split, not skipped; logs are cached, so the next draw reads only new blocks
+  ---
+  duration_ms: 125.242125
+  type: 'test'
+  ...
+# Subtest: E-14: an unreadable exclusions list stops the draw (alerted), never an empty list
+ok 94 - E-14: an unreadable exclusions list stops the draw (alerted), never an empty list
+  ---
+  duration_ms: 65.932292
+  type: 'test'
+  ...
+# Subtest: the mirror: the snapshot is PUT off the keeper's volume (the credential never logged) and the draw's URI is the mirror's, read back byte for byte before openDraw
+ok 95 - the mirror: the snapshot is PUT off the keeper's volume (the credential never logged) and the draw's URI is the mirror's, read back byte for byte before openDraw
+  ---
+  duration_ms: 77.379209
+  type: 'test'
+  ...
+# Subtest: the Wrapper's tickets are resolved in order as their rounds exist; the walk stops at the first round not yet served
+ok 96 - the Wrapper's tickets are resolved in order as their rounds exist; the walk stops at the first round not yet served
+  ---
+  duration_ms: 100.543583
+  type: 'test'
+  ...
+# Subtest: the standalone resolver: its own key, no role; it resolves while the keeper is paused (the keeper sends nothing then); the keeper's key is refused
+ok 97 - the standalone resolver: its own key, no role; it resolves while the keeper is paused (the keeper sends nothing then); the keeper's key is refused
+  ---
+  duration_ms: 95.487375
+  type: 'test'
+  ...
+# Subtest: E-04: the RAFFLE vault's draws are walked from the lowest one not final; coins are indexed once, a bounded number per pass
+ok 98 - E-04: the RAFFLE vault's draws are walked from the lowest one not final; coins are indexed once, a bounded number per pass
+  ---
+  duration_ms: 57.049292
+  type: 'test'
+  ...
+# Subtest: the keeper's pause: refused every pass while paused, and a pause that lands mid-pass stops the next signature
+ok 99 - the keeper's pause: refused every pass while paused, and a pause that lands mid-pass stops the next signature
+  ---
+  duration_ms: 58.685291
+  type: 'test'
+  ...
+# Subtest: the recorded frog book: with two ordinals providers agreeing on every listed output, the measured floor in wei (docs/v5/floor-feed.md §9)
+ok 100 - the recorded frog book: with two ordinals providers agreeing on every listed output, the measured floor in wei (docs/v5/floor-feed.md §9)
+  ---
+  duration_ms: 33.731625
+  type: 'test'
+  ...
+# Subtest: never a floor the feed does not agree on: one provider (no UniSat key), a provider down, providers disagreeing, heights apart
+ok 101 - never a floor the feed does not agree on: one provider (no UniSat key), a provider down, providers disagreeing, heights apart
+  ---
+  duration_ms: 23.26275
+  type: 'test'
+  ...
+# Subtest: the rate: two keyless references must agree (within 1% by default); the higher sats/ETH (the LOWER floor in wei, E-09) is used; one down or apart is no rate
+ok 102 - the rate: two keyless references must agree (within 1% by default); the higher sats/ETH (the LOWER floor in wei, E-09) is used; one down or apart is no rate
+  ---
+  duration_ms: 5.859833
+  type: 'test'
+  ...
+# Subtest: the production floor policy: refresh with 30 minutes of the hour left, re-post on a move over 0.5% (floor-module.md §5)
+ok 103 - the production floor policy: refresh with 30 minutes of the hour left, re-post on a move over 0.5% (floor-module.md §5)
+  ---
+  duration_ms: 4.981917
+  type: 'test'
+  ...
+# Subtest: caps (H12, C-01): floor + margin; stepped inside ±20% of a fresh cap; one post per 10 minutes on both clocks; never over the ceiling; no ceiling or no floor, no cap
+ok 104 - caps (H12, C-01): floor + margin; stepped inside ±20% of a fresh cap; one post per 10 minutes on both clocks; never over the ceiling; no ceiling or no floor, no cap
+  ---
+  duration_ms: 3.0495
+  type: 'test'
+  ...
+# Subtest: draw slots: T_k = k × every + offset on the chain's clock; open under the window on both clocks; past it, skipped
+ok 105 - draw slots: T_k = k × every + offset on the chain's clock; open under the window on both clocks; past it, skipped
+  ---
+  duration_ms: 2.916125
+  type: 'test'
+  ...
+# Subtest: KEEPER_PRIVATE_KEY and RESOLVER_PRIVATE_KEY are read in service/signer.ts and nowhere else in the package; that file prints nothing
+ok 106 - KEEPER_PRIVATE_KEY and RESOLVER_PRIVATE_KEY are read in service/signer.ts and nowhere else in the package; that file prints nothing
+  ---
+  duration_ms: 18.255791
+  type: 'test'
+  ...
+# Subtest: in service/, only signer.ts builds an account; nothing asks a node to sign (eth_sendTransaction, eth_sign, personal_sign)
+ok 107 - in service/, only signer.ts builds an account; nothing asks a node to sign (eth_sendTransaction, eth_sign, personal_sign)
+  ---
+  duration_ms: 3.491916
+  type: 'test'
+  ...
+# Subtest: what each role may call is closed: the keeper postFloor, postCap, announceDraw, openDraw; the resolver only calls anyone may make; nobody records a delivery
+ok 108 - what each role may call is closed: the keeper postFloor, postCap, announceDraw, openDraw; the resolver only calls anyone may make; nobody records a delivery
+  ---
+  duration_ms: 2.542584
+  type: 'test'
+  ...
+# Subtest: no script arms send mode for you, and the image does not either: KEEPER_MODE=send is the operator's to set
+ok 109 - no script arms send mode for you, and the image does not either: KEEPER_MODE=send is the operator's to set
+  ---
+  duration_ms: 0.558334
+  type: 'test'
+  ...
+# Subtest: a dry run simulates the floor and both caps from the agreed floor, signs nothing, and never calls eth_sendRawTransaction
+ok 110 - a dry run simulates the floor and both caps from the agreed floor, signs nothing, and never calls eth_sendRawTransaction
+  ---
+  duration_ms: 51.806916
+  type: 'test'
+  ...
+# Subtest: send: postFloor, then postCap on RAFFLE and BURN — never YOYO; a second pass and a restart keep, and send nothing
+ok 111 - send: postFloor, then postCap on RAFFLE and BURN — never YOYO; a second pass and a restart keep, and send nothing
+  ---
+  duration_ms: 304.280833
+  type: 'test'
+  ...
+# Subtest: the floor is posted only from an agreed feed: no fixture row, or confidence under the module's minimum, posts nothing — and then no cap either
+ok 112 - the floor is posted only from an agreed feed: no fixture row, or confidence under the module's minimum, posts nothing — and then no cap either
+  ---
+  duration_ms: 70.487125
+  type: 'test'
+  ...
+# Subtest: refusals every pass: a key that is not registry.keeper(), or not the module's keeper, or that has code (EIP-7702) — nothing is sent
+ok 113 - refusals every pass: a key that is not registry.keeper(), or not the module's keeper, or that has code (EIP-7702) — nothing is sent
+  ---
+  duration_ms: 23.221292
+  type: 'test'
+  ...
+# Subtest: the chain id: an RPC that reports another is not used (none left: refused at start); one that changes before a send has that send refused
+ok 114 - the chain id: an RPC that reports another is not used (none left: refused at start); one that changes before a send has that send refused
+  ---
+  duration_ms: 33.978125
+  type: 'test'
+  ...
+# Subtest: gas caps: per-transaction gas, the fee (refused, never lowered), the per-transaction worst case, and the day's budget (which resets at the UTC day)
+ok 115 - gas caps: per-transaction gas, the fee (refused, never lowered), the per-transaction worst case, and the day's budget (which resets at the UTC day)
+  ---
+  duration_ms: 162.64975
+  type: 'test'
+  ...
+# Subtest: one transaction in flight: no receipt yet → the pass stops; the next pass re-broadcasts the SAME bytes; mined → recorded; a used nonce with no receipt → dropped
+ok 116 - one transaction in flight: no receipt yet → the pass stops; the next pass re-broadcasts the SAME bytes; mined → recorded; a used nonce with no receipt → dropped
+  ---
+  duration_ms: 161.116541
+  type: 'test'
+  ...
+# Subtest: a node that refuses the bytes outright (insufficient funds) leaves nothing in flight; a failed simulation sends nothing and says why by name
+ok 117 - a node that refuses the bytes outright (insufficient funds) leaves nothing in flight; a failed simulation sends nothing and says why by name
+  ---
+  duration_ms: 32.92925
+  type: 'test'
+  ...
+# Subtest: the key is never printed: not in a log line, a status body, a pass report or an error
+ok 118 - the key is never printed: not in a log line, a status body, a pass report or an error
+  ---
+  duration_ms: 95.583458
+  type: 'test'
+  ...
+# Subtest: the registry is read for the dry run's sender; a dry run on 4663 with a fixture is allowed (it signs nothing)
+ok 119 - the registry is read for the dry run's sender; a dry run on 4663 with a fixture is allowed (it signs nothing)
+  ---
+  duration_ms: 13.076542
+  type: 'test'
+  ...
+# Subtest: a catalogue listing's members: the real inscription ids first, the fixture ids after, and proofs against the root the registry holds
+ok 120 - a catalogue listing's members: the real inscription ids first, the fixture ids after, and proofs against the root the registry holds
+  ---
+  duration_ms: 944.231041
+  type: 'test'
+  ...
+# Subtest: a listing the manifest does not name keeps the fixture collection the deploy gave it
+ok 121 - a listing the manifest does not name keeps the fixture collection the deploy gave it
+  ---
+  duration_ms: 802.851875
+  type: 'test'
+  ...
+# Subtest: a rune has no floor to post a cap from, and the source says so in the words the operator listens for
+ok 122 - a rune has no floor to post a cap from, and the source says so in the words the operator listens for
+  ---
+  duration_ms: 0.604
+  type: 'test'
+  ...
+# Subtest: E-02 inverted: a thief's confidence-0 post at the same price is REPAIRED by the honest keeper's next pass; the module stays fresh
+ok 123 - E-02 inverted: a thief's confidence-0 post at the same price is REPAIRED by the honest keeper's next pass; the module stays fresh
+  ---
+  duration_ms: 993.792917
+  type: 'test'
+  ...
+# Subtest: E-10 inverted: a stuck transaction is re-priced at the same nonce (the same call while it simulates), mined, and alerted; one that cannot be re-priced within the fee cap is an alert
+ok 124 - E-10 inverted: a stuck transaction is re-priced at the same nonce (the same call while it simulates), mined, and alerted; one that cannot be re-priced within the fee cap is an alert
+  ---
+  duration_ms: 192.434708
+  type: 'test'
+  ...
+# Subtest: E-10: a stuck transaction that simulates no more is cleared by a zero-value self-transfer at the same nonce; while the keeper is paused nothing is signed, not even that
+ok 125 - E-10: a stuck transaction that simulates no more is cleared by a zero-value self-transfer at the same nonce; while the keeper is paused nothing is signed, not even that
+  ---
+  duration_ms: 33.463458
+  type: 'test'
+  ...
+# Subtest: E-04 inverted: a JSON-RPC throttle answered in HTTP 200 moves to the next endpoint; a revert is still an answer
+ok 126 - E-04 inverted: a JSON-RPC throttle answered in HTTP 200 moves to the next endpoint; a revert is still an answer
+  ---
+  duration_ms: 4.315375
+  type: 'test'
+  ...
+# Subtest: E-09 inverted and E-01 inverted, on the recorded 2026-09-23 book: wash sales between fresh wallet pairs move the posted floor at most 5%; one frog churned counts once
+ok 127 - E-09 inverted and E-01 inverted, on the recorded 2026-09-23 book: wash sales between fresh wallet pairs move the posted floor at most 5%; one frog churned counts once
+  ---
+  duration_ms: 2.511125
+  type: 'test'
+  ...
+# Subtest: C-01 at the keeper: a vault with no ceiling gets no cap and an alert; the pass says why
+ok 128 - C-01 at the keeper: a vault with no ceiling gets no cap and an alert; the pass says why
+  ---
+  duration_ms: 42.613625
+  type: 'test'
+  ...
+# Subtest: E-14: public URLs and relays are https; the status token is long; no mirror on 4663 in send mode means no draw is announced
+ok 129 - E-14: public URLs and relays are https; the status token is long; no mirror on 4663 in send mode means no draw is announced
+  ---
+  duration_ms: 1.209833
+  type: 'test'
+  ...
+# Subtest: E-14: /status is a public summary (no pending nonce, no refusal texts); /status/full needs the bearer token; the token is scrubbed from logs
+ok 130 - E-14: /status is a public summary (no pending nonce, no refusal texts); /status/full needs the bearer token; the token is scrubbed from logs
+  ---
+  duration_ms: 30.688333
+  type: 'test'
+  ...
+# Subtest: the state file: version 1 is read and upgraded (its pending transaction becomes the first attempt); anything else is refused
+ok 131 - the state file: version 1 is read and upgraded (its pending transaction becomes the first attempt); anything else is refused
+  ---
+  duration_ms: 1.102625
+  type: 'test'
+  ...
+1..131
+# tests 131
+# suites 0
+# pass 131
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3798.494208

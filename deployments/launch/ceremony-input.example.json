@@ -1,0 +1,9 @@
+{
+  "_note": "The ceremony input of ops/ceremony/mainnet-init.mjs (docs/v9/ceremony-commands.md §2). Copy it to ceremony-input.json (git-ignored: the Helius URL holds a key), replace every <…>, and run the tool; it refuses any placeholder left. Only these six fields: everything else in the Init (key_1, mainnet, mainnet-beta, books, the Ethereum collections, Seaport's and the SignedZone's code hashes read live, the fee caps) is derived by the tool, never typed.",
+  "operator": "<the runner's IC principal: dfx identity get-principal for the identity whose PEM is the runner's OPERATOR_IDENTITY_PEM>",
+  "guardian": "4423w-dirhd-6mmzf-zrn3b-ukl6j-3p4mb-xhljt-gu67m-zojhm-yqdwk-fae",
+  "solana_rpc_urls": ["https://solana-rpc.publicnode.com", "https://mainnet.helius-rpc.com/?api-key=<a Helius key for the canister only>"],
+  "nonce_seed": "<1-32 printable ASCII, PERMANENT (the money line's durable-nonce address), e.g. rook-main-1>",
+  "eth_rpc_urls": ["https://rpc.mevblocker.io", "https://gateway.tenderly.co/public/mainnet"],
+  "btc_api_urls": ["https://mempool.space/api", "https://blockstream.info/api"]
+}

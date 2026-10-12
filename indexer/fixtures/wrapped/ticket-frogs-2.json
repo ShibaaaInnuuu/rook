@@ -1,0 +1,17 @@
+{
+  "id": 2,
+  "owner": "0x3000000000000000000000000000000000000001",
+  "destination": "bc1pfixtureredeemerdestination00000000000000000000000000000qq",
+  "toBurn": false,
+  "stage": "pinned",
+  "round": 5000500,
+  "burnedAt": 1790001980,
+  "burnTx": "0x000000000000000000000000000000000000000000000000000000000000000f",
+  "itemId": null,
+  "itemRef": null,
+  "deliverBy": null,
+  "overdue": false,
+  "deliveryTx": null,
+  "deliveryUrl": null,
+  "refundTx": null
+}

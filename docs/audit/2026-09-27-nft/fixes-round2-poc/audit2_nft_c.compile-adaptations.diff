@@ -1,0 +1,42 @@
+diff --git a/../../docs/audit/2026-09-27-nft/review2/poc/C/audit2_nft_c.rs b/tests/audit2_nft_c.rs (adapted)
+index 90d1cbd..a2f7a66 100644
+--- a/../../docs/audit/2026-09-27-nft/review2/poc/C/audit2_nft_c.rs
++++ b/tests/audit2_nft_c.rs (adapted)
+@@ -154,10 +154,10 @@ impl Fake {
+             sale_receipts.insert(h, en::receipt_of(r).unwrap().unwrap());
+         }
+         let mut modules = HashMap::new();
+-        modules.insert(MODULE, Module::new(93 * E / 100));
++        modules.insert(MODULE, Module::new(47 * E / 100));
+         let mut keys = vec![custodycap::evm_key(1, &MILADY)];
+         if two {
+-            modules.insert(MODULE2, Module::new(67 * E / 100));
++            modules.insert(MODULE2, Module::new(47 * E / 100));
+             keys.push(custodycap::evm_key(1, &AZUKI));
+         }
+         Fake {
+@@ -382,6 +382,16 @@ impl EthIo for Fake {
+         }
+         Ok(self.sale_receipts.get(&h).cloned())
+     }
++    async fn eth_transfer_txs(&mut self, collection: [u8; 20], from: u64, to: u64) -> Result<Vec<([u8; 32], u64)>, String> {
++        let mut v: Vec<([u8; 32], u64)> = self.sale_receipts.iter().filter(|(_, r)| r.block >= from && r.block <= to && r.logs.iter().any(|l|
++            l.address == collection && l.topics.len() == 4 && l.topics[0] == en::TRANSFER && l.topics[1] != l.topics[2] && l.topics[1] != [0; 32]))
++            .map(|(h, r)| (*h, r.block)).collect();
++        v.sort_by(|a, b| a.1.cmp(&b.1).then(a.0.cmp(&b.0)));
++        Ok(v)
++    }
++    async fn eth_plan_call(&mut self, to: [u8; 20], value: u128, data: &[u8]) -> Result<EthPlan, String> {
++        Ok(EthPlan { to, value, data: data.to_vec(), gas: 60_000, max_fee: 1_000_000_000, priority_fee: 100_000_000, nonce: self.eth_nonce, token: [0; 32], total: value })
++    }
+     async fn eth_deposit_tx(&mut self, h: [u8; 32]) -> Result<Option<([u8; 20], [u8; 20], Vec<u8>, ReceiptV)>, String> {
+         Ok(self.deposit_txs.get(&h).cloned())
+     }
+@@ -543,6 +553,7 @@ fn c2_a_fill_mined_at_the_pin_but_not_yet_counted_when_the_next_deposit_is_watch
+     let mut f = Fake::new(true);
+     let mut st = EthState::default();
+     to_arrival(&mut f, &mut st); // Milady: arrived 0.4984 ETH
++    f.m(MODULE).accepted = 93 * E / 100; // round-2 adaptation: the module's floor once the buy is under way
+     f.m(MODULE).net_units = 0;
+     evidence(&f, &mut st);
+     f.listing_total = ARRIVED - 3_000_000_000_000_000; // a Milady listing at the buy's cap (what arrived less the gas margin)

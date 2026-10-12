@@ -1,0 +1,16 @@
+refused  https://<runner host>/healthz
+refused  https://TODO/healthz
+refused  https://todo.example/healthz
+PASSES   https://TODO_RUNNER/healthz
+PASSES   https://RUNNER_TODO/healthz
+refused  https://runner-TODO.up.railway.app/healthz
+PASSES   https://YOUR_RUNNER_HOST/healthz
+PASSES   https://your-runner.example.com/healthz
+PASSES   https://PLACEHOLDER/healthz
+PASSES   https://runner.example.com/healthz
+PASSES   0x0000000000000000000000000000000000000000
+PASSES   https://FILL_ME_IN/healthz
+refused  https://xxx.example/healthz
+PASSES   https://[runner]/healthz
+PASSES   https://{{RUNNER}}/healthz
+PASSES   https://runner-host/healthz

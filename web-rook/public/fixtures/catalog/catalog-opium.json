@@ -1,0 +1,73 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "opium",
+    "name": "O.P.I.U.M.",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "opium",
+    "description": "Ord Puppet Inu Undoxxed Millionaire is an esoteric and absurd collection of 777 hand puppets, created with basic tools, lots of effort and passion. These puppets are a product of the fringes of the karmic grid, where the most unconventional",
+    "image": "https://ordinals.com/content/2e899672fc1dc2cf7f57de4b234597eec200e0f1c338eda939ae2f7f4a67790ci0",
+    "links": {
+      "website": "https://ordpuppetinu.neocities.org/",
+      "x": "https://x.com/lepuppeteerfou",
+      "discord": "https://discord.gg/ngTs6pA6tb",
+      "marketplace": "https://ordinalswallet.com/collection/opium",
+      "explorer": "https://ordinals.com/inscription/353182"
+    },
+    "floor": null,
+    "items": null,
+    "owners": null,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "8ed075d870a9e755f3433e088269e2675bec3caa39959bbdc9fc382e792d0a00i0",
+        "name": "O.P.I.U.M #636",
+        "image": "https://ordinals.com/content/8ed075d870a9e755f3433e088269e2675bec3caa39959bbdc9fc382e792d0a00i0",
+        "url": "https://ordinals.com/inscription/8ed075d870a9e755f3433e088269e2675bec3caa39959bbdc9fc382e792d0a00i0"
+      },
+      {
+        "id": "9cc8ed615cb9b51d8a5ae60781ae6c7526458bd12662ca178b66437eeb92b100i0",
+        "name": "O.P.I.U.M #696",
+        "image": "https://ordinals.com/content/9cc8ed615cb9b51d8a5ae60781ae6c7526458bd12662ca178b66437eeb92b100i0",
+        "url": "https://ordinals.com/inscription/9cc8ed615cb9b51d8a5ae60781ae6c7526458bd12662ca178b66437eeb92b100i0"
+      },
+      {
+        "id": "e29a3bd7762ca86e16a0854360a6d2343abe642ba5c6789239d2a2e2612e6601i0",
+        "name": "O.P.I.U.M #500",
+        "image": "https://ordinals.com/content/e29a3bd7762ca86e16a0854360a6d2343abe642ba5c6789239d2a2e2612e6601i0",
+        "url": "https://ordinals.com/inscription/e29a3bd7762ca86e16a0854360a6d2343abe642ba5c6789239d2a2e2612e6601i0"
+      }
+    ],
+    "sources": [],
+    "rook": {
+      "kind": "later",
+      "stage": null,
+      "why": "No floor is known right now, so the rule cannot be checked against it: not listable until a source reports one."
+    },
+    "curated": true
+  }
+}

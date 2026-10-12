@@ -1,0 +1,292 @@
+<!doctype html>
+<!--
+  Rook: the fund wallet accepts the registry ownership (rook_core `accept_owner`) with ONE signature, in Phantom or with a Ledger
+  connected to Phantom. Runbook: docs/v9/launch-day1-solana.md §4. No secret is ever read, stored or sent: the page holds only the
+  UNSIGNED transaction that `rook-ceremony accept-owner --print-tx` printed (?tx=<base64> or pasted, base64 or base58), decodes it,
+  refuses anything but a single rook_core accept_owner signed and paid by the fund wallet, refreshes its blockhash (safe: nothing is
+  signed yet), asks the wallet (Wallet Standard) to sign, checks that the wallet signed exactly that message, sends it to ?rpc= and
+  reads the registry back. No external script.
+
+  Serve it locally (wallet extensions do not run on file:// pages):
+    python3 -m http.server 8765 --bind 127.0.0.1 --directory ops/solana
+    open "http://127.0.0.1:8765/accept-owner.html?tx=…&rpc=…&program=<rook_core id>&owner=<fund wallet>"
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rook accept_owner</title>
+<style>
+  :root { --bg: #fbfaf7; --fg: #1d1d1b; --muted: #6b6b66; --line: #dddcd6; --ok: #1f7a3a; --bad: #b3261e; --accent: #2c4f9e; --box: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151514; --fg: #ecebe6; --muted: #9b9a94; --line: #34332f; --ok: #5cc27a; --bad: #ff7a70; --accent: #8fb0ff; --box: #1d1d1b; }
+  }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, -apple-system, sans-serif; margin: 0; padding: 24px 16px; }
+  main { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p.lead { color: var(--muted); margin: 0 0 20px; }
+  textarea { width: 100%; box-sizing: border-box; min-height: 84px; font: 12px/1.4 ui-monospace, monospace; background: var(--box); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
+  input { width: 100%; box-sizing: border-box; font: 13px ui-monospace, monospace; background: var(--box); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+  label { display: block; font-weight: 600; margin: 14px 0 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  td { border-top: 1px solid var(--line); padding: 6px 4px; vertical-align: top; word-break: break-all; }
+  td:first-child { color: var(--muted); width: 32%; word-break: normal; }
+  .mono { font-family: ui-monospace, monospace; }
+  .ok { color: var(--ok); } .bad { color: var(--bad); }
+  button { font: inherit; padding: 8px 14px; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); cursor: pointer; margin: 6px 6px 0 0; }
+  button:disabled { opacity: .45; cursor: default; }
+  button.alt { background: transparent; color: var(--accent); }
+  #log { white-space: pre-wrap; font: 12px/1.5 ui-monospace, monospace; background: var(--box); border: 1px solid var(--line); border-radius: 6px; padding: 10px; min-height: 40px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Rook: accept the registry ownership</h1>
+  <p class="lead">The fund wallet signs one transaction: rook_core <span class="mono">accept_owner</span>. It pays the 0.000005 SOL fee and is the only signer.</p>
+
+  <label for="tx">Unsigned transaction (base64 or base58, from <span class="mono">rook-ceremony accept-owner --print-tx</span>)</label>
+  <textarea id="tx" spellcheck="false"></textarea>
+  <label for="rpc">RPC</label>
+  <input id="rpc" spellcheck="false" value="https://api.mainnet-beta.solana.com">
+  <label for="program">Expected rook_core program id</label>
+  <input id="program" spellcheck="false" placeholder="from the runbook / day1-plan.json rook_core">
+  <label for="owner">Expected fund wallet</label>
+  <input id="owner" spellcheck="false" value="GGgXnNgtY4ySfz8PLAAwkoh8Ztj7p6jrM9towSaa6Wuy">
+  <div><button id="check" class="alt">Check the transaction</button></div>
+
+  <table id="summary" hidden></table>
+
+  <div id="wallets"></div>
+  <div><button id="send" disabled>Sign and send</button></div>
+  <label>Log</label>
+  <div id="log"></div>
+</main>
+<script>
+"use strict";
+// ---- encoding -------------------------------------------------------------------------------------------------------------------
+const B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+function b58encode(bytes) {
+  let n = 0n; for (const b of bytes) n = n * 256n + BigInt(b);
+  let s = ""; while (n > 0n) { s = B58[Number(n % 58n)] + s; n /= 58n; }
+  for (const b of bytes) { if (b !== 0) break; s = "1" + s; }
+  return s;
+}
+function b58decode(s) {
+  let n = 0n;
+  for (const c of s) { const i = B58.indexOf(c); if (i < 0) throw new Error("not base58"); n = n * 58n + BigInt(i); }
+  const out = []; while (n > 0n) { out.unshift(Number(n % 256n)); n /= 256n; }
+  for (const c of s) { if (c !== "1") break; out.unshift(0); }
+  return Uint8Array.from(out);
+}
+function b64decode(s) { const t = atob(s.replace(/-/g, "+").replace(/_/g, "/")); return Uint8Array.from(t, c => c.charCodeAt(0)); }
+function b64encode(b) { let t = ""; for (const x of b) t += String.fromCharCode(x); return btoa(t); }
+function parseTxText(s) {
+  s = s.trim();
+  if (!s) throw new Error("no transaction");
+  if (/^[1-9A-HJ-NP-Za-km-z]+$/.test(s) && !/[+/=]/.test(s)) { try { return b58decode(s); } catch (_) { /* fall through */ } }
+  return b64decode(s);
+}
+function eq(a, b) { if (a.length !== b.length) return false; for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false; return true; }
+async function sha256(...parts) {
+  const all = new Uint8Array(parts.reduce((n, p) => n + p.length, 0)); let o = 0;
+  for (const p of parts) { all.set(p, o); o += p.length; }
+  return new Uint8Array(await crypto.subtle.digest("SHA-256", all));
+}
+
+// ---- ed25519 on-curve test and PDA (independent of the tool) -----------------------------------------------------------------
+const P = 2n ** 255n - 19n;
+function modpow(b, e, m) { let r = 1n; b %= m; while (e > 0n) { if (e & 1n) r = r * b % m; b = b * b % m; e >>= 1n; } return r; }
+const D = ((-121665n % P + P) % P) * modpow(121666n, P - 2n, P) % P;
+function onCurve(bytes) {
+  let y = 0n; for (let i = 31; i >= 0; i--) y = (y << 8n) | BigInt(bytes[i]);
+  y &= (1n << 255n) - 1n;
+  if (y >= P) return false;
+  const u = (y * y - 1n + P) % P, v = (D * y * y + 1n) % P;
+  const x2 = u * modpow(v, P - 2n, P) % P;
+  if (x2 === 0n) return true;
+  return modpow(x2, (P - 1n) / 2n, P) === 1n;
+}
+async function findPda(seeds, program) {
+  const tag = new TextEncoder().encode("ProgramDerivedAddress");
+  for (let bump = 255; bump >= 0; bump--) {
+    const h = await sha256(...seeds, Uint8Array.of(bump), program, tag);
+    if (!onCurve(h)) return h;
+  }
+  throw new Error("no PDA");
+}
+
+// ---- legacy transaction ---------------------------------------------------------------------------------------------------------
+function shortvec(b, o) { let n = 0, s = 0; for (;;) { const x = b[o++]; n |= (x & 0x7f) << s; s += 7; if (!(x & 0x80)) return [n, o]; } }
+function parseTx(bytes) {
+  let [nsig, o] = shortvec(bytes, 0);
+  const sigs = []; for (let i = 0; i < nsig; i++) { sigs.push(bytes.slice(o, o + 64)); o += 64; }
+  const msgStart = o;
+  if (bytes[o] & 0x80) throw new Error("a versioned message: the tool prints a legacy one");
+  const header = [bytes[o], bytes[o + 1], bytes[o + 2]]; o += 3;
+  let nk; [nk, o] = shortvec(bytes, o);
+  const keys = []; for (let i = 0; i < nk; i++) { keys.push(bytes.slice(o, o + 32)); o += 32; }
+  const blockhashAt = o; const blockhash = bytes.slice(o, o + 32); o += 32;
+  let ni; [ni, o] = shortvec(bytes, o);
+  const ixs = [];
+  for (let i = 0; i < ni; i++) {
+    const program = bytes[o++]; let na; [na, o] = shortvec(bytes, o);
+    const accounts = Array.from(bytes.slice(o, o + na)); o += na;
+    let nd; [nd, o] = shortvec(bytes, o);
+    ixs.push({ program, accounts, data: bytes.slice(o, o + nd) }); o += nd;
+  }
+  if (o !== bytes.length) throw new Error("trailing bytes after the message");
+  return { sigs, msgStart, header, keys, blockhashAt, blockhash, ixs, message: bytes.slice(msgStart) };
+}
+
+/** Refuses anything but: one signature slot, fee payer = the only signer = the expected fund wallet, ONE instruction = rook_core
+ *  accept_owner(signer = fund wallet, registry = PDA(["registry"], rook_core), writable). Returns what to show. */
+async function checkAcceptOwner(bytes, expect) {
+  const t = parseTx(bytes);
+  const [nreq, nros, nrou] = t.header;
+  const fail = m => { throw new Error(m); };
+  if (t.sigs.length !== 1 || nreq !== 1 || nros !== 0) fail(`expected exactly one signer (the fund wallet); header ${t.header}, ${t.sigs.length} signature slots`);
+  if (t.sigs[0].some(x => x !== 0)) fail("the transaction is already signed");
+  if (t.ixs.length !== 1) fail(`expected one instruction, found ${t.ixs.length}`);
+  const ix = t.ixs[0];
+  const payer = t.keys[0], program = t.keys[ix.program];
+  const disc = (await sha256(new TextEncoder().encode("global:accept_owner"))).slice(0, 8);
+  if (!eq(ix.data, disc)) fail("the instruction is not accept_owner");
+  if (ix.accounts.length !== 2 || ix.accounts[0] !== 0) fail("accept_owner's accounts are not [the fund wallet, the registry]");
+  const registry = t.keys[ix.accounts[1]];
+  const writable = i => i < nreq ? i < nreq - nros : i < t.keys.length - nrou;
+  if (!writable(ix.accounts[1])) fail("the registry is not writable");
+  if (ix.program < nreq || writable(ix.program)) fail("the program account is a signer or writable");
+  const pda = await findPda([new TextEncoder().encode("registry")], program);
+  if (!eq(pda, registry)) fail(`the registry account ${b58encode(registry)} is not PDA(["registry"], ${b58encode(program)})`);
+  if (expect.program && b58encode(program) !== expect.program) fail(`the program is ${b58encode(program)}, not the expected rook_core ${expect.program}`);
+  if (expect.owner && b58encode(payer) !== expect.owner) fail(`the signer is ${b58encode(payer)}, not the expected fund wallet ${expect.owner}`);
+  return { t, payer: b58encode(payer), program: b58encode(program), registry: b58encode(registry), blockhash: b58encode(t.blockhash) };
+}
+
+function withBlockhash(bytes, t, blockhash) {
+  const out = bytes.slice(); out.set(blockhash, t.blockhashAt); return out;
+}
+
+// ---- RPC ------------------------------------------------------------------------------------------------------------------------
+async function rpc(url, method, params) {
+  const r = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }) });
+  const j = await r.json(); if (j.error) throw new Error(`${method}: ${JSON.stringify(j.error)}`); return j.result;
+}
+const GENESIS = { "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d": "solana:mainnet", "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG": "solana:devnet" };
+async function chainOf(url) { return GENESIS[await rpc(url, "getGenesisHash", [])] || "solana:localnet"; }
+async function readRegistry(url, registry) {
+  const v = await rpc(url, "getAccountInfo", [registry, { encoding: "base64", commitment: "confirmed" }]);
+  if (!v || !v.value) throw new Error("no registry account");
+  const d = b64decode(v.value.data[0]);
+  return { owner: b58encode(d.slice(8, 40)), pending: b58encode(d.slice(40, 72)) };
+}
+async function waitFor(url, sig, log) {
+  for (let i = 0; i < 60; i++) {
+    const s = (await rpc(url, "getSignatureStatuses", [[sig], { searchTransactionHistory: true }])).value[0];
+    if (s && s.err) throw new Error(`${sig} failed: ${JSON.stringify(s.err)}`);
+    if (s && (s.confirmationStatus === "confirmed" || s.confirmationStatus === "finalized")) return s.confirmationStatus;
+    log(`waiting for ${sig} …`); await new Promise(r => setTimeout(r, 2000));
+  }
+  throw new Error(`${sig}: not confirmed after 2 minutes; check it in an explorer before retrying`);
+}
+
+/** The whole flow with a Wallet Standard wallet and an account already connected. */
+async function signAndSend({ bytes, check, wallet, account, url, log }) {
+  const chain = await chainOf(url);
+  const bh = await rpc(url, "getLatestBlockhash", [{ commitment: "confirmed" }]);
+  const fresh = withBlockhash(bytes, check.t, b58decode(bh.value.blockhash));
+  const want = parseTx(fresh).message;
+  log(`blockhash refreshed (${bh.value.blockhash}); asking ${wallet.name} to sign on ${chain}`);
+  let sig;
+  const f = wallet.features;
+  if (f["solana:signTransaction"]) {
+    const [out] = await f["solana:signTransaction"].signTransaction({ account, transaction: fresh, chain });
+    const signed = parseTx(new Uint8Array(out.signedTransaction));
+    if (!eq(signed.message, want)) throw new Error("the wallet changed the message before signing: NOT sent");
+    if (signed.sigs.length !== 1 || signed.sigs[0].every(x => x === 0)) throw new Error("the wallet returned no signature");
+    sig = b58encode(signed.sigs[0]);
+    await rpc(url, "sendTransaction", [b64encode(new Uint8Array(out.signedTransaction)), { encoding: "base64", preflightCommitment: "confirmed" }]);
+  } else if (f["solana:signAndSendTransaction"]) {
+    const [out] = await f["solana:signAndSendTransaction"].signAndSendTransaction({ account, transaction: fresh, chain });
+    sig = b58encode(new Uint8Array(out.signature));
+  } else throw new Error(`${wallet.name} supports neither solana:signTransaction nor solana:signAndSendTransaction`);
+  log(`sent ${sig}`);
+  const st = await waitFor(url, sig, log);
+  const reg = await readRegistry(url, check.registry);
+  log(`${st}. Registry.owner = ${reg.owner}; pending owner = ${reg.pending}`);
+  const ok = reg.owner === check.payer && reg.pending === "11111111111111111111111111111111";
+  log(ok ? "DONE: the fund wallet owns the registry. Now run: rook-ceremony verify-owner" : "the registry does not read as expected: run rook-ceremony verify-owner");
+  return { sig, ok, reg };
+}
+
+// ---- Wallet Standard discovery (the protocol of @wallet-standard/app, inline) ---------------------------------------------------
+const wallets = [];
+const registerApi = { register(...ws) { for (const w of ws) if (!wallets.includes(w)) wallets.push(w); if (typeof renderWallets === "function") renderWallets(); return () => {}; } };
+if (typeof window !== "undefined" && window.addEventListener) {
+  window.addEventListener("wallet-standard:register-wallet", e => e.detail(registerApi));
+  window.dispatchEvent(new CustomEvent("wallet-standard:app-ready", { detail: registerApi }));
+}
+
+// ---- UI -------------------------------------------------------------------------------------------------------------------------
+let state = { bytes: null, check: null, wallet: null, account: null };
+function $(id) { return document.getElementById(id); }
+function log(m) { const el = $("log"); el.textContent += (el.textContent ? "\n" : "") + m; }
+function row(k, v, cls) { return `<tr><td>${k}</td><td class="mono ${cls || ""}">${v}</td></tr>`; }
+async function doCheck() {
+  state.check = null; $("send").disabled = true;
+  try {
+    state.bytes = parseTxText($("tx").value);
+    const c = await checkAcceptOwner(state.bytes, { program: $("program").value.trim(), owner: $("owner").value.trim() });
+    state.check = c;
+    $("summary").hidden = false;
+    $("summary").innerHTML = row("Instruction", "rook_core accept_owner", "ok") + row("Program (rook_core)", c.program) +
+      row("Registry (PDA checked)", c.registry) + row("Signer and fee payer", c.payer) + row("Signatures", "1 (the fund wallet)") +
+      row("Blockhash", c.blockhash + " (refreshed before signing)");
+    const reg = await readRegistry($("rpc").value.trim(), c.registry).catch(e => ({ err: e.message }));
+    if (reg.err) log(`registry read: ${reg.err}`);
+    else {
+      $("summary").innerHTML += row("Registry owner now", reg.owner) + row("Pending owner now", reg.pending, reg.pending === c.payer ? "ok" : "bad");
+      if (reg.pending !== c.payer) log("the registry's pending owner is not this wallet: run rook-ceremony propose-owner first");
+    }
+    log("transaction checked: one rook_core accept_owner, signed and paid by " + c.payer);
+  } catch (e) { $("summary").hidden = true; log("REFUSED: " + e.message); }
+  renderWallets();
+}
+function renderWallets() {
+  if (typeof document === "undefined") return;
+  const el = $("wallets"); if (!el) return;
+  const usable = wallets.filter(w => w.features["standard:connect"] && (w.features["solana:signTransaction"] || w.features["solana:signAndSendTransaction"]));
+  el.innerHTML = usable.length ? "<label>Connect the fund wallet</label>" : '<p class="lead">No Solana wallet found: install or unlock Phantom (a Ledger works through Phantom), then reload.</p>';
+  for (const w of usable) {
+    const b = document.createElement("button"); b.className = "alt"; b.textContent = w.name;
+    b.onclick = async () => {
+      try {
+        const { accounts } = await w.features["standard:connect"].connect();
+        const acc = (accounts || w.accounts).find(a => state.check && a.address === state.check.payer);
+        if (!acc) { log(`${w.name}: the connected account is not the fund wallet ${state.check ? state.check.payer : ""}; switch accounts in the wallet`); return; }
+        state.wallet = w; state.account = acc; log(`${w.name}: connected ${acc.address}`);
+        $("send").disabled = !state.check;
+      } catch (e) { log(`${w.name}: ${e.message}`); }
+    };
+    el.appendChild(b);
+  }
+}
+if (typeof document !== "undefined" && document.getElementById && $("tx")) {
+  const q = new URLSearchParams(location.search + "&" + location.hash.replace(/^#/, ""));
+  if (q.get("tx")) $("tx").value = q.get("tx");
+  if (q.get("rpc")) $("rpc").value = q.get("rpc");
+  if (q.get("program")) $("program").value = q.get("program");
+  if (q.get("owner")) $("owner").value = q.get("owner");
+  $("check").onclick = doCheck;
+  $("send").onclick = async () => {
+    $("send").disabled = true;
+    try { await signAndSend({ bytes: state.bytes, check: state.check, wallet: state.wallet, account: state.account, url: $("rpc").value.trim(), log }); }
+    catch (e) { log("FAILED: " + e.message); $("send").disabled = false; }
+  };
+  renderWallets();
+  if ($("tx").value) doCheck();
+}
+if (typeof globalThis !== "undefined") globalThis.RookAcceptOwner = { parseTx, checkAcceptOwner, withBlockhash, signAndSend, b58encode, b58decode, findPda, registerApi, wallets };
+</script>
+</body>
+</html>

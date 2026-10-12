@@ -1,0 +1,672 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.04s
+     Running tests/r7_c.rs (/Users/jlohayon/Documents/Rook-nft/autobuyer/canister-rs/target/debug/deps/r7_c-1a5bad5a633314c3)
+
+running 4 tests
+test r7_c_i1_every_execution_paying_us_in_one_transaction_is_summed_whatever_its_id ... two executions paying us, 3 + 2 ETH, credited to one order: Err("a call to Relay's depository that is not its execute(CallRequest, signature): not a payout (C6-L-1 / C7-L-1)")
+
+thread 'r7_c_i1_every_execution_paying_us_in_one_transaction_is_summed_whatever_its_id' (66334770) panicked at tests/r7_c.rs:1819:5:
+assertion `left == right` failed
+  left: Err("a call to Relay's depository that is not its execute(CallRequest, signature): not a payout (C6-L-1 / C7-L-1)")
+ right: Ok(5000000000000000000)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test r7_c_i2_a_claim_waiting_behind_its_buys_4663_transaction_goes_stale_after_600_s_and_is_dropped ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+  | eth buy 0: ARRIVED (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): 498443962449863321 wei at our Ethereum address: the runner is asked for a listing
+  | eth buy 0: GOING BACK: 498443962449863321 wei has waited at our Ethereum address for a listing; 495443962449863321 wei goes back to 4663 through Relay (the runner is asked for a quote), then to the module
+  | eth buy 0: the way back: Relay deposit of 495443962449863321 wei on Ethereum (order 0xd1a2622888b3db522f84ed43df1550f8ab1eb146313c2612c51b362102ebc6a8, at least 485535083200866034 wei on 4663) signed, saved and sent (0x17807f0c2a3392b07ea8b1b8e7aec0541942427541471d5bea73f9bda4ab5764)
+  | eth line: buy 0: the way back's deposit mined (block 26068927): watching 4663 for 485535083200866034 wei at least
+  | eth buy 0: going back to 4663 for 0 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 1200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 2400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 3600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 4800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 6000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 7200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 8400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 9600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 10800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 12000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 13200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 14400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 15600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 16800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 18000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 19200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 20400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 21600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 22800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 24000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 25200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 26400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 27600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 28800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 30000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 31200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 32400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 33600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 34800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 36000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 37200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 38400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 39600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 40800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 42000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 43200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 44400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 45600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 46800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 48000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 49200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 50400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 51600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 52800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 54000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 55200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 56400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 57600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 58800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 60000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 61200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 62400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 63600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 64800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 66000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 67200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 68400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 69600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 70800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 72000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 73200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 74400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 75600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 76800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 78000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 79200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 80400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 81600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 82800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 84000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 85200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 86400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 87600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 88800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 90000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 91200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 92400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 93600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 94800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 96000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 97200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 98400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 99600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 100800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 102000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 103200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 104400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 105600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 106800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 108000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 109200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 110400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 111600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 112800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 114000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 115200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 116400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 117600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 118800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 120000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 121200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 122400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 123600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 124800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 126000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 127200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 128400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 129600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 130800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 132000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 133200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 134400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 135600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 136800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 138000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 139200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 140400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 141600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 142800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 144000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 145200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 146400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 147600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 148800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 150000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 151200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 152400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 153600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 154800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 156000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 157200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 158400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 159600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 160800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 162000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 163200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 164400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 165600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 166800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 168000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 169200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 170400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 171600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 172800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 174000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 175200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 176400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 177600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 178800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 180000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 181200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 182400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 183600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 184800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 186000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 187200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 188400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 189600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 190800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 192000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 193200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 194400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 195600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 196800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 198000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 199200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 200400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 201600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 202800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 204000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 205200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 206400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 207600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 208800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 210000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 211200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 212400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 213600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 214800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 216000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 217200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 218400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 219600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 220800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 222000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 223200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 224400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 225600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 226800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 228000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 229200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 230400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 231600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 232800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 234000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 235200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 236400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 237600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 238800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 240000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 241200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 242400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 243600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 244800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 246000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 247200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 248400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 249600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 250800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 252000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 253200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 254400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 255600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 256800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 258000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 259200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 260400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 261600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 262800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 264000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 265200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 266400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 267600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 268800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 270000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 271200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 272400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 273600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 274800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 276000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 277200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 278400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 279600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 280800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 282000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 283200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 284400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 285600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 286800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 288000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 289200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 290400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 291600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 292800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 294000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 295200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 296400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 297600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 298800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 300000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 301200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 302400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 303600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 304800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 306000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 307200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 308400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 309600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 310800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 312000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 313200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 314400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 315600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 316800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 318000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 319200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 320400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 321600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 322800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 324000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 325200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 326400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 327600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 328800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 330000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 331200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 332400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 333600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 334800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 336000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 337200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 338400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 339600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 340800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 342000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 343200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 344400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 345600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 346800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 348000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 349200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 350400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 351600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 352800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 354000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 355200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 356400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 357600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 358800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 360000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 361200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 362400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 363600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 364800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 366000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 367200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 368400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 369600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 370800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 372000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 373200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 374400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 375600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 376800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 378000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 379200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 380400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 381600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 382800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 384000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 385200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 386400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 387600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 388800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 390000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 391200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 392400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 393600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 394800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 396000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 397200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 398400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 399600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 400800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 402000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 403200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 404400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 405600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 406800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 408000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 409200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 410400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 411600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 412800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 414000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 415200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 416400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 417600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 418800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 420000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 421200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 422400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 423600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 424800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 426000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 427200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 428400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 429600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 430800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 432000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 433200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 434400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 435600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 436800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 438000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 439200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 440400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 441600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 442800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 444000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 445200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 446400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 447600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 448800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 450000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 451200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 452400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 453600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 454800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 456000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 457200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 458400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 459600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 460800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 462000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 463200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 464400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 465600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 466800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 468000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 469200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 470400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 471600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 472800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 474000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 475200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 476400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 477600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 478800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 480000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 481200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 482400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 483600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 484800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 486000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 487200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 488400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 489600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 490800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 492000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 493200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 494400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 495600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 496800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 498000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 499200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 500400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 501600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 502800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 504000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 505200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 506400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 507600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 508800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 510000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 511200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 512400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 513600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 514800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 516000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 517200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 518400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 519600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 520800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 522000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 523200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 524400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 525600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 526800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 528000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 529200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 530400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 531600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 532800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 534000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 535200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 536400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 537600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 538800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 540000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 541200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 542400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 543600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 544800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 546000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 547200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 548400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 549600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 550800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 552000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 553200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 554400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 555600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 556800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 558000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 559200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 560400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 561600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 562800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 564000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 565200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 566400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 567600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 568800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 570000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 571200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 572400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 573600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 574800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 576000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 577200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 578400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 579600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 580800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 582000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 583200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 584400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 585600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 586800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 588000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 589200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 590400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 591600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 592800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 594000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 595200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 596400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 597600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 598800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 600000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 601200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 602400 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 603600 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 604800 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 606000 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 607200 s; no arrival or refund yet
+  | eth buy 0: going back to 4663 for 608400 s; no arrival or refund yet
+  | eth buy 0: going back for 609600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 610800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 612000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 613200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 614400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 615600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 616800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 618000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 619200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 620400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 621600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 622800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 624000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 625200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 626400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 627600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 628800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 630000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 631200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 632400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 633600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 634800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 636000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 637200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 638400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 639600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 640800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 642000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 643200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 644400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 645600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 646800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 648000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 649200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 650400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 651600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 652800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 654000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 655200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 656400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 657600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 658800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 660000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 661200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 662400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 663600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 664800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 666000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 667200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 668400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 669600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 670800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 672000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 673200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 674400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 675600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 676800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 678000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 679200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 680400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 681600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 682800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 684000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 685200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 686400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 687600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 688800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 690000 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 691200 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 692400 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 693600 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: going back for 694800 s, past the order's deadline: no arrival on 4663 and no refund on Ethereum yet (still watched until 1791380493, then Stuck)
+  | eth buy 0: LATE: the way back (order 0xd1a2622888b3db522f84ed43df1550f8ab1eb146313c2612c51b362102ebc6a8) is 91200 s past its deadline with no arrival of 485535083200866034 wei on 4663 and no refund on Ethereum; still watched (it holds the Relay leg): once Relay says no payout will come, eth_give_back(0) writes it off
+  | eth buy 0: returnAdvance of 0: GiveBack { buy: 0 } signed, saved and sent (nonce 2)
+  | eth: GiveBack { buy: 0 } sent again (nonce 2), not seen yet
+  | eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: waits, nothing credited yet: buy 0's GiveBack { buy: 0 } is out on 4663: the payout is judged once it resolves (the claim is kept)
+  | eth: GiveBack { buy: 0 } sent again (nonce 2), not seen yet
+  | eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: waits, nothing credited yet: buy 0's GiveBack { buy: 0 } is out on 4663: the payout is judged once it resolves (the claim is kept)
+  | eth: GiveBack { buy: 0 } sent again (nonce 2), not seen yet
+  | eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: refused, nothing credited: handed in too long ago: stale
+eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: waits, nothing credited yet: buy 0's GiveBack { buy: 0 } is out on 4663: the payout is judged once it resolves (the claim is kept)
+eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: waits, nothing credited yet: buy 0's GiveBack { buy: 0 } is out on 4663: the payout is judged once it resolves (the claim is kept)
+eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: refused, nothing credited: handed in too long ago: stale
+ok
+test r7_c_l1_a_the_real_event_id_is_the_call_requests_struct_hash_so_a_real_depository_payout_never_names_the_order ... real RelayCallExecuted id = 0x0x84334077101689714321be1e7c88eeaf265d4d8b7c5b91cbc197b6704cbe6659 = struct hash of the CallRequest
+a real-shape depository refund to us, no amount stated: Err("the transaction does not name order 0x0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d (neither the order id nor Relay's request id is in its input; Relay's solver alone is every order's sender; a depository execute is named by the operator stating the amount Relay's records give for this order)")
+the same, the operator stating the record's amount:   Ok(4900000000000000000)
+
+thread 'r7_c_l1_a_the_real_event_id_is_the_call_requests_struct_hash_so_a_real_depository_payout_never_names_the_order' (66334772) panicked at tests/r7_c.rs:1798:79:
+called `Result::unwrap_err()` on an `Ok` value: 4900000000000000000
+FAILED
+test r7_f_reach_from_the_pin_is_4169_to_5192_blocks ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0x07a81ff664915808679efc2f5f8e50bfbce582be3a909d92e022570ff3e925e4, at least 488500000000000000 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } (nonce 1) MINED (its effect is on chain), found by our nonce count although no provider shows its receipt: deposited with Relay: order 0x07a81ff664915808679efc2f5f8e50bfbce582be3a909d92e022570ff3e925e4, at least 488500000000000000 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+reach from the pin 4169, first resolving tick 300 s after signing: MINED
+  | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0x07a81ff664915808679efc2f5f8e50bfbce582be3a909d92e022570ff3e925e4, at least 488500000000000000 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (4200 blocks back, the provider keeps 4169)); read again (its effect is read back 3600 s after 1790513253 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (10200 blocks back, the provider keeps 4169)); read again (its effect is read back 3600 s after 1790513253 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (16200 blocks back, the provider keeps 4169)); read again (its effect is read back 3600 s after 1790513253 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (22200 blocks back, the provider keeps 4169)); read again (its effect is read back 3600 s after 1790513253 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (28200 blocks back, the provider keeps 4169)); read again (its effect is read back 3600 s after 1790513253 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (34200 blocks back, the provider keeps 4169)); read again (its effect is read back 3600 s after 1790513253 at the earliest, F5-M-1)
+  | eth: waits: UNIDENTIFIED: nonce 1 is used, Deposit { buy: 0 } is seen nowhere for 3600 s and what used the nonce cannot be told (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (40200 blocks back, the provider keeps 4169)); it moves value, so it is never done again on the absence of evidence: it waits until the chain shows it, or the operator looks and says (eth_home_clear) (F5-M-1)
+  | eth: waits: UNIDENTIFIED: nonce 1 is used, Deposit { buy: 0 } is seen nowhere for 4200 s and what used the nonce cannot be told (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (46200 blocks back, the provider keeps 4169)); it moves value, so it is never done again on the absence of evidence: it waits until the chain shows it, or the operator looks and says (eth_home_clear) (F5-M-1)
+reach from the pin 4169, first resolving tick 420 s after signing: UNIDENTIFIED
+  | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0x07a81ff664915808679efc2f5f8e50bfbce582be3a909d92e022570ff3e925e4, at least 488500000000000000 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } (nonce 1) MINED (its effect is on chain), found by our nonce count although no provider shows its receipt: deposited with Relay: order 0x07a81ff664915808679efc2f5f8e50bfbce582be3a909d92e022570ff3e925e4, at least 488500000000000000 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+reach from the pin 5192, first resolving tick 420 s after signing: MINED
+  | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0x07a81ff664915808679efc2f5f8e50bfbce582be3a909d92e022570ff3e925e4, at least 488500000000000000 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (5400 blocks back, the provider keeps 5192)); read again (its effect is read back 3600 s after 1790513373 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (11400 blocks back, the provider keeps 5192)); read again (its effect is read back 3600 s after 1790513373 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (17400 blocks back, the provider keeps 5192)); read again (its effect is read back 3600 s after 1790513373 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (23400 blocks back, the provider keeps 5192)); read again (its effect is read back 3600 s after 1790513373 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (29400 blocks back, the provider keeps 5192)); read again (its effect is read back 3600 s after 1790513373 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (35400 blocks back, the provider keeps 5192)); read again (its effect is read back 3600 s after 1790513373 at the earliest, F5-M-1)
+  | eth: waits: UNIDENTIFIED: nonce 1 is used, Deposit { buy: 0 } is seen nowhere for 3600 s and what used the nonce cannot be told (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (41400 blocks back, the provider keeps 5192)); it moves value, so it is never done again on the absence of evidence: it waits until the chain shows it, or the operator looks and says (eth_home_clear) (F5-M-1)
+  | eth: waits: UNIDENTIFIED: nonce 1 is used, Deposit { buy: 0 } is seen nowhere for 4200 s and what used the nonce cannot be told (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (47400 blocks back, the provider keeps 5192)); it moves value, so it is never done again on the absence of evidence: it waits until the chain shows it, or the operator looks and says (eth_home_clear) (F5-M-1)
+reach from the pin 5192, first resolving tick 540 s after signing: UNIDENTIFIED
+ok
+
+failures:
+
+failures:
+    r7_c_i1_every_execution_paying_us_in_one_transaction_is_summed_whatever_its_id
+    r7_c_l1_a_the_real_event_id_is_the_call_requests_struct_hash_so_a_real_depository_payout_never_names_the_order
+
+test result: FAILED. 2 passed; 2 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.07s
+
+error: test failed, to rerun pass `--test r7_c`

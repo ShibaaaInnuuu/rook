@@ -1,0 +1,53 @@
+{
+  "id": 38,
+  "kind": "inscriptions",
+  "name": "BTC Skullz",
+  "ref": "btc-skullz",
+  "divisibility": 0,
+  "vault": "0x6Ef9c8946c48Ec8E861d78dDDec8E7A6EF891529",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-btc-skullz",
+  "membershipRoot": "0x30882ab37f7972aad9d31b9a83fcaa058d13bee5cfee33467149169d6dcb5afd",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "27745286379202080",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "27745286379202080",
+    "attributedWei": "27745286379202080",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "27745286379202080",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x177Ab203c16a5033c56A706706644291DbFDE0F6",
+      "symbol": "GRAN4SIM",
+      "depositedWei": "27745286379202080"
+    }
+  ]
+}

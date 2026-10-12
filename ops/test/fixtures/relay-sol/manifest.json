@@ -1,0 +1,19 @@
+{
+ "note": "unix seconds each quote was fetched (POST https://api.relay.link/quote/v2, keyless, 2026-10-09); the judge tests use it as now",
+ "fetched_at": {
+  "btc-sol-active-user": 1791565589,
+  "btc-sol-depositaddr": 1791565589,
+  "eth-btc-0.5": 1791565571,
+  "eth-sol-0.5": 1791565570,
+  "rh-btc-0.05": 1791565572,
+  "sol-btc-1": 1791565565,
+  "sol-btc-20": 1791565568,
+  "sol-btc-20-active": 1791565569,
+  "sol-btc-200": 1791565590,
+  "sol-btc-5": 1791565566,
+  "sol-btc-5-active": 1791565568,
+  "sol-btc-norefund": 1791565591,
+  "sol-eth-1": 1791565570,
+  "sol-eth-20": 1791565570
+ }
+}

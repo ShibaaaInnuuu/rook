@@ -1,0 +1,33 @@
+{
+  "slug": "bitcoinpunks",
+  "taken_at": "2026-10-10T06:51:37.409Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 10000,
+  "root": "0xcf39e6081fd4cc6d82c01bec850f06c365a00b5b5c4086494c9e844afe91fda4",
+  "proof_depth": 14,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/bitcoinpunks/inscriptions",
+      "count": 10000,
+      "unique": 10000,
+      "left_out": []
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/d4d69e8d4c614dd4a4a7ac609243f48b5657af1af6d1ff22ecccb69d5ddc040di0",
+      "count": 10000,
+      "unique": 10000,
+      "left_out": []
+    }
+  ],
+  "references": [
+    {
+      "name": "ordinalswallet-github",
+      "url": "https://raw.githubusercontent.com/ordinals-wallet/ordinals-collections/main/collections/bitcoinpunks/inscriptions.json",
+      "count": 10000,
+      "not_in_members": [],
+      "members_missing": []
+    }
+  ]
+}

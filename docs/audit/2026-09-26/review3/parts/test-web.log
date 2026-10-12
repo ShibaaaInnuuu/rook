@@ -1,0 +1,730 @@
+
+> etch-web@0.2.0 test
+> tsx --test test/*.test.ts
+
+TAP version 13
+# Subtest: the copies are the indexer's own files, byte for byte (checked whenever the repository copy is beside us)
+ok 1 - the copies are the indexer's own files, byte for byte (checked whenever the repository copy is beside us)
+  ---
+  duration_ms: 113.397042
+  type: 'test'
+  ...
+# Subtest: the recorded demo: every page's reads resolve, amounts stay exact, and times are moved so a countdown is mid-count
+ok 2 - the recorded demo: every page's reads resolve, amounts stay exact, and times are moved so a countdown is mid-count
+  ---
+  duration_ms: 2.871041
+  type: 'test'
+  ...
+# Subtest: ?demo=sample end to end: the coin list, every range tab and a card's market cap all come out of the recording
+ok 3 - ?demo=sample end to end: the coin list, every range tab and a card's market cap all come out of the recording
+  ---
+  duration_ms: 25.615834
+  type: 'test'
+  ...
+# Subtest: the synthetic set: unknown stays unknown, and the states the demo run never reaches are all reachable
+ok 4 - the synthetic set: unknown stays unknown, and the states the demo run never reaches are all reachable
+  ---
+  duration_ms: 0.635542
+  type: 'test'
+  ...
+# Subtest: the hosted indexer: a bad status is an error with the path in it, and the base URL is used as given
+ok 5 - the hosted indexer: a bad status is an error with the path in it, and the base URL is used as given
+  ---
+  duration_ms: 0.408917
+  type: 'test'
+  ...
+# Subtest: the Bitcoin address form: empty, wrong checksum, wrong kind and a good taproot address
+ok 6 - the Bitcoin address form: empty, wrong checksum, wrong kind and a good taproot address
+  ---
+  duration_ms: 0.2445
+  type: 'test'
+  ...
+# Subtest: sorting coins: every sort the chips offer, and what happens to a figure the source could not give
+ok 7 - sorting coins: every sort the chips offer, and what happens to a figure the source could not give
+  ---
+  duration_ms: 20.81375
+  type: 'test'
+  ...
+# Subtest: sorting is stable enough to be read: ties fall back to the name
+ok 8 - sorting is stable enough to be read: ties fall back to the name
+  ---
+  duration_ms: 0.239667
+  type: 'test'
+  ...
+# Subtest: filtering coins: by listing, and by whether any fee has actually reached a vault
+ok 9 - filtering coins: by listing, and by whether any fee has actually reached a vault
+  ---
+  duration_ms: 0.197625
+  type: 'test'
+  ...
+# Subtest: search: what it can answer without an endpoint, and what it refuses to guess at
+ok 10 - search: what it can answer without an endpoint, and what it refuses to guess at
+  ---
+  duration_ms: 1.561542
+  type: 'test'
+  ...
+# Subtest: routes: the nav, the known pages and the page dispatch all name the same routes
+ok 11 - routes: the nav, the known pages and the page dispatch all name the same routes
+  ---
+  duration_ms: 0.177167
+  type: 'test'
+  ...
+# Subtest: routes: every page that is not the landing page or a legal page is dispatched by AppPages
+ok 12 - routes: every page that is not the landing page or a legal page is dispatched by AppPages
+  ---
+  duration_ms: 0.665333
+  type: 'test'
+  ...
+# Subtest: the vault control offers the vaults coins actually pay into, and never more chips than it promised
+ok 13 - the vault control offers the vaults coins actually pay into, and never more chips than it promised
+  ---
+  duration_ms: 0.453084
+  type: 'test'
+  ...
+# Subtest: the vault panel's search: a name, a slug, a rune id, and an empty query is every vault
+ok 14 - the vault panel's search: a name, a slug, a rune id, and an empty query is every vault
+  ---
+  duration_ms: 0.324959
+  type: 'test'
+  ...
+# Subtest: sorting by market cap: the caps come from outside, and a coin without one is last rather than zero
+ok 15 - sorting by market cap: the caps come from outside, and a coin without one is last rather than zero
+  ---
+  duration_ms: 0.765167
+  type: 'test'
+  ...
+# Subtest: the supply every coin shares is checked against the rows, not asserted
+ok 16 - the supply every coin shares is checked against the rows, not asserted
+  ---
+  duration_ms: 0.711917
+  type: 'test'
+  ...
+# Subtest: trending: the shortlist names the key that drew it, and the order is the number that is printed
+ok 17 - trending: the shortlist names the key that drew it, and the order is the number that is printed
+  ---
+  duration_ms: 0.467
+  type: 'test'
+  ...
+# Subtest: bech32m: BIP-350's own taproot vector passes; a typo, a segwit v0 address, the wrong length and mixed case do not
+ok 18 - bech32m: BIP-350's own taproot vector passes; a typo, a segwit v0 address, the wrong length and mixed case do not
+  ---
+  duration_ms: 1.215208
+  type: 'test'
+  ...
+# Subtest: volume until the next buy: the arithmetic, its rounding, and the cases where there is no number to give
+ok 19 - volume until the next buy: the arithmetic, its rounding, and the cases where there is no number to give
+  ---
+  duration_ms: 0.150458
+  type: 'test'
+  ...
+# Subtest: docs/phase6.md: a deployment file labelled test is never read as THE deployment, and the default site stays 'nothing is live'
+ok 20 - docs/phase6.md: a deployment file labelled test is never read as THE deployment, and the default site stays 'nothing is live'
+  ---
+  duration_ms: 1.579542
+  type: 'test'
+  ...
+# Subtest: the staging trade box and the faucet exist only behind the staging net, and the legal pages leave entity and law as marked blanks
+ok 21 - the staging trade box and the faucet exist only behind the staging net, and the legal pages leave entity and law as marked blanks
+  ---
+  duration_ms: 0.910208
+  type: 'test'
+  ...
+# Subtest: the staging chain id is the repository's one number (staging/chain-id.json), is no real network's, and its money cannot be mistaken for ETH
+ok 22 - the staging chain id is the repository's one number (staging/chain-id.json), is no real network's, and its money cannot be mistaken for ETH
+  ---
+  duration_ms: 0.289459
+  type: 'test'
+  ...
+# Subtest: a share of supply is a percentage, and an unread supply has none rather than a zero
+ok 23 - a share of supply is a percentage, and an unread supply has none rather than a zero
+  ---
+  duration_ms: 1.297417
+  type: 'test'
+  ...
+# Subtest: a trade's value in dollars exists only when the rate does
+ok 24 - a trade's value in dollars exists only when the rate does
+  ---
+  duration_ms: 12.17
+  type: 'test'
+  ...
+# Subtest: the tape's rows keep the indexer's order and carry both units
+ok 25 - the tape's rows keep the indexer's order and carry both units
+  ---
+  duration_ms: 0.132833
+  type: 'test'
+  ...
+# Subtest: the explorer: Robinhood Chain has one, our own forks do not, and a recording of a fork never gets a link
+ok 26 - the explorer: Robinhood Chain has one, our own forks do not, and a recording of a fork never gets a link
+  ---
+  duration_ms: 0.774584
+  type: 'test'
+  ...
+# Subtest: the four unknowns are four different sentences, and staging says its wallets are simulated
+ok 27 - the four unknowns are four different sentences, and staging says its wallets are simulated
+  ---
+  duration_ms: 0.235084
+  type: 'test'
+  ...
+# Subtest: the panel is one section under the chart, its side is a word as well as a colour, and a wide table scrolls inside its own box
+ok 28 - the panel is one section under the chart, its side is a word as well as a colour, and a wide table scrolls inside its own box
+  ---
+  duration_ms: 0.3195
+  type: 'test'
+  ...
+# Subtest: the synthetic set: a recorded tape and a recorded holder list, under the paths the site asks for
+ok 29 - the synthetic set: a recorded tape and a recorded holder list, under the paths the site asks for
+  ---
+  duration_ms: 1.415417
+  type: 'test'
+  ...
+# Subtest: ?demo=sample end to end: every recorded coin's tape pages to its end, and its holders add up
+ok 30 - ?demo=sample end to end: every recorded coin's tape pages to its end, and its holders add up
+  ---
+  duration_ms: 21.487541
+  type: 'test'
+  ...
+# Subtest: a buy pays the fee on the way in, so the curve received less than the trader paid
+ok 31 - a buy pays the fee on the way in, so the curve received less than the trader paid
+  ---
+  duration_ms: 0.323834
+  type: 'test'
+  ...
+# Subtest: a sell pays it on the way out, so the curve paid more than the trader received
+ok 32 - a sell pays it on the way out, so the curve paid more than the trader received
+  ---
+  duration_ms: 0.275375
+  type: 'test'
+  ...
+# Subtest: a pool trade has no fee line: the hook charges outside the Swap event and the API does not guess
+ok 33 - a pool trade has no fee line: the hook charges outside the Swap event and the API does not guess
+  ---
+  duration_ms: 0.046916
+  type: 'test'
+  ...
+# Subtest: every recorded curve trade reconciles: curve leg + fee = the trader's own leg, and price x size is the curve leg
+ok 34 - every recorded curve trade reconciles: curve leg + fee = the trader's own leg, and price x size is the curve leg
+  ---
+  duration_ms: 1.779959
+  type: 'test'
+  ...
+# [catalogue] collections: 2 kept of 3 offered, 2 with a figure
+# [catalogue]   c: 9000000 sats
+# [catalogue]   b: 5000000 sats
+# [catalogue] collections: 1 kept of 1 offered, 1 with a figure
+# [catalogue]   a: 5000000 sats
+# [catalogue] collections: 2 kept of 3 offered, 2 with a figure
+# [catalogue]   c: 9000000 sats
+# [catalogue]   b: 5000000 sats
+# Subtest: a coin with no logo is cut the same way every time, and no two are cut alike
+ok 35 - a coin with no logo is cut the same way every time, and no two are cut alike
+  ---
+  duration_ms: 1.421917
+  type: 'test'
+  ...
+# Subtest: the monogram takes the initials a mason would, whatever it is handed
+ok 36 - the monogram takes the initials a mason would, whatever it is handed
+  ---
+  duration_ms: 0.897375
+  type: 'test'
+  ...
+# Subtest: each range is computed from the points inside it, so the line is redrawn and not zoomed
+ok 37 - each range is computed from the points inside it, so the line is redrawn and not zoomed
+  ---
+  duration_ms: 0.135292
+  type: 'test'
+  ...
+# Subtest: an empty window draws nothing rather than a flat invented line
+ok 38 - an empty window draws nothing rather than a flat invented line
+  ---
+  duration_ms: 0.050542
+  type: 'test'
+  ...
+# Subtest: a running total steps at each settlement instead of sloping between them
+ok 39 - a running total steps at each settlement instead of sloping between them
+  ---
+  duration_ms: 0.080708
+  type: 'test'
+  ...
+# Subtest: the feed is newest first, and a row with no time sorts last rather than to the top
+ok 40 - the feed is newest first, and a row with no time sorts last rather than to the top
+  ---
+  duration_ms: 0.084959
+  type: 'test'
+  ...
+# Subtest: nothing is cut in on the first pass; only a row that arrived since is
+ok 41 - nothing is cut in on the first pass; only a row that arrived since is
+  ---
+  duration_ms: 0.141042
+  type: 'test'
+  ...
+# Subtest: the search answers over the catalogue too, so the box still works with nothing deployed
+ok 42 - the search answers over the catalogue too, so the box still works with nothing deployed
+  ---
+  duration_ms: 0.133167
+  type: 'test'
+  ...
+# Subtest: what is listed on chain outranks what is only available, and the two are never both offered
+ok 43 - what is listed on chain outranks what is only available, and the two are never both offered
+  ---
+  duration_ms: 0.22125
+  type: 'test'
+  ...
+# Subtest: a coin still outranks the catalogue it is paired with
+ok 44 - a coin still outranks the catalogue it is paired with
+  ---
+  duration_ms: 0.288917
+  type: 'test'
+  ...
+# Subtest: a price is said with its units, and an absent one is not said as zero
+ok 45 - a price is said with its units, and an absent one is not said as zero
+  ---
+  duration_ms: 10.539709
+  type: 'test'
+  ...
+# Subtest: a fetched-on date is printed, and a missing one is admitted
+ok 46 - a fetched-on date is printed, and a missing one is admitted
+  ---
+  duration_ms: 5.382084
+  type: 'test'
+  ...
+# Subtest: a ranked list says what it is ranked by, and the figure and the window are both in the sentence
+ok 47 - a ranked list says what it is ranked by, and the figure and the window are both in the sentence
+  ---
+  duration_ms: 0.186584
+  type: 'test'
+  ...
+# Subtest: a curated list is never printed as a ranking, and neither is a lifetime one
+ok 48 - a curated list is never printed as a ranking, and neither is a lifetime one
+  ---
+  duration_ms: 0.062791
+  type: 'test'
+  ...
+# Subtest: a catalogue that records no basis says it records none, rather than letting its order be read as one
+ok 49 - a catalogue that records no basis says it records none, rather than letting its order be read as one
+  ---
+  duration_ms: 0.032875
+  type: 'test'
+  ...
+# Subtest: runes keep their bullets on screen and lose them in a ticker
+ok 50 - runes keep their bullets on screen and lose them in a ticker
+  ---
+  duration_ms: 0.035291
+  type: 'test'
+  ...
+# Subtest: the browser's own search ranks a prefix above a mention, and offers everything with an empty query
+ok 51 - the browser's own search ranks a prefix above a mention, and offers everything with an empty query
+  ---
+  duration_ms: 0.564292
+  type: 'test'
+  ...
+# Subtest: the catalogue that ships is real, dated, credited, and every picture it names exists
+ok 52 - the catalogue that ships is real, dated, credited, and every picture it names exists
+  ---
+  duration_ms: 6.447666
+  type: 'test'
+  ...
+# Subtest: the catalogue is in the order it claims, and a file that claims none is not read as a ranking
+ok 53 - the catalogue is in the order it claims, and a file that claims none is not read as a ranking
+  ---
+  duration_ms: 0.20325
+  type: 'test'
+  ...
+# Subtest: the runes' week and the collections' lifetime are never printed as one figure
+ok 54 - the runes' week and the collections' lifetime are never printed as one figure
+  ---
+  duration_ms: 0.197084
+  type: 'test'
+  ...
+# Subtest: the collections' week is summed from the fills, per collection, with the ids that changed hands
+ok 55 - the collections' week is summed from the fills, per collection, with the ids that changed hands
+  ---
+  duration_ms: 0.179709
+  type: 'test'
+  ...
+# Subtest: a fill's timestamp is read in whichever unit it arrives in, and nothing else is read as a time
+ok 56 - a fill's timestamp is read in whichever unit it arrives in, and nothing else is read as a time
+  ---
+  duration_ms: 0.04825
+  type: 'test'
+  ...
+# Subtest: the ranking refuses an order it cannot stand behind: no figure at all, or a figure that is not in sats
+ok 57 - the ranking refuses an order it cannot stand behind: no figure at all, or a figure that is not in sats
+  ---
+  duration_ms: 0.8335
+  type: 'test'
+  ...
+# Subtest: the fetch asks for the collections' week first, every run, and can only fall to lifetime by saying so
+ok 58 - the fetch asks for the collections' week first, every run, and can only fall to lifetime by saying so
+  ---
+  duration_ms: 0.352125
+  type: 'test'
+  ...
+# Subtest: the lifetime ranking is guarded exactly as the week's is: no rows, no figure, or a figure that is not in sats
+ok 59 - the lifetime ranking is guarded exactly as the week's is: no rows, no figure, or a figure that is not in sats
+  ---
+  duration_ms: 0.18475
+  type: 'test'
+  ...
+# Subtest: a 200 Cloudflare invented from a stale copy is not an answer, whatever its body says
+ok 60 - a 200 Cloudflare invented from a stale copy is not an answer, whatever its body says
+  ---
+  duration_ms: 0.053792
+  type: 'test'
+  ...
+# Subtest: each answer is read for what it is: a body, a ghost, an outage, or a live origin declining
+ok 61 - each answer is read for what it is: a body, a ghost, an outage, or a live origin declining
+  ---
+  duration_ms: 0.043875
+  type: 'test'
+  ...
+# Subtest: the verdict cannot be talked into yes by a ghost, and tells an outage apart from a refusal
+ok 62 - the verdict cannot be talked into yes by a ghost, and tells an outage apart from a refusal
+  ---
+  duration_ms: 0.074375
+  type: 'test'
+  ...
+# Subtest: a windowed body is counted whichever shape it arrives in, and an unparsed one counts as nothing
+ok 63 - a windowed body is counted whichever shape it arrives in, and an unparsed one counts as nothing
+  ---
+  duration_ms: 0.053167
+  type: 'test'
+  ...
+# Subtest: the prober paces itself at its own rate, backs off growing, and only ever reads
+ok 64 - the prober paces itself at its own rate, backs off growing, and only ever reads
+  ---
+  duration_ms: 0.262417
+  type: 'test'
+  ...
+# Subtest: no Magic Eden figure has leaked into the catalogue, because none was ever read
+ok 65 - no Magic Eden figure has leaked into the catalogue, because none was ever read
+  ---
+  duration_ms: 0.202042
+  type: 'test'
+  ...
+# Subtest: a coin's logo is fetchable, and a string that is not a picture never reaches an img
+ok 66 - a coin's logo is fetchable, and a string that is not a picture never reaches an img
+  ---
+  duration_ms: 0.139292
+  type: 'test'
+  ...
+# Subtest: the catalogue and the vaults are one list, joined on the registry's own ref, in the catalogue's ranked order
+ok 67 - the catalogue and the vaults are one list, joined on the registry's own ref, in the catalogue's ranked order
+  ---
+  duration_ms: 0.145792
+  type: 'test'
+  ...
+# Subtest: a card says which of the three it is, because 'paused' and 'not created' are different facts
+ok 68 - a card says which of the three it is, because 'paused' and 'not created' are different facts
+  ---
+  duration_ms: 0.066667
+  type: 'test'
+  ...
+# Subtest: the chooser's search is over the one list, and finds a rune by its ticker or its id
+ok 69 - the chooser's search is over the one list, and finds a rune by its ticker or its id
+  ---
+  duration_ms: 0.081917
+  type: 'test'
+  ...
+# Subtest: \#/vaults is what people see, \#/listings still answers, and neither can 404
+ok 70 - \#/vaults is what people see, \#/listings still answers, and neither can 404
+  ---
+  duration_ms: 0.046333
+  type: 'test'
+  ...
+# Subtest: a coin opens on the range its own age can fill, and no range is per-trade
+ok 71 - a coin opens on the range its own age can fill, and no range is per-trade
+  ---
+  duration_ms: 0.055541
+  type: 'test'
+  ...
+# Subtest: the price window fits the candles, with air, and never drops below zero
+ok 72 - the price window fits the candles, with air, and never drops below zero
+  ---
+  duration_ms: 0.083375
+  type: 'test'
+  ...
+# Subtest: change is over the whole range shown, is not computed from one candle, and a zero open does not produce infinity
+ok 73 - change is over the whole range shown, is not computed from one candle, and a zero open does not produce infinity
+  ---
+  duration_ms: 0.104583
+  type: 'test'
+  ...
+# Subtest: market cap is supply times price times the rate, and the doc's worked example comes out
+ok 74 - market cap is supply times price times the rate, and the doc's worked example comes out
+  ---
+  duration_ms: 0.055375
+  type: 'test'
+  ...
+# Subtest: a missing supply, a missing rate or a missing price is null, and the dollar option is then not offered
+ok 75 - a missing supply, a missing rate or a missing price is null, and the dollar option is then not offered
+  ---
+  duration_ms: 0.060083
+  type: 'test'
+  ...
+# Subtest: a market cap is written the way one is read, and an unknown one says so in words
+ok 76 - a market cap is written the way one is read, and an unknown one says so in words
+  ---
+  duration_ms: 0.0985
+  type: 'test'
+  ...
+# Subtest: the crosshair's clock shows the second only when the bucket is small enough for it to mean anything
+ok 77 - the crosshair's clock shows the second only when the bucket is small enough for it to mean anything
+  ---
+  duration_ms: 0.565125
+  type: 'test'
+  ...
+# Subtest: a curve price is a very small number and is printed as one, not as a row of zeros
+ok 78 - a curve price is a very small number and is printed as one, not as a row of zeros
+  ---
+  duration_ms: 0.120458
+  type: 'test'
+  ...
+# Subtest: graduation is placed by the indexer's own timestamp, and only when it falls inside the window drawn
+ok 79 - graduation is placed by the indexer's own timestamp, and only when it falls inside the window drawn
+  ---
+  duration_ms: 0.067041
+  type: 'test'
+  ...
+# Subtest: a size in raw units is said in whole coins
+ok 80 - a size in raw units is said in whole coins
+  ---
+  duration_ms: 0.050542
+  type: 'test'
+  ...
+# Subtest: everything that happened, in one list, newest first, and nothing without a time
+ok 81 - everything that happened, in one list, newest first, and nothing without a time
+  ---
+  duration_ms: 0.262334
+  type: 'test'
+  ...
+# Subtest: the coin search matches a name, a ticker or an address, and an empty query is not a filter
+ok 82 - the coin search matches a name, a ticker or an address, and an empty query is not a filter
+  ---
+  duration_ms: 0.074166
+  type: 'test'
+  ...
+# Subtest: a collection whose only picture is an icon inscription given as an object is kept, and its picture is that inscription
+ok 83 - a collection whose only picture is an icon inscription given as an object is kept, and its picture is that inscription
+  ---
+  duration_ms: 0.177792
+  type: 'test'
+  ...
+# Subtest: the curve's buy is FrogCurve.buy to the wei: 1% of what is sent, rounding against the buyer
+ok 84 - the curve's buy is FrogCurve.buy to the wei: 1% of what is sent, rounding against the buyer
+  ---
+  duration_ms: 0.841208
+  type: 'test'
+  ...
+# Subtest: the buy that reaches the raise uses only what the raise needs, and says what comes back
+ok 85 - the buy that reaches the raise uses only what the raise needs, and says what comes back
+  ---
+  duration_ms: 0.065291
+  type: 'test'
+  ...
+# Subtest: the curve's sell: the 1% comes off the ETH out
+ok 86 - the curve's sell: the 1% comes off the ETH out
+  ---
+  duration_ms: 0.324542
+  type: 'test'
+  ...
+# Subtest: after graduation every hop's fees are in the one number: two LP fees and two Uniswap protocol fees
+ok 87 - after graduation every hop's fees are in the one number: two LP fees and two Uniswap protocol fees
+  ---
+  duration_ms: 17.3755
+  type: 'test'
+  ...
+# Subtest: a sell after graduation: COIN → wX → ETH, the same fees, valued at the mids
+ok 88 - a sell after graduation: COIN → wX → ETH, the same fees, valued at the mids
+  ---
+  duration_ms: 0.142459
+  type: 'test'
+  ...
+# Subtest: the Floor Module: its spread is in the number, the router routes through it, and the cheaper venue wins each way
+ok 89 - the Floor Module: its spread is in the number, the router routes through it, and the cheaper venue wins each way
+  ---
+  duration_ms: 0.527125
+  type: 'test'
+  ...
+# Subtest: the module's legs are FloorModule.quoteMint / quoteBurn: the unit price rounded against the trader, the room a hard edge
+ok 90 - the module's legs are FloorModule.quoteMint / quoteBurn: the unit price rounded against the trader, the room a hard edge
+  ---
+  duration_ms: 0.112791
+  type: 'test'
+  ...
+# Subtest: the launch fee (docs/v5/policies-and-fees.md §2) and the tier (§3) are both in the one number, and named in Details
+ok 91 - the launch fee (docs/v5/policies-and-fees.md §2) and the tier (§3) are both in the one number, and named in Details
+  ---
+  duration_ms: 0.166
+  type: 'test'
+  ...
+# Subtest: route choice: the most out among executable routes; ties to the first listed; nothing executable is nothing
+ok 92 - route choice: the most out among executable routes; ties to the first listed; nothing executable is nothing
+  ---
+  duration_ms: 0.243416
+  type: 'test'
+  ...
+# Subtest: the phase decides the venue: the curve while trading, nothing while graduating, refunds when it failed, a direct pool for SWEEP_ONLY
+ok 93 - the phase decides the venue: the curve while trading, nothing while graduating, refunds when it failed, a direct pool for SWEEP_ONLY
+  ---
+  duration_ms: 0.421833
+  type: 'test'
+  ...
+# Subtest: the fixture set is labelled, moved to now, and refuses paths it does not have
+ok 94 - the fixture set is labelled, moved to now, and refuses paths it does not have
+  ---
+  duration_ms: 3.401208
+  type: 'test'
+  ...
+# Subtest: the fixture's coins quote end to end: ALIEN after graduation through both pools, BETA on its curve
+ok 95 - the fixture's coins quote end to end: ALIEN after graduation through both pools, BETA on its curve
+  ---
+  duration_ms: 1.058916
+  type: 'test'
+  ...
+# Subtest: the ticket says one number and never names the wrapped token until Details is opened
+ok 96 - the ticket says one number and never names the wrapped token until Details is opened
+  ---
+  duration_ms: 17.43475
+  type: 'test'
+  ...
+# Subtest: proof of reserves: green says Verified, unverified never looks green, and a fixture's links are text
+ok 97 - proof of reserves: green says Verified, unverified never looks green, and a fixture's links are text
+  ---
+  duration_ms: 6.566541
+  type: 'test'
+  ...
+# Subtest: redemption destinations: taproot for inscriptions; an EVM address, not zero and not the custodian, for NFTs
+ok 98 - redemption destinations: taproot for inscriptions; an EVM address, not zero and not the custodian, for NFTs
+  ---
+  duration_ms: 0.951083
+  type: 'test'
+  ...
+# Subtest: rent is a description with nothing to press, and the new pages are routed under Reserves
+ok 99 - rent is a description with nothing to press, and the new pages are routed under Reserves
+  ---
+  duration_ms: 0.212833
+  type: 'test'
+  ...
+# Subtest: the offer board page (docs/v6/offer-handins.md): what is on it, what was paid, how a bot earns it — and nothing to press
+ok 100 - the offer board page (docs/v6/offer-handins.md): what is on it, what was paid, how a bot earns it — and nothing to press
+  ---
+  duration_ms: 1.133625
+  type: 'test'
+  ...
+# Subtest: the coin page's policy, tier and launch fee (docs/v5/policies-and-fees.md), and the YOYO vault's books
+ok 101 - the coin page's policy, tier and launch fee (docs/v5/policies-and-fees.md), and the YOYO vault's books
+  ---
+  duration_ms: 1.496708
+  type: 'test'
+  ...
+# Subtest: proof of reserves shows the module's books, the treasury's pots and the protocol's liquidity, each from its own read
+ok 102 - proof of reserves shows the module's books, the treasury's pots and the protocol's liquidity, each from its own read
+  ---
+  duration_ms: 4.038583
+  type: 'test'
+  ...
+# Subtest: the site is called Rook on screen; repo and package names stay
+ok 103 - the site is called Rook on screen; repo and package names stay
+  ---
+  duration_ms: 0.718
+  type: 'test'
+  ...
+# Subtest: the budget is not the balance, and on the recorded vault the difference is the bond
+ok 104 - the budget is not the balance, and on the recorded vault the difference is the bond
+  ---
+  duration_ms: 2.73225
+  type: 'test'
+  ...
+# Subtest: unattributed is what Etch has instead of donations, and it is zero because there is no way to donate
+ok 105 - unattributed is what Etch has instead of donations, and it is zero because there is no way to donate
+  ---
+  duration_ms: 1.610834
+  type: 'test'
+  ...
+# Subtest: the recording predates the totals, and each one is absent rather than zero
+ok 106 - the recording predates the totals, and each one is absent rather than zero
+  ---
+  duration_ms: 1.802041
+  type: 'test'
+  ...
+# Subtest: a collection's vault: a count bought, a count held, and what its purchases cost
+ok 107 - a collection's vault: a count bought, a count held, and what its purchases cost
+  ---
+  duration_ms: 0.762958
+  type: 'test'
+  ...
+# Subtest: a rune's vault is measured, not counted: 'swept N' is not a sentence about something fungible
+ok 108 - a rune's vault is measured, not counted: 'swept N' is not a sentence about something fungible
+  ---
+  duration_ms: 0.298833
+  type: 'test'
+  ...
+# Subtest: the indexed totals survive a live block that could not be read
+ok 109 - the indexed totals survive a live block that could not be read
+  ---
+  duration_ms: 0.401042
+  type: 'test'
+  ...
+# Subtest: a cap is live or expired, and the page is told from which end of its hour
+ok 110 - a cap is live or expired, and the page is told from which end of its hour
+  ---
+  duration_ms: 0.200916
+  type: 'test'
+  ...
+# Subtest: what the budget buys at the cap, and what a ratio does when it has no denominator
+ok 111 - what the budget buys at the cap, and what a ratio does when it has no denominator
+  ---
+  duration_ms: 0.071625
+  type: 'test'
+  ...
+# Subtest: the coins feeding a vault, largest first, with shares of the same response's own total
+ok 112 - the coins feeding a vault, largest first, with shares of the same response's own total
+  ---
+  duration_ms: 10.063959
+  type: 'test'
+  ...
+# Subtest: a receipt carries its purchase's cost where the source has one, and says nothing where it does not
+ok 113 - a receipt carries its purchase's cost where the source has one, and says nothing where it does not
+  ---
+  duration_ms: 0.800875
+  type: 'test'
+  ...
+# Subtest: every delivery state has words, because 'draw-pinned' is a database value and not a thing to show a reader
+ok 114 - every delivery state has words, because 'draw-pinned' is a database value and not a thing to show a reader
+  ---
+  duration_ms: 0.284167
+  type: 'test'
+  ...
+# Subtest: the list of vaults reads the cap's other end too, and prints nothing where a source has none
+ok 115 - the list of vaults reads the cap's other end too, and prints nothing where a source has none
+  ---
+  duration_ms: 9.309958
+  type: 'test'
+  ...
+# Subtest: a visitor with a chain and no indexer gets the balances and is told the totals are missing
+ok 116 - a visitor with a chain and no indexer gets the balances and is told the totals are missing
+  ---
+  duration_ms: 0.189584
+  type: 'test'
+  ...
+# Subtest: the page makes no claim the contracts do not keep
+ok 117 - the page makes no claim the contracts do not keep
+  ---
+  duration_ms: 0.147166
+  type: 'test'
+  ...
+# Subtest: the vault page is the same material as the rest, and no table makes the page scroll sideways
+ok 118 - the vault page is the same material as the rest, and no table makes the page scroll sideways
+  ---
+  duration_ms: 0.398333
+  type: 'test'
+  ...
+1..118
+# tests 118
+# suites 0
+# pass 118
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 515.749458

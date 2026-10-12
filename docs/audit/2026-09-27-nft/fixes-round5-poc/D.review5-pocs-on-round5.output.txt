@@ -1,0 +1,12 @@
+ok 1 - holds: D4-L-1 exempts only a receipt that succeeded on EVERY provider and holds THIS collection's Transfer(custodian -> destination, token)
+ok 2 - holds: a Cancelling delivery is exempt only when the delivery it cancels (`of`) mined, never when the cancel mined
+ok 3 - D5-L-1: a delivery whose record lands on 4663 during the poll (ticket Delivered) pages a false SEV1 since D4-I-1's stage check
+ok 4 - D5-L-1 (the window): the wrapper's items are read first and the tickets last, after every collection's reads and the canary
+ok 5 - D5-I-1: a re-priced delivery whose EARLIER version mined is not exempt: the monitor reads only the newest hash (line.earlier not decoded)
+not ok 6 - D5-L-2: the SEV1 Stuck page tells the operator a fill-Stuck buy (token not ours after it mined) is 'still WATCHED' and to wait a day
+ok 7 - holds: the C4-M-1 pages fire on the canister's round-4 states (way back late, written-off orders SEV3 until credited)
+ok 8 - D5-I-3: the SEV3 for a written-off order is sent once (not persistent); nothing pages when its payout actually lands
+ok 9 - holds: D4-L-2 re-reads the last 64 blocks every poll, and a deposit read twice is one unclaimed entry and one page
+ok 10 - D5-I-2 (a): a poll whose head has not moved past the cursor re-reads the WHOLE 7,200-block window (15 requests), not 64 blocks
+ok 11 - D5-I-2 (b): a logs node more than 64 blocks behind the head node still loses a deposit for good
+ok 12 - holds: the monitor's IDL is subtype-safe for EthBuy.late: absent (an older canister) is none; extra fields (a newer one) are skipped

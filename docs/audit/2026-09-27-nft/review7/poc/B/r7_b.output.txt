@@ -1,0 +1,16 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.99s
+     Running tests/r7_b.rs (target/debug/deps/r7_b-8137a7d2ed3aaf4a)
+running 4 tests
+test r7_b_i1_a_replica_mixed_rate_limit_is_still_too_big ... replica-mixed rate limit on 0 % of log reads (Seaport range cap 520): a week: 432 of 432 due sales counted; SaleScan.bad at most 0; divergent answers 0
+replica-mixed rate limit on 30 % of log reads (Seaport range cap 520): a week: 432 of 432 due sales counted; SaleScan.bad at most 32; divergent answers 1108
+replica-mixed rate limit on 50 % of log reads (Seaport range cap 520): a week: 432 of 432 due sales counted; SaleScan.bad at most 32; divergent answers 1302
+ok
+test r7_b_l1_a_one_transient_deep_answer_in_the_hole_gives_up_the_rest_of_the_hole_for_good ... control: gap sales 119 of 119; newer 144 of 144; lost None; hole None
+one deep answer: gap sales 88 of 119 after TWO DAYS (every later read of both providers served); newer 144 of 144; lost Some((26068801, 26071900)); hole None
+  note: eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 940000000000000000 and p25 940000000000000000, confidence 10000, 3 listings, 21 sales counted; the newest blocks' walk was a day or more behind the final head (at block 26068801): re-anchored at block 26080401; blocks 26068801..26080400 are read newest first (B6-M-1); the
+ok
+test r7_b_l1_b_a_busy_answer_is_unbounded_16_receipts_hold_every_newer_sale_with_no_page ... 16 old receipts answered busy: after two days 0 of 144 final newer sales read; rfail None; behind Some(0); lost None; hole None
+ok
+test r7_b_l2_the_scan_lag_page_cannot_fire_the_reanchor_keeps_behind_under_a_day ... three days all busy: newer sales counted 0 of 216; behind at most 7200 (the page needs 7,200): 1 pass(es) would page; hole Some((26068801, 26089098)) (SEV3, not persistent); lost None
+ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 7.07s

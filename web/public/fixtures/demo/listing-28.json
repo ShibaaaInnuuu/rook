@@ -1,0 +1,53 @@
+{
+  "id": 28,
+  "kind": "inscriptions",
+  "name": "Piggies World",
+  "ref": "piggies-world",
+  "divisibility": 0,
+  "vault": "0xEB02E8F5C68aa101371aCCCE9c4Dc9BBf37AA1CE",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-piggies-world",
+  "membershipRoot": "0xdeba5c2c620fb826fc390ad5544371d8609a1793670b698c33a03b68af8a4604",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "520798514041367445",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "520798514041367445",
+    "attributedWei": "520798514041367445",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "520798514041367445",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xa85702c6faFE613b09832745B730A0E3eCA8c3bd",
+      "symbol": "GRAN3SIM",
+      "depositedWei": "520798514041367445"
+    }
+  ]
+}

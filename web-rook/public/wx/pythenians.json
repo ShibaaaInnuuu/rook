@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Pythenians",
+  "symbol": "wPYTHENIAN",
+  "description": "Rook's wrapped Pythenians token: each whole token is backed either by a Pythenians NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/pythenians.png",
+  "external_url": "https://userook.fun/#/collection/pythenians",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/pythenians.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

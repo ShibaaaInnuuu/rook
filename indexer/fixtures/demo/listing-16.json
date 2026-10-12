@@ -1,0 +1,53 @@
+{
+  "id": 16,
+  "kind": "inscriptions",
+  "name": "Bitcoin Monkes",
+  "ref": "bitcoin-monkes",
+  "divisibility": 0,
+  "vault": "0xFAcF60046f74d8586040aD6CbFf837805ac54BBE",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-bitcoin-monkes",
+  "membershipRoot": "0x2175814b29ddeb568327cab62fd43d05da1a82e767d7fd429c3fee9b3c514664",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "33948621833490944",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "33948621833490944",
+    "attributedWei": "33948621833490944",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "33948621833490944",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xF48D04bF7607E09105b456d14680F215f8A68f9F",
+      "symbol": "FLIN2SIM",
+      "depositedWei": "33948621833490944"
+    }
+  ]
+}

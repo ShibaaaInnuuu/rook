@@ -1,0 +1,87 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The collections, coins, items, tickets and checks are built from the worked examples in docs/v3/curve.md (frogs at 5 ETH; an ape bought FIFO for two coins), with a floor module, a treasury, a YOYO coin and an offer board given plausible books, and run through the real reserve computation. Addresses, inscription ids and transactions are invented; the explorer links point at nothing. One of the apes' two EVM providers is made to fail on purpose, to show an unverified collection."
+  },
+  "slug": "frogs",
+  "name": "Bitcoin Frogs",
+  "board": "0x1000000000000000000000000000000000000007",
+  "boardUrl": "https://explorer.mainnet.chain.robinhood.com/address/0x1000000000000000000000000000000000000007",
+  "params": {
+    "bondWei": "10000000000000000",
+    "rewardWei": "10000000000000000",
+    "slashDelayS": 3600,
+    "expiryS": 86400,
+    "rewardDayCapWei": "200000000000000000",
+    "maxOpen": 64,
+    "maxOpenPerSubmitter": 4
+  },
+  "custodian": "0x1000000000000000000000000000000000000c05",
+  "rewardPoolWei": "60000000000000000",
+  "paidTodayWei": "10000000000000000",
+  "open": [
+    {
+      "id": 2,
+      "submitter": "0x3000000000000000000000000000000000000b01",
+      "status": "open",
+      "at": 1790001960,
+      "atBlock": 980,
+      "bondWei": "10000000000000000",
+      "askSats": "1005000",
+      "offerHash": "0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+      "inscriptionId": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff16i0",
+      "slashable": false,
+      "expired": false,
+      "rewardPaidWei": null,
+      "settledTx": null,
+      "settledAt": null
+    }
+  ],
+  "settled": [
+    {
+      "id": 1,
+      "submitter": "0x3000000000000000000000000000000000000B02",
+      "status": "slashed",
+      "at": 1790001400,
+      "atBlock": 700,
+      "bondWei": "10000000000000000",
+      "askSats": "990000",
+      "offerHash": "0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+      "inscriptionId": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff15i0",
+      "slashable": false,
+      "expired": false,
+      "rewardPaidWei": null,
+      "settledTx": "0x000000000000000000000000000000000000000000000000000000000000001a",
+      "settledAt": 1790001640
+    },
+    {
+      "id": 0,
+      "submitter": "0x3000000000000000000000000000000000000b01",
+      "status": "claimed",
+      "at": 1790001200,
+      "atBlock": 600,
+      "bondWei": "10000000000000000",
+      "askSats": "1020000",
+      "offerHash": "0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "inscriptionId": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff14i0",
+      "slashable": false,
+      "expired": false,
+      "rewardPaidWei": "10000000000000000",
+      "settledTx": "0x0000000000000000000000000000000000000000000000000000000000000019",
+      "settledAt": 1790001600
+    }
+  ],
+  "totals": {
+    "submitted": 3,
+    "open": 1,
+    "claimed": 1,
+    "slashed": 1,
+    "refunded": 0,
+    "rewardsPaidWei": "10000000000000000",
+    "bondsSlashedWei": "10000000000000000",
+    "fundedWei": "60000000000000000"
+  },
+  "computedAt": 1790002000,
+  "block": 1000,
+  "error": null
+}

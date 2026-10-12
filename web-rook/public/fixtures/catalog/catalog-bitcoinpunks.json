@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "bitcoinpunks",
+    "name": "Bitcoin Punks",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "bitcoinpunks",
+    "description": null,
+    "image": "https://ordinals.com/content/2d19554bb51891504424409677871f529a1decfa05748f1d6f64a76a36ebcb93i0",
+    "links": {
+      "website": null,
+      "x": "https://x.com/Bitcoin_Punks_",
+      "discord": "https://discord.gg/bitcoinpunks",
+      "marketplace": "https://ordinalswallet.com/collection/bitcoinpunks",
+      "explorer": "https://ordinals.com/inscription/89"
+    },
+    "floor": {
+      "native": "308324",
+      "unit": "sats",
+      "eth": 0.09731527948742227,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:bitcoinpunks/escrows",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 10000,
+    "owners": null,
+    "listed": 90,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "dd02dea1001e8c9fc2f8fe146e7ba07b1fa6d462d9ff7bf2194880a6d3adf508i0",
+        "name": "Bitcoin Punk #7916",
+        "image": "https://ordinals.com/content/dd02dea1001e8c9fc2f8fe146e7ba07b1fa6d462d9ff7bf2194880a6d3adf508i0",
+        "url": "https://ordinals.com/inscription/dd02dea1001e8c9fc2f8fe146e7ba07b1fa6d462d9ff7bf2194880a6d3adf508i0"
+      },
+      {
+        "id": "596360f9f9b3b8590ee344ae9f084c6e374f6b3cde06a68eb08d55dc68ca9aafi0",
+        "name": "Bitcoin Punk #4103",
+        "image": "https://ordinals.com/content/596360f9f9b3b8590ee344ae9f084c6e374f6b3cde06a68eb08d55dc68ca9aafi0",
+        "url": "https://ordinals.com/inscription/596360f9f9b3b8590ee344ae9f084c6e374f6b3cde06a68eb08d55dc68ca9aafi0"
+      },
+      {
+        "id": "b416ea4501d2d9893e5e5908afe96377dd0203da49737c79848cbb039130d540i0",
+        "name": "Bitcoin Punk #4524",
+        "image": "https://ordinals.com/content/b416ea4501d2d9893e5e5908afe96377dd0203da49737c79848cbb039130d540i0",
+        "url": "https://ordinals.com/inscription/b416ea4501d2d9893e5e5908afe96377dd0203da49737c79848cbb039130d540i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.097 ETH, 0.117 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

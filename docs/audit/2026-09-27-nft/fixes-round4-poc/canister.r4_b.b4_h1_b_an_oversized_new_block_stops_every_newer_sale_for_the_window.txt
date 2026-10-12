@@ -1,0 +1,18 @@
+
+running 1 test
+after a day: 40 of the 40 newer sales read (all final and in the window); scan up 26076000 (the oversized block 26068850), chunk 500; failed reads per pass [2, 1, 0]..[0, 0, 0]
+
+thread 'b4_h1_b_an_oversized_new_block_stops_every_newer_sale_for_the_window' (59522426) panicked at tests/r4_b.rs:778:5:
+assertion `left == right` failed: WEAKNESS: no sale newer than the oversized block is read
+  left: 40
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test b4_h1_b_an_oversized_new_block_stops_every_newer_sale_for_the_window ... FAILED
+
+failures:
+
+failures:
+    b4_h1_b_an_oversized_new_block_stops_every_newer_sale_for_the_window
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.03s
+

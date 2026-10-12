@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "honey-badgers",
+    "name": "Honey Badgers",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "honey-badgers",
+    "description": "Honey Badgers are a gen 10k collection inscribed on the BTC Blockchain through Ordinals. It's an experiment to see if a native NFT community can emerge and thrive on the native BTC ecosystem.",
+    "image": "https://ordinals.com/content/01afbcf10b3031fe576c6e900559bc7f0d6ceb10d383655536fc17dd515140a2i0",
+    "links": {
+      "website": null,
+      "x": "https://x.com/HoneyBadgersBtc",
+      "discord": "https://discord.gg/honeybadgers",
+      "marketplace": "https://ordinalswallet.com/collection/honey-badgers",
+      "explorer": "https://ordinals.com/inscription/81557"
+    },
+    "floor": {
+      "native": "71942",
+      "unit": "sats",
+      "eth": 0.022706814379951392,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 9999,
+    "owners": null,
+    "listed": 45,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "251c4ac33fb13a494d8b26bd9eb9d3771df9141a784e204179a7aaa3190c87b2i0",
+        "name": "#1011129",
+        "image": "https://ordinals.com/content/251c4ac33fb13a494d8b26bd9eb9d3771df9141a784e204179a7aaa3190c87b2i0",
+        "url": "https://ordinals.com/inscription/251c4ac33fb13a494d8b26bd9eb9d3771df9141a784e204179a7aaa3190c87b2i0"
+      },
+      {
+        "id": "b7ffa5a19df1f49b6a231666d82e45c256c13d3cd6f1fa8aee5903dc9385d14ci0",
+        "name": "#927553",
+        "image": "https://ordinals.com/content/b7ffa5a19df1f49b6a231666d82e45c256c13d3cd6f1fa8aee5903dc9385d14ci0",
+        "url": "https://ordinals.com/inscription/b7ffa5a19df1f49b6a231666d82e45c256c13d3cd6f1fa8aee5903dc9385d14ci0"
+      },
+      {
+        "id": "bec89c8c6a3d974d2519db0d574b8771da43e71f166bed745aa1a694cd845731i0",
+        "name": "#915443",
+        "image": "https://ordinals.com/content/bec89c8c6a3d974d2519db0d574b8771da43e71f166bed745aa1a694cd845731i0",
+        "url": "https://ordinals.com/inscription/bec89c8c6a3d974d2519db0d574b8771da43e71f166bed745aa1a694cd845731i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.023 ETH, 0.027 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

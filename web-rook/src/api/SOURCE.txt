@@ -1,0 +1,3 @@
+Copied byte for byte from indexer/: fixtures/demo, fixtures/synthetic, fixtures/wrapped -> web/public/fixtures; types.ts -> web/src/api/types.ts.
+Re-copy both folders whenever the recording is remade (indexer: npm run fixtures -- demo <api url>).
+Do not edit the copies. web/test/api.test.ts fails if they drift while the repository copy is present.

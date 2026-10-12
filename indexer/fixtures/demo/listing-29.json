@@ -1,0 +1,53 @@
+{
+  "id": 29,
+  "kind": "inscriptions",
+  "name": "BTC Mutant Operators",
+  "ref": "btc-mutant-operators",
+  "divisibility": 0,
+  "vault": "0x04dBa6FDc0233594681bdDA8604A55fab97E4484",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-btc-mutant-operators",
+  "membershipRoot": "0x7b5e1de6492b46eb1d5fae7eef35f9864d6b505a51f4539ebff42291472f3f60",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "23757575757575757",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "23757575757575757",
+    "attributedWei": "23757575757575757",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "23757575757575757",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xaa83CFdF5C745993675f559E9a13Fd757Bd688a8",
+      "symbol": "SHAL3SIM",
+      "depositedWei": "23757575757575757"
+    }
+  ]
+}

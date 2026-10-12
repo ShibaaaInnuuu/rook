@@ -1,0 +1,36 @@
+test r5_b4_l2_a_rescan_hull_over_a_resolved_oversized_block_pays_its_bisection_again ... FAILED
+test r5_b5_l1_cycles_a_pass_reserves_more_than_the_12_mb_budget_weakness ... FAILED
+test r5_b5_m1_a_burst_of_oversized_blocks_one_apart_holds_every_newer_sale_for_about_a_week_weakness ... FAILED
+test r5_b5_m1_b_one_oversized_block_a_pass_keeps_the_forward_walk_falling_behind_weakness ... FAILED
+test r5_b5_m1_c_no_anchor_an_oversized_block_every_50_blocks_keeps_the_first_read_from_ever_landing_weakness ... FAILED
+test r5_b5_m2_a_provider_result_cap_error_still_stalls_the_forward_walk_for_the_window_weakness ... FAILED
+failures:
+B4-L-2: the oversized block's first bisection cost 10 failed reads; the re-read of a hull over it 0 more (1536000 bytes)
+thread 'r5_b4_l2_a_rescan_hull_over_a_resolved_oversized_block_pays_its_bisection_again' (61569767) panicked at tests/r5_b.rs:1834:5:
+WEAKNESS: the bisection is paid again
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+(a) 12 consecutive oversized blocks, marketplace logs oversized too: 12 oversized block(s): newer sales read after a day 10 / at the end 10 of 10 final; forward walk behind the final head by 0 blocks after a day, 0 at the end; failed log reads: at most 2 a pass, 56 in all; reserved bytes: at most 9984000 a pass; SaleScan.bad at most 4 ranges; first newer sale read at pass Some(3); the walk past the last oversized block at pass Some(1); passes with a HELD reading 0, with no reading 0; the last reading: 15 sales counted, held false, a reading true
+thread 'r5_b5_l1_cycles_a_pass_reserves_more_than_the_12_mb_budget_weakness' (61569768) panicked at tests/r5_b.rs:1811:5:
+WEAKNESS: a pass reserved 5184000 bytes
+control (the fix's case, 2 days): 1 oversized block(s): newer sales read after a day 60 / at the end 60 of 60 final; forward walk behind the final head by 0 blocks after a day, 0 at the end; failed log reads: at most 1 a pass, 2 in all; reserved bytes: at most 5568000 a pass; SaleScan.bad at most 1 ranges; first newer sale read at pass Some(3); the walk past the last oversized block at pass Some(1); passes with a HELD reading 0, with no reading 0; the last reading: 65 sales counted, held false, a reading true
+burst of 126 every other block (a week of passes): 126 oversized block(s): newer sales read after a day 60 / at the end 60 of 60 final; forward walk behind the final head by 0 blocks after a day, 0 at the end; failed log reads: at most 2 a pass, 287 in all; reserved bytes: at most 9984000 a pass; SaleScan.bad at most 10 ranges; first newer sale read at pass Some(4); the walk past the last oversized block at pass Some(3); passes with a HELD reading 0, with no reading 0; the last reading: 60 sales counted, held false, a reading true
+thread 'r5_b5_m1_a_burst_of_oversized_blocks_one_apart_holds_every_newer_sale_for_about_a_week_weakness' (61569769) panicked at tests/r5_b.rs:1691:5:
+assertion `left == right` failed: WEAKNESS: no newer sale read after a day
+  left: 60
+ right: 0
+one oversized block a pass (a week): 504 oversized block(s): newer sales read after a day 72 / at the end 504 of 504 final; forward walk behind the final head by 0 blocks after a day, 0 at the end; failed log reads: at most 1 a pass, 504 in all; reserved bytes: at most 5184000 a pass; SaleScan.bad at most 32 ranges; first newer sale read at pass Some(1); the walk past the last oversized block at pass Some(504); passes with a HELD reading 0, with no reading 0; the last reading: 504 sales counted, held false, a reading true
+thread 'r5_b5_m1_b_one_oversized_block_a_pass_keeps_the_forward_walk_falling_behind_weakness' (61569770) panicked at tests/r5_b.rs:1704:5:
+WEAKNESS: the forward walk falls further behind: 0 then 0
+control: one every 100 blocks, in the lower half of each pass's new blocks: first reading with >= 3 counted sales at pass Some(7); 5 of 5 real sales read in 2 days; scan up 26083200; 145 failed reads; SaleScan.bad at most 32; at most 9856000 bytes a pass
+one every 50 blocks, offset 17: first reading with >= 3 counted sales at pass Some(7); 5 of 5 real sales read in 2 days; scan up 26083200; 243 failed reads; SaleScan.bad at most 130; at most 9856000 bytes a pass
+one every 50 blocks, offset 41: first reading with >= 3 counted sales at pass Some(7); 5 of 5 real sales read in 2 days; scan up 26083200; 243 failed reads; SaleScan.bad at most 130; at most 9856000 bytes a pass
+thread 'r5_b5_m1_c_no_anchor_an_oversized_block_every_50_blocks_keeps_the_first_read_from_ever_landing_weakness' (61569778) panicked at tests/r5_b.rs:1743:5:
+WEAKNESS: no sale read and no first post in two days: [(Some(7), 5), (Some(7), 5), (Some(7), 5)]
+B5-M-2: after a day 40 of the 40 newer sales read; scan up 26076000 (the dense pair at 26068860), chunk 500, bad Some([]), skipped Some([]); failed reads a pass [3, 2, 1, 1]..[0, 0, 0, 0]
+thread 'r5_b5_m2_a_provider_result_cap_error_still_stalls_the_forward_walk_for_the_window_weakness' (61569780) panicked at tests/r5_b.rs:1775:5:
+assertion `left == right` failed: WEAKNESS: no sale newer than the dense pair is read
+  left: 40
+ right: 0
+failures:
+test result: FAILED. 22 passed; 6 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.35s
+error: test failed, to rerun pass `--test r5_b`

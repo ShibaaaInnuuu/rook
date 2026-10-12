@@ -1,0 +1,15 @@
+
+running 1 test
+
+thread 'c4_h1b_any_home_act_signed_at_a_lower_pin_after_a_mined_one_wedges_the_line_a_floor_post' (59519281) panicked at tests/r4_c.rs:1330:32:
+the next post is out
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test c4_h1b_any_home_act_signed_at_a_lower_pin_after_a_mined_one_wedges_the_line_a_floor_post ... FAILED
+
+failures:
+
+failures:
+    c4_h1b_any_home_act_signed_at_a_lower_pin_after_a_mined_one_wedges_the_line_a_floor_post
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.00s
+

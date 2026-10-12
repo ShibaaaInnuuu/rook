@@ -1,0 +1,353 @@
+# FOUNDRY_PROFILE=deep forge test --match-path 'test/audit_nft_a4/*' (a fresh git-archive copy of the forge project at 1eb5788)
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:164:9:
+    |
+164 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:182:9:
+    |
+182 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:197:9:
+    |
+197 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:209:9:
+    |
+209 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:217:9:
+    |
+217 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:225:61:
+    |
+225 |     function _pin(uint256 listingId, uint256 acquisitionId, Lot storage lot) private {
+    |                                                             ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:235:9:
+    |
+235 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:251:9:
+    |
+251 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:266:9:
+    |
+266 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:283:9:
+    |
+283 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:298:33:
+    |
+298 |     function _destinationLocked(Lot storage lot) private view returns (bool) {
+    |                                 ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:307:9:
+    |
+307 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:317:9:
+    |
+317 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:332:9:
+    |
+332 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+  --> src/curve/CurveFactory.sol:87:110:
+   |
+87 |     constructor(IWrappedCollection wrapped_, ILiquiditySeeder seeder_, IItemQueue queue_, address platform_, FrogCurve.Config memory template,
+   |                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/curve/CurveFactory.sol:230:5:
+    |
+230 |     function template() external view returns (FrogCurve.Config memory) { return _template; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/floor/FloorModule.sol:927:9:
+    |
+927 |         uint256 escrow = Math.mulDiv(backing, ONE, c);
+    |         ^^^^^^^^^^^^^^
+Note: The other declaration is here:
+    --> src/floor/FloorModule.sol:1316:5:
+     |
+1316 |     function escrow() external view returns (uint256) { return backing; }
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/floor/FloorModule.sol:963:13:
+    |
+963 |             uint256 escrow = r.escrow;
+    |             ^^^^^^^^^^^^^^
+Note: The other declaration is here:
+    --> src/floor/FloorModule.sol:1316:5:
+     |
+1316 |     function escrow() external view returns (uint256) { return backing; }
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+    --> src/floor/FloorModule.sol:1098:9:
+     |
+1098 |         uint256 earned = (accPerRental - r.accAt) / ACC;
+     |         ^^^^^^^^^^^^^^
+Note: The other declaration is here:
+    --> src/floor/FloorModule.sol:1422:5:
+     |
+1422 |     function earned(uint256 id) external view returns (uint256) {
+     |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:210:9:
+    |
+210 |         Lot storage lot = _lots[aid];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:273:9:
+    |
+273 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:287:9:
+    |
+287 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:296:9:
+    |
+296 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:304:9:
+    |
+304 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:311:42:
+    |
+311 |     function _pin(uint256 acquisitionId, Lot storage lot) private {
+    |                                          ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:320:9:
+    |
+320 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:333:9:
+    |
+333 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:344:9:
+    |
+344 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:364:22:
+    |
+364 |     function _reopen(Lot storage lot) private {
+    |                      ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:373:21:
+    |
+373 |     function _stamp(Lot storage lot) internal {
+    |                     ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:382:9:
+    |
+382 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Ran 3 tests for test/audit_nft_a4/AuditNftA4.t.sol:AuditNftA4
+[PASS] test_A4_L2_aNotedTicketHasNoExitButTheCustodians() (gas: 969213)
+[PASS] test_A4_whatHolds_noteSentAndMarkIgnoreTheListingPause() (gas: 834625)
+[PASS] test_A4_whatHolds_noteSentIsWeakerThanRecordDelivery() (gas: 876779)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 12.17ms (3.51ms CPU time)
+
+Ran 4 tests for test/audit_nft_a4/AuditNftA4.t.sol:AuditNftA4LaunchParamsInvariant
+[PASS]
+AuditNftA4LaunchParamsInvariant invariants:
+[PASS] invariant_aNotedDeliveryIsNeverRefundedWithoutTheMark
+[PASS] invariant_booksHold
+[PASS] invariant_everyOpenTicketHasAnItem
+ AuditNftA4LaunchParamsInvariant invariants (runs: 1000, calls: 200000, reverts: 0)
+
+
+[PASS] test_A4_theParamsAreTheLaunchOnes() (gas: 10842)
+[PASS] test_aShortSequenceOfEveryAction() (gas: 2033385)
+[PASS] test_lateRefundSkipsANotedTicket_andRefundsAnUnnotedOne() (gas: 3620656)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 31.39s (31.38s CPU time)
+
+Ran 2 test suites in 31.40s (31.41s CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

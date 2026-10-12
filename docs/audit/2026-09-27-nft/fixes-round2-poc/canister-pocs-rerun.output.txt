@@ -1,0 +1,30 @@
+test audit2_b2_m1_seven_in_band_washes_under_the_listings_veto_the_post_too ... FAILED
+test audit2_b2_l1_after_a_sweep_seven_wash_sales_let_the_post_follow_the_attackers_own_listings ... FAILED
+test audit2_b2_l2_oversized_receipts_are_re_reserved_every_pass ... FAILED
+test audit2_b2_m1_ten_dust_ping_pong_sales_stop_every_floor_post ... FAILED
+test audit2_a_m1_seven_in_band_wash_sales_open_the_deposit_band_at_a_floor_10_percent_over_the_market ... FAILED
+thread 'audit2_b2_m1_seven_in_band_washes_under_the_listings_veto_the_post_too' (51583754) panicked at tests/zz_r2poc_b.rs:631:59:
+called `Result::unwrap_err()` on an `Ok` value: FloorPost { price: 930000000000000000, confidence: 5000, depth: 3, listing: 930000000000000000, sale_median: 700000000000000000, sale_p25: 700000000000000000, listings: 3, sales: 12, clamped: false, held: Some("the listing floor 930000000000000000 is more than 10 % over the counted sales' 25th percentile 700000000000000000: held at 930000000000000000 at most") }
+thread 'audit2_b2_l1_after_a_sweep_seven_wash_sales_let_the_post_follow_the_attackers_own_listings' (51583752) panicked at tests/zz_r2poc_b.rs:583:62:
+called `Result::unwrap_err()` on an `Ok` value: FloorPost { price: 990000000000000000, confidence: 5000, depth: 2, listing: 1120000000000000000, sale_median: 910000000000000000, sale_p25: 900000000000000000, listings: 3, sales: 5, clamped: false, held: Some("the listing floor 1120000000000000000 is more than 10 % over the counted sales' 25th percentile 900000000000000000: held at 990000000000000000 at most") }
+thread 'audit2_b2_l2_oversized_receipts_are_re_reserved_every_pass' (51583753) panicked at tests/zz_r2poc_b.rs:612:5:
+thread 'audit2_b2_m1_ten_dust_ping_pong_sales_stop_every_floor_post' (51583755) panicked at tests/zz_r2poc_b.rs:525:5:
+two hours and the module is never posted: it goes stale
+thread 'audit2_a_m1_seven_in_band_wash_sales_open_the_deposit_band_at_a_floor_10_percent_over_the_market' (51583751) panicked at tests/zz_r2poc_b.rs:562:13:
+assertion `left == right` failed: the median the band compares with is the washer's
+test result: FAILED. 0 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test c2_an_upgrade_dropping_a_collection_whose_buy_holds_the_relay_leg_stops_every_other_collections_buys_for_good ... FAILED
+test c2_an_nft_side_line_inside_a_decodable_eth_state_is_what_the_probe_sees ... ok
+test c2_a_fill_mined_at_the_pin_but_not_yet_counted_when_the_next_deposit_is_watched_is_read_as_that_buys_arrival ... FAILED
+test c2_a_stuck_after_arrival_holds_the_relay_leg_then_re_arrives_eth_already_spent_and_stalls_every_other_collection ... FAILED
+test c2_an_arrived_buy_that_cannot_fill_keeps_every_deposit_of_its_collection_unminted_indefinitely ... FAILED
+AUDIT2-C C2-L-2: buys [(false, Returned { wei: 500000000000000000 }), (true, Funded { wei: 500000000000000000, since: 1790515233 })]; relay_busy true
+thread 'c2_an_upgrade_dropping_a_collection_whose_buy_holds_the_relay_leg_stops_every_other_collections_buys_for_good' (51583761) panicked at tests/zz_r2poc_c.rs:644:5:
+Azuki wants an item and has room, but the dropped collection's buy holds the Relay leg
+thread 'c2_a_fill_mined_at_the_pin_but_not_yet_counted_when_the_next_deposit_is_watched_is_read_as_that_buys_arrival' (51583757) panicked at tests/zz_r2poc_c.rs:575:5:
+Funded { wei: 500000000000000000, since: 1790512833 }
+thread 'c2_a_stuck_after_arrival_holds_the_relay_leg_then_re_arrives_eth_already_spent_and_stalls_every_other_collection' (51583758) panicked at tests/zz_r2poc_c.rs:508:5:
+the watch survives the arrival
+thread 'c2_an_arrived_buy_that_cannot_fill_keeps_every_deposit_of_its_collection_unminted_indefinitely' (51583759) panicked at tests/zz_r2poc_c.rs:609:56:
+called `Result::unwrap()` on an `Err` value: "refused: buy 0 is BackFunded { wei: 498443962449863321, since: 1790685633 }; a listing is handed in only once its ETH arrived"
+test result: FAILED. 1 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s

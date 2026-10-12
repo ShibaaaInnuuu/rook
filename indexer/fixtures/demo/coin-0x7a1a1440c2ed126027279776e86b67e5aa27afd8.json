@@ -1,0 +1,84 @@
+{
+  "address": "0x7a1a1440c2ED126027279776E86B67e5aa27afD8",
+  "name": "Slate 5 (sim)",
+  "symbol": "SLAT5SIM",
+  "creator": "0x5889a956Be8F96BB40119c21F63FFCB474A955Ac",
+  "router": "0x84b14610F1c055ba9dc976d3d9fB3542Da454a13",
+  "curve": "0x3891F5AA5D59220eAB642123Df2A26b11C64626A",
+  "listingId": 4,
+  "listingName": "Sub 10K",
+  "launchedAt": 1790043068,
+  "launchedBlock": 69024641,
+  "creatorTaxBps": 1000,
+  "logoUrl": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3e%3crect%20width='64'%20height='64'%20fill='hsl(34,38%25,26%25)'/%3e%3cpath%20d='M18%2046L32%2022L58%2046Z'%20fill='hsl(34,52%25,60%25)'/%3e%3cpath%20d='M32%2022L58%2046H32Z'%20fill='hsl(34,30%25,40%25)'/%3e%3c/svg%3e",
+  "supplyWei": "1000000000000000000000000000",
+  "holders": 4,
+  "volume24hWei": "1956948000000000000",
+  "lifetimeFeesWei": "128572890600000000",
+  "toVaultWei": "102858312480000000",
+  "toTreasuryWei": "25714578120000000",
+  "fees24hWei": "128572890600000000",
+  "fees7dWei": "128572890600000000",
+  "harvests": 2,
+  "lastHarvestAt": 1790043189,
+  "harvestsRecent": [
+    {
+      "at": 1790043189,
+      "block": 69024697,
+      "tx": "0x0f299ea0d23257767bf74cdca523bd9d795fce544e8a01930507d179d2314efa",
+      "claimedWei": "128572890600000000",
+      "toVaultWei": "102858312480000000",
+      "toTreasuryWei": "25714578120000000"
+    },
+    {
+      "at": 1790043121,
+      "block": 69024663,
+      "tx": "0x6b224928fae87a5f5e6a442200ae43b8a05910de07f15625a746276fc4fe2554",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    }
+  ],
+  "tokensForwarded": [],
+  "treasuryDeferredWei": "0",
+  "acquisitions": [],
+  "volumeUntilNextBuy": {
+    "volumeNeededWei": null,
+    "reason": "no-live-cap",
+    "ready": false,
+    "inputs": {
+      "targetWei": null,
+      "capWei": "0",
+      "capExpiry": 0,
+      "minDeclarationWei": "50000000000000000",
+      "minEntryWei": "10000000000000000",
+      "spendableWei": "232358312480000000",
+      "coinWaitingWei": "0",
+      "coinQueued": true,
+      "harvestableWei": "0",
+      "depositNeededWei": null,
+      "vaultShareBps": 8000,
+      "takeBps": 1070
+    },
+    "assumptions": [
+      "only this coin trades: fees from other coins on the same listing bring the purchase sooner",
+      "the cap posted now is still the cap then (a cap lasts one hour and is re-posted from the market)",
+      "the share of volume reaching the router stays what was measured: 0.70% plus the coin's creator tax",
+      "fees earned but still inside the curve or the pool are not counted; fees on the router or in Pons's escrow are, at 80%",
+      "the keeper declares as its published policy says: one item under the cap and never under 0.05 ETH; any amount over 0.05 ETH for a rune"
+    ]
+  },
+  "live": {
+    "unspentWei": "102858312480000000",
+    "queued": true,
+    "pending": {
+      "graduated": false,
+      "escrowWei": "0",
+      "routerBalanceWei": "0",
+      "pool": null,
+      "curvePending": null,
+      "curvePendingReason": "before graduation fees accrue inside Pons's curve, and no getter for that amount has been verified",
+      "error": null
+    }
+  }
+}

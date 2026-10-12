@@ -1,0 +1,10 @@
+
+running 1 test
+AUDIT4-E: Milady's deposit took 500000000000000000 wei on 4663 (advanced 500200000000000000)
+AUDIT4-E after one tick at the lower home pin: Funded { wei: 500000000000000000, since: 1790512833 }, watch false; eth buy 0: REFUNDED: 500000000000000000 wei back; attempt 2 of 3 next
+AUDIT4-E the new quote: Some("eth: the home-chain act waits: eth buy 0: our balance 2200000000000000 is under the deposit's 500000000000000000")
+AUDIT4-E give back: buy 0: 2000000000000000 wei goes back to the module at the next tick; returned 2000000000000000 of 500200000000000000 advanced; our Ethereum balance 508443962449863321 of which earmarked 0, leftover booked 0
+test e4_m1_a_home_pin_that_moves_back_reads_our_own_relay_deposit_as_a_refund ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.00s
+

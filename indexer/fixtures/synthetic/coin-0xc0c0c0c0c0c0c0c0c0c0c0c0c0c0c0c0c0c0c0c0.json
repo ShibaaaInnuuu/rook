@@ -1,0 +1,125 @@
+{
+  "address": "0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0",
+  "name": null,
+  "symbol": null,
+  "creator": "0xF0F0F0f0f0F0F0f0f0F0f0f0f0f0F0F0f0f0f0F0",
+  "router": "0xD0D0d0d0d0D0D0d0D0D0D0D0d0D0d0d0d0d0D0D0",
+  "curve": "0xe0E0e0e0e0E0E0e0E0e0e0e0e0e0E0e0e0e0e0e0",
+  "listingId": 0,
+  "listingName": "Stones",
+  "launchedAt": 1800000240,
+  "launchedBlock": 120,
+  "creatorTaxBps": null,
+  "logoUrl": null,
+  "supplyWei": null,
+  "holders": 2,
+  "volume24hWei": "2460",
+  "lifetimeFeesWei": "150",
+  "toVaultWei": "120",
+  "toTreasuryWei": "30",
+  "fees24hWei": "150",
+  "fees7dWei": "150",
+  "harvests": 2,
+  "lastHarvestAt": 1800000444,
+  "harvestsRecent": [
+    {
+      "at": 1800000444,
+      "block": 137,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "claimedWei": "50",
+      "toVaultWei": "40",
+      "toTreasuryWei": "30"
+    },
+    {
+      "at": 1800000420,
+      "block": 135,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "claimedWei": "100",
+      "toVaultWei": "80",
+      "toTreasuryWei": "0"
+    }
+  ],
+  "tokensForwarded": [
+    {
+      "at": 1800000468,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "token": "0xC1C1c1c1C1C1C1c1c1C1C1C1c1C1C1C1c1C1c1c1",
+      "amount": "7"
+    }
+  ],
+  "treasuryDeferredWei": "0",
+  "acquisitions": [
+    {
+      "listingId": 0,
+      "acquisitionId": 0,
+      "purchaseId": 0,
+      "chargedWei": "60",
+      "shareBps": 10000,
+      "assetRef": "abci0",
+      "amount": "1"
+    },
+    {
+      "listingId": 0,
+      "acquisitionId": 1,
+      "purchaseId": 0,
+      "chargedWei": "60",
+      "shareBps": 10000,
+      "assetRef": "abci1",
+      "amount": "1"
+    },
+    {
+      "listingId": 0,
+      "acquisitionId": 2,
+      "purchaseId": 0,
+      "chargedWei": "60",
+      "shareBps": 10000,
+      "assetRef": "abci2",
+      "amount": "1"
+    },
+    {
+      "listingId": 0,
+      "acquisitionId": 3,
+      "purchaseId": 0,
+      "chargedWei": "60",
+      "shareBps": 10000,
+      "assetRef": "abci3",
+      "amount": "1"
+    },
+    {
+      "listingId": 0,
+      "acquisitionId": 4,
+      "purchaseId": 0,
+      "chargedWei": "60",
+      "shareBps": 10000,
+      "assetRef": "abci4",
+      "amount": "1"
+    }
+  ],
+  "volumeUntilNextBuy": {
+    "volumeNeededWei": null,
+    "reason": "live-unavailable",
+    "ready": false,
+    "inputs": {
+      "targetWei": null,
+      "capWei": null,
+      "capExpiry": null,
+      "minDeclarationWei": "50000000000000000",
+      "minEntryWei": "10000000000000000",
+      "spendableWei": null,
+      "coinWaitingWei": null,
+      "coinQueued": null,
+      "harvestableWei": null,
+      "depositNeededWei": null,
+      "vaultShareBps": 8000,
+      "takeBps": null
+    },
+    "assumptions": [
+      "only this coin trades: fees from other coins on the same listing bring the purchase sooner",
+      "the cap posted now is still the cap then (a cap lasts one hour and is re-posted from the market)",
+      "the share of volume reaching the router stays what was measured: 0.70% plus the coin's creator tax",
+      "fees earned but still inside the curve or the pool are not counted; fees on the router or in Pons's escrow are, at 80%",
+      "the keeper declares as its published policy says: one item under the cap and never under 0.05 ETH; any amount over 0.05 ETH for a rune"
+    ]
+  },
+  "live": null
+}

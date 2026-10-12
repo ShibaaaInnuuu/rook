@@ -1,0 +1,8 @@
+{
+  "name": "rook",
+  "private": true,
+  "description": "Repo-level conveniences only. Each package (keeper, indexer, tools/snapshot, web) installs and tests on its own; the contracts are Foundry's.",
+  "scripts": {
+    "demo": "cd indexer && node --experimental-sqlite --no-warnings --import tsx scripts/demo.ts"
+  }
+}

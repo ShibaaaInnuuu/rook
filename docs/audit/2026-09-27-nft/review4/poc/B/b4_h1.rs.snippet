@@ -1,0 +1,89 @@
+// ---- review round 4, part B: B4-H-1 ----------------------------------------------------------------------------------------
+
+fn cached(st: &EthState, hs: &[[u8; 32]]) -> usize {
+    st.sale_cache.iter().flatten().filter(|c| c.collection == MILADY && hs.contains(&c.hash) && !c.sales.is_empty()).count()
+}
+fn pass(f: &mut Fake, st: &mut EthState) {
+    f.now += 1_200; // the runner hands evidence in every 1,200 s
+    f.m(MODULE).posted_at = f.now - 60;
+    evidence(f, st);
+    tick(f, st);
+}
+
+/// B4-H-1 (a): one block of the window whose Transfer logs are over the 2 MB class (a stranger's single transaction looping
+/// transferFrom on one NFT it holds) stalls the scan's walk back to the window's start at it, for as long as that block is in the
+/// window, and every pass spends its whole remaining log budget re-asking the same 25-block range.
+#[test]
+fn b4_h1_a_one_oversized_block_stalls_the_walk_back_and_burns_the_log_budget_every_pass() {
+    // control: no oversized block, every real sale is read
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 93 * E / 100;
+    for _ in 0..6 { pass(&mut f, &mut st); }
+    let control = cached(&st, &real_sales());
+    println!("control: {control} of 5 real sales read, {} log reads", f.log_ranges.len());
+    assert_eq!(control, 5);
+
+    // the attack: one oversized block between the real sales (26,060,000: two sales are older, three newer)
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 93 * E / 100;
+    f.big_block = Some(26_060_000);
+    let mut per_pass = vec![];
+    for _ in 0..72 { // one day of passes
+        let before = f.log_fails;
+        pass(&mut f, &mut st);
+        per_pass.push(f.log_fails - before);
+    }
+    let read = cached(&st, &real_sales());
+    let sc = st.sale_scan.iter().flatten().find(|s| s.collection == MILADY).unwrap();
+    println!("attack: {read} of 5 real sales read after 72 passes; scan down {} (bottom {}), chunk {}; failed log reads per pass: first {:?}, last {:?}; total {}",
+        sc.down, ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS - en::SALE_WINDOW_BLOCKS, sc.chunk, &per_pass[..3], &per_pass[69..], f.log_fails);
+    let r = st.reading(&MILADY).map(|r| (r.post.sales, r.post.held.clone()));
+    println!("reading: {r:?}");
+    assert_eq!(read, 3, "WEAKNESS: the two real sales older than the oversized block are never read");
+    assert!(per_pass[1..].iter().all(|n| *n >= 50), "WEAKNESS: ~51 failed eth_getLogs reads (x3 size classes) every pass: {per_pass:?}");
+}
+
+/// B4-H-1 (b): the same block NEWER than what was read (the attacker's transaction after the window is read): the forward walk
+/// retries it with the whole budget every pass, so no newer block is read and no newer sale counts, until the block falls out of
+/// the window seven days later.
+#[test]
+fn b4_h1_b_an_oversized_new_block_stops_every_newer_sale_for_the_window() {
+    let mut f = Fake::new(false);
+    let mut st = EthState::default();
+    f.finalized = ETH_PIN;
+    f.m(MODULE).accepted = 93 * E / 100;
+    for _ in 0..4 { pass(&mut f, &mut st); } // the window is read, the five real sales counted
+    assert_eq!(cached(&st, &real_sales()), 5);
+    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
+    f.big_block = Some(top0 + 50);
+    // honest sales after it, one every 100 blocks, distinct tokens, sellers and buyers
+    let mut new = vec![];
+    for i in 0..40u64 {
+        let mut h = [0x5e; 32];
+        h[..8].copy_from_slice(&(i + 1).to_be_bytes());
+        let s = { let mut a = [0x71u8; 20]; a[12..].copy_from_slice(&i.to_be_bytes()); a };
+        let b = { let mut a = [0x72u8; 20]; a[12..].copy_from_slice(&i.to_be_bytes()); a };
+        f.sale_receipts.insert(h, sale_receipt(MILADY, 30_000 + i as u128, 94 * E / 100, s, b, top0 + 100 + 100 * i));
+        new.push(h);
+    }
+    let mut per_pass = vec![];
+    let mut pin = ETH_PIN;
+    for _ in 0..72 { // one day; the pin moves 100 blocks a pass (1,200 s)
+        pin += 100;
+        f.pin_now = Some(pin);
+        f.finalized = pin;
+        let before = f.log_fails;
+        pass(&mut f, &mut st);
+        per_pass.push(f.log_fails - before);
+    }
+    let sc = st.sale_scan.iter().flatten().find(|s| s.collection == MILADY).unwrap().clone();
+    let got = cached(&st, &new);
+    println!("after a day: {got} of the {} newer sales read (all final and in the window); scan up {} (the oversized block {}), chunk {}; failed reads per pass {:?}..{:?}",
+        new.len(), sc.up, top0 + 50, sc.chunk, &per_pass[..3], &per_pass[69..]);
+    assert_eq!(got, 0, "WEAKNESS: no sale newer than the oversized block is read");
+    assert!(per_pass.iter().all(|n| *n >= 50), "WEAKNESS: the whole budget (52 reads, x3 classes) fails every pass: {per_pass:?}");
+}

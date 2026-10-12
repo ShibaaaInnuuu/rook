@@ -1,0 +1,21 @@
+# cargo test --test audit_nft_a3_tol a3_m1 -- --nocapture --test-threads=1   (TOLERANT, not the PoC: the give-back waits ARRIVED_HOLD_SECS first, so the test reaches its own mechanism; see audit_nft_a3_canister.tolerant.diff)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.66s
+     Running tests/audit_nft_a3_tol.rs (target/debug/deps/audit_nft_a3_tol-5f0c5afaf0c126d8)
+
+running 1 test
+test a3_m1_the_way_back_repeats_without_bound_each_round_trip_returned_short ...
+cycle 0: buy 0 advanced 500200000000000000, returned 493957630562513411 (short 6242369437486589)
+
+thread 'a3_m1_the_way_back_repeats_without_bound_each_round_trip_returned_short' (55667920) panicked at tests/audit_nft_a3_tol.rs:1340:5:
+Returned { wei: 493957630562513411 }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    a3_m1_the_way_back_repeats_without_bound_each_round_trip_returned_short
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 23 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `--test audit_nft_a3_tol`

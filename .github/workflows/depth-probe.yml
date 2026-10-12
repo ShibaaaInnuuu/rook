@@ -1,0 +1,60 @@
+name: depth-probe
+# Review round 8 (B8-L-1): the canister's Ethereum pair must keep serving logs and receipts over the whole 7-day sale window. One provider
+# of the pair that loses its log retention after go-live is not taken as "too deep" by the canister (B7-L-1: never on one provider's
+# word), so the monitor pages it only once the scan's window start has stayed unread for a day (eth-scan-window-unread). This workflow is
+# the earlier, independent watch: every day it reads, from GitHub's network, the FIXED range the go-live probe reads (Milady's 10
+# Transfer logs over 26,012,410..26,012,909 and one receipt, script/depth_probe.py, shared with golive-check --probe-depth) on the
+# keyless pair, requires the same 10 logs on both, and FAILS LOUDLY: the run fails (GitHub mails the workflow's owner) and an issue
+# labelled depth-probe is opened, or commented on while one is open. Read-only JSON-RPC; no secret is used or needed.
+# What it cannot see: the IC's own network (Tenderly is IPv4-only: ops/rehearsal/ic-outcall/ is that check).
+on:
+  schedule: [{ cron: "41 6 * * *" }]
+  workflow_dispatch:
+    inputs:
+      providers:
+        description: "space-separated https URLs (default: the canister's committed pair)"
+        required: false
+        default: ""
+  pull_request:
+    paths: ["script/depth_probe.py", "script/test_depth_probe.py", ".github/workflows/depth-probe.yml"]
+
+permissions: { contents: read }
+
+concurrency:
+  group: depth-probe-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: { contents: read, issues: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: the probe's own tests (offline fakes)
+        run: python3 -m unittest discover -s script -p 'test_depth_probe.py' -v
+      - name: probe the canister's Ethereum pair (read-only)
+        if: github.event_name != 'pull_request'
+        id: probe
+        env:
+          PROVIDERS: ${{ inputs.providers }}
+        run: |
+          set -o pipefail
+          # shellcheck disable=SC2086
+          python3 script/depth_probe.py --attempts 3 $PROVIDERS | tee probe.txt
+          python3 script/depth_probe.py --json $PROVIDERS > probe.json || true
+      - if: always() && steps.probe.outcome != 'skipped'
+        uses: actions/upload-artifact@v4
+        with: { name: depth-probe, path: "probe.*", if-no-files-found: ignore, retention-days: 90 }
+      - name: fail loudly (an issue, opened or commented on)
+        if: failure() && steps.probe.outcome == 'failure' && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          body=$(printf 'The daily depth probe of the canister'"'"'s Ethereum pair FAILED (%s).\n\n```\n%s\n```\n\nA provider that no longer serves the 7-day sale window leaves sales uncounted (review round 8, B8-L-1). Re-run by hand: `python3 script/depth_probe.py`. If it persists, pick another keyless provider that passes the probe AND the IC rehearsal (ops/rehearsal/ic-outcall/), and replace it by a timelocked upgrade (docs/v7/golive-runbook.md).' "$RUN" "$(cat probe.txt 2>/dev/null || echo 'no output')")
+          gh label create depth-probe --color B60205 --description "the canister's Ethereum pair failed the daily depth probe" 2>/dev/null || true
+          n=$(gh issue list --label depth-probe --state open --json number --jq '.[0].number' || true)
+          if [ -n "$n" ]; then gh issue comment "$n" --body "$body"; else gh issue create --title "Depth probe FAILED: the canister's Ethereum pair" --label depth-probe --body "$body"; fi

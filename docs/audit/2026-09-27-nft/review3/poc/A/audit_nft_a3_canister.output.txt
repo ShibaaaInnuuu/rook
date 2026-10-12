@@ -1,0 +1,14 @@
+   Compiling etch_autobuyer v0.1.0 (/private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/partA/autobuyer/canister-rs)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.96s
+     Running tests/audit_nft_a3.rs (target/debug/deps/audit_nft_a3-f1a2aefc015efe3e)
+
+running 1 test
+cycle 0: buy 0 advanced 500200000000000000, returned 493957630562513411 (short 6242369437486589)
+cycle 1: buy 1 advanced 500200000000000000, returned 493957630562513411 (short 6242369437486589)
+cycle 2: buy 2 advanced 500200000000000000, returned 493957630562513411 (short 6242369437486589)
+cycle 3: buy 3 advanced 500200000000000000, returned 493957630562513411 (short 6242369437486589)
+lost to the round trips: 24969477749946356 wei over 4 cycles (124 bps of one advance each)
+test a3_m1_the_way_back_repeats_without_bound_each_round_trip_returned_short ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.02s
+

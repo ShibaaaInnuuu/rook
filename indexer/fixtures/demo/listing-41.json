@@ -1,0 +1,53 @@
+{
+  "id": 41,
+  "kind": "rune",
+  "name": "DOG•GO•TO•THE•MOON",
+  "ref": "840000:3",
+  "divisibility": 5,
+  "vault": "0xe76Ae381EaB62f6a0eCBF9864Db50D2b641743A6",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-doggotothemoon",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "257455840909041188",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "257455840909041188",
+    "attributedWei": "257455840909041188",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "257455840909041188",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x1b5340dB2bbE5E1F6834637e5A5C06Fb51cc50c2",
+      "symbol": "GNEISIM",
+      "depositedWei": "257455840909041188"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, mevblocker.io, tenderly.co
+ok   the install argument (--install-arg) names two provider hosts or more for each of its 1 chain(s) (A4-L-3)
+ok   the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io passed the depth probe now (logs 500 blocks at head-60,000, a receipt there not null; B6-M-1)
+ok   the install argument (--install-arg): the canister's Ethereum provider https://gateway.tenderly.co passed the depth probe now (logs 500 blocks at head-60,000, a receipt there not null; B6-M-1)

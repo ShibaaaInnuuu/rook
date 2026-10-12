@@ -1,0 +1,66 @@
+--- tests/audit_nft_r4.rs	2026-09-27 23:46:32
++++ tests/r5_f.rs (harness part)	2026-09-28 05:14:17
+@@ -162,6 +162,14 @@
+     sale_moves: HashMap<u64, Vec<en::Move>>,
+     /// round 4 (C4-M-1): transactions the payout judge reads, `(on 4663, hash)` → the transaction
+     payouts: HashMap<(bool, [u8; 32]), ef::PayoutTx>,
++    /// review round 5 (F): home transactions that MINED but that every provider fails to show (no receipt at the pin, no transaction
++    /// by hash): a tx index that lags or misses them on every 4663 provider
++    hide: Vec<[u8; 32]>,
++    /// review round 5 (F): the receipt read is Unsure (the providers disagree: one shows it, one does not)
++    unsure: bool,
++    /// review round 5 (F): the module as FloorModule.sol is: `maxItemCost()` does not read 0 while an advance is open (only the unit in
++    /// transit leaves `netUnits`), and a second `advance` reverts `AdvanceOpen` (its estimate fails)
++    real_advance: bool,
+ }
+ 
+ fn word(v: u128) -> Vec<u8> {
+@@ -206,7 +214,7 @@
+             receipt_err: HashMap::new(), plan_err: vec![], wait_prefix: vec![], broadcasts: vec![], listing_total: 45 * E / 100, sale_receipts, our_logs: HashMap::new(), noted: vec![],
+             sale_err: vec![], sale_reads: 0, log_ranges: vec![], deposit_txs: HashMap::new(), caps: custodycap::stage0(&keys), book: Book::default(), outflow: vec![], drop_milady: false, real_outflow: None, pin_back: None,
+             fee_of: None, home_back: None, home_pin_known: true, big_blocks: vec![], log_fails: 0, logs_bytes: 0, pin_now: None,
+-            sale_moves: HashMap::new(), payouts: HashMap::new(),
++            sale_moves: HashMap::new(), payouts: HashMap::new(), hide: vec![], unsure: false, real_advance: false,
+         }
+     }
+     fn m(&mut self, module: [u8; 20]) -> &mut Module {
+@@ -361,7 +369,7 @@
+                 else if s == fs::ESCROW { word(10 * E) }
+                 else if s == fs::BUFFER { word(E / 20) }
+                 else if s == fs::FLOOR { [word(m.accepted), word(m.posted_at as u128), word(3_600)].concat() }
+-                else if s == fs::MAX_ITEM_COST { word(if m.transit { 0 } else { m.item_cap }) }
++                else if s == fs::MAX_ITEM_COST { word(if m.transit && !self.real_advance { 0 } else { m.item_cap }) }
+                 else if s == fs::ITEMS_ARRIVED { word(0) }
+                 else if s == rc::TRANSIT_UNITS { word(if m.transit { E } else { 0 }) }
+                 else if s == en::ACCEPTED { word(m.accepted) }
+@@ -378,6 +386,12 @@
+     async fn home_clock(&mut self) -> Result<Clock, String> { Ok(Clock { time: self.now, parent_block: 26_000_000 }) }
+     async fn home_balance(&mut self) -> Result<u128, String> { Ok(self.home_balance + self.home_back.map_or(0, |b| b.0)) }
+     async fn home_sign(&mut self, to: [u8; 20], value: u128, data: &[u8]) -> Result<(Vec<u8>, [u8; 32], u64), String> {
++        if self.real_advance && data.len() >= 4 && sel(data) == rc::ADVANCE && self.modules.get(&to).is_some_and(|m| m.transit) {
++            return Err("would not succeed now: execution reverted: AdvanceOpen()".into());
++        }
++        if self.real_advance && data.len() >= 4 && sel(data) == rc::RETURN_ADVANCE && self.modules.get(&to).is_some_and(|m| !m.transit) {
++            return Err("would not succeed now: execution reverted: NoAdvance()".into());
++        }
+         // the nonce as the tick's pin shows it (canister: `evm_nonce` at the pin), as `home_nonce` below
+         let n = self.home_nonce - self.home_back.map_or(0, |b| b.1);
+         let raw = [&to[..], &value.to_be_bytes(), &n.to_be_bytes(), data].concat();
+@@ -399,6 +413,12 @@
+         self.home_sent.insert(h, (ok, raw.to_vec()));
+     }
+     async fn home_seen(&mut self, h: [u8; 32]) -> EvmView {
++        if self.unsure {
++            return EvmView::Unsure("providers disagree on eth_getTransactionReceipt at the pin; nothing is believed".into());
++        }
++        if self.hide.contains(&h) {
++            return EvmView::NotYet;
++        }
+         match self.home_sent.get(&h) {
+             Some((ok, _)) => EvmView::Mined { success: *ok },
+             None => EvmView::NotYet,
+@@ -1557,3 +1577,4 @@
+     assert!(f.items.is_empty(), "not minted against no floor");
+     assert_eq!(st.deposits[0].phase, ef::XPhase::Mint, "it waits for the module's first post");
+ }
++

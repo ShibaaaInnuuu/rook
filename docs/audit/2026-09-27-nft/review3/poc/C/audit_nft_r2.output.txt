@@ -1,0 +1,19 @@
+# cargo test --test audit_nft_r2 (the fixer's round-2 regression tests), private copy at 4949da0
+     Running tests/audit_nft_r2.rs (target/debug/deps/audit_nft_r2-a49fb81771fa9e97)
+test r2_a_m1_the_burn_side_the_post_never_rises_past_what_the_counted_sales_support ... ok
+test r2_b2_l1_after_a_sweep_washes_no_longer_let_the_post_follow_the_attackers_listings ... ok
+test r2_a2_m1_a_module_whose_item_cap_does_not_cover_its_floor_never_advances ... ok
+test r2_c2_l2_a_dropped_collections_buy_gives_its_eth_back_and_the_upgrade_is_refused ... ok
+test r2_b2_l2_an_oversized_final_receipt_is_read_once_and_kept_as_no_sale ... ok
+test r2_b2_m1_in_band_washes_can_hold_the_floor_but_never_stop_a_post ... ok
+test r2_the_round_2_state_fixture_is_what_the_canister_encodes ... ok
+test r2_c2_m1_an_arrival_is_never_earmarked_over_the_balance ... ok
+test r2_b2_m1_ping_pong_sales_no_longer_stop_the_floor_post ... ok
+test r2_c2_m1_a_fill_mined_but_unread_is_never_read_as_another_collections_arrival ... ok
+test r2_a2_m1_a_way_back_refunded_on_ethereum_waits_again_and_the_operator_can_send_it_back_early ... ok
+test r2_c2_l1_a_stuck_after_arrival_no_longer_holds_the_relay_leg_or_re_arrives_spent_eth ... ok
+test r2_a2_m1_an_arrived_buy_that_cannot_fill_goes_back_to_its_module_through_relay ... ok
+test r2_a_m1_wash_sales_no_longer_open_the_deposit_band_at_a_floor_over_the_market ... ok
+test r2_c2_l3_the_upgrade_probe_refuses_an_older_eth_tx_inside_the_line ... ok
+test r2_c2_m2_an_arrived_buy_that_cannot_fill_holds_deposits_six_hours_at_most_then_goes_back ... ok
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.46s

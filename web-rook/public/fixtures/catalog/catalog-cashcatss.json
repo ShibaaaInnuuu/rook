@@ -1,0 +1,119 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "cashcatss",
+    "name": "Cash Cats",
+    "chain": "robinhood",
+    "chainName": "Robinhood Chain",
+    "chainId": 4663,
+    "standard": "erc721",
+    "id": "0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa",
+    "description": "An ERC-721 collection on Robinhood Chain, in Nosh's collection registry.",
+    "image": "https://i2c.seadn.io/collection/cashcatss/image_type_logo/85d404f808ab106f13790b69054c3f/a185d404f808ab106f13790b69054c3f.png",
+    "links": {
+      "website": "https://cats.cash/",
+      "x": "https://x.com/cashcatss",
+      "discord": "https://discord.gg/cashcats",
+      "marketplace": "https://opensea.io/collection/cashcatss",
+      "explorer": "https://explorer.mainnet.chain.robinhood.com/address/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa"
+    },
+    "floor": {
+      "native": "21769879000000000",
+      "unit": "wei",
+      "eth": 0.021769879,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/cashcatss/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 9995,
+    "owners": 3124,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1",
+        "name": "Cash Cat #1",
+        "image": "https://www.scatter.art/api/instareveal/media?collectionId=mz0ms6owpjvvcvlarzru0sli&tokenId=1&v=1787738578096&mimeType=image%2Fpng&filename=1.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa/instance/1"
+      },
+      {
+        "id": "2",
+        "name": "Cash Cat #2",
+        "image": "https://www.scatter.art/api/instareveal/media?collectionId=mz0ms6owpjvvcvlarzru0sli&tokenId=2&v=1787738578096&mimeType=image%2Fpng&filename=2.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa/instance/2"
+      },
+      {
+        "id": "3",
+        "name": "Cash Cat #3",
+        "image": "https://www.scatter.art/api/instareveal/media?collectionId=mz0ms6owpjvvcvlarzru0sli&tokenId=3&v=1787738578096&mimeType=image%2Fpng&filename=3.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa/instance/3"
+      },
+      {
+        "id": "4",
+        "name": "Cash Cat #4",
+        "image": "https://www.scatter.art/api/instareveal/media?collectionId=mz0ms6owpjvvcvlarzru0sli&tokenId=4&v=1787738578096&mimeType=image%2Fpng&filename=4.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa/instance/4"
+      },
+      {
+        "id": "5",
+        "name": "Cash Cat #5",
+        "image": "https://www.scatter.art/api/instareveal/media?collectionId=mz0ms6owpjvvcvlarzru0sli&tokenId=5&v=1787738578096&mimeType=image%2Fpng&filename=5.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa/instance/5"
+      },
+      {
+        "id": "6",
+        "name": "Cash Cat #6",
+        "image": "https://www.scatter.art/api/instareveal/media?collectionId=mz0ms6owpjvvcvlarzru0sli&tokenId=6&v=1787738578096&mimeType=image%2Fpng&filename=6.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa/instance/6"
+      },
+      {
+        "id": "7",
+        "name": "Cash Cat #7",
+        "image": "https://www.scatter.art/api/instareveal/media?collectionId=mz0ms6owpjvvcvlarzru0sli&tokenId=7&v=1787738578096&mimeType=image%2Fpng&filename=7.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa/instance/7"
+      },
+      {
+        "id": "8",
+        "name": "Cash Cat #8",
+        "image": "https://www.scatter.art/api/instareveal/media?collectionId=mz0ms6owpjvvcvlarzru0sli&tokenId=8&v=1787738578096&mimeType=image%2Fpng&filename=8.png",
+        "url": "https://explorer.mainnet.chain.robinhood.com/token/0xe3b34c4bb0f12c82143745eee6a6cf4e3154b1fa/instance/8"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.022 ETH, 0.026 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

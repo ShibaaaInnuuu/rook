@@ -1,0 +1,114 @@
+/* The Launch wizard (src/pages/SolLaunch.tsx). Every class is launch__*; colours are rook.css's tokens. */
+.launch__note { margin: 0 0 1.25rem; }
+.launch__steps ol { list-style: none; display: flex; gap: 0.5rem; padding: 0; margin: 0 0 1.5rem; counter-reset: none; flex-wrap: wrap; }
+.launch__stepi { flex: 1 1 0; min-width: 0; }
+.launch__stepi > span, .launch__stepi > button { display: flex; align-items: center; gap: 0.5rem; width: 100%; padding: 0.55rem 0.7rem; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); font: inherit; font-size: var(--t-1); color: var(--muted); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.launch__stepi > button { cursor: pointer; color: var(--ink); }
+.launch__stepi > button:hover { border-color: color-mix(in srgb, var(--ink) 30%, var(--line)); }
+.launch__stepi--current > span { border-color: var(--accent); color: var(--ink); font-weight: 600; }
+.launch__num { display: inline-grid; place-items: center; flex: none; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--raised); font-family: var(--mono); font-size: 0.75rem; }
+.launch__stepi--current .launch__num { background: var(--accent); color: var(--accent-ink); }
+.launch__stepi--done .launch__num { background: color-mix(in srgb, var(--good) 22%, var(--raised)); color: var(--good); }
+
+.launch__body { max-width: 72rem; }
+.launch__title { font-size: var(--t2, 1.5rem); margin: 0 0 1rem; }
+.launch__title:focus { outline: none; }
+.launch__title:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.launch__search input { max-width: 26rem; }
+.launch__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; }
+/* every card in a row is as tall as the tallest, and nothing in a card is wider than the card */
+.launch__grid > [role="listitem"] { display: grid; min-width: 0; }
+.launch__grid .launch__card { height: 100%; align-content: start; min-width: 0; text-align: center; }
+.launch__grid .launch__card > * { max-width: 100%; min-width: 0; }
+.launch__card { display: grid; justify-items: center; gap: 0.45rem; width: 100%; padding: 1rem 0.75rem; border-radius: var(--radius-lg); border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; text-align: center; transition: border-color var(--fast) var(--ease), transform var(--fast) var(--ease); }
+.launch__card:hover { border-color: color-mix(in srgb, var(--ink) 30%, var(--line)); transform: translateY(-1px); }
+.launch__card--on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.launch__cardname { font-family: var(--display); font-weight: 600; line-height: 1.2; }
+.launch__cardtier { white-space: normal; overflow-wrap: anywhere; line-height: 1.35; text-align: center; font-size: 0.74rem; font-weight: 600; color: var(--ink); padding: 0.1rem 0.45rem; border-radius: 0.6rem; border: 1px solid var(--line); }
+.launch__cardfloor { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); overflow-wrap: anywhere; }
+
+.launch__two { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+.launch__two > * { min-width: 0; }
+@media (min-width: 900px) { .launch__two { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; } .launch__side { position: sticky; top: 4.5rem; } }
+.launch__row2 { display: grid; gap: 1rem; }
+@media (min-width: 560px) { .launch__row2 { grid-template-columns: 1.6fr 1fr; } }
+.launch__ticker { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0.35rem; }
+.launch__ticker > span { font-family: var(--mono); color: var(--muted); }
+.launch__err { color: var(--bad); font-size: var(--t-1); }
+.launch__count { justify-self: end; }
+div.field { display: grid; gap: 0.35rem; font-size: var(--t-1); color: var(--muted); }
+div.field small { color: var(--muted); }
+
+.launch__drop { display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1.5px dashed var(--line); border-radius: var(--radius-lg); background: var(--surface); cursor: pointer; color: var(--ink); transition: border-color var(--fast) var(--ease), background var(--fast) var(--ease); }
+.launch__drop:hover, .launch__drop--over { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.launch__drop:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.launch__drop--has { border-style: solid; }
+.launch__dropicon { display: grid; place-items: center; flex: none; width: 72px; height: 72px; border-radius: 50%; background: var(--raised); font-size: 2rem; color: var(--muted); }
+.launch__dropimg { flex: none; width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: var(--raised); }
+.launch__droptext { display: grid; gap: 0.2rem; min-width: 0; }
+.launch__droptext small { color: var(--muted); }
+
+.launch__disclose, .launch__link { background: none; border: 0; padding: 0; font: inherit; font-size: var(--t-1); color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.launch__links > * + * { margin-top: 0.75rem; }
+.launch__warn { margin: 0.25rem 0 0; }
+
+.launch__preview { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); padding: 0.5rem 0.75rem; overflow-x: auto; }
+.launch__preview .board__table { min-width: 0; }
+.launch__desc { margin: 0.5rem 0 0.25rem; overflow-wrap: anywhere; }
+
+.launch__nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.launch__navright { display: flex; align-items: center; gap: 1rem; text-align: right; }
+
+.launch__plain h3 { font-size: var(--t0, 1rem); margin: 0 0 0.5rem; }
+.launch__plain ul { margin: 0; padding-left: 1.1rem; font-size: var(--t-1); }
+.launch__plain li + li { margin-top: 0.4rem; }
+.launch__pay > * + * { margin-top: 1rem; }
+/* the review's Graduation and Cost rows (ui/LaunchCosts.tsx): label left, value right on one line, a muted sub-line under it */
+.launch__pay .eyebrow { margin-bottom: 0.35rem; }
+.lcost { margin: 0; display: grid; gap: 0.55rem; }
+.lcost__row { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: 1rem; align-items: baseline; }
+.lcost__row dt { white-space: nowrap; }
+.lcost__row dt { color: var(--muted); }
+.lcost__row dd { margin: 0; text-align: right; }
+.lcost__v { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lcost__sub { display: block; font-family: var(--body); font-size: var(--t-1); color: var(--muted); line-height: 1.3; margin-top: 0.1rem; }
+.lcost__row dd.lcost__why { grid-column: 1 / -1; text-align: left; font-size: var(--t-1); color: var(--muted); line-height: 1.35; margin-top: 0.1rem; }
+.lcost__row--total { border-top: 1px solid var(--line); padding-top: 0.55rem; margin-top: 0.15rem; }
+.lcost__row--total dt, .lcost__row--total .lcost__v { color: var(--ink); font-weight: 700; }
+.lcost__toggle { margin-top: 0.4rem; padding: 0; border: 0; background: none; color: var(--muted); font: inherit; font-size: var(--t-1); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.lcost__toggle:hover { color: var(--ink); }
+.launch__pay .lcost__note { font-size: var(--t-1); color: var(--muted); margin-top: 0.5rem; }
+.launch__buyunit { display: inline-flex; margin-left: 0.5rem; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; vertical-align: middle; }
+.launch__buyunit button { border: 0; background: none; color: var(--muted); font: inherit; font-size: var(--t-1); padding: 0.1rem 0.6rem; cursor: pointer; }
+.launch__buyunit button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink, #fff); }
+.launch__other { display: block; color: var(--ink); font-size: var(--t-1); font-weight: 600; }
+.launch__gets { display: block; color: var(--muted); font-size: var(--t-1); }
+.launch__body .notice--info { border-left-color: var(--accent); }
+.launch__cardwx { display: block; font-weight: 400; color: var(--muted); font-family: var(--mono); font-size: 0.68rem; }
+.launch__go { font-size: var(--t1, 1.1rem); padding-top: 0.8rem; padding-bottom: 0.8rem; }
+.launch__connect { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; padding: 0.75rem; border: 1px solid var(--accent); border-radius: var(--radius); }
+.launch__demo { margin: 0; }
+
+.launch__progress { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; font-size: var(--t-1); }
+.launch__ph { display: flex; align-items: center; gap: 0.6rem; color: var(--muted); }
+.launch__ph--now { color: var(--ink); font-weight: 600; }
+.launch__ph--done { color: var(--good); }
+.launch__phdot { display: inline-grid; place-items: center; flex: none; width: 1.1rem; height: 1.1rem; border-radius: 50%; border: 2px solid var(--line); font-size: 0.7rem; }
+.launch__ph--done .launch__phdot { border-color: var(--good); }
+.launch__ph--now .launch__phdot { border-color: var(--accent); border-top-color: transparent; animation: launch-spin 0.9s linear infinite; }
+@keyframes launch-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .launch__ph--now .launch__phdot { animation: none; border-top-color: var(--accent); } .launch__card:hover { transform: none; } }
+
+@media (max-width: 559px) {
+  .launch__stepi > span, .launch__stepi > button { padding: 0.5rem; font-size: 0.78rem; }
+  .launch__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+  .launch__nav { position: sticky; bottom: 0; background: var(--ground); margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); padding: 0.75rem var(--gutter); z-index: 2; }
+  .launch__navright > span { display: none; }
+}
+.launch__side .board__table th { font-size: 0.68rem; letter-spacing: 0; }
+.launch__side .board__table td { padding-right: 0.4rem; }
+.launch__side .progress { min-width: 44px; }
+@media (min-width: 900px) and (max-width: 1199px) { .launch__side .col-nest { display: none; } }
+/* rook.css keeps a disabled primary button at full strength; in the wizard a disabled Next / Launch must look disabled */
+.launch__body .btn--primary:disabled { opacity: 0.45; }

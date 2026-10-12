@@ -1,0 +1,20 @@
+# cargo test --test audit_nft_a3 a3_m1 -- --nocapture --test-threads=1   (private copy of autobuyer/canister-rs from the worktree (branch nft-side, fix round 3 uncommitted), toolchain 1.98.1; tests/audit_nft_a3.rs = the CURRENT tests/audit_nft_r2.rs, unchanged, + review3/poc/A/audit_nft_a3_canister.rs appended, see audit_nft_a3_canister.adaptations.diff)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.24s
+     Running tests/audit_nft_a3.rs (target/debug/deps/audit_nft_a3-f1a2aefc015efe3e)
+
+running 1 test
+test a3_m1_the_way_back_repeats_without_bound_each_round_trip_returned_short ...
+
+thread 'a3_m1_the_way_back_repeats_without_bound_each_round_trip_returned_short' (55182232) panicked at tests/audit_nft_a3.rs:1357:41:
+called `Result::unwrap()` on an `Err` value: "refused: buy 0 arrived 0 s ago; it may be sent back once it has waited 21600 s for a listing (C3-L-2)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    a3_m1_the_way_back_repeats_without_bound_each_round_trip_returned_short
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 23 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `--test audit_nft_a3`

@@ -1,0 +1,15 @@
+    Finished `release` profile [optimized] target(s) in 56.99s
+     Running tests/audit4_nft_e_upgrade.rs (target/release/deps/audit4_nft_e_upgrade-7ea3b5cc4f8e8777)
+
+running 2 tests
+AUDIT4-E probe e04f49b: 6426 bytes saved, lost []
+AUDIT4-E probe 4949da0-rich: 15069 bytes saved, lost []
+AUDIT4-E probe a37f54b-rich: 15173 bytes saved, lost []
+AUDIT4-E 4949da0: leftover None, sweep_after None, sweeps 0
+AUDIT4-E a37f54b: leftover Some(1), sweep_after Some(8), sweeps 1
+test e4_old_builds_states_restore_with_nothing_lost_and_the_new_fields_absent ... ok
+AUDIT4-E probe cost: 4194304 bytes of stable memory; the probe 438.238709ms; lost []
+test e4_probe_cost_on_the_largest_state_the_code_allows ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.45s
+

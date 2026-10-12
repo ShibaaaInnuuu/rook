@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Taiyo Robotics",
+  "symbol": "wTAIYO",
+  "description": "Rook's wrapped Taiyo Robotics token: each whole token is backed either by a Taiyo Robotics NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/taiyo_robotics.png",
+  "external_url": "https://userook.fun/#/collection/taiyo_robotics",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/taiyo_robotics.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

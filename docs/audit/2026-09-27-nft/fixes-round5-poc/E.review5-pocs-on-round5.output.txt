@@ -1,0 +1,7 @@
+test e5_i1_a_reverted_mint_s_record_keeps_its_time_so_four_real_mints_fit_in_24_h_at_a_limit_of_three ... ok
+test e5_i2_the_h3_site_test_passes_on_sources_where_the_e4_h1_shape_is_back_or_a_new_site_is_unreviewed ... ok
+test e5_l1_a_mint_misread_as_dropped_wedges_every_later_deposit_of_its_collection ... FAILED
+test e5_l2_at_stage_0_a_full_collection_redeemed_with_its_days_mints_trips_the_item_tripwire ... ok
+test holds_e4_h1_nine_deposits_and_two_purchases_of_one_collection_ask_one_key_at_a_time_and_mint_three_a_day ... ok
+thread 'e5_l1_a_mint_misread_as_dropped_wedges_every_later_deposit_of_its_collection' (61570350) panicked at tests/r5_e.rs:969:25:
+test result: FAILED. 4 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s

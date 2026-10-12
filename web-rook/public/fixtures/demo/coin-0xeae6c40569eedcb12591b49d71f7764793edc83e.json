@@ -1,0 +1,243 @@
+{
+  "address": "0xeaE6C40569EedCB12591b49D71f7764793edc83E",
+  "name": "Basalt 4 (sim)",
+  "symbol": "BASA4SIM",
+  "creator": "0x421db60a2860C62128ad3e552e1Aa51996e47652",
+  "router": "0x6B06De8061446c018E2D427aEFCb60DC1f130180",
+  "curve": "0x50D68FF1b5FF33fE7d713A3bc132b6077891F5AF",
+  "listingId": 31,
+  "listingName": "BitCoin BAYC",
+  "launchedAt": 1790035311,
+  "launchedBlock": 69020243,
+  "creatorTaxBps": 300,
+  "logoUrl": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3e%3crect%20width='64'%20height='64'%20fill='hsl(315,38%25,18%25)'/%3e%3cpath%20d='M15%2046L32%2014L61%2046Z'%20fill='hsl(315,52%25,52%25)'/%3e%3cpath%20d='M32%2014L61%2046H32Z'%20fill='hsl(315,30%25,32%25)'/%3e%3c/svg%3e",
+  "supplyWei": "1000000000000000000000000000",
+  "holders": 21,
+  "volume24hWei": "7132877040676637320",
+  "lifetimeFeesWei": "265955580240356846",
+  "toVaultWei": "212764464192285475",
+  "toTreasuryWei": "53191116048071371",
+  "fees24hWei": "265955580240356846",
+  "fees7dWei": "265955580240356846",
+  "harvests": 21,
+  "lastHarvestAt": 1790043199,
+  "harvestsRecent": [
+    {
+      "at": 1790043199,
+      "block": 69024699,
+      "tx": "0x1a4ffd638c2ff6545afc92e4d3b1956abeebbe7730ac2d134b360f335ae056d7",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790042891,
+      "block": 69024556,
+      "tx": "0xc1650287f4d8a5bbb498a8f07d904a78a52c833b0da2769a8149e90c5444604d",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790042824,
+      "block": 69024526,
+      "tx": "0xde0ff28c26ad87de9b58658953828d361398ed2d43b6b4f0a45659d77791a8b0",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790042495,
+      "block": 69024359,
+      "tx": "0xbbcfca7a041ad9c36542de2c4646d8155938e69bc8a84aa62d1c782fcc41243a",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790042319,
+      "block": 69024268,
+      "tx": "0xe605190b14863690b38b786b5c22902a74dca7295b732083206cdbff8a718e42",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790042226,
+      "block": 69024221,
+      "tx": "0x0e0cb425d70a35d692d9aa108fb502e5cd65e7f6bd43e1b91cbbaa223c537174",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790041712,
+      "block": 69023954,
+      "tx": "0xc7f3df9c180a4a646f5ae379d46b9c4d9ab78f28667a57a5fc97ca32f49491fd",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790041271,
+      "block": 69023727,
+      "tx": "0xe5aa71e154c7dcd285a7794a0e82e5a39628d476aa70d0d345de24512a50b52c",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790039922,
+      "block": 69023086,
+      "tx": "0xd96366f549a25d5c658d69ef6c4f49116bde380e25e2b355951aa2018750b89a",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790039221,
+      "block": 69022687,
+      "tx": "0x9231178866f4d3693d32457af6d4abc20e6a4f76df8160779fedd31e2c68304a",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790039060,
+      "block": 69022590,
+      "tx": "0x19a51cf67f521e512b50c72797232ec0f65842ffa7e0cec1c92f4df29763a68c",
+      "claimedWei": "33596991828509408",
+      "toVaultWei": "26877593462807526",
+      "toTreasuryWei": "6719398365701882"
+    },
+    {
+      "at": 1790038467,
+      "block": 69022209,
+      "tx": "0x17bc410408eed014a0309e38abfa86a742856682c1e71362e0c470a75f520b4d",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790038451,
+      "block": 69022206,
+      "tx": "0xe7e3d1e0103ef2419b73327f3cde1b2f77e2d61e0760217e558c2773bb2c5757",
+      "claimedWei": "8861663845156086",
+      "toVaultWei": "7089331076124868",
+      "toTreasuryWei": "1772332769031218"
+    },
+    {
+      "at": 1790038241,
+      "block": 69022049,
+      "tx": "0x4f1be9ed71e9d6238147ba803b92bbe3da67801c4b51b6e249dc2d6cf41d7b7e",
+      "claimedWei": "17552372787665943",
+      "toVaultWei": "14041898230132754",
+      "toTreasuryWei": "3510474557533189"
+    },
+    {
+      "at": 1790037963,
+      "block": 69021881,
+      "tx": "0xf30210279fa7e2cfe4caa1ea0a983264c4d06c8a69589717c8f7ab4c4a159544",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790037918,
+      "block": 69021863,
+      "tx": "0x27da07d86c98c1416063711c31fc3ff2b282208ef4dc17b7dfa77e1442d37381",
+      "claimedWei": "66354636979025409",
+      "toVaultWei": "53083709583220327",
+      "toTreasuryWei": "13270927395805082"
+    },
+    {
+      "at": 1790036981,
+      "block": 69021290,
+      "tx": "0x26e6dd2741babde7488975f16f12c87828043b8173c60d47e5d71f16cfa42ff8",
+      "claimedWei": "5646614400000000",
+      "toVaultWei": "4517291520000000",
+      "toTreasuryWei": "1129322880000000"
+    },
+    {
+      "at": 1790036901,
+      "block": 69021247,
+      "tx": "0xbe463ffd0fcf8a0c3bf0e03620b76b43a93e31647fb36bf2fdeb739b8c923490",
+      "claimedWei": "1189276200000000",
+      "toVaultWei": "951420960000000",
+      "toTreasuryWei": "237855240000000"
+    },
+    {
+      "at": 1790036858,
+      "block": 69021207,
+      "tx": "0xe25cd765dc71e87eb5e291e99c5bea4d721a56881cc315af0fc74572898324e1",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790036852,
+      "block": 69021204,
+      "tx": "0x489461ae400e0a700005b85f88d1f1de9fc80917b2893e25fe73219fe0662400",
+      "claimedWei": "81329677800000000",
+      "toVaultWei": "65063742240000000",
+      "toTreasuryWei": "16265935560000000"
+    },
+    {
+      "at": 1790035738,
+      "block": 69020529,
+      "tx": "0xe9b5496448672b9aaf00bc031c4426961cc39a2c5a4616df461c2b116d4ea7db",
+      "claimedWei": "51424346400000000",
+      "toVaultWei": "41139477120000000",
+      "toTreasuryWei": "10284869280000000"
+    }
+  ],
+  "tokensForwarded": [],
+  "treasuryDeferredWei": "0",
+  "acquisitions": [],
+  "volumeUntilNextBuy": {
+    "volumeNeededWei": null,
+    "reason": "no-live-cap",
+    "ready": false,
+    "inputs": {
+      "targetWei": null,
+      "capWei": "0",
+      "capExpiry": 0,
+      "minDeclarationWei": "50000000000000000",
+      "minEntryWei": "10000000000000000",
+      "spendableWei": "212764464192285475",
+      "coinWaitingWei": "0",
+      "coinQueued": true,
+      "harvestableWei": "0",
+      "depositNeededWei": null,
+      "vaultShareBps": 8000,
+      "takeBps": 370
+    },
+    "assumptions": [
+      "only this coin trades: fees from other coins on the same listing bring the purchase sooner",
+      "the cap posted now is still the cap then (a cap lasts one hour and is re-posted from the market)",
+      "the share of volume reaching the router stays what was measured: 0.70% plus the coin's creator tax",
+      "fees earned but still inside the curve or the pool are not counted; fees on the router or in Pons's escrow are, at 80%",
+      "the keeper declares as its published policy says: one item under the cap and never under 0.05 ETH; any amount over 0.05 ETH for a rune"
+    ]
+  },
+  "live": {
+    "unspentWei": "212764464192285475",
+    "queued": true,
+    "pending": {
+      "graduated": true,
+      "escrowWei": "0",
+      "routerBalanceWei": "0",
+      "pool": {
+        "poolId": "0xbc7e53b9e019eb31fc3671d2ce3d523f190135a95741d86ce8b81cdb7f94e83a",
+        "ethFeesWei": "0",
+        "ethCreatorTaxWei": "0",
+        "coinFees": "0",
+        "coinCreatorTax": "0",
+        "operatorOnly": false
+      },
+      "curvePending": null,
+      "curvePendingReason": "before graduation fees accrue inside Pons's curve, and no getter for that amount has been verified",
+      "error": null
+    }
+  }
+}

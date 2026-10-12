@@ -1,0 +1,10 @@
+[
+  { "address": "0x8366a39CC670B4001A1121B8F6A443A643e40951", "why": "Uniswap v4 pool manager on 4663: holds every pool's coins" },
+  { "address": "0x58daec3116aae6D93017bAAea7749052E8a04fA7", "why": "Uniswap v4 position manager, as the Pons factory names it" },
+  { "address": "0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044", "why": "Pons V2 pool hook: holds coin-denominated fees until they are swept" },
+  { "address": "0xd3AFEB2a57f70eF218Aa82451c51B2fb0416Ac9e", "why": "Pons V2 fee escrow" },
+  { "address": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e", "why": "Pons V2 factory: holds a curve's reserves between the two steps of graduation" },
+  { "address": "0x267444D099b10fB5Ed7c3Cc7B7c767AdcA574952", "why": "Pons V2 liquidity locker (factory.locker()): holds the coins graduation did not seed — 8.2% of supply on the first real coin this tool was run on, where it was the largest 'holder' until it was listed here" },
+  { "address": "0x42df2a798f82289E177311362e8f5ccC45c1219c", "why": "Pons V2 buyback vault (factory.buybackVault()): coins locked by buybacks" },
+  { "address": "0xC7819B64A1dAECD7eC19856d026cb14EfBd89046", "why": "Pons V2 graduation executor" }
+]

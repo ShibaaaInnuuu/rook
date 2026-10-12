@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped OMB",
+  "symbol": "wOMB",
+  "description": "Rook's wrapped Ordinal Maxi Biz (OMB) token: each whole token is backed either by a Ordinal Maxi Biz (OMB) NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/omb.png",
+  "external_url": "https://userook.fun/#/collection/omb",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/omb.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": 17,
+  "kind": "inscriptions",
+  "name": "Ordinal Wizards",
+  "ref": "ordinal-wizards",
+  "divisibility": 0,
+  "vault": "0xe60c092F89B2126DE55c4aFbc43E6249f6Bce457",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-ordinal-wizards",
+  "membershipRoot": "0x5c5b810dbc709837fb2a0a38db37d544f319babe0a40d333ffd251460255bdc8",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "152630776706623165",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "152630776706623165",
+    "attributedWei": "152630776706623165",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "152630776706623165",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x7bbB4B939a74a02E1407279aB25BF263bF8d8CF6",
+      "symbol": "PUMI2SIM",
+      "depositedWei": "152630776706623165"
+    }
+  ]
+}

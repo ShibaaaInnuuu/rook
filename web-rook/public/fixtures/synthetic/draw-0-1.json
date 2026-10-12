@@ -1,0 +1,76 @@
+{
+  "id": "0-1",
+  "listingId": 0,
+  "acquisitionId": 1,
+  "type": "draw",
+  "state": "cancelled",
+  "mode": "unset",
+  "assetRef": "abci1",
+  "openedAt": 1800000972,
+  "challengeEnds": 1800099000,
+  "challengeEndsIn": null,
+  "root": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+  "uri": "u",
+  "total": "10",
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": "npm run snapshot -- --coin 0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0 --block <block from the published file> --kind weighted",
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": {
+    "round": null,
+    "pinnedAt": null,
+    "drandUrl": null,
+    "winningTicket": null,
+    "resolvedAt": null,
+    "winner": null,
+    "destination": null,
+    "destinationSetAt": null,
+    "deliveredTxid": null,
+    "deliveredAt": null,
+    "overdue": false,
+    "voided": null
+  },
+  "distribution": null,
+  "timeline": [
+    {
+      "at": 1800000924,
+      "block": 177,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Receipted",
+      "detail": {
+        "id": "0",
+        "acquisitionId": "1",
+        "coin": "0xc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0",
+        "assetRef": "abci1",
+        "amount": "1",
+        "btcTxid": "0x4242424242424242424242424242424242424242424242424242424242424242",
+        "satsPaid": "1"
+      }
+    },
+    {
+      "at": 1800000972,
+      "block": 181,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DrawOpened",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "1",
+        "root": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+        "totalTickets": "10",
+        "uri": "u",
+        "challengeEnds": "1800099000"
+      }
+    },
+    {
+      "at": 1800000984,
+      "block": 182,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DrawCancelled",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "1"
+      }
+    }
+  ]
+}

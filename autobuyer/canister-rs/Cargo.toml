@@ -1,0 +1,44 @@
+[package]
+name = "etch_autobuyer"
+version = "0.1.0"
+edition = "2021"
+description = "etched v2: the autonomous buyer. A canister that holds a Bitcoin key nobody can extract, buys the asset a draw's winner is owed, and delivers it to them."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+candid = { version = "0.10", features = ["value"] }
+ic-cdk = "0.19"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+hex = "0.4.3"
+sha2 = "0.10"
+sha3 = "0.10"
+k256 = { version = "0.13", default-features = false, features = ["ecdsa", "arithmetic"] }
+# Solana home (docs/v9/solana-migration.md §4): account data and transactions travel as base64; the providers are asked
+# concurrently (join_all, as spike Q3); a PDA must be OFF the ed25519 curve (point decompression only; no signing, no rng)
+base64 = "0.22.1"
+futures = { version = "0.3", default-features = false, features = ["alloc"] }
+curve25519-dalek = { version = "4", default-features = false }
+# decision D-i (2026-10-10): the registry keeper verifies drand evmnet's BLS signature (BN254, G1) itself before it proves a round
+# (drand.rs `verify`: RFC 9380 hash-to-curve with Keccak and SvdW, then the pairing check); ≈ 35 kB of the gzipped module
+ark-bn254 = { version = "0.5.0", default-features = false, features = ["curve"] }
+ark-ec = { version = "0.5.0", default-features = false }
+ark-ff = { version = "0.5.0", default-features = false }
+# W14b (docs/v9/canister-only-solana.md §13.1): the canister drives its Solana lines itself on a timer (`soltimer.rs`), idle/busy cadence
+ic-cdk-timers = "=1.0.0"
+
+[dev-dependencies]
+# W3 (canister-only design §1.1, spike S3): the derivation paths re-derived offline exactly as the IC derives them (`examples/sol_keys.rs`,
+# `tests/solkey_paths.rs`), and every multi-key transaction's signatures verified with real Ed25519
+ic-ed25519 = "=0.6.0"
+ed25519-dalek = "2"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+# 2026-10-12: the symbol names (the wasm's debug "name" section) are dropped: 2.31 -> 1.88 MiB gzipped, under the IC's 2 MiB
+# single install; every exported method and the candid export stay (checked)
+strip = "symbols"

@@ -1,0 +1,28 @@
+# cargo test --test ethnft_d3 -- --exact d3_h1_a_redeemer_who_moves_the_nft_before_finality_is_never_recorded_and_the_ticket_stays_refundable --nocapture --test-threads=1   (private copy of autobuyer/canister-rs from the worktree (branch nft-side, fix round 3 uncommitted), toolchain 1.98.1; tests/ethnft_d3.rs = the CURRENT tests/ethnft.rs + review3/poc/D/canister/d3_h1_append_to_tests_ethnft.rs appended, unmodified; the eth ... lines are the canister's log)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.19s
+     Running tests/ethnft_d3.rs (target/debug/deps/ethnft_d3-373879c2a07f093e)
+
+running 1 test
+test d3_h1_a_redeemer_who_moves_the_nft_before_finality_is_never_recorded_and_the_ticket_stays_refundable ... eth: ticket 0: resolved to token 0x000000000000000000000000000000000000000000000000000000000000004d, delivery to 0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1 due by 1791117633
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: transferFrom of 0x000000000000000000000000000000000000000000000000000000000000004d to 0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1 signed, saved and sent (0x2cf9d26adbba24828db8581000babb7d19d4a7ce050d2da86f0b12b09ccff093, nonce 0)
+eth line: delivery #0: mined in block 26068923: waiting for finality
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: moved in block 26068923; finalized 26068828: waiting
+eth delivery #0: noteSent (its transfer mined; the late window can no longer refund it): Sent { wrapper: [170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170], ticket: 0 } signed, saved and sent (nonce 0)
+eth: Sent { wrapper: [170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170], ticket: 0 } mined (success): noted sent: the wrapper's late window no longer refunds it
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: final, and its receipt shows the token delivered to the destination: recordDelivery is next
+eth delivery #0: recordDelivery: Record { wrapper: [170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170], ticket: 0 } signed, saved and sent (nonce 1)
+eth: Record { wrapper: [170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170], ticket: 0 } mined (success): recorded: the delivery is final on both chains
+
+thread 'd3_h1_a_redeemer_who_moves_the_nft_before_finality_is_never_recorded_and_the_ticket_stays_refundable' (55240939) panicked at tests/ethnft_d3.rs:1435:5:
+Recorded { tx: [44, 249, 210, 106, 219, 186, 36, 130, 141, 184, 88, 16, 0, 186, 187, 125, 25, 212, 167, 206, 5, 13, 45, 168, 111, 11, 18, 176, 156, 207, 240, 147] }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    d3_h1_a_redeemer_who_moves_the_nft_before_finality_is_never_recorded_and_the_ticket_stays_refundable
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 29 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `--test ethnft_d3`

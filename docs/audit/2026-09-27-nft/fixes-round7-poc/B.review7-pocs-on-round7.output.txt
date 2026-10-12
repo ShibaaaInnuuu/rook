@@ -1,0 +1,39 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/r7_b.rs (/Users/jlohayon/Documents/Rook-nft/autobuyer/canister-rs/target/debug/deps/r7_b-8137a7d2ed3aaf4a)
+
+running 4 tests
+test r7_b_i1_a_replica_mixed_rate_limit_is_still_too_big ... 
+thread 'r7_b_i1_a_replica_mixed_rate_limit_is_still_too_big' (66334548) panicked at tests/r7_b.rs:1919:5:
+assertion `left == right` failed: the IC's divergence reject says `timeout:` -> limit
+  left: Busy
+ right: TooBig
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test r7_b_l1_a_one_transient_deep_answer_in_the_hole_gives_up_the_rest_of_the_hole_for_good ... control: gap sales 119 of 119; newer 144 of 144; lost None; hole None
+one deep answer: gap sales 119 of 119 after TWO DAYS (every later read of both providers served); newer 144 of 144; lost None; hole None
+
+thread 'r7_b_l1_a_one_transient_deep_answer_in_the_hole_gives_up_the_rest_of_the_hole_for_good' (66334549) panicked at tests/r7_b.rs:1825:5:
+recorded lost
+FAILED
+test r7_b_l1_b_a_busy_answer_is_unbounded_16_receipts_hold_every_newer_sale_with_no_page ... 16 old receipts answered busy: after two days 144 of 144 final newer sales read; rfail None; behind Some(0); lost None; hole None
+
+thread 'r7_b_l1_b_a_busy_answer_is_unbounded_16_receipts_hold_every_newer_sale_with_no_page' (66334558) panicked at tests/r7_b.rs:1855:5:
+attack: the newer sales wait behind the busy receipts: 144 of 144
+FAILED
+test r7_b_l2_the_scan_lag_page_cannot_fire_the_reanchor_keeps_behind_under_a_day ... three days all busy: newer sales counted 0 of 216; behind at most 21598 (the page needs 7,200): 144 pass(es) would page; hole Some((26068801, 26089098)) (SEV3, not persistent); lost None
+
+thread 'r7_b_l2_the_scan_lag_page_cannot_fire_the_reanchor_keeps_behind_under_a_day' (66334560) panicked at tests/r7_b.rs:1887:5:
+behind is at most SALE_REANCHOR_LAG_BLOCKS at a pass's end: the page's >= 7,200 holds only at equality
+FAILED
+
+failures:
+
+failures:
+    r7_b_i1_a_replica_mixed_rate_limit_is_still_too_big
+    r7_b_l1_a_one_transient_deep_answer_in_the_hole_gives_up_the_rest_of_the_hole_for_good
+    r7_b_l1_b_a_busy_answer_is_unbounded_16_receipts_hold_every_newer_sale_with_no_page
+    r7_b_l2_the_scan_lag_page_cannot_fire_the_reanchor_keeps_behind_under_a_day
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.57s
+
+error: test failed, to rerun pass `--test r7_b`

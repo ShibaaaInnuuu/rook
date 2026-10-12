@@ -1,0 +1,16 @@
+r4_c c4_h1_a_4663_pin_one_bucket_back_reads_the_deposit_as_refunded_and_wedges_the_home_line_for_good :: test result: FAILED. 0 passed :: tests/r4_c.rs:1283:5:
+r4_c c4_h1b_any_home_act_signed_at_a_lower_pin_after_a_mined_one_wedges_the_line_a_floor_post :: test result: FAILED. 0 passed :: tests/r4_c.rs:1330:32:
+r4_c c4_l1_a_way_back_relay_does_not_fill_holds_every_collections_buys_for_the_orders_whole_deadline :: test result: ok. 1 passed :: 
+r4_c c4_m1_a_late_way_back_payout_is_nobodys_after_the_operator_closes_it_as_a_loss :: KILLED after 60 s (never terminates) :: 
+r4_c c4_m1b_a_late_way_back_payout_is_read_as_another_collections_refund_and_orphans_its_real_arrival :: KILLED after 60 s (never terminates) :: 
+r4_e e4_control_eight_deposits_wait_for_the_days_room_without_a_freeze :: test result: ok. 1 passed :: 
+r4_e e4_control_without_the_home_pin_moving_back_the_fill_arrives :: test result: ok. 1 passed :: 
+r4_e e4_h1_nine_deposits_of_one_collection_in_a_day_trip_the_mint_tripwire_and_pause_the_canister :: test result: FAILED. 0 passed :: tests/r4_e.rs:1354:5:
+r4_e e4_l1_j7_custody_cannot_all_leave_within_the_delay_at_the_global_item_limit :: test result: ok. 1 passed :: 
+r4_e e4_m1_a_home_pin_that_moves_back_reads_our_own_relay_deposit_as_a_refund :: test result: ok. 1 passed :: 
+r4_b b4_h1_a_one_oversized_block_stalls_the_walk_back_and_burns_the_log_budget_every_pass :: test result: FAILED. 0 passed :: tests/r4_b.rs:737:5:
+r4_b b4_h1_b_an_oversized_new_block_stops_every_newer_sale_for_the_window :: test result: FAILED. 0 passed :: tests/r4_b.rs:778:5:
+a4_exit a4_l1_the_launch_install_passes_the_per_collection_exit_check_but_the_whole_custody_does_not_fit_the_delay :: test result: ok. 1 passed :: 
+a4_reorg a4_l2_a_noted_delivery_dropped_by_a_reorg_before_finality_has_no_way_to_a_mark :: test result: FAILED. 0 passed :: tests/a4_reorg.rs:1486:5:
+r4_e_upgrade e4_old_builds_states_restore_with_nothing_lost_and_the_new_fields_absent :: test result: ok. 1 passed :: 
+r4_e_upgrade e4_probe_cost_on_the_largest_state_the_code_allows :: test result: ok. 1 passed :: 

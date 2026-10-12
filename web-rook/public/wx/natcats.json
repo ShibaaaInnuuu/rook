@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Natcat",
+  "symbol": "wNATCAT",
+  "description": "Rook's wrapped Natcats token: each whole token is backed either by a Natcats NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/natcats.png",
+  "external_url": "https://userook.fun/#/collection/natcats",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/natcats.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

@@ -1,0 +1,12 @@
+*
+!ops/package.json
+!ops/package-lock.json
+!ops/tsconfig.json
+!ops/src/fueler.ts
+!ops/src/fuel
+!ops/src/ic.ts
+!ops/src/identity.ts
+!ops/src/log.ts
+!ops/src/relay.ts
+!ops/src/ethnft.ts
+!ops/docker/drop-to-node.sh

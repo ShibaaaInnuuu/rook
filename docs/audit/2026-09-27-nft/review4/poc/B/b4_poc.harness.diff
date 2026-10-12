@@ -1,0 +1,28 @@
+146a147,152
+>     /// review round 4 (B4-H-1): a block whose Transfer logs are over the largest response class at any chunk
+>     big_block: Option<u64>,
+>     /// failed eth_getLogs reads (each is 3 outcalls in production: 64 kB, 400 kB, 2 MB)
+>     log_fails: u32,
+>     /// review round 4: the pin, advancing
+>     pin_now: Option<u64>,
+190c196
+<             fee_of: None,
+---
+>             fee_of: None, big_block: None, log_fails: 0, pin_now: None,
+386c392
+<         Ok(EthPin { number: self.pin_back.map_or(ETH_PIN, |p| p.0), timestamp: self.now, base_fee: 100_000_000 })
+---
+>         Ok(EthPin { number: self.pin_now.unwrap_or(self.pin_back.map_or(ETH_PIN, |p| p.0)), timestamp: self.now, base_fee: 100_000_000 })
+457a464,465
+>         if let Some(b) = self.big_block { if from <= b && b <= to { self.log_fails += 1;
+>             return Err(format!("chain 1: eth_getLogs: {}Http body exceeds size limit of 2000000 bytes", etch_autobuyer::evmread::SIZE_REJECT)); } }
+677c685,691
+< #[test]
+---
+> fn transfer_receipt(collection: [u8; 20], token: u128, from: [u8; 20], to: [u8; 20], block: u64) -> ReceiptV {
+>     ReceiptV { block, success: true, logs: vec![
+>         LogV { address: collection, topics: vec![en::TRANSFER, sp::word_addr(&from), sp::word_addr(&to), tok(token)], data: vec![] },
+>     ] }
+> }
+> 
+> // ---- review round 4, part B: B4-H-1 ----------------------------------------------------------------------------------------

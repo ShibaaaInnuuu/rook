@@ -1,0 +1,83 @@
+{
+  "res": "5m",
+  "range": "1d",
+  "coin": "0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0",
+  "quote": "ETH",
+  "priceIs": "pair asset per whole coin",
+  "candles": [
+    {
+      "t": 1800000000,
+      "o": 0.000965,
+      "h": 0.000970873786407767,
+      "l": 0.000954,
+      "c": 0.000970873786407767,
+      "v": 2.46e-15,
+      "n": 3
+    }
+  ],
+  "marks": [
+    {
+      "id": "129:1",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "1000",
+      "coinWei": "1000000",
+      "feeWei": "10",
+      "taxWei": "25",
+      "price": 0.000965,
+      "trader": "0xF0F0F0f0f0F0F0f0f0F0f0f0f0f0F0F0f0f0f0F0",
+      "recipient": "0xF0F0F0f0f0F0F0f0f0F0f0f0f0f0F0F0f0f0f0F0",
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "block": 129,
+      "logIndex": 1,
+      "at": 1800000348
+    },
+    {
+      "id": "130:2",
+      "side": "sell",
+      "venue": "curve",
+      "quoteWei": "460",
+      "coinWei": "500000",
+      "feeWei": "5",
+      "taxWei": "12",
+      "price": 0.000954,
+      "trader": "0xF0F0F0f0f0F0F0f0f0F0f0f0f0f0F0F0f0f0f0F0",
+      "recipient": "0xf1f1f1F1f1f1F1F1f1F1f1F1F1F1F1f1F1f1f1F1",
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "block": 130,
+      "logIndex": 2,
+      "at": 1800000360
+    },
+    {
+      "id": "133:2",
+      "side": "buy",
+      "venue": "pool",
+      "quoteWei": "1000",
+      "coinWei": "1030000",
+      "feeWei": null,
+      "taxWei": null,
+      "price": 0.000970873786407767,
+      "trader": "0xF0F0F0f0f0F0F0f0f0F0f0f0f0f0F0F0f0f0f0F0",
+      "recipient": null,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "block": 133,
+      "logIndex": 2,
+      "at": 1800000396
+    }
+  ],
+  "supplyWei": null,
+  "usdPerEth": null,
+  "usdPerEthAt": null,
+  "usdPool": null,
+  "trades": 3,
+  "tradesAllTime": 3,
+  "launchedAt": 1800000240,
+  "span": 86400,
+  "seconds": 900,
+  "graduation": {
+    "at": 1800000372,
+    "block": 131,
+    "tx": "0x9999999999999999999999999999999999999999999999999999999999999999"
+  },
+  "pool": "0x7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a"
+}

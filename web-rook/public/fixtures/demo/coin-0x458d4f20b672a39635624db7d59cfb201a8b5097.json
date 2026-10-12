@@ -1,0 +1,172 @@
+{
+  "address": "0x458d4F20B672A39635624dB7D59cfB201a8B5097",
+  "name": "Jasper 4 (sim)",
+  "symbol": "JASP4SIM",
+  "creator": "0xe85A6A33E812d7350bB16933E956485Fc5288CF7",
+  "router": "0x7522Efb08E10B401DD6F28f31d51706010949101",
+  "curve": "0x179DD79A2F9A39641a92D7805f31014d8DD8BEcb",
+  "listingId": 40,
+  "listingName": "OG Cartridge",
+  "launchedAt": 1790038433,
+  "launchedBlock": 69022192,
+  "creatorTaxBps": 300,
+  "logoUrl": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3e%3crect%20width='64'%20height='64'%20fill='hsl(253,38%25,34%25)'/%3e%3cpath%20d='M15%2046L32%2019L61%2046Z'%20fill='hsl(253,52%25,68%25)'/%3e%3cpath%20d='M32%2019L61%2046H32Z'%20fill='hsl(253,30%25,48%25)'/%3e%3c/svg%3e",
+  "supplyWei": "1000000000000000000000000000",
+  "holders": 12,
+  "volume24hWei": "1985786685917766654",
+  "lifetimeFeesWei": "71806801875584084",
+  "toVaultWei": "57445441500467265",
+  "toTreasuryWei": "14361360375116819",
+  "fees24hWei": "71806801875584084",
+  "fees7dWei": "71806801875584084",
+  "harvests": 13,
+  "lastHarvestAt": 1790043065,
+  "harvestsRecent": [
+    {
+      "at": 1790043065,
+      "block": 69024640,
+      "tx": "0x4cc009df1719bae34f9c56fd557d721f22a8b36163e155b90ca39b50ed1b1736",
+      "claimedWei": "6028794792447873",
+      "toVaultWei": "4823035833958298",
+      "toTreasuryWei": "1205758958489575"
+    },
+    {
+      "at": 1790042592,
+      "block": 69024417,
+      "tx": "0xce08d167d2005fc2d8e697e26ed27502caedd9f290009f9e24d5b4b13d1cca28",
+      "claimedWei": "2732251465365829",
+      "toVaultWei": "2185801172292663",
+      "toTreasuryWei": "546450293073166"
+    },
+    {
+      "at": 1790042485,
+      "block": 69024355,
+      "tx": "0x79ff1782eb480327d0175da24f4f44e0ca6b060fc4523a34750282ce02f4216e",
+      "claimedWei": "10224440958395322",
+      "toVaultWei": "8179552766716257",
+      "toTreasuryWei": "2044888191679065"
+    },
+    {
+      "at": 1790041523,
+      "block": 69023852,
+      "tx": "0x7fa63f56c45b64345cbdda33c0515f64f7039d6cc7aced2623f81187d78fefe1",
+      "claimedWei": "87162848302545",
+      "toVaultWei": "69730278642036",
+      "toTreasuryWei": "17432569660509"
+    },
+    {
+      "at": 1790041457,
+      "block": 69023817,
+      "tx": "0xcd752e445afc3e0f1dcdc7b6a4235c991164a804a180a250cba4969a8fc5a897",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790041452,
+      "block": 69023816,
+      "tx": "0x86c6fd19bcef9a44f045f397b02aff3ad8ced126fa51bb4fffe45994f8cde5ba",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790041431,
+      "block": 69023808,
+      "tx": "0x7223dbb6435743599faff72bf1c27b780ca1722d903675a4cc3c9f8bf8348f3f",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790041358,
+      "block": 69023770,
+      "tx": "0xfc1bd3848266c8be95055988ead83975cbb09b23374934b08fa3f5eceb578569",
+      "claimedWei": "17959346758456123",
+      "toVaultWei": "14367477406764898",
+      "toTreasuryWei": "3591869351691225"
+    },
+    {
+      "at": 1790040854,
+      "block": 69023538,
+      "tx": "0xe20c1e4acd0087e6dfbde405c2084e549e2d1680dda66b2d206993a3202623c9",
+      "claimedWei": "6077752834145655",
+      "toVaultWei": "4862202267316524",
+      "toTreasuryWei": "1215550566829131"
+    },
+    {
+      "at": 1790039855,
+      "block": 69023044,
+      "tx": "0x77e0aaabc41e19f1828e23929667ab750f58110563e30673760c3b4ebdacf6e5",
+      "claimedWei": "18456813818470737",
+      "toVaultWei": "14765451054776589",
+      "toTreasuryWei": "3691362763694148"
+    },
+    {
+      "at": 1790039587,
+      "block": 69022896,
+      "tx": "0x2ab4d1ef8147a45cbb1ff1f1988ff484ee75c02a0c5f27946bde1dde6d099b38",
+      "claimedWei": "5955394200000000",
+      "toVaultWei": "4764315360000000",
+      "toTreasuryWei": "1191078840000000"
+    },
+    {
+      "at": 1790039035,
+      "block": 69022568,
+      "tx": "0xb8664bd8c9583f5c4c9dea83c2ea254ab847c61112a744ce5f4f38092e7f30a2",
+      "claimedWei": "2398599000000000",
+      "toVaultWei": "1918879200000000",
+      "toTreasuryWei": "479719800000000"
+    },
+    {
+      "at": 1790038838,
+      "block": 69022453,
+      "tx": "0xc89c51a93c30781343a329b82fac46b1441080ffa89aba83fffc935b6019ed08",
+      "claimedWei": "1886245200000000",
+      "toVaultWei": "1508996160000000",
+      "toTreasuryWei": "377249040000000"
+    }
+  ],
+  "tokensForwarded": [],
+  "treasuryDeferredWei": "0",
+  "acquisitions": [],
+  "volumeUntilNextBuy": {
+    "volumeNeededWei": null,
+    "reason": "no-live-cap",
+    "ready": false,
+    "inputs": {
+      "targetWei": null,
+      "capWei": "0",
+      "capExpiry": 0,
+      "minDeclarationWei": "50000000000000000",
+      "minEntryWei": "10000000000000000",
+      "spendableWei": "59183612635797786",
+      "coinWaitingWei": "0",
+      "coinQueued": true,
+      "harvestableWei": "0",
+      "depositNeededWei": null,
+      "vaultShareBps": 8000,
+      "takeBps": 370
+    },
+    "assumptions": [
+      "only this coin trades: fees from other coins on the same listing bring the purchase sooner",
+      "the cap posted now is still the cap then (a cap lasts one hour and is re-posted from the market)",
+      "the share of volume reaching the router stays what was measured: 0.70% plus the coin's creator tax",
+      "fees earned but still inside the curve or the pool are not counted; fees on the router or in Pons's escrow are, at 80%",
+      "the keeper declares as its published policy says: one item under the cap and never under 0.05 ETH; any amount over 0.05 ETH for a rune"
+    ]
+  },
+  "live": {
+    "unspentWei": "59183612635797786",
+    "queued": true,
+    "pending": {
+      "graduated": false,
+      "escrowWei": "0",
+      "routerBalanceWei": "0",
+      "pool": null,
+      "curvePending": null,
+      "curvePendingReason": "before graduation fees accrue inside Pons's curve, and no getter for that amount has been verified",
+      "error": null
+    }
+  }
+}

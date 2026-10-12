@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: WEAKNESS (D7-I-2): a home transaction signed by the round-5 build (no sent_at) is never paged by eth-home-out, however old
+ok 1 - WEAKNESS (D7-I-2): a home transaction signed by the round-5 build (no sent_at) is never paged by eth-home-out, however old
+  ---
+  duration_ms: 5.04125
+  type: 'test'
+  ...
+# Subtest: WEAKNESS (D7-I-1): eth-scan-behind reads only the canister's own snapshot: a scan that stopped running is never paged by it, however long
+ok 2 - WEAKNESS (D7-I-1): eth-scan-behind reads only the canister's own snapshot: a scan that stopped running is never paged by it, however long
+  ---
+  duration_ms: 2.467584
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 220.742125

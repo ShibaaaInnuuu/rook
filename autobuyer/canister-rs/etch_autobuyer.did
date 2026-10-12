@@ -1,0 +1,3472 @@
+type AccountMeta = record { key : blob; writable : bool; signer : bool };
+// One act that went out (or asked to), keyed so that the same act asked every tick counts once.
+type Act = record {
+  at : nat64;
+  key : text;
+  collection : text;
+  flow : Flow;
+  amount : nat;
+};
+type AllowedZone = record { zone : text; codehash : text };
+type Arrival = record { sats : nat64; outpoint : Outpoint };
+// A purchase that landed: the item's custody is checked at finalized before it is booked.
+type Arrival_1 = record {
+  signature : text;
+  tries : nat32;
+  asset : blob;
+  cost : nat64;
+};
+// One verified ask as the status shows it.
+type AskView = record {
+  listing : text;
+  total : nat64;
+  asset : text;
+  venue : Venue;
+  rent : nat64;
+  keyless : bool;
+  price : nat64;
+};
+// Where a refused redemption's `markUndeliverable` is.
+type Attest = variant {
+  // To be sent once `deep` (our conflict, or the third spend that killed the delivery; display txid) is `ATTEST_DEPTH` deep;
+  // at once when `None` (nothing of ours was ever broadcast).
+  Due : record { deep : opt blob };
+  // Mined, or not needed (the ticket no longer reads `Resolved`, or this canister is not the custodian).
+  Done : record { note : text };
+  // Signed, saved and sent.
+  Sent : record { raw : blob; hash : blob; nonce : nat64 };
+  // Phase B2, the Solana home: `mark_undeliverable` is out on the canister-wide Solana line as `intent`.
+  SolSent : record { intent : nat64 };
+};
+type BPhase = variant {
+  // The Relay deposit on Ethereum is on the Ethereum line (`EthKind::BackDeposit`).
+  BackSending : record {
+    tx : blob;
+    wei : nat;
+    value : nat;
+    min_out : nat;
+    deadline : nat64;
+    order_id : blob;
+  };
+  // `wei` arrived at our Ethereum address for this buy; the runner is asked for a listing.
+  Arrived : record { wei : nat; since : nat64 };
+  // A fill is signed on the Ethereum line.
+  Buying : record { tx : blob; token : blob; total : nat; arrived : nat };
+  Stuck : record { why : text };
+  // The deposit mined; watching Ethereum for the arrival and the home chain for a refund.
+  Bridging : record {
+    value : nat;
+    min_out : nat;
+    deadline : nat64;
+    since : nat64;
+    order_id : blob;
+  };
+  Depositing : record {
+    value : nat;
+    min_out : nat;
+    deadline : nat64;
+    order_id : blob;
+  };
+  Minting : record { tx : blob; token : blob; total : nat; arrived : nat };
+  // It mined; watching 4663 for the arrival (then `Returning`) and Ethereum for a refund (then `Arrived` again).
+  BackBridging : record {
+    value : nat;
+    min_out : nat;
+    deadline : nat64;
+    since : nat64;
+    order_id : blob;
+  };
+  Settling : record { tx : blob; token : blob; total : nat; cost : nat };
+  // `advance(amount)` is the next home-chain act.
+  NeedAdvance;
+  Advancing;
+  // The unit is at the module: `settleAdvance(cost)` is next.
+  Minted : record { tx : blob; token : blob; total : nat; arrived : nat };
+  // Final on Ethereum: the mint to the module is the next home-chain act (then `Minting`).
+  Final : record { tx : blob; token : blob; total : nat; arrived : nat };
+  // Mined, ownerOf is us; waiting for Ethereum finality.
+  Bought : record {
+    tx : blob;
+    token : blob;
+    total : nat;
+    arrived : nat;
+    block : nat64;
+  };
+  // The ETH is at our home-chain address; the runner is asked for a Relay quote (`ask`).
+  Funded : record { wei : nat; since : nat64 };
+  // Round 2 (A2-M-1): an arrived buy's ETH goes back. `wei` is at our Ethereum address; the runner is asked for a Relay quote
+  // Ethereum → 4663 (`ask`).
+  BackFunded : record { wei : nat; since : nat64 };
+  // `returnAdvance{value: wei}` is the next (or current) home-chain act.
+  Returning : record { wei : nat };
+  Returned : record { wei : nat };
+  Settled : record { tx : blob; token : blob; total : nat; cost : nat };
+};
+type BoardView = record {
+  open : nat64;
+  with_bytes : nat64;
+  unmatched : nat64;
+  board : text;
+  params : opt Params_1;
+  refused : opt text;
+};
+// One collection's books, as the proof-of-reserves reader and the site read them (lamports and wX base units).
+type BooksView = record {
+  fresh : bool;
+  transit_units : nat64;
+  last_good_at : int64;
+  raffle_prize : nat64;
+  // `(held − open_tickets)·10⁹ + sol_backed − module_units`: the wX supply the chain must show (`None`: the books are inconsistent).
+  expected_supply : opt nat64;
+  reserve_units : nat64;
+  revenue : nat64;
+  poster_paused : bool;
+  advanced : nat64;
+  coll : nat16;
+  held : nat64;
+  kind : ListingKind;
+  // `backing + reserve + surplus + revenue`: what `M[i]` must hold above its rent.
+  owed : nat64;
+  wx_mint : text;
+  items_arrived : nat64;
+  volume_7d : nat64;
+  reserve : nat64;
+  surplus : nat64;
+  raffle_pot : nat64;
+  target : nat64;
+  tickets_open : vec TicketSummary;
+  posted_at : int64;
+  module_units : nat64;
+  mint_price : opt nat64;
+  // `escaped()`: stale, with no good post for long: burns reopen at the last good price.
+  escaped : bool;
+  burn_pays_one : opt nat64;
+  sol_backed : nat64;
+  // Whether the collection is stopped by an incident.
+  halted : opt text;
+  open_tickets : nat64;
+  items : vec ItemView;
+  accepted : nat64;
+  burned : nat64;
+  ticket_count : nat64;
+  paused : bool;
+  backing : nat64;
+  item_count : nat32;
+};
+// A frog bought: what it is, where it landed, what it cost. Fixed when the offer was accepted.
+type Bought = record {
+  // The signed purchase, saved before it was first broadcast: the only bytes ever sent again (a reorganisation or an
+  // eviction sends these, never a new signature).
+  raw : blob;
+  spend_sats : nat64;
+  // What the report (`recordItem` / `recordFrog` / `fulfill`) is asked for.
+  cost_wei : nat;
+  // The reference rate at acceptance, sats per ETH.
+  rate : nat64;
+  // docs/v8/ow-protected.md §3.3: a protected buy's setup transaction (the float's own coins split in two for the sale), display
+  // order. Every float spend must be one the canister recorded (the monitor's canary pages any other as an emergency), and the
+  // setup is one. None for a classic buy and for a protected one without a setup.
+  setup_txid : opt blob;
+  seller : Outpoint;
+  fee_sats : nat64;
+  inscription : text;
+  // The custody output, display order.
+  outpoint : Outpoint;
+};
+// What the explorers, together, say about a transaction.
+type BtcSeen = variant {
+  // No explorer has it.
+  NotYet;
+  // In a block, the same block on every explorer.
+  Confirmed : record { height : nat64; block_hash : text };
+  // The explorers did not agree, or a read failed. Nothing is believed; ask again later.
+  Unsure : text;
+  // Every explorer has it, unconfirmed.
+  Mempool;
+};
+// What one broadcast did: each explorer's report, and what they then said together.
+type BtcSend = record {
+  // The replicated read-back straight after. `NotYet` or `Mempool` is normal; ask [`btc_tx_status`] later.
+  seen : BtcSeen;
+  // Computed here from the bytes: the only txid ever watched.
+  txid : text;
+  // Each explorer's reply to the single-node send. Reports only.
+  providers : vec record { text; BtcSendOutcome };
+};
+// What an explorer said to one send. A report, not a fact.
+type BtcSendOutcome = variant {
+  // "already in block chain" / "outputs already in utxo set": this very transaction is confirmed.
+  AlreadyConfirmed;
+  // Already in its mempool: as good as accepted.
+  AlreadyInMempool;
+  // It answered with our txid.
+  Accepted;
+  // It answered with a txid that is not the one we computed. Not to be believed about anything.
+  WrongTxid : text;
+  // Any other refusal, with the explorer's message (shortened).
+  Refused : text;
+  // An input is missing or spent. Either this transaction confirmed and its outputs were spent since, or ANOTHER
+  // transaction spent the same input. Only the read-back can say which, so this is never read as success.
+  MissingInputs;
+  // Not an answer: an outcall failure, an HTML error page.
+  Unreadable : text;
+};
+// A delivery's re-pricing (audit D, M-1): when it was first signed, when its current bytes were, what they pay, and every
+// earlier version (display txids), each the same frog, fee input and destination with a lower fee. Any version confirming is
+// the delivery.
+type Bump = record {
+  // What the current bytes pay the miner; 0 when not known (a record from before bumps existed).
+  fee : nat64;
+  earlier : vec blob;
+  last_at : nat64;
+  first_at : nat64;
+};
+type BurnQuote = record {
+  fee : nat64;
+  // What reaches the recipient.
+  net : nat64;
+  coll : nat16;
+  // What the books pay for it, before the fee.
+  paid : nat64;
+  // The wX deposit (base units) the quote is for.
+  units : nat64;
+  min_units : nat64;
+};
+type CPhase = variant {
+  // The BTC is in the float, three deep: the frog may be bought with `sats`.
+  Arrived : record { sats : nat64; order_id : blob };
+  // No arrival, no refund, past the order's deadline (or an inconsistency): nothing new starts. Loud.
+  Stuck : record { why : text };
+  // The deposit is out.
+  Depositing : record {
+    value : nat;
+    min_sats : nat64;
+    deadline : nat64;
+    order_id : blob;
+  };
+  // The advance is the next EVM act.
+  NeedAdvance;
+  // `advance(amount)` is out.
+  Advancing;
+  // The ETH is at our EVM address; the runner is asked for a quote.
+  Funded : record { wei : nat; since : nat64 };
+  // `returnAdvance{value: wei}` is the next (or current) EVM act.
+  Returning : record { wei : nat };
+  Returned : record { wei : nat };
+  // The deposit mined; watching the float for the arrival and our balance for a refund.
+  Converting : record {
+    balance_after : nat;
+    value : nat;
+    min_sats : nat64;
+    deadline : nat64;
+    since : nat64;
+    order_id : blob;
+  };
+  // `settleAdvance(cost)` mined: the frog backs the unit.
+  Settled : record { spare_sats : nat64; cost : nat };
+};
+// The sales one final receipt showed for one collection, kept by hash so it is never read again (audit 2026-09-27-nft, B-M-7).
+type CachedSales = record {
+  collection : blob;
+  hash : blob;
+  // `(token, price, seller, buyer)`
+  sales : vec record { blob; nat; blob; blob };
+  block : nat64;
+};
+type CapPolicy = record {
+  global_max_value_wei : nat;
+  // Only these collections may be taken in at all: anything else is refused.
+  collections : vec CollectionCap;
+  global_max_items : nat32;
+};
+// What the canister publishes about its capacity each tick (`Dorm.cap`, `eth_nft_capacity()`): the monitor pages on it and the site
+// says "N of M collections can be awake right now".
+type Capacity = record {
+  // When it was computed, and the liquid cycles balance then (`canister_liquid_cycle_balance128`: the freezing reserve excluded).
+  at : nat64;
+  // The human text.
+  status : text;
+  // The balance at which one more wake would start (`wake + need(awake + 1)` plus the waking ones' cost still to come).
+  next_wake_at : nat;
+  balance : nat;
+  // ACTIVE + WAKING now, and of them those holding a position (on 4663 at the last check, or open in the canister): a collection with
+  // a position is never put to sleep, so it stays awake above the limit and counts against it.
+  awake : nat8;
+  ceiling : nat8;
+  wakes_left_today : nat8;
+  // The collections configured, and the governance ceilings (`max_active`, `wakes_per_day`).
+  collections : nat8;
+  // Whether the limits scale (`scaling` set); false: `effective_max_active` is the ceiling.
+  scaling : bool;
+  wakes_per_day : nat8;
+  pinned : nat8;
+  // The wakes that would start now, one after another (0 while the limit is reached or exceeded), and the day's wakes left.
+  wake_headroom : nat8;
+  // How many may be awake now, from the balance (never above the ceiling).
+  effective_max_active : nat8;
+};
+type Cause = variant {
+  // Demand in one window reached `trip_factor` × the limit.
+  Tripwire : record {
+    collection : text;
+    flow : Flow;
+    limit : nat;
+    demanded : nat;
+  };
+  // Frozen by a person (the wiring: the guardian's pause) or by an outside canary; `note` says which.
+  Manual : record { note : text };
+};
+type CoinStep = variant {
+  // A collection's DBC config (§3.1): signed by `K_main` and the config's own key.
+  OpenConfig : record { coll : nat32 };
+  // `migration_damm_v2` (permissionless; the canister runs it when nobody has): a graduated curve becomes a DAMM v2 COIN/wX pool.
+  Migrate : record { coin : blob };
+  // `partner_withdraw_surplus`: the quote above the threshold the last buy left (wX to `K_fc`, booked as fees).
+  Surplus : record { coin : blob };
+  // A coin redemption: the coins in `K_int[n]`'s account burned, their share of the vault paid in wX (a link).
+  Redeem : record {
+    n : nat64;
+    coin : blob;
+    link : nat64;
+    amount : nat64;
+    payout : nat64;
+  };
+  // `withdraw_leftover`: the curve's unsold coins to `K_fc`'s coin account.
+  Leftover : record { coin : blob };
+  // `claim_trading_fee`: the curve's partner fees (wX) to `K_fc`.
+  ClaimCurveFee : record { coin : blob; units : nat64 };
+  // Burns the leftover coins `K_fc` holds (raises every coin's backing per unit, §3.3).
+  BurnLeftover : record { coin : blob; amount : nat64 };
+  // `withdraw_migration_fee`: the partner's half of the raise (wX) straight into the coin's vault.
+  MigrationFee : record { coin : blob };
+  // `claim_position_fee` on the partner position NFT `K_fc` holds: the migrated pool's LP fees (wX) to `K_fc`.
+  ClaimLpFee : record { coin : blob; units : nat64 };
+  // A collection's wX mint and its Metaplex metadata (§2): one transaction, signed by `K_main` and `K_coll[i]`.
+  OpenMint : record { coll : nat32 };
+  // Fee wX of a collection (§9.1, §5.3): `to_desk` moved to `K_desk[i]` as wX, `burn` burned at the module (the public burn: a link,
+  // `chainlink`) for SOL, split between the treasury and the pool desk's share.
+  CashFees : record {
+    to_desk : nat64;
+    burn : nat64;
+    coll : nat32;
+    link : nat64;
+  };
+};
+// The cap for one collection. `collection` is a canonical key: `btc:0x<wrapper>` for inscriptions custodied for a Bitcoin
+// wrapper, `<chain id>:0x<collection>` for ERC-721s held on another EVM chain; lower-case hex, 40 digits.
+type CollectionCap = record {
+  // Their value, wei.
+  max_value_wei : nat;
+  collection : text;
+  // Items held plus items in flight.
+  max_items : nat32;
+  // The most one item may cost. Bounds `nft_set_target`'s cap and a frog buy's cost; a relayer never sets it.
+  max_item_wei : nat;
+};
+// One collection as `eth_nft_collections()` shows it.
+type CollectionLife = record {
+  // The human text: "dormant: a launch wakes it", "queued (#2)", "warming up (~40 min)", "active".
+  status : text;
+  wrapper : text;
+  cooldown_until : opt nat64;
+  collection : text;
+  // While waking: the estimate, seconds from now.
+  eta_secs : opt nat64;
+  note : text;
+  since : nat64;
+  // `always-on`, `dormant`, `queued`, `waking` or `active`.
+  state : text;
+  // While queued: the place in the queue (1 is next).
+  queue_position : opt nat32;
+  module : text;
+  woken_by : opt text;
+};
+// What the launch file pins for one collection (§3.1, §3.2): the curve for its `T_wX` and everything the books need to list it. The
+// canister refuses any DBC config that differs from this (`solix2::guard::check_config`).
+type CollectionPin = record {
+  uri : text;
+  // The books' listing and parameters (value-based caps from the floor at listing, §4.3).
+  kind : ListingKind;
+  name : text;
+  // The wX mint and the DBC config, when the ceremony already made them (pinned); `None`: the canister makes them at opening and these
+  // are derived (`open::wx_mint_of`, `KeyPath::Config`).
+  wx_mint : opt blob;
+  slug : text;
+  // Graduation threshold, whole wX, and the curve `design_curve.mjs` produced for it.
+  t_wx : nat64;
+  curve : vec record { nat; nat };
+  // `K_coll[index]`, the books' collection id.
+  index : nat32;
+  config : opt blob;
+  params : Params;
+  symbol : text;
+  sqrt_start_price : nat;
+};
+// One collection as the operator and the site see it.
+type CollectionView = record {
+  coins : nat32;
+  backed : nat32;
+  wx_mint : text;
+  stage : text;
+  index : nat32;
+  // `M[i]`, the module's address (empty before the collection was ever looked at).
+  module : text;
+  config : text;
+  symbol : text;
+};
+// What a record in conflict keeps: the leaked transaction and, once built, ours.
+type Conflict = record {
+  tx : opt ConflictTx;
+  // The leaked transaction's signed bytes: the fee it paid is computed from them.
+  raw : blob;
+  // Earlier versions of the leaked transaction (display txids): the same inputs at a lower fee (audit D, M-1's re-pricing).
+  // Any of them confirming is the leaked transaction confirming. `None` in a record saved before they existed.
+  earlier : opt vec blob;
+  // R4-check R4-C1: when the explorers first showed a version of our conflict in their mempools. Never reset: the "held" rule
+  // (today's rate, no ×1.5) applies only for [`HELD_TRUST_SECS`] from it. `None` in a record saved before it existed, or while
+  // no version has been seen.
+  held_since : opt nat64;
+  // Its input 0, the item: never an input of the conflict.
+  item : Outpoint;
+  // The leaked transaction's txid, display order.
+  leaked_txid : blob;
+  // What the leaked transaction paid the miner, when its bytes alone cannot say (a float buy's, whose other inputs are the
+  // seller's: audit D, L-5). `None`: computed from the bytes and the fee input's value, as for custody's own two-input spends.
+  leaked_fee : opt nat64;
+  // Its input 1: the one this conflict spends.
+  fee_input : Outpoint;
+};
+// Our conflict transaction, once signed: saved before it is sent, and the same bytes until Bitcoin shows them.
+type ConflictTx = record {
+  fee : nat64;
+  raw : blob;
+  // Earlier, lower-fee versions of our conflict (display txids). Each pays only custody, so any of them confirming is the
+  // conflict confirming.
+  earlier : opt vec blob;
+  // Display order.
+  txid : blob;
+  // When these bytes were signed: the re-pricing clock. `None` in a record saved before re-pricing existed (the clock then
+  // starts at the next look).
+  signed_at : opt nat64;
+  // Every input it spends: the leaked fee input first, then at most one more custody UTXO.
+  inputs : vec Outpoint;
+};
+// Exactly what the runner must ask Relay for (docs §1 step 3).
+type ConvAsk = record {
+  destination_currency : text;
+  user : text;
+  recipient : text;
+  refund_to : text;
+  amount_wei : nat;
+  origin_chain_id : nat64;
+  origin_currency : text;
+  destination_chain_id : nat64;
+};
+type ConvRec = record {
+  // Some while `Funded`: exactly what the runner must quote.
+  ask : opt ConvAsk;
+  // What the module advanced (0 until the advance is sent).
+  advanced : nat;
+  arrival : opt Arrival;
+  frog : nat64;
+  // The deposit being watched (kept through `Stuck`, so a late fill or a late refund is still seen).
+  last : opt Watch_1;
+  // Conversion review C-03: the live order of a stuck conversion the operator gave back, still watched (and still holding the
+  // Relay leg) until its refund lands and is paid to the module, its fill lands at the float, or the operator releases it.
+  late : opt LateConv;
+  // Every order id accepted for this conversion, in order.
+  orders : vec blob;
+  // The last refusal or wait, in words.
+  note : text;
+  // Conversion review C-01: the sats of an arrival the operator gave up (`relay_arrived_exit`): left in the float, owed to the
+  // module in the books. Loud.
+  abandoned_sats : opt nat64;
+  // Our 4663 balance just before the deposit was sent.
+  balance_before : opt nat;
+  // Deposits sent (a refund counts the next one).
+  attempts : nat32;
+  // Every deposit transaction hash, in order.
+  deposits : vec blob;
+  module : blob;
+  phase : CPhase;
+  // The float's outpoints just before the deposit was sent: an arrival is an output not among them.
+  float_before : opt vec Outpoint;
+  // Conversion review C-08: when its advance came back (`Returned`), for `RETURN_COOLDOWN_SECS`.
+  returned_at : opt nat64;
+  // Conversion review C-01: since when the arrived sats have funded no buy (set at the arrival, and again each time its frog
+  // goes back to wanted): the clock of the operator's exit (`ARRIVED_EXIT_SECS`).
+  arrived_at : opt nat64;
+};
+// The custodian's steps on the line (frog deliveries: `redeem.rs`).
+type CustodyStep = variant {
+  // `record_delivery(txid)` of a frog ticket.
+  Record : record { ticket : nat64; txid : blob };
+  // `mark_undeliverable` of a refused frog ticket.
+  Mark : record { ticket : nat64 };
+  // `note_sent(txid)`: the delivery is on Bitcoin (a mempool at least).
+  Sent : record { ticket : nat64; txid : blob };
+};
+type Cycles = record { balance : nat; low_threshold : nat };
+type DPhase = variant {
+  // Our cancel, or the reverted transfer, mined in `block`: once that is final, no version can confirm.
+  MarkAfter : record { why : text; block : nat64 };
+  // The ticket left `Resolved` by another path (refunded after the late window): nothing more is done.
+  Gone : record { why : text };
+  // Final: `recordDelivery` is the next home-chain act.
+  Record : record { tx : blob };
+  // No version of the delivery can confirm any more: `markUndeliverable` is next.
+  Mark : record { why : text };
+  Marking : record { why : text };
+  // A transfer is on the Ethereum line.
+  Sent : record { tx : blob; nonce : nat64 };
+  Recording : record { tx : blob };
+  Recorded : record { tx : blob };
+  // Mined (the transfer to the destination succeeded in `block`); waiting for finality. Round 3 (D3-H-1): what the destination
+  // does with the token afterwards is not the delivery's question.
+  Moved : record { tx : blob; block : nat64 };
+  // Resolved, not yet signed.
+  Waiting;
+  // Our cancel (a 0-value self-send at the transfer's nonce) is on the line.
+  Cancelling : record { of : blob; tx : blob; nonce : nat64 };
+  Marked : record { why : text };
+};
+type DPhase_1 = variant {
+  // Waited `PARK_AFTER_SECS` for a proof: finished and read no more. The operator may still refuse it (it is returned) or hand
+  // in its proof (it wakes).
+  Parked : record { inscription : text };
+  // Refused, and the canister will not return it (not returnable, or no taproot sender): recorded for a person.
+  Held : record { why : text; reason : Reason };
+  // Every check passed but the membership proof (audit D, H-3): not read again until a proof for `inscription` is handed in
+  // (`frog_proof`), or the operator refuses it (`refuse_deposit`), which returns it.
+  AwaitingProof : record { inscription : text };
+  // Plain sats with a marker: nothing to mint or return.
+  NotAFrog;
+  // Every check passed at the last read; the mint is next (re-checked immediately before it).
+  Ready : record { recipient : blob; inscription : text };
+  Minted : record { recipient : blob; inscription : text };
+  // The return, signed and saved; the same bytes until Bitcoin shows them. `txid` display order. `unseen_since`: when Bitcoin
+  // was first found not showing them, cleared whenever a mempool does; after `conflict::RETURN_STALE_SECS` of that the
+  // return is abandoned and conflicted out (H8). `None` in a record saved before it existed: the clock starts at the next look.
+  Returning : record {
+    raw : blob;
+    txid : blob;
+    fee_input : Outpoint;
+    unseen_since : opt nat64;
+    reason : Reason;
+  };
+  // H8: an evicted return abandoned; its fee input is being spent back to custody so the old bytes can never be mined.
+  // Ends `Refused` (a fresh return is built) or `Returned` (the old return confirmed first).
+  ReturnConflicting : record { conflict : Conflict; reason : Reason };
+  // Refused and to be returned.
+  Refused : record { reason : Reason };
+  Returned : record { txid : blob; reason : Reason };
+  // Seen, marked; checks pending (depth, ord, proof, the wrapper's state, the rate limit). `why` is the last wait.
+  Pending : record { why : text };
+};
+// `MintDesk.Status`.
+type DStatus = variant { Collected; None; Open; Filled; Expired };
+type Delivery = record {
+  wrapper : blob;
+  destination : blob;
+  token : blob;
+  ticket : nat;
+  deliver_by : nat64;
+  collection : blob;
+  // Since when every provider agrees the transfer's simulation reverts (B-M-2); cleared by a simulation that passes.
+  refused_since : opt nat64;
+  note : text;
+  // Round 3 (D3-H-1): `noteSent` mined on the wrapper (the transfer mined on Ethereum): the wrapper's late window can no longer
+  // refund this ticket, whatever happens to the record.
+  sent : opt bool;
+  phase : DPhase;
+};
+// The block after the cursor, too big to read whole, read by ticket (audit R2, N-1). Saved, so a block that needs more queries
+// than one tick allows is finished over the next ticks.
+type Dense = record {
+  // Every wanted ticket up to this one is read.
+  after : opt nat64;
+  // Times the chunk was halved: a query asks for `TICKETS_PER_QUERY >> shrink` tickets.
+  shrink : nat32;
+  block : nat64;
+  // Tries in a row that a one-ticket query was too big.
+  fails : nat32;
+};
+// One NFT that reached our Ethereum address in a claimed transaction (docs §2.4): a holder's deposit, or a stray to return.
+type DepositRec = record {
+  tx : blob;
+  token : blob;
+  collection : blob;
+  // Its `Transfer`'s `from`: where a return goes.
+  from : blob;
+  // Since when every provider agrees the return's simulation reverts (C-M-1); cleared by a simulation that passes.
+  refused_since : opt nat64;
+  // The 4663 recipient a valid deposit names (zero for a stray).
+  recipient : blob;
+  // The block the transaction mined in, as last read.
+  block : nat64;
+  phase : XPhase;
+};
+type DepositRec_1 = record {
+  // Looks in a row that changed nothing.
+  tries : opt nat32;
+  // The inscription counted under the custody caps for this deposit (H2), released when a return confirms.
+  admitted : opt text;
+  first_seen : nat64;
+  phase : DPhase_1;
+  // Not looked at again before this time (audit D, H-3's backoff). `None`: due now.
+  next_check : opt nat64;
+  outpoint : Outpoint;
+};
+// Independent review DI-M-1 / DI-M-2: the collection's open `WakeDesk` request as the canister holds it (the desk keeps at most one open
+// a collection). Queued while the collection is DORMANT and the request can still be served inside its window; kept while it is WAKING
+// or ACTIVE (its first or next post serves it, and it is queued again if the collection sleeps unserved before a wake was tried for it).
+// The post that serves it is recorded on the desk (`markServed`), so a later post never decides it.
+type DeskAsk = record {
+  // When it was asked (the desk's `at`) and the end of its window (`at + window()`).
+  at : nat64;
+  id : nat64;
+  // A wake was started, or was already under way, since it was asked: an unserved ask whose wake timed out is not queued again.
+  tried : bool;
+  requester : blob;
+  // When one of our posts mined at or after `at`, inside the window: it is recorded on the desk (`markServed`).
+  served : opt nat64;
+  until : nat64;
+  // `markServed` mined (or the desk already holds it, or it cannot be taken any more): nothing more to do.
+  marked : bool;
+};
+type DeskStatus = record {
+  incidents : vec Incident;
+  report : opt Report;
+  open : nat32;
+  collections : nat32;
+  last_reconcile : nat64;
+  funded : nat32;
+  needing_attention : nat32;
+  open_links : nat32;
+  executing : nat32;
+  halted : vec record { nat16; text };
+  coin_redeem : bool;
+  paused : bool;
+};
+// One collection's desk as the operator and the site see it.
+type DeskView = record {
+  hi : int32;
+  lo : int32;
+  wx : nat64;
+  read_at : nat64;
+  active : int32;
+  native : nat64;
+  coll : nat32;
+  pair : text;
+  wsol : nat64;
+  fee_lamports : nat64;
+  swept : nat64;
+  fee_units : nat64;
+  pos_x : nat64;
+  pos_y : nat64;
+  position : text;
+  arb_profit : nat64;
+  arbs_last_hour : nat32;
+};
+// An intent that reached `finalized`.
+type Done = record {
+  // The transaction's error (`None`: it succeeded). A failed transaction still paid its fee and, nonced, advanced its nonce;
+  // the intent did NOT happen and is the caller's to retry under a new intent.
+  err : opt text;
+  signature : text;
+  what : text;
+  // Every signature the intent was signed under (the landed one among them): all of them stay in `sol_seen`.
+  history : vec text;
+  // Audit A4-01: `Some(true)` when the intent is PROVEN never to land (its nonce burn finalized, its expiry proven while given up, or
+  // the operator's clear after an incident): `signature` is the burn's (or empty) and the intent did not happen.
+  abandoned : opt bool;
+  intent : nat64;
+};
+// Everything the dormancy keeps (`EthState.dorm`).
+type Dorm = record {
+  // §11: the capacity as of the last tick (the monitor reads it here).
+  cap : opt Capacity;
+  // The operator's fill hand-ins (`eth_fill`): `(collection, coin, handed in at)`, tried before the newest coins (DR-M-2).
+  fills : vec record { blob; blob; nat64 };
+  desk : opt blob;
+  lives : vec Life;
+  // The next `WakeDesk` request id to read, and the desk it counts on (a new desk, by an upgrade, is read from its start).
+  desk_cursor : nat64;
+  // DI-M-1: the desk's `window()`, read once (a request's window ends at its `at` plus this).
+  desk_window : opt nat64;
+  // When each wake of the last 24 h started (`wakes_per_day`).
+  wakes : vec nat64;
+};
+// `eth_nft.dormancy`: operational, in the install argument (a change is a published, timelocked act).
+type Dormancy = record {
+  // ACTIVE + WAKING at most: the cycles budget.
+  max_active : nat8;
+  // WAKING longer than this failed: back to DORMANT, with the cooldown.
+  wake_timeout_secs : nat64;
+  // §11: the limits scale with the canister's cycles balance, under `max_active` and `wakes_per_day` as the hard ceilings; `None`:
+  // the ceilings are the limits (fixed caps, as before §11).
+  scaling : opt Scaling;
+  // The 4663 `WakeDesk` whose bonded requests the canister reads; `None`: no public path (the operator's `eth_wake` only).
+  wake_desk : opt text;
+  // Wakes started in any 24 h, every source.
+  wakes_per_day : nat8;
+  // ACTIVE with no launch this many days, and nothing open, goes DORMANT.
+  idle_days : nat16;
+  // Backfills at once.
+  max_waking : nat8;
+  // After a failed wake or a return to DORMANT, the collection waits this long before a wake that is not owed.
+  cooldown_secs : nat64;
+};
+// What the transaction does on chain to collection `coll`: the numbers the guards and the reconciliation reason about.
+type Effects = record {
+  // wX the chain will mint (`MintTo`).
+  mint_units : nat64;
+  // Lamports that arrive at `M[i]`.
+  lamports_in : nat64;
+  // Lamports that leave `M[i]`.
+  lamports_out : nat64;
+  // wX the chain will burn (`Burn`).
+  burn_units : nat64;
+};
+type EthBuy = record {
+  id : nat64;
+  ask : opt ConvAsk;
+  wrapper : blob;
+  collection : blob;
+  advanced : nat;
+  last : opt Watch;
+  // Review round 4 (C4-M-1): its Relay order, written off unpaid, kept for a late payout.
+  late : opt LateOrder;
+  orders : vec blob;
+  note : text;
+  attempts : nat32;
+  // A2-L-1 (2026-09-27): not a buy but a gas-pot sweep: leftover of this collection's purchases going back to its module through
+  // the way back (`BackFunded` → `BackSending` → `BackBridging` → `Returning` → `Returned`), paid in by `fundReserve`, never
+  // `returnAdvance` (no advance is open for it). It never reaches `Arrived`: a refund ends it and credits the leftover back.
+  sweep : opt bool;
+  deposits : vec blob;
+  module : blob;
+  phase : BPhase;
+  // Round 3 (A3-L-1): when it was returned to its module (`Returned`), for `RETURN_COOLDOWN_SECS`.
+  ended_at : opt nat64;
+  // Round 3 (E3-L-1): when its ETH first arrived on Ethereum. The deposit hold (`ARRIVED_HOLD_SECS`) is measured from it, so a
+  // fill that reverts (or is cancelled) does not restart it.
+  arrived_at : opt nat64;
+  // Round 3 (E3-L-1 / C3-M-1): when its way back is due: the first arrival + `ARRIVED_BACK_SECS` (D4's 48 h), or
+  // `BACK_RETRY_SECS` after a way back that did not go (no quote in its window, or refunded on Ethereum). A reverted fill does not
+  // move it.
+  back_at : opt nat64;
+};
+type EthCollection = record {
+  // Its `EthNftWrapper` on the home chain.
+  wrapper : text;
+  // 2026-10-12: each NFT of the collection is a token-bound account (ERC-6551: StonkBrokers on Robinhood Chain, whose accounts hold
+  // tokenized stocks). The canister prices and buys it as an NFT only: its floor is the NFT's Seaport listings and sales, a buy is the
+  // one ERC-721 at most the collection's own `max_purchase_wei`, never a valuation of what the account holds (its seller can drain it
+  // before the sale); it never calls, values or moves the account's assets; a delivery is the ERC-721 `transferFrom` alone (the
+  // account and whatever it holds then go with the NFT). `None`: false.
+  token_bound : opt bool;
+  // The ERC-721 on `chain_id`.
+  collection : text;
+  // The EVM chain the ERC-721 lives on (2026-10-12, Robinhood Chain NFTs): one of `evm_chains`, and the chain of every step of this
+  // collection (its reads, its Seaport 1.6 fill, its gas pot, its Relay legs, its deliveries). `None`: `EthNftConfig.chain_id` (an
+  // argument from before it, or a collection on the config's own chain).
+  chain_id : opt nat64;
+  // Audit C3-01: for a token-bound collection, the share (bps, in (0, 10,000)) of its market price that is the NFT ALONE (an empty
+  // account). The listings and sales its floor is read from are prices of NFTs whose accounts hold what their sellers left in them,
+  // which no rule of the canister reads (a seller can drain the account before the fill), so every price of the collection is taken
+  // at this share before the floor is cut: the floor posted, the module's value and the buy bound are the NFT's, never the account's.
+  // A drained account listed at the floor of full ones is then over the bound; a full one is bought only as cheap as a bare NFT.
+  // Required with `token_bound`, refused without it. `None`: the whole price (an NFT with no account).
+  nft_value_bps : opt nat16;
+  // The most one purchase may cost.
+  max_purchase_wei : nat;
+  // A buy's total is at most our floor × (1 + this).
+  max_premium_bps : nat16;
+  // Its `FloorModule` on the home chain.
+  module : text;
+};
+// What a transaction on the Ethereum line is for.
+type EthKind = variant {
+  Buy : record { buy : nat64 };
+  // A stray going back to its sender (the claimed transaction and the token).
+  Return : record { tx : blob; token : blob };
+  // Our 0-value self-send at an unmined fill's nonce (audit 2026-09-27-nft, B-L-3 / C-M-2): the fill's versions are its rivals.
+  CancelFill : record { buy : nat64 };
+  // Round 2 (A2-M-1): an arrived buy's Relay deposit Ethereum → 4663.
+  BackDeposit : record { buy : nat64 };
+  Deliver : record { wrapper : blob; ticket : nat };
+  Cancel : record { wrapper : blob; ticket : nat };
+};
+// The install's `eth_nft` (§4.1). Operational: taken from every upgrade's argument.
+type EthNftConfig = record {
+  floor : opt FloorParams;
+  relay_max_fee_bps : nat16;
+  // The widest `eth_getLogs` range the sale scan asks (the operator's Dwellir plan, 2026-09-27: 500). `None`:
+  // `SALE_SCAN_CHUNK_BLOCKS`.
+  logs_max_blocks : opt nat64;
+  collections : vec EthCollection;
+  // A2-L-1 (2026-09-27): the gas pot's target at our Ethereum address; above it, the collections' leftover is swept back to their
+  // modules. `None`: `GAS_POT_TARGET_WEI`. Within [`GAS_POT_TARGET_MIN_WEI`, `GAS_POT_TARGET_MAX_WEI`].
+  gas_pot_target_wei : opt nat;
+  chain_id : nat64;
+  deposits : bool;
+  // docs/v7/dormant-collections.md: the dormant / wake-on-demand life cycle, its caps and the `WakeDesk`. `None`: every collection
+  // is ACTIVE all the time (as before).
+  dormancy : opt Dormancy;
+};
+// Everything this side keeps in stable memory (the upgrade tuple's thirteenth element).
+type EthState = record {
+  // The last collection a buy was started for (round robin).
+  rr : nat64;
+  next_buy : nat64;
+  // docs/v9/solana-migration.md §4, phase B1: the Solana home's line as B1 kept it. Phase B2 moved the line canister-wide
+  // (`solhome::SolLine`, the upgrade tuple's fourteenth element; `solhome::migrate` at `post_upgrade`): `None` from then on.
+  sol : opt SolHome;
+  // Final sale receipts' sales, by hash (B-M-7); since round 2 every judged transaction of the canister's own scan, a sale or not.
+  sale_cache : opt vec CachedSales;
+  deliveries : vec Delivery;
+  pending : opt HomeTx;
+  buys : vec EthBuy;
+  // docs/v7/dormant-collections.md: each collection's life (DORMANT, WAKING, ACTIVE), the wake queue and the desk cursor. `None`
+  // until the first tick with `eth_nft.dormancy` set.
+  dorm : opt Dorm;
+  line : opt EthTx;
+  // Review round 4 (C4-H-1): the home line's own floor: `(the next nonce: past our last mined home transaction, the highest home
+  // pin this side has read)`. Nothing is signed at a nonce under the first; nothing of 4663 is read at a pin under the second.
+  home_floor : opt record { nat64; nat64 };
+  // The canister's own sale scan per collection (round 2).
+  sale_scan : opt vec SaleScan;
+  // No sweep starts before this (a sweep abandoned or refunded waits `SWEEP_COOLDOWN_SECS`).
+  sweep_after : opt nat64;
+  // A2-L-1 (2026-09-27): per collection, the wei its purchases left at our Ethereum address (what arrived less the price and the
+  // fill's gas; what a way back's deposit kept less its gas) and not yet swept back to its module. One collection's leftover is
+  // never credited to another's module.
+  leftover : opt vec record { blob; nat };
+  // Phase B2: the Solana signatures of payouts handed in (`put_sol_payout`), by their keccak (the key the payout and the credited list
+  // carry). At most 8.
+  sol_payouts : opt vec record { blob; text };
+  // 2026-10-12 (Robinhood Chain NFTs): the other chains' sides (`ethnet`: one per chain the collections live on beside the config's
+  // own, each its own `EthState`, candid-encoded, with its own Ethereum pin floor in `pin_floors`), here ONLY across an upgrade, as
+  // `pin_floors`: `pre_upgrade` puts them in, `post_upgrade` takes them out. `None` in a state saved before them and in the live state.
+  sides : opt vec record { nat64; blob };
+  readings : vec Reading;
+  // Every Relay order id ever accepted (rule 12). Never pruned.
+  used_orders : vec blob;
+  // Our last mined Ethereum transaction: `(nonce, block)` (audit 2026-09-27-nft, B-M-4). Nothing is signed below `nonce + 1`,
+  // whatever a pin says, and nothing while the pin is below `block` (a pin that moved backwards).
+  last_mined : opt record { nat64; nat64 };
+  // Set when a transaction that is not ours took the line's nonce (audit 2026-09-27-nft, B-M-3 / C-M-3): nothing more is signed on
+  // Ethereum until the operator has looked (`eth_line_clear`). The line is kept, and read again every tick.
+  halted : opt text;
+  deposits : vec DepositRec;
+  inbox : Inbox;
+  cursors : vec record { blob; nat };
+  // Round 4 (C4-M-1): every payout transaction ever credited to a written-off order: never twice. Never pruned.
+  credited : opt vec blob;
+  // Every token our own transactions moved out of our Ethereum address, and the block (deliveries and returns). A stray's
+  // return is judged against it: a token that left us after the claimed transfer came in was brought back by another one.
+  outbound : vec record { blob; blob; nat64 };
+  // Phase B2: this side's step out on the canister-wide Solana line (a copy of the line's pending record), until its outcome is taken.
+  sol_step : opt LinePending;
+  // Round 4 (C4-H-1): the canister-wide pin floors of both chains (`canister::PIN_FLOORS`), written here only when the state is
+  // saved for an upgrade (and shown by `eth_nft_state`).
+  pin_floors : opt PinFloors;
+  // What our mined Ethereum transactions spent in all (value and fees): the arrival watch subtracts it.
+  eth_out : nat;
+};
+type EthTx = record {
+  // What was signed, so it can be re-signed at the same nonce with higher fees (docs/v7/phase1-nft-pooled.md §4).
+  to : blob;
+  gas : nat64;
+  raw : blob;
+  // Every earlier version of this transaction (the same nonce, lower fees): any of them mining settles it.
+  earlier : vec blob;
+  // What it pays out besides gas when it succeeds (a fill's price).
+  value : nat;
+  data : blob;
+  hash : blob;
+  kind : EthKind;
+  priority_fee : nat;
+  // A cancel's rival: every version of the delivery it replaces.
+  rivals : vec blob;
+  signed_at : nat64;
+  nonce : nat64;
+  max_fee : nat;
+  // When its first version was signed (a re-price keeps it): a fill this old is cancelled (`FILL_CANCEL_SECS`).
+  first_signed_at : opt nat64;
+};
+// One chain, as installed. Every field is public.
+type EvmChain = record {
+  priority_fee_wei : nat64;
+  // Transfer validators a zone's substandard 7/8/9 may name (Limit Break's, for creator-token collections).
+  zone_registries : opt vec text;
+  // All payments to others, at most this share of the total.
+  max_fee_bps : nat32;
+  // Hard cap on `maxFeePerGas`.
+  max_fee_wei : nat64;
+  // Must be [`crate::seaport::SEAPORT_1_6`].
+  seaport : text;
+  // At least two, distinct; all must agree (docs/v2/pinned-reads.md).
+  rpc_urls : vec text;
+  // Marketplace fee recipients an order may pay (besides the offerer and the collection's royalty receiver).
+  fee_recipients : vec text;
+  // keccak of Seaport's runtime code on THIS chain (it differs per chain: chain id and domain are immutables).
+  seaport_codehash : text;
+  // An order must stay valid this long past the pinned block's timestamp.
+  min_order_life_s : nat64;
+  // Checked against `eth_chainId` on every use, and the chain id every transaction for it is signed with.
+  chain_id : nat64;
+  // Restricted orders are bought only through these zones (OpenSea's SignedZone), each pinned by its code hash on THIS
+  // chain (docs/v4/eth-nft-canister.md §12). Optional so an install or state from before it still decodes; `None`: none.
+  signed_zones : opt vec AllowedZone;
+  // Heads are rounded to this many blocks: ~90–130 s of this chain's blocks (§3).
+  bucket : nat64;
+  // Hard cap on the gas limit.
+  gas_cap : nat64;
+};
+// What the chain says about a transaction, read replicated through [`rpc`]: every node, every provider, one answer.
+type EvmSeen = variant {
+  // No provider has it.
+  NotYet;
+  // In a block. `success` is the receipt's status: a mined transaction can still have reverted.
+  Mined : record { from : text; block : nat64; success : bool };
+  // The providers did not agree, or a read failed. Nothing is believed; ask again later.
+  Unsure : text;
+  // In a mempool, not in a block.
+  Pending;
+};
+// What one broadcast did: each provider's report, and what the chain then said.
+type EvmSend = record {
+  // The replicated read-back straight after. `NotYet` or `Pending` here is normal; ask [`evm_tx_status`] later.
+  seen : EvmSeen;
+  // Each provider's reply to the single-node send. Reports only.
+  providers : vec record { text; SendOutcome };
+  // The keccak of the bytes, computed here: the only hash we ever watch.
+  tx_hash : text;
+};
+// A signature an EVM chain can recover a sender from. Every field is public; none is a secret.
+type EvmSignature = record {
+  // 32 bytes, hex, no `0x`.
+  r : text;
+  // 32 bytes, hex. **After** low-`s` normalisation, which is what goes in the transaction.
+  s : text;
+  // 0 or 1. **Derived**, by recovering the public key under each parity and keeping the one whose address is ours -- not
+  // chosen, not guessed, not defaulted.
+  recovery_id : nat8;
+  // What the subnet actually returned for `s`, before normalisation. Recorded so that "does the IC return a low `s`?"
+  // is measured on every call rather than assumed once and written in a comment.
+  s_from_subnet : text;
+  // The address the canister recovered from its own signature. A caller should check this equals [`evm_address`]; a node
+  // will check it whether the caller does or not.
+  signer : text;
+  // True when `s_from_subnet` was in the upper half of the curve order and had to be negated (EIP-2).
+  s_was_high : bool;
+};
+type Excluded = record {
+  owner : blob;
+  coin : blob;
+  account : blob;
+  amount : nat64;
+  reason : text;
+};
+type FPhase = variant {
+  // Minted to the desk and its request expired before `fulfill`: an unassigned unit at the desk, ours to use for the next.
+  Stray : record { buy : Bought };
+  // Minted to a sink that could no longer take it before it was reported (a curve that opened refunds): its wFROG is
+  // the sink's, its cost is lost to the float. Loud.
+  Stranded : record { buy : Bought; why : text };
+  // Nothing of ours was spent (no acceptable offer, the listing vanished). Finished.
+  Failed : record { why : text };
+  // Six deep, and ord shows custody holding exactly it. Not minted: it can still go to any target.
+  Held : record { buy : Bought };
+  // Bitcoin has it; waiting for six blocks and ord.
+  Sent : record { buy : Bought };
+  // A buy that never confirmed within `frogflow::BUY_STALE_SECS` (audit D, L-5): its signed bytes are being killed by spending
+  // one of the float's inputs back to the float (H8's conflict machinery, with the float key). Ends `Failed` (the conflict,
+  // or another spend, confirmed: nothing was bought) or `Sent` (the buy confirmed first: it was bought after all).
+  Abandoning : record { buy : Bought; conflict : Conflict };
+  // Minted to the target; its report (`recordItem` / `recordFrog` / `fulfill`) is owed.
+  Minted : record { buy : Bought };
+  // Signed and saved (`buy.raw`); the same bytes go out until Bitcoin shows them. The txid is `buy.outpoint.txid`.
+  Signed : record { buy : Bought };
+  // Waiting for an offer the canister can accept, for at most `cap_wei`.
+  Wanted : record { cap_wei : nat };
+  // A protected Ordinals Wallet sale (docs/v8/ow-protected.md §3.3), signed on the float's inputs only and handed back to the
+  // runner, which submits it; Ordinals Wallet co-signs and broadcasts it, the canister cannot. `sale_txid` (display order hex,
+  // `buy.outpoint.txid`) is watched each tick: seen, `Sent`; not seen within `frogflow::PROTECTED_STALE_SECS` of `at`
+  // (seconds), abandoned as a stale buy is. Nothing is ever broadcast in this phase. The signed PSBTs and what the stale path
+  // needs are kept beside it (`frogflow::ProtectedRec`). `buy.raw` is empty: the canister never holds the final bytes.
+  Handed : record { at : nat64; buy : Bought; sale_txid : text };
+  // Reimbursed. Finished.
+  Settled : record { buy : Bought };
+};
+// Which of our EVM calls a saved transaction is.
+type FStep = variant {
+  // `recordDelivery(ticket, keccak(listing))`: the delivery-by-listing (§3.3).
+  SaleRecord : record { sale : nat64 };
+  // `fundReserve{value}` on the module: a written-off order's late refund (conversion review C-03).
+  LateCredit : record { frog : nat64 };
+  // `itemSold{value}` on the module or `recordSale{value}` on the vault (§3.4, §4).
+  SaleReport : record { sale : nat64 };
+  // `slash(id)` on an OfferBoard: the hand-in was invalid and the board's delay has passed.
+  Slash : record { id : nat64; board : blob };
+  // `reclaimListing(ticket)` on the vault after the re-deposit (§4).
+  SaleReclaim : record { sale : nat64 };
+  // `wrapDeposit` of a bought frog to its target.
+  Mint : record { frog : nat64 };
+  // `wrapDeposit` of a holder's deposit to its recipient.
+  Deposit : record { outpoint : Outpoint };
+  // Phase B2, the Solana home only: `post_floor` on the frog listing's module in the books, from a BTC floor reading in sats
+  // converted at SOL/BTC.
+  Post;
+  // `redeemToRelist()` on the wrapper for a protocol sale (docs/v6/canister-floor-followups.md §3.2); our ticket is the
+  // first at or after `count_before` whose owner is us.
+  Relist : record { sale : nat64; count_before : nat64 };
+  // `recordItem` / `recordFrog` on the frog's sink.
+  Report : record { frog : nat64 };
+  // `wrapDeposit` of a delisted item back to the vault or to the canister (§3.3).
+  SaleDeposit : record { sale : nat64 };
+  // `returnAdvance{value}` on the module: the conversion failed; the ETH goes back.
+  GiveBack : record { frog : nat64 };
+  // `fulfill(request, cost)` on the desk.
+  Fulfill : record { frog : nat64; request : nat64 };
+  // The sink's settlement (`graduate`).
+  Settle : record { sink : blob };
+  // `advance(amount)` on a Floor Module: its own ETH for a frog, before the frog (docs/v6/relay-conversion.md).
+  Advance : record { frog : nat64 };
+  // The sink's refund trigger (`refundExpired` / `openRefunds`).
+  Refunds : record { sink : blob };
+  // `itemArrived(cost)` on a Floor Module for an EVM item that arrived (docs/v5/floor-feed.md §6.2).
+  FloorClaim : record { want : nat64 };
+  // `claim(id)` on an OfferBoard: the hand-in's purchase is held (docs/v6/offer-handins.md).
+  Claim : record { id : nat64; board : blob };
+  // `depositNative` to Relay's depository: the advance converted to BTC at the float.
+  Convert : record { frog : nat64 };
+};
+// What a collection's fee wX became (§9.1): claimed from the curve and from the migrated pools' positions, cashed at the module for
+// SOL to the treasury, sent to the pool desk.
+type FeeBook = record {
+  to_desk_lamports : nat64;
+  to_desk_burned_wx : nat64;
+  lp_wx : nat64;
+  cashed_lamports : nat64;
+  curve_wx : nat64;
+  cashed_wx : nat64;
+  to_desk_wx : nat64;
+};
+type FeeEntry = record {
+  value : nat64;
+  // `change` (ours, from a confirmed custody spend) or `operator` (a registered top-up).
+  source : text;
+  // When the last counted failure was (seconds): failures closer together than [`QUARANTINE_SPACING_SECS`] count once
+  // (audit R3, R3-C4). `None`: none counted, or a state saved before it existed.
+  last_failed_at : opt nat64;
+  outpoint : Outpoint;
+  // Reads in a row that failed while another candidate's read succeeded (audit R2, N-4).
+  fails : opt nat32;
+};
+// Custody's fee inputs as the canister knows them (audit D, H-4): its own change and conflict outputs, added when the
+// transaction that made them confirms, and plain-sat top-ups the operator registers. The address is public, so a list of its
+// UTXOs is a stranger's to break (more than 500 and mempool.space refuses the listing; ≈ 1,600 and blockstream's answer is
+// past the cap): the pool is what fee inputs are chosen from, and every entry is verified again at use.
+type FeePool = record {
+  entries : vec FeeEntry;
+  // Entries that failed to read [`QUARANTINE_AFTER`] times while the explorers answered for others (audit R2, N-4): no longer
+  // candidates, kept for the operator to see, remove, or restore by adding again. `None` in a state saved before it existed.
+  quarantined : opt vec FeeEntry;
+};
+type Finding = record {
+  coll : nat16;
+  // What the chain shows (adjusted for what is still to land).
+  chain : nat64;
+  kind : FindingKind;
+  note : text;
+  // What the books say.
+  books : nat64;
+};
+type FindingKind = variant {
+  // Audit B1-01: the wX supply on chain is UNDER the ledger's: holders burned their own wX (owner-signed `Burn`); booked as the
+  // ledger's `holder_burned` once no link of the collection is open. Soft.
+  HolderBurn;
+  // The wX supply on chain is not the ledger's (after what is still to land).
+  SupplyMismatch;
+  // `M[i]` holds more than the books (a gift, an unsolicited transfer): reported, swept into the surplus by the operator.
+  Unbooked;
+  // Another invariant of `check_collection` fails.
+  Invariant;
+  // `M[i]` holds less than the books say it must.
+  BooksUnbacked;
+};
+type FloorCfg = record { item : FloorItem; module : blob };
+// What the module says beyond the trigger's view (docs/v6/canister-floor-followups.md §1, §3.1). `float_units` is inside
+// `netUnits` already and is never added to the demand: it says only whether the module holds inventory to sell.
+type FloorExtra = record {
+  // `floatUnits()`: the module's inventory (1e18 = one item), what `itemSold` sells.
+  float_units : nat;
+  // The standing reserve `S = escrowBalance() − escrow()`.
+  reserve : nat;
+  // `minSaleProceeds()`: the least `itemSold` accepts now.
+  min_sale_proceeds : nat;
+  // `price()`: the fills price mints and burns use; what a protocol sale asks over.
+  price : nat;
+};
+// What a floor sink's items are.
+type FloorItem = variant {
+  // An ERC-721 of `collection` on `chain_id`, bought through the NFT line (`nftnet.rs`) and wrapped by `wrapper` (an
+  // `NftWrapper` on 4663), which the module's `wrapper()` must name.
+  Evm : record { wrapper : blob; collection : blob; chain_id : nat64 };
+  // An inscription of the listing the canister's `Wrapper` wraps: bought, confirmed and `wrapDeposit`ed as a frog is.
+  Bitcoin;
+};
+// The floor's parameters (§4.2). `None` in the argument is [`FloorParams::default`].
+type FloorParams = record {
+  // The floor is the `listing_rank`-th cheapest of them (1 = the cheapest).
+  listing_rank : nat8;
+  // Nor below the sales' 25th percentile by more than this.
+  down_cap_bps : nat16;
+  // Verified sales in the window, at least.
+  min_sales : nat8;
+  // Distinct offerers with a verified listing, at least.
+  min_listings : nat8;
+  // The post is never above the sale median by more than this.
+  up_cap_bps : nat16;
+};
+// What the canister would post, and why.
+type FloorPost = record {
+  sale_p25 : nat;
+  // The listing floor `L`, the counted sales' median `S` and 25th percentile `S25` it came from (0 with no counted sale).
+  listing : nat;
+  listings : nat32;
+  // Why the post is HELD under the listing floor (round 2, B2-M-1): the listings are not confirmed by `min_sales` counted
+  // sales, or run over them. `None` for a confirmed post.
+  held : opt text;
+  clamped : bool;
+  sales : nat32;
+  sale_median : nat;
+  price : nat;
+  confidence : nat16;
+  depth : nat32;
+};
+// Everything this side keeps in stable memory.
+type FloorState = record {
+  next_want : nat64;
+  sinks : vec FloorCfg;
+  wants : vec NftWant;
+  limits : vec PurchaseLimit;
+};
+// What leaves.
+type Flow = variant {
+  // An item leaves custody: a redemption's delivery, a refused deposit's return, a burn delivery. Amount: 1.
+  Item;
+  // A wrapper unit is minted on the canister's word (a purchase's arrival, a holder deposit). Amount: 1.
+  Mint;
+  // A refused holder deposit going back, whole, to its own sender (audit D, H-2). Amount: 1. Its own budget, at the item
+  // limits but counted apart from deliveries, and it **never trips the freeze**: anyone can manufacture refused deposits, so
+  // their demand says nothing about custody, and a trip on it would let a stranger freeze deliveries. What returns is still
+  // rate-limited, and H4 checks every one goes whole to the deposit's own sender.
+  Return;
+  // Value leaves to someone other than ourselves (a Seaport fill's price, a bridge deposit). Amount: wei.
+  Value;
+};
+type Freeze = variant {
+  Open;
+  Frozen : record { cause : Cause; since : nat64 };
+};
+// One Inscriptions listing as the runner and the monitor read it.
+type FrogCollection = record {
+  frogs_open : nat64;
+  coll : nat16;
+  live : bool;
+  // The wX mint, base58.
+  wx_mint : text;
+  // Its members root, hex.
+  root : text;
+  floor_reading : opt FrogReading;
+};
+// The install's `frog_funding` (docs §3.5). `None` in the argument is [`FrogFunding::default`]: Relay, 3 %, no float.
+type FrogFunding = record {
+  max_fee_bps : nat16;
+  // Buy from an operator float first when it covers the frog (reimbursed by `itemArrived`, as before); else Relay.
+  float_first : bool;
+};
+// A BTC floor reading for the frog listing, handed in (the runner's sources: the Ordinals Wallet book), posted in lamports.
+type FrogReading = record {
+  at : nat64;
+  depth_items : nat32;
+  // Satoshis per frog.
+  sats : nat64;
+  confidence_bps : nat16;
+};
+type FrogRec = record { id : nat64; target : opt Target; phase : FPhase };
+// What is left under a collection's cap, for the public page.
+type Headroom = record {
+  collection : text;
+  value_left_wei : nat;
+  value_wei : nat;
+  items_held : nat32;
+  items_left : nat32;
+  items_in_flight : nat32;
+};
+// A non-EVM home chain.
+type Home = variant {
+  Solana : record {
+    // The seed of the home line's durable-nonce account: `create_with_seed(sol_address, seed, System Program)`.
+    nonce_seed : text;
+    // Solana JSON-RPC endpoints: at least two, distinct; every read is agreed at `finalized` (`solrpc::agreed`).
+    rpc_urls : vec text;
+    // `Some(true)`: sign on a recent blockhash instead of the durable nonce (`solsend::RecentBlockhash`, the fallback for the
+    // day durable nonces go). `None`/`false`: the durable nonce.
+    blockhash_fallback : opt bool;
+    // `"books"`: the canister keeps the books itself (decision D-l, docs/v9/canister-only-solana.md §0: Rook deploys no Solana
+    // programs). The only value an install accepts; a program id is refused.
+    rook_core : text;
+    // Decision D-i (2026-10-10): the drand HTTP relays the cranks ask for a redemption round's randomness (two must give the same
+    // bytes, none other ones: `drand::judge`). `None`: `drand::DEFAULT_RELAYS`. Operational, as `rpc_urls` is: an upgrade may
+    // change it.
+    drand_urls : opt vec text;
+    // Retired with rook_backing (decision D-l): an install names none (`null`); kept so an earlier argument still decodes.
+    rook_backing : opt text;
+    // [`SOLANA_CLUSTERS`], spelled exactly.
+    cluster : text;
+  };
+};
+type HomeTx = record {
+  // Review round 5 (F5-M-1): the 4663 pin it was signed at (its nonce was unused there): where the search for what used the nonce
+  // starts.
+  pin : opt nat64;
+  raw : blob;
+  hash : blob;
+  step : Step;
+  nonce : nat64;
+  // Review round 6 (D6-L-2): when it was signed: the monitor pages a home transaction out this long whatever the providers show
+  // (a stale pool entry, providers that disagree), not only one seen nowhere.
+  sent_at : opt nat64;
+  // Review round 4 (C4-H-1): since when its nonce is used on chain while it is seen nowhere (not mined at the pin, in no
+  // provider's pool): past `HOME_NONCE_TAKEN_SECS` it is dropped (another transaction of ours holds its nonce, so it can never
+  // mine) and its step is taken back, never waited on for ever.
+  used_since : opt nat64;
+};
+// # HTTP Header.
+// 
+// Represents a HTTP header.
+// 
+// See [`HttpRequestArgs::headers`] and [`HttpRequestResult::headers`].
+type HttpHeader = record {
+  // Value of the header.
+  value : text;
+  // Name of the header.
+  name : text;
+};
+// # HTTP Request Result
+// 
+// Result type of [`http_request`](https://internetcomputer.org/docs/current/references/ic-interface-spec/#ic-http_request).
+type HttpRequestResult = record {
+  // The response status (e.g. 200, 404).
+  status : nat;
+  // The response’s body.
+  body : blob;
+  // List of HTTP response headers and their corresponding values.
+  headers : vec HttpHeader;
+};
+// A purchase signed on a chain and not yet settled. Saved **before** anything is sent.
+type InFlight = record {
+  raw : blob;
+  token_id : text;
+  collection : text;
+  total_wei : text;
+  order_hash : text;
+  nonce : nat64;
+  // keccak of `raw`: the only hash we ever watch.
+  tx_hash : text;
+};
+// What the runner handed in, kept until used or stale.
+type Inbox = record {
+  listings : vec record { nat64; text; nat64 };
+  evidence : vec record { blob; vec text; vec blob; nat64 };
+  // Review round 5 (F5-M-1): the operator's word on a pending home transaction whose nonce is used and which no provider shows and
+  // the canister could not identify (`eth_home_clear`): `(its nonce, it mined, handed in at)`. Used only for that transaction.
+  home_clear : opt record { nat64; bool; nat64 };
+  deposits : vec record { blob; nat64 };
+  quotes : vec record { nat64; blob; nat64 };
+  // Round 4 (C4-M-1): payouts handed in for written-off orders.
+  payouts : opt vec PayoutClaim;
+};
+// A reason the collection (or the link) stopped: the monitor pages on these.
+type Incident = record {
+  at : nat64;
+  coll : opt nat16;
+  link : opt nat64;
+  what : text;
+};
+// What the canister is installed with. Every one of these is public; none is a secret.
+type Init = record {
+  // How a floor sink's frog is paid for (docs/v6/relay-conversion.md §3.5). `None` is Relay at 3 % with no operator float:
+  // the module advances the frog's budget, Relay converts it to BTC at the float, and the float buys the frog. Operational:
+  // taken from every upgrade's argument, so a change is a published, timelocked act. `max_fee_bps` must lie in [50, 500].
+  frog_funding : opt FrogFunding;
+  // The wrapper whose redeemed frogs this canister delivers (docs/v3/wrapper.md, "Step 3, the flow"). Identity, like the
+  // vault: an upgrade may set it once, from nothing, and never change it. `None`: no custody, no deliveries.
+  wrapper : opt text;
+  // Bitcoin explorers used for the read-back on testnet. At least two, and they must agree.
+  btc_api_urls : vec text;
+  // The first 4663 block the wrapper's `Redeemed`/`Resolved` events are read from when the scanner first runs and is not idle
+  // (audit D, H-1): the wrapper's deployment block. `None`: the finalized block less `ticketlog::FIRST_LOOKBACK_BLOCKS`.
+  // Read only until the scanner has a cursor.
+  wrapper_from_block : opt nat64;
+  // Bridge contracts we will sign a transaction to. Anything else is refused.
+  bridge_allowlist : vec text;
+  // The vault contract.
+  vault : text;
+  // JSON-RPC endpoints. At least two, and they must agree before anything is believed.
+  rpc_urls : vec text;
+  // Who runs the buyer once its only controller is the timelock (`docs/v2/timelock-controller.md`). Controllers change the
+  // code; the operator operates. Taken from every upgrade's argument, so changing it is itself a timelocked proposal whose
+  // argument is published during the delay. `None`: only controllers operate, as before the handover.
+  operator : opt principal;
+  // The home chain when it is not the EVM chain above (docs/v9/solana-migration.md §4). `None`: the EVM home (`chain_id`,
+  // `vault`, `rpc_urls`), as before. Phase A carries it beside the EVM fields and nothing reads it yet but the Solana layer
+  // (`sol*.rs`). Identity, like the wrapper: set once, from nothing; an upgrade may change only its `rpc_urls` and
+  // `blockhash_fallback` ([`restore_home`]).
+  home : opt Home;
+  // The installer's assertion that naming [`PRODUCTION_KEY`] is deliberate. It does **not** mean "this is mainnet": the
+  // canister has no way to know that, because the local replica's only key carries the production key's name. It means
+  // only that nobody reached this by leaving a field unset.
+  accept_production_key_name : bool;
+  // Holder deposits (audit D, H-2 and H-3). `None` or `false`: the deposits pass does not run at all (no classification, no
+  // reads, no returns). Operational: taken from every upgrade's argument, so switching it on is a published, timelocked act.
+  // Phase 1 leaves it `None`.
+  holder_deposits : opt bool;
+  // The EVM chain the vault lives on. Checked against the RPC on every read.
+  chain_id : nat64;
+  // Other EVM chains the buyer may buy an NFT on through Seaport (docs/v4/eth-nft-canister.md §4). Operational, like
+  // `rpc_urls`: an upgrade takes it from its argument. `None` or empty: no NFT buying.
+  evm_chains : opt vec EvmChain;
+  // Which Bitcoin network this install is for. An explicit parameter with no default, because the alternative is a
+  // boolean that is false until the day somebody flips it. See [`REHEARSAL_NETWORK`].
+  btc_network : text;
+  // How much custody may hold (docs/v5/custody-hardening.md, H2). Taken from every upgrade's argument, but only through
+  // `custodycap::validate_change` against the running policy: a raise is at most ×4 per proposal. `None` is launch stage 0
+  // (docs/v5/launch-gates.md, G7): the wrapper's inscriptions at 3 items and 10 ETH, each `eth_nft` collection at 6 items and
+  // 15 ETH (J7, 2026-09-27), and in all 6 items and 10 ETH or the collections' sum when more (no binding total); no other
+  // collection (an unlisted collection is refused). An install may name an Ethereum collection at up to 24 items and 15 ETH.
+  custody_caps : opt CapPolicy;
+  // The threshold key's name.
+  key_name : text;
+  // Phase 1 on Ethereum NFTs (docs/v7/phase1-nft.md §4.1): the collections, their wrappers and modules, the Relay bound, the
+  // deposits switch and the floor's parameters. Operational: taken from every upgrade's argument, so a change is a published,
+  // timelocked act. `None`: the Ethereum NFT side is inert.
+  eth_nft : opt EthNftConfig;
+  // Outbound limits and the tripwire (H3). `None` is stage 0 (`outflow::Limits::stage0`). Every collection's cap must be
+  // able to leave within the timelock's delay less a day at these limits (`outflow::exit_fits`), or the install is refused.
+  outflow_limits : opt Limits;
+};
+type Instruction = record {
+  data : blob;
+  accounts : vec AccountMeta;
+  program : blob;
+};
+type IntentView = record {
+  id : nat64;
+  txs : vec TxView;
+  min_deposit : nat64;
+  ticket : opt nat64;
+  coll : nat16;
+  kind : text;
+  note : text;
+  recipient : text;
+  token_account : opt text;
+  deposit : nat64;
+  created_at : nat64;
+  refund_to : text;
+  refunding : opt text;
+  funded_at : opt nat64;
+  minted_units : nat64;
+  state : State;
+  address : text;
+  attention : bool;
+  // The transaction out now, as its memo.
+  in_flight : opt text;
+  expires_at : nat64;
+  paid_lamports : nat64;
+};
+type ItemView = record {
+  key : text;
+  vout : nat32;
+  inscription_id : text;
+  deposit : bool;
+  source_tx : text;
+  item_id : nat32;
+};
+// A key of this canister, by role (canister-only design §1.1). The derivation encoding ([`KeyPath::derivation`]) is permanent.
+type KeyPath = variant {
+  // `K_coin[c]`, by the coin's mint.
+  Coin : blob;
+  // `K_coll[i]`: module address `M[i]` and mint authority of wX[i].
+  Coll : nat32;
+  // `K_desk[i]`: the pool desk of collection i.
+  Desk : nat32;
+  // `K_fc`: the fee claimer of every collection DBC config.
+  Claimer;
+  // `K_main`, `[b"sol"]`.
+  Main;
+  // The Relay deposit key, `[b"sol-relay"]`.
+  Relay;
+  // `K_tre`.
+  Treasury;
+  // `K_int[n]`: user intent n's deposit address.
+  Intent : nat64;
+  // A DAMM v2 position NFT mint (the two a migration creates).
+  PositionNft : nat64;
+  // W6: collection i's DBC config account (a keypair-style address that signs its own creation, once).
+  Config : nat32;
+};
+// Conversion review C-03: a written-off order (the conversion gave back while it was `Stuck`), kept so its late refund is the
+// module's and is read by nobody else (the Ethereum side's `LateOrder`, C5-M-1).
+type LateConv = record {
+  // Our 4663 balance as the give-back leaves it: a refund raises it by at least half the order's value.
+  balance_after : nat;
+  // The refund seen, to be paid into the module (`fundReserve`); the act is next while it is set and not credited.
+  refund_wei : opt nat;
+  // The order's fill, had it landed at the float after all (the sats stay in the float, recorded here).
+  filled : opt Arrival;
+  written_off_at : nat64;
+  watch : Watch_1;
+  // What `fundReserve` paid the module, once mined.
+  credited : opt nat;
+  // The operator's release (`relay_late_release`), after looking at Relay's own records.
+  released_at : opt nat64;
+};
+// Review round 4 (C4-M-1): a Relay order let go unpaid (the operator wrote it off once Relay said nothing more would come). Its
+// watch is kept, so a payout that lands after all is credited to THIS order and its collection (`eth_credit_payout`, judged against
+// the order by `judge_payout`), never read as another order's.
+type LateOrder = record {
+  // The way back (Ethereum → 4663), or the forward leg (4663 → Ethereum).
+  back : bool;
+  watch : Watch;
+  // Set once a payout was credited to it: `(the payout's transaction, its wei, on 4663)`.
+  credited : opt record { blob; nat; bool };
+  // Review round 5 (C5-M-1): while a written-off order is neither credited nor released, it holds the Relay leg's attribution: no
+  // new Relay order (a buy, a way back, a sweep) starts, so no other order's watch can read its late payout as its own. The operator
+  // releases it (`eth_late_release`) once Relay's own records show where its ETH went.
+  released_at : opt nat64;
+  let_go_at : nat64;
+};
+type Leaf = record { weight : nat64; owner : blob; cum_start : nat64 };
+// One collection's life, kept in `EthState.dorm`.
+type Life = record {
+  // What woke it (the current or last wake).
+  by : opt WakeBy;
+  // WAKING: the estimate, seconds from `eta_at`.
+  eta : opt record { nat64; nat64 };
+  // No wake that is not owed before this.
+  cooldown_until : nat64;
+  collection : blob;
+  // ACTIVE: a queued graduation to fill (`Step::Fill`): when the hunt may try next; set when `gradEth()` reads non-zero.
+  fill_hunt : opt nat64;
+  // Owed wakes that timed out in a row, and no owed wake before `owed_after` (DR-H-2). A wake that becomes ACTIVE clears both.
+  owed_fails : nat8;
+  // The last reading's scan: `(the reading's time, its pass ran the scan, the scan's lag in final blocks)` (§4.3).
+  read_scan : opt record { nat64; bool; nat64 };
+  // DI-M-1 / DI-M-2: its open desk request, as held (`None`: none).
+  desk : opt DeskAsk;
+  note : text;
+  owed_after : nat64;
+  scan_at : nat64;
+  // ACTIVE: when `gradEth()` was last read for the hunt (on the view's cadence).
+  grad_at : nat64;
+  // When the phase last changed.
+  since : nat64;
+  // The cadence clocks: the last evidence pass, the last sale scan and its back-off, the last module view, hot until.
+  pass_at : nat64;
+  // §11: whether it held a position at its last check (on 4663, or open in the canister): a pinned collection stays awake whatever the
+  // cycles limit says, and counts against it.
+  pinned : bool;
+  // The floor the open buy's advance was sized on: `(buy, floor)` (§4.3).
+  buy_floor : opt record { nat64; nat };
+  // The module's last post as the canister knows it (a post of ours mined, or `postedAt()` read at a pass): the TTL margin (DR-M-3).
+  posted_at : nat64;
+  view_at : nat64;
+  // The module's factory (`factory()`), read once.
+  factory : opt blob;
+  // The next sleep check (ACTIVE) or watchdog read (DORMANT).
+  check_at : nat64;
+  // Posted once at least (a launch on its module is then possible while DORMANT: the watchdog reads it).
+  ever_active : bool;
+  phase : Phase;
+  // A wake asked and waiting for room: `(what asked, when)`.
+  queued : opt record { WakeBy; nat64 };
+  scan_every : nat64;
+  hot_until : nat64;
+  // When a position was last seen while ACTIVE (a unit, an item, a graduation, an advance or a float on 4663, or anything open in the
+  // canister), `None`: none since the wake. The idle clock (§5).
+  position_at : opt nat64;
+};
+type LifetimeKind = variant { DurableNonce; RecentBlockhash };
+type Limits = record {
+  global_mints : nat32;
+  global_value_wei : nat;
+  per_collection_items : nat32;
+  per_collection_mints : nat32;
+  // Distinct acts wanting out in one window, as a multiple of the limit, that trip the freeze. At least 2.
+  trip_factor : nat32;
+  global_items : nat32;
+};
+// One send line: at most one transaction in flight.
+type Line = record {
+  done : vec Done;
+  // The line's durable-nonce account (seed-derived from the canister's key; [`nonce_account_of`]).
+  nonce_account : opt blob;
+  // The first send's preflight was refused by EVERY provider (insufficient funds, a simulation that fails). The answers are not
+  // agreed (a non-replicated outcall) and a refusing provider may keep the bytes, so this decides nothing about landing (audit A4-01):
+  // it is a line error the operator sees. Insufficient funds: the bytes are resent with preflight each tick (cleared once a provider
+  // takes them); any other refusal: the intent is given up ([`Saved::giving_up`]).
+  error : opt text;
+  saved : opt Saved;
+  // Set when the nonce moved under a pending transaction that is not ours on chain: no re-sign until an operator clears it.
+  incident : opt text;
+};
+// W3 (canister-only design §13.1): the FOUR send lines. Each has its own durable-nonce account (seed [`line_seed`]), at most one
+// transaction in flight, and the A4-hardened state machine (`solsend`); they never wait for each other. `K_main` pays the fees and is
+// the nonce authority of all four.
+type LineId = variant {
+  // The mint/burn desk (intents).
+  Desk;
+  // The pool desk.
+  Pool;
+  // The money flows: the Ethereum NFT side, the frogs, the custodian (the line of phase B2; the upgrade tuple's 14th element).
+  Money;
+  // The cranks: the coins' steps and the treasury's (`coins`, `cranks`; once the registry keeper's, retired with rook_core).
+  Crank;
+};
+// W3: a step of the desks' lines before the desks name their own typed steps (W5, W7): who, what, and the flow's own id for it.
+type LineOp = record { id : nat64; owner : LineOwner; what : text };
+// What became of a step: landed (`ok`: its on-chain result) or abandoned unlanded (`ok = None`: after an incident, or a simulation
+// that failed at its first send). Kept until its flow takes it.
+type LineOutcome = record {
+  at : nat64;
+  ok : opt bool;
+  signature : text;
+  step : LineStep;
+  intent : nat64;
+};
+// Who put a step on the line (the queue's turns).
+type LineOwner = variant {
+  Eth;
+  // W6: the coins' steps (collection opening, graduation backing, leftovers, fee claims and cashing, coin redemption: `coins`), on the
+  // crank line. Never queued: a coin step signs only on a free line (`crankline::line_free`).
+  Coin;
+  // W3: the mint/burn desk (intents: §6 of the canister-only design), on its own line ([`LineId::Desk`]).
+  Desk;
+  Custody;
+  Frog;
+  // W3: the pool desk (the wX/SOL pools: §5), on its own line ([`LineId::Pool`]).
+  Pool;
+  // W8c: the Solana NFT flow's steps (`solnftflow`: the advance + purchase in one transaction, the deliveries), on the money line.
+  SolNft;
+  // W9: the treasury's steps (`cranks`: distributed surplus, the ops share, raffle prizes and claims), on the crank line.
+  Treasury;
+};
+// A step out on the line: what it is and the line's intent id (the flow that sent it keeps a copy: `EthState.sol_step`,
+// `FrogState.sol_step`).
+type LinePending = record { at : nat64; step : LineStep; intent : nat64 };
+// A step on the ONE line, of any flow.
+type LineStep = variant {
+  // W3: a step of the mint/burn desk or the pool desk ([`LineOp`]).
+  Op : LineOp;
+  Eth : Step;
+  // W6: a step of the coins (`coins::CoinStep`), on the crank line.
+  Coin : CoinStep;
+  Custody : CustodyStep;
+  Frog : FStep;
+  // W7: a step of the pool desk (`pooldesk::PoolStep`), on the pool line.
+  Pool : PoolStep;
+  // W8c: a step of the Solana NFT flow (`solnftflow::SolNftStep`), on the money line.
+  SolNft : SolNftStep;
+  // W9: a step of the treasury (`cranks::TreasuryStep`), on the crank line.
+  Treasury : TreasuryStep;
+};
+type Line_1 = record {
+  done : vec record { InFlight; Outcome };
+  in_flight : opt InFlight;
+};
+type LinkView = record {
+  id : nat64;
+  key : text;
+  updated_at : nat64;
+  signature : text;
+  effects : Effects;
+  coll : opt nat16;
+  kind : text;
+  memo : text;
+  created_at : nat64;
+  intent : opt nat64;
+  phase : Phase_1;
+  reason : text;
+};
+// What a collection's items are (rook_core `ListingKind` with the custody it checks destinations against).
+type ListingKind = variant {
+  // Solana NFTs (paused design, docs/v9/solana-nfts-design.md); `custodian` = the custody wallet.
+  SolNft : record { collection : blob; custodian : blob };
+  // Ordinals; membership by Merkle root; `custody` = the canister's taproot custody address (its prefix decides the network).
+  Inscriptions : record { custody : text; membership_root : blob };
+  // ERC-721 on an EVM chain; `custody` = the canister's custody address there.
+  EthNft : record { collection : blob; custody : blob; chain_id : nat64 };
+};
+// An address lookup table's contents as the canister read (and pinned) them: never one the canister did not read itself.
+type LookupTable = record { key : blob; addresses : vec blob };
+type MintQuote = record {
+  fee : nat64;
+  min_deposit : nat64;
+  coll : nat16;
+  // The token account's rent, assumed charged (the recipient has none): `0` once it exists.
+  ata_rent : nat64;
+  // The SOL deposit the quote is for.
+  deposit : nat64;
+  // Lamports that reach `M[i]`.
+  to_module : nat64;
+  // Lamports per whole wX at this price.
+  unit_price : nat64;
+  // wX base units minted.
+  units : nat64;
+};
+// One transaction that moved a token of a collection between two wallets (round 3, B3-M-1): its first such `Transfer`'s token and
+// sender.
+type Move = record { token : blob; from : blob; hash : blob; block : nat64 };
+// What the canister knows about one chain: the pin, our balance and nonce there, and its line.
+type NftChainStatus = record {
+  pin : nat64;
+  base_fee_wei : text;
+  line : Line_1;
+  targets : vec NftTarget;
+  chain_id : nat64;
+  address : text;
+  nonce : nat64;
+  balance_wei : text;
+  pin_timestamp : nat64;
+};
+// What a checked order would do. Every field is public.
+type NftPlan = record {
+  to : text;
+  gas : nat64;
+  pin : nat64;
+  raw : opt text;
+  priority_fee_wei : text;
+  max_fee_wei : text;
+  from : text;
+  // Whether the signature was recovered here (an EOA) or left to the simulation (a contract or bulk signature, or none).
+  signature_checked_here : bool;
+  total_wei : text;
+  calldata : text;
+  chain_id : nat64;
+  order_hash : text;
+  nonce : nat64;
+  // Set by [`nft_sign`]: the saved transaction.
+  tx_hash : opt text;
+  pin_timestamp : nat64;
+};
+// A recorded target: the one token to buy on a chain, and the most to pay, recorded before any order exists.
+type NftTarget = record {
+  // Decimal.
+  token_id : text;
+  collection : text;
+  chain_id : nat64;
+  // Decimal wei.
+  cap_wei : text;
+};
+type NftWant = record {
+  id : nat64;
+  collection : blob;
+  chain_id : nat64;
+  cap_wei : nat;
+  module : blob;
+  phase : WPhase;
+};
+// What the site asks for.
+type OpenKind = variant {
+  // Burn wX of `coll`: SOL to `recipient`, at least `min_out` lamports net of the fee; a refusal returns the wX to `refund_to`
+  // (default `recipient`).
+  Burn : record {
+    coll : nat16;
+    min_out : opt nat64;
+    recipient : text;
+    refund_to : opt text;
+  };
+  // Redeem one wX of `coll` for an item to `destination` (`0x` + 40 hex for Ethereum, a taproot address for Bitcoin, a base58
+  // wallet for a Solana listing, or `burn`); `owner` (base58) owns the ticket and gets back an unused deposit.
+  RedeemNft : record { destination : text; owner : text; coll : nat16 };
+  // Mint wX of `coll` to `recipient` (base58), at least `min_out` base units.
+  Mint : record { coll : nat16; min_out : opt nat64; recipient : text };
+  // Redeem a coin (`coin` = its mint, base58) of collection `coll` for its backing wX to `recipient`.
+  RedeemCoin : record {
+    coin : text;
+    coll : nat16;
+    recipient : text;
+    refund_to : opt text;
+  };
+};
+// One pending opening request as the site shows it (audit C4-12): its place, and what the canister waits on for it.
+type OpenStatus = record {
+  why : text;
+  // Audit C4-04: the pass moved past it to later requests (it waits on something of its own); it keeps its place.
+  skipped : bool;
+  asked_at : nat64;
+  // Since when the opening pass waits on it (0: it does not); `why`: the pass's last reason ("" when none).
+  waiting_since : nat64;
+  index : nat32;
+  // 0: opens next.
+  position : nat32;
+};
+type Opened = record {
+  id : nat64;
+  fee : nat64;
+  min_deposit : nat64;
+  // `address`'s associated token account of the deposited mint (a burn, a redemption): the one the transfer goes to.
+  token_account : opt text;
+  // At the minimum deposit (a mint) or the minimum wX (a burn); none while the floor is stale or for a redemption.
+  quote : opt Quote;
+  // Where the user sends SOL (a mint) or whose token account receives the wX / coins (the others).
+  address : text;
+  expires_at : nat64;
+};
+// How a purchase ended, kept after its line is cleared.
+type Outcome = variant {
+  // Mined, succeeded, and `ownerOf` at a pin at or above its block is us.
+  Arrived : record { block : nat64 };
+  // The pinned nonce moved past ours with no receipt for our hash: another transaction took the nonce.
+  Superseded;
+  // Mined and reverted: the gas is spent, the NFT is not ours.
+  Reverted : record { block : nat64 };
+};
+type Outflow = record {
+  // Asks a controller's resume acknowledged (audit D, H-2): they still wait on the limits, but no longer count toward the
+  // trip, so the same backlog does not re-freeze custody one tick after the guardians lift the freeze. Kept for the window.
+  // `None` in a state saved before it existed.
+  acked : opt vec Act;
+  // Acts that asked to go out, inside the window (a superset of `done`, one entry per key).
+  asked : vec Act;
+  // Acts that went out, inside the window.
+  done : vec Act;
+  freeze : Freeze;
+};
+// An output, by its transaction id in **display** order (as an explorer shows it) and its index.
+type Outpoint = record { txid : blob; vout : nat32 };
+// SOL the books already moved and the chain still owes.
+type Owed = variant {
+  Ops : record { lamports : nat64 };
+  Surplus : record { lamports : nat64; coll : nat32 };
+};
+type PageCoin = record {
+  wx : nat64;
+  circ : nat64;
+  mint : text;
+  vault_wx : text;
+  supply : nat64;
+  holders : nat32;
+};
+type PageExcluded = record {
+  owner : text;
+  coin : text;
+  account : text;
+  amount : nat64;
+  reason : text;
+};
+type PageLeaf = record { weight : nat64; owner : text; cum_start : nat64 };
+type Params = record {
+  burn_per_hour : nat64;
+  base_spread_bps : nat16;
+  stress_spread_bps : nat16;
+  stale_spread_bps : nat16;
+  max_spread_bps : nat16;
+  // `true`: the public cap is `min(max_public_eth_backed, depth_items · ONE)` (rook_core). `false`: `max_public_eth_backed`
+  // alone (§4.3: the depth brakes the buy pipeline, not minting).
+  mint_depth_cap : bool;
+  max_move_bps : nat16;
+  min_confidence_bps : nat16;
+  conv_bps : nat16;
+  // rook_core `max_eth_backed`: all SOL-backed units.
+  max_eth_backed : nat64;
+  low_confidence_spread_bps : nat16;
+  mint_per_hour : nat64;
+  buffer_bps : nat16;
+  reserve_bps : nat16;
+  full_confidence_bps : nat16;
+  max_items_per_day : nat16;
+  // rook_core `max_public_eth_backed`: SOL-backed units the public may hold beyond the reserve tier.
+  max_public_eth_backed : nat64;
+  // `revenueTarget`, lamports.
+  revenue_target : nat64;
+  vol_weight_bps : nat16;
+  fill_band_bps : nat16;
+};
+// `params()`: the board's immutables.
+type Params_1 = record {
+  max_open : nat64;
+  slash_delay : nat64;
+  reward_wei : nat;
+  bond_wei : nat;
+  expiry : nat64;
+  reward_day_cap_wei : nat;
+};
+// A payout transaction the operator hands in for a written-off order (`eth_credit_payout`, C4-M-1): `(buy, on 4663, tx, the wei it
+// paid when the transaction does not say, handed in at)`.
+type PayoutClaim = record {
+  at : nat64;
+  tx : blob;
+  buy : nat64;
+  wei : nat;
+  home : bool;
+};
+// A widening change waiting its delay.
+type PendingChange = record { at : nat64; m2 : bool; premium_bps : nat16 };
+// A drawn round's winner: the leaf the books accept and the proof, paid by [`TreasuryStep::Claim`] and booked when it lands.
+type PendingClaim = record {
+  weight : nat64;
+  owner : blob;
+  proof : vec blob;
+  cum_start : nat64;
+  round : nat64;
+};
+// A round's snapshot taken and published, waiting for a later finalized slot to be committed as the books require.
+type PendingCommit = record {
+  root : blob;
+  total_weight : nat64;
+  entries : nat32;
+  taken_at : nat64;
+  round : nat64;
+  snapshot_slot : nat64;
+};
+type Phase = variant {
+  Active : record { since : nat64 };
+  Dormant;
+  // The backfill runs; `backfilled_at` once the window is read and a confirmed reading made the first post due.
+  Waking : record { backfilled_at : opt nat64; since : nat64 };
+};
+// Where a link is.
+type Phase_1 = variant {
+  // Signed, and neither its line nor the chain says what became of it: the books stay reserved, an operator looks.
+  Stuck;
+  // Finalized, failed on chain (it paid its fee and changed nothing): undone.
+  Failed;
+  // Booked and journalled; not signed (or not known to be).
+  Recorded;
+  // Finalized, succeeded: final.
+  Landed;
+  // Proven never to land, or never signed: undone.
+  Undone;
+  // Signed and saved on a send line; not finalized.
+  Signed;
+};
+// Review round 4 (C4-H-1): what one chain's pins have shown so far, so no read of it goes back. `choose_pin` accepts heads one
+// bucket apart, so a provider whose head falls back across a bucket boundary moves the pin back a whole bucket between two ticks;
+// at that lower pin our own mined transactions are unseen (the nonce is one we already used, the balance the one before our
+// spend). Every read of the chain is therefore taken only at a pin at or above the highest pin already read (`pin`), and a nonce
+// read is believed only at or above the highest nonce already read (`nonce`): lower, the read waits a tick; it is never a fact.
+// Both only grow. Kept in stable memory (`ethflow::EthState::pin_floors`).
+type PinFloor = record { pin : nat64; nonce : nat64 };
+// Both chains' floors: the home chain's (4663: every home read of every part of the canister, `canister::pin`) and the
+// Ethereum NFT side's (`ethnet::EthNet::pin`).
+type PinFloors = record { eth : PinFloor; home : PinFloor };
+// What a pinned read saw: the agreed block, and two state reads named by its hash.
+type PinnedRead = record {
+  pin : nat64;
+  base_fee : text;
+  // `eth_getBalance(to)` at the pin, every provider agreeing.
+  balance : text;
+  // `eth_call(to, data)` at the pin, every provider agreeing.
+  call : text;
+  hash : text;
+};
+type PoolStep = variant {
+  // `add_liquidity_by_strategy2`: `ax` wX and `ay` lamports (wrapped first) in a spot shape over `[lo, hi]`.
+  Add : record { ax : nat64; ay : nat64; hi : int32; lo : int32; coll : nat32 };
+  // `remove_liquidity_by_range2` of the whole position (S4 R2, first transaction: the floor left the band).
+  Withdraw : record { hi : int32; lo : int32; coll : nat32 };
+  // The desk's SOL above its target to the treasury (§5.3): `lamports` of wSOL to `K_tre`'s wSOL account.
+  Sweep : record { lamports : nat64; coll : nat32 };
+  // The public burn of `units` of the desk's wX inventory: `paid` lamports from `M[i]` to `K_desk[i]` (a link).
+  Burn : record { coll : nat32; link : nat64; paid : nat64; units : nat64 };
+  // The public mint for the desk's own wX (§5.2: the desk is an ordinary holder): `lamports` into `M[i]`, `units` to `K_desk[i]`
+  // (a `chainlink` link).
+  Mint : record { lamports : nat64; coll : nat32; link : nat64; units : nat64 };
+  // `go_to_a_bin`: the empty pool's price to the floor's bin (S4 R2, second transaction); the add follows.
+  Move : record { coll : nat32; target : int32 };
+  // Audit B3-03: `close_account` of the desk's wSOL account to `K_desk[i]`: its `lamports` of wSOL (and the account's rent) come back
+  // native, for the treasury sweep and the mint legs; the next step that needs the account re-creates it.
+  Unwrap : record { lamports : nat64; coll : nat32 };
+  // §5.4 up-arb: mint `units` at the module for `lamports` and sell them into the pool for at least `min_out` (one transaction: mint
+  // and swap, so the desk never holds an unsold leg; a link).
+  ArbUp : record {
+    lamports : nat64;
+    coll : nat32;
+    min_out : nat64;
+    link : nat64;
+    units : nat64;
+    profit : nat64;
+  };
+  // §5.4 down-arb: buy wX with `lamports` of the desk's wSOL (at least `min_out`); the burn follows as [`PoolStep::Burn`].
+  ArbDown : record {
+    lamports : nat64;
+    coll : nat32;
+    min_out : nat64;
+    profit : nat64;
+  };
+  // `rebalance_liquidity` in place: the whole position withdrawn and re-added as a spot shape around `active` (S4 R1).
+  Recenter : record { hi : int32; lo : int32; active : int32; coll : nat32 };
+  // `initialize_lb_pair2` on the desk's preset at the floor's bin, with the desk's wX and wSOL token accounts (§5.1, S4 §2.2).
+  OpenPair : record { active : int32; coll : nat32; pair : blob };
+  // `initialize_position_pda(lower, width)`: the desk's one position, base = owner = `K_desk[i]`.
+  OpenPosition : record {
+    coll : nat32;
+    lower : int32;
+    width : int32;
+    position : blob;
+  };
+  // `claim_fee2`: the position's SOL fees to the desk.
+  Claim : record { hi : int32; lo : int32; coll : nat32 };
+  // `initialize_bin_array` for the arrays the position's range needs (one or two).
+  OpenArrays : record { coll : nat32; indexes : vec int64 };
+};
+type Progress = record {
+  // What the next item may cost, before ours on the way (decimal wei; empty when nothing is needed).
+  next_cap : text;
+  status : text;
+  deadline_block : nat64;
+  coin : text;
+  kind : SinkKind;
+  sink : text;
+  // What the sink holds for items, wei (decimal).
+  budget_left : text;
+  target : nat64;
+  deadline_at : nat64;
+  // "k of N": items recorded, and N for a curve (0 for a queue, which has no end).
+  recorded : nat64;
+  // Our items for this sink on the way (wanted, bought, held, minted and not yet recorded).
+  in_flight : nat64;
+  refused : opt text;
+};
+// A protected Ordinals Wallet listing as the runner hands it in (docs/v8/ow-protected.md §3.4, `GET /market/escrow/:id`).
+type ProtectedListing = record {
+  // What the seller listed for. Protected-listing review P-05: optional, so an unknown price reaches the judge's
+  // `EscrowPriceUnknown` instead of being guessed by the runner.
+  escrow_price : opt nat64;
+  creator_address : opt text;
+  seller_address : text;
+  satoshi_price : nat64;
+  outpoint : text;
+};
+// The signed PSBTs of a handed frog, for the runner to submit to Ordinals Wallet.
+type ProtectedSigned = record {
+  setup_psbt : opt text;
+  // Hex.
+  sale_psbt : text;
+  // Display order hex.
+  sale_txid : text;
+};
+// A collection's per-purchase maximum, by the sink it buys for (a floor module, or a queue).
+type PurchaseLimit = record {
+  // docs/v9/ordinals-collections.md §7 (Solana home): the collection's own minimum purchase in lamports, under the home's 1 SOL
+  // (`frogsol::ABS_MIN_PURCHASE_LAMPORTS` ..= `frogsol::MIN_PURCHASE_LAMPORTS`); `None` (and in a state saved before it): the home's.
+  min_wei : opt nat;
+  sink : blob;
+  max_wei : nat;
+};
+type Quote = variant { Burn : BurnQuote; Mint : MintQuote };
+// What the buyer recorded **before** asking the venue for anything. The PSBT is judged against this, never the other way.
+type Quote_1 = record {
+  // The most that may leave our inputs, in sats, fee included.
+  max_spend_sats : nat64;
+  // The script the asset must land on: the winner's address, as the vault recorded it.
+  recipient_script : blob;
+  // The rune being bought.
+  rune : RuneId;
+  // The least we will accept being delivered.
+  units : nat;
+  // The most that may go to miners.
+  max_fee_sats : nat64;
+  // Our own script. Our inputs carry it, and our change must return to it.
+  our_script : blob;
+};
+// Where a redemption is. Every variant carries what a restart needs.
+type RPhase = variant {
+  // The frog is not where it can safely be sent from, or something the contract could not have produced. Loud.
+  Stuck : record { why : text };
+  // The ticket is `Delivered` on chain. Finished.
+  Done : record { txid : blob };
+  // A resolved ticket, owed a frog. Nothing built or sent.
+  Owed;
+  // Bitcoin has it (a mempool at least).
+  Sent : record {
+    raw : blob;
+    bump : opt Bump;
+    txid : blob;
+    fee_input : Outpoint;
+  };
+  // A relist ticket (docs/v6/canister-floor-followups.md §4): its destination is custody itself, so nothing is delivered;
+  // the sale side lists the item. Final here.
+  Relist;
+  // H8: the rule refused saved bytes that were sent (evicted, or still in a mempool as the deadline nears). Until they can
+  // never be mined, their fee input is being spent back to custody (`conflict.rs`). Ends `Refused` (the conflict, or a third
+  // spend, confirmed) or `Confirmed` (a version of the delivery confirmed first, and the record path decides `Done` or
+  // `LostRace`).
+  Conflicting : record { conflict : Conflict; reason : text };
+  // Confirmed on Bitcoin; the delivery is not yet recorded on chain.
+  Confirmed : record { txid : blob };
+  // Our own `recordDelivery` is out.
+  Recording : record { raw : blob; hash : blob; txid : blob; nonce : nat64 };
+  // Refused by the rule. Final. Either nothing of ours was ever saved, or saved bytes were refused and then killed by a
+  // conflict (H8), which the reason names.
+  Refused : record { reason : text };
+  // Confirmed, and not ours to record: waiting for the keeper (`pending_delivery_records`).
+  AwaitingRecord : record { txid : blob };
+  // Phase B2, the Solana home: our `record_delivery` is out on the canister-wide Solana line as `intent`.
+  SolRecording : record { txid : blob; intent : nat64 };
+  // Signed and saved; being broadcast. The same bytes, and only these, go out until Bitcoin shows them. `bump`: `None` in a
+  // record saved before M-1's fix (its clock starts at the next look).
+  Signed : record {
+    raw : blob;
+    bump : opt Bump;
+    txid : blob;
+    fee_input : Outpoint;
+  };
+  // The frog was delivered on Bitcoin and the ticket refunded on chain: the redeemer has both. Recorded, never retried.
+  LostRace : record { txid : blob };
+};
+type Raffle = record {
+  // The 32 bytes the draw is keyed by (rook_core: the raffle PDA; here fixed at init, e.g. the prize token account).
+  key : blob;
+  // Lamports earmarked for prizes (held at `K_tre`).
+  pot : nat64;
+  total_spent : nat64;
+  prizes_funded : nat64;
+  claimed_at : int64;
+  committed_at : int64;
+  ticket : nat64;
+  root : blob;
+  total_weight : nat64;
+  rounds_cancelled : nat64;
+  winner : blob;
+  drawn_at : int64;
+  total_in : nat64;
+  entries : nat32;
+  rounds_expired : nat64;
+  drand_round : nat64;
+  phase : RafflePhase;
+  // wX base units held as the prize (a `K_tre` token account).
+  prize : nat64;
+  prizes_claimed : nat64;
+  round : nat64;
+  snapshot_slot : nat64;
+};
+// Every published snapshot, the last [`KEEP_ROUNDS`] of each collection.
+type RaffleBook = record { snapshots : vec Snapshot };
+type RafflePhase = variant { Committed; Idle; Drawn };
+// What the sources agreed on.
+type Rate = record {
+  // `(max − min) / median`, in basis points.
+  spread_bps : nat64;
+  // Each source and what it said: a price, or why not.
+  readings : vec record { text; Result_3 };
+  // The median, in satoshis per ETH.
+  sats_per_eth : nat64;
+};
+// Our last floor reading per collection.
+type Reading = record {
+  at : nat64;
+  // Due: a `postFloor` is the next home-chain act of its kind.
+  due : bool;
+  pin : nat64;
+  collection : blob;
+  post : FloorPost;
+  // The module's last post when this reading was made (an old one makes the post urgent, B-L-9).
+  module_posted_at : opt nat64;
+};
+// Why a deposit is refused. `returnable` says whether the frog goes back to its sender.
+type Reason = variant {
+  // An input not signed `SIGHASH_ALL`/`DEFAULT`, or one whose signature cannot be read that way.
+  Sighash : record { why : text; input : nat32 };
+  // Custody has no room for it under the caps (docs/v5/custody-hardening.md, H2): returned to its depositor.
+  OverCustodyCap : text;
+  // An input of the deposit pays custody: custody's own coin. Never returned.
+  SpendsCustody : nat32;
+  ZeroRecipient;
+  // Not exactly one inscription on the output.
+  Inscriptions : vec text;
+  Runes : vec text;
+  WrongWrapper;
+  Malformed : text;
+  // The operator refused it as not in the collection (no proof exists).
+  NotInCollection : text;
+  // ord places the inscription on another output than this one.
+  Elsewhere;
+  WrongChain : nat32;
+};
+type Redemption = record {
+  destination : text;
+  ticket : nat64;
+  // Phase B2, the Solana home: the ticket's `sent_tx` names our delivery (`note_sent`): from then on the late window never refunds it.
+  noted : opt bool;
+  // The inscription delivered, once located and signed for: what the custody cap book releases when it leaves (H2).
+  inscription : opt text;
+  phase : RPhase;
+  acquisition_id : nat;
+  // A refused redemption's attestation to the wrapper that its delivery can no longer confirm (`markUndeliverable`; canister
+  // review2 N-2 on the EVM side): until it lands, the ticket is refundable only after `LATE_DELIVERY_WINDOW`. `None`: nothing
+  // to attest (or a record from before it existed).
+  attest : opt Attest;
+};
+// Audit A5-03: a Relay `deposit_native` is never signed by the canister's key. The step is three legs on the line: our key funds the
+// dedicated Relay key with exactly the deposit plus its one-signature fee; the Relay key alone signs and pays for the deposit (on a
+// recent blockhash: it is no nonce authority); after anything but a successful deposit (it failed, it was given up, the key held
+// something before) the Relay key's balance is swept back to ours BEFORE the step's outcome is reported, so no balance watch reads it
+// as a refund. The depository, upgradeable by a third party, is thus handed signer privilege over the one deposit only.
+type RelayLeg = record {
+  // The dedicated Relay key.
+  key : blob;
+  // Lamports the funding moves to `key`: the deposit plus its fee.
+  fund : nat64;
+  // The deposit, signed by `key` alone.
+  deposit : vec Instruction;
+  // The line intent of the leg's transaction out now (0 while none is signed).
+  intent : nat64;
+  phase : RelayPhase;
+};
+type RelayPhase = variant {
+  // The deposit is out, or is signed at the next pass.
+  Depositing;
+  // The Relay key's balance goes back to ours; then the step's outcome is `ok` (with `signature`).
+  Sweeping : record { ok : opt bool; signature : text };
+  // Our key's transfer to the Relay key is out (`RelayLeg.intent`).
+  Funding;
+};
+type Report = record {
+  at : nat64;
+  unexplained : vec text;
+  checked : nat32;
+  // Rook memos read from the chain, and the ones no link explains (a mint among them is SEV1).
+  memos_seen : nat32;
+  findings : vec Finding;
+  // Collections this pass stopped.
+  halted : vec nat16;
+};
+// What the canister keeps per request it is watching.
+type ReqRec = record {
+  id : nat64;
+  // Finished for us: filled (by us), collected, expired, or never takeable.
+  done : bool;
+  request : Request;
+  note : text;
+};
+// `requestOf(id)`: a struct of static fields, returned inline.
+type Request = record {
+  at : nat64;
+  status : DStatus;
+  requester : blob;
+  at_block : nat64;
+  cost : nat;
+  amount : nat;
+};
+type Result = variant { Ok : text; Err : text };
+type Result_1 = variant { Ok : opt VaultView; Err : text };
+type Result_10 = variant { Ok : MintQuote; Err : text };
+type Result_11 = variant { Ok : Rate; Err : text };
+type Result_12 = variant { Ok : BtcSend; Err : text };
+type Result_13 = variant { Ok : EvmSignature; Err : text };
+type Result_14 = variant { Ok : SignedInput; Err : text };
+type Result_15 = variant { Ok : vec text; Err : text };
+type Result_16 = variant { Ok : int64; Err : text };
+type Result_2 = variant { Ok : Report; Err : text };
+type Result_3 = variant { Ok : nat64; Err : text };
+type Result_4 = variant { Ok : NftChainStatus; Err : text };
+type Result_5 = variant { Ok : NftPlan; Err : text };
+type Result_6 = variant { Ok : EvmSend; Err : text };
+type Result_7 = variant { Ok : Opened; Err : text };
+type Result_8 = variant { Ok : PinnedRead; Err : text };
+type Result_9 = variant { Ok : BurnQuote; Err : text };
+// What a guardian's pause stopped, and a resume lifts after its delay.
+type Resume = variant { Collection; Desk; AllMints };
+// A rune's id: the block it was etched in and the index of the etching transaction in that block.
+type RuneId = record { tx : nat32; block : nat64 };
+// Where a sale is. Every variant carries what a restart needs.
+type SPhase = variant {
+  // Re-deposited to the vault; `reclaimListing(ticket)` owed.
+  Reclaiming;
+  // The move is signed, saved and sent; `outpoint` is the item's new home once confirmed.
+  Moving : record {
+    raw : blob;
+    txid : blob;
+    inscription : text;
+    fee_input : Outpoint;
+    outpoint : Outpoint;
+  };
+  // Something a person must look at. Final.
+  Stuck : record { why : text };
+  // Nothing of ours moved. Final.
+  Failed : record { why : text };
+  // Signed and saved; `recordDelivery(ticket, hash)` not yet mined. The outpoint is watched for a fill.
+  Listed : record {
+    listing : blob;
+    ask_sats : nat64;
+    hash : blob;
+    rate : nat64;
+    ask_wei : nat;
+    inscription : text;
+    outpoint : Outpoint;
+  };
+  // `redeemToRelist` sent; our ticket is the first at or after `count_before` whose owner is us.
+  Redeeming : record { count_before : nat64 };
+  // The outpoint was spent six deep by a fill paying custody `sold_sats`; the report waits for the ETH on 4663. `ask_wei`
+  // is kept for a relist's minimum (`ask × 0.95`).
+  Sold : record {
+    sold_sats : nat64;
+    fill_txid : blob;
+    hash : blob;
+    rate : nat64;
+    proceeds_wei : nat;
+    ask_wei : nat;
+    inscription : text;
+  };
+  // A protocol sale decided at a tick; `redeemToRelist` not yet sent.
+  Planned;
+  // The delivery-by-listing is recorded on chain. The outpoint is watched for a fill.
+  Recorded : record {
+    listing : blob;
+    ask_sats : nat64;
+    hash : blob;
+    rate : nat64;
+    ask_wei : nat;
+    inscription : text;
+    outpoint : Outpoint;
+  };
+  // Moved and six deep: `wrapDeposit(…, to)` owed (to the vault for a relist, to the canister for a protocol sale).
+  Redeposit : record { inscription : text; outpoint : Outpoint };
+  // The operator delisted: the item is to be moved to a fresh custody outpoint (cancelling the listing).
+  Delisting : record { inscription : text; outpoint : Outpoint };
+  // `itemSold` / `recordSale` mined. Final.
+  Reported : record { proceeds_wei : nat };
+  // The ticket exists and is not drawn yet.
+  Pinned;
+  // Re-deposited (a protocol sale: the seed is back) or reclaimed (a relist). Final.
+  Returned;
+  // Drawn: the item is `inscription`; the listing is to be signed at `ask_wei`.
+  Listing : record { ask_wei : nat; inscription : text };
+};
+// What a controller (the timelock, after the handover) sets per module before any sale happens for it.
+type SalePolicy = record {
+  // Sales open at once for this module.
+  max_open : nat32;
+  // A protocol sale's ask over `price()`, bps.
+  markup_bps : nat32;
+  // An EVM listing's fee share to the chain's first configured fee recipient, bps (0: no fee item).
+  fee_bps : nat32;
+  // The standing reserve `S` under which the module's inventory is sold.
+  reserve_floor_wei : nat;
+  module : blob;
+};
+type SaleRec = record {
+  id : nat64;
+  wrapper : blob;
+  ticket : opt nat64;
+  // A YOYO relist: the vault that owns the ticket and takes the report.
+  vault : opt blob;
+  // A protocol sale: the module whose inventory it sells and reports to.
+  module : opt blob;
+  phase : SPhase;
+};
+// The canister's own read of one collection's sales (audit 2026-09-27-nft round 2, A-M-1 / B2-M-1 / D2-M-2): the final blocks
+// `[down, up]` whose `Transfer` logs were read (none while `up` is 0), the chunk size in use, and the transactions found there whose
+// receipts are not judged yet, newest first. Each judged receipt's sales (or none) go to `sale_cache`.
+// 
+// Round 3 (B3-M-1): the transactions to judge are `pend`, each with the token and sender of its move, read one per token and per
+// sender at a time, oldest first (`sale_order`), so a flood of transfers (gas only) can no longer starve a real sale; `todo` is
+// round 2's queue, moved into `pend` on the first pass. Past `SALE_TODO_MAX` the last in that order are dropped and their blocks
+// are read again (`rescan`) once the queue has room. Judged transactions without a sale are kept by hash in `judged` (the first 8
+// bytes and the block), so they never take a sale's place in `sale_cache` and are never read again.
+type SaleScan = record {
+  up : nat64;
+  // Review round 4 (B4-H-1): block ranges the IC refused for their size (over 2 MB of `Transfer` logs): read by halves, never
+  // whole again, down to one block.
+  bad : opt vec record { nat64; nat64 };
+  // Review round 6 (B6-L-2): deferred ranges whose marketplace logs were NOT read whole (a rate limit, Seaport's half over the cap,
+  // the pass's budget): never the ones evicted while another can be, since their sales are read nowhere else yet.
+  raw : opt vec record { nat64; nat64 };
+  judged : opt vec record { nat64; nat64 };
+  rescan : opt record { nat64; nat64 };
+  collection : blob;
+  // Round 4 (B4-H-1): single blocks whose `Transfer` logs are over 2 MB and whose marketplace sale logs could not be read either:
+  // `(block, read again after, tries)`. The walks go past them; they are tried again later, never every pass.
+  skipped : opt vec record { nat64; nat64; nat32 };
+  // Review round 7 (B7-L-2): `(since, passes in a row)` in which a provider answered a read of the scan as a rate limit: paged
+  // past `SALE_BUSY_PAGE_PASSES`.
+  busy : opt record { nat64; nat32 };
+  down : nat64;
+  // Review round 6 (B6-M-1): blocks a re-anchored forward walk passed over (`SALE_REANCHOR_LAG_BLOCKS`), read newest first by a
+  // walk of their own until done or out of the window.
+  hole : opt record { nat64; nat64 };
+  chunk : nat64;
+  // Review round 6 (B6-M-1): the last span the providers refused as too deep to serve (`ScanErr::Deep`): its sales are not
+  // counted. Paged (the window's sample is short); kept until it leaves the window.
+  lost : opt record { nat64; nat64 };
+  pend : opt vec Move;
+  todo : vec record { blob; nat64 };
+  // Review round 7 (B7-L-1): the hole's top refused as deeper than the providers keep logs, BOTH providers saying so (`nftnet`):
+  // `(first such answer at, such answers, not before)`. The hole is kept and read again (at once `SALE_DEEP_FAST_TRIES` times,
+  // then every `SALE_DEEP_RETRY_SECS`) until it is read or leaves the window; never given up on one answer. Paged.
+  hole_deep : opt record { nat64; nat32; nat64 };
+  // Review round 5 (B5-L-1): `(the day's start, response bytes the scan reserved since)`: the scan's bound per day.
+  spent : opt record { nat64; nat64 };
+  // Review round 5 (B5-M-2): `(range start, failed reads in a row there)`: a start that keeps failing is deferred like an oversized
+  // range.
+  stuck : opt record { nat64; nat32 };
+  // Review round 6 (B6-M-1 / D6-I-1): after each pass, how many final blocks the newest blocks' walk is behind the final head: the
+  // monitor pages a long lag.
+  behind : opt nat64;
+  // Review round 5 (B5-M-1 / B4-L-2): single oversized blocks already read through their marketplace sale logs: never bisected or
+  // asked again.
+  done_big : opt vec nat64;
+  // Review round 7 (B7-L-3): the final head of the last pass whose forward walk reached it (or where the scan started): how far
+  // the scan is behind is the final head now less this, however the forward walk was re-anchored meanwhile, and whether or not
+  // passes still run (the monitor reads it against its own Ethereum head). `behind` is that lag at the pass's end.
+  current : opt nat64;
+  // Review round 7 (B7-L-2): receipts answered as a rate limit (`(transaction, busy answers in a row, not before)`): backed off
+  // exponentially up to `SALE_BUSY_RETRY_MAX_SECS`, read only with the retries' share of a pass, so they never hold a newer sale.
+  rbusy : opt vec record { blob; nat32; nat64 };
+  // Review round 6 (B6-L-1): receipts that failed (`(transaction, failed reads, not before)`): retried with a bound, behind newer
+  // moves once past `SALE_RECEIPT_FAST_TRIES`.
+  rfail : opt vec record { blob; nat32; nat64 };
+};
+// Everything this side keeps in stable memory (the upgrade tuple's eleventh element).
+type SaleState = record {
+  next_sale : nat64;
+  sales : vec SaleRec;
+  // How far the wrapper's tickets were walked looking for relists.
+  ticket_cursor : nat64;
+  // Each module's extra reads at the last tick, for the page.
+  extras : vec record { blob; FloorExtra };
+  policies : vec SalePolicy;
+};
+// One line's saved transaction: everything needed to resend it, to prove it can never land, and (fallback only) to re-sign the
+// same intent.
+type Saved = record {
+  // The signed wire transaction.
+  tx : blob;
+  // Its signature (base58), the transaction's id.
+  signature : text;
+  // Audit A4-01: the intent is being GIVEN UP (its first send's preflight was refused by every provider for its instruction). Never
+  // resent as itself again; under the durable nonce its nonce is burned ([`Saved::burn`]), under the fallback it waits for its proven
+  // expiry. Only then is it reported abandoned; if a signature of it lands meanwhile, that landing is its outcome.
+  giving_up : opt text;
+  // Audit A4-03, fallback: the intent's signatures proven expired and unknown (they can never land): kept for `sol_seen` and `Done`,
+  // no longer asked for.
+  expired : opt vec text;
+  // Audit A4-01, durable nonce: the signature of the `AdvanceNonceAccount`-only transaction on the SAME nonce that gives the intent up
+  // (in `history` too; `tx` holds its bytes). At most one of it and the intent's own bytes can land.
+  burn : opt text;
+  // W3 (canister-only design §1.1): the canister keys besides `K_main` the intent's message is signed by (`K_coll`, `K_int`, …), for a
+  // fallback re-sign of the same intent. `None`: `K_main` alone (every intent saved before multi-key signing).
+  keys : opt vec KeyPath;
+  // `RecentBlockhash` only: the last block height the bytes can land at.
+  last_valid_height : opt nat64;
+  // A label for the log and the operator (`"post_floor listing 3"`).
+  what : text;
+  // Every signature this intent was ever signed under (more than one only after a proven expiry under the fallback).
+  history : vec text;
+  lifetime : LifetimeKind;
+  // The intent's instructions WITHOUT the lifetime's prefix (the nonce advance), for a fallback re-sign.
+  instructions : vec Instruction;
+  // Sends so far (0: saved, never sent).
+  sends : nat32;
+  // The address lookup tables the intent's v0 message loads keys from, as the canister read them (2026-10-12: a Magic Eden M2 pNFT
+  // purchase, `solnftflow::table`), for a fallback re-sign of the same intent. `None`: a legacy message.
+  tables : opt vec LookupTable;
+  // The caller's id for what this transaction does (a re-sign keeps it).
+  intent : nat64;
+  recent_blockhash : blob;
+};
+// `eth_nft.dormancy.scaling` (§11): the limits scale with the canister's own cycles balance. `max_active` and `wakes_per_day` stay as
+// the hard ceilings (governance, timelocked); under them, a collection may be awake only while the balance pays for every awake one's
+// `runway_days` plus the reserve, and a wake starts only while the balance after its one-time cost still does with one more awake.
+// Every figure is the conservative (high) end of what was measured or estimated (§7), in B cycles.
+type Scaling = record {
+  // The idle base a day (the pin, the chain check and the desk read, whatever is awake): 300 at launch.
+  idle_b_per_day : nat64;
+  // Held back for each awake collection on top of the reserve: its exits, returns and owed work (about two days of posts without the
+  // scan, so holders can burn and leave, and its deliveries): 3,000 at launch.
+  exit_b_per_awake : nat64;
+  // Held back whatever is awake, never spent on a wake or a runway: at least the scan floor (8,000). Under it the canister stops its
+  // own sale scan and serves no new wake or buy; the posts, deliveries and returns that wind a collection down still run.
+  reserve_b : nat64;
+  // The days of burn the balance must cover for every awake collection: 7 at launch.
+  runway_days : nat16;
+  // One wake's one-time cost (the 7-day backfill and its passes): 1,500 at launch.
+  wake_b : nat64;
+  // What one ACTIVE collection burns a day (posts, passes, the scan, views and checks): 2,500 (2.5 T) at launch.
+  active_b_per_day : nat64;
+};
+// What one provider said to one send. A report, not a fact: see the module docs.
+type SendOutcome = variant {
+  // Its nonce is used. Either this transaction was already mined, or ANOTHER transaction with the same nonce was; only the
+  // read-back can say which, so this is never read as success.
+  NonceTooLow;
+  // It returned our hash.
+  Accepted;
+  // The sender cannot pay for the gas.
+  NoFunds;
+  // It returned a hash that is not the keccak of the bytes we sent. A provider that does this is not to be believed about
+  // anything.
+  WrongHash : text;
+  // It already had it — from an earlier send of the same bytes, or another provider's gossip. As good as accepted.
+  AlreadyKnown;
+  // Any other refusal, with the provider's message (shortened).
+  Refused : text;
+  // Not a JSON-RPC reply at all: an HTTP error page, a timeout body, garbage.
+  Unreadable : text;
+};
+// What was signed, and what it was signed for. The digest is returned so a caller can check it against its own
+// computation — and so that a disagreement is visible rather than silent.
+type SignedInput = record {
+  signature : text;
+  sighash : text;
+  // Every input of ours in this transaction, so a caller signing more than one knows the whole set it must cover.
+  ours : vec nat32;
+  // The transaction this input belongs to, as Bitcoin will identify it: the double-SHA of the unsigned serialisation.
+  // A key-path witness is not covered by the txid, so this is known before anything is broadcast, which is what makes a
+  // re-broadcast idempotent (`docs/v2/state-machine.md`).
+  txid : text;
+};
+// Which contract a sink is: what to read from it and what to call on it.
+type SinkKind = variant {
+  // A collection's Floor Module (docs/v5/floor-feed.md §6; interface ASSUMED, `floorsink.rs`): buys one item when net
+  // ETH-backed demand reaches one item plus a buffer and the posted floor is fresh.
+  Floor;
+  // One coin's `FrogCurve` in `Graduating` (as merged at `40735bf`).
+  Curve;
+  // A collection's buy queue (the design since 2026-09-23; interface ASSUMED, `buyqueue.rs`).
+  Queue;
+};
+type SnapCoin = record {
+  // The vault's live wX balance (base units).
+  wx : nat64;
+  // `supply` less the excluded accounts' balances.
+  circ : nat64;
+  mint : blob;
+  vault_wx : blob;
+  supply : nat64;
+  // Wallets holding it that count (on-curve owners with a balance).
+  holders : nat32;
+};
+// One published snapshot: everything needed to recompute `root` from chain data.
+type Snapshot = record {
+  listing : blob;
+  // Finalized slots the balances were read between; `slot` is committed (`snapshot_slot`).
+  slot_lo : nat64;
+  excluded : vec Excluded;
+  coins : vec SnapCoin;
+  root : blob;
+  total_weight : nat64;
+  slot : nat64;
+  leaves : vec Leaf;
+  raffle : blob;
+  taken_at : nat64;
+  // The round it is committed as (`Raffle.round` after the commit).
+  round : nat64;
+};
+// One page of a published snapshot, addresses in base58 and the root in hex: the coins and exclusions whole, `leaves[offset..]`.
+type SnapshotPage = record {
+  listing : text;
+  slot_lo : nat64;
+  excluded : vec PageExcluded;
+  coins : vec PageCoin;
+  root : text;
+  total_weight : nat64;
+  slot : nat64;
+  offset : nat32;
+  entries : nat32;
+  leaves : vec PageLeaf;
+  raffle : text;
+  taken_at : nat64;
+  round : nat64;
+};
+// A Relay deposit that landed on the line: its buy (or frog), its order, and its signature (a refund is a credit after it, memoed with
+// the order id: `relaysol::refund_of`).
+type SolDepositRec = record {
+  buy : nat64;
+  signature : text;
+  // Phase B2: `Some(true)` when `buy` is a frog id (a SOL → BTC conversion); `None` an Ethereum buy (B1's records).
+  frog : opt bool;
+  order_id : blob;
+};
+type SolFloor = record {
+  // The reference it was checked against.
+  reference : nat64;
+  // Distinct sellers with a verified ask.
+  sellers : nat32;
+  // The cheapest verified ask.
+  cheapest : nat64;
+  // Lamports: the `rank`-th cheapest seller's ask (the listing price, as marketplaces quote floors).
+  price : nat64;
+  // The cheapest ask the canister can take without a key, all in (fees, royalties; rent apart), and its venue.
+  keyless_total : opt nat64;
+  // Distinct sellers within 5 % of the floor (the book's depth there).
+  depth : nat32;
+  keyless_venue : opt Venue;
+};
+// B1's line, the `sol` field of `ethflow::EthState`: kept only so a state saved by B1 decodes; [`migrate`] moves it to the canister-wide
+// [`SolLine`] at `post_upgrade` and leaves `EthState.sol` empty.
+type SolHome = record {
+  next_intent : nat64;
+  pending : opt SolPending;
+  opening : opt nat64;
+  line : Line;
+  deposits : vec SolDepositRec;
+};
+// The ONE Solana line canister-wide (phase B2; docs/v9/solana-migration.md §2.4 "the home line is one line canister-wide"): one
+// durable-nonce account, one transaction in flight, every flow's steps queued on it in the order they asked.
+type SolLine = record {
+  next_intent : nat64;
+  pending : opt LinePending;
+  // The intent that opens the line's durable-nonce account (signed on a recent blockhash: the nonce does not exist yet).
+  opening : opt nat64;
+  line : Line;
+  // The flows waiting for the line, in the order they first asked, with when.
+  queue : vec record { LineOwner; nat64 };
+  outcomes : vec LineOutcome;
+  deposits : vec SolDepositRec;
+  // Audit A5-03: the pending step's Relay deposit legs, when it is one (the funding from our key, the deposit by the dedicated Relay
+  // key alone, the sweep back). `pending.intent` stays the step's; the leg's own transaction is `RelayLeg.intent`.
+  relay : opt RelayLeg;
+  // The raffle's published snapshots (`raffle::BOOK`), here ONLY across an upgrade: `pre_upgrade` puts them in, `post_upgrade` takes
+  // them out (the live line never carries them, so its copies stay small). `None` in a state saved before the raffle.
+  raffle_book : opt RaffleBook;
+};
+// A step of this flow on the money line.
+type SolNftStep = variant {
+  // The advance `M[i] → K_main` and the purchase of `asset`, in one transaction (`link` the advance's chain link, `cost` its lamports).
+  Buy : record {
+    asset : blob;
+    venue : Venue;
+    coll : nat16;
+    cost : nat64;
+    link : nat64;
+  };
+  // 2026-10-12: the canister's address lookup table `key` for M2 purchases created and filled ([`table`]; `coll` the collection whose
+  // M2 ask waited for it). Moves no collection's money (`K_main` pays its rent).
+  Table : record { key : blob; coll : nat16 };
+  // The delivery of ticket `ticket`'s item to `to`.
+  Deliver : record { to : blob; ticket : nat64; coll : nat16 };
+};
+// What the operator sees of one collection: its knobs, the last read (asks and floor) and what is in flight.
+type SolNftView = record {
+  m2 : bool;
+  off : bool;
+  out : opt text;
+  floor_note : text;
+  floor : opt SolFloor;
+  read_at : nat64;
+  pending : opt PendingChange;
+  collection : text;
+  arrival : opt Arrival_1;
+  asks : vec AskView;
+  coll : nat16;
+  // Items in custody at `K_main`: `(mint, signature that brought it, cost)`.
+  held : vec record { text; text; nat64 };
+  signed_today : nat32;
+  note : text;
+  premium_bps : nat16;
+  // The canister's M2 lookup table (2026-10-12, `table`): its address, and whether its creation landed (`None`: not made yet; it is
+  // made when an M2 ask first waits for it).
+  lookup_table : opt record { text; bool };
+  standard : Standard;
+  floor_at : nat64;
+  candidates : nat32;
+  evidence_at : nat64;
+};
+// B1's home step on the line (`EthState.sol.pending`): kept to decode a state saved by B1; [`migrate`] moves it to [`LinePending`].
+type SolPending = record { at : nat64; step : Step; intent : nat64 };
+// The standard a listing is dominated by. A Token Metadata listing (`Legacy`, `Programmable`) accepts both kinds of member (some
+// collections migrated part of their items); a `Core` listing only Core assets.
+type Standard = variant { Programmable; Core; Legacy };
+type State = variant {
+  // The deposit went back.
+  Refunded;
+  // An operation of the intent landed and nothing is pending (a later deposit is a new operation until it expires).
+  Done;
+  // Waiting for a deposit (or for one that reaches the minimum).
+  Open;
+  // A transaction is out.
+  Executing;
+  // A finalized deposit is there; the next tick acts on it (retrying a refusal that may pass).
+  Funded;
+  // Nothing was ever deposited and 24 h passed.
+  Expired;
+};
+// Which of our home-chain calls a saved transaction is.
+type Step = variant {
+  // docs/v7/dormant-collections.md §5: the permissionless `FloorModule.fill(coin)` of a graduation queued while the module was stale.
+  Fill : record { collection : blob; coin : blob };
+  Record : record { wrapper : blob; ticket : nat };
+  Mark : record { wrapper : blob; ticket : nat };
+  Mint : record { buy : nat64 };
+  Deposit : record { buy : nat64 };
+  Post : record { collection : blob };
+  // Round 3 (D3-H-1): `noteSent(ticket, tx)`: the delivery mined on Ethereum.
+  Sent : record { wrapper : blob; ticket : nat };
+  MintDeposit : record { tx : blob };
+  GiveBack : record { buy : nat64 };
+  // Independent review DI-M-1: `WakeDesk.markServed(id)`: the post that served the collection's desk request, recorded inside its window.
+  Served : record { id : nat64; collection : blob };
+  Settle : record { buy : nat64 };
+  Advance : record { buy : nat64 };
+};
+// Who a frog is for. `None` on the record: inventory.
+type Target = variant {
+  // A mint-desk request: minted to the desk, then `fulfill(id, cost)`.
+  Desk : nat64;
+  // An item sink (a collection's buy queue, or a graduating curve): minted to it, then reported (`itemsink.rs`).
+  Sink : blob;
+};
+// What the scanner keeps (inside `redeem::Custody`, so it survives upgrades).
+type TicketLogs = record {
+  // The response cap the next page asks with; `None` is the first of [`LOG_CAPS`] (audit R2, N-1).
+  cap : opt nat64;
+  // The end of a range known to be too big for a page: until the cursor passes it, or its dense block is read, pages inside it
+  // ask at the cheap cap and a failure halves rather than retrying at a larger cap (audit R2, N-1; audit R3, R3-C1: the span
+  // still doubles after each success, so the scan grows back to full pages).
+  hot : opt nat64;
+  // `(block, ticket)`: a ticket whose events in that block every provider answered too big even alone. Loud; asked again once a
+  // tick (audit R3, R3-C2), dropped once read or no longer wanted.
+  unreadable : opt vec record { nat64; nat64 };
+  // Scans in a row that failed, and the last reason: the watcher's alarm.
+  failures : nat32;
+  last_error : opt text;
+  // `Resolved`, per ticket: the acquisition id (a deposit's carried as bit 127).
+  resolved : vec record { nat64; nat };
+  // A fast pin at which every ticket was accounted for: nothing relevant lies below it (less [`IDLE_RESCAN_BLOCKS`]).
+  idle_through : opt nat64;
+  // The last block read, inclusive. `None`: not started.
+  cursor : opt nat64;
+  // `Redeemed`, per ticket: the destination. More than one distinct per ticket is kept, and refused at use.
+  redeemed : vec record { nat64; text };
+  // Blocks per page now; `0` means [`MAX_LOG_SPAN_BLOCKS`].
+  span : nat64;
+  // How many blocks were read by ticket so far (for the watcher: a dense block is somebody's burst).
+  dense_blocks : opt nat64;
+  // The finalized block at the last read.
+  finalized : opt nat64;
+  // A block too big to read whole, being read by ticket.
+  dense : opt Dense;
+};
+type TicketSummary = record {
+  id : nat64;
+  destination : text;
+  deliver_by : int64;
+  undeliverable : bool;
+  stage : text;
+  item_id : nat32;
+};
+// The canister timer's last run (W14b).
+type TimerSeen = record {
+  skipped : nat64;
+  // Whether the last run found work (busy cadence) or none (idle cadence).
+  busy : bool;
+  // Runs since install or upgrade, and runs that found a tick already running (they did nothing).
+  runs : nat64;
+  next_at : nat64;
+  // When it last ran (unix seconds), and when it runs next.
+  last_run : nat64;
+};
+// # Transform Args.
+// 
+// ```text
+// record {
+// response : http_response;
+// context : blob;
+// }
+// ```
+// 
+// See [`TransformContext`].
+type TransformArgs = record {
+  // Context for response transformation
+  context : blob;
+  // Raw response from remote service, to be transformed
+  response : HttpRequestResult;
+};
+type Treasury = record {
+  // The operations address (a Solana wallet: the fueler's hot key, §9.2); unset, its share joins the reserves pot.
+  ops : opt blob;
+  round_total : nat64;
+  round_paid : nat64;
+  pending_raffle_bps : nat16;
+  round_weights : vec nat64;
+  total_to_reserves : nat64;
+  total_to_raffles : nat64;
+  reserves_bps : nat16;
+  reserves_pot : nat64;
+  ops_bps : nat16;
+  total_received : nat64;
+  // Registered collections, by index (the canister's collection ids).
+  collections : vec nat16;
+  total_allocated : nat64;
+  pending_ops_at : int64;
+  pending_raffle_at : int64;
+  pending_reserve_cap_bps : nat32;
+  pending_ops_bps : nat16;
+  reserve_cap_bps : nat32;
+  raffle_bps : nat16;
+  round_pot : nat64;
+  round_started_at : int64;
+  // Booked income not yet allocated (rook_core: the account's lamports above `reserves_pot`).
+  unallocated : nat64;
+  pending_shares_at : int64;
+  pending_ops : opt blob;
+  total_to_ops : nat64;
+  pending_reserve_cap_at : int64;
+  pending_reserves_bps : nat16;
+};
+// The treasury and the cranks as the operator and the site see them (§10.1 `treasury()`).
+type TreasuryStatus = record {
+  off : bool;
+  claims : vec record { nat32; PendingClaim };
+  drand_disagreement : opt record { nat64; nat64; text };
+  last : vec record { text; nat64; text };
+  owed : vec Owed;
+  resumes : vec record { Resume; nat32; nat64 };
+  commits : vec record { nat32; PendingCommit };
+  waits : vec Wait_1;
+  treasury : Treasury;
+};
+// A step of the treasury on the crank line.
+type TreasuryStep = variant {
+  // `K_tre → ops`: the ops share owed, to the fueler's hot key.
+  Ops : record { to : blob; lamports : nat64 };
+  // `K_tre → M[i]`: a collection's distributed surplus, owed by the treasury; a link: the module's surplus is credited when it lands.
+  Surplus : record { lamports : nat64; coll : nat32; link : nat64 };
+  // Review F11: `M[i] → K_tre`, a module's revenue above its target (`Books::skim`, booked as treasury income at begin; a link).
+  Skim : record { lamports : nat64; coll : nat32; link : nat64 };
+  // Review F11: a ticket's refund: ONE wX re-minted to its owner at the module's mint (`Books::refund`; a link).
+  Remint : record { ticket : nat64; owner : blob; coll : nat32; link : nat64 };
+  // A raffle's prize: the pot buys one whole wX at the module's mint (`K_tre → M[i]`, `MintTo` the treasury's wX account; a link).
+  Prize : record { coll : nat32; link : nat64; price : nat64 };
+  // `K_fc → K_tre`: SOL that arrived at the claimer (ROOK's fees: a SOL-paired coin's claims land there as SOL), booked as income
+  // when it lands (§9.1, §16).
+  ClaimerSweep : record { lamports : nat64 };
+  // A raffle's claim: one whole wX from the treasury's wX account to the winner's.
+  Claim : record { coll : nat32; winner : blob; round : nat64 };
+};
+type TxView = record {
+  at : nat64;
+  op : text;
+  result : text;
+  signature : text;
+  link : nat64;
+  memo : text;
+};
+// One graduated coin's vault book and address.
+type VaultView = record {
+  vault : opt text;
+  coin : text;
+  coll : nat32;
+  pool : text;
+  wx_paid : nat64;
+  stage : text;
+  backed_at : nat64;
+  coins_burned : nat64;
+  wx_in : nat64;
+};
+type Venue = variant { M2; Mmm; Tensor };
+type Verdict = variant {
+  // A fault in the bytes: slashed once the board allows.
+  Invalid : record { why : text };
+  // Not fillable, through no fault in the bytes (sold elsewhere, under the policy minimum, our purchase never confirmed):
+  // never tried again; the submitter takes the bond back at expiry.
+  Gone : record { why : text };
+  Claimed;
+  // Judged and signed for frog record `frog`; the claim is due once that frog is held.
+  Bought : record { frog : nat64 };
+  Slashed;
+};
+type VerdictRec = record {
+  at : nat64;
+  id : nat64;
+  verdict : Verdict;
+  board : blob;
+};
+type WPhase = variant {
+  // The line says `Arrived`: the NFT is ours on its chain. Its unit is minted to the module by the NFT wrapper's custodian
+  // mint (docs/v4/nft-wrapper.md §5.2, not on this branch); the claim waits for it to show at the module.
+  Arrived : record { cost_wei : nat; token_id : text; tx_hash : text };
+  // Nothing of ours was spent (the sink stopped wanting it, or the purchase reverted or was superseded). Finished.
+  Failed : record { why : text };
+  // `itemArrived(cost)` sent and mined. Finished.
+  Claimed : record { cost_wei : nat; token_id : text; tx_hash : text };
+  // Signed on the collection's chain (the NFT line holds the bytes); waiting for the line to settle.
+  Signed : record { cost_wei : nat; token_id : text; tx_hash : text };
+  // Waiting for the relayer to hand in an order for any token of the collection, at most `cap_wei`.
+  Wanted;
+};
+// A step that could not be made, and why: skipped by scans until `retry_at`. The monitor pages one older than its threshold.
+type Wait = record {
+  key : text;
+  why : text;
+  tries : nat32;
+  retry_at : nat64;
+  since : nat64;
+};
+type Wait_1 = record {
+  key : text;
+  why : text;
+  tries : nat32;
+  retry_at : nat64;
+  since : nat64;
+};
+// What asked for a wake.
+type WakeBy = variant {
+  // A graduation queued at the module (`gradEth() > 0`): owed.
+  Graduation;
+  // The operator's `eth_wake`.
+  Operator;
+  // A bonded request on the `WakeDesk` (its id and requester).
+  Desk : record { id : nat64; requester : blob };
+  // A valid deposit of the collection (an NFT really sent to us): owed.
+  Deposit : record { tx : blob };
+};
+// A mined Relay deposit being watched.
+type Watch = record {
+  // Round 3 (E3-M-1): the Ethereum pin `eth_before` was read at. The watch is read again only at a pin at or above it (and above
+  // every spend `eth_out` counts): a pin that moved back sees neither a counted spend nor this watch's own start.
+  pin : opt nat64;
+  // Review round 5 (C5-L-1): Relay's request id for this order (the quote's `steps[0].requestId`), which Relay's own fill carries in
+  // its calldata: with the order id, what names a payout as this order's.
+  request_id : opt blob;
+  // Our home-chain balance as the deposit left it: a refund raises it again.
+  balance_after : nat;
+  // Review round 4 (C4-M-1): the order's solver (`orderData.solver`, bound by the order id). Review round 5 (C5-L-1): Relay's one
+  // solver for every order, so it no longer names this order on its own; kept for the record.
+  solver : opt blob;
+  value : nat;
+  // Review round 5 (C5-L-1): the 4663 pin when the order was deposited: a payout on 4663 mined at or before it is not this order's.
+  home_pin : opt nat64;
+  min_out : nat;
+  deadline : nat64;
+  eth_out_before : nat;
+  // Our Ethereum balance, and what our Ethereum transactions had spent in all, just before the deposit.
+  eth_before : nat;
+  order_id : blob;
+};
+// What a mined deposit is watched for.
+type Watch_1 = record {
+  // Our balance as the deposit left it (before less the deposit): a refund raises it again.
+  balance_after : nat;
+  value : nat;
+  min_sats : nat64;
+  deadline : nat64;
+  order_id : blob;
+};
+type XPhase = variant {
+  Minting;
+  // It stays at our address and the operator looks: a return that cannot be judged or signed (the token is held or in use, the
+  // simulation refuses, the collection is no longer configured). Nothing mints for it.
+  Held : record { why : text };
+  // Final and ours: `mintDeposit` is the next home-chain act (then `Minting`).
+  Mint;
+  // A valid deposit, verified at a pin; waiting for Ethereum finality.
+  Seen;
+  // Not mintable (no claim data, garbled data, another wrapper, moved by an operator or a contract, or no custody room): it
+  // goes back to its own `Transfer`'s sender once its block is final (docs/v7/phase1-nft.md §2.4, D5).
+  Return : record { why : text };
+  Minted;
+  // The return is on the Ethereum line.
+  Returning : record { tx : blob };
+  // Nothing of a configured collection reached us in this transaction, or it is no longer ours.
+  Refused : record { why : text };
+  Returned : record { tx : blob };
+};
+service : (Init) -> {
+  // Give a purchase up before any BTC is spent: its ETH goes back to the vault (or, never pulled, the announcement is
+  // cancelled) on the next ticks. Refused once it has bridged, and while one of its EVM transactions is out.
+  abandon : (nat64) -> (Result);
+  // The operator registers a plain-sat custody output as a fee input (audit D, H-4). Only a claim: every use checks it on every
+  // explorer (custody's script, confirmed, unspent, this value) and on ord (carrying nothing) before it pays a fee.
+  add_custody_fee_input : (text, nat64) -> (Result);
+  // An ord of one's own (its recursive endpoints), as one more provider. At most two, https only, never the same base twice.
+  add_ord_provider : (text) -> (Result);
+  // `eth_getBlockByNumber(pin)`, projected to `{number, hash, baseFeePerGas}`.
+  block_at : (TransformArgs) -> (HttpRequestResult) query;
+  // Every listed collection's id and wX mint.
+  books_collections : () -> (vec record { nat16; text }) query;
+  // One collection's books (§10.1): the module's numbers, the ledger, every held item with its custody proof, the open tickets.
+  books_view : (nat16) -> (opt BooksView) query;
+  // A transaction's presence, reduced before consensus to `present`/`absent`, so that a body which differs only in
+  // presentation (fee estimates, a status that moved between two nodes' requests) cannot break agreement on the one fact read.
+  btc_presence : (TransformArgs) -> (HttpRequestResult) query;
+  // Ask the explorers again about a transaction, replicated. Operator only: each call spends cycles.
+  btc_tx_status : (text) -> (BtcSeen);
+  // The buyer's taproot address, beside the custody one, so the two can be compared.
+  buyer_address : () -> (Result);
+  // Keeps only what a balance is made of, confirmed: `{"funded": n, "spent": n}`. Everything else, mempool included, moves
+  // between the moments different replicas ask.
+  chain_stats_only : (TransformArgs) -> (HttpRequestResult) query;
+  // Audit D, I-2 (accepted, documented): the operator can clear the key, and on mainnet UniSat is then no provider, so contents
+  // cannot be verified by two providers and every buy and delivery waits (fail closed). That is a denial of service the
+  // operator can already cause by not ticking; it can never make custody sign anything. An ord the operator adds can only
+  // refuse: every provider must agree, and ordinals.com is always one of them on mainnet.
+  clear_unisat_key : () -> (Result);
+  // Every pinned collection: its stage, its wX mint and DBC config, its coins (§10.1).
+  coins_collections : () -> (vec CollectionView) query;
+  // The operator leaves an account's coins out of the supply a redemption divides by (§7), or counts it again: applied by the coins'
+  // pass a day later (audit B3-11: it moves every redemption's value, as the treasury's setters do, so it waits as they do); asked
+  // again before then, the later ask replaces the earlier and the clock restarts.
+  coins_exclude_from_supply : (text, bool) -> (Result);
+  // The accounts left out of a redemption's supply, and the changes waiting their day (`(account, excluded, when)`), base58.
+  coins_exclusions : () -> (vec text, vec record { text; bool; nat64 }) query;
+  // The coins' fee books, waits, last landings, and the opening queue (`(collection, asked at)`, oldest first: `coins_request_open`).
+  coins_log : () -> (
+      vec record { nat32; FeeBook },
+      vec Wait,
+      vec record { text; nat64; text },
+      vec record { nat32; nat64 },
+    ) query;
+  // The opening queue, oldest request first, with what the canister waits on for each (audit C4-12: the site shows the truth).
+  coins_open_queue : () -> (vec OpenStatus) query;
+  // The operator pins a collection (its wX name, its curve, its books parameters): opened when a creator first asks for it
+  // (`coins_request_open`), or in index order under `coins_set_auto_open(true)`, as the float allows.
+  coins_pin : (CollectionPin) -> (Result);
+  // Anyone (the anonymous principal too) asks a pinned collection to open: the first creator to launch a coin on it (operator decision
+  // 2026-10-12, "we don't select, the people do"). Idempotent; refused for an index that is not pinned, open or refused, whose pipeline
+  // is not ready (audit C4-03), while the module is off or the install has no home (C4-11), and beyond the queue's bounds (C4-02:
+  // `open::check_request`). The canister opens the requested collections oldest first, ≈ 0.023 SOL from the float each, on its next
+  // ticks; `coins_collections` shows `Requested`, then `Opening`, then `Open`; `coins_open_queue` the queue and what it waits on.
+  coins_request_open : (nat32) -> (Result);
+  // Audit C4-01: the operator clears a collection's refusal (once the cause is looked at) and queues it again under its own index and
+  // symbol; the pass reads its chain side afresh and refuses again what is still wrong.
+  coins_retry : (nat32) -> (Result);
+  // The operator's switch: with no request pending, open the pinned collections in index order anyway (the float left over), or (the
+  // default, off) only on request. Audit C4-11: switching it on starts spending, so it waits for the pause like any act; switching it
+  // off only stops, and stays allowed while paused.
+  coins_set_auto_open : (bool) -> (Result);
+  // The operator switches the coins module off (nothing signs) or on again.
+  coins_set_off : (bool) -> (Result);
+  coins_vault : (text) -> (Result_1) query;
+  // The vault books of a collection's coins, and one coin's (§10.1 `coin_vaults(coll)`, `coin_vault(coin)`).
+  coins_vaults : (nat32) -> (vec VaultView) query;
+  // The operator switches the cranks off (nothing signs, nothing is booked) or on again.
+  cranks_set_off : (bool) -> (Result);
+  // The custody output key and address, for the wrapper's `custodyAddress` and for anyone checking where the frogs are. Its
+  // derivation path differs from the buyer's, so its address differs: a purchase can never sign for a frog.
+  custody_address : () -> (Result);
+  // `eth_getBlockByHash(pin)`: the block's hash, timestamp and parent-chain number (`l1BlockNumber` on Nitro; `number` on a
+  // chain without one, where `block.number` is its own), as `<hash> <timestamp> <parent>`.
+  custody_block_clock : (TransformArgs) -> (HttpRequestResult) query;
+  // What custody may hold and holds, for anyone (the proof-of-reserves page reads it): the caps in force, and per collection
+  // what is held, in flight, and left.
+  custody_caps : () -> (CapPolicy, vec Headroom) query;
+  // esplora's `/fee-estimates`: one bounded whole-number rate.
+  custody_fee : (TransformArgs) -> (HttpRequestResult) query;
+  // Custody's fee inputs as the canister knows them (audit D, H-4).
+  custody_fee_pool : () -> (FeePool) query;
+  // The outbound limits in force and the limiter (what went out and asked to in the last day, and whether custody is frozen),
+  // for anyone: the watcher alerts on a freeze.
+  custody_outflow : () -> (Limits, Outflow) query;
+  // esplora's `/tx/<txid>`, output `vout` (in the context, big-endian u32): the output as JSON.
+  custody_output : (TransformArgs) -> (HttpRequestResult) query;
+  // esplora's `/tx/<txid>/outspend/<vout>`: `true` or `false`.
+  custody_outspend : (TransformArgs) -> (HttpRequestResult) query;
+  // esplora's `/scripthash/<h>/utxo`: our CONFIRMED UTXOs, sorted, as JSON (a mempool entry moves between replicas).
+  custody_utxos : (TransformArgs) -> (HttpRequestResult) query;
+  // The buyer's balance, for anyone. After the handover its only controller is the timelock, so `canister_status` answers
+  // nobody else; this is how a holder, or the watcher, sees it running low. Anyone may top it up.
+  cycles : () -> (Cycles) query;
+  // The operator registers a collection in the books (parameters fixed for good). `wx_mint` is the base58 wX mint.
+  desk_add_collection : (nat16, text, ListingKind, Params) -> (Result);
+  // The operator, having looked: collection `coll` runs again after an incident (its public mint stays paused until lifted).
+  desk_clear_halt : (nat16) -> (Result);
+  // The operator (or the guardian, through the timelock) pauses a collection's public mint at once, or asks for its resume, which the
+  // cranks apply a day later (§10.4; audit B3-01: no method lifts a pause at once). Burns, redemptions and refunds go on.
+  desk_pause_collection : (nat16, bool) -> (Result);
+  // The operator runs a reconciliation now (settling first): the books against the chain at finalized, and the memo scan.
+  desk_reconcile : () -> (Result_2);
+  desk_requests : () -> (vec ReqRec) query;
+  // Audit B1-11: the operator decides a STUCK link (signed, absent from its line, unknown to the chain for `ORPHAN_SECS`): the chain is
+  // asked first by the signature and its finalized verdict wins; unknown to the chain, only `landed = false` is taken (undone: the
+  // books restored), on the operator's word that the transaction can never land.
+  desk_resolve_link : (nat64, bool) -> (Result);
+  // The operator turns on coin redemption (once the coin desk's executor is wired).
+  desk_set_coin_redeem : (bool) -> (Result);
+  // The operator stops (or resumes) the whole desk: no new intent, no new mint, burn or redemption; open deposits are still returned.
+  desk_set_paused : (bool) -> (Result);
+  // The desk, the pending-ledger and the last reconciliation.
+  desk_status : () -> (DeskStatus) query;
+  // The operator books the lamports found at `M[coll]` above the books (an unsolicited transfer, a gift) as surplus.
+  desk_sweep_unbooked : (nat16) -> (Result_3);
+  // The transform every drand outcall names.
+  drand_tf : (TransformArgs) -> (HttpRequestResult) query;
+  // Review round 4 (C4-M-1): the operator hands in the transaction that paid out a written-off Relay order late (Relay's status names
+  // it), on chain 4663 or on Ethereum (`chain_id`). `wei` is what it paid only when the transaction itself does not show it (a refund
+  // paid from inside the depository's call; 0 otherwise). Judged at the next tick against that order alone (`ethflow::judge_payout`)
+  // and credited to its own buy and collection.
+  eth_credit_payout : (nat64, nat64, text, nat) -> (Result);
+  // A holder's deposit claim (docs §2.4): refused while `eth_nft.deposits` is off.
+  eth_deposit : (text) -> (Result);
+  // docs/v7/dormant-collections.md §5 (dormant-review DR-M-2): the operator names the coin of a graduation queued at an ACTIVE collection's
+  // module (its `GradQueued` event), for the fill hunt to try first. The factory, the module and the curve are read before `fill` is signed.
+  eth_fill : (text, text) -> (Result);
+  // The runner hands in floor evidence for a collection: up to 8 Seaport listings. Sale hashes (up to 12) are still accepted for the
+  // interface's sake and NOT used (audit 2026-09-27-nft round 2, A-M-1 / B2-M-1): the canister reads the collection's sales itself.
+  eth_floor_evidence : (text, vec text, vec text) -> (Result);
+  // The operator's exit: a funded (or stuck while bridging) buy's ETH on the home chain goes back to its module.
+  eth_give_back : (nat64) -> (Result);
+  // Review round 5 (F5-M-1): the operator's word, after looking, on the pending 4663 transaction that no provider shows, whose nonce is
+  // used and that the canister could not identify (`ethflow::home_clear`): `mined` or not. Applied at the next tick unless the chain
+  // shows it first.
+  eth_home_clear : (nat64, bool) -> (Result);
+  // Review round 5 (C5-M-1): the operator releases a written-off Relay order's hold on the Relay leg, once Relay's own records show where
+  // its ETH went (`ethflow::late_release`). New Relay orders start again.
+  eth_late_release : (nat64) -> (Result);
+  // The operator's exit from a halted Ethereum line (a transaction that is not ours took its nonce), after looking: the record goes
+  // back to before its signature and is judged again from the start (`ethflow::line_clear`).
+  eth_line_clear : () -> (Result);
+  // 2026-10-12: `eth_line_clear` for the side of `chain_id` (a Robinhood Chain collection's line is its own, on 4663).
+  eth_line_clear_on : (nat64) -> (Result);
+  // The runner hands in a Seaport listing for an arrived buy (`fulfillBasicOrder` / `fulfillAdvancedOrder` calldata). Judged at
+  // the next tick against our floor, what arrived, and every Seaport rule at an Ethereum pin.
+  eth_listing : (nat64, text) -> (Result);
+  // docs/v7/dormant-collections.md §11: how many collections can be awake right now on the canister's own cycles balance (read now), how
+  // many are and how many hold positions, and the wakes that fit. `None` without a dormancy.
+  eth_nft_capacity : () -> (opt Capacity) query;
+  // docs/v7/dormant-collections.md §4.2: every configured collection's life (`always-on`, `dormant`, `queued`, `waking`, `active`), with
+  // the status the site shows ("warming up (~N min)"). For the runner (which hands in evidence only for what is awake), the monitor and
+  // the site.
+  eth_nft_collections : () -> (vec CollectionLife) query;
+  eth_nft_config : () -> (opt EthNftConfig) query;
+  // Everything this side keeps: the buys, deliveries, deposits, floor readings, both lines. For the runner, the monitor and the
+  // reserves page.
+  eth_nft_state : () -> (EthState) query;
+  // 2026-10-12: `eth_nft_state` of the side of `chain_id` (the config's own chain: `eth_nft_state` itself). `None`: no collection there.
+  eth_nft_state_of : (nat64) -> (opt EthState) query;
+  // Our own receipt at or below the pin: `{blockNumber, status, gasUsed, effectiveGasPrice}`.
+  eth_our_receipt : (TransformArgs) -> (HttpRequestResult) query;
+  // Round 4 (C4-M-1): a transaction projected for the payout judge (`evmsend::payout_view`).
+  eth_payout_view : (TransformArgs) -> (HttpRequestResult) query;
+  // A stray held for the operator goes back to its return path, judged again with every check (`ethflow::rearm_stray`).
+  eth_rearm_stray : (text, text) -> (Result);
+  // A receipt at or below the pin in the context, projected to `{blockNumber, status, logs}` (`ethnft::receipt_projection`).
+  eth_receipt_logs : (TransformArgs) -> (HttpRequestResult) query;
+  // The runner hands in Relay's quote for a funded buy (4663 → Ethereum, to our own address). Judged at the next tick
+  // (`relayeth::judge`); nothing in it is trusted that is not recomputed.
+  eth_relay_quote : (nat64, text) -> (Result);
+  // Round 4 (B4-H-1): one block's marketplace sale logs that name the collection in the context (`ethnft::sale_logs_body`).
+  eth_sale_logs : (TransformArgs) -> (HttpRequestResult) query;
+  // A collection's `Transfer` logs projected to `[[txHash, blockNumber, tokenId, from], …]` (`ethnft::transfer_logs_body`, audit 2026-09-27-nft round 2:
+  // the canister's own sale scan).
+  eth_transfer_logs : (TransformArgs) -> (HttpRequestResult) query;
+  // A transaction projected to `{from, to, input, blockNumber}`, lower-cased.
+  eth_tx_view : (TransformArgs) -> (HttpRequestResult) query;
+  // docs/v7/dormant-collections.md §3.1: the operator asks for a collection's wake. It is queued; the caps (`max_active`, `max_waking`,
+  // `wakes_per_day`, the cooldown) decide when it runs, as for a bonded request on the WakeDesk.
+  eth_wake : (text) -> (Result);
+  // The buyer's EVM address: the low 20 bytes of the keccak of its uncompressed public key. The vault is constructed with this
+  // address and can send to no other.
+  evm_address : () -> (Result);
+  // Ask the chain again about a transaction this canister sent, replicated. Controller only: each call spends cycles.
+  evm_tx_status : (text) -> (EvmSeen);
+  // `eth_getBlockByNumber("finalized")`, projected to its number rounded down to the bucket in the context (H9).
+  finalized_bucket : (TransformArgs) -> (HttpRequestResult) query;
+  // The home chain's finalized block's timestamp, rounded down to the minute (`pin::finalized_time_body`, the H9 rule on this side).
+  finalized_time : (TransformArgs) -> (HttpRequestResult) query;
+  // The float's address and output key: fund it with plain sats (one frog's worth) to front purchases.
+  float_address : () -> (Result);
+  // The float's untweaked x-only internal key, hex: what Ordinals Wallet's build asks for as `public_key` (the address is built
+  // from the tweaked output key, `float_address`).
+  float_internal_key : () -> (Result);
+  // What the chain's line says about a signed want: arrived (the NFT is ours at a pin), or reverted / superseded (nothing of
+  // ours was spent but gas). Read from the line, never taken from the caller.
+  floor_nft_arrived : (nat64) -> (Result);
+  // Hand in a Seaport order for an EVM want: checked (`nft_preview`, every rule of docs/v4/eth-nft-canister.md §6 and §12)
+  // against a target recorded at the want's cap, then its cost against the want and the collection's limits, and only then
+  // signed and saved on the chain's line (`nft_sign`). `nft_send` / `nft_status` are the existing endpoints.
+  floor_nft_sign : (nat64, text, text) -> (Result);
+  floor_state : () -> (FloorState) query;
+  // The frog buys: `coll`'s (an Inscriptions listing on the books home), or every collection's when none is named.
+  frog_buys : (opt nat16) -> (vec FrogRec) query;
+  // Every Inscriptions listing in the books, live or asleep (the runner feeds each live one: `frog_floor_reading(coll, …)`; default-live:
+  // every listing the operator has not put to sleep).
+  frog_collections : () -> (vec FrogCollection) query;
+  // Every Relay conversion, for the runner, the monitor and the reserves page: `coll`'s (an Inscriptions listing on the books home), or
+  // every collection's when none is named.
+  frog_conversions : (opt nat16) -> (vec ConvRec) query;
+  // Phase B2, the Solana home: a BTC floor reading for the frog listing (satoshis per frog, the reader's confidence and depth), posted at
+  // the next tick as `post_floor` in the books, in lamports at the canister's own SOL/BTC rate, clamped into the module's bounds (the
+  // canister is the poster; while the poster is paused the reading is dropped, loud). Replaces a reading not yet posted. Operator-only.
+  frog_floor_reading : (nat16, nat64, nat16, nat32) -> (Result);
+  // The relayer hands in a marketplace offer for a wanted frog record. Judged in full at the next tick; a bad offer wastes a
+  // tick and nothing else.
+  frog_offer : (nat16, nat64, text, text, vec nat32, vec text) -> (Result);
+  // The runner hands in a protected Ordinals Wallet sale for a wanted frog record (docs/v8/ow-protected.md §3.4): the build's
+  // sale PSBT, its parent (the passthrough's raw bytes), the listing, the setup PSBT when the build made one, and the membership
+  // proof. Nothing is judged here: the next tick judges it in full (`owbuy::judge_protected`), signs the float's inputs and hands
+  // the PSBTs back (`frog_protected_signed`). It replaces any earlier offer for that frog, of either kind.
+  frog_offer_protected : (
+      nat16,
+      nat64,
+      text,
+      text,
+      text,
+      ProtectedListing,
+      opt text,
+      vec text,
+    ) -> (Result);
+  // esplora's `/tx/<txid>/outspend/<vout>`: `none`, or `<spending txid> <confirmed>`.
+  frog_outspend : (TransformArgs) -> (HttpRequestResult) query;
+  // A membership proof for an inscription (a holder deposit's, typically): verified against the listing root at every use.
+  // 
+  // Ordinals multi-collection: the proof names its collection (`coll`, the members file the runner proved it from): on the books home
+  // it is checked against that listing's root at once (a non-member is refused here, not at a later use) and kept in that collection;
+  // custody's classification still tries every proof handed in against every live root (`frogsol::multi::route`).
+  frog_proof : (nat16, text, vec text) -> (Result);
+  // The signed sale (and setup) PSBTs of a frog handed back to the runner; `None` unless the frog is `Handed`. The operator's.
+  frog_protected_signed : (nat64) -> (opt ProtectedSigned) query;
+  // The operator puts an Inscriptions listing to sleep (default-live: the per-collection brake): no floor reading, no book read, no buy;
+  // refused while anything of it is open. Its redemptions go on. Audit C2-02: also refused while it holds the one Relay leg (a written-off
+  // order still watched) or has an outcome on the Solana line it has not read yet (a dormant listing is never ticked, so neither would
+  // ever be read).
+  frog_sleep : (nat16) -> (Result);
+  // A bare number or hash (esplora's `/blocks/tip/height`, `/block-height/<h>`), trimmed and lower-cased.
+  frog_text : (TransformArgs) -> (HttpRequestResult) query;
+  // esplora's `/tx/<txid>`: the transaction reduced to what the deposit checks read (`deposits::TxView`), as JSON.
+  frog_tx_view : (TransformArgs) -> (HttpRequestResult) query;
+  // Ordinals multi-collection (docs/v9/ordinals-collections.md §5): the operator wakes an Inscriptions listing it put to sleep: from the
+  // next tick its floor reading is taken, its book read and its frogs bought. Default-live (operator decision 2026-10-12): every listing
+  // is live from install, so this only lifts the operator's brake (`frog_sleep`); no listing needs it to start. Audit C2-06: the outputs
+  // refused custody-wide are routed again (the live roots changed).
+  frog_wake : (nat16) -> (Result);
+  // Every verdict: what was bought (and for which frog record), what was invalid (and why), what is gone, claimed or slashed.
+  handin_verdicts : () -> (vec VerdictRec) query;
+  // `eth_blockNumber`, rounded down to a multiple of the bucket in the context, so nodes asking moments apart agree.
+  head_bucket : (TransformArgs) -> (HttpRequestResult) query;
+  holder_deposits : () -> (vec DepositRec_1) query;
+  // An intent's state, its deposit, its transactions.
+  intent_status : (nat64) -> (opt IntentView) query;
+  // One sink's progress, by address.
+  item_progress : (text) -> (opt Progress) query;
+  // "k of N" (or a queue's count), per sink, as of the last tick's pinned read: `coll`'s, or every collection's.
+  item_sinks : (opt nat16) -> (vec Progress) query;
+  // A JSON-RPC state read in one canonical shape (`pin::json_rpc_norm_body`, audit 2026-09-27-nft B-M-6): replicas agree on what
+  // the chain said, not on how the provider wrote it, and a revert is told apart from a failure.
+  json_rpc_norm : (TransformArgs) -> (HttpRequestResult) query;
+  // The pending-ledger from link `from`: every operation with its memo, its phase and its signature (anyone can replay it against Solana).
+  ledger_log : (nat64, nat64) -> (vec LinkView) query;
+  log : () -> (vec text) query;
+  // `eth_getLogs`, projected to what every provider agrees on, with each log's block (audit D, H-1).
+  logs_view : (TransformArgs) -> (HttpRequestResult) query;
+  // `eth_getBlockByNumber`, projected to `{number, hash, baseFeePerGas, timestamp}`.
+  nft_block_at : (TransformArgs) -> (HttpRequestResult) query;
+  nft_chain_status : (nat64) -> (Result_4);
+  // Check a handed-in order against the recorded target and the chain, and say what would be signed. Signs nothing.
+  nft_preview : (nat64, text, text, text) -> (Result_5);
+  // Send the saved bytes to every provider of the chain (one node each; replies are reports), then read the chain back.
+  // Safe to repeat: one nonce, at most one of them is ever mined.
+  nft_send : (nat64) -> (Result_6);
+  // Record the one token to buy on a chain and the most to pay for it, before any order exists. The cap is the keeper's (or,
+  // once B's registry exists, the registry's); an order never sets it. Replaces an earlier target for the same token.
+  nft_set_target : (nat64, text, text, nat) -> (Result);
+  // Check again, then build, sign and **save** the transaction. Nothing is sent: [`nft_send`] sends the saved bytes.
+  nft_sign : (nat64, text, text, text) -> (Result_5);
+  // Read back the purchase in flight on a chain and settle its line: arrived (mined, and `ownerOf` at the pin is us),
+  // reverted, superseded, or still waiting.
+  nft_status : (nat64) -> (Result);
+  // The boards, their params, and how many open hand-ins each has (with bytes).
+  offer_board_state : () -> (vec BoardView) query;
+  // Open an intent. Anyone (anonymous callers too); rate-limited per caller and per recipient, at most 200 awaiting a deposit and 300
+  // with one (audit B1-05).
+  open_intent : (OpenKind) -> (Result_7);
+  // Open a purchase for the loop: what to buy, for whom, and at most how much ETH. The id is the vault's next one, read now;
+  // nothing is announced here -- the next `tick` does that, and only with a venue and a bridge configured. Refused while any
+  // other purchase is unfinished (one at a time) and while no venue or bridge is configured.
+  open_purchase : (nat, text, nat, text, text) -> (Result_3);
+  // ord's `/r/utxo`, reduced to its runes by name (sorted), or `notfound`.
+  oracle_ord_view : (TransformArgs) -> (HttpRequestResult) query;
+  // Ordinals Wallet's address balance, reduced to sorted (id, name, amount) triples; icons and the rest are dropped.
+  oracle_ow_view : (TransformArgs) -> (HttpRequestResult) query;
+  // A ticker, reduced to its quantised price. The context's first byte names the source, the second (when present) the market
+  // (absent: ETH-BTC, as before the Solana home).
+  oracle_rate_view : (TransformArgs) -> (HttpRequestResult) query;
+  // A short text answer (a block hash, a txid, a height), trimmed; anything else is an error.
+  oracle_text_view : (TransformArgs) -> (HttpRequestResult) query;
+  // An esplora `/tx/<txid>`, reduced to its confirmation height and its outputs' scripts and addresses.
+  oracle_tx_view : (TransformArgs) -> (HttpRequestResult) query;
+  // The providers a read asks, by name and base. The key is not among what is shown.
+  ord_providers : () -> (vec record { text; text }) query;
+  // What the provider says an output carries (ord: the whole answer; UniSat: inscriptions and value, runes come separately): `none`, or JSON.
+  ordapi_contents : (TransformArgs) -> (HttpRequestResult) query;
+  // The provider's height, as text.
+  ordapi_height : (TransformArgs) -> (HttpRequestResult) query;
+  // Where the provider says the inscription (the context after the kind byte) is: `none`, or `<outpoint> <offset> <value>`.
+  ordapi_location : (TransformArgs) -> (HttpRequestResult) query;
+  // UniSat's runes on an output: a JSON list of names.
+  ordapi_runes : (TransformArgs) -> (HttpRequestResult) query;
+  // Review round 5 (F5-M-1): a block's transactions from the address in the context (`evmsend::our_txs_body`).
+  our_txs_view : (TransformArgs) -> (HttpRequestResult) query;
+  // §10.4: every collection's mint closes (the keeper switch: burns stay open).
+  pause_all_mints : () -> (Result);
+  // §10.4, a guardian's method (stop-only, effective at once): collection `coll`'s public mint and intents close; burns stay open by the
+  // module's own rules; redemptions keep running. Anyone trusted may stop it.
+  pause_collection : (nat16) -> (Result);
+  // §10.4: collection `coll`'s pool desk stops (its position stays; nothing signs for it).
+  pause_desk : (nat32) -> (Result);
+  paused : () -> (bool) query;
+  // For monitoring: `(ticket, txid)` for every frog delivered on Bitcoin and not yet recorded on chain, txid in display order. Only
+  // the wrapper's custodian (this canister) can record one; until it does, the ticket can be refunded after `deliverBy` + grace.
+  pending_delivery_records : () -> (vec record { nat64; text }) query;
+  // Diagnostic, read-only: take a pin exactly as the loop does and read `to` at it — an `eth_call` with `data` and its balance.
+  // It sends nothing and signs nothing; it is how the pinned path is shown working against a chain before the loop relies on it.
+  pinned_read : (text, text) -> (Result_8);
+  // Every collection's pool desk: its pair and position, its holdings, its fee income, its arbs (§10.1 `desk(coll)`).
+  pool_desks : () -> (vec DeskView) query;
+  // The desk's waits, its last landings by kind, and the last steps that landed.
+  pool_log : () -> (
+      vec Wait,
+      vec record { text; nat64; text },
+      vec record { nat64; PoolStep },
+    ) query;
+  // The operator switches the whole pool desk off (nothing signs; the books and the reads go on) or on again.
+  pool_set_off : (bool) -> (Result);
+  // Read-only diagnostics against Bitcoin MAINNET's indexers and explorers, whatever network this canister was installed for:
+  // how many units of `rune_id` transaction `txid` delivered to `recipient_script_hex`. Operator-only: each call spends cycles.
+  probe_delivered : (text, text, text) -> (Result);
+  // Read-only rehearsal on Bitcoin MAINNET, whatever this canister is installed for: where mainnet's providers agree
+  // `inscription_id` is, what every mainnet explorer says about that output, and whether this canister could send it from there
+  // (`custody::frog_at` against our own taproot script). Nothing is signed or sent.
+  probe_frog : (nat16, text) -> (Result);
+  // Read-only: the spaced name of `rune_id`, decoded from its etching as Bitcoin mainnet's explorers serve it.
+  probe_rune_name : (text) -> (Result);
+  // What the buyer believes, for anyone watching. Belief is a cache of two public chains, so publishing it costs nothing.
+  purchases : () -> (vec record { nat64; text }) query;
+  // What burning `units` wX base units of collection `coll` would pay now.
+  quote_burn : (nat16, nat64) -> (Result_9) query;
+  // What depositing `lamports` would mint of collection `coll` now (the recipient's token account assumed to need creating).
+  quote_mint : (nat16, nat64) -> (Result_10) query;
+  // The rounds of a collection whose snapshot is kept published.
+  raffle_rounds : (text) -> (vec nat64) query;
+  // A published raffle snapshot (docs/v9/raffle-design.md §4.6), `limit` leaves from `offset` (at most [`PAGE_LEAVES`]); `None` when the
+  // collection (base58 listing address) has no snapshot of that round kept.
+  raffle_snapshot : (text, nat64, nat32, nat32) -> (opt SnapshotPage) query;
+  // A collection's raffle as the books hold it (§10.1 `raffle(coll)`).
+  raffle_status : (nat16) -> (opt Raffle) query;
+  // `eth_getTransactionReceipt`, counted only at or below the pin in the context.
+  receipt_at_pin : (TransformArgs) -> (HttpRequestResult) query;
+  // Record the quote purchase `id` will be signed against: once, and only once it is funded. Today the controller supplies
+  // it; when the loop is wired, `Act::GetQuote`'s performer calls the same [`Purchase::record_quote`] with the venue's quote.
+  // Either way it is fixed **before** a PSBT is asked for, and cannot be replaced after.
+  record_quote : (nat64, Quote_1) -> (Result);
+  // Every redemption and where it is (every Inscriptions listing's on the books home; each names its ticket in its listing).
+  redemptions : () -> (vec Redemption) query;
+  // The rate and every source's reading, now. Operator-only: each call spends cycles on six outcalls and one XRC call.
+  reference_rate : () -> (Result_11);
+  // The operator's one say over a deposit: one waiting for a membership proof may be refused as not in the collection, which
+  // only ever leads to its return. Nothing else about a deposit is the operator's.
+  refuse_deposit : (text, text) -> (Result);
+  // The rehearsal's broadcast: the same [`broadcast_btc`] the loop uses, behind `rehearse_sign_sighash`'s guards: installed
+  // for the rehearsal network, and the caller names it again.
+  rehearse_broadcast_btc : (text, text) -> (Result_12);
+  // The rehearsal's broadcast: the same [`broadcast_evm`] a real buyer uses, behind [`rehearse_sign_evm`]'s guards (installed
+  // for the testnet, and the caller names it again) plus one more: the bytes themselves must be signed for the testnet.
+  rehearse_broadcast_evm : (nat64, text) -> (Result_6);
+  // Turn the rehearsal venue and bridge on or off. Only on an install that is NOT for chain 4663 and is for the rehearsal
+  // Bitcoin network: they exist so the EVM half of the loop can run end to end against a local chain, never where money is.
+  rehearse_fixtures : (bool) -> (Result);
+  // A funded purchase for the rehearsal to sign against. Real purchases are created from the vault's own ids by the loop,
+  // which is not wired yet; this exists only on a canister installed for [`REHEARSAL_NETWORK`], so it cannot invent an id on
+  // the network where the money is.
+  rehearse_open_purchase : (nat64, nat) -> (Result);
+  // Decode a transaction's output scripts with the canister's own [`crate::runestone::Runestone`], and say what it found.
+  // 
+  // The input is a JSON array of hex scriptPubKeys **in output order**, because an edict's output index only means anything
+  // against that order. The rehearsal feeds this the scripts of a transaction re-read from a block, so that what is decoded
+  // is what a chain holds rather than what the driver remembered.
+  rehearse_runestone_decode : (text) -> (Result) query;
+  // Encode a runestone with the canister's own [`crate::runestone::Plan`], and return the scriptPubKey as hex.
+  // 
+  // Pure: no key, no network, no state. It is exposed so that the transaction the runes rehearsal puts on signet carries
+  // **the buyer's encoding** rather than a second implementation written in the driver that would only ever agree with
+  // itself. `docs/v2/2026-09-22-evm-and-runes-rehearsals.md` is why.
+  // 
+  // The spec is JSON: `{"mint":"189444:15","pointer":0,"edicts":[{"id":"189444:15","amount":"1","output":0}]}`. Amounts are
+  // strings because a rune amount is a `u128` and JSON numbers are not.
+  rehearse_runestone_encode : (text) -> (Result) query;
+  rehearse_sign_evm : (nat64, text) -> (Result_13);
+  // The signet rehearsal's one entry point: sign a 32-byte sighash with the buyer's own taproot key, through
+  // [`sign_taproot`] and therefore through exactly the path a real purchase would take.
+  // 
+  // This is a blind signing oracle and it is named like one. It exists so that a Bitcoin node -- not a test in this
+  // process -- can be the thing that accepts a signature from this key. Three guards, none of which is a boolean default:
+  // 
+  // 1. the install must have named [`REHEARSAL_NETWORK`], which `init` already restricted to [`KNOWN_NETWORKS`];
+  // 2. the caller must name the network again, in the call, and it must be the same one. A caller that does not know which
+  // network it is building for does not get a signature;
+  // 3. the sighash must be exactly 32 bytes of hex.
+  // 
+  // What none of them can do is tell where the resulting 64 bytes are broadcast. The canister signs a hash; it never sees a
+  // network. That limit is real and is written down in `docs/v2/2026-09-22-signet-rehearsal.md` rather than glossed.
+  rehearse_sign_sighash : (text, text) -> (Result);
+  // Conversion review C-01: the operator gives up an arrival that has funded no buy for `relayconv::ARRIVED_EXIT_SECS` (7 days): what
+  // is at our 4663 address (less the gas keep, at most the advance) goes back to the module with `returnAdvance` at the next tick, the
+  // frog fails, the leg is freed, and the arrived sats stay in the float, recorded as the conversion's `abandoned_sats`
+  // (`convflow::arrived_exit_now`). It can send ETH nowhere but the module.
+  relay_arrived_exit : (nat64) -> (Result);
+  relay_give_back : (nat16, nat64) -> (Result);
+  // Conversion review C-03: the operator releases a written-off order's hold on the Relay leg, once Relay's own records show where its
+  // ETH went (`convflow::late_release_now`; the Ethereum side's `eth_late_release`).
+  relay_late_release : (nat64) -> (Result);
+  // The runner hands in Relay's quote for a funded conversion (docs/v6/relay-conversion.md §3.4). Nothing is trusted here: the
+  // next tick judges it against the canister's own reads (`relayconv::judge`) and signs the deposit only if every rule holds.
+  relay_quote : (nat64, text) -> (Result);
+  // The relayer hands in the venue's PSBT and the inputs it asks us to sign. Judged by `psbt.rs` against the RECORDED quote when
+  // the loop reaches it; a PSBT for anything else is refused there.
+  relay_venue_psbt : (nat64, text, vec nat32) -> (Result);
+  // The relayer hands in the venue's quote for the unfinished purchase (`relay.rs`). It is not recorded here: the loop checks it
+  // against the purchase's order and our holdings, and `record_quote`'s checks, before anything is recorded.
+  relay_venue_quote : (nat64, Quote_1) -> (Result);
+  // The operator removes a fee input from the pool, a candidate or a quarantined one (audit R2, N-4): a mistyped top-up, or one
+  // spent elsewhere. Adding it again restores it.
+  remove_custody_fee_input : (text) -> (Result);
+  // §10.4: a pause lifts 24 h after the resume is asked (the cranks apply it); asked again, the clock restarts.
+  resume : (Resume, nat32) -> (Result);
+  // The operator delists a listed item whose delivery-by-listing is recorded (§3.3): the canister moves it to a fresh custody
+  // outpoint at the next tick (cancelling the listing), re-deposits it, and reclaims a vault's listing.
+  sale_delist : (nat64) -> (Result);
+  // Every listing signed and not yet filled or delisted: `(sale, ticket, inscription, ask_sats, listing PSBT hex)`, for whoever
+  // posts it to a venue.
+  sale_listings : () -> (vec record { nat64; nat64; text; nat64; text }) query;
+  // §3.5: a Seaport listing of an ERC-721 the canister holds on `chain_id`, signed by its EVM key: the order's components
+  // (JSON, the shape a venue's API takes), its hash and the 65-byte signature. Nothing is sent and nothing moves: the
+  // collection's approval to Seaport and the posting are the operator's (docs/v6/canister-floor-followups.md §3.5, §11).
+  sale_nft_listing : (nat64, text, text, nat, nat64) -> (Result);
+  sale_state : () -> (SaleState) query;
+  // A Floor Module this canister buys for, and what it buys: Bitcoin inscriptions of our wrapper's listing (no chain), or the
+  // ERC-721 `collection` on `chain_id`, wrapped by `nft_wrapper` on 4663. Added once and never removed or changed.
+  set_floor_sink : (text, opt nat64, opt text, opt text) -> (Result);
+  // The contracts this side serves. Identity, like the wrapper: the factory and the desk are set once each, from nothing; a
+  // queue is added and never removed. A controller's act (after the handover, the timelock's), never the operator's.
+  set_item_config : (opt text, opt text, vec text) -> (Result);
+  // An `OfferBoard` this canister buys from. Added once and never removed: identity, like a sink. Refused unless a wrapper is
+  // configured; that the board's wrapper is ours is checked at its first read.
+  set_offer_board : (text) -> (Result);
+  // Protected-listing review P-01 (2026-10-09): the frog collection's creator addresses, the only recipients a protected Ordinals
+  // Wallet sale may pay a royalty to (the listing's own word is never believed). Replaces the list; empty pays no royalty. A
+  // controller's act (after the handover, the timelock's), never the operator's.
+  set_ow_creators : (nat16, vec text) -> (Result);
+  // The owner's veto key stops the buyer. It cannot move funds, redirect them, or change what the buyer would do next — only
+  // whether it acts at all.
+  set_paused : (bool) -> ();
+  // A collection's per-purchase maximum, by the sink it buys for (a Floor Module or a queue): at least the policy's minimum, at
+  // most `PURCHASE_LIMIT_CEILING_WEI`. Without one, the policy's global `MAX_PURCHASE_WEI` applies, as before.
+  // 
+  // docs/v9/ordinals-collections.md §7, the Solana home only: `min`, the collection's own minimum purchase in lamports (its
+  // `minPurchaseSol` × 10^9), within [`frogsol::ABS_MIN_PURCHASE_LAMPORTS`] (0.15 SOL, the least Relay was measured filling) and the
+  // home's 1 SOL, at most `max`; `null` keeps 1 SOL. Refused on the EVM home.
+  set_purchase_limit : (text, nat, opt nat) -> (Result);
+  // A module's sale policy (§3.1): sell its inventory while the standing reserve is under `reserve_floor_wei`, at
+  // `price() × (1 + markup_bps)`, at most `max_open` sales at once; `fee_bps` is an EVM listing's fee share. A controller's
+  // act (after the handover, the timelock's). The module must be a floor sink this canister serves. Replaceable: a policy is a
+  // number, not an identity.
+  set_sale_policy : (text, nat, nat32, nat32, nat32) -> (Result);
+  // UniSat's key: read-only, sent in one header to open-api.unisat.io, visible to the subnet's replicas (an outcall is), lost at
+  // an upgrade (set it again). Never echoed: the answer and the log say only that it was set.
+  set_unisat_key : (text) -> (Result);
+  // Sign one of our inputs in a purchase — **after** reading the transaction, not instead of reading it.
+  // 
+  // This is the closing half of `docs/security/audit-btc-v1.md` B3. Until now the only way to get a signature out of this
+  // canister was [`rehearse_sign_sighash`], which takes thirty-two bytes and signs them: the digest was computed in
+  // JavaScript, on the operator's machine, from a transaction the canister never saw, while `psbt.rs`'s 716 lines of checks
+  // sat with no non-test caller. The security argument and the signature were in different places.
+  // 
+  // Here they are the same act. The PSBT is parsed, verified against the quote, and the digest is computed **from the bytes
+  // that were verified** — and because BIP341 commits to every input's amount and script and to every output, a digest
+  // derived that way cannot describe a different transaction from the one the checks passed. A venue that lies about what
+  // our own input is worth produces a signature that is invalid for the real UTXO rather than a valid one for a transaction
+  // we did not agree to.
+  // 
+  // The quote is the purchase's **recorded** one ([`record_quote`]), never an argument: it was fixed before any PSBT
+  // existed, so the venue cannot influence what it is checked against (`docs/v2/state-machine.md`; the half of audit B3 that
+  // was left open). And the first signature binds the purchase to its transaction: one quote pays for one transaction.
+  sign_purchase : (nat64, text, nat32) -> (Result_14);
+  // The canister's Solana address (base58): fee payer, custodian, poster and nonce authority of every Solana line.
+  sol_address : () -> (Result);
+  // The address of any of the canister's paths (`KeyPath::parse`'s text form), for the operator and the ceremony, which compares it
+  // with the offline derivation (`examples/sol_keys.rs`) before pinning it in the launch file.
+  sol_address_of : (text) -> (Result);
+  // The operator clears the Solana home line's incident (`solsend::clear_incident`), after looking. Operator-only, refused while
+  // paused and mid-tick, as every act on ticked state. NEW-A4-01: every signature of the pending intent is read again on chain (agreed)
+  // first, holding the tick's flag (no tick starts meanwhile); any known one refuses the clear, and so does a line changed meanwhile.
+  sol_clear_incident : () -> (Result);
+  // W3: [`sol_clear_incident`] for any of the four lines (an incident on one line stops that line only).
+  sol_clear_line_incident : (LineId) -> (Result);
+  // The canister-wide Solana line, for the monitor and the operator (`None`: never used). Audit A4-01: the signed bytes of the transaction
+  // in flight are NOT exposed (`saved.tx` is empty here): nobody but the providers needs them before they land, and public bytes let anyone
+  // land an intent the line is giving up at a time of their choosing. The signature (its id) is kept.
+  sol_line : () -> (opt SolLine) query;
+  // W3: the four lines for the monitor and the operator, each as [`public_view`] shows it (`None`: never used), with the timer.
+  sol_lines : () -> (
+      vec record { LineId; opt SolLine },
+      opt TimerSeen,
+      bool,
+    ) query;
+  // The operator sets a Solana NFT collection's standard (while nothing is held), its premium over the floor (O-T1) and whether M2
+  // listings are bought buyer-only (`None`: unchanged; on by default since 2026-10-12). A lower premium or M2 switched off applies at
+  // once; a raise or M2 switched (back) on waits 24 h.
+  sol_nft_configure : (nat16, opt Standard, opt nat16, opt bool) -> (Result);
+  // The runner hands in Magic Eden's answers for collection `coll`: the listings (`/v2/collections/<symbol>/listings?listingAggMode=true`,
+  // at most 64 KiB; the cheapest 40 are kept) and the stats (`/stats`, at most 4 KiB). Read on chain at the next pass; only the
+  // addresses and the reference floor are used. Operator-only.
+  sol_nft_evidence : (nat16, text, text) -> (Result);
+  // The operator switches the flow off (nothing new is signed; outcomes are still booked) or on again.
+  sol_nft_set_off : (bool) -> (Result);
+  // One Solana NFT collection: the knobs, the last asks and floor, the items in custody, what is in flight.
+  sol_nft_status : (nat16) -> (opt SolNftView) query;
+  // The one transform every Solana outcall names.
+  sol_tf : (TransformArgs) -> (HttpRequestResult) query;
+  // The operator switches the canister's own Solana timer on or off (saved; the runner's `tick` drives the lines either way). Answers the
+  // timer's state. Refused mid-tick (the lines' state is ticked state).
+  sol_timer : (bool) -> (Result);
+  // Every HTTPS response passes through here before consensus sees it. Headers carry dates and request ids that differ per
+  // node, so they are dropped; the body is what the nodes must agree on.
+  strip_volatile : (TransformArgs) -> (HttpRequestResult) query;
+  // Anyone: the bytes behind an on-chain submission — the PSBT (hex), the inputs the venue asks the canister to sign, and the
+  // inscription's membership proof. Kept if their sha256 is an open submission the canister has read, else buffered until the
+  // next read (docs/v6/offer-handins.md §3.3). Judged in full at a tick, never here; whoever delivers the bytes is not who is
+  // paid — the board's record is.
+  submit_offer : (text, vec nat32, vec text) -> (Result);
+  // The buyer's taproot **internal** key, as a 32-byte x-only key. NOT the output key: `schnorr_public_key` returns the
+  // canister's untweaked BIP340 key, and the subnet applies BIP341's tweak later, when it signs (`aux = #bip341`). The output
+  // key is `Q = P + H_tapTweak(P)·G` and it is what goes in the scriptPubKey.
+  // 
+  // This doc comment used to say "output key" and it was wrong. An address built on that reading commits to P while every
+  // signature is made under Q, so it can never be spent. Nothing in this repository could catch it -- a test that signs and
+  // then verifies reuses the assumption it is testing -- and it was found by broadcasting to signet, where a node disagreed.
+  // `signet-rehearsal.mjs::checkKeyKind` now settles the question by asking the subnet rather than the documentation.
+  // See `docs/v2/2026-09-22-signet-rehearsal.md`.
+  taproot_key : () -> (Result);
+  // The taproot **output** key: the internal key with BIP341's tweak applied.
+  // 
+  // [`taproot_key`] returns the key the subnet derives, which is the *internal* key. [`sign_taproot`] passes
+  // `aux: Bip341 { merkle_root_hash: [] }`, so the subnet tweaks before signing and the signature verifies under a
+  // different number entirely. The two are one function call apart and reading one for the other is the mistake that once
+  // left a rehearsal's coins unspendable, so the tweaked key has its own name here rather than being a step every caller is
+  // trusted to remember. This is what an address is built from, and what a verifier checks against.
+  taproot_output_key : () -> (Result);
+  // One pass: for each purchase, ask the chains, ask the state machine, and do the one thing it says (`looper::step`).
+  tick : () -> (Result_15);
+  // The ticket-log scanner (audit D, H-1): how far it has read, finality at the last read, and whether it is failing. The watcher
+  // alerts on `failures`.
+  ticket_logs : () -> (opt TicketLogs) query;
+  // The operator names the ops key (the fueler's hot key, base58): the first at once, a change after the books' 24 h.
+  treasury_set_ops : (text) -> (Result_16);
+  treasury_set_raffle_bps : (nat16) -> (Result_16);
+  treasury_set_reserve_cap : (nat32) -> (Result_16);
+  // The operator proposes the treasury's shares (reserves, ops, in bps): applied by the cranks after the books' 24 h.
+  treasury_set_shares : (nat16, nat16) -> (Result_16);
+  treasury_status : () -> (TreasuryStatus) query;
+  // Inscription-bearing custody outputs with no deposit marker: for the daily reconciliation, never acted on here. `coll`: those
+  // routed to that collection (its items we did not buy); none named: every one, the custody-wide non-members included.
+  unmarked_custody : (opt nat16) -> (vec text) query;
+}

@@ -1,0 +1,16 @@
+test r6_c_l1_a_strangers_gas_only_depository_call_naming_the_order_is_credited_at_the_stated_amount ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+thread 'r6_c_l1_a_strangers_gas_only_depository_call_naming_the_order_is_credited_at_the_stated_amount' (63454018) panicked at tests/r6_c.rs:1036:5:
+the stranger's call is credited: eth payout 0x5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c for buy 0: refused, nothing credited: a call to Relay's depository carries no RelayCallExecuted of the depository paying our address: a call that only names the order is not a payout (C6-L-1)
+test r6_c_l1_b_the_judge_alone_accepts_any_depository_selector_and_any_request_id_the_runner_names ... 
+thread 'r6_c_l1_b_the_judge_alone_accepts_any_depository_selector_and_any_request_id_the_runner_names' (63454019) panicked at tests/r6_c.rs:1059:5:
+assertion `left == right` failed
+test r6_c_l2_b_on_ethereum_the_credit_revives_a_buy_whose_module_advance_the_pending_return_closes ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+C6-L-2b: phase Returned { wei: 0 }; module transit open false; returnAdvance paid 0; resolution: -
+thread 'r6_c_l2_b_on_ethereum_the_credit_revives_a_buy_whose_module_advance_the_pending_return_closes' (63454020) panicked at tests/r6_c.rs:1155:5:
+test r6_c_l2_credit_while_the_loss_return_is_out_is_recorded_as_returned_and_never_paid ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+C6-L-2: phase Returned { wei: 0 }; returned to Milady's module 0 wei; late.credited Some(485535083200866034)
+thread 'r6_c_l2_credit_while_the_loss_return_is_out_is_recorded_as_returned_and_never_paid' (63454021) panicked at tests/r6_c.rs:1104:5:
+test r6_c_l3_a_credited_forward_payout_buys_an_item_the_custody_book_never_counts ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+thread 'r6_c_l3_a_credited_forward_payout_buys_an_item_the_custody_book_never_counts' (63454022) panicked at tests/r6_c.rs:1185:5:
+the write-off released the reservation: eth buy 0: STUCK
+test result: FAILED. 0 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s

@@ -1,0 +1,4 @@
+# the programs' toolchain (solana/rust-toolchain.toml)
+[toolchain]
+channel = "1.89.0"
+profile = "minimal"

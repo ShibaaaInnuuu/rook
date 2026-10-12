@@ -1,0 +1,53 @@
+{
+  "id": 33,
+  "kind": "inscriptions",
+  "name": "Ordinal Birds",
+  "ref": "ordinal-birds",
+  "divisibility": 0,
+  "vault": "0x4cbF9006aE7885DCc65E45F0777aD4E184920d7B",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-ordinal-birds",
+  "membershipRoot": "0xeaf86004f4c1c9ed769f9d8d05b77d77496dad7c7a5f8b96f9859c9da858214a",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "403955056179775281",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "403955056179775281",
+    "attributedWei": "403955056179775281",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "403955056179775281",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x200cFc4CeF94DC459E01adf9f2841936644CBe1d",
+      "symbol": "QUAR4SIM",
+      "depositedWei": "403955056179775281"
+    }
+  ]
+}

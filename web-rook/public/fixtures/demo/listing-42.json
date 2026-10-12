@@ -1,0 +1,79 @@
+{
+  "id": 42,
+  "kind": "rune",
+  "name": "Z•Z•Z•Z•Z•FEHU•Z•Z•Z•Z•Z",
+  "ref": "840000:1",
+  "divisibility": 2,
+  "vault": "0x523460f1835c5C9c152acd42dbB111e753a8D3dF",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-zzzzzfehuzzzzz",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "43116259627550050",
+  "acquisitions": 0,
+  "capWei": "3998984384918",
+  "capExpiry": 1790044580,
+  "capExpired": false,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "43116259627550050",
+    "attributedWei": "43116259627550050",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "43116259627550050",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [
+    {
+      "at": 1790040980,
+      "capWei": "3998984384918",
+      "expiry": 1790044580
+    },
+    {
+      "at": 1790038272,
+      "capWei": "3998984384918",
+      "expiry": 1790041872
+    },
+    {
+      "at": 1790035566,
+      "capWei": "3998984384918",
+      "expiry": 1790039166
+    },
+    {
+      "at": 1790032865,
+      "capWei": "3998984384918",
+      "expiry": 1790036465
+    },
+    {
+      "at": 1790030163,
+      "capWei": "3998984384918",
+      "expiry": 1790033763
+    }
+  ],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xF2784cd14e141FAC2C82e83Bc5675DB11E2b48E3",
+      "symbol": "SCHISIM",
+      "depositedWei": "43116259627550050"
+    }
+  ]
+}

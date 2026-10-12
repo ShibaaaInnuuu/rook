@@ -1,0 +1,27 @@
+test f5_l1_the_ethereum_pin_floor_is_not_keyed_by_chain_and_survives_a_chain_move ... FAILED
+test f5_m1_a_a_mined_relay_deposit_seen_nowhere_for_an_hour_is_deposited_again ... FAILED
+test f5_m1_a_control_without_other_eth_the_buy_holds_the_relay_leg_and_the_first_fill_is_nobodys ... FAILED
+test f5_m1_b_a_mined_fund_reserve_seen_nowhere_for_an_hour_is_paid_again ... FAILED
+test f5_m1_c2_on_the_real_module_the_taken_back_advance_holds_the_relay_leg_for_every_collection ... FAILED
+test f5_m1_c_a_mined_advance_seen_nowhere_for_an_hour_orphans_the_advance ... FAILED
+test f5_m1_d_the_hour_is_not_reset_by_a_provider_that_shows_the_transaction ... FAILED
+test f5_m1_e_a_mined_return_advance_seen_nowhere_holds_the_relay_leg_for_good ... FAILED
+failures:
+F5-L-1: Ethereum: the pin 9300000 is below block 26068928 (a pin already read: a provider's head fell back): nothing is read there this tick (C4-H-1)
+F5-L-1: Ethereum: our nonce at this pin is 0, below 40 (already read: the pin is behind our own mined transactions): nothing is signed there (C4-H-1)
+thread 'f5_l1_the_ethereum_pin_floor_is_not_keyed_by_chain_and_survives_a_chain_move' (61569892) panicked at tests/r5_f.rs:1774:5:
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread 'f5_m1_a_a_mined_relay_deposit_seen_nowhere_for_an_hour_is_deposited_again' (61569893) panicked at tests/r5_f.rs:1633:52:
+thread 'f5_m1_a_control_without_other_eth_the_buy_holds_the_relay_leg_and_the_first_fill_is_nobodys' (61569894) panicked at tests/r5_f.rs:1661:38:
+thread 'f5_m1_b_a_mined_fund_reserve_seen_nowhere_for_an_hour_is_paid_again' (61569895) panicked at tests/r5_f.rs:1694:52:
+thread 'f5_m1_c2_on_the_real_module_the_taken_back_advance_holds_the_relay_leg_for_every_collection' (61569896) panicked at tests/r5_f.rs:1794:38:
+thread 'f5_m1_c_a_mined_advance_seen_nowhere_for_an_hour_orphans_the_advance' (61569897) panicked at tests/r5_f.rs:1717:52:
+thread 'f5_m1_d_the_hour_is_not_reset_by_a_provider_that_shows_the_transaction' (61569898) panicked at tests/r5_f.rs:1750:5:
+assertion `left == right` failed: the clock was not reset while a provider showed it
+  left: None
+ right: Some(1790512893)
+F5-M-1(e): buy 0: 500000000000000000 wei goes back to the module at the next tick
+thread 'f5_m1_e_a_mined_return_advance_seen_nowhere_holds_the_relay_leg_for_good' (61569899) panicked at tests/r5_f.rs:1832:38:
+failures:
+test result: FAILED. 22 passed; 8 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.61s
+error: test failed, to rerun pass `--test r5_f`

@@ -1,0 +1,26 @@
+test c5_l1_a_the_judge_credits_another_relay_payment_from_the_shared_solver_paid_from_the_frog_sides_eth ... FAILED
+test c5_l1_b_the_judge_takes_our_own_deposit_or_any_call_carrying_the_id_at_the_amount_the_operator_states ... FAILED
+test c5_l1_c_a_payout_is_credited_from_a_watched_orders_unread_refund_and_that_order_then_holds_the_relay_leg ... FAILED
+test c5_l3_a_failed_balance_read_after_the_judge_marks_a_payout_credited_that_was_never_applied ... FAILED
+test c5_m1_a_payout_after_the_write_off_is_still_read_as_another_collections_refund ... FAILED
+failures:
+thread 'c5_l1_a_the_judge_credits_another_relay_payment_from_the_shared_solver_paid_from_the_frog_sides_eth' (61569817) panicked at tests/r5_c.rs:1686:5:
+eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: refused, nothing credited: the transaction does not name order 0xd1a2622888b3db522f84ed43df1550f8ab1eb146313c2612c51b362102ebc6a8 (neither the order id nor Relay's request id is in its input; Relay's solver alone is every order's sender)
+eth: no new Relay order: buy 0's written-off order is neither credited nor released (its payout may still land, and would be read as a new order's: C5-M-1); eth_credit_payout credits it, eth_late_release releases it
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread 'c5_l1_b_the_judge_takes_our_own_deposit_or_any_call_carrying_the_id_at_the_amount_the_operator_states' (61569821) panicked at tests/r5_c.rs:1705:5:
+assertion `left == right` failed
+  left: Err("the transaction is ours (our own deposit names the order too): never a payout")
+ right: Ok(5000000000000000000)
+thread 'c5_l1_c_a_payout_is_credited_from_a_watched_orders_unread_refund_and_that_order_then_holds_the_relay_leg' (61569822) panicked at tests/r5_c.rs:1605:5:
+buy 0: its way back is written off, no longer watched; it still holds the Relay leg for new orders (C5-M-1) until a payout of it is credited (eth_credit_payout) or the operator releases it (eth_late_release); eth_give_back(0) again closes it as a loss
+thread 'c5_l3_a_failed_balance_read_after_the_judge_marks_a_payout_credited_that_was_never_applied' (61569824) panicked at tests/r5_c.rs:1770:5:
+eth payout 0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a for buy 0: refused, nothing credited: the transaction does not name order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2 (neither the order id nor Relay's request id is in its input; Relay's solver alone is every order's sender)
+eth buy 0: STUCK
+eth: the custody reservation eth:0 of a buy that can no longer land is released
+eth: no new Relay order: buy 0's written-off order is neither credited nor released (its payout may still land, and would be read as a new order's: C5-M-1); eth_credit_payout credits it, eth_late_release releases it
+thread 'c5_m1_a_payout_after_the_write_off_is_still_read_as_another_collections_refund' (61569825) panicked at tests/r5_c.rs:1605:5:
+buy 0: its way back is written off, no longer watched; it still holds the Relay leg for new orders (C5-M-1) until a payout of it is credited (eth_credit_payout) or the operator releases it (eth_late_release); eth_give_back(0) again closes it as a loss
+failures:
+test result: FAILED. 22 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.63s
+error: test failed, to rerun pass `--test r5_c`

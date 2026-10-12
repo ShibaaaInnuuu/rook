@@ -1,0 +1,37 @@
+== https://rpc.mainnet.chain.robinhood.com head 74752035
+back 0: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 7 txs
+back 100: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 10 txs
+back 3000: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 7 txs
+back 6000: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 9 txs
+back 6100: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 8 txs
+back 6300: state: {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"historical state 426f3f22d30f2aa4865d0c4dc79198208e0 | block ok, 10 txs
+back 6500: state: {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"historical state 3c84acc8e1066363b36cde408baab45b04c | block ok, 5 txs
+back 10000: state: {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"historical state b5fd7ca69531f5300d85fbd966a59b9c5aa | block ok, 8 txs
+back 100000: state: {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"historical state 37b16e0e6512dec861e1449b8fced2451bc | block ok, 5 txs
+back 1000000: state: {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"historical state 4c298e3a51d5c7f695ba2724eb968b7c6ed | block ok, 7 txs
+== https://rpc.ordofi.network head 74752062
+back 0: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 10 txs
+back 100: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 4 txs
+back 3000: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 7 txs
+back 6000: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 8 txs
+back 6100: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 7 txs
+back 6300: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 11 txs
+back 6500: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 8 txs
+back 10000: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 8 txs
+back 100000: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 5 txs
+back 1000000: state: {"jsonrpc":"2.0","id":1,"result":"0x0"} | block ok, 4 txs
+== https://robinhood.drpc.org head 74752127
+back 0: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 9 txs
+back 100: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 15 txs
+back 3000: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 8 txs
+back 6000: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 2 txs
+back 6100: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 4 txs
+back 6300: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 14 txs
+back 6500: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 6 txs
+back 10000: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 6 txs
+back 100000: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 4 txs
+back 1000000: state: {"id":1,"jsonrpc":"2.0","error":{"message":"Unknown state. First available state is 1","code":27}} | block ok, 5 txs
+timestamp at back 0: 1790593961
+timestamp at back 1000: 1790593860
+timestamp at back 6200: 1790593339
+Mon Sep 28 11:12:42 UTC 2026

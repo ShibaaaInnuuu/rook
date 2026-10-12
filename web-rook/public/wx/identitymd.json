@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Identity MD",
+  "symbol": "wIDENTITY",
+  "description": "Rook's wrapped Identity MD token: each whole token is backed either by a Identity MD NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/identitymd.png",
+  "external_url": "https://userook.fun/#/collection/identitymd",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/identitymd.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

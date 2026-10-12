@@ -1,0 +1,119 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "mfers",
+    "name": "mfers",
+    "chain": "ethereum",
+    "chainName": "Ethereum",
+    "chainId": 1,
+    "standard": "erc721",
+    "id": "0x79fcdef22feed20eddacbb2587640e45491b757f",
+    "description": null,
+    "image": "https://i2c.seadn.io/collection/mfers/image/bc27b08502e1d686f1c220d302494d/01bc27b08502e1d686f1c220d302494d.png",
+    "links": {
+      "website": null,
+      "x": null,
+      "discord": null,
+      "marketplace": "https://opensea.io/collection/mfers",
+      "explorer": "https://etherscan.io/address/0x79fcdef22feed20eddacbb2587640e45491b757f"
+    },
+    "floor": {
+      "native": "139836990000000000",
+      "unit": "wei",
+      "eth": 0.13983699,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/mfers/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 10021,
+    "owners": 5472,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1",
+        "name": "mfer #1",
+        "image": "https://ipfs.filebase.io/ipfs/QmWmgfYhDWjzVheQyV2TnpVXYnKR25oLWCB2i9JeBxsJbz",
+        "url": "https://etherscan.io/nft/0x79fcdef22feed20eddacbb2587640e45491b757f/1"
+      },
+      {
+        "id": "2",
+        "name": "mfer #2",
+        "image": "https://ipfs.filebase.io/ipfs/QmakAjuFugcxifLrPEFHcUzezZqwtQExjd5XJhkL9woYvA",
+        "url": "https://etherscan.io/nft/0x79fcdef22feed20eddacbb2587640e45491b757f/2"
+      },
+      {
+        "id": "3",
+        "name": "mfer #3",
+        "image": "https://ipfs.filebase.io/ipfs/QmaWYeSPkT8ToqLvmRSfcgZ9GTqTmkpDkCwozMLVYAk8qr",
+        "url": "https://etherscan.io/nft/0x79fcdef22feed20eddacbb2587640e45491b757f/3"
+      },
+      {
+        "id": "4",
+        "name": "mfer #4",
+        "image": "https://ipfs.filebase.io/ipfs/QmPu7yCupRg3MrFdPeYfKhntsDrCTK29WvuYjHhKBzWu67",
+        "url": "https://etherscan.io/nft/0x79fcdef22feed20eddacbb2587640e45491b757f/4"
+      },
+      {
+        "id": "5",
+        "name": "mfer #5",
+        "image": "https://ipfs.filebase.io/ipfs/QmfRwSNM8wwbKn61QYTFEt8Vcmbyg3RnsLkjmk4WeNCT2E",
+        "url": "https://etherscan.io/nft/0x79fcdef22feed20eddacbb2587640e45491b757f/5"
+      },
+      {
+        "id": "6",
+        "name": "mfer #6",
+        "image": "https://ipfs.filebase.io/ipfs/Qmd11tAKzc8PSiJV524YFW3rgrYQ69XbYJxESJ1GPBZKqW",
+        "url": "https://etherscan.io/nft/0x79fcdef22feed20eddacbb2587640e45491b757f/6"
+      },
+      {
+        "id": "7",
+        "name": "mfer #7",
+        "image": "https://ipfs.filebase.io/ipfs/QmXh8hKM4wzCn83AxRiZN7pE5oxr4mfXXZ4UWzFeu2hYbc",
+        "url": "https://etherscan.io/nft/0x79fcdef22feed20eddacbb2587640e45491b757f/7"
+      },
+      {
+        "id": "8",
+        "name": "mfer #8",
+        "image": "https://ipfs.filebase.io/ipfs/QmZz7tWAm31U5d9SsgYoBw7eSMjm1VWDVraQD2G49hG55h",
+        "url": "https://etherscan.io/nft/0x79fcdef22feed20eddacbb2587640e45491b757f/8"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.14 ETH, 0.168 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

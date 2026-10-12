@@ -1,0 +1,2429 @@
+Missing dependencies found. Installing now...
+fatal: destination path '/Users/jlohayon/Documents/Rook-rev3/lib/forge-std' already exists and is not an empty directory.
+fatal: clone of 'https://github.com/foundry-rs/forge-std' into submodule path '/Users/jlohayon/Documents/Rook-rev3/lib/forge-std' failed
+Failed to clone 'lib/forge-std'. Retry scheduled
+fatal: destination path '/Users/jlohayon/Documents/Rook-rev3/lib/openzeppelin-contracts' already exists and is not an empty directory.
+fatal: clone of 'https://github.com/OpenZeppelin/openzeppelin-contracts' into submodule path '/Users/jlohayon/Documents/Rook-rev3/lib/openzeppelin-contracts' failed
+Failed to clone 'lib/openzeppelin-contracts'. Retry scheduled
+fatal: destination path '/Users/jlohayon/Documents/Rook-rev3/lib/v4-core' already exists and is not an empty directory.
+fatal: clone of 'https://github.com/Uniswap/v4-core' into submodule path '/Users/jlohayon/Documents/Rook-rev3/lib/v4-core' failed
+Failed to clone 'lib/v4-core'. Retry scheduled
+fatal: destination path '/Users/jlohayon/Documents/Rook-rev3/lib/forge-std' already exists and is not an empty directory.
+fatal: clone of 'https://github.com/foundry-rs/forge-std' into submodule path '/Users/jlohayon/Documents/Rook-rev3/lib/forge-std' failed
+Failed to clone 'lib/forge-std' a second time, aborting
+Warning: Your project has missing dependencies that could not be installed.
+Compiling 276 files with Solc 0.8.28
+Solc 0.8.28 finished in 381.86s
+Compiler run successful with warnings:
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:164:9:
+    |
+164 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:182:9:
+    |
+182 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:197:9:
+    |
+197 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:209:9:
+    |
+209 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:217:9:
+    |
+217 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:225:61:
+    |
+225 |     function _pin(uint256 listingId, uint256 acquisitionId, Lot storage lot) private {
+    |                                                             ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:235:9:
+    |
+235 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:251:9:
+    |
+251 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:266:9:
+    |
+266 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:283:9:
+    |
+283 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:298:33:
+    |
+298 |     function _destinationLocked(Lot storage lot) private view returns (bool) {
+    |                                 ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:307:9:
+    |
+307 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:317:9:
+    |
+317 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/Distributor.sol:332:9:
+    |
+332 |         Lot storage lot = _lots[listingId][acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/Distributor.sol:430:5:
+    |
+430 |     function lot(uint256 listingId, uint256 acquisitionId) external view returns (Lot memory) { return _lots[listingId][acquisitionId]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/floor/FloorModule.sol:764:9:
+    |
+764 |         uint256 escrow = Math.mulDiv(backing, ONE, c);
+    |         ^^^^^^^^^^^^^^
+Note: The other declaration is here:
+    --> src/floor/FloorModule.sol:1129:5:
+     |
+1129 |     function escrow() external view returns (uint256) { return backing; }
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/floor/FloorModule.sol:800:13:
+    |
+800 |             uint256 escrow = r.escrow;
+    |             ^^^^^^^^^^^^^^
+Note: The other declaration is here:
+    --> src/floor/FloorModule.sol:1129:5:
+     |
+1129 |     function escrow() external view returns (uint256) { return backing; }
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/floor/FloorModule.sol:935:9:
+    |
+935 |         uint256 earned = (accPerRental - r.accAt) / ACC;
+    |         ^^^^^^^^^^^^^^
+Note: The other declaration is here:
+    --> src/floor/FloorModule.sol:1235:5:
+     |
+1235 |     function earned(uint256 id) external view returns (uint256) {
+     |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (8760): This declaration has the same name as another declaration.
+  --> src/curve/CurveFactory.sol:87:110:
+   |
+87 |     constructor(IWrappedCollection wrapped_, ILiquiditySeeder seeder_, IItemQueue queue_, address platform_, FrogCurve.Config memory template,
+   |                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/curve/CurveFactory.sol:230:5:
+    |
+230 |     function template() external view returns (FrogCurve.Config memory) { return _template; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:210:9:
+    |
+210 |         Lot storage lot = _lots[aid];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:273:9:
+    |
+273 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:287:9:
+    |
+287 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:296:9:
+    |
+296 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:304:9:
+    |
+304 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:311:42:
+    |
+311 |     function _pin(uint256 acquisitionId, Lot storage lot) private {
+    |                                          ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:320:9:
+    |
+320 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:333:9:
+    |
+333 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:344:9:
+    |
+344 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:364:22:
+    |
+364 |     function _reopen(Lot storage lot) private {
+    |                      ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:373:21:
+    |
+373 |     function _stamp(Lot storage lot) internal {
+    |                     ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (8760): This declaration has the same name as another declaration.
+   --> src/nft/NftVaultBase.sol:382:9:
+    |
+382 |         Lot storage lot = _lots[acquisitionId];
+    |         ^^^^^^^^^^^^^^^
+Note: The other declaration is here:
+   --> src/nft/NftVaultBase.sol:401:5:
+    |
+401 |     function lot(uint256 id) external view returns (Lot memory) { return _lots[id]; }
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5159): "selfdestruct" has been deprecated. Note that, starting from the Cancun hard fork, the underlying opcode no longer deletes the code and data associated with an account and only transfers its Ether to the beneficiary, unless executed in the same transaction in which the contract was created (see EIP-6780). Any use in newly deployed contracts is strongly discouraged even if the new behavior is taken into account. Future changes to the EVM might further reduce the functionality of the opcode.
+  --> test/security/Regression.t.sol:16:47:
+   |
+16 |     constructor(address payable to) payable { selfdestruct(to); }
+   |                                               ^^^^^^^^^^^^
+
+Warning (5159): "selfdestruct" has been deprecated. Note that, starting from the Cancun hard fork, the underlying opcode no longer deletes the code and data associated with an account and only transfers its Ether to the beneficiary, unless executed in the same transaction in which the contract was created (see EIP-6780). Any use in newly deployed contracts is strongly discouraged even if the new behavior is taken into account. Future changes to the EVM might further reduce the functionality of the opcode.
+  --> test/security/System.invariant.t.sol:16:61:
+   |
+16 | contract Feeder { constructor(address payable to) payable { selfdestruct(to); } }
+   |                                                             ^^^^^^^^^^^^
+
+Warning (2072): Unused local variable.
+   --> test/floor/FloorAttacks.t.sol:150:14:
+    |
+150 |             (uint256 price, uint256 maxIn) = module.mintCapacity();
+    |              ^^^^^^^^^^^^^
+
+
+Ran 6 tests for test/homechain/HomeVault.fork.t.sol:HomeVaultForkTest
+[PASS] test_fork_bayc_aTipOnTheRealOrderIsRefused() (gas: 2438)
+[PASS] test_fork_bayc_raffleDeliversToTheWinner() (gas: 2328)
+[PASS] test_fork_bayc_realListingBoughtThroughTheVault() (gas: 2554)
+[PASS] test_fork_bayc_relistOnRealSeaportAndSettle() (gas: 2636)
+[PASS] test_fork_bayc_wrapAndBridgeThroughTheRealGateway() (gas: 2466)
+[PASS] test_fork_punk_buyRelistSellSettle() (gas: 2532)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 7.87ms (1.50ms CPU time)
+
+Ran 4 tests for test/audit/C/C_ProtocolTreasury.t.sol:C_ProtocolTreasuryRegression
+[PASS] test_C06_documented_theSafeCanStillTakeEveryPotAtOnce() (gas: 1189488)
+[PASS] test_C07_phase1IsTheDefault_noFloatNoLoan() (gas: 433099)
+[PASS] test_C07b_switchingARouteOffMovesItsPotToTheReserves() (gas: 481901)
+[PASS] test_C12_oneRevertingModuleNoLongerBlocksDistribute() (gas: 787683)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 8.47ms (1.20ms CPU time)
+
+Ran 21 tests for test/AssetVault.t.sol:AssetVaultTest
+[PASS] test_aPausedListingDeclaresAndReleasesNothing() (gas: 624534)
+[PASS] test_aRuneReceiptIsSplitBetweenThePayingCoinsInProportion() (gas: 1725000)
+[PASS] test_aRuneVaultWithNoCapRefusesToBuy_ratherThanBuyingAtAnyPrice() (gas: 359825)
+[PASS] test_aRunesCapIsPerWholeUnit_timesTheAmount() (gas: 562042)
+[PASS] test_aShortInscriptionPurchaseIsClosedByTheAttestor_onceSomethingArrived() (gas: 1323565)
+[PASS] test_aWriteOffIsTheOwners_onlyWhenOverdue_andIsRecordedForEver() (gas: 1013813)
+[PASS] test_anInscriptionMustBeInTheCommittedCollection_andHeldOnce() (gas: 1491307)
+[PASS] test_atMostThreeOpenPurchases() (gas: 990786)
+[PASS] test_cannotDeclareMoreThanIsAttributedAndUnreserved() (gas: 619025)
+[PASS] test_coinsAreChargedFirstInFirstOut() (gas: 1040716)
+[PASS] test_ethLeavesOnlyAfterThePublicHour_toThePurchaserOfRecord_byAnyone() (gas: 870360)
+[PASS] test_kindsDoNotCross() (gas: 854155)
+[PASS] test_oneOverdueReceiptStopsEveryFurtherDeclaration_untilSettledOrWrittenOff() (gas: 1415574)
+[PASS] test_onlyACoinsOwnRouterMayAttributeMoneyToIt() (gas: 288849)
+[PASS] test_onlyTheAttestorSettles_neverThePurchaserOrTheKeeper() (gas: 947314)
+[PASS] test_onlyTheKeeperDeclares_andOnlyUnderAFreshCap() (gas: 419962)
+[PASS] test_spendIsBoundedByCapTimesCount() (gas: 548565)
+[PASS] test_theOwnerCanCancelBeforeRelease_notAfter_andNobodyElseCan() (gas: 1153328)
+[PASS] test_thereIsNoWithdraw_forAnyone() (gas: 683123)
+[PASS] test_twoCoinsPayForTwoInscriptions_eachIsChargedOne() (gas: 1564173)
+[PASS] test_unspentEthComesBackToTheCoinsThatPaid() (gas: 1360419)
+Suite result: ok. 21 passed; 0 failed; 0 skipped; finished in 11.33ms (3.34ms CPU time)
+
+Ran 4 tests for test/floor/CapStep.t.sol:CapStepSweepTest
+[PASS] test_noCapWithoutACeiling_theFirstIsAtOnce_andALapsedCapRisesOneStepAtMost() (gas: 586736)
+[PASS] test_onlyTheOwnerProposesACeiling() (gas: 38744)
+[PASS] test_theSequencerAloneCannotShortenTheTenMinutes() (gas: 130618)
+[PASS] test_whileFresh_aStepOfAtMostTwentyPercent_tenMinutesApart() (gas: 274064)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 12.80ms (848.29µs CPU time)
+
+Ran 17 tests for test/DeployChecks.t.sol:DeployChecksTest
+[PASS] test_aLabelledTest_hasItsOwnConfirm_itsOwnFile_andNeitherStringStandsInForTheOther() (gas: 183068)
+[PASS] test_aTestLabelMeansNothingOffRobinhoodChain_andTheRolesRulesStillHold() (gas: 235027)
+[PASS] test_aTreasuryIsNotDeployedToAChainWeDoNotDeployTo() (gas: 81474)
+[PASS] test_refusedForAnotherDeployersConfirm() (gas: 61352)
+[PASS] test_refusedOnAChainIdMismatch_aLocalConfirmDoesNotDeployToRobinhood() (gas: 124808)
+[PASS] test_refusedOnAChainItDoesNotKnow() (gas: 38300)
+[PASS] test_refusedWherePonsIsNotDeployed() (gas: 48370)
+[PASS] test_refusedWithoutTheConfirmString() (gas: 66632)
+[PASS] test_rolesAreDistinct_andNoneIsTheOwnerOrTheDeployer() (gas: 285164)
+[PASS] test_theConfirmNamesTheChainAndTheSender_soNeitherCanBeSwapped() (gas: 100291)
+[PASS] test_theConfirmStringIsChainAndLowercaseDeployer() (gas: 105649)
+[PASS] test_theOwnerIsNeverTheDeployer_andOnAPublicChainIsAContract() (gas: 157288)
+[PASS] test_theRegistryMustExistAndHaveCode_andATokenIfNamedMustToo() (gas: 148970)
+[PASS] test_theStagingCollectionsRootIsTheOneTheOperatorBuildsProofsFor() (gas: 19867248)
+[PASS] test_theStagingForkIsOneOfOurs_itsOwnerNeedNotBeAContract_andItsConfirmNamesItsOwnChain() (gas: 181848)
+[PASS] test_theStagingIdIsTheRepositorysOneNumber_andRobinhoodsPublicTestnetIsNotOurs() (gas: 42899)
+[PASS] test_theTreasuryHasItsOwnConfirmString_whichNeitherOfTheOthersSatisfies() (gas: 296274)
+Suite result: ok. 17 passed; 0 failed; 0 skipped; finished in 18.25ms (11.82ms CPU time)
+
+Ran 1 test for test/audit/A/GraduationSandwich.t.sol:ProductionCapMarginTest
+[PASS] test_A04_aCapTenPercentAboveTheFloor_theLayersCenterOnTheFloor() (gas: 6373631)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 18.73ms (1.72ms CPU time)
+
+Ran 6 tests for test/audit2/R3LateDelivery.t.sol:R3LateDelivery
+[PASS] test_N2c_aDeadCustodianStillRefundsAfterTheLateWindow() (gas: 1466936)
+[PASS] test_N2c_aPinnedDeliveryConfirmingLateIsRecordedAndNeverRefunded() (gas: 1444548)
+[PASS] test_N2c_anAttestedUndeliverableTicketRefundsAtTheGrace() (gas: 1528418)
+[PASS] test_N2c_deliveryFirstLeavesNothingToRefund() (gas: 1407682)
+[PASS] test_N2c_onlyTheCustodianMarksAResolvedTicket() (gas: 991652)
+[PASS] test_N2c_pinnedRefundsAreUnchanged() (gas: 916193)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 21.52ms (6.25ms CPU time)
+
+Ran 2 tests for test/audit/A/DeskOff.t.sol:DeskOffTest
+[PASS] test_A05_aStrangerCanNoLongerParkVaultCreditAtTheDesk() (gas: 4076318)
+[PASS] test_A05_control_theKeeperStillCanAndAnyoneCollects() (gas: 4368262)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 6.57ms (588.17µs CPU time)
+
+Ran 2 tests for test/audit2/R3Roles.t.sol:R3Roles
+[PASS] test_N6_aPausedKeeperIsStillNotABuyer() (gas: 119638)
+[PASS] test_N8_theGuardianIsAKeyOfItsOwn() (gas: 695862)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 7.07ms (657.63µs CPU time)
+
+Ran 18 tests for test/Distributor.t.sol:DistributorTest
+[PASS] test_aCancelledDistributionGivesTheCarryBack() (gas: 2845139)
+[PASS] test_aDrawSettledByARealDrandRound() (gas: 1844474)
+[PASS] test_aLotNobodyChoseForCannotBeDrawn() (gas: 1104982)
+[PASS] test_aRootThatPromisesMoreThanWasBoughtCannotPayItOut() (gas: 1598689)
+[PASS] test_aRoundSomebodyAlreadyProvedNeedsNoSignature() (gas: 1554436)
+[PASS] test_aRuneLotCanBeRaffledWholeInstead() (gas: 1345426)
+[PASS] test_anExpiredMinimumPaysNothing() (gas: 1566428)
+[PASS] test_anInscriptionCannotBeSharedProRata_andANamedChoiceNeedsAName() (gas: 1394829)
+[PASS] test_anyoneDelivers_theWinnerIsWhoeverHoldsTheTicket_andNobodyElseCanClaim() (gas: 1713403)
+[PASS] test_claimBeforeTheWindowEnds_twice_orWithAWrongProof_allFail() (gas: 1635760)
+[PASS] test_noDrawDuringTheChallengeWindow_thenAnyonePins_aRoundThatDoesNotExistYet() (gas: 1555306)
+[PASS] test_nothingIsDeliveredToAnAddressNobodyChose() (gas: 1209778)
+[PASS] test_onlyThePayingCoinsCreatorChooses_andOnlyOnce() (gas: 1536269)
+[PASS] test_onlyTheWinnerNamesTheAddress_itMustBeARealTaprootAddress_andLatenessIsFlaggable() (gas: 1743972)
+[PASS] test_redrawOnlyAfterADayOfSilence_andNotIfTheRoundWasProven() (gas: 1578068)
+[PASS] test_theOwnerCancelsOnlyInsideTheWindow_andOnlyTheOwner() (gas: 2570165)
+[PASS] test_unclaimedUnitsRollIntoTheCoinsNextDistribution_afterClaimsClose_notBefore() (gas: 2879535)
+[PASS] test_underTheMinimumNothingIsSent_itAccruesUntilItCrosses() (gas: 3361689)
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 15.39ms (13.95ms CPU time)
+
+Ran 2 tests for test/audit/A/Capacity.t.sol:CapacityTest
+[PASS] test_A03_aFullModuleStopsLaunchesAndHoldsClosesInTrading() (gas: 33023958)
+[PASS] test_A03_theModuleCountsQueuedBudgets() (gas: 4317247)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 28.42ms (10.30ms CPU time)
+
+Ran 3 tests for test/security/ChainConfig.t.sol:ChainConfigTest
+[PASS] test_aSecondChainsDeskWaitsItsOwnBlocks() (gas: 342764)
+[PASS] test_nobodyDeploysWithAnUnmeasuredBlockTime() (gas: 8843)
+[PASS] test_theBlockHalfOfAWaitFollowsTheConfiguredBlockTime() (gas: 349)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 3.46ms (145.67µs CPU time)
+
+Ran 7 tests for test/DrandEvmnet.t.sol:DrandEvmnetTest
+[PASS] test_aRealSignatureForAnotherRoundIsRefused() (gas: 143826)
+[PASS] test_aTamperedSignatureIsRefused() (gas: 9941)
+[PASS] test_anotherValidPointIsRefused() (gas: 141526)
+[PASS] test_lengthAndZeroAreRefused() (gas: 18535)
+[PASS] test_provingTwiceChangesNothing_whoeverProves() (gas: 213973)
+[PASS] test_realBeaconsVerify_andRandomnessIsTheNetworksOwn() (gas: 472311)
+[PASS] test_roundClock() (gas: 25832)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 15.88ms (15.61ms CPU time)
+
+Ran 4 tests for test/pools/Collections.t.sol:CollectionsTest
+[PASS] test_aDeskUnitNobodyRequestedGoesBackToTheCustodian() (gas: 654150)
+[PASS] test_aSecondCollectionStartsEarlyWhileTheFirstIsNormal() (gas: 23150411)
+[PASS] test_theDirectoryListsEveryCollectionOnce() (gas: 429643)
+[PASS] test_theSameGraduationPathOverFrogsAndApes() (gas: 27576618)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 30.33ms (18.38ms CPU time)
+
+Ran 1 test for test/floor/CapStep.t.sol:CapStepNftTest
+[PASS] test_theNftSweepVaultStepsToo() (gas: 394720)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 2.16ms (123.50µs CPU time)
+
+Ran 8 tests for test/floor/FloorRouter.t.sol:FloorRouterTest
+[PASS] test_aSandwichAroundTheRouterGetsNothing() (gas: 22296907)
+[PASS] test_aStaleModuleLeavesThePool_andAFullOneOverflowsIntoIt() (gas: 21534681)
+[PASS] test_aSweepVaultBuysThroughTheRouterAndTheModule() (gas: 6369772)
+[PASS] test_buyingFillsACheapPoolFirst_thenTheModule_andBeatsEitherAlone() (gas: 22664949)
+[PASS] test_buyingTakesTheModuleWhenItIsCheaper() (gas: 21177357)
+[PASS] test_coinTradesUseTheModuleForTheirWrappedLeg() (gas: 21512054)
+[PASS] test_roundTripCosts_calmAndStressed() (gas: 23572304)
+[PASS] test_sellingTakesTheBetterVenue_andSplits() (gas: 22954078)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 98.28ms (76.33ms CPU time)
+
+Ran 15 tests for test/MintDesk.t.sol:MintDeskTest
+[PASS] testFuzz_theDeskAlwaysHoldsWhatItOwes(uint96,uint96,bool,bool) (runs: 512, μ: 573030, ~: 224875)
+[PASS] test_aFilledRequestSwapsTheWrappedForTheCostAndReturnsTheChange() (gas: 915038)
+[PASS] test_aVaultSweepsThroughTheDeskChargedToOneCoin() (gas: 1315011)
+[PASS] test_anExpiredDeskRequestComesBackToTheSameCoin() (gas: 567486)
+[PASS] test_anExpiredRequestIsCollectedInFullAndCannotBeFilled() (gas: 823761)
+[PASS] test_collectOnce() (gas: 931947)
+[PASS] test_noFillWithoutAWrappedFrogHere() (gas: 205795)
+[PASS] test_nobodyElseCanCollectTheVaultsRequest() (gas: 1164575)
+[PASS] test_oneWrappedFillsOneRequest() (gas: 998381)
+[PASS] test_onlyTheCustodianFills() (gas: 748131)
+[PASS] test_onlyTheKeeperOpensADeskRequest() (gas: 230591)
+[PASS] test_onlyTheRequesterCollects() (gas: 875678)
+[PASS] test_theCanisterCannotChargeMoreThanWasEscrowed() (gas: 754861)
+[PASS] test_theDeskRouteNeedsAFreshCap() (gas: 247235)
+[PASS] test_theVaultNeverEscrowsMoreThanTheCapForOneFrog() (gas: 245729)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 134.13ms (120.45ms CPU time)
+
+Ran 7 tests for test/floor/MintRate.t.sol:MintRateTest
+[PASS] test_aRefundIsNotAMint() (gas: 1108616)
+[PASS] test_loweringIsImmediate_raisingWaitsSevenDaysOnBothClocks() (gas: 255888)
+[PASS] test_nftWrapperCountsPurchasesAndDeposits() (gas: 4587876)
+[PASS] test_onlyTheDeployerSetsIt_andInitOnlyBeforeAnyMint() (gas: 668238)
+[PASS] test_rentalsCount_throughTheModule() (gas: 1866175)
+[PASS] test_theDefaultIsTwentyADay_andTheTwentyFirstWaits() (gas: 6589301)
+[PASS] test_theWindowSlides() (gas: 8845543)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 13.99ms (9.62ms CPU time)
+
+Ran 9 tests for test/nft/NftBuyerReservation.t.sol:NftBuyerReservationTest
+[PASS] test_aRemoteListingReservesItsBuyer() (gas: 18719)
+[PASS] test_aV2BuyerCannotBeAPendingRoleEither() (gas: 234012)
+[PASS] test_anAddressPendingForARoleCannotBeNamedABuyer() (gas: 570555)
+[PASS] test_anUnwiredRegistryRefusesRemoteListings() (gas: 8262095)
+[PASS] test_noRoleCanRotateOntoAnNftBuyer() (gas: 183442)
+[PASS] test_onlyTheWiredNftRegistryReserves() (gas: 133799)
+[PASS] test_rotationsToOtherAddressesStillWaitSevenDays() (gas: 220797)
+[PASS] test_theSameBuyerForTwoListingsIsFine() (gas: 3703073)
+[PASS] test_wireNftOnceAndOwnerOnly() (gas: 66264)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 7.75ms (3.25ms CPU time)
+
+Ran 8 tests for test/audit/C/C_SweepVault.t.sol:C_SweepVaultRegression
+[PASS] testFuzz_C04_theSnapshotTimeIsUnknownAtTheAnnouncementAndNotTheKeepers(bytes32) (runs: 512, μ: 619565, ~: 619647)
+[PASS] test_C01_theCeilingIsActiveFromTheOwnersStep_andAStaleRepostCannotJump() (gas: 497466)
+[PASS] test_C01b_theFreshCompoundingStopsAtTheCeiling() (gas: 340861)
+[PASS] test_C02_theGrinderCannotReroll() (gas: 1010146)
+[PASS] test_C03_aTruncatedTotalIsRefused() (gas: 583937)
+[PASS] test_E02_oneForgedDrawPerCoin_theGuardianPausesAndCancels() (gas: 1073659)
+[PASS] test_E03_aStuckPinnedTicketIsRefunded_andNoLongerBlocksTheQueue() (gas: 2798600)
+[PASS] test_M1_aLateDeliveryIsRecordedBeforeAnyRefund() (gas: 2257691)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 176.08ms (161.38ms CPU time)
+
+Ran 5 tests for test/Launcher.t.sol:LauncherTest
+[PASS] test_exactlyTheLaunchFee() (gas: 113181)
+[PASS] test_launchNamesAFreshRouter_recordsThePerson_nativeOnly_buybackOff() (gas: 784165)
+[PASS] test_noLaunchOnAPausedOrMissingListing() (gas: 146948)
+[PASS] test_theLauncherHasNobodyToAsk() (gas: 71865)
+[PASS] test_theSameSaltTwiceFails_anotherCreatorsSaltDoesNot() (gas: 1040861148)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 1.87ms (492.29µs CPU time)
+
+Ran 27 tests for test/AutoBuyerVault.t.sol:AutoBuyerVaultTest
+[PASS] testFuzz_C1_anySplitOfARefundCompletes(uint256,uint256) (runs: 512, μ: 1394855, ~: 1394480)
+[PASS] test_C1_theClampIsHereToo_aTruncatingSplitRefundCompletes() (gas: 1300972)
+[PASS] test_H1_isStructurallyGoneBecauseCoinsAreChargedAtAnnounceNotAtPull() (gas: 17251989)
+[PASS] test_aLateRefundAfterAWriteOffComesBackAndUnwritesTheLoss() (gas: 906960)
+[PASS] test_aPartlyReturnedPurchaseWritesOffOnlyWhatIsActuallyGone() (gas: 867191)
+[PASS] test_aPausedListingAnnouncesNothingAndPullsNothing() (gas: 805870)
+[PASS] test_aPullWaitsItsPublicHourAndGoesOnlyToTheBuyer() (gas: 801302)
+[PASS] test_aReceiptAfterTheDeadlineIsAcceptedAndFlaggedLate() (gas: 1009103)
+[PASS] test_aRuneReceiptSplitsWhatArrivedAcrossThePayingCoins() (gas: 1299290)
+[PASS] test_aShortDeliveryMustReturnTheMoneyForWhatNeverCame() (gas: 1169840)
+[PASS] test_aStrandedAnnouncementCanBeCancelledByAnyoneAfterTheWindow() (gas: 741941)
+[PASS] test_aStrangerMayRepayAPurchaseButMayNotCloseIt() (gas: 1136996)
+[PASS] test_anAnnouncementThatWasNeverPulledIsCancelledAndTheCoinsAreWholeAgain() (gas: 810852)
+[PASS] test_anInscriptionReceiptMustBeInTheCollectionAndNotAlreadyHeld() (gas: 1329562)
+[PASS] test_anOverdueBuyFreezesTheVaultAndIsWrittenOffWithNoBondToPayForIt() (gas: 1272543)
+[PASS] test_announceIsBoundedByTheCapItsTtlAndMaxInFlight() (gas: 802210)
+[PASS] test_announceNeedsSpendableFeesAndRespectsMaxOpen() (gas: 1238831)
+[PASS] test_anyoneMayReturnUnspentEthAndAFullReturnClosesThePurchase() (gas: 1352617)
+[PASS] test_changeThatComesBackAfterTheReceiptStillReachesTheCoins() (gas: 1097617)
+[PASS] test_depositsStillComeOnlyFromACoinsOwnRouterOrTheTreasury() (gas: 297752)
+[PASS] test_feesUnderMinEntryWaitAndAreNotSpendable() (gas: 316369)
+[PASS] test_noKeyCanMoveEthAnywhereButTheBuyer() (gas: 781103)
+[PASS] test_onlyTheBuyerMayAnnounceOrPullOrReceipt() (gas: 813796)
+[PASS] test_sevenDaysLaterAnybodyMayWriteOffSoAnOwnerCannotFreezeTheVaultByDoingNothing() (gas: 739253)
+[PASS] test_theBuyerIsImmutableAndIsTheOnlyAddressEthCanReach() (gas: 22668)
+[PASS] test_theTreasuryAndTheDistributorBothWorkAgainstAV2Vault() (gas: 2341770)
+[PASS] test_tooManyPayersIsRefusedAtAnnounceWhereTheBuyerCanSimplyAskForLess() (gas: 27253433)
+Suite result: ok. 27 passed; 0 failed; 0 skipped; finished in 204.37ms (195.65ms CPU time)
+
+Ran 8 tests for test/Bond.t.sol:BondTest
+[PASS] test_aNewRegistryStartsFullyBonded() (gas: 11568)
+[PASS] test_aSettledPurchaseFreesTheBond_andUnspentEthReducesWhatIsOutstanding() (gas: 1376855)
+[PASS] test_aWriteOffPaysTheCoinsThatWereChargedFromTheBond_andRecordsOnlyWhatItDidNotCover() (gas: 1148933)
+[PASS] test_anOwnerWhoDoesNothingCannotShelterTheBond_afterSevenMoreDaysAnyoneWritesOff() (gas: 1035174)
+[PASS] test_atOneHundredPercentTheCoinsAreMadeWhole() (gas: 989346)
+[PASS] test_noBondNoRelease_andTheBondMustCoverWhatIsAlreadyOutToo() (gas: 1925451)
+[PASS] test_theBondCannotBeWithdrawnBelowWhatIsOutstanding_norWhileBlocked_norByAnyoneElse() (gas: 1130351)
+[PASS] test_theRequirementRisesAtOnce_fallsOnlyAfterSevenPublicDays_andOnlyTheOwnerSetsIt() (gas: 227015)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 6.29ms (3.55ms CPU time)
+
+Ran 6 tests for test/security/DrandReal.t.sol:DrandRealTest
+[PASS] testFuzz_hashToPointIsAlwaysOnTheCurve(uint64) (runs: 512, μ: 26392, ~: 26462)
+[PASS] test_L5_aPointOffTheCurveIsAnOrdinaryCheapRevert() (gas: 22353)
+[PASS] test_coordinatesAtOrAboveTheFieldAreRefused_soASignatureHasOneEncoding() (gas: 41499)
+[PASS] test_roundZero_andAWrongLength() (gas: 165583)
+[PASS] test_theNegatedSignatureIsOnTheCurveAndIsRefused() (gas: 154547)
+[PASS] test_twentyRealBeaconsVerify_eachUnderTheGasCeiling_andNoneVerifiesForItsNeighbour() (gas: 6103768)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 178.83ms (178.55ms CPU time)
+
+Ran 4 tests for test/BtcAddress.t.sol:BtcAddressTest
+[PASS] testFuzz_aFlippedCharacterNeverPasses(uint8,uint8) (runs: 512, μ: 47799, ~: 47806)
+[PASS] test_bip350Vector() (gas: 44416)
+[PASS] test_oneWrongCharacterFailsTheChecksum() (gas: 88060)
+[PASS] test_otherShapesAreRefused() (gas: 2058)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 63.75ms (63.70ms CPU time)
+
+Ran 9 tests for test/homechain/HomeAdapter.t.sol:HomeAdapterTest
+[PASS] testFuzz_ledgerHoldsAndTwinLeavesOnlyByWithdrawalOrDispatch(uint256,uint8) (runs: 512, μ: 1344360, ~: 901738)
+[PASS] test_acknowledge_onlyFromTheDesksAlias_thenNoRefund() (gas: 619493)
+[PASS] test_constructorRefusals_andWhatItIs() (gas: 17814)
+[PASS] test_depositAndWithdrawAreOneToOneBothWays() (gas: 422365)
+[PASS] test_dispatch_aGatewayThatDoesNotBurnIsRefused() (gas: 612990)
+[PASS] test_dispatch_anyone_afterTheAck_burnsTheTwinThroughTheGatewayToTheDeskOnly() (gas: 812058)
+[PASS] test_redeemToBurn_escrowsTheTwinAndSendsTheIntentUp() (gas: 916451)
+[PASS] test_refund_onlyAnOpenTicket_onlyAfterTheDeadlineOnBothClocks_unitBackToTheOwner() (gas: 705716)
+[PASS] test_twinSentByPlainTransferIsStrayAndNeverCounted() (gas: 338661)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 304.02ms (303.51ms CPU time)
+
+Ran 2 tests for test/AssetVault.invariant.t.sol:AssetVaultInvariantTest
+[PASS]
+AssetVaultInvariantTest invariants:
+[PASS] invariant_ethOutIsExactlyWhatWasReleased
+[PASS] invariant_theBooksMatchTheBalance
+ AssetVaultInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------+-----------------------+-------+---------+----------╮
+| Contract     | Selector              | Calls | Reverts | Discards |
++===================================================================+
+| VaultHandler | cancel                | 336   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | capThenDeclare        | 308   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | declare               | 281   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | deposit               | 281   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | depositFromTreasury   | 285   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | giveBack              | 319   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | postBond              | 287   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | postCap               | 283   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | release               | 286   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | settle                | 279   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | tryToTake             | 290   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | wait                  | 271   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | waitAnHourThenRelease | 304   | 0       | 0        |
+|--------------+-----------------------+-------+---------+----------|
+| VaultHandler | writeOff              | 286   | 0       | 0        |
+╰--------------+-----------------------+-------+---------+----------╯
+
+[PASS] test_theHandlerReallyMovesMoney() (gas: 1920354)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 507.35ms (499.05ms CPU time)
+
+Ran 1 test for test/nftwrap/NftWrapperDrand.t.sol:NftWrapperDrandTest
+[PASS] test_aRealBeaconDecidesTheNft_andAWrongSignatureCannot() (gas: 1966118)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 2.90ms (2.51ms CPU time)
+
+Ran 3 tests for test/nft/NftFuzz.t.sol:NftFuzzTest
+[PASS] testFuzz_capFreshnessIsBothClocks(uint32,uint32) (runs: 512, μ: 294791, ~: 294765)
+[PASS] testFuzz_remoteGiveBackIsExactAndClamped(uint96,uint96,uint96,uint96) (runs: 512, μ: 1393434, ~: 1355634)
+[PASS] testFuzz_sweepStandsOnlyWithinTheCap(uint96,uint96,uint64,uint64,uint8,uint64) (runs: 512, μ: 1356344, ~: 1171268)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 512.70ms (508.73ms CPU time)
+
+Ran 9 tests for test/nft/NftRegistry.t.sol:NftRegistryTest
+[PASS] test_aNewSweepTargetWaitsSevenPublicDaysOnBothClocks() (gas: 244121)
+[PASS] test_listingRefusals() (gas: 555033)
+[PASS] test_listingsNameAnyEvmChain() (gas: 107630)
+[PASS] test_nativeAndRemoteGetTheRightVault() (gas: 27506)
+[PASS] test_onePolicyPerCollectionAndChain() (gas: 3769068)
+[PASS] test_roleRotationThroughListingRegistryMovesTheNftSide() (gas: 214905)
+[PASS] test_rolesAreListingRegistrys() (gas: 38899)
+[PASS] test_vaultsCarryTheirListingForever() (gas: 48185)
+[PASS] test_wireOnce() (gas: 43545)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 6.76ms (1.86ms CPU time)
+
+Ran 19 tests for test/security/Regression.t.sol:SecurityRegressionTest
+[PASS] test_H1_aCoinsDustIsStillItsOwn_andJoinsTheQueueWhenItAddsUp() (gas: 514950)
+[PASS] test_H1_aReleaseNeedingMoreThanMaxPayersIsRefused_andASmallerOneIsNot() (gas: 32556722)
+[PASS] test_H1_dustNeverEntersTheQueue_andReleaseCostsTheSameBehindIt() (gas: 248336471)
+[PASS] test_H2_aShortPurchaseCannotBeClosedUntilTheRestIsBack_andTheBondStaysHeld() (gas: 1520768)
+[PASS] test_H2_runes_theSameRule_andMoreThanDeclaredIsAlwaysFine() (gas: 1607769)
+[PASS] test_L2_aTreasuryThatReentersGetsNothingExtra_andBlocksNothing() (gas: 1449094)
+[PASS] test_L3_anAddressCanBeCorrectedForAnHour_thenItIsTheAddress_andTheKeeperSendsOnlyAfterThat() (gas: 1607803)
+[PASS] test_L4_anAddressWithNonZeroPaddingIsRefused() (gas: 461623)
+[PASS] test_M1_aNewPurchaserIsNotCoveredByTheOldOnesBond_andTheOldOneGetsTheirsBack() (gas: 1126638)
+[PASS] test_M2_aDrawIsPinnedAMinuteAhead() (gas: 1460385)
+[PASS] test_M3_aClaimedDrawCannotBeVoided() (gas: 1649228)
+[PASS] test_M3_aDrawNobodyCanProveIsVoidedByTheOwnerAfterAWeek_andNotBefore_andNotByAnyoneElse() (gas: 1904579)
+[PASS] test_held_aCapThatExpiresAfterDeclarationDoesNotStopTheRelease_whichIsBoundedByTheCapOfItsOwnHour() (gas: 806153)
+[PASS] test_held_aLateFulfilmentAndARedrawCannotBothHappen() (gas: 1717051)
+[PASS] test_held_aWinCannotBeClaimedTwice_orWithAnotherDrawsRange() (gas: 1753986)
+[PASS] test_held_anInnerNodeCannotBePassedOffAsALeaf_norATicketLeafAsAShareLeaf() (gas: 30038)
+[PASS] test_held_everyIllegalTransitionIsRefused() (gas: 1357593)
+[PASS] test_held_forceFedEthIsNeverSpendable_andBreaksNothing() (gas: 918988)
+[PASS] test_held_threeThousandOddHarvestsNeverStrandOrMintAWei() (gas: 383238874)
+Suite result: ok. 19 passed; 0 failed; 0 skipped; finished in 655.30ms (653.87ms CPU time)
+
+Ran 5 tests for test/security/SequencerClock.t.sol:SequencerClockTest
+[PASS] test_S1_aTimestampJumpAloneNoLongerCollapsesTheV2PublicHour() (gas: 774685)
+[PASS] test_S1_aTimestampJumpCannotCloseTheDrawChallengeWindow() (gas: 1299033)
+[PASS] test_S1_aTimestampJumpCannotOpenTheDrawEarly() (gas: 1370046)
+[PASS] test_S1_theBlockCountIsAnHourAtTheMeasuredRate() (gas: 272)
+[PASS] test_S1_theSameHoldsForTheV1Release() (gas: 830201)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 2.25ms (748.87µs CPU time)
+
+Ran 13 tests for test/nft/NftRemoteVault.t.sol:NftRemoteVaultTest
+[PASS] test_aTokenIsReceiptedOnce() (gas: 1012154)
+[PASS] test_announceBounds() (gas: 1253868)
+[PASS] test_announcePullReceiptSettle() (gas: 1223307)
+[PASS] test_fullReturnClosesThePurchase() (gas: 915008)
+[PASS] test_onlyTheCanisterAnnouncesPullsAndRecords() (gas: 343866)
+[PASS] test_overdueBlocksAndIsWrittenOffByOwnerThenAnyone() (gas: 1080576)
+[PASS] test_pullWaitsAPublicHourOnBothClocks() (gas: 551106)
+[PASS] test_raffleWinnerIsDeliveredOnTheOtherChainAndRecordedByTxHash() (gas: 1645389)
+[PASS] test_remoteBurnIsRecordedByTxHash() (gas: 2074808)
+[PASS] test_settleShortOnlyAfterTheMissingEthIsBack() (gas: 1241664)
+[PASS] test_unburnedIsFlaggedOverdue() (gas: 1030907)
+[PASS] test_undeliveredWinIsFlaggedOverdueAfterSevenDays() (gas: 1507591)
+[PASS] test_unpulledAnnouncementIsCancelledByOwnerOrLaterAnyone() (gas: 608358)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 13.09ms (8.10ms CPU time)
+
+Ran 9 tests for test/security/SingleClockWaits.t.sol:SingleClockWaitsTest
+[PASS] test_theSequencerCannotBringAGovernanceChangeForward() (gas: 388657)
+[PASS] test_theSequencerCannotBringARedrawForward() (gas: 1460026)
+[PASS] test_theSequencerCannotCloseRuneClaimsEarly_theyCloseOnTheParentChain() (gas: 1799825)
+[PASS] test_theSequencerCannotLetTheOwnerVoidADrawEarly() (gas: 1557659)
+[PASS] test_theSequencerCannotMakeTheKeeperOverdueEarly_forALot() (gas: 1468099)
+[PASS] test_theSequencerCannotMakeTheKeeperOverdueEarly_forAPayout() (gas: 1889437)
+[PASS] test_theSequencerCannotOpenAV2PublicCancelEarly() (gas: 751751)
+[PASS] test_theSequencerCannotWriteOffAV1PurchaseEarly_orBlockItsVault() (gas: 1018357)
+[PASS] test_theSequencerCannotWriteOffAV2PurchaseEarly_orMarkItLate() (gas: 1707300)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 4.29ms (2.69ms CPU time)
+
+Ran 3 tests for test/SnapshotTool.t.sol:SnapshotToolTest
+[PASS] test_aPerWalletDrawSettlesOnTheToolsRootAndProof() (gas: 1670236)
+[PASS] test_aWeightedDrawSettlesOnTheToolsRootAndProof() (gas: 1670322)
+[PASS] test_everyHolderClaimsTheirProRataShareWithTheToolsProof_andTheRemainderIsNobodys() (gas: 1897382)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 3.52ms (2.36ms CPU time)
+
+Ran 1 test for test/SnapshotToolV2.t.sol:SnapshotToolV2Test
+[PASS] test_theToolsSentinelAndRangesVerifyUnderItsRoot_withTheVaultsLeaf() (gas: 134778)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 3.88ms (549.17µs CPU time)
+
+Ran 12 tests for test/StackChecks.t.sol:StackChecksTest
+[PASS] test_anNftCollectionNeedsItsChainAndContract_andNotThisChain() (gas: 219376)
+[PASS] test_paramsOutsideTheModulesBoundsAreRefusedBeforeAnythingIsSent() (gas: 58458)
+[PASS] test_refusedOnAChainThatIsNotOurs_includingThePublicTestnet() (gas: 67355)
+[PASS] test_refusedOverARuneOrABondedListingOnAPublicChain() (gas: 170296)
+[PASS] test_refusedWithAnotherStepsConfirm() (gas: 100207)
+[PASS] test_refusedWithoutARegistryThatIsWired() (gas: 86408)
+[PASS] test_refusedWithoutThePoolManagerOrTheText() (gas: 175910)
+[PASS] test_stageZeroOnAPublicChain_theTableIsG7s() (gas: 273684)
+[PASS] test_theConfirmWordIsItsOwn() (gas: 271801)
+[PASS] test_theCustodianIsACodelessAccountAndCustodyIsTaproot() (gas: 130336)
+[PASS] test_theDefaultParamsAreTheDocumentedOnes_andPassTheModulesBounds() (gas: 30306)
+[PASS] test_theFileIsPerChain() (gas: 19411)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 2.39ms (2.21ms CPU time)
+
+Ran 2 tests for test/StagingFixtureAddresses.t.sol:StagingFixtureAddressesTest
+[PASS] test_everyFixtureTaprootIsOneTheDistributorAccepts() (gas: 134633)
+[PASS] test_theVectorThatWasRemovedIsStillRefused() (gas: 627)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 278.46µs (237.75µs CPU time)
+
+Ran 2 tests for test/security/Surface.t.sol:SurfaceTest
+[PASS] test_neitherVaultExposesAnyWayToTakeTheMoney() (gas: 2930181)
+[PASS] test_theV2VaultExposesExactlyWhatItMeansTo() (gas: 867536)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 4.52ms (4.46ms CPU time)
+
+Ran 13 tests for test/homechain/HomeGuard.t.sol:HomeGuardTest
+[PASS] testFuzz_windowNeverExceedsTheLimit(uint8[16]) (runs: 512, μ: 3035987, ~: 3031953)
+[PASS] test_bankRunConstraint() (gas: 152967)
+[PASS] test_capsBindAtTheirEdge() (gas: 647140)
+[PASS] test_noTripWhenTheDayIsSpent_slowly() (gas: 1093805)
+[PASS] test_onlyRegisteredCallersCount() (gas: 251205)
+[PASS] test_raiseAtMostTimesFourAndOncePerInterval() (gas: 356164)
+[PASS] test_raiseGlobalAndLimits() (gas: 232580)
+[PASS] test_releaseClamps() (gas: 65521)
+[PASS] test_stage0() (gas: 55061)
+[PASS] test_tripwireOnARush() (gas: 1226813)
+[PASS] test_valueWindow() (gas: 492611)
+[PASS] test_windowBindsOnBothClocks() (gas: 1420286)
+[PASS] test_windowsAreSeparatePerCollectionAndSharedGlobally() (gas: 2259511)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 439.84ms (439.37ms CPU time)
+
+Ran 2 tests for test/AutoBuyerVault.invariant.t.sol:AutoBuyerVaultInvariantTest
+[PASS]
+AutoBuyerVaultInvariantTest invariants:
+[PASS] invariant_ethOutIsExactlyWhatWasPulled
+[PASS] invariant_everyContributedWeiIsAccountedFor
+[PASS] invariant_noRequiredTransitionEverPanics
+[PASS] invariant_theBooksMatchTheBalance
+ AutoBuyerVaultInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭-------------+---------------------+-------+---------+----------╮
+| Contract    | Selector            | Calls | Reverts | Discards |
++================================================================+
+| AutoHandler | announce            | 341   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | cancel              | 347   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | capAnnounceWaitPull | 344   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | deposit             | 334   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | depositFromTreasury | 311   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | giveBack            | 328   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | postCap             | 324   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | pull                | 349   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | settle              | 355   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | tryToTake           | 344   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | wait                | 369   | 0       | 0        |
+|-------------+---------------------+-------+---------+----------|
+| AutoHandler | writeOff            | 350   | 0       | 0        |
+╰-------------+---------------------+-------+---------+----------╯
+
+[PASS] test_theHandlerReallyMovesMoney() (gas: 2035460)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 757.02ms (753.67ms CPU time)
+
+Ran 23 tests for test/nft/NftSecurity.t.sol:NftSecurityTest
+[PASS] test_aCapExpiresOnTheParentChainsClock() (gas: 336728)
+[PASS] test_aCapExpiresOnTheSequencersClock() (gas: 337010)
+[PASS] test_aCollectionCannotReenterThroughTheReceiveHook() (gas: 1005089)
+[PASS] test_aCollectionCannotReenterWhileAWinIsDelivered() (gas: 1741690)
+[PASS] test_aDepositCannotLandMidSweep() (gas: 1449854)
+[PASS] test_aDirectPaymentToARouterIsNotAttributed() (gas: 1114962)
+[PASS] test_aDirectPaymentToAVaultIsRefused() (gas: 74431)
+[PASS] test_aFakeSeaportIsRefused() (gas: 1304607)
+[PASS] test_aRouterCannotBeInitialisedByAnyoneButItsLauncher() (gas: 159342)
+[PASS] test_aSellerCannotReenterTheSweep() (gas: 1571758)
+[PASS] test_aTargetThatRelaysTheEthToTheAttackerReverts() (gas: 672394)
+[PASS] test_aTargetThatTakesTheEthAndDeliversNothingReverts() (gas: 665084)
+[PASS] test_aTipWithinTheCapIsRefused() (gas: 590849)
+[PASS] test_anAskAboveTheCapCannotBeFilled() (gas: 585690)
+[PASS] test_anNftPushedInIsNoAcquisitionAndCannotBeTakenOut() (gas: 1065143)
+[PASS] test_anUnlistedIdArrivingReverts() (gas: 944465)
+[PASS] test_burnAndRaffleMoneyNeverMix() (gas: 118638)
+[PASS] test_forcedEthIsNeverCountedOrSpent() (gas: 787850)
+[PASS] test_noCapNoSweep() (gas: 239133)
+[PASS] test_noWayOutByAnyPlausibleName() (gas: 1207932)
+[PASS] test_nothingCanBeSafeTransferredInOutsideASweep() (gas: 152958)
+[PASS] test_onlyTheKeeperPostsACap() (gas: 45486)
+[PASS] test_spendOverCapTimesBoughtReverts() (gas: 938167)
+Suite result: ok. 23 passed; 0 failed; 0 skipped; finished in 8.65ms (6.36ms CPU time)
+
+Ran 6 tests for test/homechain/HomeListing.t.sol:HomeListingTest
+[PASS] test_aNonSweepOnlyCoinCannotBeFilled_onlyRefunded() (gas: 4483454)
+[PASS] test_burnPolicy_retiresThroughTheAdapter_refundsWhenNeverAcknowledged_dispatchesWhenItIs() (gas: 6023818)
+[PASS] test_listRefusals() (gas: 1049260)
+[PASS] test_pauseStopsForwardsAndSweepsOnly() (gas: 4373975)
+[PASS] test_sweepShareReachesTheEscrowAndReleasesToTheHomeVault() (gas: 4712870)
+[PASS] test_theListingRecordsAVerifiedBundle_andBorrowsTheRegistrysRoles() (gas: 143897)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 21.11ms (8.29ms CPU time)
+
+Ran 4 tests for test/homechain/HomeRedeemDesk.t.sol:HomeRedeemDeskTest
+[PASS] test_acknowledge_anyone_isARetryableToTheAdapterWithRefundsToTheAdapter() (gas: 591370)
+[PASS] test_complete_waitsForTheLanding_thenBurnsAtTheWrapperForTheKind_oncePerIntent() (gas: 2051663)
+[PASS] test_constructorRefusals() (gas: 10819)
+[PASS] test_intent_onlyFromTheOutboxWithTheAdapterAsSender_once() (gas: 284037)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 3.69ms (1.05ms CPU time)
+
+Ran 5 tests for test/nft/NftSurface.t.sol:NftSurfaceTest
+[PASS] test_listingRegistryOnlyGainedTheReservationHook() (gas: 4697199)
+[PASS] test_noVaultHasAWayOutByName() (gas: 4339968)
+[PASS] test_theRegistryExposesExactlyWhatItMeansTo() (gas: 1273978)
+[PASS] test_theRemoteVaultExposesExactlyWhatItMeansTo() (gas: 2123488)
+[PASS] test_theSweepVaultExposesExactlyWhatItMeansTo() (gas: 1493012)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 29.51ms (29.38ms CPU time)
+
+Ran 9 tests for test/fork/NftSweep.fork.t.sol:NftSweepForkTest
+[PASS] test_aBurnListingOnARealCollectionBurnsToDead() (gas: 2498)
+[PASS] test_aRealBasicOrderThroughBothBasicSelectors() (gas: 2724)
+[PASS] test_aRealOrderAboveTheCapCannotBeFilled() (gas: 2328)
+[PASS] test_aRealOrderForAnUnlistedIdIsRefused() (gas: 2306)
+[PASS] test_aRealOrderForAnotherCollectionIsRefused() (gas: 2658)
+[PASS] test_aRealOrderWithAnAppendedTipIsRefused() (gas: 2564)
+[PASS] test_aRealSeaportOrderForARealStonkBrokerIsSweptAndChecked() (gas: 2432)
+[PASS] test_aRealTwoOrderSweepWithASignedFee() (gas: 2388)
+[PASS] test_theForkIsRobinhoodChainWithSeaport16AndRealCollections() (gas: 2674)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 432.50µs (44.08µs CPU time)
+
+Ran 14 tests for test/nftwrap/NftWrapperSecurity.t.sol:NftWrapperSecurityTest
+[PASS] testFuzz_N1_mintingAfterTheRoundIsPublicCannotMoveTheDraw(bytes32) (runs: 512, μ: 1590682, ~: 1590943)
+[PASS] testFuzz_N2_refundTimingCannotMoveTheDraw(bytes32) (runs: 512, μ: 1634223, ~: 1635240)
+[PASS] testFuzz_N5_theResolverCannotChooseEither(bytes32,address,bytes) (runs: 512, μ: 2171231, ~: 2171162)
+[PASS] test_N3_resolutionOrderIsNotAChoice() (gas: 1010880)
+[PASS] test_N4_theAttackN1ClosesIsReal() (gas: 3044)
+[PASS] test_N6_aRedeemerChoosesNothingButWhereItGoes() (gas: 1494084)
+[PASS] test_N7_theRedeemerCannotRefundADeliverableTicket() (gas: 984427)
+[PASS] test_N8_anNftOnATicketIsNeitherDrawnAgainNorMintedAgain() (gas: 1065664)
+[PASS] test_S1_aTimestampJumpAloneCannotOpenARefundEarly() (gas: 698002)
+[PASS] test_S2_aTimestampJumpAloneCannotRepinEarly() (gas: 510892)
+[PASS] test_itIsAWrappedCollection() (gas: 734783)
+[PASS] test_noWayOutByName() (gas: 1183471)
+[PASS] test_theInterfaceIsExactly() (gas: 529)
+[PASS] test_theWrapperExposesExactlyWhatItMeansTo() (gas: 1495799)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 603.96ms (603.48ms CPU time)
+
+Ran 22 tests for test/nft/NftSeaportGuard.t.sol:NftSeaportGuardTest
+[PASS] testFuzz_acceptsExactlyTheSafeOrders(uint96,uint96,uint8,uint96) (runs: 512, μ: 65778, ~: 32313)
+[PASS] testFuzz_corruptedValidCalldata(uint256,uint8,uint256,bool) (runs: 512, μ: 342772, ~: 260663)
+[PASS] testFuzz_garbageNeverGetsThrough(bytes,uint8) (runs: 512, μ: 9563, ~: 9562)
+[PASS] test_aSignedFeeToAThirdPartyIsFine() (gas: 660064)
+[PASS] test_aZeroRecipientBecomesTheVault() (gas: 652349)
+[PASS] test_attack_anEmptyOfferPayingAnAccomplice() (gas: 329095)
+[PASS] test_attack_anIdThatIsNotACandidate() (gas: 555632)
+[PASS] test_attack_anotherCollection() (gas: 1465926)
+[PASS] test_attack_averagingOverTheCap() (gas: 516579)
+[PASS] test_attack_disallowedSelectors() (gas: 1263920)
+[PASS] test_attack_feeRecipientIsTheCaller() (gas: 373355)
+[PASS] test_attack_paysTheTransactionSignerBehindAContract() (gas: 508076)
+[PASS] test_attack_selfListedOrder() (gas: 319306)
+[PASS] test_attack_tipToAnAccomplice() (gas: 375737)
+[PASS] test_bothBasicSelectorsBuyOne() (gas: 1181946)
+[PASS] test_callLevelRules() (gas: 1037197)
+[PASS] test_considerationShapeRules() (gas: 616958)
+[PASS] test_fillRules() (gas: 879493)
+[PASS] test_fulfillAvailableAdvancedOrdersBuysSeveral() (gas: 1348846)
+[PASS] test_offerShapeRules() (gas: 615333)
+[PASS] test_residual_aSecondAddressSellingAtTheCapIsIndistinguishableFromAnHonestSeller() (gas: 565123)
+[PASS] test_whatIsForwardedIsTheReencodingNotTheCallersBytes() (gas: 650541)
+Suite result: ok. 22 passed; 0 failed; 0 skipped; finished in 592.39ms (588.01ms CPU time)
+
+Ran 17 tests for test/homechain/HomeSeaportGuard.t.sol:HomeSeaportGuardTest
+[PASS] testFuzz_arbitraryBytesNeverReachSeaportUnchecked(bytes,uint8) (runs: 512, μ: 63389, ~: 63052)
+[PASS] testFuzz_corruptedValidCalldataPaysNobodyElse(uint16,uint8,bool) (runs: 512, μ: 318914, ~: 208429)
+[PASS] test_aSignedFeeToAThirdPartyIsFine() (gas: 835355)
+[PASS] test_aZeroRecipientBecomesTheVault() (gas: 828705)
+[PASS] test_attack_anEmptyOfferPayingAnAccomplice() (gas: 227778)
+[PASS] test_attack_anIdThatIsNotACandidate() (gas: 304345)
+[PASS] test_attack_anotherCollection() (gas: 1394670)
+[PASS] test_attack_averagingOverTheCap() (gas: 325860)
+[PASS] test_attack_disallowedSelectors() (gas: 850239)
+[PASS] test_attack_feeRecipientIsTheCaller() (gas: 209153)
+[PASS] test_attack_paysTheTransactionSignerBehindAContract() (gas: 389436)
+[PASS] test_attack_selfListedOrder() (gas: 206544)
+[PASS] test_attack_tipToAnAccomplice() (gas: 271163)
+[PASS] test_callLevelRules() (gas: 485465)
+[PASS] test_checkOrdersIsTheSameCheckAsAView() (gas: 305128)
+[PASS] test_offerAndConsiderationShapeRules() (gas: 1327594)
+[PASS] test_whatIsForwardedIsTheReencodingNotTheCallersBytes() (gas: 826913)
+Suite result: ok. 17 passed; 0 failed; 0 skipped; finished in 572.19ms (569.49ms CPU time)
+
+Ran 14 tests for test/homechain/HomeSurface.t.sol:HomeSurfaceTest
+[PASS] test_noContractHasAWayOutByName() (gas: 30707602)
+[PASS] test_noVaultTakesADestinationFromItsCaller() (gas: 10404938)
+[PASS] test_theAdapterExposesExactlyWhatItMeansTo() (gas: 533509)
+[PASS] test_theBurnVaultExposesExactlyWhatItMeansTo() (gas: 1563299)
+[PASS] test_theDeskExposesExactlyWhatItMeansTo() (gas: 105644)
+[PASS] test_theEscrowExposesExactlyWhatItMeansTo() (gas: 421775)
+[PASS] test_theGuardExposesExactlyWhatItMeansTo() (gas: 354915)
+[PASS] test_theHomeSweepVaultIsTheSweepVaultPlusTheForward() (gas: 5866312)
+[PASS] test_theListingExposesExactlyWhatItMeansTo() (gas: 273706)
+[PASS] test_theRaffleVaultExposesExactlyWhatItMeansTo() (gas: 2180703)
+[PASS] test_theReceiverExposesExactlyWhatItMeansTo() (gas: 189675)
+[PASS] test_theWrapVaultExposesExactlyWhatItMeansTo() (gas: 1681427)
+[PASS] test_theWrapperExposesExactlyWhatItMeansTo() (gas: 782114)
+[PASS] test_theYoyoVaultExposesExactlyWhatItMeansTo() (gas: 2005328)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 80.01ms (79.90ms CPU time)
+
+Ran 3 tests for test/security/Gas.t.sol:GasTest
+[PASS] test_gas_everydayCalls() (gas: 2751930)
+[PASS] test_gas_loopsByPayingCoins() (gas: 65446956)
+[PASS] test_gas_merkleByDepth() (gas: 4255478)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 18.57ms (15.76ms CPU time)
+
+Ran 7 tests for test/Giveaway.t.sol:GiveawayTest
+[PASS] test_aGiveawayWithNoEligibleHolderCannotBeOpened() (gas: 1471792)
+[PASS] test_aHolderWhoBuysAfterTheSnapshotBlockGetsNothing() (gas: 1822953)
+[PASS] test_aRuneGiveawayIsSharedProRataAmongTheTokensHolders() (gas: 1594625)
+[PASS] test_theChallengeWindowMustPassBeforeAnyoneCanPinTheDraw() (gas: 1520096)
+[PASS] test_theExcludedHoldTokensAndWinNothing() (gas: 1853735)
+[PASS] test_theTreasurysFeesBuyAnAssetAndOneTokenHolderGetsIt() (gas: 1894935)
+[PASS] test_theWinnerIsClaimedOnce_andTheLotCannotBeReDrawnAfterwards() (gas: 1747501)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 6.32ms (2.94ms CPU time)
+
+Ran 7 tests for test/GoLiveChecks.t.sol:GoLiveChecksTest
+[PASS] test_aDelegatedAccountIsNotAMultisig() (gas: 34250426)
+[PASS] test_aGoodListingPasses() (gas: 75733)
+[PASS] test_aGoodWrapperPasses_andOurChainsAreLooser() (gas: 176880)
+[PASS] test_listingRefusals() (gas: 273065)
+[PASS] test_theBuyerMustBeTypedForThisChainAndThisAddress() (gas: 125727)
+[PASS] test_theConfirmStringsAreTheirOwnWords() (gas: 40202)
+[PASS] test_wrapperRefusals() (gas: 589169)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 2.71ms (2.21ms CPU time)
+
+Ran 6 tests for test/audit/A/GraduationSandwich.t.sol:GraduationSandwichTest
+[PASS] test_A04_aPushInsideTheGuard_doesNotPay_wXCheap() (gas: 10565378)
+[PASS] test_A04_aPushInsideTheGuard_doesNotPay_wXDear() (gas: 10437192)
+[PASS] test_A04_control_roundTripOnly() (gas: 262410)
+[PASS] test_A04_theAuditsPush_findsTheAddDeferred_wXCheap() (gas: 6469705)
+[PASS] test_A04_theAuditsPush_findsTheAddDeferred_wXDear() (gas: 6268429)
+[PASS] test_A04_theReferenceIsTheModulesFloor() (gas: 43987)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 27.44ms (14.70ms CPU time)
+
+Ran 11 tests for test/ListingRegistry.t.sol:ListingRegistryTest
+[PASS] test_aListingNeedsItsFacts() (gas: 94055)
+[PASS] test_aMembershipRootChangesOnlyAfterSevenPublicDays() (gas: 295009)
+[PASS] test_aRuneHasNoRoot() (gas: 40843)
+[PASS] test_listingsAndTheirVaults() (gas: 75838)
+[PASS] test_membership() (gas: 188638)
+[PASS] test_onlyTheOwnerLists() (gas: 69020)
+[PASS] test_pausingIsTheOwners() (gas: 89577)
+[PASS] test_rolesChangeOnlyAfterSevenPublicDays() (gas: 247657)
+[PASS] test_theTreasuryAndTheBitcoinAddressChangeSlowlyToo() (gas: 342360)
+[PASS] test_whoeverSpendsNeverVouches() (gas: 96008)
+[PASS] test_wiredOnce() (gas: 37894)
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 1.94ms (704.42µs CPU time)
+
+Ran 4 tests for test/homechain/LockSpotQuote.t.sol:LockSpotQuoteTest
+[PASS] testFuzz_linearInEthIn(uint96,uint64) (runs: 512, μ: 180557, ~: 180614)
+[PASS] test_ethQuotedCoin() (gas: 179696)
+[PASS] test_refusesAnUnknownCoinAndAnEmptyPool() (gas: 148410)
+[PASS] test_wxQuotedCoinComposesBothPools() (gas: 292117)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 25.16ms (25.02ms CPU time)
+
+Ran 2 tests for test/audit/C/DrawFairness.invariant.t.sol:DrawFairnessInvariantTest
+[PASS]
+DrawFairnessInvariantTest invariants:
+[PASS] invariant_aDrawsOutcomeIsFixedAtItsPin
+[PASS] invariant_aTicketsRoundNeverChanges
+ DrawFairnessInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭-----------------+-----------------+-------+---------+----------╮
+| Contract        | Selector        | Calls | Reverts | Discards |
++================================================================+
+| FairnessHandler | announceAndOpen | 452   | 0       | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| FairnessHandler | redeem          | 473   | 0       | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| FairnessHandler | refund          | 443   | 0       | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| FairnessHandler | request         | 470   | 0       | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| FairnessHandler | resolveDraw     | 905   | 0       | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| FairnessHandler | resolveTicket   | 463   | 0       | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| FairnessHandler | voidDraw        | 428   | 0       | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| FairnessHandler | wait            | 462   | 0       | 0        |
+╰-----------------+-----------------+-------+---------+----------╯
+
+[PASS] test_theHandlerResolvesDrawsAndTickets() (gas: 2480638)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.29s (1.27s CPU time)
+
+Ran 3 tests for test/audit/B/BurnLiveness.invariant.t.sol:BurnLivenessInvariantTest
+[PASS]
+BurnLivenessInvariantTest invariants:
+[PASS] invariant_aHolderCanAlwaysBurnWhenBackingExists
+[PASS] invariant_burnsNeverPayAboveTheBacking
+[PASS] invariant_noLockupAfterTheStaleWindow
+[PASS] invariant_theBooksHold
+ BurnLivenessInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭-----------------+-------------+-------+---------+----------╮
+| Contract        | Selector    | Calls | Reverts | Discards |
++============================================================+
+| LivenessHandler | dustMint    | 474   | 0       | 0        |
+|-----------------+-------------+-------+---------+----------|
+| LivenessHandler | exit        | 490   | 0       | 0        |
+|-----------------+-------------+-------+---------+----------|
+| LivenessHandler | fundSurplus | 538   | 0       | 0        |
+|-----------------+-------------+-------+---------+----------|
+| LivenessHandler | mint        | 516   | 0       | 0        |
+|-----------------+-------------+-------+---------+----------|
+| LivenessHandler | pause       | 502   | 0       | 0        |
+|-----------------+-------------+-------+---------+----------|
+| LivenessHandler | post        | 523   | 0       | 0        |
+|-----------------+-------------+-------+---------+----------|
+| LivenessHandler | postTiny    | 525   | 0       | 0        |
+|-----------------+-------------+-------+---------+----------|
+| LivenessHandler | wait        | 528   | 0       | 0        |
+╰-----------------+-------------+-------+---------+----------╯
+
+[PASS] test_theHandlerExitsUnderATinyTargetAndThroughAPause() (gas: 1334756)
+[PASS] test_theHandlerReachesAFreshAndAnEscapedExit() (gas: 1255692)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 1.25s (1.25s CPU time)
+
+Ran 10 tests for test/homechain/FeeEscrow.t.sol:FeeEscrowTest
+[PASS] testFuzz_escrowNeverKeepsWhatItReleased(uint96,uint96) (runs: 512, μ: 596864, ~: 596818)
+[PASS] test_absorbAttributesUnaccountedEthToATicketsCoin() (gas: 561106)
+[PASS] test_anOverdueFastTicketBlocksFastReleasesUntilConfirmed() (gas: 1364125)
+[PASS] test_anyoneReleasesThroughArbSysAndGetsTheReward() (gas: 619236)
+[PASS] test_buybackRefusesWorseThanSpotLessFivePercent() (gas: 803365)
+[PASS] test_confirmOnlyFromTheVaultsAlias() (gas: 633986)
+[PASS] test_depositsFromTheRouterOnly() (gas: 478192)
+[PASS] test_fastReleaseNeedsAnAllowListedBridgeAfterADelay() (gas: 655651)
+[PASS] test_proceedsCreditedOnlyFromTheAlias_andBoughtBackInTranches() (gas: 976355)
+[PASS] test_wrappedReleasedOnlyToTheTicketsRecipient() (gas: 751494)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 63.35ms (61.56ms CPU time)
+
+Ran 1 test for test/FrogCurve.invariant.t.sol:FrogCurveInvariantTest
+[PASS]
+FrogCurveInvariantTest invariants:
+[PASS] invariant_ethIsExactlyTheRaisePlusTheFeesOwed
+[PASS] invariant_everyCoinIsAccountedFor
+[PASS] invariant_noPanics
+[PASS] invariant_refundsNeverPayMoreThanThePools
+[PASS] invariant_theCurveOnlyEverGetsMoreExpensiveToDrain
+[PASS] invariant_theQueueKeepsItsBooks
+[PASS] invariant_theReserveMatchesTheCurveWhileTrading
+[PASS] invariant_theWrappersLedgerHolds
+ FrogCurveInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------+-------------+-------+---------+----------╮
+| Contract     | Selector    | Calls | Reverts | Discards |
++=========================================================+
+| CurveHandler | buy         | 489   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| CurveHandler | buyFrog     | 499   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| CurveHandler | fees        | 541   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| CurveHandler | graduate    | 500   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| CurveHandler | openRefunds | 505   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| CurveHandler | passTime    | 559   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| CurveHandler | refund      | 499   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| CurveHandler | sell        | 504   | 0       | 0        |
+╰--------------+-------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.57s (1.56s CPU time)
+
+Ran 1 test for test/nft/NftSweepVault.invariant.t.sol:NftSweepVaultInvariantTest
+[PASS]
+NftSweepVaultInvariantTest invariants:
+[PASS] invariant_balanceCoversTheLedger
+[PASS] invariant_forcedEthIsInertButNotLost
+[PASS] invariant_ledgerConserves
+[PASS] invariant_neverOverCap
+[PASS] invariant_nftsInEqualsBoughtMinusBurned
+ NftSweepVaultInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------+----------+-------+---------+----------╮
+| Contract     | Selector | Calls | Reverts | Discards |
++======================================================+
+| SweepHandler | burn     | 744   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| SweepHandler | deposit  | 701   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| SweepHandler | force    | 679   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| SweepHandler | postCap  | 654   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| SweepHandler | sweep    | 619   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| SweepHandler | wait     | 699   | 0       | 0        |
+╰--------------+----------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.19s (1.19s CPU time)
+
+Ran 15 tests for test/nft/NftSweepVault.t.sol:NftSweepVaultTest
+[PASS] test_burnSendsToDeadAndOnlyInABurnVault() (gas: 2711121)
+[PASS] test_candidateRules() (gas: 1237937)
+[PASS] test_depositOnlyFromTheCoinsRouterAndOnlyForItsListing() (gas: 317989)
+[PASS] test_drawWaitsOutTheChallengeOnBothClocks() (gas: 1192608)
+[PASS] test_dustWaitsBelowMinEntry() (gas: 303558)
+[PASS] test_onlyKeeperOpensAndOnlyOwnerCancels() (gas: 1217308)
+[PASS] test_partialFillIsFineIfItMeetsMinBought() (gas: 994616)
+[PASS] test_pausedListingCannotSweepButStillSettles() (gas: 1586731)
+[PASS] test_raffleDeliversToTheWinnerOn4663() (gas: 1489943)
+[PASS] test_redrawOnlyIfTheRoundNeverCame() (gas: 1270812)
+[PASS] test_sweepBuysChecksAndAttributes() (gas: 2011973)
+[PASS] test_sweepRequiresMinBought() (gas: 753772)
+[PASS] test_valueSentIsCapTimesCandidatesBoundedBySpendable() (gas: 1403520)
+[PASS] test_voidAfterSevenDaysReturnsTheLotForANewSnapshot() (gas: 1313909)
+[PASS] test_wrongProofCannotClaim() (gas: 1354406)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 17.32ms (9.72ms CPU time)
+
+Ran 1 test for test/FeeRouter.invariant.t.sol:FeeRouterInvariantTest
+[PASS] invariant_eightyTwenty_andNothingElseGoesAnywhere() (runs: 64, calls: 4096, reverts: 0)
+
+╭---------------+----------------+-------+---------+----------╮
+| Contract      | Selector       | Calls | Reverts | Discards |
++=============================================================+
+| RouterHandler | feesInEscrow   | 985   | 0       | 0        |
+|---------------+----------------+-------+---------+----------|
+| RouterHandler | feesInTheCurve | 1049  | 0       | 0        |
+|---------------+----------------+-------+---------+----------|
+| RouterHandler | harvest        | 1053  | 0       | 0        |
+|---------------+----------------+-------+---------+----------|
+| RouterHandler | sentStraight   | 1009  | 0       | 0        |
+╰---------------+----------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 489.74ms (487.74ms CPU time)
+
+Ran 11 tests for test/ItemQueue.t.sol:ItemQueueTest
+[PASS] testFuzz_unitsAreExactlyOnePerItemAndFifoHolds(uint96[5],uint96[8]) (runs: 512, μ: 8929109, ~: 9036125)
+[PASS] test_aCapDropBetweenMintAndRecordDoesNotStrandTheUnit() (gas: 1771780)
+[PASS] test_aCheapItemsCoinIsFilledAtItsTail() (gas: 4439197)
+[PASS] test_aUnitMintedForACoinThatRefundedFirstIsReclaimedNotLost() (gas: 1384523)
+[PASS] test_fifoALaterCoinIsNeverSpentBeforeAnEarlierOne() (gas: 4796645)
+[PASS] test_onlyACoinsOwnCurveQueuesReleasesOrCancels() (gas: 776203)
+[PASS] test_onlyTheCustodianRecordsOnlyWhatIsHereAndOnlyUpToTheCap() (gas: 1584799)
+[PASS] test_reclaimStrayNeverTakesUnitsOwedToCoins() (gas: 1460006)
+[PASS] test_refundExpiredCancelsTheHeadOnceItsDeadlinePassesOnBothClocks() (gas: 2382055)
+[PASS] test_theApeExample() (gas: 3681850)
+[PASS] test_theCanistersViewOfTheQueue() (gas: 1641219)
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 2.03s (2.03s CPU time)
+
+Ran 34 tests for test/FrogCurve.t.sol:FrogCurveTest
+[PASS] testFuzz_theEndPriceMatchesForAnyRaise(uint96,bool) (runs: 512, μ: 6282539, ~: 6173455)
+[PASS] test_aBuyPaysOnePercentSplitFiftyThirtyTwenty() (gas: 3879319)
+[PASS] test_aRoundTripLosesTheFeesAndNothingElse() (gas: 3971326)
+[PASS] test_aRouterOfAnotherCoinCannotDeposit() (gas: 7322744)
+[PASS] test_aSeederThatTakesLessIsRefused() (gas: 8378909)
+[PASS] test_aSweepOnlyCoinGraduatesAtOnceIntoCoinEth() (gas: 4114928)
+[PASS] test_aSweepOnlyCoinNeverRefunds() (gas: 3932776)
+[PASS] test_aTargetAboveTheMaximumIsRefusedButSweepOnlyStillLaunches() (gas: 6472712)
+[PASS] test_anEarlyCoinRaisesMoreButThePlatformCutIsCapped() (gas: 3696846)
+[PASS] test_coinPoolTokenFeesBurnTheVaultsShare() (gas: 8343338)
+[PASS] test_coinPoolWrappedFeesFeedTheSameSettlement() (gas: 9352554)
+[PASS] test_graduateBeforeTheQueueFillsIsRefused() (gas: 7253773)
+[PASS] test_graduationSeedsBothPoolsAtWhatTheUnitsCostAndPaysOnlyTheCappedFee() (gas: 8324369)
+[PASS] test_noRefundsOnceFilled() (gas: 8204468)
+[PASS] test_onlyTheSeederPaysPoolFees() (gas: 8233700)
+[PASS] test_refundsOpenOnlyAfterTheWindowOnBothClocks() (gas: 4323384)
+[PASS] test_refundsPayEthAndTheUnitsAlreadyBoughtProRata() (gas: 6219286)
+[PASS] test_seederFeesGoEntirelyToTheCoinsVault() (gas: 8802054)
+[PASS] test_slippageIsRefused() (gas: 3698372)
+[PASS] test_targetsStepDownAsTheCollectionsSharedPoolDeepens() (gas: 168752)
+[PASS] test_theCreatorClaimsOnlyTheirs() (gas: 3936612)
+[PASS] test_theCurveClosesAtTheRaise() (gas: 4233634)
+[PASS] test_theCurveEndsAtThePoolsOpeningPrice() (gas: 4137370)
+[PASS] test_theEarlyTargetHasAHardCeiling() (gas: 6784837)
+[PASS] test_theFactoryIsTheCoinsLauncher() (gas: 3698205)
+[PASS] test_theLastBuyIsCappedTheChangeReturnedAndTheBudgetQueued() (gas: 4210450)
+[PASS] test_theOpeningTargetBuysOneItemOnAnExpensiveCollection() (gas: 5453562)
+[PASS] test_theOpeningTargetNeedsAFreshCap() (gas: 127689)
+[PASS] test_thePlatformTakesNoGraduationFeeOnAFailure() (gas: 4253635)
+[PASS] test_theWorkedExampleSplitsTheRaiseAsDocumented() (gas: 3681109)
+[PASS] test_vaultFeesAreCreditedToTheCoin() (gas: 3928285)
+[PASS] test_wireOnceAndOnlyByTheDeployer() (gas: 64297)
+[PASS] test_wireRefusesVaultsOfTheWrongPolicyOrLauncher() (gas: 6330000)
+[PASS] test_wrappedFeesAreNotForwardedBeforeGraduation() (gas: 3733590)
+Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 451.43ms (431.35ms CPU time)
+
+Ran 9 tests for test/FeeRouter.t.sol:FeeRouterTest
+[PASS] testFuzz_theSplitIsExact_andNothingIsLeftBehind(uint96) (runs: 512, μ: 249970, ~: 230435)
+[PASS] test_aTreasuryThatRefusesEthNeverBlocksTheVault_andIsPaidLater() (gas: 827129)
+[PASS] test_afterGraduationTheCurveRefusesTheSweep_andHarvestStillWorks() (gas: 322232)
+[PASS] test_ethSentStraightToTheRouterIsSplitTheSameWay() (gas: 270314)
+[PASS] test_forwardToken_movesTheWholeBalanceToTheTreasury_andAnyoneMayCallIt() (gas: 702211)
+[PASS] test_harvestSweepsTheCurve_claims_andSplits80_20() (gas: 320746)
+[PASS] test_initialisedOnce_andThereIsNobodyToAsk() (gas: 201979)
+[PASS] test_nothingToHarvestIsNotAnError() (gas: 45867)
+[PASS] test_whatTheTreasuryReturnsIsSplitLikeAnyOtherEth() (gas: 324848)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 51.09ms (46.79ms CPU time)
+
+Ran 1 test for test/security/System.invariant.t.sol:ClaimInvariantTest
+[PASS] invariant_aClaimPaysOnce() (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------+----------+-------+---------+----------╮
+| Contract     | Selector | Calls | Reverts | Discards |
++======================================================+
+| ClaimHandler | claim    | 1362  | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| ClaimHandler | payout   | 1357  | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| ClaimHandler | wait     | 1377  | 0       | 0        |
+╰--------------+----------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 739.16ms (733.81ms CPU time)
+
+Ran 1 test for test/handin/OfferBoard.invariant.t.sol:OfferBoardInvariantTest
+[PASS]
+OfferBoardInvariantTest invariants:
+[PASS] invariant_bondsAreConserved
+[PASS] invariant_eachIdIsPaidAtMostOnce
+[PASS] invariant_rewardsNeverExceedTheBudget
+[PASS] invariant_theBooksBalance
+ OfferBoardInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------+----------+-------+---------+----------╮
+| Contract     | Selector | Calls | Reverts | Discards |
++======================================================+
+| BoardHandler | claim    | 592   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| BoardHandler | fund     | 585   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| BoardHandler | passTime | 563   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| BoardHandler | refund   | 584   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| BoardHandler | slash    | 594   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| BoardHandler | submit   | 603   | 0       | 0        |
+|--------------+----------+-------+---------+----------|
+| BoardHandler | withdraw | 575   | 0       | 0        |
+╰--------------+----------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.21s (1.21s CPU time)
+
+Ran 16 tests for test/handin/OfferBoard.t.sol:OfferBoardTest
+[PASS] test_aClaimCreditsBondPlusRewardOnceAndOnlyTheCustodianMay() (gas: 855989)
+[PASS] test_aDryPoolStillReturnsTheBondAndPaysWhatIsThere() (gas: 1039724)
+[PASS] test_aSlashWaitsForTheDelayOnBothClocksThenMovesTheBondToThePool() (gas: 1201143)
+[PASS] test_aSubmissionTakesExactlyTheBondAndIsRecordedWithBothClocks() (gas: 528075)
+[PASS] test_aSubmitterThatRefusesEthCannotBlockTheClaim() (gas: 790159)
+[PASS] test_aValidUnboughtHandInIsRefundedByItsSubmitterAfterExpiryOnBothClocks() (gas: 752915)
+[PASS] test_constructorRefusesWhatCannotWork() (gas: 6660)
+[PASS] test_fundNeedsValue() (gas: 35877)
+[PASS] test_oneOpenSubmissionPerHashAndTheRateLimits() (gas: 1993319)
+[PASS] test_openIdsIsAPlainArrayAndTracksCloses() (gas: 1213262)
+[PASS] test_submissionOfEncodesAsTheCanisterDecodes() (gas: 416742)
+[PASS] test_theBoardIsBoundedInAll() (gas: 747273)
+[PASS] test_theCustodianFollowsTheWrapper() (gas: 543275)
+[PASS] test_theCustodianMayRefundAtAnyTimeAndTheSlashWindowClosesAtExpiry() (gas: 957495)
+[PASS] test_theDayCapBoundsRewardsAndRollsOnBothClocks() (gas: 10527521)
+[PASS] test_theSelectorsAreTheOnesTheCanisterPins() (gas: 514)
+Suite result: ok. 16 passed; 0 failed; 0 skipped; finished in 8.57ms (7.40ms CPU time)
+
+Ran 6 tests for test/fork/PonsLaunch.fork.t.sol:PonsLaunchForkTest
+[PASS] test_aStrangerCannotSweepTheCurve_butTheRouterCan() (gas: 2614)
+[PASS] test_graduation_theCurvesFeesStillReachTheRouter_andThePairingSurvives() (gas: 2642)
+[PASS] test_launchThroughOurLauncher_namesTheRouter_andTheEscrowIsTheFactorys() (gas: 2548)
+[PASS] test_snipeTaxInTheLaunchSecond_mostlyReachesTheRouter() (gas: 2598)
+[PASS] test_theRouterCannotBeMadeToHandItsRoleOn() (gas: 2677)
+[PASS] test_tradeOnTheCurve_harvest_80_20() (gas: 2504)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 688.83µs (74.33µs CPU time)
+
+Ran 2 tests for test/fork/PoolFees.fork.t.sol:PoolFeesForkTest
+[PASS] test_takePerEthOfPoolVolume_at0_2_10pct() (gas: 2299)
+[PASS] test_whoMaySweepWhat() (gas: 2416)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 612.08µs (23.42µs CPU time)
+
+Ran 2 tests for test/fork/Pools.fork.t.sol:PoolsForkTest
+[PASS] test_aCurveGraduatesIntoTheRealPoolManager() (gas: 2416)
+[PASS] test_theMeasuredContractsAnswerOnTheFork() (gas: 2394)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 2.62ms (29.75µs CPU time)
+
+Ran 1 test for test/homechain/HomeVault.invariant.t.sol:HomeVaultInvariantTest
+[PASS]
+HomeVaultInvariantTest invariants:
+[PASS] invariant_balanceCoversTheLedger
+[PASS] invariant_capsHold
+[PASS] invariant_noPanics
+[PASS] invariant_outflowWithinLimits
+[PASS] invariant_raffleNftsLeaveOnlyByAWin
+[PASS] invariant_rewardsAreBoundedByTriggers
+[PASS] invariant_yoyoAsksAreTheMarkup
+ HomeVaultInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭------------------+-----------------+-------+---------+----------╮
+| Contract         | Selector        | Calls | Reverts | Discards |
++=================================================================+
+| HomeVaultHandler | buyNft          | 420   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | cap             | 391   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | fund            | 414   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | offerAndBuyPunk | 410   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | raffle          | 403   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | relist          | 401   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | settle          | 403   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | takeAsk         | 412   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | tick            | 395   | 0       | 0        |
+|------------------+-----------------+-------+---------+----------|
+| HomeVaultHandler | unpause         | 447   | 0       | 0        |
+╰------------------+-----------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 2.48s (2.47s CPU time)
+
+Ran 6 tests for test/security/WrapClaimSecurity.t.sol:WrapClaimSecurityTest
+[PASS] testFuzz_pushingSomeoneElsesClaimOnlyPaysThem(address) (runs: 512, μ: 1905113, ~: 1905113)
+[PASS] test_aCancelMovesNoTokenAndTheWindowIsNotShortenedByTheSequencer() (gas: 1781216)
+[PASS] test_aJumpedTimestampNeitherClosesClaimsNorRollsThemOver() (gas: 1867387)
+[PASS] test_aProofForOneFrogDoesNotPayFromAnother() (gas: 3494280)
+[PASS] test_theClaimContractNeverRedeems() (gas: 2064070)
+[PASS] test_theClaimExposesExactlyWhatItMeansTo() (gas: 473644)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 371.73ms (367.33ms CPU time)
+
+Ran 7 tests for test/floor/FloorGraduation.t.sol:FloorGraduationTest
+[PASS] test_aGraduationConvertsItsBudgetAtOnce() (gas: 4619041)
+[PASS] test_aStaleFloorAtTheClose_theGraduationWaits_thenAnyoneFillsIt() (gas: 4923794)
+[PASS] test_neverFresh_theWindowPasses_andHoldersRefundTheirETH() (gas: 4397654)
+[PASS] test_onlyACurveUsesTheGraduationLane() (gas: 160434)
+[PASS] test_theCanisterThenConvertsTheUnitsToItems() (gas: 7575299)
+[PASS] test_theDirectoryListsTheModuleAsTheCollectionsQueue() (gas: 191892)
+[PASS] test_theHardCapHoldsALaterCloseInTrading_untilConversionsMakeRoom() (gas: 10119782)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 16.85ms (12.14ms CPU time)
+
+Ran 2 tests for test/Sweep.invariant.t.sol:SweepHandlerReachesTest
+[PASS]
+SweepHandlerReachesTest invariants:
+[PASS] invariant_noPanics
+[PASS] invariant_noVaultEverApprovedAnyone
+[PASS] invariant_reservationsAreExactlyTheLiveDraws
+[PASS] invariant_thePolicyNeverChanges
+[PASS] invariant_theVaultsBooksBalance
+[PASS] invariant_theWrappersLedgerHoldsWithRetirements
+ SweepHandlerReachesTest invariants (runs: 64, calls: 4096, reverts: 147)
+
+╭--------------+-----------------+-------+---------+----------╮
+| Contract     | Selector        | Calls | Reverts | Discards |
++=============================================================+
+| SweepHandler | advanceDraw     | 252   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | claim           | 257   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | deliverOrRefund | 266   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | depositFrog     | 249   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | feesInEth       | 242   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | feesInWrapped   | 269   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | holderRedeem    | 241   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | openDraw        | 265   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | openEmptyDraw   | 264   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | passTime        | 249   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | postCap         | 257   | 144     | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | reclaim         | 272   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | resolveNext     | 271   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | retire          | 262   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | stray           | 248   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | sweep           | 232   | 3       | 0        |
+╰--------------+-----------------+-------+---------+----------╯
+
+[PASS] test_theHandlerReachesEveryState() (gas: 4250984)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 2.14s (2.12s CPU time)
+
+Ran 5 tests for test/audit/A/LastBuyAccounting.t.sol:LastBuyAccountingTest
+[PASS] testFuzz_A02_closingBuyIsSolvent(uint256,uint256,uint256) (runs: 512, μ: 4232570, ~: 4408446)
+[PASS] testFuzz_A02_curveEthOutNeverExceedsIn(uint256[6],uint256,bool) (runs: 512, μ: 7488326, ~: 7491371)
+[PASS] test_A02_aClosingBuyInTheBandIsSolvent_andEveryClaimIsPaid() (gas: 6693091)
+[PASS] test_A02_duringTheLaunchFee_stillSolvent() (gas: 4292393)
+[PASS] test_A07_buyAndSellTakeADeadline() (gas: 4110959)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 1.41s (1.41s CPU time)
+
+Ran 5 tests for test/LaunchFee.t.sol:FeeTierTest
+[PASS] test_aFactoryWithNoTiersTakesOnlyTheTemplatesFee() (gas: 44241)
+[PASS] test_aYoyoLaunchNeedsTheYoyoVault_wiredOnce() (gas: 3874002)
+[PASS] test_theFeeTierIsImmutable() (gas: 2375291)
+[PASS] test_theSplitScalesWithTheTier() (gas: 3844485)
+[PASS] test_theTierIsChosenAtLaunch_withinTheBounds_andPublished() (gas: 7355220)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 20.00ms (8.67ms CPU time)
+
+Ran 6 tests for test/LaunchFee.t.sol:LaunchFeeTest
+[PASS] test_aBuyAtLaunchPaysTheHighFee_allOfTheExtraToTheVault() (gas: 3857819)
+[PASS] test_sellsPayTheBaseFeeOnly() (gas: 3966311)
+[PASS] test_theConfigIsBounded() (gas: 19414)
+[PASS] test_theExtraDecaysLinearly_toNothingAtTheEnd() (gas: 4002749)
+[PASS] test_theLastBuyReachesTheRaiseExactly_grossedUpAtTheTotalRate() (gas: 4137847)
+[PASS] test_theSequencersClockAloneDoesNotShortenTheWindow() (gas: 3662569)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 5.51ms (1.11ms CPU time)
+
+Ran 2 tests for test/security/System.invariant.t.sol:SystemInvariantTest
+[PASS]
+SystemInvariantTest invariants:
+[PASS] invariant_books
+[PASS] invariant_conservation
+[PASS] invariant_split
+[PASS] invariant_vaultOutflowIsReleasesAndBondRefunds
+ SystemInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭---------------+--------------------+-------+---------+----------╮
+| Contract      | Selector           | Calls | Reverts | Discards |
++=================================================================+
+| SystemHandler | bond               | 203   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | bondDeclareRelease | 211   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | cancel             | 201   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | declare            | 221   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | dust               | 224   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | feeAndHarvest      | 216   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | fees               | 213   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | forceFeed          | 207   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | giveBack           | 224   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | harvest            | 221   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | release            | 226   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | rotate             | 234   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | settle             | 208   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | settleLatest       | 188   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | treasuryMood       | 213   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | tryToTake          | 226   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | unbond             | 226   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | wait               | 214   | 0       | 0        |
+|---------------+--------------------+-------+---------+----------|
+| SystemHandler | writeOff           | 220   | 0       | 0        |
+╰---------------+--------------------+-------+---------+----------╯
+
+[PASS] test_theSystemHandlerReallyMovesMoney() (gas: 2172587)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.37s (1.37s CPU time)
+
+Ran 10 tests for test/floor/FloorAttacks.t.sol:FloorAttacksTest
+[PASS] testFuzz_aLoneTraderNeverProfits(uint256[6],uint256[6],uint256[6]) (runs: 512, μ: 3797319, ~: 3834625)
+[PASS] test_compromisedKeeper_cannotDrainThroughBurns_evenOverADay() (gas: 7694176)
+[PASS] test_graduationsCannotBeMadeCheapByALowTarget() (gas: 129459)
+[PASS] test_pushDownThenMint_gainsAtMostDeltaSquaredWithinTheHour() (gas: 167940)
+[PASS] test_pushDownThenMint_sustained_isBoundedByThePublicCap() (gas: 2290636)
+[PASS] test_pushUpThenBurn_aTightSpreadOpensNoDrain() (gas: 3682128)
+[PASS] test_pushUpThenBurn_theBackingCapAloneHolds_withNoVolatilityWeight() (gas: 3965119)
+[PASS] test_pushUpThenBurn_theVolatilityTermCancelsThePushWithinTheHour() (gas: 1020770)
+[PASS] test_stale_nothingTradesAfterAnHour_onEitherClock() (gas: 415908)
+[PASS] test_theSequencerCannotRefillACapOrDecayTheSpreadEarly() (gas: 590537)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 1.51s (1.49s CPU time)
+
+Ran 2 tests for test/Wrapper.invariant.t.sol:WrapperInvariantTest
+[PASS]
+WrapperInvariantTest invariants:
+[PASS] invariant_everyHeldFrogIsInExactlyOnePlace
+[PASS] invariant_everyTokenIsSomewhereWeCanSee
+[PASS] invariant_noRequiredTransitionEverPanics
+[PASS] invariant_supplyIsHeldLessOpenTickets
+[PASS] invariant_ticketsResolveInOrder
+ WrapperInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭-------------+-----------------+-------+---------+----------╮
+| Contract    | Selector        | Calls | Reverts | Discards |
++============================================================+
+| WrapHandler | claim           | 448   | 0       | 0        |
+|-------------+-----------------+-------+---------+----------|
+| WrapHandler | deliver         | 466   | 0       | 0        |
+|-------------+-----------------+-------+---------+----------|
+| WrapHandler | move            | 440   | 0       | 0        |
+|-------------+-----------------+-------+---------+----------|
+| WrapHandler | redeem          | 482   | 0       | 0        |
+|-------------+-----------------+-------+---------+----------|
+| WrapHandler | refund          | 441   | 0       | 0        |
+|-------------+-----------------+-------+---------+----------|
+| WrapHandler | refundPinned    | 467   | 0       | 0        |
+|-------------+-----------------+-------+---------+----------|
+| WrapHandler | resolveNext     | 487   | 0       | 0        |
+|-------------+-----------------+-------+---------+----------|
+| WrapHandler | wait            | 461   | 0       | 0        |
+|-------------+-----------------+-------+---------+----------|
+| WrapHandler | wrapTheLateFrog | 404   | 0       | 0        |
+╰-------------+-----------------+-------+---------+----------╯
+
+[PASS] test_theHandlerReallyMovesFrogs() (gas: 2851659)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.29s (1.29s CPU time)
+
+Ran 37 tests for test/homechain/HomeVault.t.sol:HomeVaultTest
+[PASS] testFuzz_callerGainsExactlyTheRewardPerTrigger(uint96,uint96,uint8) (runs: 512, μ: 2149127, ~: 1766303)
+[PASS] testFuzz_markupWithinBounds(uint16) (runs: 512, μ: 1244310, ~: 1244328)
+[PASS] test_acknowledgeSendsConfirmToTheEscrowOnce() (gas: 823387)
+[PASS] test_attributionFifoAndByMostPaid() (gas: 1298113)
+[PASS] test_burnVault_anyoneBurnsWhatItBought() (gas: 1213631)
+[PASS] test_buyPunk_fromTheOrderBook_yoyoRelistsInTheSameCall() (gas: 1237963)
+[PASS] test_buyPunk_refusals() (gas: 745156)
+[PASS] test_buySeaport_aSwallowingMarketIsRefusedByTheOutcomeCheck() (gas: 533502)
+[PASS] test_buySeaport_anyoneTriggersAndGetsTheReward() (gas: 1136162)
+[PASS] test_buySeaport_pausedGuardStopsBuying() (gas: 614059)
+[PASS] test_buySeaport_refusals() (gas: 960246)
+[PASS] test_buySeaport_severalAndBothBasicSelectors() (gas: 2817395)
+[PASS] test_capExpiresOnBothClocks() (gas: 207889)
+[PASS] test_constructorRefusals() (gas: 28477)
+[PASS] test_fundByTicket_nativeAndFast() (gas: 493751)
+[PASS] test_fundRefusesZeroAndTicketZero() (gas: 62172)
+[PASS] test_guardCapsBindABuy() (gas: 565956)
+[PASS] test_hint_aCheaperHintedPunkBlocksADearerBuy() (gas: 2163614)
+[PASS] test_hint_refusalsAndTheBoundedList() (gas: 5553336)
+[PASS] test_keeperRotationTakesSevenDaysOnBothClocks() (gas: 234869)
+[PASS] test_nothingArrivesOutsideABuy() (gas: 213680)
+[PASS] test_plainTransferIsBudgetUnderTicketZero() (gas: 146320)
+[PASS] test_raffle_onlyTheProvenWinnerAndOnlyOnce() (gas: 1772570)
+[PASS] test_raffle_ownerCancelsOnlyInsideTheWindow_andVoidsAfterSevenDays() (gas: 1640394)
+[PASS] test_raffle_punks() (gas: 1686223)
+[PASS] test_raffle_redrawAfterADayIfDrandSkipped() (gas: 1383482)
+[PASS] test_raffle_theWinnerGetsTheNftInTheClaim() (gas: 1700674)
+[PASS] test_rewardCannotBeRefusedIntoAStuckVault_refusingCallerRevertsItself() (gas: 1278941)
+[PASS] test_smallFundingsWaitUntilMinEntry() (gas: 269016)
+[PASS] test_wrapVault_budgetMustCoverTheBridge() (gas: 484689)
+[PASS] test_wrapVault_punks() (gas: 1766601)
+[PASS] test_wrapVault_wrapsAndBridgesTheWxDownWithAReport() (gas: 1895068)
+[PASS] test_yoyoErc721_expiredListingCanBeRelisted() (gas: 2569229)
+[PASS] test_yoyoErc721_relistValidatesAnOrderAndSettleBridges() (gas: 2789042)
+[PASS] test_yoyoPunk_settleWithdrawsAndBridgesProceedsDown() (gas: 1974032)
+[PASS] test_yoyoRelistAndSettleRefusedOnOtherPolicies_byAbi() (gas: 52156)
+[PASS] test_yoyoSettleRewardComesFromProceedsNotBudget() (gas: 2598458)
+Suite result: ok. 37 passed; 0 failed; 0 skipped; finished in 1.55s (1.55s CPU time)
+
+Ran 10 tests for test/YoyoVault.t.sol:YoyoVaultTest
+[PASS] test_aBuybackTakesItsRefundBack() (gas: 1362453)
+[PASS] test_aRefundedRelistTicketComesBackThroughReclaim() (gas: 1354892)
+[PASS] test_aSaleIsTheCustodiansReport_atLeastTheAskLessTheAllowance() (gas: 1412210)
+[PASS] test_anUnsoldItemComesBack_throughADepositToTheVault() (gas: 1833802)
+[PASS] test_nothingLeavesButTheBuyback() (gas: 1307678)
+[PASS] test_relistBurnsOneUnitToAListingAtTheMarkupOverTheCap() (gas: 1239841)
+[PASS] test_relistIsTheYoyoPolicysOnly_andNeedsAFreshCapAndAUnit() (gas: 617275)
+[PASS] test_theBuybackIsTheKeepers_measured_andEveryCoinGoesToDead() (gas: 1840011)
+[PASS] test_theMarkupIsTheOwners_withinTheBounds() (gas: 768792)
+[PASS] test_theYoyoVaultExposesNoRecipient() (gas: 1305023)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 16.21ms (4.77ms CPU time)
+
+Ran 11 tests for test/audit/B/FloorAuditB.t.sol:FloorAuditB
+[PASS] testFuzz_B_roundTripNeverProfitsWithSurplus(uint256,uint256,uint256) (runs: 512, μ: 1028721, ~: 1092474)
+[PASS] test_A10_aFarOffTargetDoesNotPriceAGraduation() (gas: 158566)
+[PASS] test_B01_aDustMintNoLongerFreezesBurns() (gas: 1214173)
+[PASS] test_B01b_theGriefCannotBeReArmed_aBankRunDrainsTheModule() (gas: 2173490)
+[PASS] test_B02_aCompromisedKeeperCannotDrainTheReserveSurplusThroughBurns() (gas: 2649006)
+[PASS] test_B02b_overDaysTheWalkIsBoundedPerDay() (gas: 4430670)
+[PASS] test_B03_theKeeperCannotForgeADelivery_theRedeemerIsRefunded() (gas: 1133834)
+[PASS] test_B04_aLostKeeperNoLongerLocksTheBacking() (gas: 807437)
+[PASS] test_B09_theGuardianStopsTheKeeperAndTheInflowsAtOnce_burnsContinue() (gas: 1051561)
+[PASS] test_E02_theModulesKeeperRotatesWithTheRegistry() (gas: 306063)
+[PASS] test_E02a_confidenceZeroPostsCannotHoldTheModuleFrozen() (gas: 15689331)
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 398.19ms (388.57ms CPU time)
+
+Ran 5 tests for test/audit2/R2Floor.t.sol:R2Floor
+[PASS] test_N1a_aTinyTargetNoLongerFreezesBurns() (gas: 15387656)
+[PASS] test_N1b_aPauseRightAfterAHostilePostPaysTheBacking() (gas: 828190)
+[PASS] test_N1b_afterTheUnpauseTheFloorPricesAgain() (gas: 889613)
+[PASS] test_N1b_burnsGoOnThroughAKeeperPause() (gas: 1570143)
+[PASS] test_N1b_noMintIntoTheBackingPriceEvenWhileFresh() (gas: 535396)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 15.53ms (11.54ms CPU time)
+
+Ran 2 tests for test/audit2/R3CanisterCall.t.sol:R3CanisterCall
+[PASS] test_theCanistersBytesMarkAResolvedTicketFromTheCustodianOnly() (gas: 1408570)
+[PASS] test_theCanistersMarkUndeliverableBytesAreTheWrappersEncoding() (gas: 13631)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 6.24ms (1.06ms CPU time)
+
+Ran 8 tests for test/audit2/R3CarryEmpty.t.sol:R3CarryEmpty
+[PASS] test_cancelOfATrueEmptyIsOnlyADelay() (gas: 1064657)
+[PASS] test_carriedEmptySnapshotNowResolves() (gas: 1830982)
+[PASS] test_emptyCloseWaitsTheWindowAndThePause() (gas: 728068)
+[PASS] test_emptyIsFinal() (gas: 785731)
+[PASS] test_emptyOpenIsTheSentinelAlone() (gas: 1005043)
+[PASS] test_falseEmptyIsCancellableAndCannotReroll() (gas: 7403264)
+[PASS] test_freshEmptyDrawClosesWithNoWinner() (gas: 729604)
+[PASS] test_stageNumbers() (gas: 173)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 21.19ms (10.97ms CPU time)
+
+Ran 2 tests for test/audit2/R3GradRoom.t.sol:R3GradRoom
+[PASS] test_B07_aFrontRunCostsAClosingBuyADelayNotARefund() (gas: 8598423)
+[PASS] test_B07_aPublicMintCannotTakeAQueuedGraduationsRoom() (gas: 8961815)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 19.21ms (1.54ms CPU time)
+
+Ran 2 tests for test/nftwrap/NftWrapper.invariant.t.sol:NftWrapperInvariantTest
+[PASS]
+NftWrapperInvariantTest invariants:
+[PASS] invariant_everyHeldNftIsInExactlyOnePlace
+[PASS] invariant_everyItemIsHeldOrDelivered
+[PASS] invariant_everyTokenIsSomewhereWeCanSee
+[PASS] invariant_heldIsTheCountOfHeldTokenIds
+[PASS] invariant_noDoubleMint
+[PASS] invariant_noRequiredTransitionEverPanics
+[PASS] invariant_supplyIsHeldLessOpenTickets
+[PASS] invariant_ticketsResolveInOrder
+ NftWrapperInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭----------------+-------------+-------+---------+----------╮
+| Contract       | Selector    | Calls | Reverts | Discards |
++===========================================================+
+| NftWrapHandler | deliver     | 448   | 0       | 0        |
+|----------------+-------------+-------+---------+----------|
+| NftWrapHandler | mint        | 470   | 0       | 0        |
+|----------------+-------------+-------+---------+----------|
+| NftWrapHandler | move        | 439   | 0       | 0        |
+|----------------+-------------+-------+---------+----------|
+| NftWrapHandler | redeem      | 471   | 0       | 0        |
+|----------------+-------------+-------+---------+----------|
+| NftWrapHandler | redraw      | 470   | 0       | 0        |
+|----------------+-------------+-------+---------+----------|
+| NftWrapHandler | refund      | 440   | 0       | 0        |
+|----------------+-------------+-------+---------+----------|
+| NftWrapHandler | replay      | 440   | 0       | 0        |
+|----------------+-------------+-------+---------+----------|
+| NftWrapHandler | resolveNext | 437   | 0       | 0        |
+|----------------+-------------+-------+---------+----------|
+| NftWrapHandler | wait        | 481   | 0       | 0        |
+╰----------------+-------------+-------+---------+----------╯
+
+[PASS] test_theHandlerReallyMovesNfts() (gas: 3856786)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 2.21s (2.21s CPU time)
+
+Ran 1 test for test/floor/FloorModule.invariant.t.sol:FloorInvariantTest
+[PASS]
+FloorInvariantTest invariants:
+[PASS] invariant_aDrawNeverFindsTheSetEmpty
+[PASS] invariant_aLeavingItemIsNeverDrawnLate
+[PASS] invariant_burnsNeverPayAboveTheBacking
+[PASS] invariant_ethIsConserved
+[PASS] invariant_noBackingWithoutUnits
+[PASS] invariant_rentalsCountedNeverOwned
+[PASS] invariant_theCapsHold
+[PASS] invariant_theLedger
+[PASS] invariant_theModuleIsSolvent
+[PASS] invariant_theMoveLimitHolds
+[PASS] invariant_thePriceStaysInTheBand
+[PASS] invariant_theReserveStands
+ FloorInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------+-------------+-------+---------+----------╮
+| Contract     | Selector    | Calls | Reverts | Discards |
++=========================================================+
+| FloorHandler | burn        | 271   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | claim       | 281   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | convert     | 308   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | deliver     | 289   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | endRental   | 283   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | fundReserve | 283   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | mint        | 265   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | post        | 297   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | redeem      | 282   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | refund      | 342   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | rentIn      | 267   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | resolve     | 322   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | returnHome  | 303   | 0       | 0        |
+|--------------+-------------+-------+---------+----------|
+| FloorHandler | settle      | 303   | 0       | 0        |
+╰--------------+-------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.92s (1.91s CPU time)
+
+Ran 9 tests for test/security/SweepSecurity.t.sol:SweepSecurityTest
+[PASS] testFuzz_staleIsRefusedOnEitherClock(uint32,bool) (runs: 512, μ: 665192, ~: 665011)
+[PASS] testFuzz_theRaffleCannotBeAimed(bytes32,uint64,uint256) (runs: 512, μ: 998985, ~: 999627)
+[PASS] test_aDrawPaysOneWholeWrappedOnceAndNoMore() (gas: 1056024)
+[PASS] test_directPaymentsBuyNoSay() (gas: 722592)
+[PASS] test_raffleAndBurnMoneyNeverMix() (gas: 110370)
+[PASS] test_theClaimPaysTheLeafsHolderOnly() (gas: 1003518)
+[PASS] test_thePolicyIsNotInStorage() (gas: 101724)
+[PASS] test_theSweepVaultExposesExactlyWhatItMeansTo() (gas: 2471107)
+[PASS] test_theVaultCannotBeDrainedByAnyRole() (gas: 2605399)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 482.97ms (472.23ms CPU time)
+
+Ran 30 tests for test/Wrapper.t.sol:WrapperTest
+[PASS] testFuzz_aTicketDrawsOnlyAmongFrogsFreeWhenItWasBurned(bytes32) (runs: 512, μ: 4520794, ~: 4520871)
+[PASS] test_aBurnNeedsATaprootAddress() (gas: 1561153)
+[PASS] test_aBurnNeedsAWholeToken() (gas: 1621073)
+[PASS] test_aBurnOpensATicketPinnedToARoundThatDoesNotExistYet() (gas: 1848761)
+[PASS] test_aFrogIsMintedToTheDistributionContract_neverToAPerson() (gas: 1546092)
+[PASS] test_aFrogIsWrappedOnce() (gas: 1522179)
+[PASS] test_aFrogIsWrappedOnlyWhileTheListingDeliversToCustody() (gas: 1908134)
+[PASS] test_aFrogThatCouldStillBeDrawnIsNeverWrapped() (gas: 1580883)
+[PASS] test_aLateDeliveryIsStillRecorded_untilSomebodyRefunds() (gas: 1957840)
+[PASS] test_aNamedFrogIsNeverWrapped_itAlreadyBelongsToSomeone() (gas: 1297258)
+[PASS] test_aPausedListingWrapsNothingNew() (gas: 1222592)
+[PASS] test_aPinnedTicketIsRefundedAfterAWeek_andResolutionMovesPastIt() (gas: 3677789)
+[PASS] test_aRuneListingCannotBeWrapped_itIsAlreadyDivisible() (gas: 16589)
+[PASS] test_aTicketResolvesOnce() (gas: 1906568)
+[PASS] test_aWrappedFrogCanNeverBeDrawnAfterwards() (gas: 1548609)
+[PASS] test_anAcquisitionThatDoesNotExistWrapsNothing() (gas: 78918)
+[PASS] test_anUndeliveredTicketRefunds_theFrogReturnsAndTheTokenComesBack() (gas: 2541178)
+[PASS] test_custodyIsFixedAtConstruction_aTaprootAddress_andAZeroCustodianIsRefused() (gas: 34867)
+[PASS] test_nothingIsDeliveredBeforeItIsResolved() (gas: 1792399)
+[PASS] test_oneWholeTokenIsOneFrog() (gas: 21527)
+[PASS] test_onlyTheCustodianRecordsTheDelivery_andTheFrogLeavesTheBooks() (gas: 2099091)
+[PASS] test_onlyThePayingCoinsCreatorWraps() (gas: 1433962)
+[PASS] test_pausingTheListingStopsNoRedemption() (gas: 3749682)
+[PASS] test_resolvingNamesAFrogAndStartsTheDeliveryClock() (gas: 1934838)
+[PASS] test_theCustodianRecordsItsOwnDelivery_andCanDoNothingElse() (gas: 3716864)
+[PASS] test_theDistributionAddressCannotBeZero() (gas: 14524)
+[PASS] test_thePinnedRoundIsNeverReplaced() (gas: 1838525)
+[PASS] test_theResultIsTheSameWhoeverResolves() (gas: 4731101)
+[PASS] test_threeFrogs_threeBurns_oneDelivered_oneRefunded_oneOpen_theBooksBalanceAtEveryStep() (gas: 5756550)
+[PASS] test_ticketsResolveStrictlyInOrder() (gas: 3535338)
+Suite result: ok. 30 passed; 0 failed; 0 skipped; finished in 824.77ms (823.09ms CPU time)
+
+Ran 15 tests for test/floor/Treasury.t.sol:TreasuryTest
+[PASS] testFuzz_thePotsNeverExceedTheBalance_andTheSharesAlwaysSumToOne(uint96[4],uint16,uint16,uint16) (runs: 512, μ: 2777477, ~: 2918687)
+[PASS] test_aLoanIsNeverRepaidTwice() (gas: 803892)
+[PASS] test_aStaleModuleKeepsItsFloatInThePot_andStillGetsItsReserve() (gas: 986035)
+[PASS] test_allocateSplitsIncomeByTheShares_andPaysOperations() (gas: 450238)
+[PASS] test_bootstrapIsOneLoanPerCollection_halfFloatHalfReserve() (gas: 1047388)
+[PASS] test_distributeIsWeightedBySevenDayVolume() (gas: 2992302)
+[PASS] test_nothingLeavesButToRegisteredModulesAndOperations() (gas: 970109)
+[PASS] test_onlyTheTimelockForgives_andNothingElseLowersALoan() (gas: 745868)
+[PASS] test_theBooksBalanceAtEveryStep() (gas: 1006382)
+[PASS] test_theFeeSlicesReachTheReserveAndTheLiquidity_andThePlatformShareTheTreasury() (gas: 4117721)
+[PASS] test_theGraduationFeeAndTheSkimsReachTheTreasury() (gas: 7640771)
+[PASS] test_theLoanIsRepaidFromTheFeeFlowBeforeAnyOtherRoute() (gas: 4931596)
+[PASS] test_theModulesNewSelectors() (gas: 1542)
+[PASS] test_theSharesSumToOneHundredPercent_andOnlyTheTimelockChangesThem() (gas: 234946)
+[PASS] test_theTreasuryExposesExactlyWhatItMeansTo() (gas: 491192)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 803.82ms (798.25ms CPU time)
+
+Ran 53 tests for test/SweepVault.t.sol:SweepVaultTest
+[PASS] testFuzz_spendNeverExceedsCapTimesBought(uint96,uint96,uint64,uint64) (runs: 512, μ: 357565, ~: 355779)
+[PASS] test_aForgedRangeCannotClaim() (gas: 1034033)
+[PASS] test_aLosingRangeCannotClaim() (gas: 1077400)
+[PASS] test_aRouteThatSendsTheWrappedElsewhereReverts() (gas: 319777)
+[PASS] test_aVenueThatKeepsTheEthGetsNothingThrough() (gas: 285680)
+[PASS] test_aVenueThatRefundsMoreThanItWasSentReverts() (gas: 292828)
+[PASS] test_anUndeliveredRetirementIsRefundedAndReclaimed() (gas: 1928775)
+[PASS] test_announceAndOpenAreTheKeepersOnly() (gas: 522967)
+[PASS] test_announceNeedsAWholeWrappedOfThatCoin() (gas: 352982)
+[PASS] test_announceRefusedOnTheBurnVault() (gas: 343410)
+[PASS] test_burnAddressIsAValidTaprootAddress() (gas: 53018)
+[PASS] test_cancelIsTheOwnersOrTheGuardiansAndOnlyBeforeThePin() (gas: 1545010)
+[PASS] test_capExpiresAfterAnHourOfParentBlocks() (gas: 244853)
+[PASS] test_capExpiresAfterAnHourOnTheSequencersClock() (gas: 244387)
+[PASS] test_claimOnce() (gas: 1158439)
+[PASS] test_constructionFixesPolicyVenueAndBeacon() (gas: 24467)
+[PASS] test_constructorRefusesAVenueThatIsNotAContract() (gas: 15511)
+[PASS] test_constructorRefusesAWrappedTokenWithoutACustodianAndAnUnmeasuredBlockTime() (gas: 16499)
+[PASS] test_constructorRefusesTheWrapperAsVenue() (gas: 14009)
+[PASS] test_depositCreditsTheCoinFromItsOwnRouter() (gas: 107883)
+[PASS] test_depositFromTheTreasuryIsRefused() (gas: 44770)
+[PASS] test_depositRefusesACoinOnAnotherListing() (gas: 57015)
+[PASS] test_depositRefusesAnotherCoinsRouter() (gas: 54748)
+[PASS] test_depositWrappedCreditsUnitsFromTheRouter() (gas: 607982)
+[PASS] test_depositWrappedRefusesAStranger() (gas: 531426)
+[PASS] test_directWrappedTransferIsStrayAndCreditsNobody() (gas: 571141)
+[PASS] test_noCapNoSweep() (gas: 138728)
+[PASS] test_oneDrawPerCoinBeforeItsPin_andAnUnopenedAnnouncementVoids() (gas: 883090)
+[PASS] test_openRefusesARootWithoutTheSentinelOrWithAnotherTotal() (gas: 916744)
+[PASS] test_plainEthIsRefused() (gas: 76120)
+[PASS] test_postCapIsTheKeepersOnly() (gas: 41685)
+[PASS] test_raffleEndToEnd() (gas: 1188621)
+[PASS] test_reclaimRefusesATicketTheVaultDidNotRetire() (gas: 1677823)
+[PASS] test_requestDrawWaitsForTheWindowOnBothClocks() (gas: 854903)
+[PASS] test_retireNeedsAWholeWrapped() (gas: 355676)
+[PASS] test_retireRedeemsToTheBurnAddress() (gas: 1502300)
+[PASS] test_retireRefusedOnTheRaffleVault() (gas: 333427)
+[PASS] test_sweepAboveTheCapReverts() (gas: 315869)
+[PASS] test_sweepBelowMinOutReverts() (gas: 314906)
+[PASS] test_sweepBuysAtOrBelowTheCapAndChargesTheCoin() (gas: 423132)
+[PASS] test_sweepCannotSpendMoreThanTheCoinsCredit() (gas: 317485)
+[PASS] test_sweepChargesOnlyWhatWasSpentWhenTheVenueRefunds() (gas: 339362)
+[PASS] test_sweepOnlyEverCallsTheVenue() (gas: 596788)
+[PASS] test_sweepRefusedWhileTheListingIsPaused() (gas: 274299)
+[PASS] test_theCreatorHasNoPower() (gas: 372787)
+[PASS] test_theOwnerCancelsInsideTheWindowAndTheWrappedGoesBack() (gas: 972675)
+[PASS] test_thePinnedRoundIsFinal_andAnUnresolvedDrawVoidsAfterAWeek() (gas: 1085292)
+[PASS] test_thePinnedRoundIsInTheFuture() (gas: 920868)
+[PASS] test_theSeedRoundPicksTheSnapshotTimeInTheDayBefore() (gas: 768818)
+[PASS] test_theVenueCannotPullTheVaultsWrapped() (gas: 497635)
+[PASS] test_theVenueCannotReenter() (gas: 286900)
+[PASS] test_theWinningTicketIsTheRoundsAndNobodyElses() (gas: 1011444)
+[PASS] test_voidAfterAWeekReturnsTheWrappedToTheCoin() (gas: 1140167)
+Suite result: ok. 53 passed; 0 failed; 0 skipped; finished in 130.38ms (123.51ms CPU time)
+
+Ran 1 test for test/homechain/HomeWrapper.invariant.t.sol:HomeWrapperInvariantTest
+[PASS]
+HomeWrapperInvariantTest invariants:
+[PASS] invariant_backing
+[PASS] invariant_everyHeldItemInOnePlace
+[PASS] invariant_guardCountsTheWrapper
+[PASS] invariant_ledger
+[PASS] invariant_noPanics
+[PASS] invariant_strictOrder
+ HomeWrapperInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭-----------------+----------+-------+---------+----------╮
+| Contract        | Selector | Calls | Reverts | Discards |
++=========================================================+
+| HomeWrapHandler | move     | 470   | 0       | 0        |
+|-----------------+----------+-------+---------+----------|
+| HomeWrapHandler | redeem   | 535   | 0       | 0        |
+|-----------------+----------+-------+---------+----------|
+| HomeWrapHandler | redraw   | 487   | 0       | 0        |
+|-----------------+----------+-------+---------+----------|
+| HomeWrapHandler | refund   | 537   | 0       | 0        |
+|-----------------+----------+-------+---------+----------|
+| HomeWrapHandler | resolve  | 515   | 0       | 0        |
+|-----------------+----------+-------+---------+----------|
+| HomeWrapHandler | tick     | 539   | 0       | 0        |
+|-----------------+----------+-------+---------+----------|
+| HomeWrapHandler | unpause  | 529   | 0       | 0        |
+|-----------------+----------+-------+---------+----------|
+| HomeWrapHandler | wrap     | 484   | 0       | 0        |
+╰-----------------+----------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 3.21s (3.21s CPU time)
+
+Ran 39 tests for test/floor/FloorModule.t.sol:FloorModuleTest
+[PASS] testFuzz_everyPostIsWithinTheLimit(uint256[8],uint16[8]) (runs: 512, μ: 972360, ~: 973466)
+[PASS] test_ETHBackedUnitsCannotRedeemAnItemThatIsNotThere() (gas: 1708003)
+[PASS] test_aCalmMarketPaysTheBaseSpread() (gas: 439297)
+[PASS] test_aConversionAboveTheBackingIsPaidByTheReserve_orWaits() (gas: 4355922)
+[PASS] test_aHalfHourMovesHalfAsFar() (gas: 105797)
+[PASS] test_aPostGoesStaleAfterAnHourOnEitherClock() (gas: 229396)
+[PASS] test_aPostUnderTheMinimumConfidenceLeavesTheModuleStale() (gas: 198556)
+[PASS] test_aSilentKeeperStillMovesOnlyOneHoursWorth() (gas: 102585)
+[PASS] test_aSnapshotCoversACapDropBetweenPurchaseAndRecord() (gas: 1695668)
+[PASS] test_burnPaysTheFloorLessTheSpread_andKeepsTheDifference() (gas: 757906)
+[PASS] test_burnsAreCappedPerHour() (gas: 896160)
+[PASS] test_churnFillsTheReserve() (gas: 1875458)
+[PASS] test_floorBoundsIsExactlyWhatAPostCanBecome() (gas: 135896)
+[PASS] test_itemArrivalsAreLimitedPerDay_onBothClocks() (gas: 3063079)
+[PASS] test_itemArrivedRefusals() (gas: 1142223)
+[PASS] test_itemArrivedTurnsOneUnitIntoAnItem() (gas: 1281121)
+[PASS] test_lowConfidenceWidensBothSides() (gas: 179046)
+[PASS] test_mintIsInstantAndETHBacked() (gas: 433414)
+[PASS] test_mintsAreCappedPerHour_onTheSlowerClock() (gas: 714261)
+[PASS] test_movementWidensBothSidesAndDecaysOverAnHour() (gas: 324135)
+[PASS] test_nothingToConvertWithoutAnETHBackedUnit() (gas: 695204)
+[PASS] test_onlyTheKeeperPosts_andNeverZero() (gas: 141497)
+[PASS] test_onlyTheModuleMintsOrBurnsWithoutAnItem() (gas: 113621)
+[PASS] test_postingEveryFiveMinutesCompoundsToAtMostFivePointOneThreePercent() (gas: 846972)
+[PASS] test_publicMintsStopAtTheETHBackedCap() (gas: 742701)
+[PASS] test_slippageAndBadInputs() (gas: 690807)
+[PASS] test_stalenessWidensFromTenMinutesToAnHour() (gas: 92631)
+[PASS] test_stressWidensMintingOnly() (gas: 301241)
+[PASS] test_theBooksDepthBoundsPublicMinting() (gas: 403162)
+[PASS] test_theBurnPriceNeverExceedsTheBackingPerUnit() (gas: 2779128)
+[PASS] test_theFirstPostIsTheAnchor() (gas: 39423)
+[PASS] test_theFloorMovesAtMostFivePercentAnHour() (gas: 193087)
+[PASS] test_theLagIsAlwaysPricedAgainstTheTrader() (gas: 772515)
+[PASS] test_theLastBurnTakesTheRoundingDust() (gas: 607890)
+[PASS] test_theModuleIsWiredOnce_byTheDeployer_beforeAnythingExists() (gas: 687161)
+[PASS] test_theNettingSignal() (gas: 1123314)
+[PASS] test_theSelectorsAreTheKeepersAndTheCanistersOwn() (gas: 1119)
+[PASS] test_theSequencerAloneCannotBuyABiggerStep() (gas: 78439)
+[PASS] test_theSpreadNeverExceedsTheMaximum() (gas: 456227)
+Suite result: ok. 39 passed; 0 failed; 0 skipped; finished in 359.98ms (352.93ms CPU time)
+
+Ran 1 test for test/Sweep.invariant.t.sol:SweepInvariantTest
+[PASS]
+SweepInvariantTest invariants:
+[PASS] invariant_noPanics
+[PASS] invariant_noVaultEverApprovedAnyone
+[PASS] invariant_reservationsAreExactlyTheLiveDraws
+[PASS] invariant_thePolicyNeverChanges
+[PASS] invariant_theVaultsBooksBalance
+[PASS] invariant_theWrappersLedgerHoldsWithRetirements
+ SweepInvariantTest invariants (runs: 64, calls: 4096, reverts: 149)
+
+╭--------------+-----------------+-------+---------+----------╮
+| Contract     | Selector        | Calls | Reverts | Discards |
++=============================================================+
+| SweepHandler | advanceDraw     | 252   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | claim           | 257   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | deliverOrRefund | 266   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | depositFrog     | 249   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | feesInEth       | 242   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | feesInWrapped   | 269   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | holderRedeem    | 241   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | openDraw        | 265   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | openEmptyDraw   | 264   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | passTime        | 249   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | postCap         | 257   | 146     | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | reclaim         | 272   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | resolveNext     | 271   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | retire          | 262   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | stray           | 248   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| SweepHandler | sweep           | 232   | 3       | 0        |
+╰--------------+-----------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 2.04s (2.02s CPU time)
+
+Ran 12 tests for test/audit/A/TickSaturation.t.sol:TickSaturationTest
+[PASS] testFuzz_A01_graduateNeverRevertsBecauseOfTheLiquidityAdds(uint8,int24,int24,uint96,bool) (runs: 512, μ: 8602997, ~: 5170396)
+[PASS] test_A01_coinSeedFailure_defersThenAnyoneRetries() (gas: 5054285)
+[PASS] test_A01_control_graduatesWithoutTheAttack() (gas: 6020359)
+[PASS] test_A01_escapeHatch_aFilledCurveThatCannotGraduateRefunds() (gas: 5329580)
+[PASS] test_A01_escapeHatch_aSweepOnlyCurveThatCannotGraduateRefundsItsRaise() (gas: 4271930)
+[PASS] test_A01_escapeHatch_control_aGraduatedCurveNeverRefunds() (gas: 6222614)
+[PASS] test_A01_noGasLimitDefersTheSeed() (gas: 55923893)
+[PASS] test_A01_onePositionNoLongerBlocksLaterCoins() (gas: 17384623)
+[PASS] test_A01_saturatingTheNewSharedBound_costsBillions_andOnlyDefersTheAdd() (gas: 12802398)
+[PASS] test_A01_sweepOnlyOldBoundSaturation_noLongerFreezesTheRaise() (gas: 4606860)
+[PASS] test_A01_theOldBoundSaturation_noLongerBlocksGraduation() (gas: 6286022)
+[PASS] test_A01_theSelfCallsRefuseEveryoneElse() (gas: 53817)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 1.27s (1.26s CPU time)
+
+Ran 4 tests for test/audit2/R2Curve.t.sol:R2Curve
+[PASS] test_N3_aCloseDuringAPauseIsRefusedAndTheCurveKeepsTrading() (gas: 6601874)
+[PASS] test_N3_aGradQueuedBeforeAPauseWaitsForTheUnpause() (gas: 6502057)
+[PASS] test_N3_noPauseNoHold() (gas: 4246300)
+[PASS] test_N3_theHoldNeverOutlastsTheHatch() (gas: 4299637)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 8.85ms (2.80ms CPU time)
+
+Ran 17 tests for test/security/InternalReviewV1.t.sol:InternalReviewV1Reproductions
+[PASS] testFuzz_C1_fixed_anySplitOfARefundCompletes(uint256,uint256) (runs: 512, μ: 1493489, ~: 1493078)
+[PASS] test_C1_fixed_oneWeiFromAStrangerDoesNotBrickTheVault() (gas: 1992454)
+[PASS] test_C1b_fixed_anHonestSplitRefundCompletesWhateverTheInstalments() (gas: 2078993)
+[PASS] test_C1c_fixed_theOverdueWriteOffClosesItWithoutAFalseReceipt() (gas: 1562748)
+[PASS] test_H2_fixed_ownershipIsNotRenounceableSoAPauseIsAlwaysReversible() (gas: 1050958)
+[PASS] test_M1_fixed_noRoleMayBeRotatedOntoAnAutonomousBuyer() (gas: 3215897)
+[PASS] test_M1_fixed_noRotationMayCollapseTwoRolesIntoOneKey() (gas: 290514)
+[PASS] test_repro_H1_releaseOrderTurnsAValidDeclarationIntoAPermanentlyUnreleasableOne() (gas: 28603684)
+[PASS] test_repro_L1_anOverdueReceiptDoesNotStopAMaturedRelease() (gas: 1293251)
+[PASS] test_repro_L2_aStrangerCanReplaceAPinnedRoundWhoseValueIsAlreadyKnown() (gas: 1651745)
+[PASS] test_repro_L3_theTreasuryContractCannotMoveAnErc20ItIsSent() (gas: 618677)
+[PASS] test_repro_M2_theKeeperCanBlockEveryRunePayoutWithAnUnboundedMinimum() (gas: 1890555)
+[PASS] test_repro_M3_aRefundBelowMinEntryIsAttributedButCanNeverBeSpent() (gas: 1202946)
+[PASS] test_repro_M4_afterARotationTheNamedPurchasersBondCanNoLongerBeToppedUp() (gas: 1134656)
+[PASS] test_repro_M5_aPinnedLotIsStuckForEverIfTheBeaconStopsProducing() (gas: 1605327)
+[PASS] test_repro_M6_aPendingBondReductionLetsAPurchaserUnbondALiveRelease() (gas: 1283891)
+[PASS] test_repro_M7_aDeclarationCanBeFiredAYearLateAndSterilisesTheVaultUntilItIs() (gas: 1478639)
+Suite result: ok. 17 passed; 0 failed; 0 skipped; finished in 216.29ms (214.73ms CPU time)
+
+Ran 5 tests for test/audit2/R2Draws.t.sol:R2Draws
+[PASS] test_N2_aPinConsumesTheSeed() (gas: 1215425)
+[PASS] test_N2_carriesArePerCoin() (gas: 248660)
+[PASS] test_N2a_notOpeningNoLongerRerollsTheSnapshotTime() (gas: 9293301)
+[PASS] test_N2b_aCancelAfterTheSnapshotIsPublicPicksTheSameSnapshot() (gas: 1744702)
+[PASS] test_requestDrawRefusesWhileTheKeeperIsPaused() (gas: 698716)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 24.93ms (6.44ms CPU time)
+
+Ran 13 tests for test/Treasury.t.sol:TreasuryTest
+[PASS] test_aPausedListingIsNotFunded() (gas: 95153)
+[PASS] test_ethCannotBeAttributedToACoinTheLauncherDoesNotKnow() (gas: 56115)
+[PASS] test_feesArriveByPlainTransfer_andAreCounted() (gas: 66328)
+[PASS] test_itCannotFundMoreThanItHas_orNothingAtAll() (gas: 98906)
+[PASS] test_nothingCanBeFundedBeforeATokenIsNamed() (gas: 161485)
+[PASS] test_onlyTheKeeperFunds() (gas: 108405)
+[PASS] test_onlyTheTreasuryMayAttributeMoneyToTheTokenInAVault() (gas: 91056)
+[PASS] test_theKeeperMovesTreasuryEthIntoAVaultAttributedToTheToken() (gas: 533964)
+[PASS] test_theOwnerCanStopFunding_andStoppingIsNotTaking() (gas: 404786)
+[PASS] test_theTokenIsSetOnce_byTheOwner_andMustBeACoinTheLauncherKnows() (gas: 187841)
+[PASS] test_theVaultAddressComesFromTheRegistry_soItCannotBeAimedAnywhereElse() (gas: 51833)
+[PASS] test_thereIsNoWithdraw_forAnyone() (gas: 713770)
+[PASS] test_treasuryMoneyBuysForTheTokensHolders_andForNobodyElse() (gas: 426618)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 5.38ms (2.86ms CPU time)
+
+Ran 35 tests for test/nftwrap/NftWrapper.t.sol:NftWrapperTest
+[PASS] testFuzz_aHeldTokenIdNeverMintsTwice(uint256,bytes32,bytes32,bool) (runs: 512, μ: 329552, ~: 329813)
+[PASS] testFuzz_anAttestationMintsOnceEver(uint256,bytes32,bytes32) (runs: 512, μ: 639442, ~: 639809)
+[PASS] testFuzz_deliverOrRefund_theLedgerHolds(uint8,uint256) (runs: 512, μ: 4614423, ~: 4065009)
+[PASS] testFuzz_drawsAreDistinctHeldNfts(uint8,uint8,bytes32) (runs: 512, μ: 4284481, ~: 3477191)
+[PASS] test_aBurnIsARedemptionToDead() (gas: 686877)
+[PASS] test_aBurnPinsAFutureRoundAndFixesTheDestination() (gas: 518562)
+[PASS] test_aCollectionOnThisChainIsNotWrappedHere_itBelongsInContractCustody() (gas: 12652)
+[PASS] test_aDeliveredTicketNeverRefunds() (gas: 638802)
+[PASS] test_aDeliveredTokenIdCanComeBack_onlyByANewTransaction() (gas: 968332)
+[PASS] test_aDeliveryIsRecordedOnlyForAResolvedTicket_withARealHash() (gas: 977478)
+[PASS] test_aDeliveryIsStillRecordedAfterTheDeadline_ifNobodyRefunded() (gas: 626922)
+[PASS] test_aHolderDepositMintsToTheBoundRecipient_andIsMarkedAsOne() (gas: 388391)
+[PASS] test_aMintNeedsARecipientAndATransaction() (gas: 62573)
+[PASS] test_aProvenRoundIsNeverRepinned() (gas: 546451)
+[PASS] test_aRealBeaconShapeIsAllItNeeds() (gas: 244643)
+[PASS] test_aRedeemNeedsOneWholeToken() (gas: 386873)
+[PASS] test_aRefundedNftIsDrawableByTheNextTicket() (gas: 984181)
+[PASS] test_aResolvedTicketIsNeverRepinned() (gas: 586342)
+[PASS] test_aTicketResolvesOnce() (gas: 584345)
+[PASS] test_aTokenIdHeldIsNeverMintedAgain_byEitherPathOrAnyTransaction() (gas: 363617)
+[PASS] test_anUndeliveredTicketIsRefundedByAnyone_theNftBackInTheSet() (gas: 1057917)
+[PASS] test_anUnprovenRoundIsRepinnedADayLater() (gas: 707116)
+[PASS] test_oneWholeTokenIsOneNft() (gas: 51115)
+[PASS] test_onlyAResolvedTicketRefunds() (gas: 470913)
+[PASS] test_onlyTheCanisterMints() (gas: 217567)
+[PASS] test_onlyTheCanisterRecordsADelivery() (gas: 633018)
+[PASS] test_redeemingToDeadByHandIsTheSameAsABurn() (gas: 635711)
+[PASS] test_resolveDrawsAHeldNftAndStartsTheDeadline() (gas: 1157115)
+[PASS] test_theCanisterMintsOneWholeTokenPerNft_toWhomeverTheRequestNames() (gas: 372114)
+[PASS] test_theCanisterRecordsTheDelivery_andTheNftLeavesTheBooks() (gas: 693086)
+[PASS] test_theConstructorRefusesWhatCannotWork() (gas: 11511)
+[PASS] test_theCustodianMustBeCodeless_theCanistersKeyNotAContract() (gas: 10160)
+[PASS] test_theDestinationMustBeARealAddressAndNotCustody() (gas: 346093)
+[PASS] test_theDrawIsTheFormula_notAnyonesChoice() (gas: 1553690)
+[PASS] test_ticketsResolveStrictlyInOrder() (gas: 788939)
+Suite result: ok. 35 passed; 0 failed; 0 skipped; finished in 1.11s (1.11s CPU time)
+
+Ran 16 tests for test/WrapClaim.t.sol:WrapClaimTest
+[PASS] testFuzz_anySplitPaysEachHolderExactlyItsLeaf(uint256,uint8) (runs: 512, μ: 2318692, ~: 2306700)
+[PASS] test_aClaimPaysTheHolderInTheLeafNeverTheCallerAndOnlyOnce() (gas: 2104111)
+[PASS] test_aClaimedTokenRedeemsForAFrogAndTheLedgerHoldsThroughout() (gas: 2307495)
+[PASS] test_aRootThatPromisesMoreThanOneFrogCannotPayPastIt() (gas: 3142807)
+[PASS] test_aWrappedFrogIsCountedAsUnopenedOnceAndOnlyFromTheWrappersOwnRecord() (gas: 2554468)
+[PASS] test_aZeroHolderOrZeroAmountIsRefused() (gas: 1748668)
+[PASS] test_cancellingAFrogThatCarriedReturnsTheCarryToItsCoin() (gas: 3322739)
+[PASS] test_carryBelongsToItsCoinAndNoOther() (gas: 3341982)
+[PASS] test_claimsCloseAfterThirtyDaysOnBothClocksAndTheRestRollsToTheCoinsNextFrog() (gas: 3792795)
+[PASS] test_nothingIsClaimableForFifteenMinutesOnBothClocks() (gas: 1922376)
+[PASS] test_onlyTheKeeperOpensAndOnlyAWrappedFrogWithARealRootAndList() (gas: 2829414)
+[PASS] test_theClaimAndItsWrapperPointAtEachOtherByConstruction() (gas: 1528597)
+[PASS] test_theOwnerCancelsAWrongRootInsideItsWindowAndNeverAfter() (gas: 3355646)
+[PASS] test_theOwnerSetsTheMintLimitThroughTheClaim() (gas: 1886271)
+[PASS] test_theOwnerWiresTheFloorModuleThroughTheClaimAndNobodyElseCan() (gas: 472147)
+[PASS] test_wiringAfterTheFirstMintIsRefusedThroughTheClaimToo() (gas: 1670609)
+Suite result: ok. 16 passed; 0 failed; 0 skipped; finished in 369.15ms (367.16ms CPU time)
+
+Ran 5 tests for test/pools/ProtocolLiquidity.t.sol:ProtocolLiquidityTest
+[PASS] test_anUnwiredLockKeepsItPending_untilDeployed() (gas: 585579)
+[PASS] test_anyoneAddsProtocolLiquidity_itBidsBelowTheNearBand() (gas: 347008)
+[PASS] test_nothingEverLeaves_theSurfaceSaysSo() (gas: 1497956)
+[PASS] test_protocolLiquidityDoesNotCountAsGraduationDepth() (gas: 302373)
+[PASS] test_theProtocolPositionsFees_compoundOrGoToTheTreasury() (gas: 7788251)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 16.30ms (7.00ms CPU time)
+
+Ran 15 tests for test/homechain/HomeWrapper.t.sol:HomeWrapperTest
+[PASS] testFuzz_ledgerHolds(uint8,uint8) (runs: 512, μ: 2309875, ~: 2111664)
+[PASS] test_aWrapAfterTheBurnCannotBeDrawnByThatTicket() (gas: 1371674)
+[PASS] test_constructorAndInterface() (gas: 26425)
+[PASS] test_guardCapBindsWraps() (gas: 976317)
+[PASS] test_redeemDeliversInTheResolvingCall() (gas: 1461603)
+[PASS] test_redeemPunkDeliversByTransferPunk() (gas: 1008721)
+[PASS] test_redeemRefusals() (gas: 521702)
+[PASS] test_redeemToBurn() (gas: 961799)
+[PASS] test_redrawAfterADayOnBothClocks() (gas: 719086)
+[PASS] test_refundAfterSevenDaysOnBothClocks() (gas: 1241180)
+[PASS] test_refusedDeliveryThenRefund() (gas: 1553370)
+[PASS] test_ticketsResolveStrictlyInOrder_andTheDrawIsTheSameWhoeverResolves() (gas: 2167141)
+[PASS] test_wrapMovesTheNftHereAndMints() (gas: 512050)
+[PASS] test_wrapPunk_throughAZeroOfferToTheWrapper() (gas: 957055)
+[PASS] test_wrapRefusals() (gas: 767905)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 809.02ms (834.66ms CPU time)
+
+Ran 7 tests for test/security/WrapperSecurity.t.sol:WrapperSecurityTest
+[PASS] testFuzz_W1_wrappingAfterTheRoundIsPublicCannotMoveTheDraw(bytes32) (runs: 512, μ: 4729627, ~: 4729886)
+[PASS] testFuzz_W2_refundTimingCannotMoveTheDraw(bytes32) (runs: 512, μ: 5230083, ~: 5228397)
+[PASS] test_S1_aTimestampJumpAloneCannotOpenARefundEarly() (gas: 2076972)
+[PASS] test_S2_noRepin_andATimestampJumpAloneCannotRefundAPinnedTicketEarly() (gas: 1815635)
+[PASS] test_W3_resolutionOrderIsNotAChoice() (gas: 4519412)
+[PASS] test_W4_theAttackW1ClosesIsReal() (gas: 3174)
+[PASS] test_theWrapperExposesExactlyWhatItMeansTo() (gas: 2337347)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 2.30s (2.32s CPU time)
+
+Ran 1 test for test/floor/Treasury.invariant.t.sol:TreasuryInvariantTest
+[PASS]
+TreasuryInvariantTest invariants:
+[PASS] invariant_everyWeiOutIsAccounted
+[PASS] invariant_loansAreMonotone
+[PASS] invariant_theModulesBooksHold
+[PASS] invariant_thePotsNeverExceedTheBalance
+[PASS] invariant_theSharesSumToOne
+ TreasuryInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭-----------------+------------+-------+---------+----------╮
+| Contract        | Selector   | Calls | Reverts | Discards |
++===========================================================+
+| TreasuryHandler | allocate   | 596   | 0       | 0        |
+|-----------------+------------+-------+---------+----------|
+| TreasuryHandler | bootstrap  | 568   | 0       | 0        |
+|-----------------+------------+-------+---------+----------|
+| TreasuryHandler | distribute | 579   | 0       | 0        |
+|-----------------+------------+-------+---------+----------|
+| TreasuryHandler | feeFlow    | 579   | 0       | 0        |
+|-----------------+------------+-------+---------+----------|
+| TreasuryHandler | forgive    | 604   | 0       | 0        |
+|-----------------+------------+-------+---------+----------|
+| TreasuryHandler | income     | 590   | 0       | 0        |
+|-----------------+------------+-------+---------+----------|
+| TreasuryHandler | setShares  | 580   | 0       | 0        |
+╰-----------------+------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.08s (1.06s CPU time)
+
+Ran 21 tests for test/floor/FloorReserve.t.sol:FloorReserveTest
+[PASS] testFuzz_wXStaysFullyBacked(uint256[8],uint8[8]) (runs: 512, μ: 3150010, ~: 2960588)
+[PASS] test_aFloatIsAllConvertible_andOnlyTheTreasuryFundsIt() (gas: 2216287)
+[PASS] test_aFloatIsBoundedByTheHardCap_andNeedsAFreshFloor() (gas: 1336115)
+[PASS] test_aMintSplitsIntoTheTwoPots() (gas: 519950)
+[PASS] test_aPurchaseAtTheCapMovesThePriceNowhere() (gas: 1959869)
+[PASS] test_aTinyMintLeavesNoReserveUnitWithoutBacking() (gas: 295981)
+[PASS] test_beforeAnyFillTheKeeperFloorAlone() (gas: 24671)
+[PASS] test_burnsDrawTheReserveFirst_andSpanTheTiers() (gas: 1177441)
+[PASS] test_fillsMoveThePriceWithinTheBand_timeWeighted() (gas: 1555224)
+[PASS] test_fundReserveJoinsTheSurplus_notTheUnitsBacking() (gas: 628652)
+[PASS] test_itemSoldRefusals() (gas: 1350436)
+[PASS] test_itemSoldTakesAFloatUnit_andPaysTheReserve() (gas: 1623671)
+[PASS] test_pushUpThenBurn_theReservePaysAtMostWhatItHoldsPerUnit() (gas: 3556582)
+[PASS] test_reserveUnitsDoNotStressTheMintSpread_norFillThePublicCap() (gas: 801514)
+[PASS] test_strayReclaimNeverTakesTheFloats() (gas: 1824248)
+[PASS] test_theBandBoundsWhatFillsCanDo_andTheCapStaysOnTheKeeperFloor() (gas: 3436203)
+[PASS] test_theCanisterConvertsOnlyTheConvertibleShare() (gas: 2522858)
+[PASS] test_theReserveIsNeverConverted_evenWhenTheRevenueIsShort() (gas: 1006877)
+[PASS] test_theReserveKeepsItsBasisPerUnit_andTheSpreadGoesToTheSurplus() (gas: 1171963)
+[PASS] test_theRingKeepsEightFills() (gas: 5128080)
+[PASS] test_volume7dRollsDaily() (gas: 1251278)
+Suite result: ok. 21 passed; 0 failed; 0 skipped; finished in 1.38s (1.39s CPU time)
+
+Ran 1 test for test/Yoyo.invariant.t.sol:YoyoInvariantTest
+[PASS]
+YoyoInvariantTest invariants:
+[PASS] invariant_everyUnitIsInOnePlace
+[PASS] invariant_noExitButTheBurn
+[PASS] invariant_theMarkupIsBounded
+[PASS] invariant_theWrapperLedgerHolds
+ YoyoInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭-------------+----------------+-------+---------+----------╮
+| Contract    | Selector       | Calls | Reverts | Discards |
++===========================================================+
+| YoyoHandler | buyback        | 578   | 0       | 0        |
+|-------------+----------------+-------+---------+----------|
+| YoyoHandler | delist         | 623   | 0       | 0        |
+|-------------+----------------+-------+---------+----------|
+| YoyoHandler | refund         | 595   | 0       | 0        |
+|-------------+----------------+-------+---------+----------|
+| YoyoHandler | relist         | 551   | 0       | 0        |
+|-------------+----------------+-------+---------+----------|
+| YoyoHandler | resolveAndList | 581   | 0       | 0        |
+|-------------+----------------+-------+---------+----------|
+| YoyoHandler | sell           | 547   | 0       | 0        |
+|-------------+----------------+-------+---------+----------|
+| YoyoHandler | sweep          | 621   | 0       | 0        |
+╰-------------+----------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 830.09ms (817.75ms CPU time)
+
+Ran 10 tests for test/WrapperDeposit.t.sol:WrapperDepositTest
+[PASS] testFuzz_depositsKeepTheLedger(uint8,uint8) (runs: 512, μ: 5418300, ~: 4294909)
+[PASS] test_aDeliveredFrogMayBeDepositedAgain() (gas: 1232914)
+[PASS] test_aDepositMintsOneToTheNamedAddress() (gas: 564122)
+[PASS] test_aDepositedFrogIsDrawableAndRefundable() (gas: 1156333)
+[PASS] test_aFrogAlreadyHeldCannotMintAgain() (gas: 571268)
+[PASS] test_aFrogOutsideTheCollectionIsRefused() (gas: 257452)
+[PASS] test_anOutpointMintsOnceEver() (gas: 635448)
+[PASS] test_onlyTheCustodianAttests() (gas: 306579)
+[PASS] test_refusedWhileTheFrogListingIsPaused() (gas: 293197)
+[PASS] test_zeroRecipientOrTxidRefused() (gas: 291770)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 1.60s (1.60s CPU time)
+
+Ran 26 tests for test/pools/LiquidityLock.t.sol:LiquidityLockTest
+[PASS] testFuzz_graduationIntoThePools(uint96,uint16) (runs: 512, μ: 15230329, ~: 12381039)
+[PASS] testFuzz_theBandsMoveBoundedTowardTheCap(uint16[6]) (runs: 512, μ: 15070611, ~: 14941672)
+[PASS] test_aLaterCoinCannotDiluteAnEarlierCoinsAccruedFees() (gas: 25303357)
+[PASS] test_aSweepOnlyCoinTradesAgainstEthInOneHop() (gas: 4856343)
+[PASS] test_anyoneCanRouteThePoolsWithoutOurRouter() (gas: 12255729)
+[PASS] test_coinPoolFeesAreSplitVaultCreatorPlatformAndTheCoinsVaultShareBurned() (gas: 12903200)
+[PASS] test_everyGraduationAddsToTheSamePositions() (gas: 23382231)
+[PASS] test_feesAfterBothArriveSplitByUnits() (gas: 25039132)
+[PASS] test_graduationOpensTheCoinPoolAtTheCurvesLastPrice() (gas: 12066958)
+[PASS] test_newLiquidityGoesAroundTheNewCenterWhileTheFullRangeIsShared() (gas: 23868427)
+[PASS] test_nobodyButThePoolManagerSendsEthOrCallsBack() (gas: 66984)
+[PASS] test_onlyTheCoinsOwnCurveSeeds() (gas: 3754079)
+[PASS] test_seederFeesArePaidToTheCoinsVault() (gas: 13131440)
+[PASS] test_somebodyWhoOpensTheCoinPoolFirstMovesNothing() (gas: 12082187)
+[PASS] test_somebodyWhoOpensTheCoinPoolFirstWithLiquiditySellsToTheLockBelowItsValuation() (gas: 12872447)
+[PASS] test_somebodyWhoOpensTheSharedPoolFirstMovesNothing() (gas: 12070652)
+[PASS] test_theCenterDoesNotMoveForASmallChange() (gas: 12125483)
+[PASS] test_theCenterMovesTowardTheCapBoundedAndOldLiquidityStays() (gas: 12550761)
+[PASS] test_theFirstGraduationLaysOutTheLayersAroundTheCap() (gas: 12170869)
+[PASS] test_theLayoutIsCheckedAtConstruction() (gas: 7331)
+[PASS] test_theLockHasNoWayOut() (gas: 2347653)
+[PASS] test_theRouterBuysAndSellsThroughWrappedInOneTransaction() (gas: 12408955)
+[PASS] test_theRouterRespectsMinOutAndDeadline() (gas: 12246303)
+[PASS] test_theSharedAddWaitsForAFreshCapAndAnyoneFinishesIt() (gas: 12205129)
+[PASS] test_theSharedAddWaitsWhileThePriceIsPushedAway() (gas: 24050240)
+[PASS] test_wireOnceOnlyByTheDeployer() (gas: 63149)
+Suite result: ok. 26 passed; 0 failed; 0 skipped; finished in 6.06s (6.19s CPU time)
+
+Ran 2 tests for test/WrapClaim.invariant.t.sol:WrapClaimInvariantTest
+[PASS]
+WrapClaimInvariantTest invariants:
+[PASS] invariant_claimsPayExactlyAndNothingIsStuck
+[PASS] invariant_everyTokenIsSomewhereWeCanSee
+[PASS] invariant_everyTokenTheClaimHoldsIsAccountedOnce
+[PASS] invariant_noDistributionPaysPastItsTotal
+[PASS] invariant_theWrappersLedgerHolds
+ WrapClaimInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------+--------------+-------+---------+----------╮
+| Contract     | Selector     | Calls | Reverts | Discards |
++==========================================================+
+| ClaimHandler | cancel       | 263   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | claim        | 558   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | count        | 294   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | deliver      | 277   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | move         | 268   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | open         | 557   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | redeem       | 248   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | refund       | 272   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | refundPinned | 264   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | resolveNext  | 283   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | rollOver     | 266   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | wait         | 274   | 0       | 0        |
+|--------------+--------------+-------+---------+----------|
+| ClaimHandler | wrapLate     | 272   | 0       | 0        |
+╰--------------+--------------+-------+---------+----------╯
+
+[PASS] test_theHandlerReallyMovesTokensAndFrogs() (gas: 5281377)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.49s (1.48s CPU time)
+
+Ran 1 test for test/pools/Pools.invariant.t.sol:PoolsInvariantTest
+[PASS]
+PoolsInvariantTest invariants:
+[PASS] invariant_coinPoolLiquidityNeverMoves
+[PASS] invariant_feesInAreFeesCredited
+[PASS] invariant_noPanics
+[PASS] invariant_sharedLiquidityOnlyGrowsAndIsExactlyTheUnits
+[PASS] invariant_theLockCoversWhatItOwes
+[PASS] invariant_theRouterHoldsNothing
+ PoolsInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------------+-----------------------+-------+---------+----------╮
+| Contract           | Selector              | Calls | Reverts | Discards |
++=========================================================================+
+| PoolsInvariantTest | act_claimShared       | 447   | 0       | 0        |
+|--------------------+-----------------------+-------+---------+----------|
+| PoolsInvariantTest | act_collectCoin       | 447   | 0       | 0        |
+|--------------------+-----------------------+-------+---------+----------|
+| PoolsInvariantTest | act_deploy            | 444   | 0       | 0        |
+|--------------------+-----------------------+-------+---------+----------|
+| PoolsInvariantTest | act_graduate          | 461   | 0       | 0        |
+|--------------------+-----------------------+-------+---------+----------|
+| PoolsInvariantTest | act_graduateSweepOnly | 435   | 0       | 0        |
+|--------------------+-----------------------+-------+---------+----------|
+| PoolsInvariantTest | act_moveCenter        | 442   | 0       | 0        |
+|--------------------+-----------------------+-------+---------+----------|
+| PoolsInvariantTest | act_passTime          | 502   | 0       | 0        |
+|--------------------+-----------------------+-------+---------+----------|
+| PoolsInvariantTest | act_routeCoin         | 445   | 0       | 0        |
+|--------------------+-----------------------+-------+---------+----------|
+| PoolsInvariantTest | act_swapShared        | 473   | 0       | 0        |
+╰--------------------+-----------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.56s (5.54s CPU time)
+
+Ran 1 test for test/ItemQueue.invariant.t.sol:ItemQueueInvariantTest
+[PASS]
+ItemQueueInvariantTest invariants:
+[PASS] invariant_ethInIsSpentQueuedHeldReturnedOrReleased
+[PASS] invariant_everyCoinsEthIsAccountedFor
+[PASS] invariant_fifoNoCoinIsStarvedByALaterOne
+[PASS] invariant_noPanics
+[PASS] invariant_unitsAssignedAreExactlyItemsBought
+ ItemQueueInvariantTest invariants (runs: 64, calls: 4096, reverts: 0)
+
+╭--------------+---------------+-------+---------+----------╮
+| Contract     | Selector      | Calls | Reverts | Discards |
++===========================================================+
+| QueueHandler | buyItem       | 824   | 0       | 0        |
+|--------------+---------------+-------+---------+----------|
+| QueueHandler | enqueue       | 821   | 0       | 0        |
+|--------------+---------------+-------+---------+----------|
+| QueueHandler | passTime      | 763   | 0       | 0        |
+|--------------+---------------+-------+---------+----------|
+| QueueHandler | refundExpired | 856   | 0       | 0        |
+|--------------+---------------+-------+---------+----------|
+| QueueHandler | release       | 832   | 0       | 0        |
+╰--------------+---------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 2.32s (2.31s CPU time)
+
+Ran 116 test suites in 7.26s (67.74s CPU time): 1031 tests passed, 0 failed, 0 skipped (1031 total tests)
+EXIT 0

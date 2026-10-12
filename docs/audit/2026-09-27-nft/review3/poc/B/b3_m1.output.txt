@@ -1,0 +1,13 @@
+running 2 tests
+B3-M-1 control: sales counted = 5, held = None, minted = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 182]]
+test b3_m1_control_no_flood_the_five_real_sales_confirm_the_floor_and_the_deposit_mints ... ok
+B3-M-1 attack: cached real sales = 0, sales counted = 0, held = Some("0 counted sales (one per token and per wallet, no self-trade or round trip, within 30 % of the listing floor); 3 are needed to let the floor rise"), minted = [], todo left = 0
+test b3_m1_a_plain_transfer_flood_permanently_starves_real_sales_holds_the_floor_and_stops_deposit_mints ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.12s
+B3-M-1 control: sales counted = 5, held = None, minted = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 182]]
+test b3_m1_control_no_flood_the_five_real_sales_confirm_the_floor_and_the_deposit_mints ... ok
+B3-M-1 attack: cached real sales = 0, sales counted = 0, held = Some("0 counted sales (one per token and per wallet, no self-trade or round trip, within 30 % of the listing floor); 3 are needed to let the floor rise"), minted = [], todo left = 0
+test b3_m1_a_plain_transfer_flood_permanently_starves_real_sales_holds_the_floor_and_stops_deposit_mints ... ok
+B3-M-1b: cached real sales = 0, module posts = 0
+test b3_m1b_at_first_post_accepted_zero_the_flood_blocks_the_floor_post_entirely_module_never_gets_a_floor ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.17s

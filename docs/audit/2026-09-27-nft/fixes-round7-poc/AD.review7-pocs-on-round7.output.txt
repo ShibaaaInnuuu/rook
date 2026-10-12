@@ -1,0 +1,11 @@
+ok 1 - control: the exact steps are EXPECTED and pass --proposal
+ok 2 - holds: near-steps are not EXPECTED (other Init field, a lowering, a trip factor, a removed collection, a value/item cap, global value)
+ok 3 - WEAKNESS (A7-I-1): the runbook's --proposal command (no --phase1) passes a step 2 that also replaces the operator: only a note
+ok 4 - WEAKNESS (D7-I-2): a home transaction signed by the round-5 build (no sent_at) is never paged by eth-home-out, however old
+ok 5 - WEAKNESS (D7-I-1): eth-scan-behind reads only the canister's own snapshot: a scan that stopped running is never paged by it, however long
+# pass 5
+# fail 0
+ok 1 - holds: 0, negative, NaN, fractions, above the cadence are refused
+not ok 2 - WEAKNESS (D7-I-3, cosmetic): 0x3c / 6e1 are read as 60, and 301..600 is accepted though the runbook says keep it <= 300 (the 4663 state reach)
+# pass 1
+# fail 1

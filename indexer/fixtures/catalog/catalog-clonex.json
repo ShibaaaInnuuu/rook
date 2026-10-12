@@ -1,0 +1,119 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "clonex",
+    "name": "CLONE X - X TAKASHI MURAKAMI",
+    "chain": "ethereum",
+    "chainName": "Ethereum",
+    "chainId": 1,
+    "standard": "erc721",
+    "id": "0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b",
+    "description": null,
+    "image": "https://i2c.seadn.io/ethereum/75db99053ab444cfa0d8fb55d1f60547/2a98bfb35de339b49f3a4f0c4696c4/5c2a98bfb35de339b49f3a4f0c4696c4.png",
+    "links": {
+      "website": "http://www.rtfkt.com",
+      "x": "https://x.com/RTFKT",
+      "discord": "https://discord.gg/rtfkt",
+      "marketplace": "https://opensea.io/collection/clonex",
+      "explorer": "https://etherscan.io/address/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b"
+    },
+    "floor": {
+      "native": "171881970000000000",
+      "unit": "wei",
+      "eth": 0.17188197,
+      "source": "seed",
+      "ref": "seed:opensea:opensea:collections/clonex/stats",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 19764,
+    "owners": 9145,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1",
+        "name": "CloneX #1",
+        "image": "https://ihlvry2paaiwcl23qcrexyszggewqiqicnkbj7pjito34anjebeq.arweave.net/QddY408AEWEvW4CiS-JZMYloIggTVBT96UTdvgGpIEk/1.png",
+        "url": "https://etherscan.io/nft/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/1"
+      },
+      {
+        "id": "2",
+        "name": "CloneX #2",
+        "image": "https://ihlvry2paaiwcl23qcrexyszggewqiqicnkbj7pjito34anjebeq.arweave.net/QddY408AEWEvW4CiS-JZMYloIggTVBT96UTdvgGpIEk/2.png",
+        "url": "https://etherscan.io/nft/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/2"
+      },
+      {
+        "id": "3",
+        "name": "CloneX #3",
+        "image": "https://ihlvry2paaiwcl23qcrexyszggewqiqicnkbj7pjito34anjebeq.arweave.net/QddY408AEWEvW4CiS-JZMYloIggTVBT96UTdvgGpIEk/3.png",
+        "url": "https://etherscan.io/nft/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3"
+      },
+      {
+        "id": "4",
+        "name": "CloneX #4",
+        "image": "https://ihlvry2paaiwcl23qcrexyszggewqiqicnkbj7pjito34anjebeq.arweave.net/QddY408AEWEvW4CiS-JZMYloIggTVBT96UTdvgGpIEk/4.png",
+        "url": "https://etherscan.io/nft/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/4"
+      },
+      {
+        "id": "5",
+        "name": "CloneX #5",
+        "image": "https://ihlvry2paaiwcl23qcrexyszggewqiqicnkbj7pjito34anjebeq.arweave.net/QddY408AEWEvW4CiS-JZMYloIggTVBT96UTdvgGpIEk/5.png",
+        "url": "https://etherscan.io/nft/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/5"
+      },
+      {
+        "id": "6",
+        "name": "CloneX #6",
+        "image": "https://ihlvry2paaiwcl23qcrexyszggewqiqicnkbj7pjito34anjebeq.arweave.net/QddY408AEWEvW4CiS-JZMYloIggTVBT96UTdvgGpIEk/6.png",
+        "url": "https://etherscan.io/nft/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/6"
+      },
+      {
+        "id": "7",
+        "name": "CloneX #7",
+        "image": "https://ihlvry2paaiwcl23qcrexyszggewqiqicnkbj7pjito34anjebeq.arweave.net/QddY408AEWEvW4CiS-JZMYloIggTVBT96UTdvgGpIEk/7.png",
+        "url": "https://etherscan.io/nft/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/7"
+      },
+      {
+        "id": "8",
+        "name": "CloneX #8301",
+        "image": "https://ihlvry2paaiwcl23qcrexyszggewqiqicnkbj7pjito34anjebeq.arweave.net/QddY408AEWEvW4CiS-JZMYloIggTVBT96UTdvgGpIEk/8.png",
+        "url": "https://etherscan.io/nft/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/8"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from opensea"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.172 ETH, 0.206 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

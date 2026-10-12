@@ -1,0 +1,404 @@
+
+> rook-web@0.1.0 test
+> tsx --test test/*.test.ts
+
+TAP version 13
+# Subtest: every function the site calls or reads is the compiled contract's: FrogCurve, CurveFactory, Wrapper, SweepVault, the beacon, EtchRouter, the coin
+ok 1 - every function the site calls or reads is the compiled contract's: FrogCurve, CurveFactory, Wrapper, SweepVault, the beacon, EtchRouter, the coin
+  ---
+  duration_ms: 0.467667
+  type: 'test'
+  ...
+# Subtest: R3: the round-3 entries are the committed contracts' (exitAtBacking, holdsRefunds, carriedSeed, seedOrigin, SeedCarried, undeliverable, LATE_DELIVERY_WINDOW, Undeliverable, NotUndeliverable, SameKey)
+ok 2 - R3: the round-3 entries are the committed contracts' (exitAtBacking, holdsRefunds, carriedSeed, seedOrigin, SeedCarried, undeliverable, LATE_DELIVERY_WINDOW, Undeliverable, NotUndeliverable, SameKey)
+  ---
+  duration_ms: 0.072375
+  type: 'test'
+  ...
+# Subtest: C-02: the pinned round is final — the Wrapper and SweepVault have no redraw, and no page, ui or rook module calls one
+ok 3 - C-02: the pinned round is final — the Wrapper and SweepVault have no redraw, and no page, ui or rook module calls one
+  ---
+  duration_ms: 7.771667
+  type: 'test'
+  ...
+# Subtest: A-07: every curve trade the ticket builds carries a deadline (the overloads), and the site's curve ABI names no deadline-less buy or sell
+ok 4 - A-07: every curve trade the ticket builds carries a deadline (the overloads), and the site's curve ABI names no deadline-less buy or sell
+  ---
+  duration_ms: 0.954125
+  type: 'test'
+  ...
+# Subtest: R2 N-2 (fixed): a hostile indexer swapping the curve/coin a coin page trades is refused; the page's own coin passes
+ok 5 - R2 N-2 (fixed): a hostile indexer swapping the curve/coin a coin page trades is refused; the page's own coin passes
+  ---
+  duration_ms: 1.514083
+  type: 'test'
+  ...
+# Subtest: R2 Info: an indexer that calls an inscriptions collection 'nft' turns Redeem into redeem(address) and the guard refuses it (DoS only)
+ok 6 - R2 Info: an indexer that calls an inscriptions collection 'nft' turns Redeem into redeem(address) and the guard refuses it (DoS only)
+  ---
+  duration_ms: 0.179833
+  type: 'test'
+  ...
+# Subtest: E-07 regression: coin.approve(<an indexer-supplied router>) is refused, naming the spender and the stack's router
+ok 7 - E-07 regression: coin.approve(<an indexer-supplied router>) is refused, naming the spender and the stack's router
+  ---
+  duration_ms: 1.523459
+  type: 'test'
+  ...
+# Subtest: E-07: a router trade must pay the connected account and trade a coin the factory launched
+ok 8 - E-07: a router trade must pay the connected account and trade a coin the factory launched
+  ---
+  duration_ms: 0.916125
+  type: 'test'
+  ...
+# Subtest: E-07: only the calls the site makes, per kind of target; an unknown address argument is refused by default
+ok 9 - E-07: only the calls the site makes, per kind of target; an unknown address argument is refused by default
+  ---
+  duration_ms: 0.598083
+  type: 'test'
+  ...
+# Subtest: E-07: the honest requests every page builds pass
+ok 10 - E-07: the honest requests every page builds pass
+  ---
+  duration_ms: 2.462666
+  type: 'test'
+  ...
+# Subtest: E-07, the first layer: the router, the wrapper and the raffle vault come from the stack file; an indexer naming another is refused, both addresses said
+ok 11 - E-07, the first layer: the router, the wrapper and the raffle vault come from the stack file; an indexer naming another is refused, both addresses said
+  ---
+  duration_ms: 3.6
+  type: 'test'
+  ...
+# Subtest: the rook types and fixtures are byte copies of the indexer's (checked whenever the repository copy is beside us)
+ok 12 - the rook types and fixtures are byte copies of the indexer's (checked whenever the repository copy is beside us)
+  ---
+  duration_ms: 14.689334
+  type: 'test'
+  ...
+# Subtest: the fixture board has both kinds of coin, moved to now, and every tab and sort orders it without inventing a number
+ok 13 - the fixture board has both kinds of coin, moved to now, and every tab and sort orders it without inventing a number
+  ---
+  duration_ms: 10.364875
+  type: 'test'
+  ...
+# Subtest: the trending score: volume, new holders and buys, each a log; an unknown term counts zero; no term at all is null
+ok 14 - the trending score: volume, new holders and buys, each a log; an unknown term counts zero; no term at all is null
+  ---
+  duration_ms: 0.446458
+  type: 'test'
+  ...
+# Subtest: the words a row prints: caps in dollars or ETH, changes signed, ages short, and never a number for an unknown
+ok 15 - the words a row prints: caps in dollars or ETH, changes signed, ages short, and never a number for an unknown
+  ---
+  duration_ms: 0.113791
+  type: 'test'
+  ...
+# Subtest: the YOYO coin: open listings, proceeds waiting, bought back and burnt; every policy the indexer names has a line and a vault index
+ok 16 - the YOYO coin: open listings, proceeds waiting, bought back and burnt; every policy the indexer names has a line and a vault index
+  ---
+  duration_ms: 2.469958
+  type: 'test'
+  ...
+# Subtest: the launch fee runs on the clock: full at launch, half at half, nothing at the end; a fixture's end is moved to now
+ok 17 - the launch fee runs on the clock: full at launch, half at half, nothing at the end; a fixture's end is moved to now
+  ---
+  duration_ms: 0.983041
+  type: 'test'
+  ...
+# Subtest: the ticket quotes the fixture's module through its own spreads and room, and the curve's launch fee is a fee line
+ok 18 - the ticket quotes the fixture's module through its own spreads and room, and the curve's launch fee is a fee line
+  ---
+  duration_ms: 1.0085
+  type: 'test'
+  ...
+# Subtest: the offer board: a Bitcoin nest's report has terms, open and settled hand-ins; an NFT nest says it has no board
+ok 19 - the offer board: a Bitcoin nest's report has terms, open and settled hand-ins; an NFT nest says it has no board
+  ---
+  duration_ms: 0.637833
+  type: 'test'
+  ...
+# Subtest: an empty draw says so: open (it will close with no winner), empty (no winner this round; the unit stays with the coin)
+ok 20 - an empty draw says so: open (it will close with no winner), empty (no winner this round; the unit stays with the coin)
+  ---
+  duration_ms: 0.627083
+  type: 'test'
+  ...
+# Subtest: the keyless step on an open empty draw is `close` (the same requestDraw), gated like a pin; an empty draw offers nothing
+ok 21 - the keyless step on an open empty draw is `close` (the same requestDraw), gated like a pin; an empty draw offers nothing
+  ---
+  duration_ms: 0.744625
+  type: 'test'
+  ...
+# Subtest: the wire: Empty is stage 8, DrawEmpty is the compiled SweepVault's (skipped without out/)
+ok 22 - the wire: Empty is stage 8, DrawEmpty is the compiled SweepVault's (skipped without out/)
+  ---
+  duration_ms: 0.123708
+  type: 'test'
+  ...
+# Subtest: the catalogue's types and fixtures are byte copies of the indexer's (checked whenever the repository copy is beside us)
+ok 23 - the catalogue's types and fixtures are byte copies of the indexer's (checked whenever the repository copy is beside us)
+  ---
+  duration_ms: 57.257416
+  type: 'test'
+  ...
+# Subtest: the fixture catalogue is labelled, holds every chain, has two live nests, dated stale floors, and pictures that are the public URLs the seed recorded
+ok 24 - the fixture catalogue is labelled, holds every chain, has two live nests, dated stale floors, and pictures that are the public URLs the seed recorded
+  ---
+  duration_ms: 6.587041
+  type: 'test'
+  ...
+# Subtest: tabs, search and sorts over the fixture: status ranks live → listable → later → unsupported, an unknown figure sorts last, search finds by name, chain, status, contract and Rook slug
+ok 25 - tabs, search and sorts over the fixture: status ranks live → listable → later → unsupported, an unknown figure sorts last, search finds by name, chain, status, contract and Rook slug
+  ---
+  duration_ms: 19.053
+  type: 'test'
+  ...
+# Subtest: the wizard's order and what can be launched: live and listable can, later and unsupported cannot; the board's nest list is the same order
+ok 26 - the wizard's order and what can be launched: live and listable can, later and unsupported cannot; the board's nest list is the same order
+  ---
+  duration_ms: 5.982958
+  type: 'test'
+  ...
+# Subtest: the words: a floor in its unit and in ETH, dollars only with a rate, a volume of nothing is 0 and of nobody is —, a stale floor says so with its date
+ok 27 - the words: a floor in its unit and in ETH, dollars only with a rate, a volume of nothing is 0 and of nobody is —, a stale floor says so with its date
+  ---
+  duration_ms: 9.028667
+  type: 'test'
+  ...
+# Subtest: the data layer is web/'s, byte for byte: every lib module, the api client and its types, the wagmi setup, the deployments note
+ok 28 - the data layer is web/'s, byte for byte: every lib module, the api client and its types, the wagmi setup, the deployments note
+  ---
+  duration_ms: 17.0515
+  type: 'test'
+  ...
+# Subtest: the fixture sets are the indexer's own, byte for byte, file for file
+ok 29 - the fixture sets are the indexer's own, byte for byte, file for file
+  ---
+  duration_ms: 282.1695
+  type: 'test'
+  ...
+# Subtest: the documents the Docs page renders are docs/'s, byte for byte (run `npm run sync` and commit)
+ok 30 - the documents the Docs page renders are docs/'s, byte for byte (run `npm run sync` and commit)
+  ---
+  duration_ms: 10.975417
+  type: 'test'
+  ...
+# Subtest: tickets: Resolve once the round is published and it is next in order; Refund 7 days after the pin, or after deliverBy: 72 h once attested undeliverable, else 30 days (R3 §4) — never a redraw
+ok 31 - tickets: Resolve once the round is published and it is next in order; Refund 7 days after the pin, or after deliverBy: 72 h once attested undeliverable, else 30 days (R3 §4) — never a redraw
+  ---
+  duration_ms: 1.923542
+  type: 'test'
+  ...
+# Subtest: draws: pin after the window (not while the keeper is paused), resolve once the round exists, claim with a proof, void when due
+ok 32 - draws: pin after the window (not while the keeper is paused), resolve once the round exists, claim with a proof, void when due
+  ---
+  duration_ms: 0.935625
+  type: 'test'
+  ...
+# Subtest: a claim is checked against the draw as the chain holds it: resolved, the range holds the winner, the proof verifies against the on-chain root
+ok 33 - a claim is checked against the draw as the chain holds it: resolved, the range holds the winner, the proof verifies against the on-chain root
+  ---
+  duration_ms: 0.725208
+  type: 'test'
+  ...
+# Subtest: drand: the signature comes from the relays in turn, only if it is round's 64 bytes
+ok 34 - drand: the signature comes from the relays in turn, only if it is round's 64 bytes
+  ---
+  duration_ms: 22.570166
+  type: 'test'
+  ...
+# Subtest: the curve's gates: the closing buy waits for room (sells and smaller buys do not); graduate or open refunds at the hatch; launches pause for item budgets only
+ok 35 - the curve's gates: the closing buy waits for room (sells and smaller buys do not); graduate or open refunds at the hatch; launches pause for item budgets only
+  ---
+  duration_ms: 0.448709
+  type: 'test'
+  ...
+# Subtest: R3 N-2: a draw that carries a seed says whose; one that ended before its pin says its seed passes on; the snapshot time is never computed
+ok 36 - R3 N-2: a draw that carries a seed says whose; one that ended before its pin says its seed passes on; the snapshot time is never computed
+  ---
+  duration_ms: 0.231667
+  type: 'test'
+  ...
+# Subtest: the fixture's green nest: (6 − 2) × 1 + (1.375 + 0.625 + 0.5) = 6.5, the three ETH rows from the module's own books
+ok 37 - the fixture's green nest: (6 − 2) × 1 + (1.375 + 0.625 + 0.5) = 6.5, the three ETH rows from the module's own books
+  ---
+  duration_ms: 2.069292
+  type: 'test'
+  ...
+# Subtest: the fixture's unverified nest never holds: the verdict is a question, not an equals sign, and without a module the ETH row is zero by construction
+ok 38 - the fixture's unverified nest never holds: the verdict is a question, not an equals sign, and without a module the ETH row is zero by construction
+  ---
+  duration_ms: 0.418167
+  type: 'test'
+  ...
+# Subtest: the split never changes the total, and a ledger that disagrees with the report says so
+ok 39 - the split never changes the total, and a ledger that disagrees with the report says so
+  ---
+  duration_ms: 0.249209
+  type: 'test'
+  ...
+# Subtest: a red nest: an item elsewhere is under-backed and the report says so; a module that failed to read is named
+ok 40 - a red nest: an item elsewhere is under-backed and the report says so; a module that failed to read is named
+  ---
+  duration_ms: 0.253
+  type: 'test'
+  ...
+# Subtest: units print as whole items, never in scientific notation
+ok 41 - units print as whole items, never in scientific notation
+  ---
+  duration_ms: 13.478
+  type: 'test'
+  ...
+# Subtest: four birds, every shape inside the 32 grid, exactly one accent shape each, and the files match the geometry
+ok 42 - four birds, every shape inside the 32 grid, exactly one accent shape each, and the files match the geometry
+  ---
+  duration_ms: 7.940459
+  type: 'test'
+  ...
+# Subtest: og.png is a well-formed 1200 × 630 RGB PNG whose rows decode back to the card's pixels
+ok 43 - og.png is a well-formed 1200 × 630 RGB PNG whose rows decode back to the card's pixels
+  ---
+  duration_ms: 111.170583
+  type: 'test'
+  ...
+# Subtest: the ground is the dark theme's, the mark and the word are ink, the mark's eye is a hole, and nothing touches the edges
+ok 44 - the ground is the dark theme's, the mark and the word are ink, the mark's eye is a hole, and nothing touches the edges
+  ---
+  duration_ms: 33.921666
+  type: 'test'
+  ...
+# Subtest: the path parser: absolute and relative lines and curves, a Z back to the subpath's start, and an unknown command refuses
+ok 45 - the path parser: absolute and relative lines and curves, a Z back to the subpath's start, and an unknown command refuses
+  ---
+  duration_ms: 0.304917
+  type: 'test'
+  ...
+# Subtest: the switch: unset or empty is no phase, "1" is Phase 1, and anything else fails the build
+ok 46 - the switch: unset or empty is no phase, "1" is Phase 1, and anything else fails the build
+  ---
+  duration_ms: 1.377166
+  type: 'test'
+  ...
+# Subtest: Phase 1 hides Bots and Rent: not in the nav, and their routes say why they are off
+ok 47 - Phase 1 hides Bots and Rent: not in the nav, and their routes say why they are off
+  ---
+  duration_ms: 0.784667
+  type: 'test'
+  ...
+# Subtest: Phase 1 offers no YOYO policy in the launch wizard; raffle and burn stay
+ok 48 - Phase 1 offers no YOYO policy in the launch wizard; raffle and burn stay
+  ---
+  duration_ms: 0.530625
+  type: 'test'
+  ...
+# Subtest: Phase 1 leaves pons coins (the Launcher path) off the board and the tape
+ok 49 - Phase 1 leaves pons coins (the Launcher path) off the board and the tape
+  ---
+  duration_ms: 0.115583
+  type: 'test'
+  ...
+# Subtest: the stack file: exactly one for 4663, labelled stack, with addresses, at stage 0, or the reason there is none
+ok 50 - the stack file: exactly one for 4663, labelled stack, with addresses, at stage 0, or the reason there is none
+  ---
+  duration_ms: 0.776166
+  type: 'test'
+  ...
+# Subtest: TxButton in Phase 1: no stack file, no send; another chain, no send
+ok 51 - TxButton in Phase 1: no stack file, no send; another chain, no send
+  ---
+  duration_ms: 0.245541
+  type: 'test'
+  ...
+# Subtest: the target check: the stack's own contracts yes; a coin or curve its factory launched yes (read on chain); the desk, the board, the YOYO vault and strangers no
+ok 52 - the target check: the stack's own contracts yes; a coin or curve its factory launched yes (read on chain); the desk, the board, the YOYO vault and strangers no
+  ---
+  duration_ms: 1.010084
+  type: 'test'
+  ...
+# Subtest: the Trust page says §0 plainly: custody-only caps, uncapped curves (the operator's decision), not professionally audited, both devices, no pause on redemption
+ok 53 - the Trust page says §0 plainly: custody-only caps, uncapped curves (the operator's decision), not professionally audited, both devices, no pause on redemption
+  ---
+  duration_ms: 0.456084
+  type: 'test'
+  ...
+# Subtest: the Trust page states the roles and powers after the fixes (C-06, C-09; fixes-B-C §3), and never claims there is no withdraw path
+ok 54 - the Trust page states the roles and powers after the fixes (C-06, C-09; fixes-B-C §3), and never claims there is no withdraw path
+  ---
+  duration_ms: 1.326
+  type: 'test'
+  ...
+# Subtest: no page offers the mint desk or sends to the offer board: the site's own code names neither as a transaction target
+ok 55 - no page offers the mint desk or sends to the offer board: the site's own code names neither as a transaction target
+  ---
+  duration_ms: 4.713125
+  type: 'test'
+  ...
+# Subtest: security.txt: none without a contact, RFC 9116 fields with one, and a bad contact fails the build
+ok 56 - security.txt: none without a contact, RFC 9116 fields with one, and a bad contact fails the build
+  ---
+  duration_ms: 1.545916
+  type: 'test'
+  ...
+# Subtest: the curve's buy is FrogCurve.buy to the wei; fees + impact = the one number
+ok 57 - the curve's buy is FrogCurve.buy to the wei; fees + impact = the one number
+  ---
+  duration_ms: 0.805667
+  type: 'test'
+  ...
+# Subtest: the buy that reaches the raise uses only what the raise needs; the sell's fee comes off the ETH out
+ok 58 - the buy that reaches the raise uses only what the raise needs; the sell's fee comes off the ETH out
+  ---
+  duration_ms: 0.101208
+  type: 'test'
+  ...
+# Subtest: after graduation every hop's fees are in the one number: two LP fees, two protocol fees, then the impact
+ok 59 - after graduation every hop's fees are in the one number: two LP fees, two protocol fees, then the impact
+  ---
+  duration_ms: 1.327958
+  type: 'test'
+  ...
+# Subtest: a sell after graduation: the one number is exactly the shortfall against the mids
+ok 60 - a sell after graduation: the one number is exactly the shortfall against the mids
+  ---
+  duration_ms: 0.121042
+  type: 'test'
+  ...
+# Subtest: the Floor Module: its own spreads are in the number, the router routes through it, and the cheaper venue wins each way
+ok 61 - the Floor Module: its own spreads are in the number, the router routes through it, and the cheaper venue wins each way
+  ---
+  duration_ms: 0.787209
+  type: 'test'
+  ...
+# Subtest: the module's legs are FloorModule.quoteMint / quoteBurn: the unit price rounded against the trader, the room a hard edge
+ok 62 - the module's legs are FloorModule.quoteMint / quoteBurn: the unit price rounded against the trader, the room a hard edge
+  ---
+  duration_ms: 0.105625
+  type: 'test'
+  ...
+# Subtest: route choice and phases: most out among executable routes; curve while trading; nothing while graduating; refunds when failed
+ok 63 - route choice and phases: most out among executable routes; curve while trading; nothing while graduating; refunds when failed
+  ---
+  duration_ms: 0.210083
+  type: 'test'
+  ...
+# Subtest: ETH volume per item is the document's table: frogs at 0.158 ETH, 40% vault share — 39.5 / 13.2 / 7.9 / 4.9 ETH at 1 / 3 / 5 / 8%
+ok 64 - ETH volume per item is the document's table: frogs at 0.158 ETH, 40% vault share — 39.5 / 13.2 / 7.9 / 4.9 ETH at 1 / 3 / 5 / 8%
+  ---
+  duration_ms: 0.574917
+  type: 'test'
+  ...
+# Subtest: the launch fee decays linearly on the slower clock: full at t = 0, half at half, nothing at and after the decay
+ok 65 - the launch fee decays linearly on the slower clock: full at t = 0, half at half, nothing at and after the decay
+  ---
+  duration_ms: 0.0745
+  type: 'test'
+  ...
+1..65
+# tests 65
+# suites 0
+# pass 65
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 880.359792

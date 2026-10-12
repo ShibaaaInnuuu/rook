@@ -1,0 +1,12 @@
+   Compiling etch_autobuyer v0.1.0 (/private/tmp/rook-r5/D/autobuyer/canister-rs)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.23s
+     Running tests/d5_fixture.rs (target/debug/deps/d5_fixture-deee4aa004b654e8)
+
+running 2 tests
+d4-state.hex: 4 buys, 4 deliveries, 2 deposits; decoded by this build
+d5 state: 7260 hex chars
+test d5_the_monitor_fixture_d4_state_is_a_canister_state ... ok
+test d5_write_round4_paging_state ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

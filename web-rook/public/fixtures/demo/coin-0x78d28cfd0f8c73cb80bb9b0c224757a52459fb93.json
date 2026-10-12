@@ -1,0 +1,172 @@
+{
+  "address": "0x78D28cFd0f8c73CB80BB9b0c224757A52459fB93",
+  "name": "Gneiss 4 (sim)",
+  "symbol": "GNEI4SIM",
+  "creator": "0xD41e735B3d5E1E7a97a4e22548E4909120b51152",
+  "router": "0x84ce002AB0182a60a51356d5BBB0aD2111ea8488",
+  "curve": "0xfEb820D06e97a3431B093792F6566bD315FC691B",
+  "listingId": 56,
+  "listingName": "CYPHERPUNKS•WRITE•CODE",
+  "launchedAt": 1790036286,
+  "launchedBlock": 69020839,
+  "creatorTaxBps": 0,
+  "logoUrl": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3e%3crect%20width='64'%20height='64'%20fill='hsl(143,38%25,34%25)'/%3e%3cpath%20d='M12%2046L32%2018L64%2046Z'%20fill='hsl(143,52%25,68%25)'/%3e%3cpath%20d='M32%2018L64%2046H32Z'%20fill='hsl(143,30%25,48%25)'/%3e%3c/svg%3e",
+  "supplyWei": "1000000000000000000000000000",
+  "holders": 18,
+  "volume24hWei": "7235207899884035624",
+  "lifetimeFeesWei": "41398952178818820",
+  "toVaultWei": "33119161743055051",
+  "toTreasuryWei": "8279790435763769",
+  "fees24hWei": "41398952178818820",
+  "fees7dWei": "41398952178818820",
+  "harvests": 13,
+  "lastHarvestAt": 1790042753,
+  "harvestsRecent": [
+    {
+      "at": 1790042753,
+      "block": 69024491,
+      "tx": "0x84b51e1271aacd43ec50918f5367bf57055f21e711eeacd5d02c1321b0c36df1",
+      "claimedWei": "18199706082300564",
+      "toVaultWei": "14559764865840451",
+      "toTreasuryWei": "3639941216460113"
+    },
+    {
+      "at": 1790041375,
+      "block": 69023787,
+      "tx": "0x067c1212842c7905d68245544610fbf06a16a24bff7c9ded07fdc9e4b98e3609",
+      "claimedWei": "728236701706428",
+      "toVaultWei": "582589361365142",
+      "toTreasuryWei": "145647340341286"
+    },
+    {
+      "at": 1790041071,
+      "block": 69023633,
+      "tx": "0x175dde23d205e122830746afe8f64842895de2a5ec0a07c61b22ff74a9fba5a8",
+      "claimedWei": "3704226329301754",
+      "toVaultWei": "2963381063441403",
+      "toTreasuryWei": "740845265860351"
+    },
+    {
+      "at": 1790040282,
+      "block": 69023264,
+      "tx": "0x6fab2d1c8db8238015e755dbc16ac62799eed75325a1ca2d84984030df1e0380",
+      "claimedWei": "5364826164318582",
+      "toVaultWei": "4291860931454865",
+      "toTreasuryWei": "1072965232863717"
+    },
+    {
+      "at": 1790039242,
+      "block": 69022696,
+      "tx": "0xc5b3bda97582e1b9a11f5f93f91fe4adcfce6cf1d460a5580f22dce9c47143bc",
+      "claimedWei": "2007085930248411",
+      "toVaultWei": "1605668744198728",
+      "toTreasuryWei": "401417186049683"
+    },
+    {
+      "at": 1790038709,
+      "block": 69022367,
+      "tx": "0xd7b6f7df60cb641ae32c32dfe5c637d5fc809551a37145d5ec8f2556699ef67f",
+      "claimedWei": "5012502231455406",
+      "toVaultWei": "4010001785164324",
+      "toTreasuryWei": "1002500446291082"
+    },
+    {
+      "at": 1790038272,
+      "block": 69022068,
+      "tx": "0xdbfb154a15f1bf9dde627acfe9a0dda705bfba4cc22673a841db3cdc98fc302a",
+      "claimedWei": "161729400000000",
+      "toVaultWei": "129383520000000",
+      "toTreasuryWei": "32345880000000"
+    },
+    {
+      "at": 1790037897,
+      "block": 69021845,
+      "tx": "0x3bf4bb529b13db3a0b64bd29d260270a4a4fb411dd7c93f70191f7a6b5c078f1",
+      "claimedWei": "246082568450817",
+      "toVaultWei": "196866054760653",
+      "toTreasuryWei": "49216513690164"
+    },
+    {
+      "at": 1790037629,
+      "block": 69021678,
+      "tx": "0x928ed5d06d91d4cd3191124d947db955f7f25e75bb6c2887b0376b962f1b50e1",
+      "claimedWei": "14650085286840",
+      "toVaultWei": "11720068229472",
+      "toTreasuryWei": "2930017057368"
+    },
+    {
+      "at": 1790037541,
+      "block": 69021619,
+      "tx": "0x93eff73cd0b6a3c9e141635544493cd79576e4f9609e4e3886bedfe406b1ff95",
+      "claimedWei": "1603198866442908",
+      "toVaultWei": "1282559093154326",
+      "toTreasuryWei": "320639773288582"
+    },
+    {
+      "at": 1790036847,
+      "block": 69021203,
+      "tx": "0xa3543ca6a0ebc28d2b7addd34ee95ac02c30bc9ac5b1b82df8212af78cb3bc11",
+      "claimedWei": "225351000000000",
+      "toVaultWei": "180280800000000",
+      "toTreasuryWei": "45070200000000"
+    },
+    {
+      "at": 1790036814,
+      "block": 69021183,
+      "tx": "0xc7d5b90a1b9adf57ff5fdc312d24496b43210a3ad785126b2b913913245dc5d2",
+      "claimedWei": "3481706583539569",
+      "toVaultWei": "2785365266831655",
+      "toTreasuryWei": "696341316707914"
+    },
+    {
+      "at": 1790036515,
+      "block": 69021008,
+      "tx": "0xa7a05aebab735ab17c96e906481f59cc996c74f5f9879ee685c2ca31c1563805",
+      "claimedWei": "649650235767541",
+      "toVaultWei": "519720188614032",
+      "toTreasuryWei": "129930047153509"
+    }
+  ],
+  "tokensForwarded": [],
+  "treasuryDeferredWei": "0",
+  "acquisitions": [],
+  "volumeUntilNextBuy": {
+    "volumeNeededWei": null,
+    "reason": "no-live-cap",
+    "ready": false,
+    "inputs": {
+      "targetWei": null,
+      "capWei": "0",
+      "capExpiry": 0,
+      "minDeclarationWei": "50000000000000000",
+      "minEntryWei": "10000000000000000",
+      "spendableWei": "33119161743055051",
+      "coinWaitingWei": "0",
+      "coinQueued": true,
+      "harvestableWei": "0",
+      "depositNeededWei": null,
+      "vaultShareBps": 8000,
+      "takeBps": 70
+    },
+    "assumptions": [
+      "only this coin trades: fees from other coins on the same listing bring the purchase sooner",
+      "the cap posted now is still the cap then (a cap lasts one hour and is re-posted from the market)",
+      "the share of volume reaching the router stays what was measured: 0.70% plus the coin's creator tax",
+      "fees earned but still inside the curve or the pool are not counted; fees on the router or in Pons's escrow are, at 80%",
+      "the keeper declares as its published policy says: one item under the cap and never under 0.05 ETH; any amount over 0.05 ETH for a rune"
+    ]
+  },
+  "live": {
+    "unspentWei": "33119161743055051",
+    "queued": true,
+    "pending": {
+      "graduated": false,
+      "escrowWei": "0",
+      "routerBalanceWei": "0",
+      "pool": null,
+      "curvePending": null,
+      "curvePendingReason": "before graduation fees accrue inside Pons's curve, and no getter for that amount has been verified",
+      "error": null
+    }
+  }
+}

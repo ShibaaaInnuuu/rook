@@ -1,0 +1,14 @@
+# cargo test --release --test audit3_nft_e_upgrade -- --nocapture   (private copy of autobuyer/canister-rs from the worktree (branch nft-side, fix round 3 uncommitted), toolchain 1.98.1; + tests/fixtures/saved-79455e1-rich.hex from review3/poc/E; see audit3_nft_e_upgrade.adaptations.diff)
+    Finished `release` profile [optimized] target(s) in 1m 42s
+     Running tests/audit3_nft_e_upgrade.rs (target/release/deps/audit3_nft_e_upgrade-f61d1c42c0888e15)
+
+running 3 tests
+test e3_i_probe_gaps_a_required_field_made_opt_of_a_new_shape_and_a_renamed_opt_are_lost_silently ... ok
+AUDIT3-E probe e04f49b: 6426 bytes saved, lost []
+AUDIT3-E probe 79455e1-rich: 12621 bytes saved, lost []
+test e3_probe_the_audited_e04f49b_state_and_a_rich_79455e1_state_restore_with_nothing_lost_and_no_false_refusal ... ok
+AUDIT3-E probe cost: 3342336 bytes of stable memory; one typed decode 139.621958ms; the probe (typed decode + encode + two untyped decodes + walk) 345.486708ms; lost []
+test e3_probe_cost_on_a_large_state ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.50s
+

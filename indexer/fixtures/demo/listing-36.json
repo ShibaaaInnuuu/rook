@@ -1,0 +1,53 @@
+{
+  "id": 36,
+  "kind": "inscriptions",
+  "name": "Bitcoin Bulls",
+  "ref": "bitcoin-bulls",
+  "divisibility": 0,
+  "vault": "0xdF187fb8BCC179d412E440Ec343d1e97C18f0081",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-bitcoin-bulls",
+  "membershipRoot": "0xe8364e559c5d696e6c5266ae7e48aa22a5ca4fc693d8ef0e5d1e6458ac8e65b7",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "250680871144231859",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "250680871144231859",
+    "attributedWei": "250680871144231859",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "250680871144231859",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x5861eAdcFaDB2c6943d09cB8C5Ff049aBcba4B69",
+      "symbol": "PUMI4SIM",
+      "depositedWei": "250680871144231859"
+    }
+  ]
+}

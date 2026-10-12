@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "canisters": {
+    "autobuyer": {
+      "type": "custom",
+      "candid": "etch_autobuyer.did",
+      "wasm": "target/wasm32-unknown-unknown/release/etch_autobuyer.wasm",
+      "build": "cargo build --release --target wasm32-unknown-unknown"
+    }
+  },
+  "networks": { "local": { "bind": "127.0.0.1:4943", "type": "ephemeral" } }
+}

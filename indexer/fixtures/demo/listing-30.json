@@ -1,0 +1,53 @@
+{
+  "id": 30,
+  "kind": "inscriptions",
+  "name": "OrdinalHub Badges",
+  "ref": "ordinalhub-badges",
+  "divisibility": 0,
+  "vault": "0xAdB10Aa3dca3238C387aC3f271bD3dBD855C9dDc",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-ordinalhub-badges",
+  "membershipRoot": "0x811ad6bf6b7a4ada6087cf950dc5d5d325429628008d1db980070ba336996ed8",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "158437993187752705",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "158437993187752705",
+    "attributedWei": "158437993187752705",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "158437993187752705",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xFf5cDb80a129e1E1E01E0f4e57de4C40ed0b708a",
+      "symbol": "JASP3SIM",
+      "depositedWei": "158437993187752705"
+    }
+  ]
+}

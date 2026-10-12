@@ -1,0 +1,73 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "sats",
+    "name": "SATS",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "sats",
+    "description": "SATS by VIVID represent the exploration of color and geometry in its minimal expression inspired by architectural brutalism and street art photography. SATS holders will gain access to future drops and collections.",
+    "image": "https://ordinals.com/content/6e83c7dd560483df724b92a2f4b302d265e1ebd1aa054c83a159f462a8128c8fi0",
+    "links": {
+      "website": "https://vivid.gallery",
+      "x": "https://x.com/vivid_ordinals",
+      "discord": "https://discord.gg/D9pAScgkrk",
+      "marketplace": "https://ordinalswallet.com/collection/sats",
+      "explorer": "https://ordinals.com/inscription/8815"
+    },
+    "floor": null,
+    "items": null,
+    "owners": null,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "9a5cb7f3f8ca00972948b0d452cc94ade3bd121d905d1ef3d1bb9d9a3cdb4301i0",
+        "name": "SAT #85",
+        "image": "https://ordinals.com/content/9a5cb7f3f8ca00972948b0d452cc94ade3bd121d905d1ef3d1bb9d9a3cdb4301i0",
+        "url": "https://ordinals.com/inscription/9a5cb7f3f8ca00972948b0d452cc94ade3bd121d905d1ef3d1bb9d9a3cdb4301i0"
+      },
+      {
+        "id": "72b1cba0edca006f9a7356f9016f670e2fa818211d64391ce3765e2b17571003i0",
+        "name": "SAT #68",
+        "image": "https://ordinals.com/content/72b1cba0edca006f9a7356f9016f670e2fa818211d64391ce3765e2b17571003i0",
+        "url": "https://ordinals.com/inscription/72b1cba0edca006f9a7356f9016f670e2fa818211d64391ce3765e2b17571003i0"
+      },
+      {
+        "id": "57224bb7609a8b76cccdd87e326d08a42004487a1e9939a9a62cc66566f2d004i0",
+        "name": "SAT #55",
+        "image": "https://ordinals.com/content/57224bb7609a8b76cccdd87e326d08a42004487a1e9939a9a62cc66566f2d004i0",
+        "url": "https://ordinals.com/inscription/57224bb7609a8b76cccdd87e326d08a42004487a1e9939a9a62cc66566f2d004i0"
+      }
+    ],
+    "sources": [],
+    "rook": {
+      "kind": "later",
+      "stage": null,
+      "why": "No floor is known right now, so the rule cannot be checked against it: not listable until a source reports one."
+    },
+    "curated": true
+  }
+}

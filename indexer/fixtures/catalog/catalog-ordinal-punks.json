@@ -1,0 +1,73 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "ordinal-punks",
+    "name": "Ordinal Punks",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "ordinal-punks",
+    "description": null,
+    "image": "https://ordinals.com/content/f4bb9a2e06098b04fafa933fbbb514e36c8f3f46d6e3f8336e4626d20886c5efi0",
+    "links": {
+      "website": null,
+      "x": "https://x.com/OrdinalPunks",
+      "discord": "https://discord.com/invite/U4UyTWArjV",
+      "marketplace": "https://ordinalswallet.com/collection/ordinal-punks",
+      "explorer": "https://ordinals.com/inscription/407"
+    },
+    "floor": null,
+    "items": null,
+    "owners": null,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "01972f2c7aabdc5d087c254c260cc3e6e80fe1876d594366a17e55be55b04701i0",
+        "name": "Punk #24",
+        "image": "https://ordinals.com/content/01972f2c7aabdc5d087c254c260cc3e6e80fe1876d594366a17e55be55b04701i0",
+        "url": "https://ordinals.com/inscription/01972f2c7aabdc5d087c254c260cc3e6e80fe1876d594366a17e55be55b04701i0"
+      },
+      {
+        "id": "ab2014c4c61d62cbe4150d473eb834005603f996310a3e6211626ae4473a3d02i0",
+        "name": "Punk #49",
+        "image": "https://ordinals.com/content/ab2014c4c61d62cbe4150d473eb834005603f996310a3e6211626ae4473a3d02i0",
+        "url": "https://ordinals.com/inscription/ab2014c4c61d62cbe4150d473eb834005603f996310a3e6211626ae4473a3d02i0"
+      },
+      {
+        "id": "c904da508e7c0481a51a14b40ce095949a57ec53088050c118bd351d3f73ec02i0",
+        "name": "Punk #61",
+        "image": "https://ordinals.com/content/c904da508e7c0481a51a14b40ce095949a57ec53088050c118bd351d3f73ec02i0",
+        "url": "https://ordinals.com/inscription/c904da508e7c0481a51a14b40ce095949a57ec53088050c118bd351d3f73ec02i0"
+      }
+    ],
+    "sources": [],
+    "rook": {
+      "kind": "later",
+      "stage": null,
+      "why": "No floor is known right now, so the rule cannot be checked against it: not listable until a source reports one."
+    },
+    "curated": true
+  }
+}

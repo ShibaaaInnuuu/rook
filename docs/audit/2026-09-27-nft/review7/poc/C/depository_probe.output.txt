@@ -1,0 +1,33 @@
+# Read-only probes, 2026-09-28 (review 7 part C). Relay depository 0x4cd00e387622c35bddb9b4c962c136462338bc31.
+# eth_getCode: non-empty on Ethereum (rpc.mevblocker.io) and 4663 (rpc.mainnet.chain.robinhood.com), same prefix.
+# Source: github.com/relayprotocol/relay-depository packages/ethereum-vm/src/RelayDepository.sol (fetched read-only):
+57:    event RelayCallExecuted(bytes32 id, Call call);
+180:        results = _executeCalls(structHash, request.calls);
+219:                if (success) {
+220:                    emit RelayCallExecuted(id, c);
+
+# Ethereum: RelayCallExecuted logs over 50,000 blocks to 0x18de42a (gateway.tenderly.co/public/mainnet, 5 x 10,000):
+logs 17730 topics per log Counter({1: 17730})
+9015 ('0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', 'value=0')
+3846 ('0xdac17f958d2ee523a2206206994597c13d831ec7', 'value=0')
+2592 ('0xf70da97812cb96acdf810712aa562db8dfa3dbef', 'value>0')
+818 ('0xe343167631d89b6ffc58b88d6b7fb0228795491d', 'value=0')
+619 ('0xaca92e438df0b2401ff60da7e4337b687a2435da', 'value=0')
+532 ('0x6c3ea9036406852006290770bedfcaba0e23a0e8', 'value=0')
+153 ('0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2', 'value=0')
+84 ('0x6b175474e89094c44da98b954eedeac495271d0f', 'value=0')
+44 ('0x4c9edd5852cd905f086c759e8383e09bff1e68b3', 'value=0')
+17 ('0x4d224452801aced8b2f0aebe155379bb5d594381', 'value=0')
+5 ('0x5babe600b9fcd5fb7b66c0611bf4896d967b23a1', 'value>0')
+2 ('0x00000000efe302beaa2b3e6e1b18d08d69a9012a', 'value=0')
+1 ('0x4c1746a800d224393fe2470c70a35717ed4ea5f1', 'value=0')
+1 ('0x1bab804803159ad84b8854581aa53ac72455614e', 'value=0')
+1 ('0x008c8607387c8f5540287070c08c3e9acd4e8442', 'value>0')
+
+# 4663: RelayCallExecuted over 1,000,000 blocks to 0x475c7bd (rpc.mainnet.chain.robinhood.com):
+logs 3335 topics per log Counter({1: 3335})
+1677 ('0x5fc5360d0400a0fd4f2af552add042d716f1d168', 'value=0')
+1658 ('0xf70da97812cb96acdf810712aa562db8dfa3dbef', 'value>0')
+
+# Ethereum execute tx 0x86eee61f...d84d: from 0x008c8607...8442 (the payee itself, an EIP-7702 account), nonce 0x8b63e873...01ed; its log's id 0x84334077...6659 = the CallRequest struct hash (PoC r7_c_l1_a). Relay API /requests/v2?id=<nonce> and ?hash=<tx>: no request. Relay API v2 answers with a deprecation: throttled from 2026-09-01, retired 2026-11-24 (successor /requests/v3).
+# Side note (part B scope): rpc.mevblocker.io answered a 50,000-block eth_getLogs with -32603 "service temporarily unavailable".

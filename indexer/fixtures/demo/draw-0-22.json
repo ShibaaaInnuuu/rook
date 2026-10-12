@@ -1,0 +1,75 @@
+{
+  "id": "0-22",
+  "listingId": 0,
+  "acquisitionId": 22,
+  "type": "draw",
+  "state": "won",
+  "mode": "named",
+  "assetRef": "0000000000000000000000000000000000000000000000000000000000000000i22",
+  "openedAt": null,
+  "challengeEnds": null,
+  "challengeEndsIn": null,
+  "root": null,
+  "uri": null,
+  "total": null,
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": null,
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": {
+    "round": null,
+    "pinnedAt": null,
+    "drandUrl": null,
+    "winningTicket": null,
+    "resolvedAt": null,
+    "winner": "0x3bE4a21be6ec02ee520082eB3D87bF9AddBc8fea",
+    "destination": null,
+    "destinationSetAt": null,
+    "deliveredTxid": null,
+    "deliveredAt": null,
+    "overdue": false,
+    "voided": null
+  },
+  "distribution": null,
+  "timeline": [
+    {
+      "at": 1790029210,
+      "block": 69016346,
+      "tx": "0xeb3ed92898baaf078465ac15f260793abefee3e23de885371e6b2b0c7296bb7e",
+      "event": "Receipted",
+      "detail": {
+        "id": "18",
+        "acquisitionId": "22",
+        "coin": "0x3a0194cc47b6173590f9c7a8871bf190f1c2eac3",
+        "assetRef": "0000000000000000000000000000000000000000000000000000000000000000i22",
+        "amount": "1",
+        "btcTxid": "0x63023293ec035bd8a97b3cf7df7858d59154ef87b53a7be599e67d37b58540d8",
+        "satsPaid": "150000"
+      }
+    },
+    {
+      "at": 1790029218,
+      "block": 69016350,
+      "tx": "0xc39b3c224eaa20ea1bbc3dc95082280c356a2f9304736a4506d161e8553a0382",
+      "event": "Chosen",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "22",
+        "mode": 5,
+        "named": "0x3be4a21be6ec02ee520082eb3d87bf9addbc8fea"
+      }
+    },
+    {
+      "at": 1790029218,
+      "block": 69016350,
+      "tx": "0xc39b3c224eaa20ea1bbc3dc95082280c356a2f9304736a4506d161e8553a0382",
+      "event": "Won",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "22",
+        "winner": "0x3be4a21be6ec02ee520082eb3d87bf9addbc8fea"
+      }
+    }
+  ]
+}

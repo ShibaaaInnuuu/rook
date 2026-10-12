@@ -1,0 +1,53 @@
+{
+  "id": 59,
+  "kind": "rune",
+  "name": "BITCOIN•FROGS•RUNE",
+  "ref": "840015:475",
+  "divisibility": 0,
+  "vault": "0x1f9F4eE2A4E89382C5C034DBf62e0e4Aeb4e5db5",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-bitcoinfrogsrune",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "111419689119170984",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "111419689119170984",
+    "attributedWei": "111419689119170984",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "111419689119170984",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x5311266638F0Ef36E028804c9AA9414c3a63C3F6",
+      "symbol": "ONYX4SIM",
+      "depositedWei": "111419689119170984"
+    }
+  ]
+}

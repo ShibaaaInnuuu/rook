@@ -1,0 +1,33 @@
+{
+  "slug": "wizards",
+  "taken_at": "2026-10-10T07:24:46.264Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 3333,
+  "root": "0xee49af729f84580fd399d60eeeac2bb9eda74a2aa9c3d072760c11695d04a7d9",
+  "proof_depth": 12,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/wizards/inscriptions",
+      "count": 3333,
+      "unique": 3333,
+      "left_out": []
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/b8a6c9e946f0beaa9cbb4d6cc9f9388ae71d0f93c0215b8a85595db69949e64ci0",
+      "count": 3333,
+      "unique": 3333,
+      "left_out": []
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/wizards.json",
+      "count": 3333,
+      "not_in_members": [],
+      "members_missing": []
+    }
+  ]
+}

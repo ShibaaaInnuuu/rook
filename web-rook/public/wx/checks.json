@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Checks VV",
+  "symbol": "wCHECKSVV",
+  "description": "Rook's wrapped Checks VV token: each whole token is backed either by a Checks VV NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/checks.png",
+  "external_url": "https://userook.fun/#/collection/checks",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/checks.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

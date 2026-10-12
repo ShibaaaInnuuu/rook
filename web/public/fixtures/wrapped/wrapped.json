@@ -1,0 +1,35 @@
+{
+  "configured": true,
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The collections, coins, items, tickets and checks are built from the worked examples in docs/v3/curve.md (frogs at 5 ETH; an ape bought FIFO for two coins), with a floor module, a treasury, a YOYO coin and an offer board given plausible books, and run through the real reserve computation. Addresses, inscription ids and transactions are invented; the explorer links point at nothing. One of the apes' two EVM providers is made to fail on purpose, to show an unverified collection."
+  },
+  "collections": [
+    {
+      "slug": "frogs",
+      "name": "Bitcoin Frogs",
+      "symbol": "wFROG",
+      "kind": "inscriptions",
+      "wrapper": "0x1000000000000000000000000000000000000001",
+      "supplyUnits": "6500000000000000000",
+      "itemsHeld": 6,
+      "floorWei": "646000000000000000",
+      "floorFresh": true,
+      "status": "green",
+      "coins": 3
+    },
+    {
+      "slug": "apes",
+      "name": "Bored Ape Yacht Club",
+      "symbol": "wAPE",
+      "kind": "nft",
+      "wrapper": "0x2000000000000000000000000000000000000001",
+      "supplyUnits": "1000000000000000000",
+      "itemsHeld": 1,
+      "floorWei": null,
+      "floorFresh": false,
+      "status": "unverified",
+      "coins": 2
+    }
+  ]
+}

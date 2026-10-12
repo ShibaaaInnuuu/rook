@@ -1,0 +1,53 @@
+{
+  "id": 54,
+  "kind": "rune",
+  "name": "LIQUIDIUM•TOKEN",
+  "ref": "840010:907",
+  "divisibility": 2,
+  "vault": "0xcd2E0aa018691Be7084A1560E678C799c8167D90",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-liquidiumtoken",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "76331130815886192",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "76331130815886192",
+    "attributedWei": "76331130815886192",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "76331130815886192",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x4F910Da44B84d08dc9cE28E406319F254dce048b",
+      "symbol": "ONYX3SIM",
+      "depositedWei": "76331130815886192"
+    }
+  ]
+}

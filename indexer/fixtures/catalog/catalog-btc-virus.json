@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "btc-virus",
+    "name": "BTC Virus",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "btc-virus",
+    "description": "10k BTC Virus",
+    "image": "https://ordinals.com/content/da5516431da9a331d165f151f44d62fd4ad3264634ff1c746a4059fad261cbd6i0",
+    "links": {
+      "website": "https://btcmachine.org",
+      "x": "https://x.com/btcordinal",
+      "discord": "https://discord.gg/btcmachine",
+      "marketplace": "https://ordinalswallet.com/collection/btc-virus",
+      "explorer": "https://ordinals.com/inscription/468990"
+    },
+    "floor": {
+      "native": "70914",
+      "unit": "sats",
+      "eth": 0.022382350156235204,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 9992,
+    "owners": null,
+    "listed": 191,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "6fac40b0b559a379123fb145f312381b65f0e9768d5c7d7ced0aa2eeb740bf36i0",
+        "name": "BTC Virus #3737",
+        "image": "https://ordinals.com/content/6fac40b0b559a379123fb145f312381b65f0e9768d5c7d7ced0aa2eeb740bf36i0",
+        "url": "https://ordinals.com/inscription/6fac40b0b559a379123fb145f312381b65f0e9768d5c7d7ced0aa2eeb740bf36i0"
+      },
+      {
+        "id": "7403517bc645c04ddc1a16ba2f83733cdfae70a58ead0990c998eb99773e3cb0i0",
+        "name": "BTC Virus #5315",
+        "image": "https://ordinals.com/content/7403517bc645c04ddc1a16ba2f83733cdfae70a58ead0990c998eb99773e3cb0i0",
+        "url": "https://ordinals.com/inscription/7403517bc645c04ddc1a16ba2f83733cdfae70a58ead0990c998eb99773e3cb0i0"
+      },
+      {
+        "id": "0f67c4ca4015fdfca3091084e372756d6fe9154dbf09cf5b84d62381f7bbfa3bi0",
+        "name": "BTC Virus #7673",
+        "image": "https://ordinals.com/content/0f67c4ca4015fdfca3091084e372756d6fe9154dbf09cf5b84d62381f7bbfa3bi0",
+        "url": "https://ordinals.com/inscription/0f67c4ca4015fdfca3091084e372756d6fe9154dbf09cf5b84d62381f7bbfa3bi0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.022 ETH, 0.027 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

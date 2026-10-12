@@ -1,0 +1,117 @@
+--- tests/audit_nft_r5.rs (harness, up to its first #[test])
++++ tests/r6_b.rs (harness)
+@@ -193,6 +193,20 @@
+     item_of_err: u32,
+     /// round 5: each wrapper item's `(sourceTx, deposit)`, as the wrapper's `item(id)` says
+     item_src: HashMap<([u8; 20], usize), (Word, bool)>,
++    // ---- review round 6, part B (poc/B) ----
++    /// logs older than this many blocks under the pin are refused (publicnode's keyless endpoint: about 10,000)
++    log_depth: Option<u64>,
++    /// the refusal as the provider says it (true), or as the canister sees it after its transform (false: the message is dropped)
++    depth_raw: bool,
++    /// these receipts' reads fail with a disagreement (one provider answers null: publicnode prunes receipts ~20-30k blocks deep)
++    receipt_disagree: Vec<[u8; 32]>,
++    /// percent of log reads (each marketplace query on its own) answered -32005 "anonymous capacity temporarily busy" (xrpc.cl, measured)
++    busy_pct: u64,
++    busy_seed: u64,
++    busy_hits: u32,
++    /// a marketplace range read wider than this: Seaport's half is over 2 MB (every collection's OrderFulfilled: 1.9 MB per 500 blocks,
++    /// 9.9 MB per 2,000 measured), so EthNet returns Blur's half alone (Ok)
++    seaport_range_cap: Option<u64>,
+ }
+ 
+ fn word(v: u128) -> Vec<u8> {
+@@ -214,7 +228,28 @@
+     format!("0x{}", hex::encode(b))
+ }
+ 
++const BUSY_T: &str = "chain 1: eth_getLogs: no result: {\"code\":-32005,\"reverted\":false}";
+ impl Fake {
++    fn busy(&mut self) -> bool {
++        if self.busy_pct == 0 { return false; }
++        self.busy_seed = self.busy_seed.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407);
++        let b = (self.busy_seed >> 33) % 100 < self.busy_pct;
++        if b { self.busy_hits += 1; }
++        b
++    }
++    fn too_deep(&mut self, from: u64) -> Option<String> {
++        let pin = self.pin_now.unwrap_or(ETH_PIN);
++        let d = self.log_depth?;
++        if from + d >= pin { return None; }
++        self.log_fails += 1;
++        self.logs_bytes += 2 * 64_000;
++        Some(if self.depth_raw {
++            r#"chain 1: eth_getLogs: no result: {"code":-32602,"message":"Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"}"#.to_string()
++        } else {
++            // what `rpc_once_with` makes of the transform's output (`transfer_logs_body` -> `json_rpc_norm_body`: code kept, message dropped)
++            "chain 1: eth_getLogs: no result: {\"code\":-32602,\"reverted\":false}".to_string()
++        })
++    }
+     fn new(two: bool) -> Self {
+         let mut sale_receipts = HashMap::new();
+         let v: serde_json::Value = serde_json::from_str(SALES).unwrap();
+@@ -240,6 +275,7 @@
+             sale_moves: HashMap::new(), payouts: HashMap::new(),
+             hide: vec![], unsure: false, real_advance: false, identify: false, sent_tx: HashMap::new(), payout_balance_fail: false,
+             bal_fail: None, big_sale_blocks: vec![], dense_blocks: vec![], odd_blocks: vec![], receipt_bytes: 0, mint_revert: 0, mint_log: vec![], item_of_err: 0, item_src: HashMap::new(),
++            log_depth: None, depth_raw: false, receipt_disagree: vec![], busy_pct: 0, busy_seed: 0x1234_5678, busy_hits: 0, seaport_range_cap: None,
+         }
+     }
+     fn m(&mut self, module: [u8; 20]) -> &mut Module {
+@@ -494,6 +530,13 @@
+         Ok(self.home_pin_known.then(|| HOME_PIN - self.home_back.map_or(0, |_| 1_024)))
+     }
+     async fn eth_sale_moves(&mut self, _collection: [u8; 20], block: u64) -> Result<Vec<en::Move>, String> {
++        if let Some(e) = self.too_deep(block) { return Err(e); }
++        if self.busy_pct > 0 {
++            let (s, b) = (self.busy(), self.busy());
++            self.logs_bytes += 2 * 64_000;
++            if s && b { self.log_fails += 1; return Err(BUSY_T.into()); }
++            if s { return Ok(vec![]); } // Seaport's half busy, Blur's read: EthNet answers Ok with Blur's (none)
++        }
+         if self.big_sale_blocks.contains(&block) {
+             self.log_fails += 1;
+             self.logs_bytes += 2 * (64_000 + 400_000 + 2_000_000);
+@@ -514,6 +557,18 @@
+         Ok(self.home_sent.iter().find(|(_, (_, raw))| u64::from_be_bytes(raw[36..44].try_into().unwrap()) == nonce).map(|(h, _)| *h))
+     }
+     async fn eth_sale_moves_range(&mut self, _collection: [u8; 20], from: u64, to: u64) -> Result<Vec<en::Move>, String> {
++        if let Some(e) = self.too_deep(from) { return Err(e); }
++        let mut seaport_out = false;
++        if self.busy_pct > 0 {
++            let (s, b) = (self.busy(), self.busy());
++            if s && b { self.log_fails += 1; self.logs_bytes += 2 * 2 * 64_000; return Err(BUSY_T.into()); }
++            seaport_out = s;
++        }
++        if self.seaport_range_cap.is_some_and(|c| to - from + 1 > c) {
++            self.logs_bytes += 2 * (64_000 + 400_000 + 2_000_000);
++            seaport_out = true;
++        }
++        if seaport_out { self.logs_bytes += 2 * 64_000; return Ok(vec![]); }
+         if self.big_sale_blocks.iter().any(|b| from <= *b && *b <= to) {
+             self.log_fails += 1;
+             self.logs_bytes += 2 * (64_000 + 400_000 + 2_000_000);
+@@ -612,6 +667,9 @@
+         }
+         self.sale_reads += 1;
+         self.receipt_bytes += 2 * 32_000;
++        if self.receipt_disagree.contains(&h) {
++            return Err("chain 1: providers disagree on eth_getTransactionReceipt; nothing is believed".into());
++        }
+         if self.sale_err.contains(&h) {
+             self.receipt_bytes += 2 * 200_000;
+             return Err("chain 1: eth_getTransactionReceipt: IC reject, answer over the response cap: Http body exceeds size limit of 200000 bytes".into());
+@@ -630,6 +688,8 @@
+     /// Round 3 (B3-M-1): the same transactions, each with its token and sender (the least of its moves), as the canister's transform.
+     async fn eth_transfer_moves(&mut self, collection: [u8; 20], from: u64, to: u64) -> Result<Vec<en::Move>, String> {
+         self.log_ranges.push((from, to));
++        if let Some(e) = self.too_deep(from) { return Err(e); }
++        if self.busy() { self.log_fails += 1; self.logs_bytes += 2 * 64_000; return Err(BUSY_T.into()); }
+         if self.odd_blocks.iter().any(|b| from <= *b && *b <= to) {
+             self.log_fails += 1;
+             self.logs_bytes += 2 * 64_000;
+@@ -988,3 +1048,4 @@
+     (id, p.hash, start)
+ }
+ 
++

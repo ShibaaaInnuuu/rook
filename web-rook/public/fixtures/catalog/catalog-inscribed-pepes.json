@@ -1,0 +1,73 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "inscribed-pepes",
+    "name": "Inscribed Pepes",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "inscribed-pepes",
+    "description": null,
+    "image": "https://ordinals.com/content/ba698535dc15c8761bf276b8938fc60e118587d25cb92c4104c45ab4ac9a1bcbi0",
+    "links": {
+      "website": null,
+      "x": "https://x.com/InscribedPepe",
+      "discord": "https://discord.gg/inscribedpepes",
+      "marketplace": "https://ordinalswallet.com/collection/inscribed-pepes",
+      "explorer": "https://ordinals.com/inscription/2115"
+    },
+    "floor": null,
+    "items": null,
+    "owners": null,
+    "listed": null,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "abb4384f00b2ba359695736cd590edb61ca89fa66a6bd75ab86587b718903301i0",
+        "name": "Inscribed Pepe #58",
+        "image": "https://ordinals.com/content/abb4384f00b2ba359695736cd590edb61ca89fa66a6bd75ab86587b718903301i0",
+        "url": "https://ordinals.com/inscription/abb4384f00b2ba359695736cd590edb61ca89fa66a6bd75ab86587b718903301i0"
+      },
+      {
+        "id": "fcf41c60eee2141a9beaaeb00f237612522fc772c5142177d7cf074ce34a0c06i0",
+        "name": "Inscribed Pepe #3",
+        "image": "https://ordinals.com/content/fcf41c60eee2141a9beaaeb00f237612522fc772c5142177d7cf074ce34a0c06i0",
+        "url": "https://ordinals.com/inscription/fcf41c60eee2141a9beaaeb00f237612522fc772c5142177d7cf074ce34a0c06i0"
+      },
+      {
+        "id": "e341890780ac783877847dbbd9b58d01dab0e1b99705b12509e68aeaf6d87009i0",
+        "name": "Inscribed Pepe #43",
+        "image": "https://ordinals.com/content/e341890780ac783877847dbbd9b58d01dab0e1b99705b12509e68aeaf6d87009i0",
+        "url": "https://ordinals.com/inscription/e341890780ac783877847dbbd9b58d01dab0e1b99705b12509e68aeaf6d87009i0"
+      }
+    ],
+    "sources": [],
+    "rook": {
+      "kind": "later",
+      "stage": null,
+      "why": "No floor is known right now, so the rule cannot be checked against it: not listable until a source reports one."
+    },
+    "curated": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": 46,
+  "kind": "rune",
+  "name": "BILLION•DOLLAR•CAT",
+  "ref": "845764:84",
+  "divisibility": 0,
+  "vault": "0x5f24b29c527DD4B54d328C6fa51bfC8722F69228",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-billiondollarcat",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "424096600143413570",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "424096600143413570",
+    "attributedWei": "424096600143413570",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "424096600143413570",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xCB7eA982a57e4f9Fd3130a7E671a0e60cFd55dC3",
+      "symbol": "GNEI2SIM",
+      "depositedWei": "424096600143413570"
+    }
+  ]
+}

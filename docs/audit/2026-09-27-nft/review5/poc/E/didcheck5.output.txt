@@ -1,0 +1,9 @@
+# didcheck5 (review5/poc/E/didcheck5.main.rs), candid 0.10.35 / candid_parser 0.1.4
+service_compatible(new .did, 2735dac .did): Ok(())
+ok: eth-state-round4.hex (HEAD): 2756 bytes; opts the .did loses: []
+ok: eth-state-round2.hex (HEAD): 2523 bytes; opts the .did loses: []
+ok: eth-state-round2 as 24fba50 wrote it: 2080 bytes; opts the .did loses: []
+ok: eth-state-round2 as fb54018 wrote it: 2330 bytes; opts the .did loses: []
+ok: the 1eb5788 state's Ethereum side after the upgrade: 11888 bytes; opts the .did loses: []
+eth-state-round4.hex: inbox.payouts None, a buy's late true, pending.used_since Some(6), sale_scan bad/skipped Some((true, true))
+ok: round 4's fixture state with a payout claim in the inbox: 2808 bytes; opts the .did loses: []

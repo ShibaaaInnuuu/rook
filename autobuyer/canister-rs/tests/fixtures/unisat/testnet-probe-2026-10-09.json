@@ -1,0 +1,36 @@
+{
+  "what": "UniSat open API, testnet (testnet3, chain 'test', height 5157711), 2026-10-09: the attempt to obtain a real create_bid psbtBid. No PSBT was obtained; nothing was signed; confirm_bid was never called.",
+  "auth": {
+    "mainnet UNISAT_API_KEY (Railway project rook) on open-api-testnet.unisat.io": {"code": -2007, "msg": "unauth token"},
+    "keyless": "works (code 0), rate-limited: {\"code\":-2005,\"msg\":\"exceeded the rate limit for unauthenticated requests...\"}"
+  },
+  "other_hosts": {
+    "open-api-testnet4.unisat.io /v3/market/*": "nginx 404 (no market on testnet4)",
+    "open-api-signet.unisat.io /v3/market/*": "502",
+    "open-api-fractal-testnet.unisat.io collection market": {"list": [], "total": 0}
+  },
+  "collection_market": {
+    "collection_statistic_list (timeType all)": [
+      {"collectionId": "recursive-playground", "listed": 0, "total": 9},
+      {"collectionId": "test-collection-liquidity", "listed": 0, "total": 5}
+    ],
+    "auction/list isEnd:false (any collection, and each one)": {"list": [], "total": 0},
+    "auction/list test-collection-liquidity isEnd:true": {"total": 33, "example": {"auctionId": "p6upmda23kkfw216emv07bq0h25oy4ab", "marketType": "fixedPrice", "price": 11000}},
+    "create_bid_prepare / create_bid on that ended auction (throwaway tb1p, empty)": {"code": -100, "msg": "Order not exist"}
+  },
+  "domain_market_live_listing": {
+    "auction": {"auctionId": "x7n3jodv3wmvzwibk5sgwt90q30qs7wi", "domain": "Anonymous.unisat", "price": 10000000, "marketType": "fixedPrice",
+      "inscriptionId": "37a58ca6789a20fae92907ecea34322503e02c7e43245348a620fa607c2eb302i0"},
+    "create_bid_prepare, throwaway empty tb1pa4zf...u3zr": {"code": "ERR_BAD_REQUEST", "msg": "Request failed with status code 404"},
+    "create_bid, throwaway, feeRate 2": {"code": "ERR_BAD_REQUEST", "msg": "Request failed with status code 404"},
+    "create_bid with nftAddress": {"code": -113, "msg": "If you use the receive address, you need to bind first"},
+    "create_bid_prepare, a FUNDED third-party testnet address (1,548,951 sats, read-only prepare)": {"code": "ERR_BAD_REQUEST", "msg": "Request failed with status code 404"},
+    "create_bid_prepare, bogus auctionId": {"code": -100, "msg": "Order not exist"},
+    "reading": "the 404 is UniSat's own downstream lookup for a LIVE order (a bogus id gets 'Order not exist'; a funded buyer gets the same 404): the testnet bid path is broken server-side, independent of the buyer's funds"
+  },
+  "runes_market_live_listing": {
+    "auction": {"auctionId": "bpi6af6v6t87s1nbok5hhohv1e8whp25", "price": 7000},
+    "create_bid_prepare / create_bid": {"code": "ERR_BAD_REQUEST", "msg": "Request failed with status code 404"}
+  },
+  "spec": "open-api.unisat.io/swagger.yaml read 2026-10-09: create_bid returns {bidId, psbtBid, psbtBid2, psbtSettle, serverFee, networkFee, feeRate, nftValue, bidSignIndexes}; confirm_bid takes {auctionId, bidId, psbtBid(signed)} and RETURNS the txid (UniSat broadcasts). create_bid is flagged x-unisat-readonly:false / requires-confirmation:true."
+}

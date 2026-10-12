@@ -1,0 +1,416 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The collections, coins, items, tickets and checks are built from the worked examples in docs/v3/curve.md (frogs at 5 ETH; an ape bought FIFO for two coins), with a floor module, a treasury, a YOYO coin and an offer board given plausible books, and run through the real reserve computation. Addresses, inscription ids and transactions are invented; the explorer links point at nothing. One of the apes' two EVM providers is made to fail on purpose, to show an unverified collection."
+  },
+  "slug": "frogs",
+  "name": "Bitcoin Frogs",
+  "symbol": "wFROG",
+  "kind": "inscriptions",
+  "wrapper": "0x1000000000000000000000000000000000000001",
+  "wrapperUrl": "https://explorer.mainnet.chain.robinhood.com/address/0x1000000000000000000000000000000000000001",
+  "custody": {
+    "kind": "bitcoin",
+    "address": "bc1pfixturecustodyfrogs0000000000000000000000000000000000000q",
+    "addressUrl": "https://mempool.space/address/bc1pfixturecustodyfrogs0000000000000000000000000000000000000q"
+  },
+  "status": "green",
+  "reasons": [],
+  "computedAt": 1790002030,
+  "lastGreenAt": 1790002030,
+  "block": 1000,
+  "equation": {
+    "itemsInCustody": 6,
+    "itemsUnverified": 0,
+    "itemsElsewhere": 0,
+    "ticketsInFlight": 2,
+    "backingUnits": "6500000000000000000",
+    "backingUnitsIfUnverifiedHold": "6500000000000000000",
+    "ethBackedUnits": "2500000000000000000",
+    "reserveUnits": "625000000000000000",
+    "floatUnits": "500000000000000000",
+    "convertibleUnits": "1875000000000000000",
+    "escrowWei": "1585000000000000000",
+    "supplyUnits": "6500000000000000000",
+    "heldOnChain": 6,
+    "openTicketsOnChain": 2,
+    "heldInLedger": 6,
+    "holds": true
+  },
+  "floorModule": {
+    "kind": "read",
+    "address": "0x1000000000000000000000000000000000000003",
+    "ethBackedUnits": "2500000000000000000",
+    "reserveUnits": "625000000000000000",
+    "convertibleUnits": "1875000000000000000",
+    "floatUnits": "500000000000000000",
+    "escrowWei": "1585000000000000000",
+    "backingWei": "1188750000000000000",
+    "standingReserveWei": "396250000000000000",
+    "revenueWei": "4000000000000000",
+    "floorWei": "633000000000000000",
+    "floorPostedAt": 1790001400,
+    "floorFresh": true,
+    "priceWei": "640000000000000000",
+    "fillBandBps": 300,
+    "fills": [
+      {
+        "priceWei": "645000000000000000",
+        "at": 1789998400
+      },
+      {
+        "priceWei": "636000000000000000",
+        "at": 1789982000
+      }
+    ],
+    "spreadMintBps": 21,
+    "spreadBurnBps": 15,
+    "betaConvertibleWei": "634000000000000000",
+    "betaReserveWei": "634000000000000000",
+    "mintPriceWei": "641344000000000000",
+    "mintRoomWei": "3000000000000000000",
+    "burnPriceWei": "639040000000000000",
+    "burnRoomUnits": "625000000000000000",
+    "loanOutstandingWei": "0",
+    "treasury": "0x1000000000000000000000000000000000000006",
+    "volume7dWei": "3200000000000000000",
+    "at": 1790002000,
+    "block": 1000
+  },
+  "treasury": {
+    "kind": "read",
+    "address": "0x1000000000000000000000000000000000000006",
+    "balanceWei": "800000000000000000",
+    "pots": {
+      "reservesWei": "200000000000000000",
+      "floatsWei": "150000000000000000",
+      "bootstrapWei": "400000000000000000",
+      "unallocatedWei": "50000000000000000"
+    },
+    "shares": {
+      "reservesBps": 4000,
+      "floatsBps": 3000,
+      "bootstrapBps": 2000,
+      "opsBps": 1000
+    },
+    "ops": "0x1000000000000000000000000000000000000C06",
+    "bootstrapLoanWei": "2000000000000000000",
+    "totals": {
+      "receivedWei": "1250000000000000000",
+      "allocatedWei": "1200000000000000000",
+      "toOpsWei": "120000000000000000",
+      "toReservesWei": "280000000000000000",
+      "toFloatsWei": "210000000000000000",
+      "lentWei": "0",
+      "repaidWei": "0"
+    },
+    "collections": [
+      {
+        "module": "0x1000000000000000000000000000000000000003",
+        "weightWei": "3200000000000000000",
+        "outstandingLoanWei": "0"
+      }
+    ],
+    "weightTotalWei": "3200000000000000000",
+    "at": 1790002000,
+    "block": 1000
+  },
+  "protocolLiquidity": {
+    "kind": "read",
+    "lock": "0x1000000000000000000000000000000000000004",
+    "pendingEthWei": "10000000000000000",
+    "pendingWrappedUnits": "0",
+    "positions": 2,
+    "sharedEthInWei": "33000000000000000000",
+    "sharedWrappedInUnits": "51000000000000000000",
+    "feesInEthWei": "300000000000000000",
+    "feesPaidEthWei": "250000000000000000",
+    "treasury": "0x1000000000000000000000000000000000000006",
+    "at": 1790002000,
+    "block": 1000
+  },
+  "items": [
+    {
+      "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819968",
+      "ref": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0i0",
+      "refUrl": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0i0",
+      "arrival": {
+        "how": "purchase",
+        "tx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0",
+        "txUrl": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0",
+        "mintTx": "0x0000000000000000000000000000000000000000000000000000000000000003",
+        "mintedAt": 1790000200,
+        "mintBlock": 100
+      },
+      "promisedTo": null,
+      "check": {
+        "verdict": "in-custody",
+        "reason": null,
+        "checkedAt": 1790002030,
+        "atBlock": 915000,
+        "sources": [
+          {
+            "name": "ord",
+            "url": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0i0",
+            "said": "at the custody address, in output aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0:0",
+            "ok": true
+          },
+          {
+            "name": "mempool.space",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0",
+            "said": "unspent, pays custody, confirmed at height 915000",
+            "ok": true
+          },
+          {
+            "name": "blockstream.info",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0",
+            "said": "unspent, pays custody, confirmed at height 915000",
+            "ok": true
+          }
+        ],
+        "arrivalTx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0"
+      }
+    },
+    {
+      "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819969",
+      "ref": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1i0",
+      "refUrl": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1i0",
+      "arrival": {
+        "how": "purchase",
+        "tx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1",
+        "txUrl": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1",
+        "mintTx": "0x0000000000000000000000000000000000000000000000000000000000000004",
+        "mintedAt": 1790000220,
+        "mintBlock": 110
+      },
+      "promisedTo": null,
+      "check": {
+        "verdict": "in-custody",
+        "reason": null,
+        "checkedAt": 1790002030,
+        "atBlock": 915001,
+        "sources": [
+          {
+            "name": "ord",
+            "url": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1i0",
+            "said": "at the custody address, in output aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1:0",
+            "ok": true
+          },
+          {
+            "name": "mempool.space",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1",
+            "said": "unspent, pays custody, confirmed at height 915001",
+            "ok": true
+          },
+          {
+            "name": "blockstream.info",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1",
+            "said": "unspent, pays custody, confirmed at height 915001",
+            "ok": true
+          }
+        ],
+        "arrivalTx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1"
+      }
+    },
+    {
+      "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819971",
+      "ref": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff3i0",
+      "refUrl": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff3i0",
+      "arrival": {
+        "how": "purchase",
+        "tx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3",
+        "txUrl": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3",
+        "mintTx": "0x0000000000000000000000000000000000000000000000000000000000000006",
+        "mintedAt": 1790000260,
+        "mintBlock": 130
+      },
+      "promisedTo": null,
+      "check": {
+        "verdict": "in-custody",
+        "reason": null,
+        "checkedAt": 1790002030,
+        "atBlock": 915003,
+        "sources": [
+          {
+            "name": "ord",
+            "url": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff3i0",
+            "said": "at the custody address, in output aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3:0",
+            "ok": true
+          },
+          {
+            "name": "mempool.space",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3",
+            "said": "unspent, pays custody, confirmed at height 915003",
+            "ok": true
+          },
+          {
+            "name": "blockstream.info",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3",
+            "said": "unspent, pays custody, confirmed at height 915003",
+            "ok": true
+          }
+        ],
+        "arrivalTx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3"
+      }
+    },
+    {
+      "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819972",
+      "ref": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4i0",
+      "refUrl": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4i0",
+      "arrival": {
+        "how": "purchase",
+        "tx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4",
+        "txUrl": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4",
+        "mintTx": "0x0000000000000000000000000000000000000000000000000000000000000007",
+        "mintedAt": 1790000280,
+        "mintBlock": 140
+      },
+      "promisedTo": 1,
+      "check": {
+        "verdict": "in-custody",
+        "reason": null,
+        "checkedAt": 1790002030,
+        "atBlock": 915004,
+        "sources": [
+          {
+            "name": "ord",
+            "url": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4i0",
+            "said": "at the custody address, in output aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4:0",
+            "ok": true
+          },
+          {
+            "name": "mempool.space",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4",
+            "said": "unspent, pays custody, confirmed at height 915004",
+            "ok": true
+          },
+          {
+            "name": "blockstream.info",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4",
+            "said": "unspent, pays custody, confirmed at height 915004",
+            "ok": true
+          }
+        ],
+        "arrivalTx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4"
+      }
+    },
+    {
+      "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819973",
+      "ref": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff5i0",
+      "refUrl": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff5i0",
+      "arrival": {
+        "how": "purchase",
+        "tx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5",
+        "txUrl": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5",
+        "mintTx": "0x0000000000000000000000000000000000000000000000000000000000000008",
+        "mintedAt": 1790000300,
+        "mintBlock": 150
+      },
+      "promisedTo": null,
+      "check": {
+        "verdict": "in-custody",
+        "reason": null,
+        "checkedAt": 1790002030,
+        "atBlock": 915005,
+        "sources": [
+          {
+            "name": "ord",
+            "url": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff5i0",
+            "said": "at the custody address, in output aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5:0",
+            "ok": true
+          },
+          {
+            "name": "mempool.space",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5",
+            "said": "unspent, pays custody, confirmed at height 915005",
+            "ok": true
+          },
+          {
+            "name": "blockstream.info",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5",
+            "said": "unspent, pays custody, confirmed at height 915005",
+            "ok": true
+          }
+        ],
+        "arrivalTx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5"
+      }
+    },
+    {
+      "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819974",
+      "ref": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff6i0",
+      "refUrl": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff6i0",
+      "arrival": {
+        "how": "deposit",
+        "tx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6",
+        "txUrl": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6",
+        "mintTx": "0x0000000000000000000000000000000000000000000000000000000000000009",
+        "mintedAt": 1790000800,
+        "mintBlock": 400
+      },
+      "promisedTo": null,
+      "check": {
+        "verdict": "in-custody",
+        "reason": null,
+        "checkedAt": 1790002030,
+        "atBlock": 915006,
+        "sources": [
+          {
+            "name": "ord",
+            "url": "https://ordinals.com/inscription/fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff6i0",
+            "said": "at the custody address, in output aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6:1",
+            "ok": true
+          },
+          {
+            "name": "mempool.space",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6",
+            "said": "unspent, pays custody, confirmed at height 915006",
+            "ok": true
+          },
+          {
+            "name": "blockstream.info",
+            "url": "https://mempool.space/tx/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6",
+            "said": "unspent, pays custody, confirmed at height 915006",
+            "ok": true
+          }
+        ],
+        "arrivalTx": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6"
+      }
+    }
+  ],
+  "ticketsInFlight": [
+    {
+      "id": 1,
+      "owner": "0x3000000000000000000000000000000000000002",
+      "destination": "bc1pfixtureredeemerdestination00000000000000000000000000000qq",
+      "toBurn": false,
+      "stage": "resolved",
+      "round": 5000300,
+      "burnedAt": 1790001400,
+      "burnTx": "0x000000000000000000000000000000000000000000000000000000000000000d",
+      "itemId": "57896044618658097711785492504343953926634992332820282019728792003956564819972",
+      "itemRef": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4i0",
+      "deliverBy": 1790520400,
+      "overdue": false,
+      "deliveryTx": null,
+      "deliveryUrl": null,
+      "refundTx": null
+    },
+    {
+      "id": 2,
+      "owner": "0x3000000000000000000000000000000000000001",
+      "destination": "bc1pfixtureredeemerdestination00000000000000000000000000000qq",
+      "toBurn": false,
+      "stage": "pinned",
+      "round": 5000500,
+      "burnedAt": 1790001980,
+      "burnTx": "0x000000000000000000000000000000000000000000000000000000000000000f",
+      "itemId": null,
+      "itemRef": null,
+      "deliverBy": null,
+      "overdue": false,
+      "deliveryTx": null,
+      "deliveryUrl": null,
+      "refundTx": null
+    }
+  ]
+}

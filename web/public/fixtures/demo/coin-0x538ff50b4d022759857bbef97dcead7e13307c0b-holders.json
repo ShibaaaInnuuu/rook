@@ -1,0 +1,85 @@
+{
+  "coin": "0x538FF50B4D022759857BBEF97dCead7e13307c0b",
+  "holders": 9,
+  "supplyWei": "1000000000000000000000000000",
+  "creator": "0x5f0CB769369ed526ed743E60Fb06cAc1fe8d5b9F",
+  "complete": true,
+  "scannedThrough": 69014767,
+  "transfersFrom": 69014768,
+  "items": [
+    {
+      "rank": 1,
+      "address": "0x2218213A19EaC10cEF6bBF26c16051F4927c2E34",
+      "balanceWei": "228759437188741769609928889",
+      "share": 0.22875943,
+      "isCreator": false
+    },
+    {
+      "rank": 2,
+      "address": "0x4bf3b684a9252fA5BB192BcbC21B653403e7e708",
+      "balanceWei": "130310629880409667039322749",
+      "share": 0.13031062,
+      "isCreator": false
+    },
+    {
+      "rank": 3,
+      "address": "0x9E64dB38a39f7475EE5813AA67471b1a5162e80A",
+      "balanceWei": "82714667708262459204303042",
+      "share": 0.08271466,
+      "isCreator": false
+    },
+    {
+      "rank": 4,
+      "address": "0x3759DFaFd2118a0027a6aA1bA8d0C7fFE2A4a0ed",
+      "balanceWei": "72251303083124141435174246",
+      "share": 0.0722513,
+      "isCreator": false
+    },
+    {
+      "rank": 5,
+      "address": "0xDe102613e2406a5766f777AC36ea1ACBAEf6dB47",
+      "balanceWei": "62985111589564078265370828",
+      "share": 0.06298511,
+      "isCreator": false
+    },
+    {
+      "rank": 6,
+      "address": "0xc7b7a64002257e66c71bAEb3B04845D3248d1E17",
+      "balanceWei": "44567784614550966546324599",
+      "share": 0.04456778,
+      "isCreator": false
+    },
+    {
+      "rank": 7,
+      "address": "0x49D3C89B11C7C1CE23b130a031eC6114B987dDE6",
+      "balanceWei": "44417165031370715499405294",
+      "share": 0.04441716,
+      "isCreator": false
+    },
+    {
+      "rank": 8,
+      "address": "0xd5e558a1bd25B5Dd22b4BB5916D0006463F0091d",
+      "balanceWei": "32767964055542023769123249",
+      "share": 0.03276796,
+      "isCreator": false
+    },
+    {
+      "rank": 9,
+      "address": "0xe65a2b80718dE8deD1b3E5cAFD1f282620667AfC",
+      "balanceWei": "15511651134148464345332819",
+      "share": 0.01551165,
+      "isCreator": false
+    }
+  ],
+  "excluded": [
+    {
+      "address": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e",
+      "why": "pons-factory",
+      "balanceWei": "285714285714285714285714285",
+      "share": 0.28571428
+    }
+  ],
+  "total": 9,
+  "limit": 25,
+  "offset": 0
+}

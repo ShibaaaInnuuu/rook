@@ -1,0 +1,29 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The collections, coins, items, tickets and checks are built from the worked examples in docs/v3/curve.md (frogs at 5 ETH; an ape bought FIFO for two coins), with a floor module, a treasury, a YOYO coin and an offer board given plausible books, and run through the real reserve computation. Addresses, inscription ids and transactions are invented; the explorer links point at nothing. One of the apes' two EVM providers is made to fail on purpose, to show an unverified collection."
+  },
+  "slug": "apes",
+  "name": "Bored Ape Yacht Club",
+  "board": null,
+  "boardUrl": null,
+  "params": null,
+  "custodian": null,
+  "rewardPoolWei": null,
+  "paidTodayWei": null,
+  "open": [],
+  "settled": [],
+  "totals": {
+    "submitted": 0,
+    "open": 0,
+    "claimed": 0,
+    "slashed": 0,
+    "refunded": 0,
+    "rewardsPaidWei": "0",
+    "bondsSlashedWei": "0",
+    "fundedWei": "0"
+  },
+  "computedAt": 1790002030,
+  "block": 1000,
+  "error": "hand-ins are for Bitcoin collections: an NFT collection has no offer board"
+}

@@ -1,0 +1,439 @@
+# review2/poc/C/audit2_nft_c.rs re-run at 4949da0 with the fixer's compile adaptations (fixes-round2-poc/audit2_nft_c.compile-adaptations.diff, applied unchanged)
+  --> tests/audit2_nft_c.rs:44:7
+   |
+44 | const BOB: [u8; 20] = [0xb0; 20];
+   |       ^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+  --> tests/audit2_nft_c.rs:45:7
+   |
+45 | const ATTACKER: [u8; 20] = [0xee; 20];
+   |       ^^^^^^^^
+
+  --> tests/audit2_nft_c.rs:52:7
+   |
+52 | const TRANSIENT: &str = "unread (simulation): the providers did not all answer alike (1 ok, 0 revert, 1 failed: chain 1: eth_call: I...
+   |       ^^^^^^^^^
+
+  --> tests/audit2_nft_c.rs:55:7
+   |
+55 | const REVERTS: &str = "refused (simulation): it reverts at the pin on every provider: no result: {\"code\":3,\"reverted\":true}";
+   |       ^^^^^^^
+
+   --> tests/audit2_nft_c.rs:438:4
+    |
+438 | fn resolved(f: &mut Fake, second: bool, token: u128, dest: [u8; 20], deliver_by: u64) {
+    |    ^^^^^^^^
+
+   --> tests/audit2_nft_c.rs:444:4
+    |
+444 | fn held_id(c: [u8; 20], token: u128) -> String {
+    |    ^^^^^^^
+
+   --> tests/audit2_nft_c.rs:447:4
+    |
+447 | fn fill_custody(f: &mut Fake, collection: [u8; 20], n: u32) {
+    |    ^^^^^^^^^^^^
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.33s
+     Running tests/audit2_nft_c.rs (target/debug/deps/audit2_nft_c-2c1360f1f93cdcb0)
+
+running 5 tests
+test c2_an_upgrade_dropping_a_collection_whose_buy_holds_the_relay_leg_stops_every_other_collections_buys_for_good ... FAILED
+test c2_an_nft_side_line_inside_a_decodable_eth_state_is_what_the_probe_sees ... ok
+test c2_a_fill_mined_at_the_pin_but_not_yet_counted_when_the_next_deposit_is_watched_is_read_as_that_buys_arrival ... FAILED
+test c2_a_stuck_after_arrival_holds_the_relay_leg_then_re_arrives_eth_already_spent_and_stalls_every_other_collection ... FAILED
+test c2_an_arrived_buy_that_cannot_fill_keeps_every_deposit_of_its_collection_unminted_indefinitely ... FAILED
+
+failures:
+
+---- c2_an_upgrade_dropping_a_collection_whose_buy_holds_the_relay_leg_stops_every_other_collections_buys_for_good stdout ----
+  | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: its collection is no longer configured: 500000000000000000 wei goes back to its module
+  | eth buy 0: returnAdvance of 500000000000000000: GiveBack { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: GiveBack { buy: 0 } mined (success): 500000000000000000 wei returned to the module: nothing bought
+  | eth buy 1: wanted for 0xed5af388653d228ba43d7a3d2a375a191e10c544 (the module wants 1 item(s)): the advance is next
+  | eth buy 1: advance of 500200000000000000 wei: Advance { buy: 1 } signed, saved and sent (nonce 2)
+  | eth: Advance { buy: 1 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+AUDIT2-C C2-L-2: buys [(false, Returned { wei: 500000000000000000 }), (true, Funded { wei: 500000000000000000, since: 1790515233 })]; relay_busy true
+
+thread 'c2_an_upgrade_dropping_a_collection_whose_buy_holds_the_relay_leg_stops_every_other_collections_buys_for_good' (52690367) panicked at tests/audit2_nft_c.rs:644:5:
+Azuki wants an item and has room, but the dropped collection's buy holds the Relay leg
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- c2_a_fill_mined_at_the_pin_but_not_yet_counted_when_the_next_deposit_is_watched_is_read_as_that_buys_arrival stdout ----
+  | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+  | eth buy 0: ARRIVED (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): 498443962449863321 wei at our Ethereum address: the runner is asked for a listing
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read)
+  | eth buy 1: wanted for 0xed5af388653d228ba43d7a3d2a375a191e10c544 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: the fill of 0x00000000000000000000000000000000000000000000000000000000000023dc for 495443962449863321 wei (cap 495443962449863321) signed, saved and sent (0x2c31128b973786d9b558c00ea97048a2219951265abaa2809700953f163e7b6e)
+  | eth buy 1: advance of 500200000000000000 wei: Advance { buy: 1 } signed, saved and sent (nonce 2)
+  | eth: Advance { buy: 1 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth line: 0x2c31128b973786d9b558c00ea97048a2219951265abaa2809700953f163e7b6e (nonce 0) not mined yet; sent again
+  | eth line: waits: chain 1: eth_getTransactionReceipt: HTTP 429 Too Many Requests
+  | eth: the home-chain act waits: eth buy 1: the Ethereum line's outcome is not read at this pin: the arrival watch starts once every spend of ours is counted (C2-M-1)
+
+thread 'c2_a_fill_mined_at_the_pin_but_not_yet_counted_when_the_next_deposit_is_watched_is_read_as_that_buys_arrival' (52690363) panicked at tests/audit2_nft_c.rs:575:5:
+Funded { wei: 500000000000000000, since: 1790512833 }
+
+---- c2_a_stuck_after_arrival_holds_the_relay_leg_then_re_arrives_eth_already_spent_and_stalls_every_other_collection stdout ----
+  | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+  | eth buy 0: ARRIVED (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): 498443962449863321 wei at our Ethereum address: the runner is asked for a listing
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read): a post is due
+  | eth buy 0: the fill of 0x00000000000000000000000000000000000000000000000000000000000023dc for 450000000000000000 wei (cap 493500000000000000) signed, saved and sent (0xf5188eaaebfe17e3f57f6ff511f4cb4d75d529f40abb412cc4443b36ce9fc048)
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: postFloor(930000000000000000, 10000, 3): Post { collection: [90, 240, 217, 130, 126, 12, 83, 228, 121, 155, 178, 38, 101, 90, 29, 225, 82, 164, 37, 165] } signed, saved and sent (nonce 2)
+  | eth: Post { collection: [90, 240, 217, 130, 126, 12, 83, 228, 121, 155, 178, 38, 101, 90, 29, 225, 82, 164, 37, 165] } mined (success): floor posted
+  | eth line: buy 0: STUCK: mined but the token is not ours
+  | eth buy 0: STUCK
+  | eth: the custody reservation eth:0 of a buy that can no longer land is released
+  | eth buy 1: wanted for 0xed5af388653d228ba43d7a3d2a375a191e10c544 (the module wants 1 item(s)): the advance is next
+  | eth buy 1: advance of 500200000000000000 wei: Advance { buy: 1 } signed, saved and sent (nonce 3)
+
+thread 'c2_a_stuck_after_arrival_holds_the_relay_leg_then_re_arrives_eth_already_spent_and_stalls_every_other_collection' (52690364) panicked at tests/audit2_nft_c.rs:508:5:
+the watch survives the arrival
+
+---- c2_an_arrived_buy_that_cannot_fill_keeps_every_deposit_of_its_collection_unminted_indefinitely stdout ----
+  | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+  | eth buy 0: advance of 500200000000000000 wei: Advance { buy: 0 } signed, saved and sent (nonce 0)
+  | eth: Advance { buy: 0 } mined (success): the module advanced 500200000000000000 wei: the runner is asked for a Relay quote to Ethereum
+  | eth buy 0: Relay deposit of 500000000000000000 wei (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei on Ethereum): Deposit { buy: 0 } signed, saved and sent (nonce 1)
+  | eth: Deposit { buy: 0 } mined (success): deposited with Relay: order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2, at least 488475083200866055 wei to our Ethereum address
+  | eth buy 0: bridging for 0 s; no arrival or refund yet
+  | eth buy 0: ARRIVED (order 0xbce9b0ca025fca35649d3c604117f642667842017c6527fc2ecf002ebc2e69e2): 498443962449863321 wei at our Ethereum address: the runner is asked for a listing
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26042801 still to read): a post is due
+  | eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: token 0x00000000000000000000000000000000000000000000000000000000000003b6 for 0x4444444444444444444444444444444444444444: waiting for finality
+  | eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: final: mintDeposit is next
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 493500000000000000
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: postFloor(930000000000000000, 10000, 3): Post { collection: [90, 240, 217, 130, 126, 12, 83, 228, 121, 155, 178, 38, 101, 90, 29, 225, 82, 164, 37, 165] } signed, saved and sent (nonce 2)
+  | eth: Post { collection: [90, 240, 217, 130, 126, 12, 83, 228, 121, 155, 178, 38, 101, 90, 29, 225, 82, 164, 37, 165] } mined (success): floor posted
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth: the home-chain act waits: eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: waits: a purchase of its collection holds the day's mint room until its own mint
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth deposit 0x9191919191919191919191919191919191919191919191919191919191919191: mintDeposit: MintDeposit { tx: [145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145] } signed, saved and sent (nonce 3)
+  | eth: MintDeposit { tx: [145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145] } mined (success): the deposit is minted to its recipient
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth line: waits: buy 0: the listing is refused: refused (over cap): the order costs 2000000000000000000 wei; the recorded cap is 495443962449863321
+  | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted)
+  | eth buy 0: GOING BACK: 498443962449863321 wei has waited at our Ethereum address for a listing; 495443962449863321 wei goes back to 4663 through Relay (the runner is asked for a quote), then to the module
+
+thread 'c2_an_arrived_buy_that_cannot_fill_keeps_every_deposit_of_its_collection_unminted_indefinitely' (52690365) panicked at tests/audit2_nft_c.rs:609:56:
+called `Result::unwrap()` on an `Err` value: "refused: buy 0 is BackFunded { wei: 498443962449863321, since: 1790685633 }; a listing is handed in only once its ETH arrived"
+
+
+failures:
+    c2_a_fill_mined_at_the_pin_but_not_yet_counted_when_the_next_deposit_is_watched_is_read_as_that_buys_arrival
+    c2_a_stuck_after_arrival_holds_the_relay_leg_then_re_arrives_eth_already_spent_and_stalls_every_other_collection
+    c2_an_arrived_buy_that_cannot_fill_keeps_every_deposit_of_its_collection_unminted_indefinitely
+    c2_an_upgrade_dropping_a_collection_whose_buy_holds_the_relay_leg_stops_every_other_collections_buys_for_good
+
+test result: FAILED. 1 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+error: test failed, to rerun pass `--test audit2_nft_c`

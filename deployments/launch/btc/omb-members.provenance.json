@@ -1,0 +1,50 @@
+{
+  "slug": "omb",
+  "taken_at": "2026-10-10T06:53:08.882Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 9000,
+  "root": "0xb174d1b274c9499b6aba61858c0c6945ca0df0eabf71e269d59527c098dd7af6",
+  "proof_depth": 14,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/omb/inscriptions",
+      "count": 9001,
+      "unique": 9001,
+      "left_out": [
+        "8f5f17e0fea6cc582864dd433e2da9d9301b056210a91f6f5000de4ffa586e13i0"
+      ]
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/557a07821c8209b8085965b570dd6d2ae5f30313f01f0281da7b8167d8ef9bb4i0",
+      "count": 9000,
+      "unique": 9000,
+      "left_out": []
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/omb.json",
+      "count": 8998,
+      "not_in_members": [],
+      "members_missing": [
+        "c4d5776a9db5adb4cae745219750bf4c389cfd59834390417735628341147f98i0",
+        "16abadf8147263ab94c2a4f7d46d2f591d585a7e3c117a9b1122edfbce9c117ci0"
+      ]
+    },
+    {
+      "name": "ordinalswallet-github",
+      "url": "https://raw.githubusercontent.com/ordinals-wallet/ordinals-collections/main/collections/omb/inscriptions.json",
+      "count": 2094,
+      "not_in_members": [
+        "8f5f17e0fea6cc582864dd433e2da9d9301b056210a91f6f5000de4ffa586e13i0",
+        "9fb5ac240adfe7ba9e9e46effdbe8494a8639aaf101dc502e0e30e1701fc2904i0",
+        "5241573287159b6f4b2a4fa390858292a1acdd47bf7c534e808e37e411784b5ai0",
+        "92963f6500bd4a97c46c91683e5c9fadacc734b5fa973d67a593365b9dd799f6i0"
+      ],
+      "members_missing": 6910
+    }
+  ]
+}

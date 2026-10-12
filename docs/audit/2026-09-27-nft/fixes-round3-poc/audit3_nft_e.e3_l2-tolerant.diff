@@ -1,0 +1,28 @@
+--- a/audit3_nft_e.rs (adapted)
++++ b/audit3_nft_e.rs (e3_l2 tolerant)
+@@ -761,6 +761,7 @@
+     f.m(MODULE2).net_units = 2 * E;
+     tick(&mut f, &mut st);
+     tick(&mut f, &mut st);
++    tick(&mut f, &mut st); // TOLERANT (not the PoC): round 3's noteSent takes the home line one tick before Azuki's advance
+     let az = buy_of(&st, AZUKI).expect("Azuki's buy");
+     assert!(matches!(az.phase, BPhase::Funded { .. }), "{:?}", az.phase);
+     st.used_orders.clear();
+--- a/audit3_nft_e.rs (e3_l2 tolerant)
++++ b/audit3_nft_e.rs (e3_l2 diagnostic)
+@@ -790,13 +790,14 @@
+     let (m, a) = (buy_of(&st, MILADY).unwrap(), buy_of(&st, AZUKI).unwrap());
+     println!("AUDIT3-E E3-L-2: after 10 days: Milady {:?} (note: {}); Azuki {:?} (watched {}); {refusals} arrival refusals; balance {} vs \
+         earmarks {}; relay_busy {}", m.phase, m.note, a.phase, a.last.is_some(), f.eth_balance, st.earmarked_except(u64::MAX), st.relay_busy());
+-    assert!(matches!(m.phase, BPhase::BackFunded { .. }) && m.note.contains("another buy holds the Relay leg"), "Milady waits for the leg");
++    println!("DIAG (not the PoC): 'Milady waits for the leg' would be {}", matches!(m.phase, BPhase::BackFunded { .. }) && m.note.contains("another buy holds the Relay leg"));
+     assert!(!matches!(a.phase, BPhase::Arrived { .. }) && a.last.is_some(), "Azuki waits for room only Milady's leaving frees");
+     assert!(st.relay_busy() && refusals > 100);
+     assert!(f.eth_balance > ARRIVED, "both buys' ETH is at our Ethereum address; neither moves");
+     // the refused arrival returns before the deadline check: Azuki stays Bridging past its deadline (never even Stuck), and a Bridging
+     // buy holds its collection's deposit mints: Azuki's deposits wait too, without bound
+     assert!(matches!(a.phase, BPhase::Bridging { deadline, .. } if f.now > deadline + ef::DEADLINE_GRACE_SECS), "{:?}", a.phase);
++    println!("DIAG: buy_holds_mint(AZUKI) = {}", st.buy_holds_mint(&AZUKI, f.now));
+     assert!(st.buy_holds_mint(&AZUKI, f.now));
+     // the only way out: someone sends ETH to our Ethereum address (the operator topping up the pot); then Azuki arrives, Milady goes
+     f.eth_balance += 10_000_000_000_000_000;

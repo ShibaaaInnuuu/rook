@@ -1,0 +1,20 @@
+
+running 1 test
+control: 5 of 5 real sales read, 101 log reads
+attack: 5 of 5 real sales read after 72 passes; scan down 26018400 (bottom 26018400), chunk 500; failed log reads per pass: first [2, 2, 2], last [0, 0, 0]; total 6
+reading: Some((5, None))
+
+thread 'b4_h1_a_one_oversized_block_stalls_the_walk_back_and_burns_the_log_budget_every_pass' (59522406) panicked at tests/r4_b.rs:737:5:
+assertion `left == right` failed: WEAKNESS: the two real sales older than the oversized block are never read
+  left: 5
+ right: 3
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test b4_h1_a_one_oversized_block_stalls_the_walk_back_and_burns_the_log_budget_every_pass ... FAILED
+
+failures:
+
+failures:
+    b4_h1_a_one_oversized_block_stalls_the_walk_back_and_burns_the_log_budget_every_pass
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.02s
+

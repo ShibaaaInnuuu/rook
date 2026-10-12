@@ -1,0 +1,58 @@
+Ran 1 test for test/audit_nft_a2/AuditNftA2.t.sol:AuditNftA2_L_J1LeftoverLeaves
+[PASS] test_A2_L_J1Alternative_theLeftoverOfEveryApeLeavesTheModule() (gas: 6273719)
+Logs:
+  advanced 7536900000000000000
+  ape cost 7129500000000000000
+  left at the canister's Ethereum address, not the module's revenue 407400000000000000
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 15.03ms (2.51ms CPU time)
+
+Ran 2 tests for test/audit_nft_a2/AuditNftA2.t.sol:AuditNftA2_M1_PooledRiseAdvancesBelowTheFloor
+[PASS] test_A2_M1_aFloorRiseBetweenPooledGraduations_theAdvanceLeavesBelowTheFloor() (gas: 14979798)
+Logs:
+  posted floor (wei) 7469000000000000000
+  maxItemCost (what the canister advances) 7326733333333333334
+  arrives on Ethereum (after Relay and the gas margin) 7297157093333333333
+
+[PASS] test_A2_M1_theThreshold() (gas: 60632233)
+Logs:
+  rise bps 300
+    maxItemCost 7097055172413793101
+    arrives / floor (bps) 10106
+  rise bps 400
+    maxItemCost 7130831372549019608
+    arrives / floor (bps) 10057
+  rise bps 500
+    maxItemCost 7164278048780487802
+    arrives / floor (bps) 10008
+  rise bps 600
+    maxItemCost 7197399999999999998
+    arrives / floor (bps) 9959
+  rise bps 800
+    maxItemCost 7262688461538461538
+    arrives / floor (bps) 9863
+  rise bps 1000
+    maxItemCost 7326733333333333334
+    arrives / floor (bps) 9769
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 922.36ms (21.16ms CPU time)
+
+Ran 2 tests for test/audit_nft_a2/AuditNftA2.t.sol:AuditNftA2_Holds_PooledLedger
+[PASS] testFuzz_A2_pooledLedgerHolds(uint256) (runs: 512, μ: 23154180, ~: 23246543)
+[PASS] test_A2_pooledLedger_theRunReachesEveryAction() (gas: 864503935)
+Logs:
+  action 0 taken 88
+  action 1 taken 35
+  action 2 taken 25
+  action 3 taken 6
+  action 4 taken 106
+  action 5 taken 99
+  action 6 taken 24
+  action 7 taken 7
+  action 8 taken 6
+  action 9 taken 14
+  action 10 taken 566
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 939.59ms (1.56s CPU time)
+
+Ran 4 test suites in 944.33ms (1.89s CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

@@ -1,0 +1,60 @@
+40 | const BOB: [u8; 20] = [0xb0; 20];
+  --> tests/audit2_nft_b.rs:45:7
+45 | const ARRIVED: u128 = 498_443_962_449_863_321;
+  --> tests/audit2_nft_b.rs:48:7
+48 | const TRANSIENT: &str = "unread (simulation): the providers did not all answer alike (1 ok, 0 revert, 1 failed: chain 1: eth_call: I...
+  --> tests/audit2_nft_b.rs:51:7
+51 | const REVERTS: &str = "refused (simulation): it reverts at the pin on every provider: no result: {\"code\":3,\"reverted\":true}";
+   --> tests/audit2_nft_b.rs:223:8
+142 | impl Fake {
+...
+223 |     fn mine_eth(&mut self, i: usize, success: bool, block: u64) {
+   --> tests/audit2_nft_b.rs:401:4
+401 | fn phase(st: &EthState) -> BPhase {
+   --> tests/audit2_nft_b.rs:408:4
+408 | fn fill_hex() -> String {
+   --> tests/audit2_nft_b.rs:432:4
+432 | fn resolved(f: &mut Fake, second: bool, token: u128, dest: [u8; 20], deliver_by: u64) {
+   --> tests/audit2_nft_b.rs:438:4
+438 | fn held_id(c: [u8; 20], token: u128) -> String {
+   --> tests/audit2_nft_b.rs:441:4
+441 | fn fill_custody(f: &mut Fake, collection: [u8; 20], n: u32) {
+   --> tests/audit2_nft_b.rs:448:4
+448 | fn to_arrival(f: &mut Fake, st: &mut EthState) {
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.85s
+     Running tests/audit2_nft_b.rs (target/debug/deps/audit2_nft_b-988fb93b8e98d2aa)
+running 5 tests
+test audit2_b2_l1_after_a_sweep_seven_wash_sales_let_the_post_follow_the_attackers_own_listings ... FAILED
+test audit2_b2_m1_seven_in_band_washes_under_the_listings_veto_the_post_too ... FAILED
+test audit2_b2_l2_oversized_receipts_are_re_reserved_every_pass ... FAILED
+test audit2_b2_m1_ten_dust_ping_pong_sales_stop_every_floor_post ... FAILED
+test audit2_a_m1_seven_in_band_wash_sales_open_the_deposit_band_at_a_floor_10_percent_over_the_market ... FAILED
+failures:
+---- audit2_b2_l1_after_a_sweep_seven_wash_sales_let_the_post_follow_the_attackers_own_listings stdout ----
+thread 'audit2_b2_l1_after_a_sweep_seven_wash_sales_let_the_post_follow_the_attackers_own_listings' (52674272) panicked at tests/audit2_nft_b.rs:583:62:
+called `Result::unwrap_err()` on an `Ok` value: FloorPost { price: 990000000000000000, confidence: 5000, depth: 2, listing: 1120000000000000000, sale_median: 910000000000000000, sale_p25: 900000000000000000, listings: 3, sales: 5, clamped: false, held: Some("the listing floor 1120000000000000000 is more than 10 % over the counted sales' 25th percentile 900000000000000000: held at 990000000000000000 at most") }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+---- audit2_b2_m1_seven_in_band_washes_under_the_listings_veto_the_post_too stdout ----
+thread 'audit2_b2_m1_seven_in_band_washes_under_the_listings_veto_the_post_too' (52674274) panicked at tests/audit2_nft_b.rs:631:59:
+called `Result::unwrap_err()` on an `Ok` value: FloorPost { price: 930000000000000000, confidence: 5000, depth: 3, listing: 930000000000000000, sale_median: 700000000000000000, sale_p25: 700000000000000000, listings: 3, sales: 12, clamped: false, held: Some("the listing floor 930000000000000000 is more than 10 % over the counted sales' 25th percentile 700000000000000000: held at 930000000000000000 at most") }
+---- audit2_b2_l2_oversized_receipts_are_re_reserved_every_pass stdout ----
+thread 'audit2_b2_l2_oversized_receipts_are_re_reserved_every_pass' (52674273) panicked at tests/audit2_nft_b.rs:612:5:
+assertion `left == right` failed: final or not, an unreadable receipt is read again every pass (the cache keeps only read ones)
+  left: [5, 0, 0, 0]
+ right: [12, 12, 12, 12]
+---- audit2_b2_m1_ten_dust_ping_pong_sales_stop_every_floor_post stdout ----
+thread 'audit2_b2_m1_ten_dust_ping_pong_sales_stop_every_floor_post' (52674275) panicked at tests/audit2_nft_b.rs:525:5:
+two hours and the module is never posted: it goes stale
+---- audit2_a_m1_seven_in_band_wash_sales_open_the_deposit_band_at_a_floor_10_percent_over_the_market stdout ----
+thread 'audit2_a_m1_seven_in_band_wash_sales_open_the_deposit_band_at_a_floor_10_percent_over_the_market' (52674271) panicked at tests/audit2_nft_b.rs:562:13:
+assertion `left == right` failed: the median the band compares with is the washer's
+  left: 910000000000000000
+ right: 1200000000000000000
+failures:
+    audit2_a_m1_seven_in_band_wash_sales_open_the_deposit_band_at_a_floor_10_percent_over_the_market
+    audit2_b2_l1_after_a_sweep_seven_wash_sales_let_the_post_follow_the_attackers_own_listings
+    audit2_b2_l2_oversized_receipts_are_re_reserved_every_pass
+    audit2_b2_m1_seven_in_band_washes_under_the_listings_veto_the_post_too
+    audit2_b2_m1_ten_dust_ping_pong_sales_stop_every_floor_post
+test result: FAILED. 0 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+error: test failed, to rerun pass `--test audit2_nft_b`

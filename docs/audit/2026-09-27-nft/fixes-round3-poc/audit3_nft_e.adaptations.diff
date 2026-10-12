@@ -1,0 +1,110 @@
+# review3/poc/E/audit3_nft_e.rs -> the file run. As r3_c: the harness part (its first 547 lines) is the CURRENT tests/audit_nft_r2.rs
+# harness with the PoC's pin_back / fee_of re-applied (the hunks in the harness are round 3's plumbing: our_logs, noted, NOTE_SENT,
+# log_ranges, FUND_RESERVE, the config's new fields). The PoC's tests: only give_back_now's new 4th argument (f.now).
+--- a/review3/poc/E/audit3_nft_e.rs
++++ b/tests/audit3_nft_e.rs (run)
+@@ -119,9 +119,15 @@
+     broadcasts: Vec<Vec<u8>>,
+     listing_total: u128,
+     sale_receipts: HashMap<[u8; 32], ReceiptV>,
++    /// round 3 (D3-H-1): our own mined transfers' receipts with their `Transfer` log (the canister judges a delivery by it)
++    our_logs: HashMap<[u8; 32], ReceiptV>,
++    /// round 3 (D3-H-1): tickets the canister noted sent (`noteSent`)
++    noted: Vec<u128>,
+     /// `eth_sale_receipt` of these hashes fails (over the size cap, providers disagree, …)
+     sale_err: Vec<[u8; 32]>,
+     sale_reads: u32,
++    /// every eth_getLogs range the sale scan asked (the operator's Dwellir plan serves at most 500 blocks)
++    log_ranges: Vec<(u64, u64)>,
+     deposit_txs: HashMap<[u8; 32], ([u8; 20], [u8; 20], Vec<u8>, ReceiptV)>,
+     caps: CapPolicy,
+     book: Book,
+@@ -173,8 +179,8 @@
+             allocator: rc::RELAY_ALLOCATOR_4663, home_sent: HashMap::new(), home_calls: vec![], tickets: vec![], items: vec![], tickets2: vec![],
+             items2: vec![], marked: vec![], marked2: vec![], home_final_lag: 0, eth_balance: 10_000_000_000_000_000, eth_nonce: 0,
+             stale_nonce: None, finalized: ETH_PIN - 100, owners: HashMap::new(), eth_signed: vec![], receipts: HashMap::new(),
+-            receipt_err: HashMap::new(), plan_err: vec![], wait_prefix: vec![], broadcasts: vec![], listing_total: 45 * E / 100, sale_receipts,
+-            sale_err: vec![], sale_reads: 0, deposit_txs: HashMap::new(), caps: custodycap::stage0(&keys), book: Book::default(), outflow: vec![], drop_milady: false, pin_back: None, fee_of: None,
++            receipt_err: HashMap::new(), plan_err: vec![], wait_prefix: vec![], broadcasts: vec![], listing_total: 45 * E / 100, sale_receipts, our_logs: HashMap::new(), noted: vec![],
++            sale_err: vec![], sale_reads: 0, log_ranges: vec![], deposit_txs: HashMap::new(), caps: custodycap::stage0(&keys), book: Book::default(), outflow: vec![], drop_milady: false, pin_back: None, fee_of: None,
+         }
+     }
+     fn m(&mut self, module: [u8; 20]) -> &mut Module {
+@@ -187,7 +193,7 @@
+         if self.two {
+             collections.push(col(AZUKI, WRAPPER2, MODULE2));
+         }
+-        EthNftConfig { chain_id: 1, relay_max_fee_bps: 300, deposits: self.deposits_on, floor: None, collections }
++        EthNftConfig { chain_id: 1, relay_max_fee_bps: 300, deposits: self.deposits_on, floor: None, collections, gas_pot_target_wei: None, logs_max_blocks: None }
+     }
+     fn apply_home(&mut self, to: [u8; 20], value: u128, d: &[u8]) -> bool {
+         self.home_calls.push((to, value, d.to_vec()));
+@@ -204,6 +210,10 @@
+                 self.home_balance += arg(d, 0);
+             } else if s == rc::RETURN_ADVANCE {
+                 m.transit = false;
++                self.home_balance -= value;
++            } else if s == ef::FUND_RESERVE {
++                // A2-L-1: a sweep pays into the module's surplus; no advance is involved
++                assert!(!m.transit, "a sweep never meets an open advance at its module");
+                 self.home_balance -= value;
+             } else if s == rc::SETTLE_ADVANCE {
+                 m.transit = false;
+@@ -229,6 +239,8 @@
+             }
+             (WRAPPER2, s) if s == en::RECORD_DELIVERY => self.tickets2[arg(d, 0) as usize].stage = Stage::Delivered,
+             (WRAPPER, s) if s == en::MARK_UNDELIVERABLE => self.marked.push(arg(d, 0)),
++            (WRAPPER, s) if s == en::NOTE_SENT => self.noted.push(arg(d, 0)),
++            (WRAPPER2, s) if s == en::NOTE_SENT => self.noted.push(arg(d, 0)),
+             (WRAPPER2, s) if s == en::MARK_UNDELIVERABLE => self.marked2.push(arg(d, 0)),
+             _ => panic!("an unexpected home-chain call to 0x{}: {}", hex::encode(to), hex::encode(d)),
+         }
+@@ -246,6 +258,12 @@
+                 let dest: [u8; 20] = tx.data[4 + 32 + 12..4 + 64].try_into().unwrap();
+                 self.owners.insert((tx.to, tx.data[4 + 64..4 + 96].try_into().unwrap()), dest);
+             }
++        }
++        if tx.data.len() == 4 + 96 && tx.data[..4] == en::TRANSFER_FROM {
++            // round 3 (D3-H-1): transferFrom(us, dest, token): its receipt shows the collection's Transfer when it succeeded
++            let logs = if success { vec![LogV { address: tx.to, topics: vec![en::TRANSFER, tx.data[4..36].try_into().unwrap(),
++                tx.data[36..68].try_into().unwrap(), tx.data[68..100].try_into().unwrap()], data: vec![] }] } else { vec![] };
++            self.our_logs.insert(hash, ReceiptV { block, success, logs });
+         }
+         self.receipts.insert(hash, OurReceipt { block, success, fee });
+     }
+@@ -388,6 +406,9 @@
+         Ok(Seen { offerer: [o.parse::<u8>().unwrap(); 20], token: tok(o.parse().unwrap()), price: p.parse().unwrap() })
+     }
+     async fn eth_sale_receipt(&mut self, h: [u8; 32]) -> Result<Option<ReceiptV>, String> {
++        if let Some(r) = self.our_logs.get(&h) {
++            return Ok(Some(r.clone()));
++        }
+         self.sale_reads += 1;
+         if self.sale_err.contains(&h) {
+             return Err("chain 1: eth_getTransactionReceipt: IC reject, answer over the response cap: Http body exceeds size limit of 200000 bytes".into());
+@@ -396,6 +417,7 @@
+     }
+     /// The chain's Transfer logs: every receipt the fake knows that moves a token of `collection` between two wallets (round 2).
+     async fn eth_transfer_txs(&mut self, collection: [u8; 20], from: u64, to: u64) -> Result<Vec<([u8; 32], u64)>, String> {
++        self.log_ranges.push((from, to));
+         let mut v: Vec<([u8; 32], u64)> = self.sale_receipts.iter().filter(|(_, r)| r.block >= from && r.block <= to && r.logs.iter().any(|l|
+             l.address == collection && l.topics.len() == 4 && l.topics[0] == en::TRANSFER && l.topics[1] != l.topics[2] && l.topics[1] != [0; 32]))
+             .map(|(h, r)| (*h, r.block)).collect();
+@@ -666,7 +688,7 @@
+     assert_eq!(st.earmarked_except(u64::MAX), 0, "the arrived ETH is nobody's");
+     // the operator's exit for a watched Stuck buy returns 4663 ETH (what the home balance holds), not the ETH that arrived on Ethereum
+     let mut st2 = st.clone();
+-    let r = ef::give_back_now(&mut st2, az.id, f.home_balance);
++    let r = ef::give_back_now(&mut st2, az.id, f.home_balance, f.now);
+     println!("AUDIT3-E E3-M-1b: eth_give_back: {r:?} (home balance {})", f.home_balance);
+     assert!(r.as_ref().is_err() || matches!(buy_of(&st2, AZUKI).unwrap().phase, BPhase::Returning { wei } if wei < ARRIVED / 10));
+ }
+@@ -808,7 +830,7 @@
+         tick(&mut f, &mut st);
+     }
+     let milady_buys = st.buys.iter().filter(|b| b.collection == MILADY).count();
+-    let give = ef::give_back_now(&mut st.clone(), m.id, f.home_balance);
++    let give = ef::give_back_now(&mut st.clone(), m.id, f.home_balance, f.now);
+     let mut g = Fake::new(true);
+     g.drop_milady = true;
+     let stranded = ef::stranded_by(&st, Some(&g.cfg()));

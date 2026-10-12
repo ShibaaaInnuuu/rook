@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Famous Fox Federation",
+  "symbol": "wFFF",
+  "description": "Rook's wrapped Famous Fox Federation token: each whole token is backed either by a Famous Fox Federation NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/famous_fox_federation.png",
+  "external_url": "https://userook.fun/#/collection/famous_fox_federation",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/famous_fox_federation.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

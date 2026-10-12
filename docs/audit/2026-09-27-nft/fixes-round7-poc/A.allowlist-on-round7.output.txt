@@ -1,0 +1,49 @@
+== http://rpc.mevblocker.io
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, mevblocker.io, tenderly.co
+FAIL the install argument (--install-arg): the canister's Ethereum provider http://rpc.mevblocker.io is not known to serve eth_getLogs and receipts over the 7-day window: probe it with --probe-depth or add it to the allowlist after measuring (review round 6, B6-M-1)
+   exit 0
+== https://RPC.MEVBLOCKER.IO
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, mevblocker.io, tenderly.co
+ok   the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io is on the measured list (measured 2026-09-28: logs and non-null receipts 130,000+ blocks deep, 13-way bursts ok, 10,000-result cap (-32005); B6-M-1). --probe-depth measures it again now
+   exit 0
+== https://rpc.mevblocker.io:8443
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, mevblocker.io, tenderly.co
+FAIL the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io is not known to serve eth_getLogs and receipts over the 7-day window: probe it with --probe-depth or add it to the allowlist after measuring (review round 6, B6-M-1)
+   exit 0
+== https://rpc.mevblocker.io/?x=1
+FAIL the install argument (--install-arg) names a KEYED provider URL https://rpc.mevblocker.io/… (a query string): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+ok   the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io is on the measured list (measured 2026-09-28: logs and non-null receipts 130,000+ blocks deep, 13-way bursts ok, 10,000-result cap (-32005); B6-M-1). --probe-depth measures it again now
+   exit 0
+== https://rpc.mevblocker.io.evil.com
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, evil.com, tenderly.co
+FAIL the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io.evil.com is not known to serve eth_getLogs and receipts over the 7-day window: probe it with --probe-depth or add it to the allowlist after measuring (review round 6, B6-M-1)
+   exit 0
+== https://rpc.mevblocker.io./
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, io., tenderly.co
+FAIL the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io. is not known to serve eth_getLogs and receipts over the 7-day window: probe it with --probe-depth or add it to the allowlist after measuring (review round 6, B6-M-1)
+   exit 0
+== https://x@rpc.mevblocker.io
+FAIL the install argument (--install-arg) names a KEYED provider URL https://rpc.mevblocker.io/… (userinfo): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+ok   the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io is on the measured list (measured 2026-09-28: logs and non-null receipts 130,000+ blocks deep, 13-way bursts ok, 10,000-result cap (-32005); B6-M-1). --probe-depth measures it again now
+   exit 0
+== https://rpc.mevblocker.io/fullprivacy
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, mevblocker.io, tenderly.co
+FAIL the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io is not known to serve eth_getLogs and receipts over the 7-day window: probe it with --probe-depth or add it to the allowlist after measuring (review round 6, B6-M-1)
+   exit 0
+== https://rpc.mevblocker.io/fast/
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, mevblocker.io, tenderly.co
+ok   the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io is on the measured list (measured 2026-09-28: logs and non-null receipts 130,000+ blocks deep, 13-way bursts ok, 10,000-result cap (-32005); B6-M-1). --probe-depth measures it again now
+   exit 0
+== http://gateway.tenderly.co/public/mainnet
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, tenderly.co
+FAIL the install argument (--install-arg) names 1 provider host(s) for chain 1 (gateway.tenderly.co): two distinct hosts, or their agreement is one provider's word (A4-L-3)
+FAIL the install argument (--install-arg): the canister's Ethereum provider http://gateway.tenderly.co is not known to serve eth_getLogs and receipts over the 7-day window: probe it with --probe-depth or add it to the allowlist after measuring (review round 6, B6-M-1)
+   exit 0
+== https://[::1]/
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, ::1, tenderly.co
+FAIL the install argument (--install-arg): the canister's Ethereum provider https://::1 is not known to serve eth_getLogs and receipts over the 7-day window: probe it with --probe-depth or add it to the allowlist after measuring (review round 6, B6-M-1)
+   exit 0
+== https://rpc.mevblocker.io//
+ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, mevblocker.io, tenderly.co
+ok   the install argument (--install-arg): the canister's Ethereum provider https://rpc.mevblocker.io is on the measured list (measured 2026-09-28: logs and non-null receipts 130,000+ blocks deep, 13-way bursts ok, 10,000-result cap (-32005); B6-M-1). --probe-depth measures it again now
+   exit 0

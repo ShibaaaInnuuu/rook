@@ -1,0 +1,21 @@
+the .did parses: 106 types
+fixture decodes with the .did: 2330 bytes; opts the .did loses: []
+ok: every BPhase, DPhase and XPhase case
+ok: EthKind case 0
+ok: EthKind case 1
+ok: EthKind case 2
+ok: EthKind case 3
+ok: EthKind case 4
+ok: EthKind case 5
+ok: Step case 0
+ok: Step case 1
+ok: Step case 2
+ok: Step case 3
+ok: Step case 4
+ok: Step case 5
+ok: Step case 6
+ok: Step case 7
+ok: Step case 8
+ok: DIAG Step::Sent (round 3)
+ok: DIAG every round-3 opt field present (Watch.pin, EthBuy.arrived_at/back_at/ended_at/sweep, Delivery.sent, SaleScan.pend/rescan/judged, leftover, sweep_after)
+ok: readings (held), sale_cache, sale_scan, last_mined, halted

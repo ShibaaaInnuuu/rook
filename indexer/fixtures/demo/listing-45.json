@@ -1,0 +1,53 @@
+{
+  "id": 45,
+  "kind": "rune",
+  "name": "PUPS•WORLD•PEACE",
+  "ref": "840000:41",
+  "divisibility": 18,
+  "vault": "0x45ED8EFD943e2a4ea62A89515742bE6498A1AEC6",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-pupsworldpeace",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "145330001909205602",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "145330001909205602",
+    "attributedWei": "145330001909205602",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "145330001909205602",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xe2eb44D307D18d5749Bd006c8801E72B7ce62577",
+      "symbol": "GABB2SIM",
+      "depositedWei": "145330001909205602"
+    }
+  ]
+}

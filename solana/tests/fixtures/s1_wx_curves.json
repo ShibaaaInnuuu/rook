@@ -1,0 +1,502 @@
+{
+ "3": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "3000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "25259247288623886",
+  "curve": [
+   {
+    "sqrtPrice": "50518489208477310",
+    "liquidity": "40414795661798674814665523614215"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3436012618629293188873965"
+   }
+  ],
+  "startPriceSolPerToken": 1.875000398525e-9,
+  "migrationPriceSolPerToken": 7.499999999999e-9,
+  "startMcapSol": 1.8750003985250001,
+  "migrationMcapSol": 7.499999999999,
+  "swapBaseOnCurveRaw": "799999914981308",
+  "migrationBaseRaw": "200000017003740",
+  "remaining": "68014952"
+ },
+ "4": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "4000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "29166866027946094",
+  "curve": [
+   {
+    "sqrtPrice": "58333726687135158",
+    "liquidity": "46666985644714147049526184463858"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3436004086203309150095880"
+   }
+  ],
+  "startPriceSolPerToken": 2.500000460176e-9,
+  "migrationPriceSolPerToken": 9.999999999999e-9,
+  "startMcapSol": 2.500000460176,
+  "migrationMcapSol": 9.999999999999,
+  "swapBaseOnCurveRaw": "799999926371836",
+  "migrationBaseRaw": "200000014725634",
+  "remaining": "58902530"
+ },
+ "5": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "5000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "32609547247703646",
+  "curve": [
+   {
+    "sqrtPrice": "65219089126663911",
+    "liquidity": "52175275596326187256728773322657"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435995382671275178776637"
+   }
+  ],
+  "startPriceSolPerToken": 3.125000514491e-9,
+  "migrationPriceSolPerToken": 1.2499999999999e-8,
+  "startMcapSol": 3.125000514491,
+  "migrationMcapSol": 12.499999999999,
+  "swapBaseOnCurveRaw": "799999934145135",
+  "migrationBaseRaw": "200000013170974",
+  "remaining": "52683891"
+ },
+ "7": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "7000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "38584136149801084",
+  "curve": [
+   {
+    "sqrtPrice": "77168266930885671",
+    "liquidity": "61734617839682034176557781033441"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435978202368440469981767"
+   }
+  ],
+  "startPriceSolPerToken": 4.375000608751e-9,
+  "migrationPriceSolPerToken": 1.7499999999999e-8,
+  "startMcapSol": 4.375000608751,
+  "migrationMcapSol": 17.499999999998998,
+  "swapBaseOnCurveRaw": "799999944342759",
+  "migrationBaseRaw": "200000011131449",
+  "remaining": "44525792"
+ },
+ "9": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "9000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "43750297699696416",
+  "curve": [
+   {
+    "sqrtPrice": "87500590030702738",
+    "liquidity": "70000476319514529557877469992031"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435961356749775761641742"
+   }
+  ],
+  "startPriceSolPerToken": 5.625000690255e-9,
+  "migrationPriceSolPerToken": 2.2499999999998997e-8,
+  "startMcapSol": 5.625000690255,
+  "migrationMcapSol": 22.499999999998998,
+  "swapBaseOnCurveRaw": "799999950915168",
+  "migrationBaseRaw": "200000009816967",
+  "remaining": "39267865"
+ },
+ "10": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "10000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "46116862868612114",
+  "curve": [
+   {
+    "sqrtPrice": "92233720368547758",
+    "liquidity": "73786980589779632524973800141270"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435952624466949164138622"
+   }
+  ],
+  "startPriceSolPerToken": 6.2500007275910005e-9,
+  "migrationPriceSolPerToken": 2.4999999999999e-8,
+  "startMcapSol": 6.250000727591001,
+  "migrationMcapSol": 24.999999999998998,
+  "swapBaseOnCurveRaw": "799999953434158",
+  "migrationBaseRaw": "200000009313169",
+  "remaining": "37252673"
+ },
+ "11": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "11000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "48367773695423722",
+  "curve": [
+   {
+    "sqrtPrice": "96735542022184419",
+    "liquidity": "77388437912678194826132324395466"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435944009693184347399777"
+   }
+  ],
+  "startPriceSolPerToken": 6.8750007631020005e-9,
+  "migrationPriceSolPerToken": 2.7499999999999002e-8,
+  "startMcapSol": 6.875000763102,
+  "migrationMcapSol": 27.499999999999,
+  "swapBaseOnCurveRaw": "799999955601323",
+  "migrationBaseRaw": "200000008879736",
+  "remaining": "35518941"
+ },
+ "12": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "12000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "50518491892802206",
+  "curve": [
+   {
+    "sqrtPrice": "101036978416954620",
+    "liquidity": "80829587028483759350144540475894"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435935628453930327403576"
+   }
+  ],
+  "startPriceSolPerToken": 7.500000797032e-9,
+  "migrationPriceSolPerToken": 2.9999999999999e-8,
+  "startMcapSol": 7.5000007970319995,
+  "migrationMcapSol": 29.999999999998998,
+  "swapBaseOnCurveRaw": "799999957491607",
+  "migrationBaseRaw": "200000008501679",
+  "remaining": "34006714"
+ },
+ "13": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "13000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "52581313349159982",
+  "curve": [
+   {
+    "sqrtPrice": "105162621329683961",
+    "liquidity": "84130101358656191014061240252579"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435926797024873237587846"
+   }
+  ],
+  "startPriceSolPerToken": 8.125000829575e-9,
+  "migrationPriceSolPerToken": 3.2499999999999e-8,
+  "startMcapSol": 8.125000829574999,
+  "migrationMcapSol": 32.499999999999,
+  "swapBaseOnCurveRaw": "799999959159362",
+  "migrationBaseRaw": "200000008168128",
+  "remaining": "32672510"
+ },
+ "15": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "15000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "56481390679677224",
+  "curve": [
+   {
+    "sqrtPrice": "112962775990744811",
+    "liquidity": "90370225087483762966155682335242"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435909909297742356717397"
+   }
+  ],
+  "startPriceSolPerToken": 9.375000891102e-9,
+  "migrationPriceSolPerToken": 3.7499999999999e-8,
+  "startMcapSol": 9.375000891102,
+  "migrationMcapSol": 37.499999999999,
+  "swapBaseOnCurveRaw": "799999961979622",
+  "migrationBaseRaw": "200000007604076",
+  "remaining": "30416302"
+ },
+ "21": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "21000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "66829682212429828",
+  "curve": [
+   {
+    "sqrtPrice": "133659359056331215",
+    "liquidity": "106927491539887898211397936912840"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435857909337853070688714"
+   }
+  ],
+  "startPriceSolPerToken": 1.312500105435e-8,
+  "migrationPriceSolPerToken": 5.2499999999999e-8,
+  "startMcapSol": 13.12500105435,
+  "migrationMcapSol": 52.499999999999,
+  "swapBaseOnCurveRaw": "799999967867402",
+  "migrationBaseRaw": "200000006426520",
+  "remaining": "25706078"
+ },
+ "22": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "22000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "68402360429900572",
+  "curve": [
+   {
+    "sqrtPrice": "136804715491285663",
+    "liquidity": "109443776687841083904602960445970"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435849608741279334314367"
+   }
+  ],
+  "startPriceSolPerToken": 1.375000107916e-8,
+  "migrationPriceSolPerToken": 5.4999999999999e-8,
+  "startMcapSol": 13.750001079159999,
+  "migrationMcapSol": 54.999999999999,
+  "swapBaseOnCurveRaw": "799999968606257",
+  "migrationBaseRaw": "200000006278749",
+  "remaining": "25114994"
+ },
+ "25": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "25000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "72917161043156338",
+  "curve": [
+   {
+    "sqrtPrice": "145834316717837897",
+    "liquidity": "116667457669050299094403825044539"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435823689157323737597633"
+   }
+  ],
+  "startPriceSolPerToken": 1.5625001150379e-8,
+  "migrationPriceSolPerToken": 6.2499999999999e-8,
+  "startMcapSol": 15.625001150379,
+  "migrationMcapSol": 62.499999999999005,
+  "swapBaseOnCurveRaw": "799999970550281",
+  "migrationBaseRaw": "200000005889944",
+  "remaining": "23559775"
+ },
+ "26": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "26000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "74361205353803350",
+  "curve": [
+   {
+    "sqrtPrice": "148722405339145184",
+    "liquidity": "118977928566085516066249109184907"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435815198799665516865788"
+   }
+  ],
+  "startPriceSolPerToken": 1.6250001173158003e-8,
+  "migrationPriceSolPerToken": 6.499999999999901e-8,
+  "startMcapSol": 16.250001173158,
+  "migrationMcapSol": 64.999999999999,
+  "swapBaseOnCurveRaw": "799999971122246",
+  "migrationBaseRaw": "200000005775551",
+  "remaining": "23102203"
+ },
+ "29": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "29000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "78534185690351302",
+  "curve": [
+   {
+    "sqrtPrice": "157068366012281539",
+    "liquidity": "125654697104562230374124120350284"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435789302180241832793088"
+   }
+  ],
+  "startPriceSolPerToken": 1.8125001238984e-8,
+  "migrationPriceSolPerToken": 7.2499999999999e-8,
+  "startMcapSol": 18.125001238983998,
+  "migrationMcapSol": 72.499999999999,
+  "swapBaseOnCurveRaw": "799999972656896",
+  "migrationBaseRaw": "200000005468621",
+  "remaining": "21874483"
+ },
+ "37": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "37000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "88707554420447676",
+  "curve": [
+   {
+    "sqrtPrice": "177415103472581521",
+    "liquidity": "141932087072716412446130816888569"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435720654324245458395406"
+   }
+  ],
+  "startPriceSolPerToken": 2.3125001399455e-8,
+  "migrationPriceSolPerToken": 9.2499999999999e-8,
+  "startMcapSol": 23.125001399455,
+  "migrationMcapSol": 92.49999999999899,
+  "swapBaseOnCurveRaw": "799999975793206",
+  "migrationBaseRaw": "200000004841359",
+  "remaining": "19365435"
+ },
+ "40": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "40000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "92233723052684504",
+  "curve": [
+   {
+    "sqrtPrice": "184467440737095516",
+    "liquidity": "147573956884295331635718958020446"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435694831222518523403549"
+   }
+  ],
+  "startPriceSolPerToken": 2.5000001455073e-8,
+  "migrationPriceSolPerToken": 9.9999999999999e-8,
+  "startMcapSol": 25.000001455073,
+  "migrationMcapSol": 99.999999999999,
+  "swapBaseOnCurveRaw": "799999976718826",
+  "migrationBaseRaw": "200000004656235",
+  "remaining": "18624939"
+ },
+ "82": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "82000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "132058593107568234",
+  "curve": [
+   {
+    "sqrtPrice": "264117180847426858",
+    "liquidity": "211293748972109262608500758820211"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3435333874302710603797868"
+   }
+  ],
+  "startPriceSolPerToken": 5.1250002083129e-8,
+  "migrationPriceSolPerToken": 2.04999999999999e-7,
+  "startMcapSol": 51.250002083129,
+  "migrationMcapSol": 204.99999999999898,
+  "swapBaseOnCurveRaw": "799999983741431",
+  "migrationBaseRaw": "200000003251714",
+  "remaining": "13006855"
+ },
+ "152": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "152000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "179796623501156438",
+  "curve": [
+   {
+    "sqrtPrice": "359593241635541053",
+    "liquidity": "287674597601850366297926446909434"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3434733598417378086081506"
+   }
+  ],
+  "startPriceSolPerToken": 9.5000002835666e-8,
+  "migrationPriceSolPerToken": 3.79999999999999e-7,
+  "startMcapSol": 95.000002835666,
+  "migrationMcapSol": 379.99999999999903,
+  "swapBaseOnCurveRaw": "799999988060351",
+  "migrationBaseRaw": "200000002387930",
+  "remaining": "9551719"
+ },
+ "174": {
+  "supplyUi": "1000000000",
+  "baseDecimals": 6,
+  "totalSupplyRaw": "1000000000000000",
+  "migrationQuoteThreshold": "174000000000",
+  "migrationFeePercentage": 50,
+  "sqrtStartPrice": "192368678414636438",
+  "curve": [
+   {
+    "sqrtPrice": "384737351462797580",
+    "liquidity": "307789885463418361588738277438993"
+   },
+   {
+    "sqrtPrice": "79226673521066979257578248091",
+    "liquidity": "3434543795990097821072232"
+   }
+  ],
+  "startPriceSolPerToken": 1.08750003033779e-7,
+  "migrationPriceSolPerToken": 4.34999999999999e-7,
+  "startMcapSol": 108.750003033779,
+  "migrationMcapSol": 434.99999999999903,
+  "swapBaseOnCurveRaw": "799999988841271",
+  "migrationBaseRaw": "200000002231746",
+  "remaining": "8926983"
+ }
+}

@@ -1,0 +1,13 @@
+# D8 references in deployments/launch/monitor-nft.json checked against the public sites, 2026-09-27 (read-only HTTP GETs)
+# CoinGecko /api/v3/nfts/<id>: id, contract_address, platform, name, floor (native)
+milady-maker 0x5af0d9827e0c53e4799bb226655a1de152a425a5 ethereum Milady Maker 0.929
+azuki 0xed5af388653567af2f388e6224dc7c4b3241c544 ethereum Azuki 0.673989
+mutant-ape-yacht-club 0x60e4d786628fea6478f785a6d7e704777c86a7c6 ethereum Mutant Ape Yacht Club 0.857643
+pudgy-penguins 0xbd3531da5cf5857e7cfaa92426877b022e612cf8 ethereum Pudgy Penguins 3.29
+bored-ape-yacht-club 0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d ethereum Bored Ape Yacht Club 6.3
+# OpenSea https://opensea.io/collection/<slug>: HTTP status, the most frequent contract address on the page
+milady: 200  389 0x5af0d9827e0c53e4799bb226655a1de152a425a5
+azuki: 200  261 0xed5af388653567af2f388e6224dc7c4b3241c544
+mutant-ape-yacht-club: 200  393 0x60e4d786628fea6478f785a6d7e704777c86a7c6
+pudgypenguins: 200  378 0xbd3531da5cf5857e7cfaa92426877b022e612cf8
+boredapeyachtclub: 200  258 0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d

@@ -1,0 +1,45 @@
+{
+  "coins": 79,
+  "listings": 60,
+  "claimedWei": "21373222689484904730",
+  "toVaultsWei": "17098578151587923562",
+  "toTreasuryWei": "4274644537896981168",
+  "releasedWei": "3643282021984647589",
+  "returnedWei": "12468267477215778",
+  "spentWei": "3507190992891304658",
+  "writtenOffWei": "0",
+  "acquisitions": {
+    "inscriptions": 41,
+    "runeReceipts": 26
+  },
+  "purchases": {
+    "declared": 1,
+    "released": 1,
+    "settled": 44,
+    "cancelled": 0,
+    "writtenOff": 1
+  },
+  "draws": {
+    "open": 1,
+    "pinned": 0,
+    "resolved": 0,
+    "claimed": 34,
+    "delivered": 2,
+    "voided": 0,
+    "cancelled": 0
+  },
+  "distributions": {
+    "open": 26,
+    "rolled": 0
+  },
+  "deliveries": {
+    "done": 2,
+    "overdue": 0,
+    "waiting": 1
+  },
+  "payouts": {
+    "requested": 0,
+    "recorded": 0,
+    "overdue": 0
+  }
+}

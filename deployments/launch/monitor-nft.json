@@ -1,0 +1,98 @@
+{
+  "//": "The LAUNCH monitor configuration for the mixed stack: the eleven Ethereum NFT collections (docs/v7/phase1-nft.md §6, D8; audit 2026-09-27-nft round 2; Identity MD since 2026-10-09) and, since 2026-10-09, the Bitcoin collection Bitcoin Frogs (the `bitcoin` canary below). A template: replace every <...> from deployments/canister-ic.json, deployments/stack-4663.json and the ceremony log, then check it with script/golive-check.sh --monitor-config <the filled file> (it must name the stack's eleven allowlisted collections, docs/v7/dormant-collections.md §1, with their wrapper, module and custodian, both D8 references each (OpenSea alone for Identity MD, where the launch file's priceRefs says so), an armed guardian and pause_on_no_good_post_h). Public identifiers only; the Telegram token is ALERT_TELEGRAM_BOT_TOKEN and the guardian's key MONITOR_GUARDIAN_KEY, never here.",
+  "//filled": "Go-live prep 2026-09-28 (docs/v7/golive-runbook.md §4): everything known before deploy is filled in; what is left as <...> exists only once the ceremony has run (canister ids and principals, the install argument, the stack's addresses, the guardian EOA, the services' hosts), and the only ${...} is a secret read from the monitor's environment (DWELLIR_API_KEY). The D8 references were re-read read-only on 2026-09-28: every coingecko_id names its collection's contract on Ethereum, and every opensea_slug answers api.opensea.io/api/v2/collections/<slug>/stats keyless (floors 0.925 / 0.654 / 0.843 / 3.18 / 6.25 ETH, agreeing with CoinGecko). monitor/test/launch_config.test.mjs loads this file through the monitor's own loader with stand-ins for the <...> and holds that list.",
+  "network": "ic",
+  "timelock": "<timelock canister id>",
+  "buyer": "<buyer canister id>",
+  "expect": { "proposers": ["<p1>", "<p2>"], "guardians": ["<g1>", "<g2>", "<g3>"], "veto": "2", "delay": "259200" },
+  "builds_file": "../canister-ic.json",
+  "//launch_file": "review round 5 (the operator's option (c)): the launch plan's staged upgrades (nft-pilot.json `stages`). A pending upgrade whose argument is exactly one staged step from the baseline (step 2: outflow_limits.global_items alone; step 3: the item caps alone) pages as EXPECTED (SEV2), not SEV1; anything else is judged as ever",
+  "launch_file": "nft-pilot.json",
+  "install_arg_hex": "<the pre-handover reinstall's argument, as Candid hex (4449444c...), from the ceremony log>",
+  "//bitcoin": "Ordinals at launch (the operator, 2026-10-09; deployments/launch/nft-pilot.json `bitcoin`): the Bitcoin canary (docs/v6/k6-watcher-canary.md §4) on the canister's custody, float and buyer addresses, each read on two esplora providers that must agree. Fill each from the canister's custody_address(), float_address() and buyer_address() (operator calls, after the install). The Bitcoin wrapper and its FloorModule are read from evm.stack_file (the mixed stack names them: the 4663 canary's Deposited / Delivered / ItemArrived matching). expect_inbound announces, once each, the two operator seeds made before the first conversion: the custody fee pool's plain-sat output (>= 20,000 sats, add_custody_fee_input) and the float's padding seed (about 1,200 sats, docs/v8/ordinals-wave.md R10). golive-check --monitor-config --launch holds custody to the stack wrapper's custody address",
+  "bitcoin": {
+    "providers": ["https://mempool.space/api", "https://blockstream.info/api"],
+    "addresses": { "custody": "<the canister's custody_address()>", "float": "<the canister's float_address()>", "buyer": "<the canister's buyer_address()>" },
+    "expect_inbound": [
+      { "address": "custody", "min_sats": 20000, "note": "the custody fee pool's seed (add_custody_fee_input; the launch file's custodyFeePoolMinSats)" },
+      { "address": "float", "min_sats": 1000, "note": "the float's one-time padding seed (about 1,200 sats, ordinals-wave R10), before the first conversion" }
+    ]
+  },
+  "//min_fee_pool_sats": "the custody fee pool's minimum largest usable entry the canister page holds (the launch file's bitcoin.custodyFeePoolMinSats; golive-check --min-fee-pool-sats)",
+  "min_fee_pool_sats": 20000,
+  "evm": {
+    "rpcs": ["https://rpc.mainnet.chain.robinhood.com", "https://robinhood.drpc.org"],
+    "chain_id": 4663,
+    "stack_file": "../stack-4663.json",
+    "confirmations": 20,
+    "guardian": {
+      "address": "<the guardian EOA (registry.guardian())>",
+      "auto_pause": true,
+      "auto_cancel": true,
+      "pause_on_floor_walk": false,
+      "//pause_on_no_good_post_h": "ARMED for the launch (the review's launch-configuration note; round 2): after this many hours without a good floor post of an Ethereum collection, the guardian pauses THAT collection's poster, so its holders burn at the frozen floor (never above the backing) instead of waiting for the 7-day escape. Since round 2 wash trading cannot stop posts; what still can is the runner handing in no listings, or fewer than three live ones. 6 h is the operator's to change (2 to 160)",
+      "pause_on_no_good_post_h": 6
+    }
+  },
+  "draws": {
+    "providers": [{ "url": "https://rpc.mainnet.chain.robinhood.com", "span": 10000 }, { "url": "https://robinhood.drpc.org", "span": 100 }],
+    "verify_quorum": 2,
+    "deadline_s": 360,
+    "pause_unverified": true,
+    "pause_on_degraded": false,
+    "reconcile": true
+  },
+  "eth_nft": {
+    "home_rpc": ["https://rpc.mainnet.chain.robinhood.com"],
+    "//eth_rpc": "custody is read on both. The operator's decision of 2026-09-27: Dwellir (the paid plan) first, replacing eth.drpc.org (its free tier refuses the scans, review round 3 D3-L-3); its key is NEVER written here: ${DWELLIR_API_KEY} is expanded from the monitor's environment at load and scrubbed from every alert and status line. xrpc.cl/eth is the second, independent and keyless (measured 2026-09-27: finalized tag, eth_getLogs over 500 and 2,001 blocks). The canister's evm_chains[1] must NOT carry the keyed URL (its install argument is published with every timelock proposal): it keeps a keyless pair (audit 2026-09-27-nft B-M-6; flagged for the round-3 fixer)",
+    "eth_rpc": ["https://api-ethereum-mainnet.n.dwellir.com/${DWELLIR_API_KEY}", "https://xrpc.cl/eth"],
+    "//logs_max_blocks": "the widest eth_getLogs range the monitor asks (Dwellir's plan: 500 blocks a request)",
+    "logs_max_blocks": 500,
+    "guardian_pause": true,
+    "deposits_scan": true,
+    "//collections": "one per Ethereum collection of the stack, in deployments/launch/nft-pilot.json's order: the collection, and from the stack file its wrapper, floorModule and the custodian (the canister's EVM address). opensea_slug and coingecko_id are D8's two references (OpenSea's collection slug, CoinGecko's NFT id): check each against its collection's contract on the site before launch. price_refs [\"opensea\"] (Identity MD alone: CoinGecko does not list it; the operator's decision of 2026-10-09, deployments/launch/nft-pilot.json priceRefs / _priceRefs) makes OpenSea its ONE reference: the pause fires at more than 20 % from OpenSea, and a missing OpenSea answer pages (the floor is not watched) but never pauses. The loader refuses price_refs anywhere the launch file does not decide it, and golive-check --monitor-config again",
+    "collections": [
+      { "slug": "milady", "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5", "wrapper": "<milady wrapper>", "module": "<milady floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "milady", "coingecko_id": "milady-maker" },
+      { "slug": "azuki", "collection": "0xed5af388653567af2f388e6224dc7c4b3241c544", "wrapper": "<azuki wrapper>", "module": "<azuki floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "azuki", "coingecko_id": "azuki" },
+      { "slug": "mayc", "collection": "0x60e4d786628fea6478f785a6d7e704777c86a7c6", "wrapper": "<mayc wrapper>", "module": "<mayc floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "mutant-ape-yacht-club", "coingecko_id": "mutant-ape-yacht-club" },
+      { "slug": "pudgypenguins", "collection": "0xbd3531da5cf5857e7cfaa92426877b022e612cf8", "wrapper": "<pudgypenguins wrapper>", "module": "<pudgypenguins floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "pudgypenguins", "coingecko_id": "pudgy-penguins" },
+      { "slug": "bayc", "collection": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d", "wrapper": "<bayc wrapper>", "module": "<bayc floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "boredapeyachtclub", "coingecko_id": "bored-ape-yacht-club" },
+      { "slug": "doodles", "collection": "0x8a90cab2b38dba80c64b7734e58ee1db38b8992e", "wrapper": "<doodles wrapper>", "module": "<doodles floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "doodles-official", "coingecko_id": "doodles-official" },
+      { "slug": "moonbirds", "collection": "0x23581767a106ae21c074b2276d25e5c3e136a68b", "wrapper": "<moonbirds wrapper>", "module": "<moonbirds floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "moonbirds", "coingecko_id": "moonbirds" },
+      { "slug": "clonex", "collection": "0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b", "wrapper": "<clonex wrapper>", "module": "<clonex floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "clonex", "coingecko_id": "clonex" },
+      { "slug": "lilpudgys", "collection": "0x524cab2ec69124574082676e6f654a18df49a048", "wrapper": "<lilpudgys wrapper>", "module": "<lilpudgys floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "lilpudgys", "coingecko_id": "lilpudgys" },
+      { "slug": "checks", "collection": "0x036721e5a769cc48b3189efbb9cce4471e8a48b1", "wrapper": "<checks wrapper>", "module": "<checks floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "vv-checks-originals", "coingecko_id": "checks-vv-originals" },
+      { "slug": "identitymd", "collection": "0x0000ec93127baa929e58e97dd0095a2bfb38ec1d", "wrapper": "<identitymd wrapper>", "module": "<identitymd floorModule>",
+        "custodian": "<the canister's EVM address>", "opensea_slug": "identitymd", "price_refs": ["opensea"] }
+    ]
+  },
+  "//cycles": "go-live (docs/v7/golive-runbook.md §6; docs/v7/dormant-collections.md §7, §11): the buyer's burn-rate page (monitor/src/watcher.mjs burnCheck). SEV2 under 7 days of cycles at the rate measured over the last 24 h, SEV1 (persistent) under 2 days; SEV2 when the rate is above 10 T a day (the launch balance keeps one collection awake: about 2.8 T a day; raise this to about 1.5 x (0.3 + 2.5 x effective_max_active) T as top-ups raise the limit) or the balance under 12 T (the reserve: 8 T, the canister's scan floor, plus one collection's 3 T exit reserve). Separately the Ethereum NFT checker pages eth-capacity-short when the balance keeps fewer collections awake than hold positions (/status eth_capacity shows effective_max_active and the wake headroom). On a 34-node subnet multiply burn_warn_t_per_day by 2.6",
+  "cycles": { "window_h": 24, "min_days": 7, "min_days_sev1": 2, "burn_warn_t_per_day": 10, "min_balance_t": 12 },
+  "//fueler": "docs/v7/cycles-from-fees.md §4.2: the fueler's ops key watched from the chain (ops-unexpected-tx, SEV1), its own alerts relayed, the ops wallet under 0.02 ETH (SEV3). ops is treasury.ops(), the address of the fueler's FUELER_EVM_KEY. Leave this block and its liveness row out while the fueler is not deployed",
+  "fueler": { "ops": "<the fueler's address (treasury.ops())>", "status_url": "https://<fueler host>/status",
+    "rpcs_4663": ["https://rpc.mainnet.chain.robinhood.com", "https://rpc.ordofi.network"],
+    "rpcs_1": ["https://rpc.mevblocker.io", "https://gateway.tenderly.co/public/mainnet"], "min_ops_eth": 0.02 },
+  "//liveness": "every always-on service's public /healthz (deployments/launch/railway/README.md): the keeper and the keyless resolver too (the resolver's needs RESOLVER_STATUS_PORT)",
+  "liveness": [
+    { "name": "runner", "url": "https://<runner host>/healthz" },
+    { "name": "reconciler", "url": "https://<reconciler host>/healthz" },
+    { "name": "indexer", "url": "https://<indexer host>/healthz" },
+    { "name": "keeper", "url": "https://<keeper host>/healthz" },
+    { "name": "resolver", "url": "https://<resolver host>/healthz" },
+    { "name": "fueler", "url": "https://<fueler host>/healthz" }
+  ],
+  "acknowledged": [],
+  "every_secs": 60,
+  "heartbeat_hour_utc": 12,
+  "state": "/data/monitor-state.json"
+}

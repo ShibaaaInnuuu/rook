@@ -1,0 +1,17 @@
+== control: the committed launch file and the filled template: no FAIL
+   (10 monitor ok lines)
+   (30 launch ok lines)
+== 1 PASSES (weakness): name/symbol/slug are never read by --launch (rotated here: nothing changes, so a rotated deploy is not caught either)
+   (10 monitor ok lines)
+   (30 launch ok lines)
+== 2 PASSES (weakness): D8 references swapped between Milady and MAYC (floors 0.93 / 0.86 ETH: within D8's 20 %, silent)
+   (10 monitor ok lines)
+   (30 launch ok lines)
+== 3-5 PASSES (weakness): guardian not the registry's, <p1>/<runner host> placeholders, one Ethereum provider twice, evm.chain_id 1
+   (10 monitor ok lines)
+   (30 launch ok lines)
+   placeholders left in the file that passed: <...> <buyer canister id> <g1> <g2> <g3> <indexer host> <p1> <p2> <reconciler host> <runner host> <the filled file> <the pre-handover reinstall's argument, as Candid hex (4449444c...), from the ceremony log> <timelock canister id> 
+== 6 control: no pause_on_no_good_post_h: FAILs
+FAIL the monitor configuration mon-nopause.json: evm.guardian.pause_on_no_good_post_h is not armed (2 to 160 hours)
+   (10 monitor ok lines)
+   (30 launch ok lines)

@@ -1,0 +1,17 @@
+Ran 3 tests for test/audit_nft_a2/AuditNftA2.t.sol:AuditNftA2_Holds_PosterSwitch
+[PASS] test_A2_holds_aDepositDuringAPosterPause_burnsAtThePauseFloor() (gas: 1466165)
+[PASS] test_A2_holds_mintThenPosterPauseThenBurn_isALoss() (gas: 1402394)
+[PASS] test_A2_holds_refundHoldAndGrace_followTheLaterResume() (gas: 521232)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 5.31ms (4.15ms CPU time)
+Ran 1 test for test/audit_nft_a2/AuditNftA2.t.sol:AuditNftA2_L_J1LeftoverLeaves
+[PASS] test_A2_L_J1Alternative_theLeftoverOfEveryApeLeavesTheModule() (gas: 6273731)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.47ms (3.39ms CPU time)
+Ran 2 tests for test/audit_nft_a2/AuditNftA2.t.sol:AuditNftA2_M1_PooledRiseAdvancesBelowTheFloor
+[PASS] test_A2_M1_aFloorRiseBetweenPooledGraduations_theAdvanceLeavesBelowTheFloor() (gas: 14979810)
+[PASS] test_A2_M1_theThreshold() (gas: 60632305)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.06s (26.44ms CPU time)
+Ran 2 tests for test/audit_nft_a2/AuditNftA2.t.sol:AuditNftA2_Holds_PooledLedger
+[PASS] testFuzz_A2_pooledLedgerHolds(uint256) (runs: 512, μ: 23136778, ~: 23190084)
+[PASS] test_A2_pooledLedger_theRunReachesEveryAction() (gas: 864503707)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.16s (1.88s CPU time)
+Ran 4 test suites in 1.16s (2.23s CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

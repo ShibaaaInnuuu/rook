@@ -1,0 +1,69 @@
+{
+  "id": "1-24",
+  "listingId": 1,
+  "acquisitionId": 24,
+  "type": "distribution",
+  "state": "distribution-open",
+  "mode": "pro-rata",
+  "assetRef": "840000:1",
+  "openedAt": 1790032941,
+  "challengeEnds": 1790033841,
+  "challengeEndsIn": 0,
+  "root": "0xe557c58d4d4386d4ed73266a2c467cd7d9179b85abb7e7cc76826cf59c057c77",
+  "uri": "https://staging-chain-production.up.railway.app/snapshots/snapshot-0x22b0635e89ae8ef4cd0e0dd2d800ee42ceb0c194-69018433-pro-rata.json",
+  "total": "1809954",
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": "npm run snapshot -- --coin 0x22B0635e89Ae8Ef4cD0E0dd2d800ee42cEb0c194 --block <block from the published file> --kind pro-rata --total 1809954",
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": null,
+  "distribution": {
+    "claimedUnits": "0",
+    "claims": 0,
+    "rolledOver": null
+  },
+  "timeline": [
+    {
+      "at": 1790032629,
+      "block": 69018161,
+      "tx": "0x9b12e5433f621d18eca6d8c609491fdd11db1b04f4396508e9047730843d777a",
+      "event": "Receipted",
+      "detail": {
+        "id": "14",
+        "acquisitionId": "24",
+        "coin": "0x22b0635e89ae8ef4cd0e0dd2d800ee42ceb0c194",
+        "assetRef": "840000:1",
+        "amount": "1809954",
+        "btcTxid": "0x5177fd65421ccd86f4e912ae440722847295f26c9d8b666b749e85a098f3b9eb",
+        "satsPaid": "1000"
+      }
+    },
+    {
+      "at": 1790032930,
+      "block": 69018429,
+      "tx": "0x70c1dcca3174a024f71fb62d0284e2675b140995224d4b47b2d644e0f83e3c99",
+      "event": "Chosen",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "24",
+        "mode": 6,
+        "named": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "at": 1790032941,
+      "block": 69018434,
+      "tx": "0xbf8304a5c4cd9c91d79166dd135f4852909d714c0a92ad35e97fb416567f14cb",
+      "event": "DistributionOpened",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "24",
+        "root": "0xe557c58d4d4386d4ed73266a2c467cd7d9179b85abb7e7cc76826cf59c057c77",
+        "total": "1809954",
+        "uri": "https://staging-chain-production.up.railway.app/snapshots/snapshot-0x22b0635e89ae8ef4cd0e0dd2d800ee42ceb0c194-69018433-pro-rata.json",
+        "challengeEnds": "1790033841"
+      }
+    }
+  ]
+}

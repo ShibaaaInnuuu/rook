@@ -1,0 +1,53 @@
+{
+  "id": 13,
+  "kind": "inscriptions",
+  "name": "Soy Pepes",
+  "ref": "soy-pepes",
+  "divisibility": 0,
+  "vault": "0xB48a104f49c12D89b3464f001A4146FA76386B9b",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-soy-pepes",
+  "membershipRoot": "0x3774cfc7ec6764ca20c6791acffca1cd8965f13ea58bd7f86b54d666953a127b",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "210864583127687321",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "210864583127687321",
+    "attributedWei": "210864583127687321",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "210864583127687321",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x11976F3fB4188dA994001f2272d00153cE8F7D47",
+      "symbol": "SLAT2SIM",
+      "depositedWei": "210864583127687321"
+    }
+  ]
+}

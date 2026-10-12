@@ -1,0 +1,3848 @@
+{
+ "version": 1,
+ "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+ "chainId": 1,
+ "name": "Milady Maker (fixture traits)",
+ "takenAt": 1789513200,
+ "source": {
+  "tokenURI": "fixture://milady/{id}",
+  "ipfsCid": null,
+  "note": "FIXTURE: 400 invented tokens with invented traits, not Milady's. A real snapshot is written by scripts/snapshot-metadata.ts from the collection's tokenURI, once, and its SHA-256 pinned before the first draw."
+ },
+ "tokens": [
+  {
+   "tokenId": "0",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Suit",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "1",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "2",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "3",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "4",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "5",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Jersey",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "6",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "7",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "8",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "9",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Kimono",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "10",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "11",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "12",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Tee",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "13",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Kimono",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "14",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Suit",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "15",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Laser",
+    "Shirt": "Kimono",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "16",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "17",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "18",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "19",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "20",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "21",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "22",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "23",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "24",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Armor",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "25",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "26",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "27",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "28",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Suit",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "29",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "30",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "31",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "32",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "33",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Suit",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "34",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "35",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Jersey",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "36",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "37",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "38",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "39",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "40",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "41",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "42",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "43",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "44",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "45",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Jersey",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "46",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "47",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "48",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "49",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Armor",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "50",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Stripes",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "51",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "52",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "53",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "54",
+   "traits": {
+    "Background": "Static",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "55",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "56",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "57",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "58",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "59",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Kimono",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "60",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Suit",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "61",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "62",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "63",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Suit",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "64",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "65",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "66",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "67",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "68",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "69",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "70",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "71",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Jersey",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "72",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Suit",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "73",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "74",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "75",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "76",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "77",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Tee",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "78",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "79",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "80",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "81",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "82",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "83",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "84",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "85",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "86",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Kimono",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "87",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "88",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "89",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "90",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "91",
+   "traits": {
+    "Background": "Static",
+    "Core": "Dark",
+    "Eyes": "Laser",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "92",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Armor",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "93",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "94",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "95",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "96",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Laser",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "97",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Jersey",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "98",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "99",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Armor",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "100",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "101",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Armor",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "102",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "103",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "104",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "105",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "106",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Stripes",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "107",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "108",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "109",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "110",
+   "traits": {
+    "Background": "Static",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "111",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "112",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "113",
+   "traits": {
+    "Background": "Static",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "114",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "115",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "116",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "117",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Stripes",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "118",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "119",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "120",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Suit",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "121",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "122",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "123",
+   "traits": {
+    "Background": "Night",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "124",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Laser",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "125",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "126",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "127",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "128",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "129",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "130",
+   "traits": {
+    "Background": "Night",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Stripes",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "131",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Armor",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "132",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "133",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Armor"
+   }
+  },
+  {
+   "tokenId": "134",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "135",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "136",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "137",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "138",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "139",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Armor"
+   }
+  },
+  {
+   "tokenId": "140",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "141",
+   "traits": {
+    "Background": "Static",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "142",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "143",
+   "traits": {
+    "Background": "Night",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "144",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "145",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "146",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Armor",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "147",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Kimono",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "148",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "149",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "150",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "151",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Kimono",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "152",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "153",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "154",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "155",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "156",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Kimono",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "157",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "158",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "159",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "160",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "161",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "162",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "163",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "164",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "165",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "166",
+   "traits": {
+    "Background": "Night",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "167",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "168",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "169",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Jersey",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "170",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "171",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "172",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "173",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "174",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "175",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "176",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Armor"
+   }
+  },
+  {
+   "tokenId": "177",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "178",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Suit",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "179",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Armor"
+   }
+  },
+  {
+   "tokenId": "180",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Stripes",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "181",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "182",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Stripes",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "183",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "184",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "185",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "186",
+   "traits": {
+    "Background": "Static",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "187",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "188",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "189",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "190",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "191",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Armor"
+   }
+  },
+  {
+   "tokenId": "192",
+   "traits": {
+    "Background": "Static",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "193",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "194",
+   "traits": {
+    "Background": "Static",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "195",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "196",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Suit",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "197",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Armor",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "198",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "199",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "200",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "201",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "202",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "203",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "204",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "205",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "206",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Stripes",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "207",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Armor",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "208",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "209",
+   "traits": {
+    "Background": "Static",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "210",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "211",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "212",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Stripes",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "213",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "214",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "215",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "216",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Jersey",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "217",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "218",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Stripes",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "219",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "220",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Laser",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "221",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "222",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "223",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Armor"
+   }
+  },
+  {
+   "tokenId": "224",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Kimono",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "225",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "226",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "227",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "228",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "229",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Laser",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "230",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "231",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "232",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Laser",
+    "Shirt": "Hoodie",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "233",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "234",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Suit",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "235",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "236",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Armor",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "237",
+   "traits": {
+    "Background": "Void",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "238",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "239",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Tee",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "240",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "241",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "242",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "243",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "244",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Kimono",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "245",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "246",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Kimono",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "247",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "248",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Armor",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "249",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "250",
+   "traits": {
+    "Background": "Static",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "251",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Kimono",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "252",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "253",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "254",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Kimono",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "255",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "256",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "257",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "258",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Tee",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "259",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Suit",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "260",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "261",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "262",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Jersey",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "263",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "264",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "265",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "266",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Tee",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "267",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Stripes",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "268",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Kimono",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "269",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "270",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "271",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "272",
+   "traits": {
+    "Background": "Static",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "273",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "274",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "275",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "276",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "277",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "278",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "279",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Suit",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "280",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Kimono",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "281",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "282",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "283",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "284",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Jersey",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "285",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Kimono",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "286",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "287",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Stripes",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "288",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "289",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Suit",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "290",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Suit",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "291",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "292",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "293",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "294",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Kimono",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "295",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "296",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "297",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "298",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "299",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "300",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "301",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "302",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "303",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "304",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Jersey",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "305",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Armor",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "306",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "307",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "308",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Laser",
+    "Shirt": "Suit",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "309",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "310",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "311",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "312",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "313",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Suit",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "314",
+   "traits": {
+    "Background": "Night",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "315",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "316",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "317",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "318",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "319",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "320",
+   "traits": {
+    "Background": "Static",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "321",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "322",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "323",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "324",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "325",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Kimono",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "326",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Laser",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "327",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "328",
+   "traits": {
+    "Background": "Static",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Suit",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "329",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "330",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "331",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "332",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "333",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "334",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Stripes",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "335",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "336",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "337",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Suit",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "338",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Dark",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "339",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "340",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Laser",
+    "Shirt": "Hoodie",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "341",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "342",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "343",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "344",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "345",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Laser",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "346",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Kimono",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "347",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Kimono"
+   }
+  },
+  {
+   "tokenId": "348",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "349",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "350",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Suit",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "351",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Armor",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "352",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Stripes",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "353",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Stripes",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "354",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "355",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Jersey",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "356",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "357",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "358",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "359",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "360",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "361",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "362",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "363",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "364",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "365",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "366",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "367",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Dark",
+    "Eyes": "Tired",
+    "Shirt": "Stripes",
+    "Hat": "Crown"
+   }
+  },
+  {
+   "tokenId": "368",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "369",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "370",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "371",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie"
+   }
+  },
+  {
+   "tokenId": "372",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Kimono",
+    "Hat": "Bow"
+   }
+  },
+  {
+   "tokenId": "373",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "374",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Armor"
+   }
+  },
+  {
+   "tokenId": "375",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "376",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Tan",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "377",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Dark",
+    "Eyes": "Heart",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "378",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Smug",
+    "Shirt": "Jersey"
+   }
+  },
+  {
+   "tokenId": "379",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Stripes",
+    "Hat": "Halo"
+   }
+  },
+  {
+   "tokenId": "380",
+   "traits": {
+    "Background": "Gold",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "381",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Kimono",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "382",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "383",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Laser",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "384",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Hoodie",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "385",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Tan",
+    "Eyes": "Heart",
+    "Shirt": "Armor"
+   }
+  },
+  {
+   "tokenId": "386",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Jersey",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "387",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Pastel",
+    "Eyes": "Sparkle",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "388",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Stripes",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "389",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Closed",
+    "Shirt": "Suit",
+    "Hat": "Cap"
+   }
+  },
+  {
+   "tokenId": "390",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Heart",
+    "Shirt": "Stripes",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "391",
+   "traits": {
+    "Background": "Orange",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Tee",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "392",
+   "traits": {
+    "Background": "Sky",
+    "Core": "Pastel",
+    "Eyes": "Closed",
+    "Shirt": "Tee"
+   }
+  },
+  {
+   "tokenId": "393",
+   "traits": {
+    "Background": "Night",
+    "Core": "Tan",
+    "Eyes": "Smug",
+    "Shirt": "Tee",
+    "Hat": "Horns"
+   }
+  },
+  {
+   "tokenId": "394",
+   "traits": {
+    "Background": "Grey",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Stripes"
+   }
+  },
+  {
+   "tokenId": "395",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Tan",
+    "Eyes": "Tired",
+    "Shirt": "Suit",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "396",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Dark",
+    "Eyes": "Sparkle",
+    "Shirt": "Armor",
+    "Hat": "Beanie"
+   }
+  },
+  {
+   "tokenId": "397",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Stripes",
+    "Hat": "Cowboy"
+   }
+  },
+  {
+   "tokenId": "398",
+   "traits": {
+    "Background": "Mint",
+    "Core": "Pastel",
+    "Eyes": "Tired",
+    "Shirt": "Suit"
+   }
+  },
+  {
+   "tokenId": "399",
+   "traits": {
+    "Background": "Pink",
+    "Core": "Dark",
+    "Eyes": "Smug",
+    "Shirt": "Hoodie",
+    "Hat": "Horns"
+   }
+  }
+ ]
+}

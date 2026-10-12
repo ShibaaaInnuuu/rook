@@ -1,0 +1,8 @@
+     Running tests/a4_exit_fits_global.rs (/private/tmp/claude-501/-Users-jlohayon-Documents-SmartVid/6cc0ea2d-ac78-4270-84d0-11af74f0a96f/scratchpad/r4A-716425366/target/debug/deps/a4_exit_fits_global-a783c085737218a0)
+
+running 1 test
+global: 61 items held at most, 24 a day, 2 usable days: 48 can leave, 13 cannot
+test a4_l1_the_launch_install_passes_the_per_collection_exit_check_but_the_whole_custody_does_not_fit_the_delay ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

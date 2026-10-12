@@ -1,0 +1,6 @@
+301a302
+>     async fn home_finalized_time(&mut self) -> Result<u64, String> { Ok(self.now + 1) } // ADAPTED (round 2): new trait method, home chain final at once
+709c710
+<             value: 0, max_fee: 1, priority_fee: 1, signed_at: 1 }),
+---
+>             value: 0, max_fee: 1, priority_fee: 1, signed_at: 1, to: [0; 20], data: vec![], gas: 0, earlier: vec![], rivals: vec![], first_signed_at: None }), // ADAPTED (round 2): new EthTx fields

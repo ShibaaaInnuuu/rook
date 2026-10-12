@@ -1,0 +1,58 @@
+{
+  "id": 3,
+  "kind": "inscriptions",
+  "name": "Bitcoin Frogs",
+  "ref": "bitcoin-frogs",
+  "divisibility": 0,
+  "vault": "0x5D26891431FCFfc1c1aa2e801d7cE88D41371F15",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-bitcoin-frogs",
+  "membershipRoot": "0x1a040e8dd074276000d0c812a791b8400724dfeeb2e9d0e2394d05ce8136db7c",
+  "paused": false,
+  "coins": 2,
+  "depositedWei": "412534443217531640",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "412534443217531640",
+    "attributedWei": "412534443217531640",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "412534443217531640",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x8a66dB0a94c109f5676ea029200dA52CCE1eb9D5",
+      "symbol": "SLATSIM",
+      "depositedWei": "111419689119170984"
+    },
+    {
+      "address": "0x1829F25cf011dbA4b869f14E502c0be3abD157C8",
+      "symbol": "GABB5SIM",
+      "depositedWei": "301114754098360656"
+    }
+  ]
+}

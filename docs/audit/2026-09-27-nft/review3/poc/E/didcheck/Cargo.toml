@@ -1,0 +1,9 @@
+[package]
+name = "didcheck"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+candid = "=0.10.35"
+candid_parser = "=0.1.4"
+hex = "0.4"
+etch_autobuyer = { path = "../autobuyer/canister-rs" }

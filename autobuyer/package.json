@@ -1,0 +1,20 @@
+{
+  "name": "etch-autobuyer-spike",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/bip341.test.mjs test/signet.test.mjs test/replica.test.mjs test/evm.test.mjs test/runestone.test.mjs test/sighash.test.mjs",
+    "spike": "node spike.mjs",
+    "e2e:v2": "node e2e-v2.mjs",
+    "test:v2": "cd canister-rs && cargo test",
+    "signet": "node signet-rehearsal.mjs",
+    "evm": "node evm-rehearsal.mjs",
+    "runes": "node runes-rehearsal.mjs"
+  },
+  "dependencies": {
+    "@noble/curves": "1.8.1",
+    "@noble/hashes": "1.7.1",
+    "@scure/btc-signer": "1.6.0",
+    "@scure/base": "1.2.4"
+  }
+}

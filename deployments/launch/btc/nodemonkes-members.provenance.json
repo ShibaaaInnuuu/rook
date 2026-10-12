@@ -1,0 +1,49 @@
+{
+  "slug": "nodemonkes",
+  "taken_at": "2026-10-10T06:50:41.467Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 10000,
+  "root": "0xe97c65d46ebf87c51e6503705a1ef2df4fbaf5168bd80eecab25d75b10126c09",
+  "proof_depth": 14,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/nodemonkes/inscriptions",
+      "count": 10000,
+      "unique": 10000,
+      "left_out": []
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/2ebbd9b93006b69714dd517fbe0d4bf7f8462ffe213105e03048d49ed46eba04i0",
+      "count": 10000,
+      "unique": 10000,
+      "left_out": []
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/nodemonkes.json",
+      "count": 9985,
+      "not_in_members": [],
+      "members_missing": [
+        "55f434d67b7134a3ae5a7fa47fc6cff69e15b7b74b9b4b1aa98af1243d3c86e5i0",
+        "e6a03dcb49218026769fea71ebf27627d198280c4597fd488180d8a9c4e578b9i0",
+        "cd01e034dc1991cdda9f16b1fc502a9fa8e57a5a9581f1dbdb2078b70f13be03i0",
+        "a4832edf71cc68d1e333bf6985b3c8f97404fff34f904cc212c42bab99d925aai0",
+        "6ddd03bc285c4f0a5a48c735120b69589c1b7a1bebe943e6161e741e278da09ai0",
+        "eb9bb69460d3fafe353ff385b6d3afd917e6e0f859a6580ec96e41b6ac4ed6c7i0",
+        "1478b385525b85cd6c9d82a720918ba7aff811932ab161873c5b09e8793e9234i0",
+        "f80efd1b2a1b0806d8d27b44ad0ded72da9e9e50580b497abc4e86d31de73203i0",
+        "ff66494207923ea763e66c17d3bc07966849386ccf468285e8566228b317cebfi0",
+        "6ac671d9606cd6c2353368ec97d509e49629eb4481e2633b13b328d6736df4cai0",
+        "dcdc7a4a11bb662745e1f1f567dd60a452eba074d3bdee651df9e1cc80977a99i0",
+        "23e8f4fc7a0b9ebff86eccf9b6ca6d3a46ab1a18cff79c04a8040ae06e83bda6i0",
+        "40cb04c1a1043f76d87ec02a8cafbd010fbb0099603d2c8fb5e2da44867989f9i0",
+        "8cc7d218fe6b1e84f232bfb6ffe6ba062b07417be2b9426bed9da2f73be6b40ei0",
+        "e42f131e0b328014663be976775d599bd9481a2f443cb75098f0f29868ad62bdi0"
+      ]
+    }
+  ]
+}

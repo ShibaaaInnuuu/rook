@@ -1,0 +1,45 @@
+# probe 2026-09-28 11:32:33 UTC
+
+## https://rpc.mevblocker.io head=26075674 finalized=26075590
+  logs depth   1000 (500 blk, Milady Transfer): HTTP 200 ok 0 36B 0.3s
+  logs depth  10000 (500 blk, Milady Transfer): HTTP 200 ok 1 676B 0.2s
+  logs depth  20000 (500 blk, Milady Transfer): HTTP 200 ok 3 1956B 0.3s
+  logs depth  40000 (500 blk, Milady Transfer): HTTP 200 ok 5 3239B 0.3s
+  logs depth  52000 (500 blk, Milady Transfer): HTTP 200 ok 0 36B 0.3s
+  logs depth  60000 (500 blk, Milady Transfer): HTTP 200 ok 0 36B 0.3s
+  logs depth  70000 (500 blk, Milady Transfer): HTTP 200 ok 2 1317B 0.3s
+  logs depth 100000 (500 blk, Milady Transfer): HTTP 200 ok 0 36B 0.3s
+  logs depth 130000 (500 blk, Milady Transfer): HTTP 200 ok 1 675B 0.3s
+  logs 10,000-block range at depth 60,000: HTTP 200 ok 44 28226B 0.5s
+  receipt depth   1000: HTTP 200 ok 1666B ; tx by hash ok
+  receipt depth  30000: HTTP 200 ok 1664B ; tx by hash ok
+  receipt depth  52000: HTTP 200 ok 1664B ; tx by hash ok
+  receipt depth  60000: HTTP 200 ok 1030B ; tx by hash ok
+  receipt depth  70000: HTTP 200 ok 1665B ; tx by hash ok
+  USDT Transfer 1,000 blocks: HTTP 200 ERR {"code": -32005, "message": "query returned more than 10000 results. Try with this block range [0x18DDA4A, 0x18DDA9A].", "data": {"from": "0x18DDA4A", "limit":  209B 3.9s
+  Seaport OrderFulfilled 250 blocks: HTTP 200 ok 407 821384B 0.4s
+  Seaport OrderFulfilled 500 blocks: HTTP 200 ok 862 1711537B 0.6s
+
+## https://gateway.tenderly.co/public/mainnet head=26075675 finalized=26075590
+  logs depth   1000 (500 blk, Milady Transfer): HTTP 200 ok 0 36B 0.2s
+  logs depth  10000 (500 blk, Milady Transfer): HTTP 200 ok 1 676B 0.2s
+  logs depth  20000 (500 blk, Milady Transfer): HTTP 200 ok 3 1956B 0.3s
+  logs depth  40000 (500 blk, Milady Transfer): HTTP 200 ok 5 3239B 0.2s
+  logs depth  52000 (500 blk, Milady Transfer): HTTP 200 ok 0 36B 0.3s
+  logs depth  60000 (500 blk, Milady Transfer): HTTP 200 ok 0 36B 0.3s
+  logs depth  70000 (500 blk, Milady Transfer): HTTP 200 ok 2 1317B 0.2s
+  logs depth 100000 (500 blk, Milady Transfer): HTTP 200 ok 0 36B 0.2s
+  logs depth 130000 (500 blk, Milady Transfer): HTTP 200 ok 1 675B 0.2s
+  logs 10,000-block range at depth 60,000: HTTP 200 ok 44 28226B 0.3s
+  receipt depth   1000: HTTP 200 ok 1685B ; tx by hash ok
+  receipt depth  30000: HTTP 200 ok 8371B ; tx by hash ok
+  receipt depth  52000: HTTP 200 ok 1050B ; tx by hash ok
+  receipt depth  60000: HTTP 200 ok 1685B ; tx by hash ok
+  receipt depth  70000: HTTP 200 ok 1684B ; tx by hash ok
+  USDT Transfer 1,000 blocks: HTTP 200 ERR {"code": -32602, "message": "invalid params", "data": "Query returned more than 20000 results. Try with this block range [0x18dda4b, 0x18ddaf9]."} 174B 0.4s
+  Seaport OrderFulfilled 250 blocks: HTTP 200 ok 407 821384B 0.6s
+  Seaport OrderFulfilled 500 blocks: HTTP 200 ok 862 1711537B 0.7s
+  13-burst rpc.mevblocker.io eth_getLogs 500 blk @52k: HTTP [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200] ok=13/13 distinct bodies=1
+  13-burst rpc.mevblocker.io eth_getTransactionReceipt @52k: HTTP [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200] ok=13/13 distinct bodies=1
+  13-burst gateway.tenderly.co eth_getLogs 500 blk @52k: HTTP [200, 200, 200, 200, 200, 200, 200, 200, 429, 200, 200, 200, 429] ok=11/13 distinct bodies=2
+  13-burst gateway.tenderly.co eth_getTransactionReceipt @52k: HTTP [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200] ok=13/13 distinct bodies=1

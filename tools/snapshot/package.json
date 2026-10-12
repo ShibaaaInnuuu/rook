@@ -1,0 +1,13 @@
+{
+  "name": "etch-snapshot",
+  "private": true,
+  "type": "module",
+  "description": "Rebuilds a holder snapshot from public Transfer logs and the Merkle root the Distributor verifies. Read-only.",
+  "scripts": {
+    "snapshot": "tsx src/cli.ts",
+    "fixtures": "tsx src/fixtures.ts",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": { "viem": "^2.21.0" },
+  "devDependencies": { "tsx": "^4.19.0", "typescript": "^5.6.0", "@types/node": "^22.0.0" }
+}

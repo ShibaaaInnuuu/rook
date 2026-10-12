@@ -1,0 +1,11 @@
+{
+ "collections": [
+  "milady"
+ ],
+ "endpoints": [
+  "/v1/v8",
+  "/v1/v8/reserves/:slug",
+  "/v1/v8/draws/:slug",
+  "/v1/v8/snapshots/:slug"
+ ]
+}

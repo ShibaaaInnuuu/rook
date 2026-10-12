@@ -1,0 +1,200 @@
+
+> test
+> node --experimental-sqlite --no-warnings --import tsx --test test/*.test.ts
+
+TAP version 13
+# Subtest: R2-O1 (R2-L4 fixed): a module frozen by confidence-0 re-posts (E-02a) is RED on the reserves page: the stale rule reads lastGoodAt
+ok 1 - R2-O1 (R2-L4 fixed): a module frozen by confidence-0 re-posts (E-02a) is RED on the reserves page: the stale rule reads lastGoodAt
+  ---
+  duration_ms: 1.594541
+  type: 'test'
+  ...
+# Subtest: R2-O2 (R2-L5 fixed): with every 4663 read failing, the run is blind and the 'cannot read' page fires at once
+ok 2 - R2-O2 (R2-L5 fixed): with every 4663 read failing, the run is blind and the 'cannot read' page fires at once
+  ---
+  duration_ms: 28.083041
+  type: 'test'
+  ...
+# Subtest: OPERATOR_IDENTITY_PEM is read in src/identity.ts and nowhere else; that file prints nothing and exports no key
+ok 3 - OPERATOR_IDENTITY_PEM is read in src/identity.ts and nowhere else; that file prints nothing and exports no key
+  ---
+  duration_ms: 3.844458
+  type: 'test'
+  ...
+# Subtest: the reconciler holds no identity: reconcile.ts and what it imports never touch src/identity.ts, and it calls one query
+ok 4 - the reconciler holds no identity: reconcile.ts and what it imports never touch src/identity.ts, and it calls one query
+  ---
+  duration_ms: 1.820875
+  type: 'test'
+  ...
+# Subtest: the runner calls tick and paused; the offer tool calls frog_offer only after the dry run's return, and only with --send
+ok 5 - the runner calls tick and paused; the offer tool calls frog_offer only after the dry run's return, and only with --send
+  ---
+  duration_ms: 1.233166
+  type: 'test'
+  ...
+# Subtest: the images arm nothing: no key, identity or token in a Dockerfile or a railway.json; the reconciler's image is built without the identity file's secret
+ok 6 - the images arm nothing: no key, identity or token in a Dockerfile or a railway.json; the reconciler's image is built without the identity file's secret
+  ---
+  duration_ms: 1.508334
+  type: 'test'
+  ...
+# Subtest: the judge passes a good offer: spend = our input − our change, fee within its bound, the frog lands in the custody output
+ok 7 - the judge passes a good offer: spend = our input − our change, fee within its bound, the frog lands in the custody output
+  ---
+  duration_ms: 8.94825
+  type: 'test'
+  ...
+# Subtest: the judge refuses every way frogbuy::judge refuses, by the same names
+ok 8 - the judge refuses every way frogbuy::judge refuses, by the same names
+  ---
+  duration_ms: 13.478875
+  type: 'test'
+  ...
+# Subtest: the arithmetic is the canister's: wei_for_sats rounds up with the 2% allowance; sats_for_wei is its inverse, stepped down to fit
+ok 9 - the arithmetic is the canister's: wei_for_sats rounds up with the 2% allowance; sats_for_wei is its inverse, stepped down to fit
+  ---
+  duration_ms: 0.242458
+  type: 'test'
+  ...
+# Subtest: membership: leafOf is keccak(keccak(id)); the proof is OpenZeppelin's sorted-pair fold; a wrong id proves nothing
+ok 10 - membership: leafOf is keccak(keccak(id)); the proof is OpenZeppelin's sorted-pair fold; a wrong id proves nothing
+  ---
+  duration_ms: 30.244708
+  type: 'test'
+  ...
+# Subtest: prepare: every check in the canister's order; the report names what it would sign, with the key-path sighash, and the frog_offer arguments
+ok 11 - prepare: every check in the canister's order; the report names what it would sign, with the key-path sighash, and the frog_offer arguments
+  ---
+  duration_ms: 6.599416
+  type: 'test'
+  ...
+# Subtest: prepare refuses before the PSBT on the facts: a bad proof, unagreed location, extra contents, a spent output, one explorer, a value mismatch; after it on the cap and limits
+ok 12 - prepare refuses before the PSBT on the facts: a bad proof, unagreed location, extra contents, a spent output, one explorer, a value mismatch; after it on the cap and limits
+  ---
+  duration_ms: 10.395458
+  type: 'test'
+  ...
+# Subtest: the venue's answer: hex or base64 PSBT bytes; UniSat's create_bid shape (unverified) or nothing; the frog's cap from frog_buys()
+ok 13 - the venue's answer: hex or base64 PSBT bytes; UniSat's create_bid shape (unverified) or nothing; the frog's cap from frog_buys()
+  ---
+  duration_ms: 1.099792
+  type: 'test'
+  ...
+# Subtest: E-14 (R2 residual): a rehearsal floor above MAX_PURCHASE_WEI (the fork test's 0.6 ETH) is refused at the policy's limit even when the frog's cap allows it
+ok 14 - E-14 (R2 residual): a rehearsal floor above MAX_PURCHASE_WEI (the fork test's 0.6 ETH) is refused at the policy's limit even when the frog's cap allows it
+  ---
+  duration_ms: 3.026416
+  type: 'test'
+  ...
+# Subtest: the stage custody_caps() implies (G7): exact, 'at most', above 3; against the stack's stage: above is red, below a note, unread unverified
+ok 15 - the stage custody_caps() implies (G7): exact, 'at most', above 3; against the stack's stage: above is red, below a note, unread unverified
+  ---
+  duration_ms: 1.363208
+  type: 'test'
+  ...
+# Subtest: combined: the worst of the collections and the caps; served after RECONCILE_STALE_S (3 h) it is RED, whatever it said
+ok 16 - combined: the worst of the collections and the caps; served after RECONCILE_STALE_S (3 h) it is RED, whatever it said
+  ---
+  duration_ms: 1.07725
+  type: 'test'
+  ...
+# Subtest: alerts: on turning red, on a change of reasons, every 6 h while red, once on recovery; unverified alone is not alerted
+ok 17 - alerts: on turning red, on a change of reasons, every 6 h while red, once on recovery; unverified alone is not alerted
+  ---
+  duration_ms: 0.583458
+  type: 'test'
+  ...
+# Subtest: a run: read, combine, persist, alert; a restart serves the real age (red after 3 h), and the watchdog alerts it
+ok 18 - a run: read, combine, persist, alert; a restart serves the real age (red after 3 h), and the watchdog alerts it
+  ---
+  duration_ms: 55.169917
+  type: 'test'
+  ...
+# Subtest: the Telegram token (monitor/src/alerts.mjs's channel): in one URL only; never in a log line, even when the failing fetch's error carries the URL
+ok 19 - the Telegram token (monitor/src/alerts.mjs's channel): in one URL only; never in a log line, even when the failing fetch's error carries the URL
+  ---
+  duration_ms: 0.727083
+  type: 'test'
+  ...
+# Subtest: the identity: a dfx secp256k1 PEM and an Ed25519 PKCS\#8 PEM load; unset is null; anything else is refused without repeating it
+ok 20 - the identity: a dfx secp256k1 PEM and an Ed25519 PKCS\#8 PEM load; unset is null; anything else is refused without repeating it
+  ---
+  duration_ms: 65.286667
+  type: 'test'
+  ...
+# Subtest: the runner's configuration: a canister id, https (or a local replica), a cadence of at least a minute
+ok 21 - the runner's configuration: a canister id, https (or a local replica), a cadence of at least a minute
+  ---
+  duration_ms: 1.201625
+  type: 'test'
+  ...
+# Subtest: ticks: lines logged one by one; Err and a rejected call are failures that turn health red after three; calls never overlap
+ok 22 - ticks: lines logged one by one; Err and a rejected call are failures that turn health red after three; calls never overlap
+  ---
+  duration_ms: 1.896166
+  type: 'test'
+  ...
+# Subtest: the principal is what is printed: no log line and no status carries the PEM
+ok 23 - the principal is what is printed: no log line and no status carries the PEM
+  ---
+  duration_ms: 1.524708
+  type: 'test'
+  ...
+# Subtest: E-05: green when the module holds its books, backs its units and is fresh; red when it does not
+ok 24 - E-05: green when the module holds its books, backs its units and is fresh; red when it does not
+  ---
+  duration_ms: 3.587625
+  type: 'test'
+  ...
+# Subtest: E-05: readBacking reads every book, the balance and the units at ONE block
+ok 25 - E-05: readBacking reads every book, the balance and the units at ONE block
+  ---
+  duration_ms: 8.765
+  type: 'test'
+  ...
+# Subtest: E-13: an inscription is in custody only when ord AND Ordinals Wallet agree; one provider alone can make it neither green nor red
+ok 26 - E-13: an inscription is in custody only when ord AND Ordinals Wallet agree; one provider alone can make it neither green nor red
+  ---
+  duration_ms: 4.038708
+  type: 'test'
+  ...
+# Subtest: E-08a regression: a reconciler that reads nothing pages at once ('cannot read'), and again every 6 h — not a silent week
+ok 27 - E-08a regression: a reconciler that reads nothing pages at once ('cannot read'), and again every 6 h — not a silent week
+  ---
+  duration_ms: 1111.239833
+  type: 'test'
+  ...
+# Subtest: E-08a: a partial unverified (one provider's bad hour) is quiet for 6 h, then paged; recovery is said once
+ok 28 - E-08a: a partial unverified (one provider's bad hour) is quiet for 6 h, then paged; recovery is said once
+  ---
+  duration_ms: 57.433583
+  type: 'test'
+  ...
+# Subtest: E-08b regression: no Telegram token (or chat) is a startup refusal of the reconciler, never a red 'sent' to the log
+ok 29 - E-08b regression: no Telegram token (or chat) is a startup refusal of the reconciler, never a red 'sent' to the log
+  ---
+  duration_ms: 0.406334
+  type: 'test'
+  ...
+# Subtest: a hung run is abandoned, and the watchdog (its own timer) still turns the report red and alerts it
+ok 30 - a hung run is abandoned, and the watchdog (its own timer) still turns the report red and alerts it
+  ---
+  duration_ms: 32.748125
+  type: 'test'
+  ...
+# Subtest: --test-alert goes through the reconciler's OWN channel: a red, an unverified and a recovery, each marked TEST
+ok 31 - --test-alert goes through the reconciler's OWN channel: a red, an unverified and a recovery, each marked TEST
+  ---
+  duration_ms: 0.727834
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2536.636708

@@ -1,0 +1,33 @@
+{
+  "slug": "bitcoin-weirdos",
+  "taken_at": "2026-10-10T07:24:48.449Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 10000,
+  "root": "0xd2a7b78cdb8a5928f63130dc9f05e754d4ea96963c3533d7eb429c75d008d76c",
+  "proof_depth": 14,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/bitcoin-weirdos/inscriptions",
+      "count": 10000,
+      "unique": 10000,
+      "left_out": []
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/ee5022303dbdb2e30c3da28392f40893c318d35c0f05dba4ed62743ec26123b6i0",
+      "count": 10000,
+      "unique": 10000,
+      "left_out": []
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/bitcoin-weirdos.json",
+      "count": 10000,
+      "not_in_members": [],
+      "members_missing": []
+    }
+  ]
+}

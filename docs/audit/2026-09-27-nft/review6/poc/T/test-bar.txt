@@ -1,0 +1,30 @@
+Review round 6, the test bar at e04fa16 (branch nft-side), run 2026-09-28 in the worktree (no tracked file changed; logs were kept
+under /tmp/rook-r6-T and removed afterwards).
+
+forge test --no-match-path "test/fork/*"          1115 passed, 0 failed (126 suites)             = fixes-round5 §11
+Seaport fork proof (anvil --fork-url eth.drpc.org
+  --fork-block-number 26055690, port 18642)       2/2 passed                                     = §11
+canister cargo test (cargo 1.98.1)                683 passed, 0 failed                           = §11
+timelock cargo test / --features rehearsal        15 / 15 passed                                 = §11
+ops                                               58 passed; typecheck clean                     = §11
+monitor                                           203 passed                                     = §11
+keeper                                            150 passed; typecheck clean                    = §11
+indexer                                           135 passed; typecheck clean                    = §11
+web-rook                                          72 passed; typecheck clean                     = §11
+staging                                           29 passed; typecheck clean                     = §11
+tools/snapshot                                    19 passed; tsc --noEmit clean                  = §11
+
+scripts/golive-dryrun.sh stack (STACK_PORT=18651 DRYRUN_PORT=18604): DRY RUN: ALL PASS
+  146 checks ok (v3-v6 stack); 536 (five-collection NFT stack); 662 (the launch go/no-go read on the COMMITTED
+  deployments/launch/nft-pilot.json: step 1's 48 items at 12 / 24, the staged plan, A5-I-1's six outflow limits, the exit rule);
+  51 "ok   refused" lines, among them J7's 61 at 24 a day, a both-at-once and a caps-first --proposal, a --proposal without its
+  step; --stage 2 and --proposal steps 2 and 3 pass.                                             = §11
+
+Reproducible build: git archive of e04fa16's autobuyer/, docker build --no-cache --platform linux/amd64 -f Dockerfile.build
+3218bff1274c9655aefec2ceac3685b1e97aab4e8e4560957e1b49b065b8d99e  buyer.wasm  (7,022,016 bytes; gzip -9 -n 1,334,124 < 2,000,000)
+b23a190365d4c5b2bfc41bd9e9caf147bf2eba50ba3b3d477e2be372840edc41  timelock.wasm
+2145099ea00214e8b521d456f6fc48145c7139f1ecd0c5643393c09c688e62f4  timelock-rehearsal.wasm
+All three identical to fixes-round5 §11.
+
+Removed afterwards: the build image, the export, the extracted wasm, the fork anvil, the dry run's anvils (it stops its own; no
+stray deployment files left). Docker's shared build cache was left alone.

@@ -1,0 +1,108 @@
+{
+  "checks": [
+    {
+      "detail": "rounded head 26154408",
+      "name": "rpc.mevblocker.io: head (eth_blockNumber via head_bucket): replicated outcall reached consensus",
+      "pass": true
+    },
+    {
+      "detail": "block Some(26154400) hash 0x143ddcb90f288fd516383cc203f211e51f6448d78ea2ae658c3382db810a4c11",
+      "name": "rpc.mevblocker.io: the buyer's pin read (eth_getBlockByNumber(pin, false) via nft_block_at, cap 128000 bytes as nftnet::pin_on)",
+      "pass": true
+    },
+    {
+      "detail": "hash 0xda4c2b0a15d889c5b6dbcb29d21ffd6b99255cea2cdf426da26e8cbe9843b909",
+      "name": "rpc.mevblocker.io: block 26012500 (eth_getBlockByNumber via nft_block_at): consensus, and the measured hash",
+      "pass": true
+    },
+    {
+      "detail": "7 moves, 0x17133e8bbc4d8f1fbdf25e1698229bbe9f732d085069b82dd03cd75cdd55c093 among them",
+      "name": "rpc.mevblocker.io: Milady Transfer logs 26012410..26012909 (eth_getLogs via eth_transfer_logs): consensus, and all 10 logs' 7 moves",
+      "pass": true
+    },
+    {
+      "detail": "block 26012500, status 0x1, 1 Milady Transfer log(s)",
+      "name": "rpc.mevblocker.io: receipt 0x17133e8bbc4d8f1fbdf25e1698229bbe9f732d085069b82dd03cd75cdd55c093 (eth_getTransactionReceipt via eth_receipt_logs): consensus, block 26012500, status 1, a Milady Transfer",
+      "pass": true
+    },
+    {
+      "detail": "rounded head 26154408",
+      "name": "gateway.tenderly.co: head (eth_blockNumber via head_bucket): replicated outcall reached consensus",
+      "pass": true
+    },
+    {
+      "detail": "block Some(26154400) hash 0x143ddcb90f288fd516383cc203f211e51f6448d78ea2ae658c3382db810a4c11",
+      "name": "gateway.tenderly.co: the buyer's pin read (eth_getBlockByNumber(pin, false) via nft_block_at, cap 128000 bytes as nftnet::pin_on)",
+      "pass": true
+    },
+    {
+      "detail": "hash 0xda4c2b0a15d889c5b6dbcb29d21ffd6b99255cea2cdf426da26e8cbe9843b909",
+      "name": "gateway.tenderly.co: block 26012500 (eth_getBlockByNumber via nft_block_at): consensus, and the measured hash",
+      "pass": true
+    },
+    {
+      "detail": "7 moves, 0x17133e8bbc4d8f1fbdf25e1698229bbe9f732d085069b82dd03cd75cdd55c093 among them",
+      "name": "gateway.tenderly.co: Milady Transfer logs 26012410..26012909 (eth_getLogs via eth_transfer_logs): consensus, and all 10 logs' 7 moves",
+      "pass": true
+    },
+    {
+      "detail": "block 26012500, status 0x1, 1 Milady Transfer log(s)",
+      "name": "gateway.tenderly.co: receipt 0x17133e8bbc4d8f1fbdf25e1698229bbe9f732d085069b82dd03cd75cdd55c093 (eth_getTransactionReceipt via eth_receipt_logs): consensus, block 26012500, status 1, a Milady Transfer",
+      "pass": true
+    },
+    {
+      "detail": "pin block: 162 identical bytes on 2 providers",
+      "name": "the pair agrees on the pinned block (chains::agree_block_ts)",
+      "pass": true
+    },
+    {
+      "detail": "block: 163 identical bytes on 2 providers",
+      "name": "the pair agrees on the block (nftnet::one)",
+      "pass": true
+    },
+    {
+      "detail": "logs: 1559 identical bytes on 2 providers",
+      "name": "the pair agrees on the logs (nftnet::one)",
+      "pass": true
+    },
+    {
+      "detail": "receipt: 1061 identical bytes on 2 providers",
+      "name": "the pair agrees on the receipt (nftnet::one)",
+      "pass": true
+    },
+    {
+      "detail": "pin 26154400 from rounded heads [26154408, 26154408]",
+      "name": "the pair's heads pin (pin::choose_pin, within one bucket)",
+      "pass": true
+    },
+    {
+      "detail": "its outcall came back (whatever the answer): the IC reaches it",
+      "name": "gateway.tenderly.co (IPv4 only) is reachable from this subnet",
+      "pass": true
+    }
+  ],
+  "cycles_after": "948_985_968_442",
+  "cycles_before": "955_720_204_000",
+  "pass": true,
+  "pin": [
+    "26154400"
+  ],
+  "providers": [
+    {
+      "block": "{\"result\":{\"baseFeePerGas\":\"0x1a8633a8\",\"hash\":\"0xda4c2b0a15d889c5b6dbcb29d21ffd6b99255cea2cdf426da26e8cbe9843b909\",\"number\":\"0x18ceb54\",\"timestamp\":\"0x6aaeac1b\"}}",
+      "head": "{\"result\":\"0x18f15a8\"}",
+      "logs": "{\"result\":[[\"0x17133e8bbc4d8f1fbdf25e1698229bbe9f732d085069b82dd03cd75cdd55c093\",\"0x18ceb54\",\"0x0000000000000000000000000000000000000000000000000000000000000545\",\"0x000000000000000000000000958c41181182e76f221331b2755b77d9e1426a98\"],[\"0x78c810ec3d3d79e5d9179e236a9093edbc8a3d267af0fca1097e6bd702d91d08\",\"0x18ceb5a\",\"0x0000000000000000000000000000000000000000000000000000000000000545\",\"0x000000000000000000000000053e6294400a9268e35df445624f58087c7f388f\"],[\"0x5ed4da5b14e170d1856456daaf309a9c5b6133b7c56abc218029f5b1b392f8e0\",\"0x18cec52\",\"0x00000000000000000000000000000000000000000000000000000000000009… (1559 bytes)",
+      "pin_block": "{\"result\":{\"baseFeePerGas\":\"0x83ad8b7\",\"hash\":\"0x143ddcb90f288fd516383cc203f211e51f6448d78ea2ae658c3382db810a4c11\",\"number\":\"0x18f15a0\",\"timestamp\":\"0x6ac8c8ab\"}}",
+      "receipt": "{\"result\":{\"blockNumber\":\"0x18ceb54\",\"logs\":[{\"address\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x\",\"topics\":[\"0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925\",\"0x000000000000000000000000958c41181182e76f221331b2755b77d9e1426a98\",\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"0x0000000000000000000000000000000000000000000000000000000000000545\"]},{\"address\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x\",\"topics\":[\"0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef\",\"0x000000000000000000000000958c41181182e76f221331b27… (1061 bytes)",
+      "url": "https://rpc.mevblocker.io"
+    },
+    {
+      "block": "{\"result\":{\"baseFeePerGas\":\"0x1a8633a8\",\"hash\":\"0xda4c2b0a15d889c5b6dbcb29d21ffd6b99255cea2cdf426da26e8cbe9843b909\",\"number\":\"0x18ceb54\",\"timestamp\":\"0x6aaeac1b\"}}",
+      "head": "{\"result\":\"0x18f15a8\"}",
+      "logs": "{\"result\":[[\"0x17133e8bbc4d8f1fbdf25e1698229bbe9f732d085069b82dd03cd75cdd55c093\",\"0x18ceb54\",\"0x0000000000000000000000000000000000000000000000000000000000000545\",\"0x000000000000000000000000958c41181182e76f221331b2755b77d9e1426a98\"],[\"0x78c810ec3d3d79e5d9179e236a9093edbc8a3d267af0fca1097e6bd702d91d08\",\"0x18ceb5a\",\"0x0000000000000000000000000000000000000000000000000000000000000545\",\"0x000000000000000000000000053e6294400a9268e35df445624f58087c7f388f\"],[\"0x5ed4da5b14e170d1856456daaf309a9c5b6133b7c56abc218029f5b1b392f8e0\",\"0x18cec52\",\"0x00000000000000000000000000000000000000000000000000000000000009… (1559 bytes)",
+      "pin_block": "{\"result\":{\"baseFeePerGas\":\"0x83ad8b7\",\"hash\":\"0x143ddcb90f288fd516383cc203f211e51f6448d78ea2ae658c3382db810a4c11\",\"number\":\"0x18f15a0\",\"timestamp\":\"0x6ac8c8ab\"}}",
+      "receipt": "{\"result\":{\"blockNumber\":\"0x18ceb54\",\"logs\":[{\"address\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x\",\"topics\":[\"0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925\",\"0x000000000000000000000000958c41181182e76f221331b2755b77d9e1426a98\",\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"0x0000000000000000000000000000000000000000000000000000000000000545\"]},{\"address\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x\",\"topics\":[\"0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef\",\"0x000000000000000000000000958c41181182e76f221331b27… (1061 bytes)",
+      "url": "https://gateway.tenderly.co/public/mainnet"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": 10,
+  "kind": "inscriptions",
+  "name": "Clay Pepes",
+  "ref": "clay-pepes",
+  "divisibility": 0,
+  "vault": "0x58b9EdBf3A247AF761043099D455e49D9181FaDf",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-clay-pepes",
+  "membershipRoot": "0xfa7c77469142e8345c160ed78700b05fd5096bf2fad03c827c35080159c2af9b",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "385915470953651514",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "385915470953651514",
+    "attributedWei": "385915470953651514",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "385915470953651514",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x9F9F008Db6cCd769ED30619a4d781345fB47afc1",
+      "symbol": "SHALSIM",
+      "depositedWei": "385915470953651514"
+    }
+  ]
+}

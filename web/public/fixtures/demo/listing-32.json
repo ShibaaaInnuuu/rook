@@ -1,0 +1,53 @@
+{
+  "id": 32,
+  "kind": "inscriptions",
+  "name": "Based Apes",
+  "ref": "based-apes",
+  "divisibility": 0,
+  "vault": "0xDeAa6DE3650f84A8e015A644E15905Df56aB21c5",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-based-apes",
+  "membershipRoot": "0xb8b94ba5b6387371cebeedbb19ac6b83a5e3c2a98276204331272a05f594963c",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "373113142591966396",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "373113142591966396",
+    "attributedWei": "373113142591966396",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "373113142591966396",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xEB2d5cEb8298Dd62f91E67e2D06De658d7cf9C60",
+      "symbol": "SLAT4SIM",
+      "depositedWei": "373113142591966396"
+    }
+  ]
+}

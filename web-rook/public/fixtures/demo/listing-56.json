@@ -1,0 +1,53 @@
+{
+  "id": 56,
+  "kind": "rune",
+  "name": "CYPHERPUNKS•WRITE•CODE",
+  "ref": "840182:1178",
+  "divisibility": 0,
+  "vault": "0x9bc25E65d3E7D9D56b20Bd15e30A516831724B38",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-cypherpunkswritecode",
+  "membershipRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "33119161743055051",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "33119161743055051",
+    "attributedWei": "33119161743055051",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "33119161743055051",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x78D28cFd0f8c73CB80BB9b0c224757A52459fB93",
+      "symbol": "GNEI4SIM",
+      "depositedWei": "33119161743055051"
+    }
+  ]
+}

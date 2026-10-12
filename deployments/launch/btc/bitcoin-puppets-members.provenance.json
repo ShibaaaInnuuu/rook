@@ -1,0 +1,33 @@
+{
+  "slug": "bitcoin-puppets",
+  "taken_at": "2026-10-10T06:51:17.602Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 10001,
+  "root": "0x1aa1697ee4990df1fe27e5bf39d95f2d2b644191eb0cfbf127acf3e92de25d47",
+  "proof_depth": 14,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/bitcoin-puppets/inscriptions",
+      "count": 10001,
+      "unique": 10001,
+      "left_out": []
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/4dc81b56650b6b02720527939dc6898d1a7acfe140d04e939690e7806ab06adfi0",
+      "count": 10001,
+      "unique": 10001,
+      "left_out": []
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/bitcoin-puppets.json",
+      "count": 10001,
+      "not_in_members": [],
+      "members_missing": []
+    }
+  ]
+}

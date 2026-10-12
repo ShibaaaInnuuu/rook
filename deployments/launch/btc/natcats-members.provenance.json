@@ -1,0 +1,45 @@
+{
+  "slug": "dmtnatcats",
+  "taken_at": "2026-10-10T06:52:12.147Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 8060,
+  "root": "0xe5a905f780d8dce46f9be8eac8337752a79a44dc8e8bf090943ee36fe0b925a3",
+  "proof_depth": 13,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/dmtnatcats/inscriptions",
+      "count": 8060,
+      "unique": 8060,
+      "left_out": []
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/dca25d6db19808e02adbbbbf36693f102dc7a68ea3888500cca7b97b8ffd3428i0",
+      "count": 8064,
+      "unique": 8064,
+      "left_out": [
+        "56b7eac6cb01974e9b1aff8b4b458048f2d5dda30022dd2a8442cb9ad2cd27cfi0",
+        "39fd76b6a790d748fea67c3eb017eb7ab9b891ff2b510580fb1e42bd2314f091i0",
+        "c24fba0eb9f234493deb800a2291542789acd9de22a847334e2fb99ec1a8a93bi0",
+        "a700204a458cac5b9c9ee3f47e3e3f73b39ee55d65c48edab219d4c41fb4d3cdi0"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/dmtnatcats.json",
+      "count": 8063,
+      "not_in_members": [
+        "56b7eac6cb01974e9b1aff8b4b458048f2d5dda30022dd2a8442cb9ad2cd27cfi0",
+        "39fd76b6a790d748fea67c3eb017eb7ab9b891ff2b510580fb1e42bd2314f091i0",
+        "c24fba0eb9f234493deb800a2291542789acd9de22a847334e2fb99ec1a8a93bi0",
+        "a700204a458cac5b9c9ee3f47e3e3f73b39ee55d65c48edab219d4c41fb4d3cdi0"
+      ],
+      "members_missing": [
+        "05f333685f1266dabd1d53b7ecda8fc725c5337443364bb56c539affbfdefd3bi0"
+      ]
+    }
+  ]
+}

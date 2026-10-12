@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: F3-1 (what holds): the canister-encoded state through plain(): blobs are hex text and every check compares them
+ok 1 - F3-1 (what holds): the canister-encoded state through plain(): blobs are hex text and every check compares them
+  ---
+  duration_ms: 25.574833
+  type: 'test'
+  ...
+# Subtest: D4-L-1 (weakness): a delivery that mined but is still Sent in the canister (its next tick up to RUNNER_TICK_EVERY_S = 600 s away), NFT already sold on: SEV1
+ok 2 - D4-L-1 (weakness): a delivery that mined but is still Sent in the canister (its next tick up to RUNNER_TICK_EVERY_S = 600 s away), NFT already sold on: SEV1
+  ---
+  duration_ms: 5.9515
+  type: 'test'
+  ...
+# Subtest: D4-L-2 (weakness): the incremental deposit scan skips blocks its provider answered short once; an unclaimed deposit there never pages
+ok 3 - D4-L-2 (weakness): the incremental deposit scan skips blocks its provider answered short once; an unclaimed deposit there never pages
+  ---
+  duration_ms: 8.915292
+  type: 'test'
+  ...
+# Subtest: D4-I-1 (note): the exemption reads the ticket's item and destination, not its stage: a REFUNDED ticket's stale Moved delivery exempts its item
+ok 4 - D4-I-1 (note): the exemption reads the ticket's item and destination, not its stage: a REFUNDED ticket's stale Moved delivery exempts its item
+  ---
+  duration_ms: 6.017
+  type: 'test'
+  ...
+# Subtest: D4-I-2 (note): an alert's first line is kept unredacted in state.log and served on /status; a cut secret is not recognised
+ok 5 - D4-I-2 (note): an alert's first line is kept unredacted in state.log and served on /status; a cut secret is not recognised
+  ---
+  duration_ms: 0.536084
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 402.554292

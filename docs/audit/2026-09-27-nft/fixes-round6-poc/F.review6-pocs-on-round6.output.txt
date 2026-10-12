@@ -1,0 +1,9 @@
+test r6_f6_i1_a_two_step_chain_move_keeps_the_old_chains_ethereum_floors ... ok
+test r6_f6_i3_a_refused_mint_estimate_admits_every_waiting_deposit_of_the_collection_into_custody ...   | eth floor 0x5af0d9827e0c53e4799bb226655a1de152a425a5: 930000000000000000 wei (listing 930000000000000000, counted sales' median 910000000000000000 and p25 891990000000000000, confidence 10000, 3 listings, 5 sales counted; 0 transaction(s) and blocks 26018400..26048801 still to read)
+custody book entries: ["1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:0000000000000000000000000000000000000000000000000000000000001418", "1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:0000000000000000000000000000000000000000000000000000000000001419", "1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:000000000000000000000000000000000000000000000000000000000000141a", "1:0x5af0d9827e0c53e4799bb226655a1de15
+test r6_f6_l1_at_the_runners_cadence_the_identification_is_out_of_the_providers_state_depth ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+HomeTx.pin 70166016; the first resolving tick's pin 70172616 (6600 blocks on)
+test r6_f6_l1_control_at_a_60_s_cadence_or_on_an_archive_provider_it_is_identified ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+test r6_f6_l2_one_provider_that_disagrees_on_the_receipt_halts_the_home_line_with_no_exit_and_no_unseen_page ...   | eth buy 0: wanted for 0x5af0d9827e0c53e4799bb226655a1de152a425a5 (the module wants 1 item(s)): the advance is next
+thread 'r6_f6_l2_one_provider_that_disagrees_on_the_receipt_halts_the_home_line_with_no_exit_and_no_unseen_page' (63454063) panicked at tests/r6_f.rs:1069:5:
+test result: FAILED. 4 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s

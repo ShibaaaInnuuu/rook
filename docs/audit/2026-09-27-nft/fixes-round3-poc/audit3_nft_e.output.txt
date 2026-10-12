@@ -1,0 +1,49 @@
+# cargo test --test audit3_nft_e -- --nocapture --test-threads=1   (private copy of autobuyer/canister-rs from the worktree (branch nft-side, fix round 3 uncommitted), toolchain 1.98.1; tests/audit3_nft_e.rs = the current tests/audit_nft_r2.rs harness + the PoC's pin_back / fee_of + the PoC's tests, see audit3_nft_e.adaptations.diff)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.05s
+     Running tests/audit3_nft_e.rs (target/debug/deps/audit3_nft_e-2ef128ceb7c34d0f)
+
+running 5 tests
+test e3_l1_a_fill_that_reverts_restarts_the_arrived_hold_so_a_seller_can_hold_deposits_and_defer_the_way_back_indefinitely ...
+AUDIT3-E E3-L-1: after 5 days: 22 reverted fills; the deposit Minted (waited 17 ticks); the buy Arrived { wei 497981962449863321, since +416400 s }; never went back
+
+thread 'e3_l1_a_fill_that_reverts_restarts_the_arrived_hold_so_a_seller_can_hold_deposits_and_defer_the_way_back_indefinitely' (55175111) panicked at tests/audit3_nft_e.rs:734:5:
+assertion `left == right` failed: the holder's deposit is still unminted after 5 days
+  left: Minted
+ right: Mint
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test e3_l2_gas_drift_into_an_earmark_deadlocks_the_next_arrival_with_the_way_back ...
+
+thread 'e3_l2_gas_drift_into_an_earmark_deadlocks_the_next_arrival_with_the_way_back' (55175112) panicked at tests/audit3_nft_e.rs:765:5:
+Advancing
+FAILED
+test e3_l3_a_post_arrival_stuck_buy_is_open_for_ever_with_no_exit ...
+AUDIT3-E E3-L-3: after 3 days: Milady buys 1 (the Stuck one Stuck { why: "the fill mined but ownerOf is 0x0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e" }); module in transit true; eth_give_back: Ok("buy 0: closed as a loss: returnAdvance of 0 at the next tick ends its module's transit (the module books the loss)"); an upgrade dropping Milady: ["buy 0 of 0x5af0d9827e0c53e4799bb226655a1de152a425a5 is Stuck { why: \"the fill mined but ownerOf is 0x0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e\" }"]
+
+thread 'e3_l3_a_post_arrival_stuck_buy_is_open_for_ever_with_no_exit' (55175113) panicked at tests/audit3_nft_e.rs:841:5:
+no operator exit
+FAILED
+test e3_m1_a_pin_that_moves_back_reads_a_counted_fill_as_another_collections_arrival ...
+AUDIT3-E E3-M-1a: Azuki Bridging { order_id: [188, 233, 176, 202, 2, 95, 202, 53, 100, 157, 60, 96, 65, 23, 246, 66, 102, 120, 66, 1, 124, 101, 39, 252, 46, 207, 0, 46, 188, 46, 105, 226], value: 500000000000000000, min_out: 488475083200866055, deadline: 1791117628, since: 1790512833 }; our real Ethereum balance 12979000000000000; Milady's fill took 495464962449863321
+
+thread 'e3_m1_a_pin_that_moves_back_reads_a_counted_fill_as_another_collections_arrival' (55175114) panicked at tests/audit3_nft_e.rs:624:55:
+no phantom: Bridging { order_id: [188, 233, 176, 202, 2, 95, 202, 53, 100, 157, 60, 96, 65, 23, 246, 66, 102, 120, 66, 1, 124, 101, 39, 252, 46, 207, 0, 46, 188, 46, 105, 226], value: 500000000000000000, min_out: 488475083200866055, deadline: 1791117628, since: 1790512833 } ["eth buy 0: bought in block 26068925; finalized is 26068828: waiting for finality", "eth buy 1: waits: the Ethereum pin 26068920 is below block 26068928 (our last mined transaction, or where the watch was taken): no balance is read there (E3-M-1)", "eth line: waits: the Ethereum pin 26068920 is below the block 26068925 of our last mined transaction: waiting"]
+FAILED
+test e3_m1_a_watch_taken_at_a_pin_that_moved_back_never_sees_the_real_arrival_and_holds_the_relay_leg ...
+
+thread 'e3_m1_a_watch_taken_at_a_pin_that_moved_back_never_sees_the_real_arrival_and_holds_the_relay_leg' (55175115) panicked at tests/audit3_nft_e.rs:667:54:
+watched
+FAILED
+
+failures:
+
+failures:
+    e3_l1_a_fill_that_reverts_restarts_the_arrived_hold_so_a_seller_can_hold_deposits_and_defer_the_way_back_indefinitely
+    e3_l2_gas_drift_into_an_earmark_deadlocks_the_next_arrival_with_the_way_back
+    e3_l3_a_post_arrival_stuck_buy_is_open_for_ever_with_no_exit
+    e3_m1_a_pin_that_moves_back_reads_a_counted_fill_as_another_collections_arrival
+    e3_m1_a_watch_taken_at_a_pin_that_moved_back_never_sees_the_real_arrival_and_holds_the_relay_leg
+
+test result: FAILED. 0 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+error: test failed, to rerun pass `--test audit3_nft_e`

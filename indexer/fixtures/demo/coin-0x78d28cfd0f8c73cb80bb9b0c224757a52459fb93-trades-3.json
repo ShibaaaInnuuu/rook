@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "id": "69021072:1",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "446472600000000000",
+      "coinWei": "192047652091782532899215504",
+      "feeWei": "4464726000000000",
+      "taxWei": "0",
+      "price": 2.3015531259333364e-9,
+      "trader": "0x5889a956Be8F96BB40119c21F63FFCB474A955Ac",
+      "recipient": "0x5889a956Be8F96BB40119c21F63FFCB474A955Ac",
+      "tx": "0xdad08bb8db0ed08babf66b88613476ac70a1b3e57f42549393a56f553644bfa5",
+      "block": 69021072,
+      "logIndex": 1,
+      "at": 1790036624
+    },
+    {
+      "id": "69021006:1",
+      "side": "sell",
+      "venue": "curve",
+      "quoteWei": "7030956772837916",
+      "coinWei": "3846139311017935804865631",
+      "feeWei": "71019765382201",
+      "taxWei": "0",
+      "price": 1.8465208781895311e-9,
+      "trader": "0x49D3C89B11C7C1CE23b130a031eC6114B987dDE6",
+      "recipient": "0x49D3C89B11C7C1CE23b130a031eC6114B987dDE6",
+      "tx": "0x122a04082d96ef02adf480038b06267321030854b9e9ef8a63073e4e063ad565",
+      "block": 69021006,
+      "logIndex": 1,
+      "at": 1790036510
+    },
+    {
+      "id": "69020983:1",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "85705200000000000",
+      "coinWei": "48076741387724197560820399",
+      "feeWei": "857052000000000",
+      "taxWei": "0",
+      "price": 1.7648481480000001e-9,
+      "trader": "0x49D3C89B11C7C1CE23b130a031eC6114B987dDE6",
+      "recipient": "0x49D3C89B11C7C1CE23b130a031eC6114B987dDE6",
+      "tx": "0x2d2970ae4fe1b63868c2a9438a69d1318a48d22670299127297478f943edd126",
+      "block": 69020983,
+      "logIndex": 1,
+      "at": 1790036485
+    }
+  ],
+  "next": null,
+  "total": 78
+}

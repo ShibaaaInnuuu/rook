@@ -1,0 +1,58 @@
+{
+  "id": 4,
+  "kind": "inscriptions",
+  "name": "Sub 10K",
+  "ref": "sub-10k",
+  "divisibility": 0,
+  "vault": "0xd5510aD49D195a74C289a26A8D18Ae8d96F853Ab",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-sub-10k",
+  "membershipRoot": "0xa347eabb71fd896408f529e734e4ab3207d53fbe811bf863e92aeb66ac0c39c5",
+  "paused": false,
+  "coins": 2,
+  "depositedWei": "349393577120000000",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "349393577120000000",
+    "attributedWei": "349393577120000000",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "349393577120000000",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x766771ED0BE44a352e151271fFD6518d00917a68",
+      "symbol": "QUARSIM",
+      "depositedWei": "129500000000000000"
+    },
+    {
+      "address": "0x7a1a1440c2ED126027279776E86B67e5aa27afD8",
+      "symbol": "SLAT5SIM",
+      "depositedWei": "219893577120000000"
+    }
+  ]
+}

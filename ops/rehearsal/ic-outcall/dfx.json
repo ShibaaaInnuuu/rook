@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "canisters": {
+    "probe": {
+      "type": "custom",
+      "candid": "probe/probe.did",
+      "wasm": "probe/target/wasm32-unknown-unknown/release/rook_outcall_probe.wasm",
+      "build": "sh -c 'cd probe && PATH=\"$HOME/.cargo/bin:$PATH\" cargo +1.98.1 build --release --locked --target wasm32-unknown-unknown'"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4955",
+      "type": "ephemeral"
+    }
+  }
+}

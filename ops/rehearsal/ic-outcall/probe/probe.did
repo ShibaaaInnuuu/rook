@@ -1,0 +1,69 @@
+type Check = record { name : text; pass : bool; detail : text };
+// # HTTP Header.
+// 
+// Represents a HTTP header.
+// 
+// See [`HttpRequestArgs::headers`] and [`HttpRequestResult::headers`].
+type HttpHeader = record {
+  // Value of the header.
+  value : text;
+  // Name of the header.
+  name : text;
+};
+// # HTTP Request Result
+// 
+// Result type of [`http_request`](https://internetcomputer.org/docs/current/references/ic-interface-spec/#ic-http_request).
+type HttpRequestResult = record {
+  // The response status (e.g. 200, 404).
+  status : nat;
+  // The response’s body.
+  body : blob;
+  // List of HTTP response headers and their corresponding values.
+  headers : vec HttpHeader;
+};
+// What `probe` returns: the verdict, every check, and each provider's transformed answers (as text) for the record.
+type Report = record {
+  pin : opt nat64;
+  cycles_after : nat;
+  pass : bool;
+  providers : vec Trace;
+  checks : vec Check;
+  // the canister's cycles before and after the call, and so what the outcalls cost on this subnet
+  cycles_before : nat;
+};
+type Trace = record {
+  url : text;
+  receipt : text;
+  head : text;
+  logs : text;
+  pin_block : text;
+  block : text;
+};
+// # Transform Args.
+// 
+// ```text
+// record {
+// response : http_response;
+// context : blob;
+// }
+// ```
+// 
+// See [`TransformContext`].
+type TransformArgs = record {
+  // Context for response transformation
+  context : blob;
+  // Raw response from remote service, to be transformed
+  response : HttpRequestResult;
+};
+service : {
+  // `ethnet::eth_receipt_logs`.
+  eth_receipt_logs : (TransformArgs) -> (HttpRequestResult) query;
+  // `ethnet::eth_transfer_logs`.
+  eth_transfer_logs : (TransformArgs) -> (HttpRequestResult) query;
+  // `canister::head_bucket`.
+  head_bucket : (TransformArgs) -> (HttpRequestResult) query;
+  // `nftnet::nft_block_at`.
+  nft_block_at : (TransformArgs) -> (HttpRequestResult) query;
+  // The rehearsal: every read on every provider (default: the canister's pair), then the verdict. Controller only.
+  probe : (opt vec text) -> (Report);
+}

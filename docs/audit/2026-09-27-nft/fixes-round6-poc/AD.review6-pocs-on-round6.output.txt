@@ -1,0 +1,12 @@
+ok 1 - IDL: round-5 state decodes with the round-5 monitor IDL and with the round-4 (8ef82d6) monitor IDL; round-4/round-2 states with the round-5 IDL
+not ok 2 - D6-L-1 WEAKNESS: the eth-home-unseen page cannot tell a Relay deposit from a state-bearing step and always names eth_home_clear
+ok 3 - D6-L-2 WEAKNESS: a home line that never clears because a provider keeps showing it Pending / Unsure (used_since reset every tick) pages nothing, whatever its age
+not ok 4 - D6-L-3 WEAKNESS: a written-off order whose buy was closed as a loss holds every new Relay order (late_hold) with only a non-persistent SEV3 note
+not ok 5 - D6-I-2 WEAKNESS: the Stuck page says a CREDITED written-off order still holds the Relay leg (held ignores credited)
+not ok 6 - D6-I-3: a step-3 proposal that also adds a cap for another collection, or raises the global value cap, still pages EXPECTED (the step-3 read checks only the launch keys)
+not ok 7 - A6-L-1: step 3 plus a x4 raise of the Bitcoin wrapper's cap, and the global caps above the sum: EXPECTED (SEV2), golive-check --proposal passes
+not ok 8 - A6-L-1 (b): step 3 plus a new, unconfigured collection key: EXPECTED
+ok 9 - control: step 2 with the same extras is refused (kindProblem compares every key)
+ok 10 - A6-I-2: golive-check --proposal with --canister only passes a step-2 argument that also names a new operator and new 4663 providers (a note, not a FAIL); the monitor does page it SEV1
+# pass 4
+# fail 6

@@ -1,0 +1,39 @@
+
+> rook-web@0.1.0 build
+> node scripts/sync-content.mjs && tsc --noEmit -p . && vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 822 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/robots.txt                                                          0.06 kB │ gzip:   0.08 kB
+dist/sitemap.xml                                                         0.15 kB │ gzip:   0.14 kB
+dist/assets/hanken-grotesk-cyrillic-ext-wght-normal-D_UHSL_T.woff2       1.67 kB
+dist/index.html                                                          2.71 kB │ gzip:   1.01 kB
+dist/assets/hanken-grotesk-vietnamese-wght-normal-CHiFlh_0.woff2         9.32 kB
+dist/assets/ibm-plex-mono-latin-400-normal-CvHOgSBP.woff                13.14 kB
+dist/assets/ibm-plex-mono-latin-500-normal-CB9ihrfo.woff                13.16 kB
+dist/assets/bricolage-grotesque-vietnamese-wdth-normal-BKE08zty.woff2   13.52 kB
+dist/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2               14.71 kB
+dist/assets/ibm-plex-mono-latin-500-normal-DSY6xOcd.woff2               14.89 kB
+dist/assets/hanken-grotesk-latin-ext-wght-normal-Dg-wlmqe.woff2         19.59 kB
+dist/og.png                                                             19.64 kB
+dist/assets/bricolage-grotesque-latin-ext-wdth-normal-DoS1gVTC.woff2    31.87 kB
+dist/assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2             34.70 kB
+dist/assets/bricolage-grotesque-latin-wdth-normal-Dtb2a5nO.woff2        78.16 kB
+dist/assets/index-e6B-eUOW.css                                          39.74 kB │ gzip:   8.44 kB
+dist/assets/stack-CqlxZiBZ.js                                            0.11 kB │ gzip:   0.12 kB
+dist/assets/parseUnits-DY6349WT.js                                       0.13 kB │ gzip:   0.11 kB
+dist/assets/native-CJ5et6AR.js                                           0.32 kB │ gzip:   0.17 kB
+dist/assets/WalletIsland-Do5-K6U8.js                                     0.41 kB │ gzip:   0.29 kB
+dist/assets/Search-Bs82p9tr.js                                           1.67 kB │ gzip:   0.86 kB
+dist/assets/liveQuote-DxOm0TXp.js                                        3.40 kB │ gzip:   1.47 kB
+dist/assets/secp256k1-C3OvV6bS.js                                       27.42 kB │ gzip:  10.65 kB
+dist/assets/wallet-B3WGPNrN.js                                          41.98 kB │ gzip:  13.80 kB
+dist/assets/http-Ck9ShsxV.js                                           113.08 kB │ gzip:  33.88 kB
+dist/assets/index-DG_U82IT.js                                          218.58 kB │ gzip:  64.12 kB
+dist/assets/index-Dtwh_zXf.js                                          239.31 kB │ gzip:  76.72 kB
+dist/assets/AppPages-C3dgdiju.js                                       315.69 kB │ gzip:  96.73 kB
+dist/assets/StaticPages-DlQTnfR1.js                                    393.89 kB │ gzip: 143.67 kB
+✓ built in 1.60s

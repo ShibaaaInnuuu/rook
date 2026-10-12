@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "id": "69019455:1",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "84831600000000000",
+      "coinWei": "44162488840298357988245922",
+      "feeWei": "848316000000000",
+      "taxWei": "6362370000000000",
+      "price": 1.7576209139999999e-9,
+      "trader": "0x2218213A19EaC10cEF6bBF26c16051F4927c2E34",
+      "recipient": "0x2218213A19EaC10cEF6bBF26c16051F4927c2E34",
+      "tx": "0x0570799b6a50e771eb012d5190403956e30d5b447b5d59fd9165cee7f78ccf1b",
+      "block": 69019455,
+      "logIndex": 1,
+      "at": 1790034222
+    }
+  ],
+  "next": null,
+  "total": 76
+}

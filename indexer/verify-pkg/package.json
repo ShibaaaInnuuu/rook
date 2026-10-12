@@ -1,0 +1,11 @@
+{
+  "name": "@rook/verify",
+  "version": "0.1.0",
+  "description": "Rook's keyless verifier: the Ethereum side's proof of reserves and every redemption draw, recomputed from public providers and drand's relays with no Rook service (docs/v8/proof-of-reserves.md §4, docs/v8/redemption-draw.md §2.3). Built from indexer/src/v8 by indexer/scripts/bundle-verify.mjs; not published.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "bin": { "rook-verify": "rook-verify.mjs" },
+  "files": ["rook-verify.mjs"],
+  "engines": { "node": ">=20" }
+}

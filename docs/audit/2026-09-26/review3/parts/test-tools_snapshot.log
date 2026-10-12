@@ -1,0 +1,130 @@
+
+> test
+> tsx --test test/*.test.ts
+
+TAP version 13
+# \# compared 178 trees, up to 7 holders
+# Subtest: R2-T1: the monitor's tree equals tools/snapshot's on 300 random adversarial histories
+ok 1 - R2-T1: the monitor's tree equals tools/snapshot's on 300 random adversarial histories
+  ---
+  duration_ms: 45.228542
+  type: 'test'
+  ...
+# fixtures written
+# Subtest: balances: logs applied in (block, log index) order whatever order they arrive in; a missing log is an error, not a guess
+ok 2 - balances: logs applied in (block, log index) order whatever order they arrive in; a missing log is an error, not a guess
+  ---
+  duration_ms: 1.252291
+  type: 'test'
+  ...
+# Subtest: weighted: one ticket a whole coin, contiguous ranges in address order, exclusions out, dust holders dropped
+ok 3 - weighted: one ticket a whole coin, contiguous ranges in address order, exclusions out, dust holders dropped
+  ---
+  duration_ms: 2.800458
+  type: 'test'
+  ...
+# Subtest: per-wallet: one ticket each at or above the minimum; pro-rata: floors, zero shares dropped, the remainder named
+ok 4 - per-wallet: one ticket each at or above the minimum; pro-rata: floors, zero shares dropped, the remainder named
+  ---
+  duration_ms: 1.547042
+  type: 'test'
+  ...
+# Subtest: the tree: every proof verifies, a wrong leaf does not, one leaf is its own root, none is refused, odd layers hold
+ok 5 - the tree: every proof verifies, a wrong leaf does not, one leaf is its own root, none is refused, odd layers hold
+  ---
+  duration_ms: 11.550375
+  type: 'test'
+  ...
+# Subtest: deterministic, byte for byte: holder order in, run count and key order do not change the file
+ok 6 - deterministic, byte for byte: holder order in, run count and key order do not change the file
+  ---
+  duration_ms: 0.367167
+  type: 'test'
+  ...
+# Subtest: the committed fixtures are what this tool writes today
+ok 7 - the committed fixtures are what this tool writes today
+  ---
+  duration_ms: 10.682292
+  type: 'test'
+  ...
+# Subtest: structurally read-only: nothing in this package can sign or send
+ok 8 - structurally read-only: nothing in this package can sign or send
+  ---
+  duration_ms: 0.5905
+  type: 'test'
+  ...
+# Subtest: every etched-side exclusion is derived from the registry, deduplicated and sorted
+ok 9 - every etched-side exclusion is derived from the registry, deduplicated and sorted
+  ---
+  duration_ms: 1.273708
+  type: 'test'
+  ...
+# Subtest: the address is the last 20 bytes of the word, and a registry that is not an address is refused
+ok 10 - the address is the last 20 bytes of the word, and a registry that is not an address is refused
+  ---
+  duration_ms: 0.246
+  type: 'test'
+  ...
+# Subtest: a registry with no listings yet, and a token the launcher does not know, still give a usable list
+ok 11 - a registry with no listings yet, and a token the launcher does not know, still give a usable list
+  ---
+  duration_ms: 0.104209
+  type: 'test'
+  ...
+# Subtest: the derived list really removes the protocol's own balances from a snapshot
+ok 12 - the derived list really removes the protocol's own balances from a snapshot
+  ---
+  duration_ms: 2.257083
+  type: 'test'
+  ...
+# Subtest: with every eligible holder excluded there is no list to publish at all
+ok 13 - with every eligible holder excluded there is no list to publish at all
+  ---
+  duration_ms: 1.517875
+  type: 'test'
+  ...
+# Subtest: v2: the sentinel leaf (holder zero, [totalTickets, snapshotAt)) is in the tree with its proof; holders' proofs still verify
+ok 14 - v2: the sentinel leaf (holder zero, [totalTickets, snapshotAt)) is in the tree with its proof; holders' proofs still verify
+  ---
+  duration_ms: 7.105625
+  type: 'test'
+  ...
+# Subtest: v2, fixes-R3-carry: no eligible holder gives the sentinel alone (root = sentinelLeaf(0, T), proof []), what openDraw takes for an empty draw
+ok 15 - v2, fixes-R3-carry: no eligible holder gives the sentinel alone (root = sentinelLeaf(0, T), proof []), what openDraw takes for an empty draw
+  ---
+  duration_ms: 0.782542
+  type: 'test'
+  ...
+# Subtest: the snapshot block of a time is the LAST block stamped at or before it, with many blocks per second; refused while no later block exists
+ok 16 - the snapshot block of a time is the LAST block stamped at or before it, with many blocks per second; refused while no later block exists
+  ---
+  duration_ms: 0.217292
+  type: 'test'
+  ...
+# Subtest: E-11: a log range over the provider's 10,000-log cap is halved until it fits; any other failure throws (never a partial snapshot)
+ok 17 - E-11: a log range over the provider's 10,000-log cap is halved until it fits; any other failure throws (never a partial snapshot)
+  ---
+  duration_ms: 0.898834
+  type: 'test'
+  ...
+# Subtest: E-04: a JSON-RPC throttle answered in HTTP 200 (429 / -32005) is retried with backoff, not taken as the answer
+ok 18 - E-04: a JSON-RPC throttle answered in HTTP 200 (429 / -32005) is retried with backoff, not taken as the answer
+  ---
+  duration_ms: 0.276583
+  type: 'test'
+  ...
+# Subtest: E-14: the exclusions file fails closed (unreadable, not a list, a bad address); the stack's exclusions are the keeper's
+ok 19 - E-14: the exclusions file fails closed (unreadable, not a list, a bad address); the stack's exclusions are the keeper's
+  ---
+  duration_ms: 1.227666
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 728.300041

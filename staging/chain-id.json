@@ -1,0 +1,7 @@
+{
+  "chainId": 9466301,
+  "name": "etched staging",
+  "currency": { "name": "staging ETH", "symbol": "sETH", "decimals": 18 },
+  "never": [4663, 46630],
+  "why": "Our own number. 4663 is Robinhood Chain; 46630 is Robinhood's public testnet. Every package reads this file, or holds one constant that a test compares with it."
+}

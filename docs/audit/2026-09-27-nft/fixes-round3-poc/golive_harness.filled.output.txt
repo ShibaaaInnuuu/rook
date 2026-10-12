@@ -1,0 +1,35 @@
+# FILL_AS_ROUND3_DRYRUN=1 bash golive_harness.filled.sh <same copy>   (VARIANT, not the PoC's fill: the monitor template filled as round 3's scripts/golive-dryrun.sh fills it, every placeholder given a stand-in, so the control is clean and each case shows its own FAIL lines; golive_harness.filled-variant.diff)
+== control: the committed launch file and the filled template: no FAIL
+   (10 monitor ok lines)
+   (45 launch ok lines)
+== 1 PASSES (weakness): name/symbol/slug are never read by --launch (rotated here: nothing changes, so a rotated deploy is not caught either)
+FAIL milady wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Bored Ape', found 'Wrapped Milady'
+FAIL milady wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wBAYC', found 'wMIL'
+FAIL milady stack file's slug = the launch file's slug (A3-L-2): expected 'bayc', found 'milady'
+FAIL azuki wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Milady', found 'Wrapped Azuki'
+FAIL azuki wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wMIL', found 'wAZUKI'
+FAIL azuki stack file's slug = the launch file's slug (A3-L-2): expected 'milady', found 'azuki'
+FAIL mayc wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Azuki', found 'Wrapped Mutant Ape'
+FAIL mayc wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wAZUKI', found 'wMAYC'
+FAIL mayc stack file's slug = the launch file's slug (A3-L-2): expected 'azuki', found 'mayc'
+FAIL pudgypenguins wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Mutant Ape', found 'Wrapped Pudgy Penguin'
+FAIL pudgypenguins wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wMAYC', found 'wPPG'
+FAIL pudgypenguins stack file's slug = the launch file's slug (A3-L-2): expected 'mayc', found 'pudgypenguins'
+FAIL bayc wrapper.name() = the launch file's name (A3-L-2): expected 'Wrapped Pudgy Penguin', found 'Wrapped Bored Ape'
+FAIL bayc wrapper.symbol() = the launch file's symbol (A3-L-2): expected 'wPPG', found 'wBAYC'
+FAIL bayc stack file's slug = the launch file's slug (A3-L-2): expected 'pudgypenguins', found 'bayc'
+   (10 monitor ok lines)
+   (30 launch ok lines)
+== 2 PASSES (weakness): D8 references swapped between Milady and MAYC (floors 0.93 / 0.86 ETH: within D8's 20 %, silent)
+   (10 monitor ok lines)
+   (45 launch ok lines)
+== 3-5 PASSES (weakness): guardian not the registry's, <p1>/<runner host> placeholders, one Ethereum provider twice, evm.chain_id 1
+FAIL the monitor configuration /var/folders/qf/0b761bb15zxb199bq60jzp7m0000gn/T/tmp.vkzQcZuwIp/mon-other.json: eth_nft.eth_rpc names fewer than two Ethereum providers (counted by host: 1); evm.chain_id is 1, not 4663 (Robinhood Chain)
+FAIL the monitor's evm.guardian.address is registry.guardian() (A3-L-3): expected 0x1111111111111111111111111111111111111111, the chain says 0x000000000000000000000000000000000000dead
+   (10 monitor ok lines)
+   (45 launch ok lines)
+   placeholders left in the file that passed: <...> <the filled file> 
+== 6 control: no pause_on_no_good_post_h: FAILs
+FAIL the monitor configuration /var/folders/qf/0b761bb15zxb199bq60jzp7m0000gn/T/tmp.vkzQcZuwIp/mon-nopause.json: evm.guardian.pause_on_no_good_post_h is not armed (2 to 160 hours)
+   (10 monitor ok lines)
+   (45 launch ok lines)

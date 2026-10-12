@@ -1,0 +1,23 @@
+# node --test test/audit3_nft_d.diag.test.mjs   (DIAGNOSTIC, not the PoC: the PoC's D3-M-1 worlds with the wrapper answering ticket(3) -> item 0 to DEST, the read the round-3 monitor makes before it exempts a delivery; the file is audit3_nft_d.diag.test.mjs here)
+TAP version 13
+# DIAG D3-M-1 Sent, owner BUYER2 (resold): SEV1 eth-not-held = true
+# DIAG D3-M-1 Moved, owner BUYER2 (resold): SEV1 eth-not-held = false
+# DIAG D3-M-1 Record, owner BUYER2 (resold): SEV1 eth-not-held = false
+# DIAG D3-M-1 Recording, owner BUYER2 (resold): SEV1 eth-not-held = false
+# DIAG D3-M-1 (b) Cancelling, owner DEST: SEV1 eth-not-held = false
+# DIAG D3-M-1 (b) without ticket(): SEV1 = true; text: milady: token 9180 (held by the wrapper as item 0) is owned by 0x000000000000000000000000000000000000d00d on Ethereum, not the custodian 0x00000000000000000000000000000000000000c0 (both providers, block 25999998). An NFT left custody without a delivery of ours of this item: pause, then look. ticket 3 of the wrapper could not be read (unexpected https://home eth_call 0xc129ff32): not exempted
+# Subtest: DIAG D3-M-1 with ticket(uint256) answered
+ok 1 - DIAG D3-M-1 with ticket(uint256) answered
+  ---
+  duration_ms: 88.932041
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 388.542583

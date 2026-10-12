@@ -1,0 +1,10 @@
+# sendRawTransaction reply shapes 2026-09-28 11:36:24 UTC
+mined tx None block 26075694 raw bytes None
+https://rpc.mevblocker.io garbage 0x00: HTTP 200 b'{"jsonrpc": "2.0", "id": 1, "error": {"code": -32000, "message": "Request of eth_sendRawTransaction failed with: typed transaction has unknown type: 0"}}'
+https://rpc.mevblocker.io an already-mined transaction (nonce used): HTTP 200 b'{"jsonrpc": "2.0", "id": 1, "error": {"code": -32000, "message": "Request of eth_sendRawTransaction failed with: \'NoneType\' object is not subscriptable"}}'
+https://gateway.tenderly.co/public/mainnet garbage 0x00: HTTP 200 b'{"id":1,"jsonrpc":"2.0","error":{"code":-32602,"message":"typed transaction too short"}}'
+https://gateway.tenderly.co/public/mainnet an already-mined transaction (nonce used): HTTP 200 b'{"id":1,"jsonrpc":"2.0","error":{"code":-32602,"message":"invalid params"}}'
+(no keccak lib to check) No module named 'Crypto'
+# replay of a mined transaction 0xe503d4ad0a8e5c9053608528ce51bf1710c3d4e589bdfa472be12b17023af29f block 26075695 11:36:49 UTC
+https://rpc.mevblocker.io already-mined transaction (nonce used): HTTP 200 b'{"jsonrpc": "2.0", "id": 1, "error": {"code": -32000, "message": "Transaction 0xe503d4ad0a8e5c9053608528ce51bf1710c3d4e589bdfa472be12b17023af29f already known"}}'
+https://gateway.tenderly.co/public/mainnet already-mined transaction (nonce used): HTTP 200 b'{"id":1,"jsonrpc":"2.0","error":{"code":3,"message":"nonce too low: next nonce 1, tx nonce 0"}}'

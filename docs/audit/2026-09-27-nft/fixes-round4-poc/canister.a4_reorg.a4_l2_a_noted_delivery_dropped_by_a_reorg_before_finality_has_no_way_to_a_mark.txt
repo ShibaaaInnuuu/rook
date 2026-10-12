@@ -1,0 +1,22 @@
+
+running 1 test
+eth: ticket 0: resolved to token 0x000000000000000000000000000000000000000000000000000000000000004d, delivery to 0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1 due by 1791117633
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: transferFrom of 0x000000000000000000000000000000000000000000000000000000000000004d to 0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1 signed, saved and sent (0x2cf9d26adbba24828db8581000babb7d19d4a7ce050d2da86f0b12b09ccff093, nonce 0)
+eth line: delivery #0: mined in block 26068923: waiting for finality
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: moved in block 26068923; finalized 26068828: waiting
+eth delivery 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#0: moved in block 26068923; finalized 26068828: waiting
+
+thread 'a4_l2_a_noted_delivery_dropped_by_a_reorg_before_finality_has_no_way_to_a_mark' (59522500) panicked at tests/a4_reorg.rs:1486:5:
+assertion `left == right` failed: noted sent on the wrapper
+  left: None
+ right: Some(true)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test a4_l2_a_noted_delivery_dropped_by_a_reorg_before_finality_has_no_way_to_a_mark ... FAILED
+
+failures:
+
+failures:
+    a4_l2_a_noted_delivery_dropped_by_a_reorg_before_finality_has_no_way_to_a_mark
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s
+

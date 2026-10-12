@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped CENTS",
+  "symbol": "wCENTS",
+  "description": "Rook's wrapped CENTS token: each whole token is backed either by a CENTS NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/cents.png",
+  "external_url": "https://userook.fun/#/collection/cents",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/cents.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

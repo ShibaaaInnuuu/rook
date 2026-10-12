@@ -1,0 +1,48 @@
+--- control: the template's keyless pair
+    urls: https://xrpc.cl/eth,https://ethereum-rpc.publicnode.com
+    ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, xrpc.cl, publicnode.com
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- control: Dwellir key, host in capitals
+    urls: https://API-ETHEREUM-MAINNET.N.DWELLIR.COM/f3a9c2e17b4d4e0a9c1b2d3e4f5a6b7c,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://api-ethereum-mainnet.n.dwellir.com/… (a path segment of 16+ key characters, a key split by separators in a path segment, a keyed provider's host): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 1 a 15-character key on an unlisted host
+    urls: https://eth.rpc.example.net/f3a9c2e17b4d4e0,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://eth.rpc.example.net/… (a path part of 12+ key characters): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 2 a 32-hex key split by dots
+    urls: https://eth.rpc.example.net/f3a9c2e1.7b4d4e0a.9c1b2d3e.4f5a6b7c,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://eth.rpc.example.net/… (a key split by separators in a path segment): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 3 a key percent-encoded
+    urls: https://eth.rpc.example.net/%66%33%61%39%63%32%65%31%37%62%34%64%34%65%30%61,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://eth.rpc.example.net/… (an encoded or parameterised path, a key split by separators in a path segment): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 4 a key in a subdomain (and printed in the ok line)
+    urls: https://f3a9c2e17b4d4e0a9c1b2d3e4f5a6b7c.eth.rpc.example.net/,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://….example.net/… (a subdomain label that looks like a key): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 5 a key as path segments of 15, 15 and 2
+    urls: https://eth.rpc.example.net/f3a9c2e17b4d4e0/a9c1b2d3e4f5a6b/7c,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://eth.rpc.example.net/… (a path part of 12+ key characters): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 6 wss:// with a key (not an https outcall; unusable, but unread)
+    urls: wss://eth.rpc.example.net/f3a9c2e17b4d4e0a9c1b2d3e4f5a6b7c,https://xrpc.cl/eth
+    ok   the install argument (--install-arg) names 5 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, xrpc.cl
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 7 drpc.live keyed
+    urls: https://lb.drpc.live/ethereum/f3a9c2e17b4d4e0a9c1b2d3e4f5a6b7c,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://lb.drpc.live/… (a path segment of 16+ key characters, a key split by separators in a path segment): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 8 one provider twice (trailing slash): keyless, but one host
+    urls: https://xrpc.cl/eth,https://xrpc.cl/eth/
+    ok   the install argument (--install-arg) names 6 provider URLs, all keyless (the argument is public with every timelock proposal): mempool.space, blockstream.info, robinhood.com, ordofi.network, xrpc.cl
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 9 ankr keyed
+    urls: https://rpc.ankr.com/eth/f3a9c2e17b4d4e0a9c1b2d3e4f5a6b7c,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://rpc.ankr.com/… (a path segment of 16+ key characters, a key split by separators in a path segment): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain
+--- 10 a key in a ;param
+    urls: https://eth-mainnet.nodereal.io/v1;key=f3a9c2e17b4d4e0,https://xrpc.cl/eth
+    FAIL the install argument (--install-arg) names a KEYED provider URL https://eth-mainnet.nodereal.io/… (a path part of 12+ key characters, an encoded or parameterised path, a key split by separators in a path segment): the argument is published with every timelock proposal and the monitor's argument diff prints provider URLs; the canister's providers must stay keyless (bayc10-decisions.md §5)
+    note the install argument (--install-arg) was not decoded as the buyer's Init: its providers were not counted by host per chain

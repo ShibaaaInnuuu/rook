@@ -1,0 +1,36 @@
+# cargo test --test audit3_nft_e_tol e3_l2 -- --nocapture --test-threads=1   (TOLERANT, not the PoC: one extra tick before the setup assertion 'Azuki is Funded', see audit3_nft_e.e3_l2-tolerant.diff)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.95s
+     Running tests/audit3_nft_e_tol.rs (target/debug/deps/audit3_nft_e_tol-a205d7dc00bcd5e2)
+
+running 1 test
+test e3_l2_gas_drift_into_an_earmark_deadlocks_the_next_arrival_with_the_way_back ...
+AUDIT3-E E3-L-2: after 10 days: Milady Arrived { wei: 498443962449863321, since: 1791348033 } (note: the way back had no deposit signed within 7200 s: its 498443962449863321 wei waits at our Ethereum address for a listing again, and goes back again in 86400 s); Azuki Bridging { order_id: [188, 233, 176, 202, 2, 95, 202, 53, 100, 157, 60, 96, 65, 23, 246, 66, 102, 120, 66, 1, 124, 101, 39, 252, 46, 207, 0, 46, 188, 46, 105, 226], value: 500000000000000000, min_out: 488475083200866055, deadline: 1791117628, since: 1790512833 } (watched true); 720 arrival refusals; balance 993887924899726642 vs earmarks 498443962449863321; relay_busy true
+
+thread 'e3_l2_gas_drift_into_an_earmark_deadlocks_the_next_arrival_with_the_way_back' (55668717) panicked at tests/audit3_nft_e_tol.rs:793:5:
+Milady waits for the leg
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    e3_l2_gas_drift_into_an_earmark_deadlocks_the_next_arrival_with_the_way_back
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.09s
+
+error: test failed, to rerun pass `--test audit3_nft_e_tol`
+
+# cargo test --test audit3_nft_e_diag e3_l2 -- --nocapture --test-threads=1   (DIAGNOSTIC, not the PoC: the tolerant copy with its first failing assertion, 'Milady waits for the leg', printed instead of asserted, to show what the rest of the test finds)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.11s
+     Running tests/audit3_nft_e_diag.rs (target/debug/deps/audit3_nft_e_diag-6bfec4dc232985a9)
+
+running 1 test
+test e3_l2_gas_drift_into_an_earmark_deadlocks_the_next_arrival_with_the_way_back ...
+AUDIT3-E E3-L-2: after 10 days: Milady Arrived { wei: 498443962449863321, since: 1791348033 } (note: the way back had no deposit signed within 7200 s: its 498443962449863321 wei waits at our Ethereum address for a listing again, and goes back again in 86400 s); Azuki Bridging { order_id: [188, 233, 176, 202, 2, 95, 202, 53, 100, 157, 60, 96, 65, 23, 246, 66, 102, 120, 66, 1, 124, 101, 39, 252, 46, 207, 0, 46, 188, 46, 105, 226], value: 500000000000000000, min_out: 488475083200866055, deadline: 1791117628, since: 1790512833 } (watched true); 720 arrival refusals; balance 993887924899726642 vs earmarks 498443962449863321; relay_busy true
+DIAG (not the PoC): 'Milady waits for the leg' would be false
+DIAG: buy_holds_mint(AZUKI) = true
+AUDIT3-E E3-L-2: after a 0.01 ETH top-up: Azuki Arrived { wei: 500000000000000000, since: 1791376833 }
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.09s
+

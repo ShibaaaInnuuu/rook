@@ -1,0 +1,108 @@
+TAP version 13
+# Subtest: F3-1 (what holds): the canister-encoded state through plain(): blobs are hex text and every check compares them
+ok 1 - F3-1 (what holds): the canister-encoded state through plain(): blobs are hex text and every check compares them
+  ---
+  duration_ms: 20.673792
+  type: 'test'
+  ...
+# Subtest: D4-L-1 (weakness): a delivery that mined but is still Sent in the canister (its next tick up to RUNNER_TICK_EVERY_S = 600 s away), NFT already sold on: SEV1
+not ok 2 - D4-L-1 (weakness): a delivery that mined but is still Sent in the canister (its next tick up to RUNNER_TICK_EVERY_S = 600 s away), NFT already sold on: SEV1
+  ---
+  duration_ms: 6.466916
+  type: 'test'
+  location: '/private/tmp/rook-r5/D/monitor/test/audit4_nft_d.test.mjs:134:1'
+  failureType: 'testCodeFailure'
+  error: "the monitor never reads the Sent transfer's receipt, which would show it mined"
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/rook-r5/D/monitor/test/audit4_nft_d.test.mjs:142:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D4-L-2 (weakness): the incremental deposit scan skips blocks its provider answered short once; an unclaimed deposit there never pages
+not ok 3 - D4-L-2 (weakness): the incremental deposit scan skips blocks its provider answered short once; an unclaimed deposit there never pages
+  ---
+  duration_ms: 6.487083
+  type: 'test'
+  location: '/private/tmp/rook-r5/D/monitor/test/audit4_nft_d.test.mjs:149:1'
+  failureType: 'testCodeFailure'
+  error: 'the next poll reads from H + 1 on'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/rook-r5/D/monitor/test/audit4_nft_d.test.mjs:162:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D4-I-1 (note): the exemption reads the ticket's item and destination, not its stage: a REFUNDED ticket's stale Moved delivery exempts its item
+not ok 4 - D4-I-1 (note): the exemption reads the ticket's item and destination, not its stage: a REFUNDED ticket's stale Moved delivery exempts its item
+  ---
+  duration_ms: 5.696708
+  type: 'test'
+  location: '/private/tmp/rook-r5/D/monitor/test/audit4_nft_d.test.mjs:170:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    no eth-not-held although the wrapper counts item 0 as held and the NFT is not ours
+    + actual - expected
+    
+    + [
+    +   {
+    +     key: 'eth-not-held:0x5af0d9827e0c53e4799bb226655a1de152a425a5:9185',
+    +     kind: 'custody-outbound',
+    +     persistent: true,
+    +     sev: 'SEV1',
+    +     text: "milady: token 9185 (held by the wrapper as item 0) is owned by 0x0000000000000000000000000000000000000bad on Ethereum, not the custodian 0x00000000000000000000000000000000000000c0 (both providers, block 25999998). An NFT left custody without a delivery of ours of this item: pause, then look. the canister's delivery of ticket 6 (Moved) is of item 0 to 0xd0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0 on the wrapper, not this item to 0xd0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0"
+    +   }
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      kind: 'custody-outbound'
+      sev: 'SEV1'
+      persistent: true
+      key: 'eth-not-held:0x5af0d9827e0c53e4799bb226655a1de152a425a5:9185'
+      text: "milady: token 9185 (held by the wrapper as item 0) is owned by 0x0000000000000000000000000000000000000bad on Ethereum, not the custodian 0x00000000000000000000000000000000000000c0 (both providers, block 25999998). An NFT left custody without a delivery of ours of this item: pause, then look. the canister's delivery of ticket 6 (Moved) is of item 0 to 0xd0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0 on the wrapper, not this item to 0xd0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/rook-r5/D/monitor/test/audit4_nft_d.test.mjs:176:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: D4-I-2 (note): an alert's first line is kept unredacted in state.log and served on /status; a cut secret is not recognised
+not ok 5 - D4-I-2 (note): an alert's first line is kept unredacted in state.log and served on /status; a cut secret is not recognised
+  ---
+  duration_ms: 0.382875
+  type: 'test'
+  location: '/private/tmp/rook-r5/D/monitor/test/audit4_nft_d.test.mjs:180:1'
+  failureType: 'testCodeFailure'
+  error: 'WEAKNESS (defence in depth): the status body carries the unredacted head'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/rook-r5/D/monitor/test/audit4_nft_d.test.mjs:189:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 1
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 324.439334

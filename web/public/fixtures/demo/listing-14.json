@@ -1,0 +1,53 @@
+{
+  "id": 14,
+  "kind": "inscriptions",
+  "name": "Pixel Mumus",
+  "ref": "pixel-mumus",
+  "divisibility": 0,
+  "vault": "0xB9ab4408D96e188d92C64bc5d5C46ff420C70ca8",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-pixel-mumus",
+  "membershipRoot": "0x4513531b6b6451f477ca76fb21c258916f486058d05b6f26451809fe83b92d59",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "203744680851063829",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "203744680851063829",
+    "attributedWei": "203744680851063829",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "203744680851063829",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x40792C528f2e5110b75E928c63915Cc1ec01fa66",
+      "symbol": "QUAR2SIM",
+      "depositedWei": "203744680851063829"
+    }
+  ]
+}

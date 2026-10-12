@@ -1,0 +1,16 @@
+
+running 1 test
+
+thread 'c4_h1_a_4663_pin_one_bucket_back_reads_the_deposit_as_refunded_and_wedges_the_home_line_for_good' (59519260) panicked at tests/r4_c.rs:1283:5:
+the deposit's own spend, unseen at the lower pin, reads as Relay's refund:
+eth: waits: the 4663 nonce at this pin is 1, under 2 (past our last mined home transaction): the pin is behind our own transactions; nothing of 4663 is read or signed at it (C4-H-1)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test c4_h1_a_4663_pin_one_bucket_back_reads_the_deposit_as_refunded_and_wedges_the_home_line_for_good ... FAILED
+
+failures:
+
+failures:
+    c4_h1_a_4663_pin_one_bucket_back_reads_the_deposit_as_refunded_and_wedges_the_home_line_for_good
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.00s
+

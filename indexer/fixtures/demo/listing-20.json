@@ -1,0 +1,53 @@
+{
+  "id": 20,
+  "kind": "inscriptions",
+  "name": "Mullet Punks",
+  "ref": "mullet-punks",
+  "divisibility": 0,
+  "vault": "0x9Cd1D78da594539d01C33D020A583d3D4c72b9C1",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-mullet-punks",
+  "membershipRoot": "0x28ed574da9a442104de3d3d6c6c1bad9e05d0ab323141297bd47fc9120ca5ed0",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "551437122273290008",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "551437122273290008",
+    "attributedWei": "551437122273290008",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "551437122273290008",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x19AE9B0D958e181015D38d61e9490802c33ACD8e",
+      "symbol": "SHAL2SIM",
+      "depositedWei": "551437122273290008"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "address": "0x1829F25cf011dbA4b869f14E502c0be3abD157C8",
+  "name": "Gabbro 5 (sim)",
+  "symbol": "GABB5SIM",
+  "creator": "0xc7b7a64002257e66c71bAEb3B04845D3248d1E17",
+  "router": "0xE1F14c150E56F80a6FC9262410cc079b9567066a",
+  "curve": "0x6Acc417e7ae847c13773a5A08d37E9f9F419Fa53",
+  "listingId": 3,
+  "listingName": "Bitcoin Frogs",
+  "launchedAt": 1790041477,
+  "launchedBlock": 69023824,
+  "creatorTaxBps": 750,
+  "logoUrl": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3e%3crect%20width='64'%20height='64'%20fill='hsl(347,38%25,22%25)'/%3e%3cpath%20d='M17%2046L32%2021L59%2046Z'%20fill='hsl(347,52%25,56%25)'/%3e%3cpath%20d='M32%2021L59%2046H32Z'%20fill='hsl(347,30%25,36%25)'/%3e%3c/svg%3e",
+  "supplyWei": "1000000000000000000000000000",
+  "holders": 5,
+  "volume24hWei": "4590163934426229510",
+  "lifetimeFeesWei": "376393442622950820",
+  "toVaultWei": "301114754098360656",
+  "toTreasuryWei": "75278688524590164",
+  "fees24hWei": "376393442622950820",
+  "fees7dWei": "376393442622950820",
+  "harvests": 6,
+  "lastHarvestAt": 1790043317,
+  "harvestsRecent": [
+    {
+      "at": 1790043317,
+      "block": 69024755,
+      "tx": "0xf900769b91e930f5fcab13e99e672d8c93951a1facc452637e05f5fc2203444b",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790043019,
+      "block": 69024619,
+      "tx": "0x1f75ea2fff07a3feac6b32854d0220d7fe08581564efac8ccaf166664a80f6f0",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790042582,
+      "block": 69024406,
+      "tx": "0x279d294e6fa332f21c31998b478050044f97d67db39de35b8da0a75d9139a9ca",
+      "claimedWei": "0",
+      "toVaultWei": "0",
+      "toTreasuryWei": "0"
+    },
+    {
+      "at": 1790042334,
+      "block": 69024279,
+      "tx": "0x08ac89b90f245aa773c9ece4b6d3af07105f376a67dbdfd2111dbb7ca9a29c84",
+      "claimedWei": "118583868222950820",
+      "toVaultWei": "94867094578360656",
+      "toTreasuryWei": "23716773644590164"
+    },
+    {
+      "at": 1790041860,
+      "block": 69024032,
+      "tx": "0x25a86fdd42bebf386e414542f7457b7056b2cd81ee04ccdb32371e372b9a9fa5",
+      "claimedWei": "217860552000000000",
+      "toVaultWei": "174288441600000000",
+      "toTreasuryWei": "43572110400000000"
+    },
+    {
+      "at": 1790041564,
+      "block": 69023875,
+      "tx": "0x24ff3b849204b9753d442489ec7cbd859f9619da93a22d3366527ef7ed960030",
+      "claimedWei": "39949022400000000",
+      "toVaultWei": "31959217920000000",
+      "toTreasuryWei": "7989804480000000"
+    }
+  ],
+  "tokensForwarded": [],
+  "treasuryDeferredWei": "0",
+  "acquisitions": [],
+  "volumeUntilNextBuy": {
+    "volumeNeededWei": null,
+    "reason": "no-live-cap",
+    "ready": false,
+    "inputs": {
+      "targetWei": null,
+      "capWei": "0",
+      "capExpiry": 0,
+      "minDeclarationWei": "50000000000000000",
+      "minEntryWei": "10000000000000000",
+      "spendableWei": "412534443217531640",
+      "coinWaitingWei": "0",
+      "coinQueued": true,
+      "harvestableWei": "0",
+      "depositNeededWei": null,
+      "vaultShareBps": 8000,
+      "takeBps": 820
+    },
+    "assumptions": [
+      "only this coin trades: fees from other coins on the same listing bring the purchase sooner",
+      "the cap posted now is still the cap then (a cap lasts one hour and is re-posted from the market)",
+      "the share of volume reaching the router stays what was measured: 0.70% plus the coin's creator tax",
+      "fees earned but still inside the curve or the pool are not counted; fees on the router or in Pons's escrow are, at 80%",
+      "the keeper declares as its published policy says: one item under the cap and never under 0.05 ETH; any amount over 0.05 ETH for a rune"
+    ]
+  },
+  "live": {
+    "unspentWei": "301114754098360656",
+    "queued": true,
+    "pending": {
+      "graduated": true,
+      "escrowWei": "0",
+      "routerBalanceWei": "0",
+      "pool": {
+        "poolId": "0x068ac94203a111281dccccb123465fd549dd327cb96b9422c6625ccc39d18b4c",
+        "ethFeesWei": "0",
+        "ethCreatorTaxWei": "0",
+        "coinFees": "0",
+        "coinCreatorTax": "0",
+        "operatorOnly": false
+      },
+      "curvePending": null,
+      "curvePendingReason": "before graduation fees accrue inside Pons's curve, and no getter for that amount has been verified",
+      "error": null
+    }
+  }
+}

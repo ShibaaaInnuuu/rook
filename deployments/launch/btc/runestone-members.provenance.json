@@ -1,0 +1,25 @@
+{
+  "slug": "runestone",
+  "taken_at": "2026-10-10T07:30:51.625Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 112384,
+  "root": "0x623653a2be69eccaa6666cb091fd6176ced3991df1a98a1bd2bc9e5a89ee7752",
+  "proof_depth": 17,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/runestone/inscriptions",
+      "count": 112384,
+      "unique": 112384,
+      "left_out": []
+    },
+    {
+      "name": "ord-children",
+      "url": "https://ordinals.com/r/children/fdb2df5d2b16db1ebcbf09e2d23b3f4e417db44b58e712c99b61f26b52c7cbb5i0",
+      "count": 112384,
+      "unique": 112384,
+      "left_out": []
+    }
+  ],
+  "references": []
+}

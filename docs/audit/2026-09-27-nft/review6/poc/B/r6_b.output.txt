@@ -1,0 +1,36 @@
+# cargo +1.98.1 test --test r6_b -- --nocapture --test-threads 1   (private copy /tmp/rook-r6-B of autobuyer/canister-rs at e04fa16; tick lines '  |' filtered)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running tests/r6_b.rs (target/debug/deps/r6_b-3d86f147353d29cd)
+
+running 4 tests
+test r6_b_l_sixteen_unreadable_old_receipts_hold_every_newer_sale ... 16 old receipts unreadable: false: after two days 144 of 144 final newer sales read; reading: Some(165) sales, held Some(false)
+16 old receipts unreadable: true: after two days 0 of 144 final newer sales read; reading: Some(5) sales, held Some(false)
+ok
+test r6_b_m1_a_a_gap_past_the_providers_log_depth_freezes_the_forward_walk_until_the_window_resets ... control (deep providers), a 12,000-block gap (~40 h): first newer sale read at pass Some(1); after a day 72 of 72 final; lag 0
+log depth 10,000, transformed (-32602, message dropped: Other): 12,000-block gap: first newer sale read at pass Some(395) of 504; after a day 0 read, lag 19200 blocks; after a week 207 of 504 final newer sales read; 1779 failed log reads
+log depth 10,000, raw message ("Archive ...": Deep): 12,000-block gap: first newer sale read at pass Some(385) of 504; after a day 0 read, lag 19200 blocks; after a week 214 of 504 final newer sales read; 1181 failed log reads
+ok
+test r6_b_m1_b_the_transform_drops_the_providers_words_so_deep_and_most_too_big_shapes_are_dead ... publicnode archive (fixer: Deep): the canister sees `chain 1: eth_getLogs: no result: {"code":-32602,"reverted":false}` -> Other
+size exceeded (fixer: TooBig): the canister sees `chain 1: eth_getLogs: no result: {"code":-32602,"reverted":false}` -> Other
+range too wide (fixer: TooBig): the canister sees `chain 1: eth_getLogs: no result: {"code":-32000,"reverted":false}` -> Other
+timeout (fixer: TooBig): the canister sees `chain 1: eth_getLogs: no result: {"code":-32000,"reverted":false}` -> Other
+publicnode 5,000 blocks: the canister sees `chain 1: eth_getLogs: no result: {"code":-32701,"reverted":false}` -> Other
+result cap (fixer: TooBig): the canister sees `chain 1: eth_getLogs: no result: {"code":-32005,"reverted":false}` -> TooBig
+xrpc.cl rate limit (HTTP 429): the canister sees `chain 1: eth_getLogs: no result: {"code":-32005,"reverted":false}` -> TooBig
+ok
+test r6_b_m2_a_rate_limit_answers_are_taken_as_too_big ...   uncounted: in a deferred range 0, in a skipped block 0, queued 0, judged no-sale 0; the rest (0) nowhere: lost for good
+  uncounted due sales: 0; of them in a block never read again: 0; sc.skipped None
+busy 0 %, Seaport range cap None: a week: 432 of 432 due sales counted; lost for good (done_big / given up) 0; SaleScan.bad at most 0 (0 at the end); done_big 0; busy answers 0
+  uncounted: in a deferred range 0, in a skipped block 0, queued 0, judged no-sale 0; the rest (0) nowhere: lost for good
+  uncounted due sales: 0; of them in a block never read again: 0; sc.skipped None
+busy 0 %, Seaport range cap Some(520): a week: 432 of 432 due sales counted; lost for good (done_big / given up) 0; SaleScan.bad at most 0 (0 at the end); done_big 0; busy answers 0
+  uncounted: in a deferred range 0, in a skipped block 0, queued 0, judged no-sale 0; the rest (1) nowhere: lost for good
+  uncounted due sales: 1; of them in a block never read again: 0; sc.skipped Some(135)
+busy 30 %, Seaport range cap Some(520): a week: 431 of 432 due sales counted; lost for good (done_big / given up) 0; SaleScan.bad at most 43 (10 at the end); done_big 64; busy answers 1601
+  uncounted: in a deferred range 36, in a skipped block 0, queued 0, judged no-sale 0; the rest (20) nowhere: lost for good
+  uncounted due sales: 56; of them in a block never read again: 0; sc.skipped Some(94)
+busy 50 %, Seaport range cap Some(520): a week: 376 of 432 due sales counted; lost for good (done_big / given up) 0; SaleScan.bad at most 529 (526 at the end); done_big 64; busy answers 2092
+ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.55s
+

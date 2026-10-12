@@ -1,0 +1,26 @@
+# cargo test --test r5_e -- --nocapture --test-threads 1 (toolchain rustc 1.98.1 (48a229cea 2026-09-01)), nft-side at 1dc2a61, the canister's per-tick '  | ' lines removed
+
+running 5 tests
+test e5_i1_a_reverted_mint_s_record_keeps_its_time_so_four_real_mints_fit_in_24_h_at_a_limit_of_three ...
+R5-E E5-I-1: the mint under mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:0 reverted; recorded at 1790513433 (t0 1790514033)
+R5-E E5-I-1: real mints at t0 + [0, 83400, 84000, 85800] s; the most in 24 h: 4 (from t0 + 0 s); H3's done: [("mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:1", 83400), ("mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:2", 84000), ("mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:3", 85800)]
+ok
+test e5_i2_the_h3_site_test_passes_on_sources_where_the_e4_h1_shape_is_back_or_a_new_site_is_unreviewed ... R5-E E5-I-2 (a) mint_key made per-backlog again: Ok(())
+R5-E E5-I-2 (b) the listed key only in a comment: Ok(())
+R5-E E5-I-2 (c) a new site in looper.rs: Ok(()) (looper.rs is not read)
+R5-E E5-I-2 (d) a new site in ethflow.rs without `&`: Ok(())
+ok
+test e5_l1_a_mint_misread_as_dropped_wedges_every_later_deposit_of_its_collection ...
+R5-E E5-L-1: after 3 days: A Mint (its token is on the wrapper: true), B Mint, Azuki Minted; Milady items 1, Azuki items 1
+R5-E E5-L-1: the last tick says: ["eth: the home-chain act waits: eth deposit 0x9090909090909090909090909090909090909090909090909090909090909090: waits: would not succeed now: execution reverted: AlreadyHeld()"]
+R5-E E5-L-1 control: Milady items 2, phases [Minted, Minted, Minted]
+ok
+test e5_l2_at_stage_0_a_full_collection_redeemed_with_its_days_mints_trips_the_item_tripwire ... R5-E E5-L-2: stage 0 (3 items a day, trip x3), 6 items in custody: the redemptions of the day's 3 new units: [Wait { until: 1790599233, why: "1:0x5af0d9827e0c53e4799bb226655a1de152a425a5: 3 of 3 Item in the last 24 h" }, Wait { until: 1790599233, why: "1:0x5af0d9827e0c53e4799bb226655a1de152a425a5: 3 of 3 Item in the last 24 h" }, Frozen(Tripwire { collection: "1:0x5af0d9827e0c53e4799bb226655a1de152a425a5", flow: Item, demanded: 9, limit: 3 })]
+R5-E E5-L-2: trip x2, a collection at its exit-rule maximum (24 at 12 a day) redeemed at once: the 24th ask Frozen(Tripwire { collection: "1:0x5af0d9827e0c53e4799bb226655a1de152a425a5", flow: Item, demanded: 24, limit: 12 })
+ok
+test holds_e4_h1_nine_deposits_and_two_purchases_of_one_collection_ask_one_key_at_a_time_and_mint_three_a_day ...
+R5-E holds: 2 purchases + 9 deposits of Milady: 11 minted, the most mint asks in a window 4, the most real mints in 24 h 3 (from 1790513433); keys asked {"mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:0", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:1", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:10", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:2", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:3", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:4", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:5", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:6", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:7", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:8", "mint:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:9"}
+ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.44s
+

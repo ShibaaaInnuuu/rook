@@ -1,0 +1,226 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+  workflow_dispatch:
+  schedule: [{ cron: "17 4 * * *" }]      # nightly: the fork tests, which need the public RPC, and the deep campaigns
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+permissions: { contents: read }
+
+env:
+  # Robinhood Chain (4663)'s own limits, as its docs and its node state them (docs/deploy/contracts-mainnet.md): 96 KB of
+  # runtime code (not EIP-170's 24,576) and 192 KB of init code. Every deploy script and the dry runs pass
+  # --code-size-limit 98304; the contracts job holds src/ to the same numbers. (`forge test` sets no limit, and must not:
+  # the test contracts embed several registries' creation code and are far over 96 KB, but they are never deployed.)
+  CODE_SIZE_LIMIT: 98304
+  INITCODE_SIZE_LIMIT: 196608
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    # a cold via-IR build of every source, test and script is ~11 minutes on a hosted runner; a warm cache makes it seconds
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { submodules: recursive }
+      - uses: foundry-rs/foundry-toolchain@v1
+      # Foundry's own build cache (content-hashed per file, so a partial restore only recompiles what changed). Saved right
+      # after the build, not at the end of the job, so a failing test does not throw a good build away.
+      - id: forge-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            out
+            cache
+          key: forge-${{ runner.os }}-${{ hashFiles('foundry.toml', 'foundry.lock', 'remappings.txt', 'src/**/*.sol', 'test/**/*.sol', 'script/**/*.sol', 'lib/**/*.sol') }}
+          restore-keys: forge-${{ runner.os }}-
+      - run: forge build
+      - if: steps.forge-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            out
+            cache
+          key: ${{ steps.forge-cache.outputs.cache-primary-key }}
+      # `forge build --sizes` only knows EIP-170 (24,576), which ListingRegistry, NftRegistry and CurveFactory exceed by design.
+      # This holds every deployable contract under src/ (tests and scripts excluded) to 4663's limits instead, and fails if any
+      # is over them. Interfaces and abstract contracts have no bytecode and are skipped.
+      - name: contract sizes against Robinhood Chain's limits (src/ only)
+        run: |
+          node --input-type=commonjs - <<'EOF'
+          const fs = require("node:fs"), path = require("node:path");
+          const RUNTIME = Number(process.env.CODE_SIZE_LIMIT), INIT = Number(process.env.INITCODE_SIZE_LIMIT);
+          const size = (o) => { const h = (o && o.object) || ""; return h.startsWith("0x") ? (h.length - 2) / 2 : h.length / 2; };
+          const rows = [], seen = new Set();
+          const walk = (d) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+            const p = path.join(d, e.name);
+            if (e.isDirectory()) { if (e.name !== "build-info") walk(p); continue; }
+            if (!e.name.endsWith(".json")) continue;
+            const a = JSON.parse(fs.readFileSync(p, "utf8"));
+            const target = Object.entries((a.metadata && a.metadata.settings && a.metadata.settings.compilationTarget) || {})[0];
+            if (!target || !target[0].startsWith("src/")) continue;
+            const id = target.join(":"); if (seen.has(id)) continue; seen.add(id);
+            const runtime = size(a.deployedBytecode), init = size(a.bytecode);
+            if (runtime > 0) rows.push({ id, runtime, init });
+          } };
+          walk("out");
+          rows.sort((x, y) => y.runtime - x.runtime);
+          const over = rows.filter((r) => r.runtime > RUNTIME || r.init > INIT);
+          console.log(`limits: runtime ${RUNTIME} B, initcode ${INIT} B; ${rows.length} deployable contracts under src/`);
+          for (const r of rows) console.log(`${r.runtime > RUNTIME || r.init > INIT ? "OVER" : "ok  "}  ${r.id.padEnd(60)} runtime ${String(r.runtime).padStart(6)} (margin ${String(RUNTIME - r.runtime).padStart(6)})  initcode ${String(r.init).padStart(6)} (margin ${INIT - r.init})`);
+          if (rows.length < 10 || !rows.some((r) => r.id.endsWith(":ListingRegistry"))) { console.error("the size check found too few contracts under src/: is out/ built?"); process.exit(1); }
+          if (over.length) { console.error(`${over.length} contract(s) over Robinhood Chain's limits: ${over.map((r) => r.id).join(", ")}`); process.exit(1); }
+          EOF
+      # docs/phase3.md §3: the default profile is the FAST one (512 fuzz runs, 64 x 64 invariant calls) and includes test/security/
+      - run: forge test --no-match-path "test/fork/*"
+      - name: the deploy wrapper's refusals (a bare local node; nothing is deployed)
+        run: bash script/deploy.test.sh
+
+  # the deep campaigns (10,000 fuzz runs, 1,000 x 200 invariant calls), nightly and on demand only: a job of their own, so their
+  # length is not the fast suite's timeout. Measured 2026-09-26: ~50 CPU-minutes (about 20 on a 4-core runner) plus the build
+  contracts-deep:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120   # 28 min on 2026-09-30, 55 on 2026-10-07, over 60 (cancelled) on 10-06 and 10-08
+    steps:
+      - uses: actions/checkout@v4
+        with: { submodules: recursive }
+      - uses: foundry-rs/foundry-toolchain@v1
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            out
+            cache
+          key: forge-${{ runner.os }}-${{ hashFiles('foundry.toml', 'foundry.lock', 'remappings.txt', 'src/**/*.sol', 'test/**/*.sol', 'script/**/*.sol', 'lib/**/*.sol') }}
+          restore-keys: forge-${{ runner.os }}-
+      - run: forge test --no-match-path "test/fork/*"
+        env: { FOUNDRY_PROFILE: deep }
+
+  # The TypeScript/Node packages. Several import each other's sources (the keeper runs staging's catalogue and the snapshot
+  # tool; the snapshot tool's audit test reads the monitor's draws; staging imports the keeper's guard; ops imports the
+  # monitor's alerts and the indexer's and keeper's sources), and a bare import resolves from the importing file's own
+  # package, so every leg installs all of them.
+  node:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { dir: tools/snapshot, typecheck: true }
+          - { dir: keeper, typecheck: true }
+          - { dir: staging, typecheck: true }    # the proxy's allowlist, the faucet's caps, the upstream shim and the chain id, against stubs
+          - { dir: monitor, typecheck: false }   # plain .mjs, no tsconfig
+          - { dir: ops, typecheck: true }
+          - { dir: autobuyer, typecheck: false } # the buyer's JS side (BIP-341, sighash, runestone …); the canisters are the rust job
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            tools/snapshot/package-lock.json
+            keeper/package-lock.json
+            staging/package-lock.json
+            monitor/package-lock.json
+            indexer/package-lock.json
+            ops/package-lock.json
+            autobuyer/package-lock.json
+      - name: install every package the leg's sources reach
+        run: |
+          for d in tools/snapshot keeper staging monitor indexer ops ${{ matrix.dir == 'autobuyer' && 'autobuyer' || '' }}; do
+            echo "::group::npm ci in $d"; (cd "$d" && npm ci --no-audit --no-fund) || exit 1; echo "::endgroup::"
+          done
+      - run: npm test
+        working-directory: ${{ matrix.dir }}
+      - if: matrix.typecheck
+        run: npx tsc --noEmit -p .
+        working-directory: ${{ matrix.dir }}
+
+  indexer:
+    runs-on: ubuntu-latest
+    # src/ alone compiles in about a minute cold (it is the test contracts that take ~11); the old job built everything and timed out
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { submodules: recursive }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: indexer/package-lock.json }
+      - uses: foundry-rs/foundry-toolchain@v1
+      # the contracts job's build cache, read only (that job saves it)
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            out
+            cache
+          key: forge-${{ runner.os }}-${{ hashFiles('foundry.toml', 'foundry.lock', 'remappings.txt', 'src/**/*.sol', 'test/**/*.sol', 'script/**/*.sol', 'lib/**/*.sol') }}
+          restore-keys: forge-${{ runner.os }}-
+      # compiled first so that the tests comparing the indexer's hand-written event ABIs with the contracts' really run (they skip
+      # without out/); those ABIs are src/'s, so tests and scripts are not built here
+      - run: forge build --skip test --skip script
+      - run: npm ci --no-audit --no-fund
+        working-directory: indexer
+      - run: npx tsc --noEmit -p .
+        working-directory: indexer
+      # replayed from a recorded local run: no node, no network
+      - run: npm test
+        working-directory: indexer
+      - name: the committed synthetic fixtures are what the indexer writes today
+        working-directory: indexer
+        run: npm run fixtures -- synthetic && git diff --exit-code -- fixtures/synthetic && test -z "$(git status --porcelain -- fixtures/synthetic)"
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: [web, web-rook]
+    defaults: { run: { working-directory: "${{ matrix.dir }}" } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: "${{ matrix.dir }}/package-lock.json" }
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+      - run: npm run build        # typechecks, then builds
+      - name: the committed copy of the trust model is the repository's own
+        if: matrix.dir == 'web'
+        run: diff ../docs/trust-model.md src/content/trust-model.md
+
+  # the canisters (the buyer and its timelock controller), tested on the host. The toolchain is the one pinned in
+  # autobuyer/rust-toolchain.toml, which rustup installs on first use.
+  rust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        crate: [autobuyer/canister-rs, autobuyer/timelock-rs]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/index
+            ~/.cargo/registry/cache
+            ~/.cargo/git/db
+            ${{ matrix.crate }}/target
+          key: cargo-${{ runner.os }}-${{ matrix.crate }}-${{ hashFiles('autobuyer/rust-toolchain.toml', format('{0}/Cargo.lock', matrix.crate)) }}
+          restore-keys: cargo-${{ runner.os }}-${{ matrix.crate }}-
+      - run: cargo test --locked
+        working-directory: ${{ matrix.crate }}
+
+  fork:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { submodules: recursive }
+      - uses: foundry-rs/foundry-toolchain@v1
+      - run: forge test --match-path "test/fork/*" --fork-url https://rpc.mainnet.chain.robinhood.com

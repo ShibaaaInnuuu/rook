@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "unisat-og-pass",
+    "name": "UniSat OG PASS",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "unisat-og-pass",
+    "description": null,
+    "image": "https://ordinals.com/content/b6ef5e4121d81fe11e55fd38c680064ea69addb42787e63ec6982d7349c69b3bi0",
+    "links": {
+      "website": "https://unisat.io",
+      "x": "https://x.com/unisat_wallet",
+      "discord": "https://discord.gg/EMskB2sMz8",
+      "marketplace": "https://ordinalswallet.com/collection/unisat-og-pass",
+      "explorer": "https://ordinals.com/inscription/837771"
+    },
+    "floor": {
+      "native": "1540596",
+      "unit": "sats",
+      "eth": 0.4862531957201023,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 173,
+    "owners": null,
+    "listed": 8,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "a05eb591d4e655697baf60b7995a984a27d4fb26126ed651b8b34b4c0f6d8cd9i0",
+        "name": "OG PASS #10069",
+        "image": "https://ordinals.com/content/a05eb591d4e655697baf60b7995a984a27d4fb26126ed651b8b34b4c0f6d8cd9i0",
+        "url": "https://ordinals.com/inscription/a05eb591d4e655697baf60b7995a984a27d4fb26126ed651b8b34b4c0f6d8cd9i0"
+      },
+      {
+        "id": "6575774203b5f7302480d9dd98958ce8f966f3c86ec13a1218a5c0f5d81f7506i0",
+        "name": "OG PASS #10113",
+        "image": "https://ordinals.com/content/6575774203b5f7302480d9dd98958ce8f966f3c86ec13a1218a5c0f5d81f7506i0",
+        "url": "https://ordinals.com/inscription/6575774203b5f7302480d9dd98958ce8f966f3c86ec13a1218a5c0f5d81f7506i0"
+      },
+      {
+        "id": "1ec24fd77f3f114eb9bc3d4870e896c20d65346bf0fb2c28ce764e22407197d2i0",
+        "name": "OG PASS #10035",
+        "image": "https://ordinals.com/content/1ec24fd77f3f114eb9bc3d4870e896c20d65346bf0fb2c28ce764e22407197d2i0",
+        "url": "https://ordinals.com/inscription/1ec24fd77f3f114eb9bc3d4870e896c20d65346bf0fb2c28ce764e22407197d2i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.486 ETH, 0.584 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

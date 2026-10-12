@@ -1,0 +1,35 @@
+# review7 probe 2026-09-28 13:21:32 UTC
+DNS rpc.mevblocker.io: ['AF_INET', 'AF_INET6']
+DNS gateway.tenderly.co: ['AF_INET']
+
+## https://rpc.mevblocker.io head=26076219 finalized=26076134
+  logs 500 blk Milady Transfer at depth 30000: HTTP 200 ok 2 (1316 B)
+  logs 500 blk Milady Transfer at depth 60000: HTTP 200 ok 4 (2598 B)
+  logs 500 blk Milady Transfer at depth 80000: HTTP 200 ok 0 (36 B)
+  receipt at depth 30000: HTTP 200 ok
+  receipt at depth 60000: HTTP 200 ok
+  USDT Transfer 1,000 blocks (result cap): HTTP 200 ERR code=-32005 class=limit words="query returned more than 10000 results. Try with this block range [0x18DDC6B, 0x18DDCDB]."
+  Milady 1,000,000-block range: HTTP 200 ERR code=-32603 class=None words="service temporarily unavailable"
+  fromBlock > toBlock: HTTP 200 ok 0 (36 B)
+  toBlock past the head (+50): HTTP 200 ok 0 (36 B)
+  fromBlock past the head (+50..+60): HTTP 200 ok 0 (36 B)
+  malformed topic: HTTP 200 ERR code=-32602 class=None words="data type size mismatch, expected 32 got 1"
+  receipt of an unknown hash: HTTP 200 null
+  receipt with a malformed hash: HTTP 200 ERR code=-32602 class=None words="data type size mismatch, expected 32 got 2"
+  unknown method: HTTP 200 ERR code=-32601 class=None words="The method eth_notAMethod does not exist/is not available"
+
+## https://gateway.tenderly.co/public/mainnet head=26076221 finalized=26076134
+  logs 500 blk Milady Transfer at depth 30000: HTTP 200 ok 2 (1316 B)
+  logs 500 blk Milady Transfer at depth 60000: HTTP 200 ok 4 (2598 B)
+  logs 500 blk Milady Transfer at depth 80000: HTTP 200 ok 0 (36 B)
+  receipt at depth 30000: HTTP 200 ok
+  receipt at depth 60000: HTTP 200 ok
+  USDT Transfer 1,000 blocks (result cap): HTTP 200 ERR code=-32602 class=limit words="invalid params Query returned more than 20000 results. Try with this block range [0x18ddc6d, 0x18ddd47]."
+  Milady 1,000,000-block range: HTTP 200 ok 4777 (3059646 B)
+  fromBlock > toBlock: HTTP 200 ERR code=-32602 class=limit words="invalid block range params"
+  toBlock past the head (+50): HTTP 200 ERR code=-32602 class=limit words="block range extends beyond current head block: requested 26076271, head 26076224"
+  fromBlock past the head (+50..+60): HTTP 200 ERR code=-32602 class=limit words="block range extends beyond current head block: requested 26076281, head 26076224"
+  malformed topic: HTTP 200 ERR code=-32602 class=None words="invalid params"
+  receipt of an unknown hash: HTTP 200 null
+  receipt with a malformed hash: HTTP 200 ERR code=-32602 class=None words="invalid params"
+  unknown method: HTTP 200 ERR code=-32601 class=None words="method not found"

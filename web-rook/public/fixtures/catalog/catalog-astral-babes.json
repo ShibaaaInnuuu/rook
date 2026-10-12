@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "astral-babes",
+    "name": "Astral Babes",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "astral-babes",
+    "description": "Astral Babes are divine feminine goddesses from the astral planet Hiranyaloka on a mission to raise the spiritual vibration of everyone they encounter.",
+    "image": "https://ordinals.com/content/29b65f763b01fc7304e9f2325c6c02b47e128009e58102ee97ce50ac6d8ff81ci0",
+    "links": {
+      "website": "https://astralbabes.ai/",
+      "x": "https://x.com/Astral_Babes",
+      "discord": "https://discord.gg/4uDzUyrY5U",
+      "marketplace": "https://ordinalswallet.com/collection/astral-babes",
+      "explorer": "https://ordinals.com/inscription/2439"
+    },
+    "floor": {
+      "native": "513874",
+      "unit": "sats",
+      "eth": 0.16219234289682163,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 2913,
+    "owners": null,
+    "listed": 33,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "3d1e9164cc86dedaa00c4ae0b0b9de26817f6fcbc3a9541f2903b2b9fdb8f823i0",
+        "name": "Inscription #59351",
+        "image": "https://ordinals.com/content/3d1e9164cc86dedaa00c4ae0b0b9de26817f6fcbc3a9541f2903b2b9fdb8f823i0",
+        "url": "https://ordinals.com/inscription/3d1e9164cc86dedaa00c4ae0b0b9de26817f6fcbc3a9541f2903b2b9fdb8f823i0"
+      },
+      {
+        "id": "d38abb9b0fadb32efd219b44338019bb382476757a0e707453b2e82a5a4c3ba1i0",
+        "name": "Inscription #62099",
+        "image": "https://ordinals.com/content/d38abb9b0fadb32efd219b44338019bb382476757a0e707453b2e82a5a4c3ba1i0",
+        "url": "https://ordinals.com/inscription/d38abb9b0fadb32efd219b44338019bb382476757a0e707453b2e82a5a4c3ba1i0"
+      },
+      {
+        "id": "9ff28a282f5a565ee802ebe1437bf49b1d5bc33962728c66f429739ad7f243d0i0",
+        "name": "Inscription #200834",
+        "image": "https://ordinals.com/content/9ff28a282f5a565ee802ebe1437bf49b1d5bc33962728c66f429739ad7f243d0i0",
+        "url": "https://ordinals.com/inscription/9ff28a282f5a565ee802ebe1437bf49b1d5bc33962728c66f429739ad7f243d0i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.162 ETH, 0.195 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

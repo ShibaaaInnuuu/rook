@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Mutant Ape",
+  "symbol": "wMUTANTAPE",
+  "description": "Rook's wrapped Mutant Ape Yacht Club token: each whole token is backed either by a Mutant Ape Yacht Club NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/mayc.png",
+  "external_url": "https://userook.fun/#/collection/mayc",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/mayc.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

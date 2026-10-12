@@ -1,0 +1,6 @@
+(a) install 13/17/13/3/2 @ 12/24: deadline-first worst order leaves {'azuki': 5}; backlog-first leaves nothing; robust check: refuses
+(c) interim 13/17/13/3/2 @ 12/31: deadline-first worst order leaves {'azuki': 3}; backlog-first leaves nothing; robust check: refuses
+(c) end J7 16/22/17/4/2 @ 12/31: deadline-first worst order leaves {'azuki': 9}; backlog-first leaves nothing; robust check: refuses
+J7 @ 22/31: deadline-first worst order leaves nothing; backlog-first leaves nothing; robust check: refuses
+J7 @ 12/42: deadline-first worst order leaves nothing; backlog-first leaves nothing; robust check: passes
+(b) 16/22/10 held @ 12/24: deadline-first worst order leaves {'azuki': 8}; backlog-first leaves nothing; robust check: refuses

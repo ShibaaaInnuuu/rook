@@ -1,0 +1,2017 @@
+{
+ "source": {
+  "kind": "fixture",
+  "note": "FIXTURE. Nothing here is deployed. A Milady vault of 20 items and 9 tickets, drawn with REAL drand evmnet beacons (rounds served by api.drand.sh and api2.drand.sh on 2026-09-27) through EthNftWrapper's own formula, over an invented Robinhood Chain and Ethereum. The collection's address is Milady's; the wrapper, custodian, module, transactions and every trait are invented, and the explorer links point at nothing. Ticket 4's burn is made to look back-dated and ticket 5's batch unreadable, to show the verifier's timing flag."
+ },
+ "hosts": {
+  "eth": [
+   "https://eth-a.fixture.invalid",
+   "https://eth-b.fixture.invalid"
+  ],
+  "home": [
+   "https://rh-a.fixture.invalid",
+   "https://rh-b.fixture.invalid"
+  ]
+ },
+ "report": {
+  "source": {
+   "kind": "live",
+   "note": "Recomputed on this machine from the providers named on each number; no Rook service was asked."
+  },
+  "slug": "milady",
+  "name": "Milady Maker",
+  "symbol": "wMIL",
+  "collection": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+  "custodian": "0x3000000000000000000000000000000000000c05",
+  "wrapper": "0x3000000000000000000000000000000000000001",
+  "moduleAddress": "0x30000000000000000000000000000000000000f1",
+  "providers": {
+   "eth": [
+    "eth-a.fixture.invalid",
+    "eth-b.fixture.invalid"
+   ],
+   "home": [
+    "rh-a.fixture.invalid",
+    "rh-b.fixture.invalid"
+   ]
+  },
+  "status": "green",
+  "reasons": [],
+  "warnings": [],
+  "computedAt": 1790550030,
+  "lastGreenAt": 1790550030,
+  "limits": {
+   "maxAgeS": 3600,
+   "redAfterS": 10800,
+   "cadenceS": 600
+  },
+  "homeBlock": 74315515,
+  "homeAt": 1790550028,
+  "ethBlock": 26071860,
+  "ethAt": 1790549243,
+  "numbers": [
+   {
+    "key": "supply",
+    "label": "wX in circulation (totalSupply)",
+    "value": "12850000000000000000",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "held",
+    "label": "items the wrapper holds (held)",
+    "value": "13",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "openTickets",
+    "label": "tickets in flight (openTickets)",
+    "value": "2",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "ledger",
+    "label": "items in the wrapper's own events",
+    "value": "13",
+    "sources": [
+     "the wrapper's views item(0…19) and itemOf on rh-a.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": "the fold of Wrapped, Deposited, Redeemed, Resolved, Delivered, Refunded"
+   },
+   {
+    "key": "finalized",
+    "label": "Ethereum finalized block the custody reads are made at (the lower of the providers')",
+    "value": "26071860",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ],
+    "block": 26071860,
+    "at": 1790549243,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "inCustody",
+    "label": "items owned by the custodian at the finalized block, by every provider",
+    "value": "13",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ],
+    "block": 26071860,
+    "at": 1790549243,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "arrivals",
+    "label": "arrival transactions checked (final, status 1, the transfer to the custodian, the fill or the claim)",
+    "value": "13 / 13",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ],
+    "block": 26071860,
+    "at": 1790549243,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "E",
+    "label": "ETH-backed units at the module (E)",
+    "value": "1850000000000000000",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "C",
+    "label": "convertible units (C)",
+    "value": "350000000000000000",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "R",
+    "label": "standing reserve units (R)",
+    "value": "500000000000000000",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "T",
+    "label": "the unit in transit (T)",
+    "value": "1000000000000000000",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "escrow",
+    "label": "ETH in the module's pots (escrowBalance)",
+    "value": "799000000000000000",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "moduleBalance",
+    "label": "the module's ETH (eth_getBalance)",
+    "value": "811000000000000000",
+    "sources": [
+     "rh-a.fixture.invalid",
+     "rh-b.fixture.invalid"
+    ],
+    "block": 74315515,
+    "at": 1790550028,
+    "ok": true,
+    "note": ""
+   },
+   {
+    "key": "custodianEth",
+    "label": "the custodian's ETH on Ethereum (earmarks + leftovers + the gas pot; backs no unit)",
+    "value": "1121100000000000000",
+    "sources": [
+     "eth-a.fixture.invalid",
+     "eth-b.fixture.invalid"
+    ],
+    "block": 26071860,
+    "at": 1790549243,
+    "ok": true,
+    "note": ""
+   }
+  ],
+  "equation": {
+   "inCustody": 13,
+   "unverified": 0,
+   "elsewhere": 0,
+   "ticketsInFlight": 2,
+   "ethBackedUnits": "1850000000000000000",
+   "backingUnits": "12850000000000000000",
+   "bestCaseUnits": "12850000000000000000",
+   "supplyUnits": "12850000000000000000",
+   "holds": true
+  },
+  "items": [
+   {
+    "itemId": 1,
+    "tokenId": "24",
+    "how": "purchase",
+    "arrivalTx": "0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2",
+    "arrivalUrl": "https://etherscan.io/tx/0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/24",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26002199,
+     "final": true,
+     "pricePaidWei": "941000000000000000",
+     "detail": "a Seaport fill of #24 to the custodian for 941000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 2,
+    "tokenId": "389",
+    "how": "purchase",
+    "arrivalTx": "0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b",
+    "arrivalUrl": "https://etherscan.io/tx/0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/389",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26004575,
+     "final": true,
+     "pricePaidWei": "942000000000000000",
+     "detail": "a Seaport fill of #389 to the custodian for 942000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 4,
+    "tokenId": "208",
+    "how": "purchase",
+    "arrivalTx": "0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734",
+    "arrivalUrl": "https://etherscan.io/tx/0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/208",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26009327,
+     "final": true,
+     "pricePaidWei": "944000000000000000",
+     "detail": "a Seaport fill of #208 to the custodian for 944000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 5,
+    "tokenId": "161",
+    "how": "purchase",
+    "arrivalTx": "0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9",
+    "arrivalUrl": "https://etherscan.io/tx/0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/161",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26011703,
+     "final": true,
+     "pricePaidWei": "945000000000000000",
+     "detail": "a Seaport fill of #161 to the custodian for 945000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 9,
+    "tokenId": "291",
+    "how": "purchase",
+    "arrivalTx": "0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04",
+    "arrivalUrl": "https://etherscan.io/tx/0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/291",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26021207,
+     "final": true,
+     "pricePaidWei": "949000000000000000",
+     "detail": "a Seaport fill of #291 to the custodian for 949000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 10,
+    "tokenId": "102",
+    "how": "purchase",
+    "arrivalTx": "0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a",
+    "arrivalUrl": "https://etherscan.io/tx/0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/102",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26023583,
+     "final": true,
+     "pricePaidWei": "950000000000000000",
+     "detail": "a Seaport fill of #102 to the custodian for 950000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 12,
+    "tokenId": "304",
+    "how": "purchase",
+    "arrivalTx": "0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017",
+    "arrivalUrl": "https://etherscan.io/tx/0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/304",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26028335,
+     "final": true,
+     "pricePaidWei": "952000000000000000",
+     "detail": "a Seaport fill of #304 to the custodian for 952000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 13,
+    "tokenId": "206",
+    "how": "purchase",
+    "arrivalTx": "0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174",
+    "arrivalUrl": "https://etherscan.io/tx/0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/206",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26030711,
+     "final": true,
+     "pricePaidWei": "953000000000000000",
+     "detail": "a Seaport fill of #206 to the custodian for 953000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 15,
+    "tokenId": "146",
+    "how": "deposit",
+    "arrivalTx": "0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453",
+    "arrivalUrl": "https://etherscan.io/tx/0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/146",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26045156,
+     "final": true,
+     "pricePaidWei": null,
+     "detail": "the holder's own deposit, claiming for 0x4100000000000000000000000000000000000010 on chain 4663",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 16,
+    "tokenId": "237",
+    "how": "purchase",
+    "arrivalTx": "0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3",
+    "arrivalUrl": "https://etherscan.io/tx/0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/237",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26057656,
+     "final": true,
+     "pricePaidWei": "956000000000000000",
+     "detail": "a Seaport fill of #237 to the custodian for 956000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 17,
+    "tokenId": "117",
+    "how": "purchase",
+    "arrivalTx": "0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd",
+    "arrivalUrl": "https://etherscan.io/tx/0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/117",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26066823,
+     "final": true,
+     "pricePaidWei": "957000000000000000",
+     "detail": "a Seaport fill of #117 to the custodian for 957000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 18,
+    "tokenId": "213",
+    "how": "purchase",
+    "arrivalTx": "0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b",
+    "arrivalUrl": "https://etherscan.io/tx/0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/213",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26071523,
+     "final": true,
+     "pricePaidWei": "958000000000000000",
+     "detail": "a Seaport fill of #213 to the custodian for 958000000000000000 wei",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   },
+   {
+    "itemId": 19,
+    "tokenId": "118",
+    "how": "deposit",
+    "arrivalTx": "0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf",
+    "arrivalUrl": "https://etherscan.io/tx/0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf",
+    "mintedAt": null,
+    "nftUrl": "https://etherscan.io/nft/0x5af0d9827e0c53e4799bb226655a1de152a425a5/118",
+    "promisedTo": null,
+    "owners": [
+     {
+      "source": "eth-a.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     },
+     {
+      "source": "eth-b.fixture.invalid",
+      "owner": "0x3000000000000000000000000000000000000c05",
+      "reverted": false,
+      "error": null
+     }
+    ],
+    "ownerBlock": 26071860,
+    "ownerAt": 1790549243,
+    "verdict": "in-custody",
+    "reason": null,
+    "arrival": {
+     "verdict": "ok",
+     "block": 26071821,
+     "final": true,
+     "pricePaidWei": null,
+     "detail": "the holder's own deposit, claiming for 0x4100000000000000000000000000000000000014 on chain 4663",
+     "sources": [
+      "eth-a.fixture.invalid",
+      "eth-b.fixture.invalid"
+     ]
+    },
+    "cost": null
+   }
+  ],
+  "module": {
+   "address": "0x30000000000000000000000000000000000000f1",
+   "ethBackedUnits": "1850000000000000000",
+   "reserveUnits": "500000000000000000",
+   "convertibleUnits": "350000000000000000",
+   "transitUnits": "1000000000000000000",
+   "escrowWei": "799000000000000000",
+   "revenueWei": "12000000000000000",
+   "advancedWei": "970000000000000000",
+   "advancedAt": 1790542800,
+   "balanceWei": "811000000000000000"
+  },
+  "advance": {
+   "open": true,
+   "advancedWei": "970000000000000000",
+   "advancedAt": 1790542800,
+   "phase": null,
+   "where": "the canister's records were not read: where the ETH is now is not shown",
+   "relay": null,
+   "overdue": false
+  },
+  "gas": {
+   "custodianWei": "1121100000000000000",
+   "earmarkedWei": null,
+   "leftoverWei": null,
+   "potWei": null,
+   "sources": [
+    "eth-a.fixture.invalid",
+    "eth-b.fixture.invalid"
+   ]
+  },
+  "strays": [],
+  "canister": null,
+  "canisterNote": "The self-check does not read the canister: its records are the canister's word, and none of this depends on them.",
+  "links": {
+   "wrapper": null,
+   "custodian": "https://etherscan.io/address/0x3000000000000000000000000000000000000c05",
+   "module": null,
+   "collection": "https://etherscan.io/address/0x5af0d9827e0c53e4799bb226655a1de152a425a5"
+  }
+ },
+ "calls": [
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_chainId",
+   "params": "[]",
+   "result": "\"0x1237\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_chainId",
+   "params": "[]",
+   "result": "\"0x1237\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_blockNumber",
+   "params": "[]",
+   "result": "\"0x46df70f\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_blockNumber",
+   "params": "[]",
+   "result": "\"0x46df70f\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_getBlockByNumber",
+   "params": "[\"0x46df6fb\",false]",
+   "result": "{\"number\":\"0x46df6fb\",\"hash\":\"0xb0a17a9bf868b78a64e42242d1c9e3a9afcdcc29c9337a2bc35b2f1b3eb845bf\",\"timestamp\":\"0x6ab9a00c\",\"l1BlockNumber\":\"0x18dd375\"}",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x18160ddd\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000b2545eeaf3c50000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xa285aed7\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000000d\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x87c9505f\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000002\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xae163298\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000019ac8532c2790000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x18160ddd\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000b2545eeaf3c50000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xa285aed7\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000000d\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x87c9505f\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000002\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xae163298\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000019ac8532c2790000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x6bfb0d01\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000014\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000000\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000004b58f0d1ef00be1e5ac2159063996b40c909d96eb250649fc1ea45209d04ee92e00000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000001\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000018649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e200000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000002\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000018587fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b00000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000003\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000001168eabfc2dff76c58d234c2dae95fda1fc46ae79cb486ce3872d4cca4d21898bda00000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000004\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000018\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000002\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000185\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000003\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000116\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000004\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000000d0a83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f8573400000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000005\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000000a111790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d900000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000006\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000000ba60b1fc1f6987f4a385bd79c7fd5a9d30a5b0e55729039e2f0313a7dba545930600000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000007\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000005f469eedad1432001fab0acf843cca85fa94f9fdf37a20fa082837681444ec243d00000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb04870500000000000000000000000000000000000000000000000000000000000000d0\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000005\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb04870500000000000000000000000000000000000000000000000000000000000000a1\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000006\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb04870500000000000000000000000000000000000000000000000000000000000000ba\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb048705000000000000000000000000000000000000000000000000000000000000005f\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000008\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000000dc4173146f805fe27da231526c35d32252515c89ce3deda082025016e8ff2e443100000000000000000000000000…",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000009\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000123a5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e0400000000000000000000000000…",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e6219000000000000000000000000000000000000000000000000000000000000000a\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000066329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a00000000000000000000000000…",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e6219000000000000000000000000000000000000000000000000000000000000000b\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000003ea842eec861424d6bef485fba1c0a5fc19f47f26ef576a7e954e0d1811c9430b800000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb04870500000000000000000000000000000000000000000000000000000000000000dc\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000123\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000000a\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000066\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000000b\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb048705000000000000000000000000000000000000000000000000000000000000003e\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e6219000000000000000000000000000000000000000000000000000000000000000c\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000130c0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d801700000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e6219000000000000000000000000000000000000000000000000000000000000000d\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000000cecc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d9617400000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e6219000000000000000000000000000000000000000000000000000000000000000e\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000004e4db7f197cc818d86014ad1024eb772942e5a03bb884d91a01228249a4fe33ca000000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e6219000000000000000000000000000000000000000000000000000000000000000f\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000092452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda845300000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000130\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000000d\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb04870500000000000000000000000000000000000000000000000000000000000000ce\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000000000000e\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb048705000000000000000000000000000000000000000000000000000000000000004e\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000092\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000010\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000010\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000000ede17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f300000000000000000000000000…",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000011\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000075dde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd00000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000012\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000000d5f87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b00000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0x898e62190000000000000000000000000000000000000000000000000000000000000013\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000000000000000000761c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf00000000000000000000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb04870500000000000000000000000000000000000000000000000000000000000000ed\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000011\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000075\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000012\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb04870500000000000000000000000000000000000000000000000000000000000000d5\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000013\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x3000000000000000000000000000000000000001\",\"data\":\"0xfb0487050000000000000000000000000000000000000000000000000000000000000076\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000000000000000014\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x1f427a7b\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000019ac8532c2790000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x87313898\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000006f05b59d3b20000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x273c589e\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000004db732547630000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x12bc60d6\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000de0b6b3a7640000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0xe11e1b0c\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000b169e4447898000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x3e9491a2\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000002aa1efb94e0000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0xa0dd2c03\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000d7621dc58210000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0xb578e434\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000006ab983d0\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x1f427a7b\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000019ac8532c2790000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x87313898\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000006f05b59d3b20000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x273c589e\"},\"0x46df6fb\"]",
+   "result": "\"0x00000000000000000000000000000000000000000000000004db732547630000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x12bc60d6\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000de0b6b3a7640000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0xe11e1b0c\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000b169e4447898000\"",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0x3e9491a2\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000002aa1efb94e0000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0xa0dd2c03\"},\"0x46df6fb\"]",
+   "result": "\"0x0000000000000000000000000000000000000000000000000d7621dc58210000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x30000000000000000000000000000000000000f1\",\"data\":\"0xb578e434\"},\"0x46df6fb\"]",
+   "result": "\"0x000000000000000000000000000000000000000000000000000000006ab983d0\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-a.fixture.invalid",
+   "method": "eth_getBalance",
+   "params": "[\"0x30000000000000000000000000000000000000f1\",\"0x46df6fb\"]",
+   "result": "\"0xb41403400d78000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "robinhood",
+   "host": "rh-b.fixture.invalid",
+   "method": "eth_getBalance",
+   "params": "[\"0x30000000000000000000000000000000000000f1\",\"0x46df6fb\"]",
+   "result": "\"0xb41403400d78000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_chainId",
+   "params": "[]",
+   "result": "\"0x1\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_chainId",
+   "params": "[]",
+   "result": "\"0x1\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getBlockByNumber",
+   "params": "[\"finalized\",false]",
+   "result": "{\"number\":\"0x18dd334\",\"hash\":\"0x970b3dce2dbf015da0e75c4d250e19474281782319c88e50940f96c06e7f0d58\",\"timestamp\":\"0x6ab99cfb\"}",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getBlockByNumber",
+   "params": "[\"finalized\",false]",
+   "result": "{\"number\":\"0x18dd334\",\"hash\":\"0x970b3dce2dbf015da0e75c4d250e19474281782319c88e50940f96c06e7f0d58\",\"timestamp\":\"0x6ab99cfb\"}",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000018\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000018\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000185\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000185\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000d0\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000d0\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000a1\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000a1\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18cc317\",\"transactionHash\":\"0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18cc317\",\"transactionHash\":\"0x649f82864fc1b31c384ec40a4cff49fe8233a34b2e01c46587a055bdac84e9e2\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18ccc5f\",\"transactionHash\":\"0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18ccc5f\",\"transactionHash\":\"0x87fc2d72d26845434c46f2701a170547bf651176c4e9d70c4a57e4277fe1c34b\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18cdeef\",\"transactionHash\":\"0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18cdeef\",\"transactionHash\":\"0xa83641a387f233e9b0801490b4155e222cdc4edf07cdd9eeb916a362d4f85734\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18ce837\",\"transactionHash\":\"0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18ce837\",\"transactionHash\":\"0x11790821aea972efcb5bdc74bb2e4b37770fffe3ed85be25af9e0d9142a077d9\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000123\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000123\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000066\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000066\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000130\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000130\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000ce\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000ce\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d0d57\",\"transactionHash\":\"0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 1
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d0d57\",\"transactionHash\":\"0xa5c9404e6e3415f6ce2a06f4e4523712adc7b9c59c7d914cb0ce222aff490e04\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d169f\",\"transactionHash\":\"0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d169f\",\"transactionHash\":\"0x329fe38ddbe1ace41307b40df02c70a8db104b23b98db6e17825a94f4627d68a\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d292f\",\"transactionHash\":\"0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d292f\",\"transactionHash\":\"0xc0715d5e66d2c79cbfe99685984af2c705786026ddaadc1466baa627791d8017\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d3277\",\"transactionHash\":\"0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d3277\",\"transactionHash\":\"0xcc799b196e39cae489c79406a7fcf3a1bef02ecc2a47934080181d8793d96174\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000092\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000092\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000ed\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000ed\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000075\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000075\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000d5\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e00000000000000000000000000000000000000000000000000000000000000d5\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d6ae4\",\"transactionHash\":\"0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d6ae4\",\"transactionHash\":\"0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d9bb8\",\"transactionHash\":\"0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18d9bb8\",\"transactionHash\":\"0xe17460ab3683a915915655cb813991874934befec72e355b45545d5e380d29f3\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18dbf87\",\"transactionHash\":\"0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18dbf87\",\"transactionHash\":\"0xdde1dd85451e1dfd5ff82dde53f4acceddb96d190ae5bfa8289a4ce861d4c9bd\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18dd1e3\",\"transactionHash\":\"0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18dd1e3\",\"transactionHash\":\"0xf87c7f0424cc1ab6ebeb5dc95d99730d0e20fe9e9923d99a1525a2879a44e25b\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionByHash",
+   "params": "[\"0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453\"]",
+   "result": "{\"from\":\"0x4000000000000000000000000000000000000010\",\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"input\":\"0xb88d4fde00000000000000000000000040000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionByHash",
+   "params": "[\"0x452e1aa0c77e115db9596541a6deba535e30f8476d22d33aa53605d70eda8453\"]",
+   "result": "{\"from\":\"0x4000000000000000000000000000000000000010\",\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"input\":\"0xb88d4fde00000000000000000000000040000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000076\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_call",
+   "params": "[{\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"data\":\"0x6352211e0000000000000000000000000000000000000000000000000000000000000076\"},\"0x18dd334\"]",
+   "result": "\"0x0000000000000000000000003000000000000000000000000000000000000c05\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18dd30d\",\"transactionHash\":\"0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionReceipt",
+   "params": "[\"0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf\"]",
+   "result": "{\"status\":\"0x1\",\"blockNumber\":\"0x18dd30d\",\"transactionHash\":\"0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf\",\"logs\":[{\"address\":\"0x5af0d9…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getTransactionByHash",
+   "params": "[\"0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf\"]",
+   "result": "{\"from\":\"0x4000000000000000000000000000000000000014\",\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"input\":\"0xb88d4fde00000000000000000000000040000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getTransactionByHash",
+   "params": "[\"0x1c0c9bb51b9a8d6206fc1c39c9a45c996e22813d63b9074225dbd3c90b255dbf\"]",
+   "result": "{\"from\":\"0x4000000000000000000000000000000000000014\",\"to\":\"0x5af0d9827e0c53e4799bb226655a1de152a425a5\",\"input\":\"0xb88d4fde00000000000000000000000040000000000…",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-a.fixture.invalid",
+   "method": "eth_getBalance",
+   "params": "[\"0x3000000000000000000000000000000000000c05\",\"0x18dd334\"]",
+   "result": "\"0xf8ef28299b0c000\"",
+   "ok": true,
+   "ms": 0
+  },
+  {
+   "chain": "ethereum",
+   "host": "eth-b.fixture.invalid",
+   "method": "eth_getBalance",
+   "params": "[\"0x3000000000000000000000000000000000000c05\",\"0x18dd334\"]",
+   "result": "\"0xf8ef28299b0c000\"",
+   "ok": true,
+   "ms": 0
+  }
+ ]
+}

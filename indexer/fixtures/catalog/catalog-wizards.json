@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "wizards",
+    "name": "The Wizards of Ord",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "wizards",
+    "description": "3,333 wizards inscribed exclusively on the historic block 78 sats.",
+    "image": "https://media.ordinalswallet.com/6b79892ee6859c2b6b9d7b9745bf0918b43550036e3bedda0f9b37940c26e8f0.png",
+    "links": {
+      "website": "https://wizards.art",
+      "x": "https://x.com/TheWizardsOfOrd",
+      "discord": "https://discord.com/invite/TheWizardsOfOrd",
+      "marketplace": "https://ordinalswallet.com/collection/wizards",
+      "explorer": "https://ordinals.com/inscription/11301998"
+    },
+    "floor": {
+      "native": "1541623",
+      "unit": "sats",
+      "eth": 0.48657734431714167,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:wizards/escrows",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 3333,
+    "owners": null,
+    "listed": 3,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "90fc64aee2e49d7dce8a7ce8ff0d653eb9bf5bb680bb4d19cc89620613e70b27i0",
+        "name": "Wizard #1126",
+        "image": "https://ordinals.com/content/90fc64aee2e49d7dce8a7ce8ff0d653eb9bf5bb680bb4d19cc89620613e70b27i0",
+        "url": "https://ordinals.com/inscription/90fc64aee2e49d7dce8a7ce8ff0d653eb9bf5bb680bb4d19cc89620613e70b27i0"
+      },
+      {
+        "id": "ce63b40237e8f026b60ad6ae7de382b4fac713555b442efba24a1fdb4d1881b9i0",
+        "name": "Wizard #189",
+        "image": "https://ordinals.com/content/ce63b40237e8f026b60ad6ae7de382b4fac713555b442efba24a1fdb4d1881b9i0",
+        "url": "https://ordinals.com/inscription/ce63b40237e8f026b60ad6ae7de382b4fac713555b442efba24a1fdb4d1881b9i0"
+      },
+      {
+        "id": "99fc95d9482c621a68e82cb1c0b2dc96537a3f00d2502f2cdaa0ffe92b5e0f1fi0",
+        "name": "Wizard #3037",
+        "image": "https://ordinals.com/content/99fc95d9482c621a68e82cb1c0b2dc96537a3f00d2502f2cdaa0ffe92b5e0f1fi0",
+        "url": "https://ordinals.com/inscription/99fc95d9482c621a68e82cb1c0b2dc96537a3f00d2502f2cdaa0ffe92b5e0f1fi0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.487 ETH, 0.584 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

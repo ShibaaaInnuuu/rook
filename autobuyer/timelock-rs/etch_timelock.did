@@ -1,0 +1,71 @@
+type Roles = record { proposers : vec principal; guardians : vec principal; veto_threshold : nat8 };
+type Config = record { target : principal; roles : Roles; delay_secs : nat64 };
+type ProposalView = record {
+  id : nat64;
+  by : principal;
+  kind : text;
+  wasm_hash : opt text;
+  wasm_bytes : opt nat64;
+  arg_hex : opt text;
+  arg_hash : opt text;
+  controllers : opt vec principal;
+  roles : opt Roles;
+  proposed_ns : nat64;
+  executable_ns : nat64;
+  vetoes : vec principal;
+};
+type Status = record {
+  target : principal;
+  roles : Roles;
+  delay_secs : nat64;
+  min_delay_secs : nat64;
+  rehearsal_build : bool;
+  pending : vec ProposalView;
+  running : vec record { ProposalView; opt text };
+  target_epoch : nat64;
+  roles_epoch : nat64;
+  resume_votes : vec principal;
+  now_ns : nat64;
+};
+type Event = variant {
+  Proposed : record { id : nat64; at_ns : nat64; view : ProposalView };
+  Cancelled : record { id : nat64; at_ns : nat64; by : principal };
+  VetoVote : record { id : nat64; at_ns : nat64; by : principal; votes : nat8; needed : nat8 };
+  Vetoed : record { id : nat64; at_ns : nat64; by : vec principal };
+  Executed : record { id : nat64; at_ns : nat64; by : principal };
+  Failed : record { id : nat64; at_ns : nat64; by : principal; why : text };
+  Paused : record { at_ns : nat64; paused : bool; ok : bool; why : opt text };
+  ResumeVote : record { at_ns : nat64; by : principal; votes : nat8; needed : nat8 };
+  RolesChanged : record { id : nat64; at_ns : nat64; roles : Roles };
+  NotStopped : record { id : nat64; at_ns : nat64; why : text };
+  NotStarted : record { id : nat64; at_ns : nat64; why : text };
+  Started : record { at_ns : nat64; by : principal; ok : bool; why : opt text };
+  // W14a: a large module's chunks were not uploaded to the target's chunk store: nothing stopped or installed, pending again
+  NotUploaded : record { id : nat64; at_ns : nat64; why : text };
+};
+type Cycles = record { balance : nat; low_threshold : nat };
+type ProposeResult = variant { Ok : ProposalView; Err : text };
+type UnitResult = variant { Ok; Err : text };
+type BoolResult = variant { Ok : bool; Err : text };
+type TextResult = variant { Ok : text; Err : text };
+type StageResult = variant { Ok : record { nat64; text }; Err : text };
+service : (Config) -> {
+  status : () -> (Status) query;
+  history : () -> (vec Event) query;
+  cycles : () -> (Cycles) query;
+  propose_upgrade : (blob, blob) -> (ProposeResult);
+  // W14a: a module too large for one message, staged in pieces by its proposer (each ≤ 1,900,000 bytes) and proposed whole with the
+  // SHA-256 of the full module (published, and the buyer's module hash after execution); the same delay and veto
+  stage_chunk : (blob) -> (StageResult);
+  unstage : () -> (UnitResult);
+  staged : (principal) -> (opt record { nat64; text }) query;
+  propose_staged_upgrade : (text, blob) -> (ProposeResult);
+  propose_controllers : (vec principal) -> (ProposeResult);
+  propose_roles : (Roles) -> (ProposeResult);
+  withdraw : (nat64) -> (UnitResult);
+  veto : (nat64) -> (BoolResult);
+  execute : (nat64) -> (TextResult);
+  pause_target : () -> (UnitResult);
+  start_target : () -> (UnitResult);
+  resume_target : () -> (BoolResult);
+}

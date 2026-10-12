@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "ordinal-jomo",
+    "name": "JOMOHippo",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "ordinal-jomo",
+    "description": "JOMO IS A HIPPO FULL OF PERSONALITY. NOT WORRIED, NOT SORRY, OFTEN LAZY, SOMETIMES SILLY, BUT HAPPY.",
+    "image": "https://ordinals.com/content/e83d5758bfb7722b26b6756fb04c28df51c39c27dfe82fecdec414d492036f82i0",
+    "links": {
+      "website": "https://jomohippo.land/",
+      "x": "https://x.com/JOMOHippo",
+      "discord": "https://discord.com/invite/jomohippo",
+      "marketplace": "https://ordinalswallet.com/collection/ordinal-jomo",
+      "explorer": "https://ordinals.com/inscription/333888"
+    },
+    "floor": {
+      "native": "195272",
+      "unit": "sats",
+      "eth": 0.06163305242559101,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 2600,
+    "owners": null,
+    "listed": 37,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "50a9c3434b60541ccabdd9609e730fb9b37ebd489da819e4644a40f71955757ai0",
+        "name": "JOMOHippo #1285",
+        "image": "https://ordinals.com/content/50a9c3434b60541ccabdd9609e730fb9b37ebd489da819e4644a40f71955757ai0",
+        "url": "https://ordinals.com/inscription/50a9c3434b60541ccabdd9609e730fb9b37ebd489da819e4644a40f71955757ai0"
+      },
+      {
+        "id": "be7dd4c857fbe8a58ff0116b857497f0a015761eb3104f168c918f57d082e77bi0",
+        "name": "JOMOHippo #1649",
+        "image": "https://ordinals.com/content/be7dd4c857fbe8a58ff0116b857497f0a015761eb3104f168c918f57d082e77bi0",
+        "url": "https://ordinals.com/inscription/be7dd4c857fbe8a58ff0116b857497f0a015761eb3104f168c918f57d082e77bi0"
+      },
+      {
+        "id": "74c2e2fa7c034b0444b98464cfa245a38153244d419d1b8ae128422a0e5336f0i0",
+        "name": "JOMOHippo #1170",
+        "image": "https://ordinals.com/content/74c2e2fa7c034b0444b98464cfa245a38153244d419d1b8ae128422a0e5336f0i0",
+        "url": "https://ordinals.com/inscription/74c2e2fa7c034b0444b98464cfa245a38153244d419d1b8ae128422a0e5336f0i0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.062 ETH, 0.074 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

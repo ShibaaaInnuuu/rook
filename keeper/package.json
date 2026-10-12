@@ -1,0 +1,24 @@
+{
+  "name": "etch-keeper",
+  "private": true,
+  "type": "module",
+  "description": "What a keeper following the published policy WOULD post (src/: reads only, no signer, no code that sends); a LOCAL end-to-end run (local/: chain 31337 only, no key); the STAGING operator (staging/: the staging chain only, this machine only, no key); and the hands of a small real test the USER runs (live/: chain 4663, only for a deployment labelled test, only armed on five facts, key set by the user); and the PRODUCTION keeper (service/: one chain id named by the operator, the key read in service/signer.ts only, dry run unless KEEPER_MODE=send; docs/v6/p1-services.md), with its keyless resolver (service/resolver-main.ts standalone: any funded key, dry run unless RESOLVER_MODE=send).",
+  "scripts": {
+    "dryrun": "tsx src/run.ts",
+    "test": "tsx --test test/*.test.ts",
+    "e2e:local": "KEEPER_MODE=local tsx local/e2e.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "staging:operator": "KEEPER_MODE=staging tsx staging/operator.ts",
+    "live": "tsx live/cli.ts",
+    "service": "tsx service/main.ts",
+    "resolver": "tsx service/resolver-main.ts"
+  },
+  "dependencies": {
+    "viem": "^2.21.0",
+    "tsx": "^4.19.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  }
+}

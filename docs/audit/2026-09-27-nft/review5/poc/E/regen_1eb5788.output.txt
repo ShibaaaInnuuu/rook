@@ -1,0 +1,4 @@
+git diff 1eb5788 2735dac -- autobuyer/canister-rs:        0 lines
+exit 0
+generated    32198 hex chars, committed    32198
+saved-1eb5788-rich.hex: byte-identical to what the 2735dac (= 1eb5788) build writes with the fixer's dumper

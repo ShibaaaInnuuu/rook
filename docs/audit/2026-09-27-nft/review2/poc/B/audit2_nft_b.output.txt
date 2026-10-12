@@ -1,0 +1,11 @@
+AUDIT2-B2-M-1b: 7 in-band washes at 0.70 → the listing floor 930000000000000000 is more than 10 % over the sales' median 700000000000000000: cheap listings withheld? no post
+AUDIT2-B2-L-1: swept book + 7 washes at 1.30 → post 1120000000000000000 (real sales' median 0.91)
+test audit2_b2_m1_seven_in_band_washes_under_the_listings_veto_the_post_too ... ok
+test audit2_b2_l1_after_a_sweep_seven_wash_sales_let_the_post_follow_the_attackers_own_listings ... ok
+AUDIT2-B2-L-2: reads per pass [12, 12, 12, 12]
+test audit2_b2_l2_oversized_receipts_are_re_reserved_every_pass ... ok
+AUDIT2-B2-M-1: 10 ping-pong sales at 0.001 ETH of one token: no post for 7200 s
+test audit2_b2_m1_ten_dust_ping_pong_sales_stop_every_floor_post ... ok
+AUDIT2-A-M-1: 7 wash sales at 1.20: median 1200000000000000000 → deposit minted at accepted 1.00
+test audit2_a_m1_seven_in_band_wash_sales_open_the_deposit_band_at_a_floor_10_percent_over_the_market ... ok
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s

@@ -1,0 +1,9 @@
+# python3 depth_scan.py (read-only; 2026-09-28 UTC). Also probe4663.sh at 13:26:03Z: heads robinhood 74831670 / ordofi 74831676;
+# 36,000 blocks in 3,617 s (9.95 blocks/s); robinhood eth_getTransactionCount served at 3,000..6,200 under the head, refused at
+# 6,400+ (-32000 "historical state <root> ..."). The reach is a sliding window, not a sawtooth:
+13:26:23 head 74831860 state reach 6216 .. 6234 blocks
+13:27:24 head 74832467 state reach 6216 .. 6234 blocks
+13:28:26 head 74833071 state reach 6216 .. 6234 blocks
+13:29:27 head 74833684 state reach 6216 .. 6234 blocks
+13:30:29 head 74834270 state reach 6198 .. 6216 blocks
+13:31:30 head 74834897 state reach 6216 .. 6234 blocks

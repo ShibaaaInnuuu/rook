@@ -1,0 +1,53 @@
+{
+  "id": 11,
+  "kind": "inscriptions",
+  "name": "Planetary Ordinals",
+  "ref": "planetary-ordinals",
+  "divisibility": 0,
+  "vault": "0x496889ae09AA08CDFD470DCF7F6619f0e7ca504b",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-planetary-ordinals",
+  "membershipRoot": "0x08d3c05cdfd3fcb0a0471d13396601b22bcf7c85053fa455fa1a066199f3de8e",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "38777869271104206",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "38777869271104206",
+    "attributedWei": "38777869271104206",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "38777869271104206",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x0d8A9f81F03A3EbA5C2B7126B8A6acA31539DA93",
+      "symbol": "JASPSIM",
+      "depositedWei": "38777869271104206"
+    }
+  ]
+}

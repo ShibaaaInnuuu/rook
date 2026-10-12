@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped RSIC",
+  "symbol": "wRSIC",
+  "description": "Rook's wrapped RSIC Metaprotocol token: each whole token is backed either by a RSIC Metaprotocol NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/rsic.png",
+  "external_url": "https://userook.fun/#/collection/rsic",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/rsic.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

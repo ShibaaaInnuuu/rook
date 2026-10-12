@@ -1,0 +1,8 @@
+
+running 1 test
+round2: old 2523 bytes, new 2601 bytes, same value
+round4: old 2756 bytes, new 2840 bytes, same value
+test r6_e_the_pre_round5_fixture_bytes_decode_losslessly ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 36 filtered out; finished in 0.01s
+

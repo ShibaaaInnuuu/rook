@@ -1,0 +1,50 @@
+{
+  "slug": "taproot-wizards",
+  "taken_at": "2026-10-10T07:24:50.860Z",
+  "rule": "the ids every entry of sources has (intersection; references are compared, not agreed on), ordered by inscription number ascending",
+  "count": 2102,
+  "root": "0x6ebe6bf01bd05768e6d2d2c3f6ebf9763a009e2b02513472450b16aba57a9b14",
+  "proof_depth": 12,
+  "sources": [
+    {
+      "name": "ordinalswallet",
+      "url": "https://turbo.ordinalswallet.com/collection/taproot-wizards/inscriptions",
+      "count": 2106,
+      "unique": 2106,
+      "left_out": [
+        "2d426af7bfb40e097f031faeac0505b870de357514a31ea8dca14e353a00f50ai0",
+        "6197ebd7ce60124c085d532c065e217496e55c578554d247656ada06243d3449i0",
+        "913ea5e972dc89f85ba0fdb2c0e631d657a91eeb6033cc23852aec12d8ba4011i0",
+        "5b495923d6f5f0a09353453886ec9f198c80fd166890fea1a576bc89fb56e654i0"
+      ]
+    },
+    {
+      "name": "ord-gallery",
+      "url": "https://ordinals.com/gallery/13bc906cb96497ca1ce835b098e3c6e45ec4ed77afdbe92f9b64a299649ca7fbi0",
+      "count": 2102,
+      "unique": 2102,
+      "left_out": []
+    }
+  ],
+  "references": [
+    {
+      "name": "magiceden-legacy",
+      "url": "https://raw.githubusercontent.com/TheWizardsOfOrd/ordinals-collections/main/legacy/collections/taproot_wizards.json",
+      "count": 2102,
+      "not_in_members": [],
+      "members_missing": []
+    },
+    {
+      "name": "ordinalswallet-github",
+      "url": "https://raw.githubusercontent.com/ordinals-wallet/ordinals-collections/main/collections/taproot-wizards/inscriptions.json",
+      "count": 2106,
+      "not_in_members": [
+        "2d426af7bfb40e097f031faeac0505b870de357514a31ea8dca14e353a00f50ai0",
+        "5b495923d6f5f0a09353453886ec9f198c80fd166890fea1a576bc89fb56e654i0",
+        "6197ebd7ce60124c085d532c065e217496e55c578554d247656ada06243d3449i0",
+        "913ea5e972dc89f85ba0fdb2c0e631d657a91eeb6033cc23852aec12d8ba4011i0"
+      ],
+      "members_missing": []
+    }
+  ]
+}

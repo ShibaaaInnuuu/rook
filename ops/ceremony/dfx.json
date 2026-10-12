@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "canisters": {
+    "buyer": {
+      "type": "custom",
+      "candid": "../../autobuyer/canister-rs/etch_autobuyer.did",
+      "wasm": "../../autobuyer/build/buyer.wasm.gz",
+      "build": []
+    },
+    "timelock": {
+      "type": "custom",
+      "candid": "../../autobuyer/timelock-rs/etch_timelock.did",
+      "wasm": "../../autobuyer/build/timelock.wasm",
+      "build": []
+    }
+  },
+  "networks": {
+    "local": { "bind": "127.0.0.1:4965", "type": "ephemeral" }
+  }
+}

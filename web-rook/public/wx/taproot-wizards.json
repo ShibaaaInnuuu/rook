@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Taproot Wizard",
+  "symbol": "wTAPWIZ",
+  "description": "Rook's wrapped Taproot Wizards token: each whole token is backed either by a Taproot Wizards NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/taproot-wizards.png",
+  "external_url": "https://userook.fun/#/collection/taproot-wizards",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/taproot-wizards.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

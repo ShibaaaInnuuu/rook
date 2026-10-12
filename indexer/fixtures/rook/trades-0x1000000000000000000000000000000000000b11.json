@@ -1,0 +1,101 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. The Rook coins (ALIEN, BETA, APEA, APEB) are docs/v3/curve.md's worked examples with a few invented trades walked along the worked curve; the other coins are a recording of our staging fork, where a simulator trades. Every price is invented or simulated; nothing was bought; no wallet here is anybody."
+  },
+  "kind": "curve",
+  "items": [
+    {
+      "id": "352:40",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "120000000000000000",
+      "coinWei": "29184688010217192420171975",
+      "feeWei": "1200000000000000",
+      "taxWei": null,
+      "price": 4.070627719522292e-9,
+      "trader": "0x4000000000000000000000000000000000000005",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000028",
+      "block": 352,
+      "logIndex": 40,
+      "at": 1790042015
+    },
+    {
+      "id": "345:38",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "200000000000000000",
+      "coinWei": "53037791325760522962739635",
+      "feeWei": "2000000000000000",
+      "taxWei": null,
+      "price": 3.733187130359087e-9,
+      "trader": "0x4000000000000000000000000000000000000004",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000026",
+      "block": 345,
+      "logIndex": 38,
+      "at": 1790042001
+    },
+    {
+      "id": "338:36",
+      "side": "sell",
+      "venue": "curve",
+      "quoteWei": "223408069588694573",
+      "coinWei": "60000000000000000000000000",
+      "feeWei": "2256647167562571",
+      "taxWei": null,
+      "price": 3.761078612604286e-9,
+      "trader": "0x4000000000000000000000000000000000000002",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000024",
+      "block": 338,
+      "logIndex": 36,
+      "at": 1790041987
+    },
+    {
+      "id": "331:34",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "400000000000000000",
+      "coinWei": "110667389453498271985987051",
+      "feeWei": "4000000000000000",
+      "taxWei": null,
+      "price": 3.57828988246259e-9,
+      "trader": "0x4000000000000000000000000000000000000003",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000022",
+      "block": 331,
+      "logIndex": 34,
+      "at": 1790041973
+    },
+    {
+      "id": "324:32",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "250000000000000000",
+      "coinWei": "83585336968795615412156765",
+      "feeWei": "2500000000000000",
+      "taxWei": null,
+      "price": 2.9610456687205507e-9,
+      "trader": "0x4000000000000000000000000000000000000002",
+      "tx": "0x0000000000000000000000000000000000000000000000000000000000000020",
+      "block": 324,
+      "logIndex": 32,
+      "at": 1790041959
+    },
+    {
+      "id": "317:30",
+      "side": "buy",
+      "venue": "curve",
+      "quoteWei": "300000000000000000",
+      "coinWei": "119877551020408163265306122",
+      "feeWei": "3000000000000000",
+      "taxWei": null,
+      "price": 2.4775280898876405e-9,
+      "trader": "0x4000000000000000000000000000000000000001",
+      "tx": "0x000000000000000000000000000000000000000000000000000000000000001e",
+      "block": 317,
+      "logIndex": 30,
+      "at": 1790041945
+    }
+  ],
+  "next": null,
+  "total": 6
+}

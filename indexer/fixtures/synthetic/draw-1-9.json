@@ -1,0 +1,52 @@
+{
+  "id": "1-9",
+  "listingId": 1,
+  "acquisitionId": 9,
+  "type": "distribution",
+  "state": "cancelled",
+  "mode": "unset",
+  "assetRef": null,
+  "openedAt": 1800001080,
+  "challengeEnds": 1800005000,
+  "challengeEndsIn": null,
+  "root": "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef",
+  "uri": "u",
+  "total": "1",
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": null,
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": null,
+  "distribution": {
+    "claimedUnits": "0",
+    "claims": 0,
+    "rolledOver": null
+  },
+  "timeline": [
+    {
+      "at": 1800001080,
+      "block": 190,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DistributionOpened",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "9",
+        "root": "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef",
+        "total": "1",
+        "uri": "u",
+        "challengeEnds": "1800005000"
+      }
+    },
+    {
+      "at": 1800001092,
+      "block": 191,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DistributionCancelled",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "9"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Bitcoin Weirdo",
+  "symbol": "wWEIRDO",
+  "description": "Rook's wrapped Bitcoin Weirdos token: each whole token is backed either by a Bitcoin Weirdos NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/bitcoin-weirdos.png",
+  "external_url": "https://userook.fun/#/collection/bitcoin-weirdos",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/bitcoin-weirdos.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

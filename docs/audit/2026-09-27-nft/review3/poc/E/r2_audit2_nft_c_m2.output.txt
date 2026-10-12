@@ -1,0 +1,5 @@
+# the C2-M-2 PoC with one more adaptation (r2_audit2_nft_c_m2_adaptation.diff: a hand-in refused at 48 h, when the buy goes back, no longer panics the harness), so that it reaches its attack assertions
+AUDIT2-C C2-M-2: after 3 days: deposit Minted; buy BackFunded { wei: 498443962449863321, since: 1790685633 }
+thread 'c2_an_arrived_buy_that_cannot_fill_keeps_every_deposit_of_its_collection_unminted_indefinitely' (53220511) panicked at tests/audit2_nft_c_m2.rs:617:5:
+assertion failed: matches!(phase(&st), BPhase::Arrived { .. })
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.07s

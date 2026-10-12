@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: every event is described with what a reader must check
+ok 1 - every event is described with what a reader must check
+  ---
+  duration_ms: 1.978208
+  type: 'test'
+  ...
+# Subtest: a timelock that is not configured as expected is said out loud, and a rehearsal build on the IC above all
+ok 2 - a timelock that is not configured as expected is said out loud, and a rehearsal build on the IC above all
+  ---
+  duration_ms: 0.671
+  type: 'test'
+  ...
+# Subtest: cycles: one alert when a canister crosses its own threshold, one when it recovers, none while it stays
+ok 3 - cycles: one alert when a canister crosses its own threshold, one when it recovers, none while it stays
+  ---
+  duration_ms: 0.194375
+  type: 'test'
+  ...
+# Subtest: arguments: a timelock id is required, and nothing unknown is accepted
+ok 4 - arguments: a timelock id is required, and nothing unknown is accepted
+  ---
+  duration_ms: 0.308042
+  type: 'test'
+  ...
+# Subtest: live on the local replica: a proposal is seen, its cancellation is seen, and Telegram gets exactly the post
+ok 5 - live on the local replica: a proposal is seen, its cancellation is seen, and Telegram gets exactly the post # SKIP the local rehearsal timelock is not on this replica
+  ---
+  duration_ms: 0.040875
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 311.041417

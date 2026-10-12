@@ -1,0 +1,827 @@
+{
+  "_": "Rook's first twelve Solana NFT collections (operator decision 2026-10-10, docs/v9/solana-nfts-design.md), in unlock priority order (docs/v9/canister-only-solana.md §16): what the canister lists and how each one's wX coin graduates. Taken 2026-10-10. Sources: Solana mainnet (public RPC) for collection keys, standards, rule sets, update authorities, royalties and the sample members (each a verified collection member with a master edition and a 1-supply 0-decimal mint); Magic Eden public API v2 for the floor (collections/<symbol>/stats), listed count and 30-day buyNow sales/volume (activities); CoinGecko nfts/<id> for supply; Tensor slugs confirmed by tensor.trade/trade/<slug> server-rendering the collection's title; X/website read from each official site (Magic Eden's collections/<symbol> endpoint answered 429 throughout, so its links could not be compared). Re-check: python3 scripts/check-solana-collections.py [--offline] [--market].",
+  "rule": "tier = the smallest of tiers_sol [85, 170, 255, 510] with tier x 0.5 x 0.75 / 1.03 >= 1.33 x floor_sol (deployments/launch/graduation-tiers.json); threshold_wx T_wX = max(3, ceil(tier / floor_sol)) whole wX (docs/v9/canister-only-solana.md §3.2)",
+  "tiers_sol": [
+    85,
+    170,
+    255,
+    510
+  ],
+  "taken_at": "2026-10-10T14:39Z",
+  "floor_reference": "Magic Eden collections/<symbol>/stats floorPrice (Tensor's floor read at the same time was 0-7 % higher)",
+  "rule_sets": {
+    "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9": {
+      "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+      "name": "Metaplex Foundation Rule Set",
+      "revisions": 9,
+      "latest_revision": "pass",
+      "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+      "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+    },
+    "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5": {
+      "address": "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5",
+      "name": "Compatibility Rule Set",
+      "revisions": 1,
+      "latest_revision": "pass",
+      "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+      "note": "Metaplex's Compatibility Rule Set (same owner as the foundation one; dumped in solana/tests/fixtures/rule_set_metaplex_compatibility.json): one revision, Pass for every operation"
+    }
+  },
+  "collections": [
+    {
+      "key": "mad_lads",
+      "name": "Mad Lads",
+      "symbol": "wMADLAD",
+      "wx_name": "Wrapped Mad Lads",
+      "collection_key": "J1S9H3QjnRtBbbuD4HjPV6RpRhwuk4zKbxsnCHuTgh9w",
+      "collection_name_onchain": "Mad Lads",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+          "name": "Metaplex Foundation Rule Set",
+          "revisions": 9,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Metaplex Foundation Rule Set": 20
+      },
+      "update_authority": "2RtGg6fsFiiF1EQzHqbd66AhW7R5bWeQGpTbv2UMkCdW",
+      "seller_fee_bps": 420,
+      "supply": 9968,
+      "supply_source": "CoinGecko nfts/mad-lads total_supply (2026-10-10)",
+      "collection_size_onchain": 9968,
+      "magic_eden_symbol": "mad_lads",
+      "tensor_slug": "madlads",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "mad-lads",
+      "x": "https://x.com/MadLads",
+      "website": "https://www.madlads.com",
+      "links_verified": "madlads.com links both twitter.com/madlads and twitter.com/madladsnft (its twitter:site meta is @madladsnft); CoinGecko lists twitter.com/MadLads. @MadLads taken as primary",
+      "floor_sol": 8.352,
+      "listed": 200,
+      "sales_30d": 414,
+      "volume_30d_sol": 4401.0,
+      "tier_sol": 85,
+      "nfts_per_graduation": 3.71,
+      "threshold_wx": 11,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "4vCV2b3uSsLdgFBLC33reou8wv8JtfbJohqGmxJZs4e9",
+          "name": "Mad Lads #9655",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "AmtsDLdqzeVXp2NFc3Cezxe3TdZ5KgD5PHLWBe3z2BSJ",
+          "name": "Mad Lads #7466",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "6SFdUApK9UfxXtFmAvPnfApnaHawT24sibwHnqk8Xt5V",
+          "name": "Mad Lads #7837",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        }
+      ]
+    },
+    {
+      "key": "smb_gen2",
+      "name": "SMB Gen2",
+      "symbol": "wSMBGEN2",
+      "wx_name": "Wrapped SMB Gen2",
+      "collection_key": "SMBtHCCC6RYRutFEPb4gZqeBLUZbMNhRKaMKZZLHi7W",
+      "collection_name_onchain": "SMB Gen2",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+          "name": "Metaplex Foundation Rule Set",
+          "revisions": 9,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Metaplex Foundation Rule Set": 21
+      },
+      "update_authority": "mdaoxg4DVGptU4WSpzGyVpK3zqsgn7Qzx5XNgWTcEA2",
+      "seller_fee_bps": 0,
+      "supply": 4993,
+      "supply_source": "CoinGecko nfts/solana-monkey-business total_supply (2026-10-10)",
+      "collection_size_onchain": 4992,
+      "magic_eden_symbol": "solana_monkey_business",
+      "tensor_slug": "solana_monkey_business",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "solana-monkey-business",
+      "x": "https://x.com/SolanaMBS",
+      "website": "https://solanamonkey.business",
+      "links_verified": "solanamonkey.business links twitter.com/solanambs (and twitter.com/monkedao); agrees with CoinGecko",
+      "floor_sol": 12.659,
+      "listed": 230,
+      "sales_30d": 196,
+      "volume_30d_sol": 2644.8,
+      "tier_sol": 85,
+      "nfts_per_graduation": 2.44,
+      "threshold_wx": 7,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "XE87c5SdCtQayiYG8hwyRHjRRHNgg6q9dcmeBLvx3Ak",
+          "name": "SMB #280",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "3M3fQ3c3wTLQEnxh29bKn6yDfKD5qHQgKdnm86kroTjE",
+          "name": "SMB #1262",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "8eY1DW2rLY7Pf1Yava1SaZvyTbDFYSijE4DnP3JHjcBW",
+          "name": "SMB #4304",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        }
+      ]
+    },
+    {
+      "key": "claynosaurz",
+      "name": "Claynosaurz",
+      "symbol": "wCLAYNO",
+      "wx_name": "Wrapped Claynosaurz",
+      "collection_key": "6mszaj17KSfVqADrQj3o4W3zoLMTykgmV37W4QadCczK",
+      "collection_name_onchain": "Claynosaurz",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+          "name": "Metaplex Foundation Rule Set",
+          "revisions": 9,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Metaplex Foundation Rule Set": 21
+      },
+      "update_authority": "B7B2g3WbdZMDV3YcDGRGhEt5KyWqDJZFwRR8zpWVEkUF",
+      "seller_fee_bps": 500,
+      "supply": 10232,
+      "supply_source": "CoinGecko nfts/claynosaurz total_supply (2026-10-10)",
+      "collection_size_onchain": 10232,
+      "magic_eden_symbol": "claynosaurz",
+      "tensor_slug": "claynosaurz",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "claynosaurz",
+      "x": "https://x.com/Claynosaurz",
+      "website": "https://www.claynosaurz.com",
+      "links_verified": "claynosaurz.com (redirects to www.) links x.com/claynosaurz; agrees with CoinGecko",
+      "floor_sol": 6.979,
+      "listed": 227,
+      "sales_30d": 202,
+      "volume_30d_sol": 1691.6,
+      "tier_sol": 85,
+      "nfts_per_graduation": 4.43,
+      "threshold_wx": 13,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "B9FXydWdz4oURJ4mdz8vS5TR3BH4BSo5rQ7gWnaxXJeJ",
+          "name": "Claynosaurz #4181",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "AKchXMzGSqQ7GBxURHjcVGqEDtGENjebmVKjkHqhw4s8",
+          "name": "Claynosaurz #1633",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "Fj6u4iqtg9eKYmat3mkwvTG1Nd51rCUJyywByFnD2Usn",
+          "name": "Claynosaurz #2580",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        }
+      ]
+    },
+    {
+      "key": "famous_fox_federation",
+      "name": "Famous Fox Federation",
+      "symbol": "wFFF",
+      "wx_name": "Wrapped Famous Fox Federation",
+      "collection_key": "BUjZjAS2vbbb65g7Z1Ca9ZRVYoJscURG5L3AkVvHP9ac",
+      "collection_name_onchain": "Famous Fox Federation",
+      "standard": "legacy",
+      "rule_sets": [],
+      "rule_set_sample": {
+        "none": 21
+      },
+      "standard_note": "Legacy: members carry token_standard NonFungible or none (pre-standard metadata); both are classic SPL NFTs with a master edition, no rule set",
+      "update_authority": "3pMvTLUA9NzZQd4gi725p89mvND1wRNQM3C8XEv1hTdA",
+      "seller_fee_bps": 420,
+      "supply": 10000,
+      "supply_source": "CoinGecko nfts/famous-fox-federation total_supply (2026-10-10)",
+      "collection_size_onchain": 9999,
+      "magic_eden_symbol": "famous_fox_federation",
+      "tensor_slug": "famous_fox_federation",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "famous-fox-federation",
+      "x": "https://x.com/FamousFoxFed",
+      "website": "https://famousfoxes.com",
+      "links_verified": "famousfoxes.com's bundle links twitter.com/famousfoxfed and embeds this collection key; agrees with CoinGecko",
+      "floor_sol": 3.238,
+      "listed": 183,
+      "sales_30d": 297,
+      "volume_30d_sol": 1093.3,
+      "tier_sol": 85,
+      "nfts_per_graduation": 9.56,
+      "threshold_wx": 27,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "3BWEnaDraT35sMvVEnboE3b6Zw2dMjiSvY1hR2yLx6hW",
+          "name": "Fox #6583",
+          "standard": "legacy",
+          "token_standard": null,
+          "rule_set": null
+        },
+        {
+          "mint": "8DyvmWFvVSbW75D38PfguVDD57CK9ekSNrZVFXTB4gvD",
+          "name": "Fox #1719",
+          "standard": "legacy",
+          "token_standard": null,
+          "rule_set": null
+        },
+        {
+          "mint": "3unrCrpy6zrQ7Wj4fdjeUAZiRh8RTNo4cU48RCHX4Vq1",
+          "name": "Fox #9137",
+          "standard": "legacy",
+          "token_standard": "NonFungible",
+          "rule_set": null
+        }
+      ]
+    },
+    {
+      "key": "degods",
+      "name": "DeGods (Solana)",
+      "symbol": "wDEGOD",
+      "wx_name": "Wrapped DeGods (Solana)",
+      "collection_key": "6XxjKYFbcndh2gDcsUrmZgVEsoDxXMnfsaGY6fpTJzNr",
+      "collection_name_onchain": "DeGods",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+          "name": "Metaplex Foundation Rule Set",
+          "revisions": 9,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Metaplex Foundation Rule Set": 21
+      },
+      "note": "the collection NFT's on-chain size counter reads 26782 (it counts verify/unverify events across the Ethereum bridge and back); CoinGecko's 6239 is the Solana-side supply",
+      "update_authority": "AxFuniPo7RaDgPH6Gizf4GZmLQFc4M5ipckeeZfkrPNn",
+      "seller_fee_bps": 333,
+      "supply": 6239,
+      "supply_source": "CoinGecko nfts/degods-solana total_supply (2026-10-10)",
+      "collection_size_onchain": 26782,
+      "magic_eden_symbol": "degods",
+      "tensor_slug": "degods",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "degods-solana",
+      "x": "https://x.com/DeGodsNFT",
+      "website": "https://de.xyz",
+      "links_verified": "de.xyz (now titled 'deBay', the DeGods marketplace) links x.com/DeGodsNFT; agrees with CoinGecko",
+      "floor_sol": 3.482,
+      "listed": 472,
+      "sales_30d": 272,
+      "volume_30d_sol": 1178.4,
+      "tier_sol": 85,
+      "nfts_per_graduation": 8.89,
+      "threshold_wx": 25,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "GNvctwuxstcKczZUYeJ28KLR6ktfqiECSyn5Epz1jhz7",
+          "name": "DeGod #2169",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "5eYaTGAhmym7x9BmnBik8ig49mMNCczTS4Kg1nN1t8mJ",
+          "name": "DeGod #9900",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "FBN3pvPnKBKJ1cDBpCa5WUpH6NAJCLjeTf82hnZG4UXE",
+          "name": "DeGod #3066",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        }
+      ]
+    },
+    {
+      "key": "galactic_geckos",
+      "name": "Galactic Geckos",
+      "symbol": "wGECKO",
+      "wx_name": "Wrapped Galactic Geckos",
+      "collection_key": "J6RJFQfLgBTcoAt3KoZFiTFW9AbufsztBNDgZ7Znrp1Q",
+      "collection_name_onchain": "Galactic Geckos",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+          "name": "Metaplex Foundation Rule Set",
+          "revisions": 9,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Metaplex Foundation Rule Set": 21
+      },
+      "note": "one sampled member (2jfgMfqfJ2jC87pikMJHBkgydwmCrC9KYPpvU1vtCC2p, #5443) carries seller_fee_basis_points 9800 (98 %); the rest 999. Royalties are not enforced on pNFTs under the latest foundation rule set, but a marketplace that honours creator royalties would price that item oddly",
+      "update_authority": "HVQTKbAmQYBpxSE5sXRNgMtuhDQ7t1ewFpvAGwzAUmFM",
+      "seller_fee_bps": 999,
+      "supply": 10000,
+      "supply_source": "CoinGecko nfts/ggsg-galactic-geckos total_supply (2026-10-10)",
+      "collection_size_onchain": null,
+      "magic_eden_symbol": "galactic_geckos",
+      "tensor_slug": "galactic_geckos",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "ggsg-galactic-geckos",
+      "x": "https://x.com/GalacticGeckoSG",
+      "website": "https://galacticgeckos.app",
+      "links_verified": "galacticgeckos.app links x.com/GalacticGeckoSG and embeds this collection key; agrees with CoinGecko",
+      "floor_sol": 4.0816,
+      "listed": 299,
+      "sales_30d": 74,
+      "volume_30d_sol": 324.8,
+      "tier_sol": 85,
+      "nfts_per_graduation": 7.58,
+      "threshold_wx": 21,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "7C6fVNxPasmagh11v548QZTiuZxwb8LatST8MgDhzifZ",
+          "name": "Galactic Gecko #5819",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "2wSnmbsCnT4AXiz2iyocLH1pcFspGgBLso4A3xGiM3uw",
+          "name": "Galactic Gecko #1823",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "4cTwUqPAKzKDjErZPosc9yXMX54sJ8o8yAGeZZWKnFwn",
+          "name": "Galactic Gecko #5203",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        }
+      ]
+    },
+    {
+      "key": "taiyo_robotics",
+      "name": "Taiyo Robotics",
+      "symbol": "wTAIYO",
+      "wx_name": "Wrapped Taiyo Robotics",
+      "collection_key": "HJx4HRAT3RiFq7cy9fSrvP92usAmJ7bJgPccQTyroT2r",
+      "collection_name_onchain": "TYR",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+          "name": "Metaplex Foundation Rule Set",
+          "revisions": 9,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Metaplex Foundation Rule Set": 14
+      },
+      "note": "the collection NFT is named 'TYR' and its update authority (CDgbhX61QFADQAeeYKP5BQ7nnzDyMkkR3NEhYF2ETn1k) differs from the members' (F4emUy...)",
+      "update_authority": "F4emUyYXZxTKs34r5VRERTESrmrQ76D9ohseoTtgGRE8",
+      "seller_fee_bps": 500,
+      "supply": 2348,
+      "supply_source": "CoinGecko nfts/taiyo-robotics total_supply (2026-10-10)",
+      "collection_size_onchain": null,
+      "magic_eden_symbol": "taiyo_robotics",
+      "tensor_slug": "taiyo_robotics",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "taiyo-robotics",
+      "x": "https://x.com/TaiyoRobotics",
+      "website": "https://taiyorobotics.com",
+      "links_verified": "taiyorobotics.com's bundle links twitter.com/TaiyoRobotics (and twitter.com/TaiyoPilots); agrees with CoinGecko",
+      "floor_sol": 14.9485,
+      "listed": 15,
+      "sales_30d": 65,
+      "volume_30d_sol": 745.5,
+      "tier_sol": 85,
+      "nfts_per_graduation": 2.07,
+      "threshold_wx": 6,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "56A7f3Mjh7rXQKz9M5gmg5tNjU234skTp5oWhbGP9igN",
+          "name": "TYR-1756",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "8vjG9E8nU38YB24J4VjyJh35zjSG3R3rFM7GEpVcDs4K",
+          "name": "TYR-0607",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "2FBgnCY6BeaMQAe71qVkWcEc2Q6kH2K5itQzHa3yRcND",
+          "name": "TYR-1374",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        }
+      ]
+    },
+    {
+      "key": "okay_bears",
+      "name": "Okay Bears",
+      "symbol": "wOKAYBEAR",
+      "wx_name": "Wrapped Okay Bears",
+      "collection_key": "3saAedkM9o5g1u5DCqsuMZuC4GRqPB4TuMkvSsSVvGQ3",
+      "collection_name_onchain": "Okay Bears",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+          "name": "Metaplex Foundation Rule Set",
+          "revisions": 9,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Metaplex Foundation Rule Set": 21
+      },
+      "update_authority": "4zj22pu8yRyenFHwLmue28CqVmGFgVQt5FmVvwdP5fLa",
+      "seller_fee_bps": 500,
+      "supply": 9858,
+      "supply_source": "CoinGecko nfts/okay-bears total_supply (2026-10-10)",
+      "collection_size_onchain": null,
+      "magic_eden_symbol": "okay_bears",
+      "tensor_slug": "okay_bears",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "okay-bears",
+      "x": "https://x.com/okaybears",
+      "website": "https://www.okaybears.com",
+      "links_verified": "www.okaybears.com redirects to weareokay.com (titled 'Okay Bears'), which links x.com/okaybears; agrees with CoinGecko",
+      "floor_sol": 1.2385,
+      "listed": 638,
+      "sales_30d": 273,
+      "volume_30d_sol": 445.8,
+      "tier_sol": 85,
+      "nfts_per_graduation": 24.99,
+      "threshold_wx": 69,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "BBFi1t62XCfRsZ4JxXVSBdTJP5MB46a37RcXYj2cysMy",
+          "name": "Okay Bear #8687",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "3YEZJhJ9qUsSXC2wWs2byEzVSbjXVv6yXSr3XyY2uanN",
+          "name": "Okay Bear #9658",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "7BozpHRrmi8AVHoHu562yjC2DtdwzZw99x4THk7CjEM8",
+          "name": "Okay Bear #5696",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        }
+      ]
+    },
+    {
+      "key": "smb_gen3",
+      "name": "SMB Gen3",
+      "symbol": "wSMBGEN3",
+      "wx_name": "Wrapped SMB Gen3",
+      "collection_key": "8Rt3Ayqth4DAiPnW9MDFi63TiQJHmohfTWLMQFHi4KZH",
+      "collection_name_onchain": "SMB Gen3",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5",
+          "name": "Compatibility Rule Set",
+          "revisions": 1,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "Metaplex's Compatibility Rule Set (same owner as the foundation one; dumped in solana/tests/fixtures/rule_set_metaplex_compatibility.json): one revision, Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Compatibility Rule Set": 21
+      },
+      "update_authority": "GfELr1GA9bLmgiMymUm7h8nDkZLG2Ls6txSsANopeVEW",
+      "seller_fee_bps": 500,
+      "supply": 8333,
+      "supply_source": "CoinGecko nfts/smb-gen3 total_supply (2026-10-10)",
+      "collection_size_onchain": 8334,
+      "magic_eden_symbol": "smb_gen3",
+      "tensor_slug": "smb_gen3",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "smb-gen3",
+      "x": "https://x.com/SolanaMBS",
+      "website": "https://solanamonkey.business",
+      "links_verified": "same site and account as SMB Gen2 (the site covers Gen3); agrees with CoinGecko",
+      "floor_sol": 2.3373,
+      "listed": 272,
+      "sales_30d": 84,
+      "volume_30d_sol": 215.3,
+      "tier_sol": 85,
+      "nfts_per_graduation": 13.24,
+      "threshold_wx": 37,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "8Crg45nBNaDWRv2srJo8jSfyURinKGeUHYTRXrLf1XDD",
+          "name": "SMB Gen3 #7505",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5"
+        },
+        {
+          "mint": "4tBzuWpDYN4nCJCUYKrZqH1B8qHb41CUY6nRBqBVsdka",
+          "name": "SMB Gen3 #6387",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5"
+        },
+        {
+          "mint": "AwsrAFDfgkSV4342tBMhE4F3gjoB7JNupUTwHk2tMWkq",
+          "name": "SMB Gen3 #150",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5"
+        }
+      ]
+    },
+    {
+      "key": "transdimensional_fox_federation",
+      "name": "Transdimensional Fox Federation",
+      "symbol": "wTFF",
+      "wx_name": "Wrapped Transdim Fox Federation",
+      "collection_key": "HbPtffcEzzSzZ1VJaTjaAJqTUQpfNeMkPqNG81dWE2Bi",
+      "collection_name_onchain": "Transdimensional Fox Federation",
+      "standard": "legacy",
+      "rule_sets": [],
+      "rule_set_sample": {
+        "none": 22
+      },
+      "standard_note": "Legacy: members' metadata has no token_standard (pre-standard); classic SPL NFTs with a master edition, no rule set",
+      "update_authority": "MwW2RfWAfGrKmh9QAkDELdEV7Ue39FoP885dhuHmqr9",
+      "seller_fee_bps": 420,
+      "supply": 7779,
+      "supply_source": "CoinGecko nfts/transdimensional-fox-federation total_supply (2026-10-10)",
+      "collection_size_onchain": null,
+      "magic_eden_symbol": "transdimensional_fox_federation",
+      "tensor_slug": "transdimensional_fox_federation",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "transdimensional-fox-federation",
+      "x": "https://x.com/FamousFoxFed",
+      "website": "https://famousfoxes.com",
+      "links_verified": "same site and account as Famous Fox Federation; famousfoxes.com's bundle embeds this collection key; agrees with CoinGecko",
+      "floor_sol": 1.208,
+      "listed": 278,
+      "sales_30d": 464,
+      "volume_30d_sol": 600.0,
+      "tier_sol": 85,
+      "nfts_per_graduation": 25.62,
+      "threshold_wx": 71,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "H3ucpuxHra5E1LDiZHrvMJ2yNtQoGh1odZS7iYPz5qPz",
+          "name": "Fox #7602",
+          "standard": "legacy",
+          "token_standard": null,
+          "rule_set": null
+        },
+        {
+          "mint": "A3ixaUci3yRTAhVLRSc9YsnH82WxrweGegUDi6HN7vG4",
+          "name": "Fox #1894",
+          "standard": "legacy",
+          "token_standard": null,
+          "rule_set": null
+        },
+        {
+          "mint": "AqeefU5H7yAnvf72DmphRqegLqunwgT71vuBPRgQDTM5",
+          "name": "Fox #3823",
+          "standard": "legacy",
+          "token_standard": null,
+          "rule_set": null
+        }
+      ]
+    },
+    {
+      "key": "pythenians",
+      "name": "Pythenians",
+      "symbol": "wPYTHENIAN",
+      "wx_name": "Wrapped Pythenians",
+      "collection_key": "pyTh2UtBKfuDW6KCdT3swospYeoLmmKaGujWA91Moru",
+      "collection_name_onchain": "Pythenians",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9",
+          "name": "Metaplex Foundation Rule Set",
+          "revisions": 9,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "revisions 1-7 were restrictive (ProgramOwnedList of marketplace programs, Amount == 1); revision 9 (latest, the one Token Metadata applies) is Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Metaplex Foundation Rule Set": 19
+      },
+      "update_authority": "PyTHY3DyjVQe9EQVU7jYriVKd7dJ6xiyyyPvVWxpiMN",
+      "seller_fee_bps": 500,
+      "supply": 3686,
+      "supply_source": "CoinGecko nfts/pythenians total_supply (2026-10-10)",
+      "collection_size_onchain": 3310,
+      "magic_eden_symbol": "pythenians",
+      "tensor_slug": "pythenians",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "pythenians",
+      "x": "https://x.com/PytheniansNFT",
+      "website": "https://pythenians.xyz",
+      "links_verified": "pythenians.xyz ('Pythenians 2.0') links x.com/pytheniansNFT; agrees with CoinGecko",
+      "floor_sol": 1.2,
+      "listed": 102,
+      "sales_30d": 230,
+      "volume_30d_sol": 258.5,
+      "tier_sol": 85,
+      "nfts_per_graduation": 25.79,
+      "threshold_wx": 71,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "CW1fAJ89xhSDhygn82GqhttW35n7EqmQhBBmrzwc36ja",
+          "name": "Pythenians #1217",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "F2KCo23XiVzcdW4VBVAyL1Rch9ceofXMmz6P2RZCTCHz",
+          "name": "Pythenians #2247",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        },
+        {
+          "mint": "6AXpQuVvVFH7eLMafTEe6kxmR6UfUyJBQh3TcfhQrPrK",
+          "name": "Pythenians #1568",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "eBJLFYPxJmMGKuFwpDWkzxZeUrad92kZRC5BJLpzyT9"
+        }
+      ]
+    },
+    {
+      "key": "cyber_frogs",
+      "name": "Cyber Frogs",
+      "symbol": "wCYBERFROG",
+      "wx_name": "Wrapped Cyber Frogs",
+      "collection_key": "2kEAck1FyW8TxB5SprEnasb4gkaahTdDV83wPtxm9y32",
+      "collection_name_onchain": "Cyber Frogs",
+      "standard": "pnft",
+      "rule_sets": [
+        {
+          "address": "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5",
+          "name": "Compatibility Rule Set",
+          "revisions": 1,
+          "latest_revision": "pass",
+          "owner": "ELskdHjzTQ6F4bBibhk4iqy63gSPs8ELec9HbfAaSDJk",
+          "note": "Metaplex's Compatibility Rule Set (same owner as the foundation one; dumped in solana/tests/fixtures/rule_set_metaplex_compatibility.json): one revision, Pass for every operation"
+        }
+      ],
+      "rule_set_sample": {
+        "Compatibility Rule Set": 15,
+        "none": 3
+      },
+      "mixed": "all sampled members are pNFTs, but 3 of 18 carry no rule set (programmable_config V1 with rule_set None) and the rest the Compatibility Rule Set; both let wallet-to-wallet TransferV1 pass",
+      "update_authority": "frogQCpP8LpgfhhpusLvNoRw6sjmsX3Vij7MF8KtHn2",
+      "seller_fee_bps": 999,
+      "supply": 8088,
+      "supply_source": "CoinGecko nfts/cyber-frogs total_supply (2026-10-10)",
+      "collection_size_onchain": 5354,
+      "magic_eden_symbol": "cyber_frogs",
+      "tensor_slug": "cyber_frogs",
+      "tensor_slug_confirmed": true,
+      "coingecko_id": "cyber-frogs",
+      "x": "https://x.com/CyberFrogsNFT",
+      "website": "https://cyberfrogs.io",
+      "links_verified": "cyberfrogs.io links twitter.com/CyberFrogsNFT; agrees with CoinGecko",
+      "floor_sol": 1.323,
+      "listed": 81,
+      "sales_30d": 110,
+      "volume_30d_sol": 126.4,
+      "tier_sol": 85,
+      "nfts_per_graduation": 23.39,
+      "threshold_wx": 65,
+      "compressed": false,
+      "sample_members": [
+        {
+          "mint": "FCCbq4v1apEQjFKT8rWxDTDE2mnXzCRYphV5ZTiG1qYh",
+          "name": "Frog #409",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5"
+        },
+        {
+          "mint": "4ZmLtGp1qkNWDHGCi2YuaYxzCEgYRbAyQwU2EihAz7J5",
+          "name": "Frog #2004",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": "AdH2Utn6Fus15ZhtenW4hZBQnvtLgM1YCW2MfVp7pYS5"
+        },
+        {
+          "mint": "EoWh885VGsaJvBqBRV1ER2XTR5dJM7HeC7t8zTC7kMHP",
+          "name": "Frog #9004",
+          "standard": "pnft",
+          "token_standard": "ProgrammableNonFungible",
+          "rule_set": null
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Tensorians",
+      "why": "compressed (cNFT): sampled mints have no account; also 0 Magic Eden sales in 30 days"
+    },
+    {
+      "name": "Retardio Cousins Classic",
+      "why": "Metaplex Core with PermanentFreezeDelegate on the collection (the authority can freeze any held asset)"
+    },
+    {
+      "name": "Stonk Cats",
+      "why": "Metaplex Core with PermanentFreezeDelegate on the collection"
+    },
+    {
+      "name": "Degenerate Ape Academy: Higher Self",
+      "why": "not in the operator's twelve; custom rule set 8iGuBLWnQTNUswX6n8go4fzVAcDAcpHQ1HmaTj5QFUpm ('Founders' Council Rule Set', 7 revisions, latest Pass)"
+    },
+    {
+      "name": "BoDoggos, Froganas",
+      "why": "not in the twelve (floors < 1 SOL); own rule sets HhDqsd8aSaGJARgzqzNvE4q5HAd6FoDn6VzMF18bjvK / ARdHQ5FBBMyMaA5dzyJji6U8i7uwAK2TBsMHM8GTBUGn, latest revisions Pass"
+    },
+    {
+      "name": "OTC Desks, Drifella III, Critters Quest, Famous Fox Dens, y00ts, sharx",
+      "why": "considered in the same research pass, not in the operator's twelve"
+    }
+  ]
+}

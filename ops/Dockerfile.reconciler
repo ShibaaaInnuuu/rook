@@ -1,0 +1,36 @@
+# K7: the hourly reserves reconciliation (docs/v6/p1-services.md §3, docs/deploy/services-v1.md). docs/v9/canister-only-solana.md §10.2: on
+# the books home (ROOK_HOME=books, the default) it reads the canister's books_view (booksreserves; the wX mint and the module balances through
+# solread over SOL_RPC_URLS; fuel/sol's PDA derivation and relay's address encoding are pure), and the collections' names from
+# deployments/launch/canister-only/pins.json. No key: it reads 4663 (ROOK_HOME=robinhood), Bitcoin (ordinals.com, mempool.space,
+# blockstream.info) and the canister's queries, and posts alerts to Telegram.
+# Build context: the REPO ROOT, because it runs the indexer's own reserves code (indexer/src/wrapped/, unchanged) and the
+# monitor's Telegram channel (monitor/src/alerts.mjs):   docker build -f ops/Dockerfile.reconciler .
+# The image carries neither the runner nor the operator's identity file. At run time: RECONCILE_CHAIN_ID=4663,
+# RECONCILE_STACK=/app/deployments/stack-4663.json, CANISTER_ID, ALERT_TELEGRAM_BOT_TOKEN (secret), ALERT_TELEGRAM_CHAT_ID.
+# A volume at /data keeps the last report, so a restart serves its real age (red after 3 h) instead of forgetting it.
+# Audit E-16: it runs as `node`, not root: the entrypoint (ops/docker/drop-to-node.sh) makes the root-owned Railway volume
+# writable by `node` and drops to it. It needs ALERT_TELEGRAM_BOT_TOKEN and ALERT_TELEGRAM_CHAT_ID, or it refuses to start.
+FROM node:22-alpine
+RUN apk add --no-cache su-exec
+WORKDIR /app
+COPY ops/package.json ops/package-lock.json ops/
+RUN cd ops && npm ci --omit=dev --no-audit --no-fund
+COPY indexer/package.json indexer/package-lock.json indexer/
+RUN cd indexer && npm ci --omit=dev --no-audit --no-fund
+COPY ops/tsconfig.json ops/
+COPY ops/src/reconcile.ts ops/src/stage.ts ops/src/ic.ts ops/src/log.ts ops/src/backing.ts ops/src/location.ts ops/src/ethRecords.ts ops/src/solread.ts ops/src/booksreserves.ts ops/src/relay.ts ops/src/
+COPY ops/src/fuel/sol.ts ops/src/fuel/
+COPY indexer/types.ts indexer/
+COPY indexer/src/rpc.ts indexer/src/outbound.ts indexer/src/
+COPY indexer/src/rook/catalogSources.ts indexer/src/rook/
+COPY indexer/src/wrapped indexer/src/wrapped
+COPY monitor/src/alerts.mjs monitor/src/config.mjs monitor/src/
+COPY deployments deployments
+COPY --chmod=0755 ops/docker/drop-to-node.sh /usr/local/bin/drop-to-node
+ENV NODE_ENV=production RECONCILE_STATE_DIR=/data PORT=8080 DATA_DIRS=/data
+RUN mkdir -p /data && chown node:node /data
+WORKDIR /app/ops
+EXPOSE 8080
+HEALTHCHECK --interval=120s --timeout=5s --start-period=60s CMD wget -qO- "http://127.0.0.1:${PORT:-8080}/healthz" >/dev/null || exit 1
+ENTRYPOINT ["drop-to-node"]
+CMD ["node", "--import", "tsx", "src/reconcile.ts"]

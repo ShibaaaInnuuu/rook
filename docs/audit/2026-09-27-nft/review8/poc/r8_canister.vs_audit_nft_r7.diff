@@ -1,0 +1,117 @@
+diff --git a/autobuyer/canister-rs/tests/audit_nft_r7.rs b/tmp/rook-r8/canister/autobuyer/canister-rs/tests/audit_nft_r7.rs
+index 468681e..5c3084c 100644
+--- a/autobuyer/canister-rs/tests/audit_nft_r7.rs
++++ b/tmp/rook-r8/canister/autobuyer/canister-rs/tests/audit_nft_r7.rs
+@@ -198,6 +198,7 @@ struct Fake {
+     // ---- review round 6, part B (poc/B) ----
+     /// logs older than this many blocks under the pin are refused (publicnode's keyless endpoint: about 10,000)
+     log_depth: Option<u64>,
++    mixed_depth: bool,
+     /// the refusal as the provider says it (true), or as the canister sees it after its transform (false: the message is dropped)
+     depth_raw: bool,
+     /// these receipts' reads fail with a disagreement (one provider answers null: publicnode prunes receipts ~20-30k blocks deep)
+@@ -294,6 +295,11 @@ impl Fake {
+         self.log_fails += 1;
+         self.logs_bytes += 2 * 64_000;
+         let raw = r#"{"jsonrpc":"2.0","id":1,"error":{"code":-32602,"message":"Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"}}"#;
++        if self.mixed_depth {
++            // review 8: ONE provider of the pair keeps logs only `log_depth` deep and says so; the other serves the range
++            let deep = seen_as(raw);
++            return Some(etch_autobuyer::nftnet::pair_deep(vec![Err(deep), Ok(serde_json::json!([]))], 1, "eth_getLogs").unwrap_err());
++        }
+         Some(if self.depth_raw {
+             format!("chain 1: eth_getLogs: no result: {raw}")
+         } else if self.depth_plain {
+@@ -329,7 +335,7 @@ impl Fake {
+             sale_moves: HashMap::new(), payouts: HashMap::new(),
+             hide: vec![], unsure: false, real_advance: false, identify: false, sent_tx: HashMap::new(), payout_balance_fail: false,
+             bal_fail: None, big_sale_blocks: vec![], dense_blocks: vec![], odd_blocks: vec![], receipt_bytes: 0, mint_revert: 0, mint_log: vec![], item_of_err: 0, item_src: HashMap::new(),
+-            log_depth: None, depth_raw: false, receipt_disagree: vec![], busy_pct: 0, busy_seed: 0x1234_5678, busy_hits: 0, seaport_range_cap: None, depth_plain: false, partial: false, payout_logs: HashMap::new(),
++            log_depth: None, mixed_depth: false, depth_raw: false, receipt_disagree: vec![], busy_pct: 0, busy_seed: 0x1234_5678, busy_hits: 0, seaport_range_cap: None, depth_plain: false, partial: false, payout_logs: HashMap::new(),
+             live_pin: None, state_depth: None, mint_estimate_refuse: false, deep_once: None, receipt_busy: vec![], diverge_pct: 0, fast_pin: false, mined_head: None,
+         }
+     }
+@@ -1844,3 +1850,83 @@ fn r7_e7_i1_no_source_is_pulled_in_from_outside_src_where_the_h3_guard_cannot_re
+     walk(&std::path::PathBuf::from(concat!(env!("CARGO_MANIFEST_DIR"), "/src")), &mut bad);
+     assert!(bad.is_empty(), "{bad:?}");
+ }
++
++// ===== review round 8 PoCs (private copy only) =====
++#[test]
++fn r8_c_a_batched_request_paying_two_of_our_orders_credits_only_one() {
++    // one depository execute whose request pays us twice (two written-off 5 ETH orders refunded in one batch)
++    let (w, o) = written_off_order();
++    let ob = ef::LateOrder { watch: ef::Watch { order_id: [0x0e; 32], ..w.clone() }, ..o.clone() };
++    let (input, logs) = relay_execute(&[(US, 49 * E / 10), (US, 48 * E / 10)], [0x8b; 32]);
++    let t = ef::PayoutTx { from: SOLVER, to: rc::RELAY_DEPOSITORY_4663, value: 0, input, block: 70_000_001, success: true };
++    let tx = [0x01; 32];
++    let a = ef::judge_payout(&o, &t, &logs, &tx, true, &US, 49 * E / 10, &[]);
++    let b = ef::judge_payout(&ob, &t, &logs, &tx, true, &US, 48 * E / 10, &[tx]);
++    println!("order A: {a:?}; order B, same tx after A: {b:?}");
++    assert_eq!(a, Ok(49 * E / 10));
++    assert!(b.unwrap_err().contains("credited already"), "the second refund of the batch can never be credited");
++}
++
++#[test]
++fn r8_c_b_spoofs_refused() {
++    let (w, o) = written_off_order();
++    let refund = 49 * E / 10;
++    // (1) a crafted request in the input (paying us), while the receipt's record is a DIFFERENT request paying us (nested execute)
++    let (crafted_in, _) = relay_execute(&[(US, refund)], [0x99; 32]);
++    let (_, real_logs) = relay_execute(&[(US, refund)], [0x8b; 32]);
++    let t = ef::PayoutTx { from: ATTACKER, to: rc::RELAY_DEPOSITORY_4663, value: 0, input: crafted_in, block: 70_000_001, success: true };
++    let r1 = ef::judge_payout(&o, &t, &real_logs, &[0x02; 32], true, &US, refund, &[]);
++    // (2) the record's id right, but the call paying ANOTHER address with our order id in its data
++    let r = rc::CallRequest { calls: vec![rc::DepCall { to: ATTACKER, data: w.order_id.to_vec(), value: refund, allow_failure: false }],
++        nonce: [0x8b; 32], expiration: [0u8; 32] };
++    let inp = rc::encode_execute(&r, &[0x11; 65]);
++    let id = rc::call_request_hash(&r);
++    let t2 = ef::PayoutTx { input: inp, ..t.clone() };
++    let r2 = ef::judge_payout(&o, &t2, &[relay_exec(id, ATTACKER, refund)], &[0x03; 32], true, &US, 0, &[]);
++    // (3) amount collision: two records paying us the same amount: one credited at that amount, never the sum
++    let (in3, logs3) = relay_execute(&[(US, refund), (US, refund)], [0x8b; 32]);
++    let r3 = ef::judge_payout(&o, &ef::PayoutTx { input: in3, ..t.clone() }, &logs3, &[0x04; 32], true, &US, refund, &[]);
++    // (4) a zero-value record paying us beside a stated amount
++    let (in4, logs4) = relay_execute(&[(US, 0)], [0x8b; 32]);
++    let r4 = ef::judge_payout(&o, &ef::PayoutTx { input: in4, ..t.clone() }, &logs4, &[0x05; 32], true, &US, refund, &[]);
++    // (5) a record with a truncated/odd flag word in the input: no decode, no credit
++    let (mut in5, logs5) = relay_execute(&[(US, refund)], [0x8b; 32]);
++    let n = in5.len(); in5.truncate(n - 70);
++    let r5 = ef::judge_payout(&o, &ef::PayoutTx { input: in5, ..t.clone() }, &logs5, &[0x06; 32], true, &US, refund, &[]);
++    println!("crafted input vs other request's record: {r1:?}\npays another, names order: {r2:?}\ncollision: {r3:?}\nzero: {r4:?}\ntruncated: {r5:?}");
++    assert!(r1.is_err() && r2.is_err() && r4.is_err());
++    assert_eq!(r3, Ok(refund));
++}
++
++fn one_shallow(mixed: bool, depth: u64, passes: usize) -> (usize, usize, ef::SaleScan, u32) {
++    let mut f = Fake::new(false);
++    let mut st = EthState::default();
++    f.finalized = ETH_PIN;
++    f.pin_now = Some(ETH_PIN);
++    f.m(MODULE).accepted = 93 * E / 100;
++    f.log_depth = Some(depth);
++    f.mixed_depth = mixed;
++    let top0 = ETH_PIN - en::SALE_FINAL_DEPTH_BLOCKS;
++    let old = newer_sales(&mut f, top0 - en::SALE_WINDOW_BLOCKS + 3_000, 400, 100, 0x6a);
++    let mut pin = ETH_PIN;
++    for _ in 0..passes {
++        pin += 100;
++        f.pin_now = Some(pin);
++        f.finalized = pin;
++        quiet(&mut f, &mut st);
++    }
++    let top = pin - en::SALE_FINAL_DEPTH_BLOCKS;
++    let bottom = top - en::SALE_WINDOW_BLOCKS;
++    let deep: Vec<[u8; 32]> = old.iter().filter(|x| x.1 >= bottom && x.1 + depth < pin).map(|x| x.0).collect();
++    (cached(&st, &deep), deep.len(), scan_of(&st), f.log_fails)
++}
++
++#[test]
++fn r8_b_one_genuinely_shallow_provider_is_no_longer_paged() {
++    for (mixed, what) in [(false, "BOTH providers shallow (deep)"), (true, "ONE provider shallow, the other serves (mixed)")] {
++        let (got, all, sc, fails) = one_shallow(mixed, 20_000, 144);
++        println!("{what}: down {} up {} skipped {:?} raw {:?} stuck {:?}", sc.down, sc.up, sc.skipped.as_ref().map(|v| v.len()), sc.raw, sc.stuck);
++        println!("{what}: sales deeper than 20,000 blocks counted {got} of {all}; lost {:?}; hole {:?}; hole_deep {:?}; behind {:?}; busy {:?}; rbusy {:?}; bad {:?}; log fails {fails}",
++            sc.lost, sc.hole, sc.hole_deep, sc.behind, sc.busy, sc.rbusy.as_ref().map(|v| v.len()), sc.bad.as_ref().map(|v| v.len()));
++    }
++}

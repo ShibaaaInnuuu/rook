@@ -1,0 +1,3 @@
+{ "compilerOptions": { "target": "ES2022", "module": "NodeNext", "moduleResolution": "NodeNext", "strict": true, "noEmit": true, "skipLibCheck": true,
+    "allowJs": true, "checkJs": false, "allowImportingTsExtensions": false },
+  "include": ["src", "test"] }

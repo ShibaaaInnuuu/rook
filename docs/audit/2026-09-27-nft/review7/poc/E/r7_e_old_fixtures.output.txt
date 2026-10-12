@@ -1,0 +1,20 @@
+test r7_e_every_historical_eth_state_fixture_restores_under_head ... "eth-state-round2-24fba50.hex": 2080 bytes, lost [], pending(pin,sent_at) None, scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round2-2d747ba.hex": 2656 bytes, lost [], pending(pin,sent_at) None, scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round2-57032dd.hex": 2523 bytes, lost [], pending(pin,sent_at) None, scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round2-e811911.hex": 2601 bytes, lost [], pending(pin,sent_at) None, scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round2-fb54018.hex": 2330 bytes, lost [], pending(pin,sent_at) None, scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round2-fbc9174.hex": 2225 bytes, lost [], pending(pin,sent_at) None, scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round4-2d747ba.hex": 2896 bytes, lost [], pending(pin,sent_at) Some((false, false)), scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round4-57032dd.hex": 2756 bytes, lost [], pending(pin,sent_at) Some((false, false)), scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round4-e811911.hex": 2840 bytes, lost [], pending(pin,sent_at) Some((false, false)), scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round5-2d747ba.hex": 2913 bytes, lost [], pending(pin,sent_at) Some((true, false)), scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round5-e811911.hex": 2857 bytes, lost [], pending(pin,sent_at) Some((true, false)), scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"eth-state-round6-2d747ba.hex": 2732 bytes, lost [], pending(pin,sent_at) Some((true, true)), scans(hole,lost,behind,rfail,raw) [(true, true, true, true, true)]
+"round2.hex": 2601 bytes, lost [], pending(pin,sent_at) None, scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"round4-1dc2a61.hex": 2756 bytes, lost [], pending(pin,sent_at) Some((false, false)), scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"round4.hex": 2840 bytes, lost [], pending(pin,sent_at) Some((false, false)), scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+"round5.hex": 2857 bytes, lost [], pending(pin,sent_at) Some((true, false)), scans(hole,lost,behind,rfail,raw) [(false, false, false, false, false)]
+test r7_e_the_re_encoded_fixtures_hold_the_same_values_as_their_bb713fe_bytes ... round2: bb713fe 2601 bytes, HEAD 2656 bytes, same value: true
+round4: bb713fe 2840 bytes, HEAD 2896 bytes, same value: true
+round5: bb713fe 2857 bytes, HEAD 2913 bytes, same value: true
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s

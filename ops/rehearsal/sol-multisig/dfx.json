@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "canisters": {
+    "solmulti": {
+      "type": "custom",
+      "candid": "canister/sol_multisig.did",
+      "wasm": "target/wasm32-unknown-unknown/release/rook_sol_multisig.wasm",
+      "build": "true"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4957",
+      "type": "ephemeral"
+    }
+  }
+}

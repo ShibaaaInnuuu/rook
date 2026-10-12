@@ -1,0 +1,45 @@
+{
+  "_note": "SYNTHETIC (not a landed transaction): a canister public mint as its transaction would read in getTransaction jsonParsed (canister-only design §6.1): the intent's deposit A pays 1 SOL to the module M[0], K_coll mints 0.05 wX to the minter's token account, and the memo rook:v1:0:mint:42:i7 labels link 42 serving intent 7. Keys are the DLMM fixture's (autobuyer/canister-rs/tests/fixtures/solix2/dlmm.json): K_main, K_coll, the module, the wX mint.",
+  "blockTime": 1791620000,
+  "slot": 371000123,
+  "version": "legacy",
+  "meta": {
+    "err": null,
+    "fee": 5000,
+    "computeUnitsConsumed": 9000,
+    "innerInstructions": [],
+    "logMessages": [],
+    "preBalances": [10000000000, 1000890880, 0, 5000000000, 2039280, 1461600, 1, 934087680, 1],
+    "postBalances": [9999995000, 890880, 0, 6000000000, 2039280, 1461600, 1, 934087680, 1],
+    "preTokenBalances": [
+      { "accountIndex": 4, "mint": "GyGKxMyg1p9SsHfm15MkNUu1u9TN2JtTspcdmrtGUdse", "owner": "BUQaUYtAmdm5bSUwqVkSsWCt4R53eQ3cYy2D6nT4r2gA", "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "uiTokenAmount": { "amount": "0", "decimals": 9, "uiAmount": null, "uiAmountString": "0" } }
+    ],
+    "postTokenBalances": [
+      { "accountIndex": 4, "mint": "GyGKxMyg1p9SsHfm15MkNUu1u9TN2JtTspcdmrtGUdse", "owner": "BUQaUYtAmdm5bSUwqVkSsWCt4R53eQ3cYy2D6nT4r2gA", "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "uiTokenAmount": { "amount": "50000000", "decimals": 9, "uiAmount": 0.05, "uiAmountString": "0.05" } }
+    ],
+    "rewards": [],
+    "status": { "Ok": null }
+  },
+  "transaction": {
+    "signatures": ["2NBqMXJUcfGohoeuXJPRmpeGGjif8dptMSiqbu394ZezHoEkeM3U5anCNQ1KNvZMENmcMsgZ92dPJY7H8DYsCpSN"],
+    "message": {
+      "accountKeys": [
+        { "pubkey": "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9", "signer": true, "writable": true, "source": "transaction" },
+        { "pubkey": "AoVsGaj8MSJ6xwKxfFxo9iZWH3enC8RRTXKH2fx2F8os", "signer": true, "writable": true, "source": "transaction" },
+        { "pubkey": "EdmxWPmx2WH6WgFfTdu9xfkYf3k1g5wD1zccTVySEEh1", "signer": true, "writable": false, "source": "transaction" },
+        { "pubkey": "GhFJh9xhWQULf6W1WJLNTViiTWEs4wAj3FevZ616wxL2", "signer": false, "writable": true, "source": "transaction" },
+        { "pubkey": "8StSvV6vnNpE8GE2hne5dDSmfJb2QKXWZ75GRFmkLDFr", "signer": false, "writable": true, "source": "transaction" },
+        { "pubkey": "GyGKxMyg1p9SsHfm15MkNUu1u9TN2JtTspcdmrtGUdse", "signer": false, "writable": true, "source": "transaction" },
+        { "pubkey": "11111111111111111111111111111111", "signer": false, "writable": false, "source": "transaction" },
+        { "pubkey": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "signer": false, "writable": false, "source": "transaction" },
+        { "pubkey": "MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr", "signer": false, "writable": false, "source": "transaction" }
+      ],
+      "instructions": [
+        { "program": "system", "programId": "11111111111111111111111111111111", "parsed": { "type": "transfer", "info": { "source": "AoVsGaj8MSJ6xwKxfFxo9iZWH3enC8RRTXKH2fx2F8os", "destination": "GhFJh9xhWQULf6W1WJLNTViiTWEs4wAj3FevZ616wxL2", "lamports": 1000000000 } }, "stackHeight": null },
+        { "program": "spl-token", "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "parsed": { "type": "mintToChecked", "info": { "mint": "GyGKxMyg1p9SsHfm15MkNUu1u9TN2JtTspcdmrtGUdse", "account": "8StSvV6vnNpE8GE2hne5dDSmfJb2QKXWZ75GRFmkLDFr", "mintAuthority": "EdmxWPmx2WH6WgFfTdu9xfkYf3k1g5wD1zccTVySEEh1", "tokenAmount": { "amount": "50000000", "decimals": 9, "uiAmount": 0.05, "uiAmountString": "0.05" } } }, "stackHeight": null },
+        { "program": "spl-memo", "programId": "MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr", "parsed": "rook:v1:0:mint:42:i7", "stackHeight": null }
+      ],
+      "recentBlockhash": "9q4yEJsVqUQ4SQp24o8moARNrBFFCm1vZDKLo3KPkqTe"
+    }
+  }
+}

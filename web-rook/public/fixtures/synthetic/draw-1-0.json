@@ -1,0 +1,109 @@
+{
+  "id": "1-0",
+  "listingId": 1,
+  "acquisitionId": 0,
+  "type": "distribution",
+  "state": "distribution-rolled",
+  "mode": "pro-rata",
+  "assetRef": "840000:3",
+  "openedAt": 1800000816,
+  "challengeEnds": 1800005000,
+  "challengeEndsIn": null,
+  "root": "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef",
+  "uri": "ipfs://shares",
+  "total": "900",
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": "npm run snapshot -- --coin 0xC1C1c1c1C1C1C1c1c1C1C1C1c1C1C1C1c1C1c1c1 --block <block from the published file> --kind pro-rata --total 900",
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": null,
+  "distribution": {
+    "claimedUnits": "500",
+    "claims": 2,
+    "rolledOver": {
+      "coin": "0xC1C1c1c1C1C1C1c1c1C1C1C1c1C1C1C1c1C1c1c1",
+      "amount": "400",
+      "at": 1800000912
+    }
+  },
+  "timeline": [
+    {
+      "at": 1800000792,
+      "block": 166,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Receipted",
+      "detail": {
+        "id": "0",
+        "acquisitionId": "0",
+        "coin": "0xc1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1",
+        "assetRef": "840000:3",
+        "amount": "900",
+        "btcTxid": "0x5555555555555555555555555555555555555555555555555555555555555555",
+        "satsPaid": "90000"
+      }
+    },
+    {
+      "at": 1800000804,
+      "block": 167,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Chosen",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "0",
+        "mode": 6,
+        "named": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "at": 1800000816,
+      "block": 168,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DistributionOpened",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "0",
+        "root": "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef",
+        "total": "900",
+        "uri": "ipfs://shares",
+        "challengeEnds": "1800005000"
+      }
+    },
+    {
+      "at": 1800000828,
+      "block": 169,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "ShareClaimed",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "0",
+        "holder": "0xf1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1",
+        "amount": "300"
+      }
+    },
+    {
+      "at": 1800000840,
+      "block": 170,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "ShareClaimed",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "0",
+        "holder": "0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0",
+        "amount": "200"
+      }
+    },
+    {
+      "at": 1800000912,
+      "block": 176,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "RolledOver",
+      "detail": {
+        "listingId": "1",
+        "acquisitionId": "0",
+        "coin": "0xc1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1",
+        "amount": "400"
+      }
+    }
+  ]
+}

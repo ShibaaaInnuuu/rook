@@ -1,0 +1,16 @@
+{
+  "name": "etch-staging",
+  "private": true,
+  "type": "module",
+  "description": "docs/phase6.md tier 1: our hosted fork of Robinhood Chain (its own chain id: staging/chain-id.json). A node, a proxy that blocks everything a stranger must not call, a bootstrap that deploys with no key, and a smoke test. Nothing here can reach chain 4663 with a signer.",
+  "scripts": {
+    "start": "tsx chain/start.ts",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "smoke": "tsx smoke/smoke.ts",
+    "attest": "KEEPER_MODE=staging tsx bootstrap/attest.ts",
+    "listings:calldata": "tsx catalogue/print.ts"
+  },
+  "dependencies": { "viem": "^2.21.0" },
+  "devDependencies": { "tsx": "^4.19.0", "typescript": "^5.6.0", "@types/node": "^22.0.0" }
+}

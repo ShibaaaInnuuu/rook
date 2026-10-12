@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped NodeMonke",
+  "symbol": "wNODEMONKE",
+  "description": "Rook's wrapped NodeMonkes token: each whole token is backed either by a NodeMonkes NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/nodemonkes.png",
+  "external_url": "https://userook.fun/#/collection/nodemonkes",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/nodemonkes.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

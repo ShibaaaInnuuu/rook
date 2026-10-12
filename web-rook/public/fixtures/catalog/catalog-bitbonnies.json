@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "bitbonnies",
+    "name": "BitBonnies",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "bitbonnies",
+    "description": "999 BitBonnies living on Bitcoin's blockchain in eternity",
+    "image": "https://ordinals.com/content/53cc440ec3dd7c1dabc117cf7ecbce5d4c3ec8524814a1939b15daa62c11c5d3i0",
+    "links": {
+      "website": "https://bitbonnies.com",
+      "x": "https://x.com/bitbonnies",
+      "discord": "https://discord.gg/Eca6UGXmUV",
+      "marketplace": "https://ordinalswallet.com/collection/bitbonnies",
+      "explorer": "https://ordinals.com/inscription/210126"
+    },
+    "floor": {
+      "native": "267214",
+      "unit": "sats",
+      "eth": 0.0843398668055424,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:collections index (the old etched catalogue, 2026-09-23)",
+      "at": 1790127621,
+      "stale": true
+    },
+    "items": 999,
+    "owners": null,
+    "listed": 18,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "1aa488a37dc392d0f901d92c9c8a8ba0085ef9bedd865c856f092c107548002ei0",
+        "name": "BitBonnie #916",
+        "image": "https://ordinals.com/content/1aa488a37dc392d0f901d92c9c8a8ba0085ef9bedd865c856f092c107548002ei0",
+        "url": "https://ordinals.com/inscription/1aa488a37dc392d0f901d92c9c8a8ba0085ef9bedd865c856f092c107548002ei0"
+      },
+      {
+        "id": "393423a15ae7b7a48fe6be734b427abc53928689f7144e7325c2667c85d0daa1i0",
+        "name": "BitBonnie #982",
+        "image": "https://ordinals.com/content/393423a15ae7b7a48fe6be734b427abc53928689f7144e7325c2667c85d0daa1i0",
+        "url": "https://ordinals.com/inscription/393423a15ae7b7a48fe6be734b427abc53928689f7144e7325c2667c85d0daa1i0"
+      },
+      {
+        "id": "c11290f74ce5f1545096b748042d3541b9926b655acd58850ad7123f825b66adi0",
+        "name": "BitBonnie #837",
+        "image": "https://ordinals.com/content/c11290f74ce5f1545096b748042d3541b9926b655acd58850ad7123f825b66adi0",
+        "url": "https://ordinals.com/inscription/c11290f74ce5f1545096b748042d3541b9926b655acd58850ad7123f825b66adi0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790127621,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.084 ETH, 0.101 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

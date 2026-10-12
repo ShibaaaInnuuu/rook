@@ -1,0 +1,80 @@
+type Init = record {
+  // `key_1` on dfx 0.32's local replica
+  key_name : text;
+};
+type MultiArgs = record {
+  // lamports K_int → K_coll
+  lamports : nat64;
+  coll : nat32;
+  memo : text;
+  // base58 (mint, destination token account): when set, MintTo(mint, dest, K_coll, mint_amount); else a K_coll → K_main transfer
+  mint : opt record { text; text };
+  // base58: when set, AdvanceNonceAccount(nonce, K_main) is the first instruction
+  nonce_account : opt text;
+  // base58: a recent blockhash, or the durable nonce value when `nonce_account` is set
+  blockhash : text;
+  // list K_int as a Memo signer (Memo v2 requires every listed account to sign; it adds no signature: K_int signs anyway)
+  memo_signer : bool;
+  parallel : bool;
+  style : PathStyle;
+  mint_amount : nat64;
+  intent : nat64;
+};
+type MultiReport = record {
+  tx_bytes : nat32;
+  tx_base64 : text;
+  // balance before the first sign − after the last (attached cycles + execution, all three)
+  sign_balance_delta : nat;
+  signers : vec SignerOut;
+  parallel : bool;
+  // first sign call → last reply
+  sign_total_ms : nat64;
+  // instructions spent compiling the message (performance counter)
+  compile_instructions : nat64;
+  message_base64 : text;
+  header : record { nat8; nat8; nat8 };
+};
+type PathStyle = variant {
+  // [b"sol/intent/<n>"]: one element holding the whole string (one derivation step)
+  Flat;
+  // [b"sol", b"intent", n LE]: one element per level (BIP32-like: each element is one derivation step)
+  Multi;
+};
+type PubkeyReport = record {
+  public_key : blob;
+  path : vec blob;
+  canister_id : text;
+  address : text;
+  latency_ms : nat64;
+  chain_code : blob;
+  // canister balance before − after (schnorr_public_key attaches nothing; this is the call's own execution)
+  balance_delta : nat;
+};
+type Result = variant {
+  Ok : record { nat32; nat32; nat64; vec text };
+  Err : text;
+};
+type Result_1 = variant { Ok : MultiReport; Err : text };
+type Result_2 = variant { Ok : PubkeyReport; Err : text };
+type SignerOut = record {
+  signature : blob;
+  // ic0.cost_sign_with_schnorr: what ic-cdk attached
+  cost_api : nat;
+  path : vec blob;
+  role : text;
+  address : text;
+  // call start → reply (sequential: this signature alone; parallel: all started in the same message, each one's own reply)
+  latency_ms : nat64;
+  // sequential only: the balance delta around this one call
+  balance_delta : opt nat;
+};
+service : (Init) -> {
+  balance : () -> (nat) query;
+  // N concurrent signatures of one message on N intent paths (the concurrency probe; §5 of the task).
+  burst : (nat32, PathStyle) -> (Result);
+  multi_sign : (MultiArgs) -> (Result_1);
+  // The design's named paths, as a convenience for the driver.
+  paths : (PathStyle, nat64, nat32) -> (vec record { text; vec blob }) query;
+  // The threshold Ed25519 public key (and chain code) at any derivation path; `vec {}` = the canister-level key.
+  pubkey : (vec blob) -> (Result_2);
+}

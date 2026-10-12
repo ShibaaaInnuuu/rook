@@ -1,0 +1,51 @@
+diff --git a/../../docs/audit/2026-09-27-nft/review2/poc/B/audit2_nft_b.rs b/tests/audit2_nft_b.rs (adapted)
+index a1a8e25..593bf3c 100644
+--- a/../../docs/audit/2026-09-27-nft/review2/poc/B/audit2_nft_b.rs
++++ b/tests/audit2_nft_b.rs (adapted)
+@@ -376,6 +376,16 @@ impl EthIo for Fake {
+         }
+         Ok(self.sale_receipts.get(&h).cloned())
+     }
++    async fn eth_transfer_txs(&mut self, collection: [u8; 20], from: u64, to: u64) -> Result<Vec<([u8; 32], u64)>, String> {
++        let mut v: Vec<([u8; 32], u64)> = self.sale_receipts.iter().filter(|(_, r)| r.block >= from && r.block <= to && r.logs.iter().any(|l|
++            l.address == collection && l.topics.len() == 4 && l.topics[0] == en::TRANSFER && l.topics[1] != l.topics[2] && l.topics[1] != [0; 32]))
++            .map(|(h, r)| (*h, r.block)).collect();
++        v.sort_by(|a, b| a.1.cmp(&b.1).then(a.0.cmp(&b.0)));
++        Ok(v)
++    }
++    async fn eth_plan_call(&mut self, to: [u8; 20], value: u128, data: &[u8]) -> Result<EthPlan, String> {
++        Ok(EthPlan { to, value, data: data.to_vec(), gas: 60_000, max_fee: 1_000_000_000, priority_fee: 100_000_000, nonce: self.eth_nonce, token: [0; 32], total: value })
++    }
+     async fn eth_deposit_tx(&mut self, h: [u8; 32]) -> Result<Option<([u8; 20], [u8; 20], Vec<u8>, ReceiptV)>, String> {
+         Ok(self.deposit_txs.get(&h).cloned())
+     }
+@@ -570,13 +580,13 @@ fn audit2_b2_l1_after_a_sweep_seven_wash_sales_let_the_post_follow_the_attackers
+     // 1.12, the next honest listing at 1.30
+     let book = vec![Seen { offerer: [0xa1; 20], token: tok(1), price: 110 * E / 100 }, Seen { offerer: [0xa2; 20], token: tok(2), price: 112 * E / 100 },
+         Seen { offerer: [0x03; 20], token: tok(3), price: 130 * E / 100 }];
+-    let e = en::floor_from(&book, &honest, &p).unwrap_err();
++    let e = en::floor_from(&book, &honest, &p, 93 * E / 100).unwrap_err();
+     assert!(e.contains("over the sales' median"), "honest sales veto the swept book: {e}");
+     // seven wash sales at 1.30 (within +30 % of 1.12) along a wallet chain: the veto is gone and the post is the attacker's 1.12,
+     // +23 % over every real sale. The module takes it at 5 %/h (±20 %/day); D8's references read the same swept book
+     let mut all: Vec<en::Sale> = (0..7u8).map(|i| sale(0x40 + i, 130 * E / 100)).collect();
+     all.extend(honest);
+-    let post = en::floor_from(&book, &all, &p).unwrap();
++    let post = en::floor_from(&book, &all, &p, 93 * E / 100).unwrap();
+     assert_eq!(post.price, 112 * E / 100);
+     assert_eq!(post.sale_median, 130 * E / 100);
+     println!("AUDIT2-B2-L-1: swept book + 7 washes at 1.30 → post {} (real sales' median 0.91)", post.price);
+@@ -614,11 +624,11 @@ fn audit2_b2_m1_seven_in_band_washes_under_the_listings_veto_the_post_too() {
+     let seen: Vec<Seen> = [(1u8, 92u128), (2, 93), (3, 95)].iter().map(|(o, c)| Seen { offerer: [*o; 20], token: tok(*o as u128), price: c * E / 100 }).collect();
+     let sale = |i: u8, price: u128| en::Sale { token: sp::word_u128(100 + i as u128), price, seller: [0x10 + i; 20], buyer: [0x30 + i; 20], block: 1 };
+     let honest: Vec<en::Sale> = [90u128, 91, 91, 92, 90].iter().enumerate().map(|(i, c)| sale(i as u8, c * E / 100)).collect();
+-    assert!(en::floor_from(&seen, &honest, &p).is_ok(), "control");
++    assert!(en::floor_from(&seen, &honest, &p, 93 * E / 100).is_ok(), "control");
+     // seven sales at 0.70 (inside −30 % of 0.93) along a wallet chain: the price only moves between the attacker's own wallets
+     let mut all: Vec<en::Sale> = (0..7u8).map(|i| sale(0x40 + i, 70 * E / 100)).collect();
+     all.extend(honest);
+-    let e = en::floor_from(&seen, &all, &p).unwrap_err();
++    let e = en::floor_from(&seen, &all, &p, 93 * E / 100).unwrap_err();
+     assert!(e.contains("over the sales' median"), "{e}");
+     println!("AUDIT2-B2-M-1b: 7 in-band washes at 0.70 → {e}");
+ }

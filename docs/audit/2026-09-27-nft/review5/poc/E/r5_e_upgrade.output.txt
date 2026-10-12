@@ -1,0 +1,17 @@
+# cargo test --release --test r5_e_upgrade -- --nocapture --test-threads 1
+
+running 3 tests
+test holds_every_encoding_of_the_round_2_fixture_decodes_into_round_4_with_nothing_lost ... R5-E upgrade: round-2 fixture as 24fba50 wrote it: 2080 bytes, decodes, lost []
+R5-E upgrade: round-2 fixture as fbc9174 wrote it: 2225 bytes, decodes, lost []
+R5-E upgrade: round-2 fixture as fb54018 wrote it: 2330 bytes, decodes, lost []
+R5-E upgrade: round-2 fixture as HEAD wrote it: 2523 bytes, decodes, lost []
+R5-E upgrade: round 3's and round 4's encodings of the fixture decode to the same EthState (only the type table differs)
+ok
+test holds_probe_cost_on_the_largest_round_4_state ... R5-E upgrade: probe cost at round 4's largest state: 5439488 bytes of stable memory; the probe 667.712625ms; lost []
+ok
+test holds_the_1eb5788_state_restores_and_its_round_3_content_survives ... R5-E upgrade: 1eb5788's state: lost []; 19 buys, 12 deliveries, 9 deposits, pending Some(Sent { wrapper: [170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170], ticket: 3 })
+R5-E upgrade: after the upgrade the collection's next mint key is mint:eth:1:0x5a5a…:6 (no old key has this shape: old keys were mint:eth:<buy id> and mint:deposit:<tx>)
+ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.70s
+

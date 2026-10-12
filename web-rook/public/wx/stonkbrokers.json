@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped StonkBrokers",
+  "symbol": "wSTONKBROK",
+  "description": "Rook's wrapped StonkBrokers token: each whole token is backed either by a StonkBrokers NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/stonkbrokers.png",
+  "external_url": "https://userook.fun/#/collection/stonkbrokers",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/stonkbrokers.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

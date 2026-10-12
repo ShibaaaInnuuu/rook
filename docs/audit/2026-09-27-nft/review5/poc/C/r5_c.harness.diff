@@ -1,0 +1,51 @@
+--- /tmp/rook-r5/C/r4_orig.rs	2026-09-28 05:08:29
++++ /tmp/rook-r5/C/r5_harness.rs	2026-09-28 05:08:29
+@@ -162,6 +162,10 @@
+     sale_moves: HashMap<u64, Vec<en::Move>>,
+     /// round 4 (C4-M-1): transactions the payout judge reads, `(on 4663, hash)` → the transaction
+     payouts: HashMap<(bool, [u8; 32]), ef::PayoutTx>,
++    /// review round 5 (C5-L-3): once the payout judge has read a transaction, the Ethereum balance read after the next one fails once
++    /// (a transient outcall failure: providers disagree, HTTP 429)
++    payout_balance_fail: bool,
++    bal_fail: Option<u32>,
+ }
+ 
+ fn word(v: u128) -> Vec<u8> {
+@@ -206,7 +210,7 @@
+             receipt_err: HashMap::new(), plan_err: vec![], wait_prefix: vec![], broadcasts: vec![], listing_total: 45 * E / 100, sale_receipts, our_logs: HashMap::new(), noted: vec![],
+             sale_err: vec![], sale_reads: 0, log_ranges: vec![], deposit_txs: HashMap::new(), caps: custodycap::stage0(&keys), book: Book::default(), outflow: vec![], drop_milady: false, real_outflow: None, pin_back: None,
+             fee_of: None, home_back: None, home_pin_known: true, big_blocks: vec![], log_fails: 0, logs_bytes: 0, pin_now: None,
+-            sale_moves: HashMap::new(), payouts: HashMap::new(),
++            sale_moves: HashMap::new(), payouts: HashMap::new(), payout_balance_fail: false, bal_fail: None,
+         }
+     }
+     fn m(&mut self, module: [u8; 20]) -> &mut Module {
+@@ -414,6 +418,9 @@
+     }
+     fn logs_bytes(&self) -> u64 { self.logs_bytes }
+     async fn payout_tx(&mut self, home: bool, hash: [u8; 32]) -> Result<Option<ef::PayoutTx>, String> {
++        if self.payout_balance_fail {
++            self.bal_fail = Some(1);
++        }
+         Ok(self.payouts.get(&(home, hash)).cloned())
+     }
+     async fn home_finalized_time(&mut self) -> Result<u64, String> { Ok(self.now.saturating_sub(self.home_final_lag).saturating_add(1)) }
+@@ -431,7 +438,17 @@
+         let t: Word = d[4..36].try_into().unwrap();
+         Ok(addr_word(self.owners.get(&(to, t)).unwrap_or(&[0x0e; 20])))
+     }
+-    async fn eth_balance(&mut self) -> Result<u128, String> { Ok(self.eth_balance + self.pin_back.map_or(0, |p| p.1)) }
++    async fn eth_balance(&mut self) -> Result<u128, String> {
++        match self.bal_fail {
++            Some(0) => {
++                self.bal_fail = None;
++                return Err("chain 1: eth_getBalance: HTTP 429 Too Many Requests".into());
++            }
++            Some(n) => self.bal_fail = Some(n - 1),
++            None => {}
++        }
++        Ok(self.eth_balance + self.pin_back.map_or(0, |p| p.1))
++    }
+     async fn eth_nonce(&mut self) -> Result<u64, String> { Ok(self.eth_nonce.saturating_sub(self.pin_back.map_or(0, |_| 1))) }
+     async fn eth_receipt(&mut self, h: [u8; 32]) -> Result<Option<OurReceipt>, String> {
+         if let Some(n) = self.receipt_err.get_mut(&h) {

@@ -1,0 +1,25 @@
+{
+  "name": "rook-ops",
+  "private": true,
+  "type": "module",
+  "description": "The operator's services (docs/v6/p1-services.md): the runner that calls the canister's tick on a schedule (K4, the only holder of the operator's hot IC identity, read in src/identity.ts), the offer tool that turns a venue's listing into frog_offer with every check the canister makes (K4, dry run by default), and the hourly reserves reconciliation with its alert (K7, no key). Two images, two entrypoints.",
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "runner": "tsx src/runner.ts",
+    "offer": "tsx src/offer.ts",
+    "reconciler": "node --experimental-sqlite --no-warnings --import tsx src/reconcile.ts",
+    "test": "node --experimental-sqlite --no-warnings --import tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@icp-sdk/core": "6.1.0",
+    "@scure/btc-signer": "1.6.0",
+    "@scure/base": "1.2.4",
+    "tsx": "^4.19.0",
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

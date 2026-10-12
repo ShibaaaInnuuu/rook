@@ -1,0 +1,14 @@
+--- a/review3/poc/E/audit3_nft_e_upgrade.rs
++++ b/tests/audit3_nft_e_upgrade.rs (adapted)
+@@ -80,9 +80,9 @@
+         }
+     }
+     e.sale_cache = Some(cache);
+-    e.sale_scan = Some(cols.iter().map(|c| SaleScan { collection: *c, down: 1, up: 2, chunk: 2_000, todo: (0..512u32).map(|k| ([k as u8; 32], k as u64)).collect() }).collect());
++    e.sale_scan = Some(cols.iter().map(|c| SaleScan { collection: *c, down: 1, up: 2, chunk: 2_000, todo: (0..512u32).map(|k| ([k as u8; 32], k as u64)).collect(), pend: None, rescan: None, judged: None }).collect());
+     let buy = |id: u64| EthBuy { id, collection: cols[0], module: [0xbb; 20], wrapper: [0xaa; 20], advanced: 1, attempts: 1,
+-        phase: BPhase::Settled { token: [1; 32], total: 1, tx: [2; 32], cost: 1 }, orders: vec![[3; 32]], deposits: vec![[4; 32]], ask: None, last: None, note: "settled at 1 wei".into() };
++        phase: BPhase::Settled { token: [1; 32], total: 1, tx: [2; 32], cost: 1 }, orders: vec![[3; 32]], deposits: vec![[4; 32]], ask: None, last: None, note: "settled at 1 wei".into(), sweep: None, arrived_at: None, back_at: None, ended_at: None };
+     e.buys = (0..3_000).map(buy).collect();
+     e.used_orders = (0..6_000u32).map(|k| { let mut h = [0u8; 32]; h[..4].copy_from_slice(&k.to_be_bytes()); h }).collect();
+     e.outbound = (0..6_000u32).map(|k| (cols[0], [k as u8; 32], k as u64)).collect();

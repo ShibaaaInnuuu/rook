@@ -1,0 +1,51 @@
+# cargo test --test r3_c -- --nocapture --test-threads=1   (private copy of autobuyer/canister-rs from the worktree (branch nft-side, fix round 3 uncommitted), toolchain 1.98.1; tests/r3_c.rs = the current tests/audit_nft_r2.rs harness + the PoC's real_outflow + the PoC's tests, see r3_c.adaptations.diff)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s
+     Running tests/r3_c.rs (target/debug/deps/r3_c-abc6e91d97a8a139)
+
+running 6 tests
+test c3_h1_an_advance_waiting_on_the_value_limit_is_re_asked_under_a_new_key_every_tick_and_trips_the_freeze ...
+C3-H-1: 100 ticks after the return, 0 buys opened and dropped; H3 asked ["advance:eth:1:0x5af0d9827e0c53e4799bb226655a1de152a425a5:0"]; frozen: None
+
+thread 'c3_h1_an_advance_waiting_on_the_value_limit_is_re_asked_under_a_new_key_every_tick_and_trips_the_freeze' (55175081) panicked at tests/r3_c.rs:850:5:
+the tripwire froze custody on demand the canister itself inflated
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test c3_l1_a_quote_the_judge_accepts_arrives_under_the_floor_the_gate_passed ...
+C3-L-1: the judged quote promises 488475083200866055 of 500000000000000000 (230 bps under); the gate assumed 50
+ok
+test c3_l2_a_4663_inflow_during_the_way_back_is_returned_as_the_arrival_and_the_real_arrival_is_orphaned ...
+
+thread 'c3_l2_a_4663_inflow_during_the_way_back_is_returned_as_the_arrival_and_the_real_arrival_is_orphaned' (55175083) panicked at tests/r3_c.rs:797:5:
+assertion failed: until(&mut f, &mut st, 3,
+    |s| matches!(s.buy(id).unwrap().phase, BPhase::Returned { .. }))
+FAILED
+test c3_m1_a_way_back_past_its_deadline_with_no_fill_or_refund_holds_the_relay_leg_for_good ...
+C3-M-1b: 3 days past the order's deadline: Milady Stuck { why: "its way back (order 0xd1a2622888b3db522f84ed43df1550f8ab1eb146313c2612c51b362102ebc6a8) is 91200 s past its deadline with no arrival of 485535083200866034 wei on 4663 and no refund on Ethereum: no longer watched; look at the order, then eth_give_back(0) closes it" }; Azuki Some(Funded { wei: 500000000000000000, since: 1791382893 })
+
+thread 'c3_m1_a_way_back_past_its_deadline_with_no_fill_or_refund_holds_the_relay_leg_for_good' (55175084) panicked at tests/r3_c.rs:691:5:
+assertion failed: matches!(st.buy(id).unwrap().phase, BPhase::BackBridging { .. })
+FAILED
+test c3_m1_a_way_back_with_no_quote_stops_every_collections_buys_and_nothing_moves_it ...
+C3-M-1a: after 7 days: Milady Arrived { wei: 498443962449863321, since: 1791254493 }; Azuki's buy Some(Funded { wei: 500000000000000000, since: 1790694093 })
+
+thread 'c3_m1_a_way_back_with_no_quote_stops_every_collections_buys_and_nothing_moves_it' (55175085) panicked at tests/r3_c.rs:658:5:
+still waiting for a quote
+FAILED
+test c3_m2_the_runners_operator_key_churns_a_modules_eth_through_relay_round_trips_at_will ...
+
+thread 'c3_m2_the_runners_operator_key_churns_a_modules_eth_through_relay_round_trips_at_will' (55175089) panicked at tests/r3_c.rs:725:50:
+called `Result::unwrap()` on an `Err` value: "refused: buy 0 arrived 0 s ago; it may be sent back once it has waited 21600 s for a listing (C3-L-2)"
+FAILED
+
+failures:
+
+failures:
+    c3_h1_an_advance_waiting_on_the_value_limit_is_re_asked_under_a_new_key_every_tick_and_trips_the_freeze
+    c3_l2_a_4663_inflow_during_the_way_back_is_returned_as_the_arrival_and_the_real_arrival_is_orphaned
+    c3_m1_a_way_back_past_its_deadline_with_no_fill_or_refund_holds_the_relay_leg_for_good
+    c3_m1_a_way_back_with_no_quote_stops_every_collections_buys_and_nothing_moves_it
+    c3_m2_the_runners_operator_key_churns_a_modules_eth_through_relay_round_trips_at_will
+
+test result: FAILED. 1 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+error: test failed, to rerun pass `--test r3_c`

@@ -1,0 +1,11 @@
+**/node_modules
+out
+cache
+broadcast
+.git
+web/dist
+indexer/data
+keeper/journal
+docs/screens
+deployments/9466301.json
+deployments/31337.json

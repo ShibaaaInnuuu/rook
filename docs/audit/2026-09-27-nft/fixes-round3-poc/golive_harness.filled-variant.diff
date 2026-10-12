@@ -1,0 +1,19 @@
+--- a/golive_harness.sh (run)
++++ b/golive_harness.filled.sh (variant)
+@@ -38,6 +38,16 @@
+ t = open(sys.argv[1]).read().replace("<the canister's EVM address>", sys.argv[2]).replace("<the guardian EOA (registry.guardian())>", "0x" + "11" * 20)
+ for i, s in enumerate(["milady", "azuki", "mayc", "pudgypenguins", "bayc"]):
+     t = t.replace(f"<{s} wrapper>", "0x" + f"{0xa0+i:02x}" * 20).replace(f"<{s} floorModule>", "0x" + f"{0xb0+i:02x}" * 20)
++import re
++if __import__("os").environ.get("FILL_AS_ROUND3_DRYRUN"):
++    # scripts/golive-dryrun.sh (round 3, A3-L-3): every placeholder filled with a plausible stand-in
++    t = re.sub(r"<(\w+) host>", r"\1.dry-run.invalid", t)
++    m = json.loads(t)
++    m["timelock"] = "r7inp-6aaaa-aaaaa-aaabq-cai"; m["buyer"] = "rrkah-fqaaa-aaaaa-aaaaq-cai"
++    m["expect"]["proposers"] = ["rdmx6-jaaaa-aaaaa-aaadq-cai", "qoctq-giaaa-aaaaa-aaaea-cai"]
++    m["expect"]["guardians"] = ["renrk-eyaaa-aaaaa-aaada-cai", "rno2w-sqaaa-aaaaa-aaacq-cai", "ryjl3-tyaaa-aaaaa-aaaba-cai"]
++    m["install_arg_hex"] = "4449444c0000"
++    t = json.dumps(m)
+ print(t)
+ PY
+ }

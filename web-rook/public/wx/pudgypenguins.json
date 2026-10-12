@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Pudgy Penguin",
+  "symbol": "wPUDGY",
+  "description": "Rook's wrapped Pudgy Penguins token: each whole token is backed either by a Pudgy Penguins NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/pudgypenguins.png",
+  "external_url": "https://userook.fun/#/collection/pudgypenguins",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/pudgypenguins.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

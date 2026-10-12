@@ -1,0 +1,89 @@
+{
+  "source": {
+    "kind": "fixture",
+    "note": "FIXTURE. Nothing on this page is deployed. Every floor, count and volume is the seed's dated record of what a marketplace answered when the seed was written, shown with its date and flagged stale; the two live nests (Bitcoin Frogs, Bored Ape Yacht Club) are docs/v3/curve.md's worked examples with invented coins. Pictures are the collections' real public images, loaded by your browser straight from where the seed recorded them (the marketplace's logo, the ordinals content gateway, the token's own metadata), since there is no indexer here to fetch them; a mark stands in where there is none. Nothing here is a price now, and nothing was bought."
+  },
+  "at": 1790206930,
+  "stale": true,
+  "satsPerEth": 3168300,
+  "usdPerEth": null,
+  "rule": {
+    "stage": 0,
+    "stageName": "canary",
+    "perItemMaxWei": "10000000000000000000",
+    "perCollectionCapWei": "10000000000000000000",
+    "perCollectionItems": 3,
+    "allowanceBps": 2000,
+    "maxFloorWei": "8333333333333333333",
+    "text": "A collection is listable when one item at its floor, with the keeper's 20% allowance, fits the stage's per-item maximum and its per-collection cap: 1.2 × floor ≤ min(10 ETH, 10 ETH) at stage 0 (canary), i.e. a floor of at most 8.333 ETH. The stage holds 3 items a collection and 6 in all.",
+    "doc": "docs/v5/launch-gates.md G7; docs/v6/collections-catalog.md §3"
+  },
+  "entry": {
+    "slug": "pixel-pepes",
+    "name": "Pixel Pepes",
+    "chain": "bitcoin",
+    "chainName": "Bitcoin",
+    "chainId": null,
+    "standard": "inscriptions",
+    "id": "pixel-pepes",
+    "description": "The first ever airdrop on the Bitcoin network. 1563 rare Pixel Pepes airdropped to users who had made a transaction on o",
+    "image": "https://ordinals.com/content/47c1d21c508f6d49dfde64d958f14acd041244e1bb616f9b78114b8d9dc7b945i0",
+    "links": {
+      "website": "https://ordinalswallet.com",
+      "x": "https://x.com/ordinalswallet",
+      "discord": null,
+      "marketplace": "https://ordinalswallet.com/collection/pixel-pepes",
+      "explorer": "https://ordinals.com/inscription/170111"
+    },
+    "floor": {
+      "native": "411099",
+      "unit": "sats",
+      "eth": 0.12975381119212195,
+      "source": "seed",
+      "ref": "seed:ordinalswallet:ordinalswallet:pixel-pepes/escrows",
+      "at": 1790198730,
+      "stale": true
+    },
+    "items": 1563,
+    "owners": null,
+    "listed": 227,
+    "volume24hEth": null,
+    "volume7dEth": null,
+    "heldByRook": null,
+    "sample": [
+      {
+        "id": "2249ec3499ce4d831f7b71288e037ec7f439321dc7a5b930c414d0d3f08371dci0",
+        "name": "Pixel Pepes #932",
+        "image": "https://ordinals.com/content/2249ec3499ce4d831f7b71288e037ec7f439321dc7a5b930c414d0d3f08371dci0",
+        "url": "https://ordinals.com/inscription/2249ec3499ce4d831f7b71288e037ec7f439321dc7a5b930c414d0d3f08371dci0"
+      },
+      {
+        "id": "c7892d4bf5a8065095ed0cba3eda723b6576ec446bc373502a54e85a24a6a81di0",
+        "name": "Pixel Pepes #445",
+        "image": "https://ordinals.com/content/c7892d4bf5a8065095ed0cba3eda723b6576ec446bc373502a54e85a24a6a81di0",
+        "url": "https://ordinals.com/inscription/c7892d4bf5a8065095ed0cba3eda723b6576ec446bc373502a54e85a24a6a81di0"
+      },
+      {
+        "id": "d4109c5fb6c253fb00d8cc267b51040e3295cef92766cf4e8beca73c049e20cbi0",
+        "name": "Pixel Pepes #315",
+        "image": "https://ordinals.com/content/d4109c5fb6c253fb00d8cc267b51040e3295cef92766cf4e8beca73c049e20cbi0",
+        "url": "https://ordinals.com/inscription/d4109c5fb6c253fb00d8cc267b51040e3295cef92766cf4e8beca73c049e20cbi0"
+      }
+    ],
+    "sources": [
+      {
+        "name": "seed",
+        "status": null,
+        "ok": true,
+        "at": 1790198730,
+        "note": "the seed's record of 2026-09-23, from ordinalswallet"
+      }
+    ],
+    "rook": {
+      "kind": "listable",
+      "slotsNow": 3,
+      "why": "One item at the floor (0.13 ETH, 0.156 with the allowance) fits stage 0's 10 ETH per item and 10 ETH a collection: 3 of the stage's 3 slots would hold — checked against a floor that is not from a fresh read."
+    },
+    "curated": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "res": "5m",
+  "range": "1d",
+  "coin": "0xC1C1c1c1C1C1C1c1c1C1C1C1c1C1C1C1c1C1c1c1",
+  "quote": "ETH",
+  "priceIs": "pair asset per whole coin",
+  "candles": [],
+  "marks": [],
+  "supplyWei": null,
+  "usdPerEth": null,
+  "usdPerEthAt": null,
+  "usdPool": null,
+  "trades": 0,
+  "tradesAllTime": 0,
+  "launchedAt": 1800000252,
+  "span": 86400,
+  "seconds": 900,
+  "graduation": null,
+  "pool": null
+}

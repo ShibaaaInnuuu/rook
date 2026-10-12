@@ -1,0 +1,53 @@
+{
+  "id": 6,
+  "kind": "inscriptions",
+  "name": "BTC Machines",
+  "ref": "btc-machines",
+  "divisibility": 0,
+  "vault": "0xfa737aE9867E89550E3ce2fFCE99F02Ab7E81764",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-btc-machines",
+  "membershipRoot": "0x68a0dd31069df38bc31e44440b2772ddd0bd3c7bb750e78cc3c480dbefe2336d",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "403955056179775281",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "403955056179775281",
+    "attributedWei": "403955056179775281",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "403955056179775281",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x88666cfd7A101754fdCA4b096727E24dbb4d149B",
+      "symbol": "FLINSIM",
+      "depositedWei": "403955056179775281"
+    }
+  ]
+}

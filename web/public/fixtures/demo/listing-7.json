@@ -1,0 +1,53 @@
+{
+  "id": 7,
+  "kind": "inscriptions",
+  "name": "DogePunks",
+  "ref": "dogepunks",
+  "divisibility": 0,
+  "vault": "0xe3852BEcED72B3F5BaB3dF8F3eA6C984E6577ced",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-dogepunks",
+  "membershipRoot": "0xfb92be404df8f6de916cf10f136cfcc4135bf304ff78a377d13731ad06ebb52f",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "61998609701646628",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "61998609701646628",
+    "attributedWei": "61998609701646628",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "61998609701646628",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xaaf6fAb9317855c458211f1e501F985Cc3de5172",
+      "symbol": "PUMISIM",
+      "depositedWei": "61998609701646628"
+    }
+  ]
+}

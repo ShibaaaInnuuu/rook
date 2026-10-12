@@ -1,0 +1,53 @@
+{
+  "id": 40,
+  "kind": "inscriptions",
+  "name": "OG Cartridge",
+  "ref": "og-cartridge",
+  "divisibility": 0,
+  "vault": "0x6A6A4F25B5f16625994E640478016fB2704c1Bd2",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-og-cartridge",
+  "membershipRoot": "0x3b1c5934b8515ad680cf596909ecde6ed1696581cefa54a750e6ed16c046fe07",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "59183612635797786",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "59183612635797786",
+    "attributedWei": "59183612635797786",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "59183612635797786",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x458d4F20B672A39635624dB7D59cfB201a8B5097",
+      "symbol": "JASP4SIM",
+      "depositedWei": "59183612635797786"
+    }
+  ]
+}

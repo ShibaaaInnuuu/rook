@@ -1,0 +1,660 @@
+   Compiling version_check v0.9.5
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling typenum v1.20.1
+   Compiling zeroize v1.9.0
+   Compiling subtle v2.6.1
+   Compiling libc v0.2.189
+   Compiling const-oid v0.9.6
+   Compiling serde_core v1.0.229
+   Compiling cfg-if v1.0.5
+   Compiling find-msvc-tools v0.1.13
+   Compiling shlex v2.0.1
+   Compiling memchr v2.8.3
+   Compiling object v0.39.1
+   Compiling serde v1.0.229
+   Compiling cc v1.4.7
+   Compiling autocfg v1.5.1
+   Compiling generic-array v0.14.9
+   Compiling num-traits v0.2.19
+   Compiling crc32fast v1.5.2
+   Compiling thiserror v1.0.69
+   Compiling binrw_derive v0.15.2
+   Compiling stacker v0.1.25
+   Compiling either v1.18.0
+   Compiling binrw v0.15.2
+   Compiling data-encoding v2.11.1
+   Compiling crypto-common v0.1.6
+   Compiling block-buffer v0.10.4
+   Compiling paste v1.0.15
+   Compiling digest v0.10.7
+   Compiling cpufeatures v0.2.17
+   Compiling rand_core v0.6.4
+   Compiling anyhow v1.0.104
+   Compiling unicode-width v0.2.2
+   Compiling arrayvec v0.5.2
+   Compiling syn v2.0.119
+   Compiling syn v3.0.6
+   Compiling rustversion v1.0.23
+   Compiling lazy_static v1.5.0
+   Compiling typed-arena v2.0.2
+   Compiling array-init v2.1.0
+   Compiling bytemuck v1.25.2
+   Compiling pretty v0.12.5
+   Compiling serde_bytes v0.11.19
+   Compiling sha2 v0.10.9
+   Compiling strsim v0.11.1
+   Compiling num-integer v0.1.47
+   Compiling ident_case v1.0.1
+   Compiling leb128 v0.2.7
+   Compiling byteorder v1.5.0
+   Compiling hex v0.4.3
+   Compiling fnv v1.0.7
+   Compiling ff v0.13.1
+   Compiling slotmap v1.1.1
+   Compiling der v0.7.10
+   Compiling heck v0.5.0
+   Compiling base16ct v0.2.0
+   Compiling group v0.13.0
+   Compiling crypto-bigint v0.5.5
+   Compiling hmac v0.12.1
+   Compiling zmij v1.0.23
+   Compiling ic-cdk-executor v2.0.0
+   Compiling thiserror v2.0.20
+   Compiling rfc6979 v0.4.0
+   Compiling signature v2.2.0
+   Compiling smallvec v1.16.1
+   Compiling serde_json v1.0.151
+   Compiling ic0 v1.2.0
+   Compiling sec1 v0.7.3
+   Compiling keccak v0.1.6
+   Compiling ar_archive_writer v0.5.3
+   Compiling itoa v1.0.18
+   Compiling pin-project-lite v0.2.17
+   Compiling sha3 v0.10.9
+   Compiling elliptic-curve v0.13.8
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling ecdsa v0.16.9
+   Compiling psm v0.1.32
+   Compiling k256 v0.13.4
+   Compiling darling_core v0.20.11
+   Compiling thiserror-impl v1.0.69
+   Compiling candid_derive v0.10.35
+   Compiling strum_macros v0.26.4
+   Compiling darling_macro v0.20.11
+   Compiling darling v0.20.11
+   Compiling num-bigint v0.4.8
+   Compiling ic_principal v0.1.5
+   Compiling strum v0.26.3
+   Compiling ic-error-types v0.2.0
+   Compiling candid v0.10.35
+   Compiling ic-management-canister-types v0.5.0
+   Compiling ic-cdk-macros v0.19.0
+   Compiling ic-cdk v0.19.0
+   Compiling etch_autobuyer v0.1.0 (/Users/jlohayon/Documents/Rook-rev3/autobuyer/canister-rs)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 25.70s
+     Running unittests src/lib.rs (target/debug/deps/etch_autobuyer-2147b8ae7e1fe2a2)
+
+running 322 tests
+test bridge::tests::a_bridge_contract_we_do_not_know_is_refused ... ok
+test bridge::tests::a_good_quote_passes ... ok
+test bridge::tests::a_bridge_that_would_move_a_different_amount_is_refused ... ok
+test bridge::tests::a_bridge_that_would_pay_somebody_else_is_refused ... ok
+test bridge::tests::a_rate_worse_than_our_own_reference_allows_is_refused ... ok
+test bridgecall::tests::relays_real_deposit_is_refused_because_its_destination_is_not_in_it ... ok
+test bridgecall::tests::across_encodes_exactly_as_cast_does_and_decodes_back ... ok
+test btcsend::tests::each_network_has_a_checkpoint_and_nothing_else_does ... ok
+test bridgecall::tests::an_across_deposit_is_accepted_only_to_ourselves_on_arbitrum_for_the_amount_and_above_the_floor ... ok
+test btcnet::tests::every_update_method_here_is_guarded ... ok
+test bridgecall::tests::chainflip_decodes_what_cast_encodes_and_accepts_only_our_bitcoin_address ... ok
+test buyqueue::tests::the_oldest_credit_is_the_deadline_and_its_expiry_on_both_clocks_drives_the_refund ... ok
+test btcsend::tests::a_status_is_what_the_buyer_acts_on_and_nothing_else ... ok
+test btcsend::tests::anything_that_is_not_exactly_one_transaction_is_refused ... ok
+test buyqueue::tests::one_item_is_bought_when_the_queue_holds_the_cap_plus_the_buffer ... ok
+test bridgecall::tests::malformed_calldata_is_unreadable_not_a_pass ... ok
+test btcsend::tests::the_replies_the_explorers_actually_give ... ok
+test buyqueue::tests::the_assumed_selectors_are_the_signatures_keccak ... ok
+test btcsend::tests::the_mainnet_checkpoint_is_the_double_sha_of_a_header_whose_work_is_real ... ok
+test canister::tests::a_second_tick_is_refused_while_one_is_running_and_the_flag_is_released_on_drop ... ok
+test btcsend::tests::the_txid_is_computed_here_and_matches_what_the_chain_computed ... ok
+test canister::tests::a_near_miss_for_mainnet_is_refused_at_install ... ok
+test canister::tests::a_return_saved_before_h8_restores_and_both_conflict_phases_round_trip_an_upgrade ... ok
+test canister::tests::a_state_saved_before_nft_chains_existed_still_restores_and_an_nft_line_round_trips ... ok
+test canister::tests::a_state_saved_before_custody_existed_still_restores_and_custody_round_trips ... ok
+test canister::tests::an_evm_address_is_derived_from_a_decompressed_point ... ok
+test canister::tests::an_install_starts_at_stage_zero_at_most_and_an_upgrade_raises_by_four_at_most ... ok
+test canister::tests::an_install_that_lists_the_vaults_own_chain_as_an_nft_chain_is_refused - should panic ... ok
+test canister::tests::an_upgrade_keeps_the_buyers_identity_and_takes_its_endpoints_and_operator_from_the_argument ... ok
+test canister::tests::an_install_that_names_no_network_at_all_is_refused_too - should panic ... ok
+test canister::tests::caps_that_holders_could_not_leave_within_the_delay_are_refused ... ok
+test canister::tests::distinct_is_about_values_not_lengths ... ok
+test canister::tests::every_method_that_writes_ticked_state_refuses_mid_tick ... ok
+test canister::tests::a_state_saved_before_floor_sinks_existed_still_restores_and_the_floor_state_round_trips ... ok
+test canister::tests::every_update_method_takes_the_controller_guard ... ok
+test canister::tests::every_rehearsal_guard_refuses_a_production_install ... ok
+test canister::tests::keccak_matches_the_empty_string_vector_every_implementation_agrees_on ... ok
+test canister::tests::not_paused_refuses_exactly_while_paused ... ok
+test canister::tests::only_the_operator_and_controllers_are_admitted_and_strangers_only_to_an_open_board ... ok
+test canister::tests::one_rpc_provider_is_not_a_check - should panic ... ok
+test canister::tests::the_anonymous_principal_is_refused_as_operator - should panic ... ok
+test canister::tests::the_evm_rehearsal_chain_is_an_allowlist_of_exactly_one ... ok
+test canister::tests::set_paused_lets_the_operator_stop_but_only_a_controller_resume ... ok
+test canister::tests::the_operator_operates_and_nobody_else_does ... ok
+test canister::tests::the_production_key_name_is_refused_unless_the_installer_said_it_was_deliberate - should panic ... ok
+test canister::tests::the_production_install_for_bitcoin_mainnet_validates_and_the_test_networks_still_do ... ok
+test canister::tests::the_rehearsal_network_is_an_allowlist_of_one_and_is_not_the_production_key_name ... ok
+test canister::tests::the_same_rpc_provider_listed_twice_is_not_two_providers - should panic ... ok
+test canister::tests::a_state_saved_before_sales_existed_still_restores_and_the_sale_state_round_trips ... ok
+test chains::tests::a_chain_list_is_validated_rule_by_rule ... ok
+test canister::tests::a_signature_that_is_not_ours_yields_no_address_rather_than_a_plausible_one ... ok
+test chains::tests::a_chain_saved_before_signed_zones_existed_still_decodes ... ok
+test chains::tests::fees_are_capped_per_chain ... ok
+test canister::tests::a_state_saved_before_offer_boards_existed_still_restores_and_the_hand_in_state_round_trips ... ok
+test chains::tests::one_purchase_in_flight_per_chain_and_only_the_read_back_settles_it ... ok
+test conflict::tests::the_conflict_pays_only_custody_and_passes_the_outbound_check ... ok
+test canister::tests::a_state_saved_before_item_sinks_existed_still_restores_and_the_item_state_round_trips ... ok
+test chains::tests::the_pinned_block_carries_the_chains_clock_and_all_providers_must_agree_on_it ... ok
+test conflict::tests::the_fee_replaces_the_leaked_one_under_bip125_and_pays_the_current_rate ... ok
+test curvebuy::tests::a_graduating_curve_reads_as_a_sink_wanting_n_minus_k ... ok
+test conflict::tests::the_record_is_made_only_from_our_own_two_input_bytes ... ok
+test conflict::tests::the_leaked_fee_is_read_from_the_bytes_and_the_fee_inputs_value ... ok
+test curvebuy::tests::the_selectors_are_foundrys ... ok
+test curvebuy::tests::the_window_stops_purchases_then_mints_and_both_clocks_open_refunds ... ok
+test custody::tests::dust_is_never_a_fee_input_the_pool_is_bounded_and_a_bump_pays_exactly_its_fee ... ok
+test custody::tests::ord_says_where_inscription_zero_is_and_what_its_output_carries ... ok
+test custody::tests::a_fee_is_paid_only_by_a_clean_confirmed_unreserved_utxo_that_is_not_the_frog ... ok
+test custody::tests::the_buyer_signs_only_outputs_ord_shows_clean ... ok
+test custody::tests::the_delivery_pays_the_whole_frog_output_to_the_destination_and_the_fee_from_the_other_input ... ok
+test custody::tests::a_frog_is_sendable_only_from_our_own_confirmed_unspent_output_carrying_exactly_it ... ok
+test custody::tests::the_fee_rate_is_the_upper_median_so_one_low_explorer_cannot_set_it ... ok
+test custodycap::tests::a_deposit_counts_against_the_cap_like_a_purchase ... ok
+test custodycap::tests::a_policy_is_refused_when_its_parts_do_not_fit_together ... ok
+test custodycap::tests::a_sum_that_would_overflow_is_refused_not_saturated ... ok
+test custodycap::tests::an_id_is_counted_once ... ok
+test custodycap::tests::an_unlisted_collection_is_never_taken_in ... ok
+test custodycap::tests::every_cap_binds_at_its_edge_and_not_before ... ok
+test custodycap::tests::in_flight_counts_before_it_lands_and_a_failed_purchase_frees_its_room ... ok
+test custodycap::tests::raises_are_at_most_four_times_and_new_caps_start_at_stage_zero ... ok
+test custodycap::tests::the_global_item_cap_binds_across_collections ... ok
+test custodycap::tests::the_operators_target_cap_is_bounded_by_the_policy_not_by_the_operator ... ok
+test custodynet::tests::every_update_method_here_is_operator_only ... ok
+test delivery::tests::a_fresh_read_of_a_resolved_ticket_well_before_its_deadline_sends ... ok
+test delivery::tests::a_read_older_than_a_minute_or_from_the_future_is_read_again ... ok
+test delivery::tests::a_refusal_for_the_margin_is_final_for_the_ticket ... ok
+test delivery::tests::either_clock_alone_stops_the_send_whichever_is_nearer ... ok
+test delivery::tests::only_a_resolved_ticket_can_send ... ok
+test delivery::tests::past_the_deadline_is_inside_the_margin_and_never_underflows ... ok
+test delivery::tests::the_margin_in_blocks_is_wait_blocks_for_a_day ... ok
+test delivery::tests::the_last_day_on_the_timestamp_clock_refuses ... ok
+test delivery::tests::the_seconds_since_the_read_come_off_the_margin ... ok
+test delivery::tests::the_ticket_must_name_the_frog_and_the_address_about_to_go_out ... ok
+test deposits::tests::a_missing_marker_is_not_a_deposit_and_a_malformed_one_is_refused ... ok
+test deposits::tests::a_refused_frog_goes_back_to_a_taproot_sender_only ... ok
+test deposits::tests::a_waiting_deposit_backs_off_exponentially_to_a_day ... ok
+test deposits::tests::a_well_formed_marker_names_chain_wrapper_and_recipient ... ok
+test deposits::tests::deposit_ids_carry_bit_255_through_as_bit_127_and_nothing_else_wider ... ok
+test deposits::tests::an_esplora_transaction_reads_back_with_its_witnesses_and_status ... ok
+test canister::tests::a_state_saved_before_the_custody_guard_existed_still_restores_and_the_book_and_limiter_round_trip ... ok
+test canister::tests::every_operator_method_that_acts_refuses_while_paused ... ok
+test deposits::tests::every_input_must_sign_everything ... ok
+test deposits::tests::fifty_a_day ... ok
+test deposits::tests::the_output_carries_exactly_the_inscription_and_no_runes_per_ord_and_the_explorers ... ok
+test canister::tests::the_state_the_audited_build_saved_decodes_into_this_build_with_every_record_kept ... ok
+test evmread::tests::finality_is_the_lowest_and_bounded_as_measured ... ok
+test evmread::tests::the_log_transform_keeps_the_block_and_refuses_a_log_without_one ... ok
+test evmsend::tests::a_signed_transaction_says_which_chain_it_is_for ... ok
+test canister::tests::the_recovery_id_picks_a_public_key_and_the_other_parity_picks_a_different_one ... ok
+test evmsend::tests::the_rehearsal_transaction_that_was_mined_reads_as_testnet_and_hashes_to_its_mined_hash ... ok
+test evmsend::tests::nothing_ambiguous_is_read_as_success ... ok
+test evmsend::tests::the_replies_that_broke_consensus_now_mean_the_same_thing ... ok
+test deposits::tests::the_calls_match_foundrys_encoding ... ok
+test evmtx::tests::a_purchase_decodes_from_what_cast_encodes ... ok
+test custody::tests::the_explorers_say_the_output_exists_unspent_confirmed_and_whose_it_is ... ok
+test evmtx::tests::calldata_matches_foundrys_cast_byte_for_byte ... ok
+test evmsend::tests::two_real_receipts_that_differ_only_in_arbitrum_extras_agree_on_what_the_buyer_acts_on ... ok
+test evmtx::tests::the_envelope_rebuilds_the_transaction_the_rehearsal_got_mined ... ok
+test floorsink::tests::a_stale_floor_starts_nothing_and_an_unposted_one_is_closed ... ok
+test canister::tests::an_upgrade_whose_state_does_not_decode_is_refused_and_one_mid_tick_is_refused ... ok
+test evmtx::tests::selectors_are_the_keccak_of_their_signatures ... ok
+test floorsink::tests::float_units_are_not_added_to_the_demand ... ok
+test floorsink::tests::net_demand_below_one_item_plus_the_buffer_buys_nothing_and_above_buys_one_per_whole_unit ... ok
+test floorsink::tests::the_cap_is_the_collection_limit_or_the_global_maximum_whichever_the_module_allows ... ok
+test floorsink::tests::the_sale_side_reads_beside_the_view_and_six_reads_are_no_longer_a_module ... ok
+test floornet::tests::every_update_method_here_is_guarded ... ok
+test floortrigger::tests::an_evm_sink_is_triggered_by_the_same_rules_as_a_frog_one_want_at_a_time ... ok
+test floortrigger::tests::a_reorg_that_drops_net_demand_fails_the_wanted_want_and_the_claim_waits_for_the_unit ... ok
+test floortrigger::tests::an_item_kind_is_set_once ... ok
+test floortrigger::tests::limits_are_bounded_and_per_collection ... ok
+test frogbuy::tests::a_collection_limit_lets_its_own_items_through_and_nothing_else_changes ... ok
+test frogbuy::tests::an_outspend_says_who_spent_it_and_whether_that_is_confirmed ... ok
+test frogbuy::tests::an_honest_listing_is_judged_and_the_frog_lands_on_custody ... ok
+test frogbuy::tests::sats_and_wei_round_against_us_never_against_the_payer ... ok
+test frogbuy::tests::no_op_return_one_custody_output_above_dust_and_no_script_paths ... ok
+test frogbuy::tests::a_psbt_written_by_psbt_bytes_parses_back_to_itself ... ok
+test frogbuy::tests::the_money_is_capped_and_the_fee_is_within_the_policy_ceiling ... ok
+test frogbuy::tests::the_policy_limits_apply_to_every_frog_and_the_docs_example_is_over_the_maximum ... ok
+test frogbuy::tests::the_seller_input_is_the_one_ord_named_worth_what_ord_said ... ok
+test frogbuy::tests::the_inscribed_sat_must_land_on_custody_and_nothing_foreign_beside_it ... ok
+test frogbuy::tests::what_is_signed_is_ours_only_and_nothing_of_custody_is_ever_an_input ... ok
+test handin::tests::bytes_that_never_arrive_are_invalid_after_the_slash_delay ... ok
+test handin::tests::a_read_closes_what_the_board_no_longer_lists_and_drops_its_bytes ... ok
+test handin::tests::a_submission_and_the_params_decode_from_the_bytes_the_board_returns ... ok
+test frognet::tests::every_update_method_here_is_guarded ... ok
+test handin::tests::claims_follow_the_frog_and_failed_purchases_pay_nothing ... ok
+test floorsink::tests::the_assumed_selectors_are_the_signatures_keccak ... ok
+test chains::tests::a_real_relay_quote_to_base_passes_and_every_checkable_lie_is_refused ... ok
+test frogbuy::tests::depth_and_the_merkle_proof_match_the_contracts ... ok
+test handin::tests::the_per_caller_rate_is_a_sliding_hour ... ok
+test handin::tests::intake_bounds_sizes_matches_open_hashes_and_buffers_the_rest ... ok
+test handin::tests::the_page_counts_open_hand_ins_and_bytes ... ok
+test handin::tests::the_cheapest_open_hand_in_under_the_cap_with_bytes_and_time_left_is_chosen ... ok
+test itemsink::tests::a_price_driven_sink_starts_only_on_a_fresh_price_and_mints_whatever_its_age ... ok
+test itemsink::tests::a_queue_is_bought_for_one_item_at_a_time_under_its_cap ... ok
+test itemsink::tests::a_queue_refunds_many_times_but_each_trigger_once_per_count ... ok
+test itemsink::tests::deadlines_stop_purchases_first_and_mints_last ... ok
+test itemsink::tests::progress_reads_as_k_of_n_or_as_a_queue ... ok
+test handinnet::tests::the_open_endpoint_checks_the_pause_the_caller_the_sizes_and_the_rate_and_configuration_is_the_controllers ... ok
+test itemsink::tests::the_nearer_clock_binds_and_refunds_need_both ... ok
+test listing::tests::a_quote_moves_money_only_where_and_as_the_chain_says ... ok
+test mintdesk::tests::a_fill_is_never_above_the_requests_maximum ... ok
+test listing::tests::the_shared_reads_are_the_contracts_own_and_decode_as_foundry_encoded_them ... ok
+test mintdesk::tests::a_request_is_taken_only_with_time_for_what_it_needs ... ok
+test handin::tests::the_selectors_are_cast_sig_of_the_board_abi ... ok
+test listing::tests::addresses_decode_to_the_scripts_bitcoin_would_pay ... ok
+test mintdesk::tests::the_selectors_and_the_struct_are_foundrys ... ok
+test listing::tests::an_order_is_for_the_listings_rune_and_pays_the_listings_address ... ok
+test nftnet::tests::token_ids_parse_as_full_width_decimals ... ok
+test oracle::tests::every_update_method_is_operator_only ... ok
+test ordapi::tests::providers_urls_names_and_bases ... ok
+test nftnet::tests::every_update_method_here_takes_the_operator_guard ... ok
+test ordapi::tests::heights_read_from_each_dialect ... ok
+test outbound::tests::a_conflict_out_spends_the_leaked_input_and_pays_only_custody ... ok
+test ordapi::tests::contents_read_the_same_from_ord_and_unisat_with_rune_names_compared_without_spacers ... ok
+test outbound::tests::a_deposit_goes_back_only_to_its_sender ... ok
+test ordapi::tests::the_rule_agree_disagree_one_down_one_behind_moved_or_alone ... ok
+test outbound::tests::a_delivery_to_anyone_but_the_tickets_destination_is_refused ... ok
+test outbound::tests::a_nonce_burn_is_nothing_to_ourselves ... ok
+test outbound::tests::an_honest_delivery_passes ... ok
+test ordnet::tests::every_update_here_is_operator_only_and_nothing_prints_the_key ... ok
+test outbound::tests::an_nft_leaves_only_by_transfer_from_to_the_tickets_destination ... ok
+test outbound::tests::inputs_are_the_item_first_then_only_custody ... ok
+test outbound::tests::the_nft_ticket_must_be_resolved_and_final_and_name_a_real_destination ... ok
+test outbound::tests::the_fee_is_bounded_and_arithmetic_is_checked ... ok
+test ordapi::tests::the_three_dialects_read_the_same_frog_as_the_same_ord_shaped_location ... ok
+test outbound::tests::the_parser_reads_what_it_wrote_and_refuses_the_rest ... ok
+test outflow::tests::a_bank_run_must_fit_inside_the_timelocks_delay ... ok
+test outbound::tests::the_ticket_must_be_resolved_finalized_about_this_item_and_agree_with_its_event ... ok
+test outbound::tests::the_selectors_are_the_standards ... ok
+test outflow::tests::a_limit_rises_at_most_four_times_per_upgrade_and_falls_freely ... ok
+test outflow::tests::a_manual_freeze_keeps_the_first_cause_and_stops_everything ... ok
+test outflow::tests::limits_are_validated ... ok
+test outflow::tests::a_collection_limit_does_not_spend_another_collections_room_but_the_global_one_is_shared ... ok
+test outflow::tests::recording_is_idempotent_and_old_acts_leave_the_window ... ok
+test outflow::tests::a_forged_run_of_tickets_trips_the_freeze_and_nothing_goes_out_after ... ok
+test outflow::tests::only_a_controller_lifts_a_freeze_and_the_same_demand_does_not_re_trip_at_once ... ok
+test outflow::tests::value_is_counted_in_wei_against_the_global_budget ... ok
+test outflow::tests::the_seventh_delivery_of_a_day_waits_until_the_first_leaves_the_window ... ok
+test pin::tests::the_pin_is_one_bucket_below_the_lowest_head_and_a_stale_or_wild_provider_stops_it ... ok
+test pin::tests::the_finalized_block_rounds_down_and_an_unusable_reply_is_not_zero ... ok
+test pin::tests::nodes_asking_moments_apart_agree_on_the_rounded_head_and_disagree_only_at_a_boundary ... ok
+test policy::tests::it_opens_the_most_the_vault_can_fund_within_the_limits_and_halves_from_there ... ok
+test policy::tests::it_waits_rather_than_open_anything_the_vault_would_refuse ... ok
+test policy::tests::a_taproot_output_key_encodes_to_its_address_and_back ... ok
+test policy::tests::the_calls_are_the_selectors_cast_computes ... ok
+test policy::tests::segwit_addresses_decode_per_bip_173_and_350_and_the_wrong_checksum_variant_is_refused ... ok
+test pin::tests::a_receipt_counts_only_at_or_below_the_pin_so_every_node_says_the_same ... ok
+test pin::tests::the_pinned_block_must_be_one_block_on_every_provider ... ok
+test policy::tests::the_first_amount_the_vault_can_charge_within_64_payers_is_taken ... ok
+test psbt::tests::a_duplicate_key_is_refused_rather_than_read_twice ... ok
+test policy::tests::the_order_promises_no_more_units_than_the_cap_buys_and_satisfies_the_vaults_bound ... ok
+test policy::tests::the_listing_struct_decodes_from_what_the_registry_returns ... ok
+test psbt::tests::a_node_that_adds_a_second_runestone_is_refused ... ok
+test psbt::tests::a_node_that_asks_us_to_sign_someone_elses_input_is_refused ... ok
+test psbt::tests::a_node_that_burns_the_runes_with_a_cenotaph_is_refused ... ok
+test psbt::tests::a_node_that_delivers_fewer_units_than_quoted_is_refused ... ok
+test psbt::tests::a_node_that_hides_what_an_input_is_worth_is_refused ... ok
+test psbt::tests::a_node_that_omits_the_winner_entirely_is_refused ... ok
+test psbt::tests::a_node_that_pays_the_whole_thing_to_miners_is_refused ... ok
+test canister::tests::a_high_s_signature_recovers_nothing_at_all_which_is_why_normalisation_comes_first ... ok
+test psbt::tests::a_node_that_raises_the_price_past_the_cap_is_refused ... ok
+test psbt::tests::a_node_that_sends_our_change_to_itself_is_refused_by_the_cap ... ok
+test psbt::tests::a_node_that_sends_the_runes_somewhere_else_is_refused ... ok
+test psbt::tests::a_node_that_spreads_the_edict_over_every_output_is_refused ... ok
+test psbt::tests::a_transaction_carrying_a_script_sig_is_not_an_unsigned_one ... ok
+test psbt::tests::a_transaction_that_creates_money_is_refused ... ok
+test outflow::tests::returns_never_trip_and_a_resume_does_not_re_freeze_on_the_same_backlog_but_new_demand_still_does ... ok
+test psbt::tests::a_verified_psbt_becomes_the_signed_transaction_with_every_witness_in_place ... ok
+test psbt::tests::an_honest_psbt_is_parsed_and_signed ... ok
+test psbt::tests::bytes_that_are_not_a_psbt_are_refused_before_anything_else ... ok
+test psbt::tests::overpaying_within_the_cap_is_allowed_and_is_the_residual_risk_we_state ... ok
+test psbt::tests::the_change_not_ours_check_cannot_fire_on_a_transaction_that_buys_anything ... ok
+test rates::tests::decimals_are_exact_and_quantising_only_rounds_down ... ok
+test rates::tests::a_reply_that_is_not_the_right_market_is_refused_not_misread ... ok
+test rates::tests::the_floor_is_the_rate_less_three_percent_rounded_down ... ok
+test rates::tests::the_median_holds_against_one_wrong_source_and_disagreement_or_silence_refuses ... ok
+test rates::tests::the_quote_cap_is_the_same_rate_plus_three_percent_the_floors_mirror ... ok
+test rates::tests::xrc_is_used_only_when_fresh_and_backed ... ok
+test relay::tests::a_handoff_serves_its_own_purchase_only_and_a_new_purchase_replaces_it ... ok
+test relay::tests::nothing_handed_in_means_the_purchase_waits ... ok
+test redeem::tests::the_redeemed_topic_is_the_events_keccak ... ok
+test runeindex::tests::an_etching_with_no_name_gets_the_reserved_one_and_a_non_etching_is_refused ... ok
+test rates::tests::each_real_ticker_reads_as_satoshis_per_eth_quantised ... ok
+test runeindex::tests::names_are_decoded_from_real_etchings_exactly_as_ord_prints_them ... ok
+test redeem::tests::the_calls_and_returns_match_foundrys_encoding ... ok
+test redeem::tests::the_facts_are_the_tickets_state_at_the_fast_pin_and_its_events_at_finality ... ok
+test runeindex::tests::a_real_delivery_reads_as_ord_counts_it_when_the_address_balance_backs_it ... ok
+test runeindex::tests::every_way_the_evidence_can_fail_to_agree_gives_no_answer ... ok
+test runeindex::tests::the_name_alphabet_and_the_spacers_follow_the_protocol ... ok
+test runestone::tests::a_large_payload_pushed_with_pushdata1_still_decodes ... ok
+test runestone::tests::a_mint_encodes_the_tag_twice_because_a_rune_id_is_two_values ... ok
+test runestone::tests::a_rune_id_too_large_for_its_type_is_a_cenotaph_rather_than_a_truncation ... ok
+test runeindex::tests::ord_replies_read_as_runes_empty_or_spent ... ok
+test runestone::tests::a_runestone_script_containing_a_non_push_opcode_is_a_cenotaph_not_a_partial_transfer ... ok
+test runestone::tests::a_push_that_runs_off_the_end_of_the_script_is_a_cenotaph_too ... ok
+test runestone::tests::a_payload_too_long_for_one_push_round_trips_through_several ... ok
+test runeindex::tests::ordinals_wallet_rows_carry_id_name_and_an_exact_amount ... ok
+test relayquote::tests::the_real_quote_passes_every_check_and_yields_the_deposit_to_sign ... ok
+test runestone::tests::a_spread_edict_is_visible_so_it_can_be_refused ... ok
+test runestone::tests::a_truncated_edict_is_a_cenotaph_not_a_transfer ... ok
+test runestone::tests::an_unrecognised_even_tag_is_a_cenotaph_and_a_real_indexer_says_so ... ok
+test runestone::tests::an_even_tag_smuggled_alongside_an_honest_edict_is_caught ... ok
+test runestone::tests::an_unrecognised_odd_tag_is_ignored_rather_than_fatal ... ok
+test runestone::tests::ids_are_delta_encoded_against_the_edict_before ... ok
+test runestone::tests::no_runestone_and_two_runestones_are_both_refused ... ok
+test runestone::tests::one_edict_is_read_back_with_its_id_amount_and_output ... ok
+test runestone::tests::rune_id_parses_the_form_every_explorer_prints ... ok
+test runestone::tests::the_body_tag_comes_last_or_the_pointer_is_swallowed_by_an_edict ... ok
+test runestone::tests::the_encoder_sorts_edicts_because_the_ids_are_deltas ... ok
+test runestone::tests::the_pointer_is_read ... ok
+test runestone::tests::two_edicts_to_the_same_output_add_up ... ok
+test runestone::tests::varint_round_trips_and_refuses_a_truncated_one ... ok
+test runestone::tests::what_the_encoder_writes_the_decoder_reads_back_unchanged ... ok
+test sale::tests::a_fill_pays_custody_the_ask_at_the_items_index ... ok
+test sale::tests::every_condition_of_the_reserve_low_rule_alone_stops_a_sale ... ok
+test sale::tests::the_ask_and_the_proceeds_round_against_us_and_proceeds_are_net_of_the_conversion ... ok
+test sale::tests::a_listing_is_one_input_one_output_the_ask_to_custody_and_the_check_refuses_every_other_shape ... ok
+test sale::tests::a_move_pays_everything_to_custody_and_passes_the_conflict_out_purpose ... ok
+test sale::tests::the_policy_is_bounded_and_the_state_counts_open_sales_per_module ... ok
+test outflow::tests::the_same_ticket_asked_every_tick_is_one_ask_not_a_run ... ok
+test sale::tests::the_listing_digest_is_bip341s_single_anyonecanpay_message ... ok
+test sale::tests::the_selectors_are_the_signatures_keccak ... ok
+test salenet::tests::every_update_method_here_is_guarded_and_the_policy_is_the_controllers ... ok
+test seaport::tests::a_real_validated_restricted_order_hashes_to_its_event_hash ... ok
+test seaport::tests::every_tampered_order_is_refused_naming_its_rule ... ok
+test seaport::tests::a_signedzone_order_made_out_to_us_passes_and_every_tamper_is_refused ... ok
+test seaport::tests::malformed_calldata_is_refused ... ok
+test seaport::tests::our_advanced_calldata_is_the_real_one_with_our_recipient_and_no_conduit ... ok
+test seaport::tests::the_domain_separator_is_what_information_returned_on_each_chain ... ok
+test seaport::tests::the_real_order_passes_every_rule_and_our_calldata_is_our_own ... ok
+test seaport::tests::views_decode ... ok
+test relayquote::tests::every_checkable_lie_is_refused ... ok
+test sighash::tests::a_changed_output_script_changes_the_digest ... ok
+test sighash::tests::an_input_with_no_stated_value_is_refused ... ok
+test sighash::tests::a_changed_input_amount_changes_the_digest ... ok
+test state::tests::a_fresh_purchase_announces ... ok
+test state::tests::a_pulled_purchase_past_its_deadline_returns_the_money ... ok
+test sighash::tests::the_digest_matches_an_independent_implementation ... ok
+test state::tests::a_quote_is_recorded_once_and_only_once_funded ... ok
+test state::tests::a_pulled_purchase_that_already_has_btc_does_not_bridge_again ... ok
+test state::tests::a_returned_purchase_is_terminal_however_it_got_there ... ok
+test state::tests::an_announcement_the_vault_does_not_know_about_is_abandoned_not_pulled ... ok
+test state::tests::delivery_is_recognised_only_when_bitcoin_shows_the_units_and_a_confirmation ... ok
+test state::tests::interrupted_after_announce_the_reply_was_lost_so_the_chain_is_believed ... ok
+test state::tests::interrupted_after_broadcast_it_asks_bitcoin_rather_than_the_venue ... ok
+test state::tests::interrupted_after_signing_but_before_broadcast_it_sends_the_saved_bytes ... ok
+test state::tests::interrupted_after_the_bridge_tx_but_before_btc_arrives_it_waits_then_gives_up ... ok
+test state::tests::interrupted_between_delivery_and_settle_it_settles ... ok
+test state::tests::interrupted_between_pull_and_its_reply_the_vault_says_it_happened ... ok
+test state::tests::interrupted_between_settle_and_its_reply_the_vault_says_it_is_done ... ok
+test state::tests::one_quote_signs_for_one_transaction ... ok
+test state::tests::replaying_the_same_state_many_times_never_produces_a_second_spend ... ok
+test state::tests::terminal_states_never_act_again ... ok
+test state::tests::the_bridge_is_believed_only_when_bitcoin_says_so ... ok
+test seaport::tests::a_second_real_fill_whose_creator_fee_is_the_erc2981_receiver_passes_and_the_first_whose_is_not_is_refused ... ok
+test ticketlog::tests::the_resolved_topic_is_the_events_keccak_and_events_are_kept_per_ticket_once ... ok
+test seaport::tests::a_tampered_price_breaks_the_signature_even_under_the_cap ... ok
+test seaport::tests::a_listing_we_build_hashes_as_the_takers_basic_order_does_and_our_signature_recovers_as_the_offerer ... ok
+test handin::tests::the_rate_table_forgets_every_idle_caller_and_stays_bounded ... ok
+test seaport::tests::a_real_signedzone_fill_decodes_and_every_signature_in_it_is_what_we_think ... ok
+test seaport::tests::real_fills_decode_and_their_order_hash_is_the_one_seaport_emitted ... ok
+test canister::tests::a_hardcoded_recovery_id_would_be_wrong_about_half_the_time ... ok
+
+test result: ok. 322 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+
+     Running tests/e2e.rs (target/debug/deps/e2e-edb9985f6fcab8bb)
+
+running 2 tests
+test a_purchase_that_never_gets_its_btc_freezes_the_vault_rather_than_guessing ... ok
+test the_whole_loop_from_a_vault_that_can_afford_one_to_a_receipt_on_chain ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/frogs.rs (target/debug/deps/frogs-a802d7a430b93c6c)
+
+running 44 tests
+test a_deposit_reorganised_below_six_is_not_minted ... ok
+test a_duplicate_outpoint_already_minted_is_adopted_never_minted_again ... ok
+test a_custody_output_whose_transaction_cannot_be_read_is_set_aside_after_three_tries ... ok
+test a_deposit_not_signed_all_is_returned_and_one_spending_custody_is_held_not_returned ... ok
+test a_4663_reorg_that_undoes_mints_fails_the_want_and_a_held_frog_waits_in_inventory ... ok
+test a_deposit_custody_has_no_room_for_is_refused_and_returned_and_one_that_fits_is_counted_until_it_leaves ... ok
+test a_desk_request_is_filled_at_cost_never_above_its_maximum ... ok
+test a_funded_queue_gets_one_item_bought_confirmed_minted_and_reported ... ok
+test a_missing_marker_is_not_a_deposit_and_is_never_returned ... ok
+test a_malformed_marker_is_refused_and_the_frog_goes_back_to_its_taproot_sender ... ok
+test a_deposit_waiting_for_its_proof_is_parked_after_two_weeks_and_its_proof_wakes_it ... ok
+test a_marked_deposit_six_deep_is_minted_once_to_the_recipient_it_names ... ok
+test a_bought_frog_is_reserved_before_signing_held_under_its_inscription_and_its_price_and_mint_are_counted ... ok
+test a_reservation_left_by_a_lost_signing_continuation_is_released ... ok
+test a_reorganisation_below_six_confirmations_stops_the_mint_until_six_again ... ok
+test a_deposit_waits_for_its_proof_and_the_rate_limit ... ok
+test a_request_below_the_cost_is_never_filled ... ok
+test a_stale_floor_starts_no_purchase_until_the_keeper_posts_again ... ok
+test a_request_that_expires_between_the_mint_and_fulfill_leaves_a_stray_that_fills_the_next ... ok
+test a_report_that_cannot_go_now_does_not_hold_up_a_deposits_mint ... ok
+test a_failed_buy_is_retried_a_bad_offer_then_a_vanished_listing_then_a_good_one ... ok
+test a_return_bitcoin_stops_showing_for_72_hours_ends_with_its_fee_input_spent_to_custody_then_goes_back_whole ... ok
+test an_evm_floor_sink_starts_an_nft_want_through_the_same_trigger_and_claims_once_the_unit_reaches_the_module ... ok
+test audit2_a_deposit_that_leaves_the_listing_and_comes_back_keeps_one_record ... ok
+test a_floor_module_below_one_item_plus_its_buffer_buys_nothing_and_at_it_buys_one_frog_wraps_it_to_the_module_and_claims ... ok
+test a_return_waits_at_its_own_limit_never_starves_deliveries_and_never_trips_the_freeze ... ok
+test audit_d_a_return_is_saved_before_it_is_sent ... ok
+test nothing_is_bought_or_minted_unless_we_are_the_wrappers_custodian_and_one_evm_transaction_at_a_time ... ok
+test an_offer_over_the_value_left_under_the_caps_is_refused_before_anything_is_signed ... ok
+test an_inventory_frog_from_a_closed_curve_fills_a_desk_request ... ok
+test returns_are_rate_limited_so_marked_junk_cannot_drain_custodys_fee_float ... ok
+test an_abandoned_return_that_confirms_after_all_is_returned_and_a_paused_buyer_signs_no_conflict ... ok
+test a_graduating_curve_gets_n_frogs_recorded_and_the_canister_drives_graduation ... ok
+test the_floor_claim_counts_the_ape_under_the_caps_and_is_a_mint_against_the_days_limit ... ok
+test the_floor_moved_past_the_buffer_nothing_is_signed_and_the_want_fails_when_time_runs_out ... ok
+test the_listing_vanished_before_ours_confirmed_the_record_fails_and_a_new_one_is_wanted ... ok
+test runes_or_a_second_inscription_on_the_output_are_refused_and_returned ... ok
+test with_no_room_under_the_caps_no_frog_is_wanted_and_a_listing_that_vanishes_frees_its_reservation ... ok
+test the_same_bytes_are_sent_again_after_an_eviction_never_a_new_signature ... ok
+test the_per_collection_limit_buys_a_0_64_eth_frog_the_global_maximum_refuses ... ok
+test past_the_window_on_both_clocks_the_canister_opens_refunds_and_a_held_frog_becomes_inventory ... ok
+test a_stale_frog_buy_is_abandoned_by_spending_a_float_input_back_to_the_float ... ok
+test audit_d_junk_deposits_can_no_longer_freeze_custody ... ok
+test audit_d_a_ticks_reads_do_not_grow_with_a_strangers_deposits ... ok
+
+test result: ok. 44 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/handins.rs (target/debug/deps/handins-df6ea5de6d2e5b15)
+
+running 15 tests
+test a_board_whose_wrapper_is_not_ours_is_never_read ... ok
+test the_board_is_read_a_bounded_number_of_new_submissions_a_tick ... ok
+test bytes_delivered_before_the_read_are_buffered_and_matched_at_the_read ... ok
+test a_hand_in_too_near_its_expiry_is_not_started ... ok
+test a_hand_in_that_lies_about_its_ask_is_invalid ... ok
+test a_dead_listing_is_gone_not_slashed_and_the_next_hand_in_is_tried ... ok
+test a_submission_whose_bytes_never_arrive_is_slashed ... ok
+test a_valid_hand_in_is_bought_confirmed_and_claimed_and_the_bot_is_credited_bond_plus_reward ... ok
+test an_invalid_hand_in_is_slashed_after_the_delay_on_both_clocks_and_never_bought ... ok
+test a_reorganisation_after_held_stops_the_claim_until_six_again ... ok
+test the_operators_offer_still_comes_first ... ok
+test the_listing_vanished_after_signing_earns_nothing_and_is_not_slashed ... ok
+test the_cheapest_valid_hand_in_is_bought_and_a_dearer_one_under_the_cap_is_ignored ... ok
+test the_days_value_limit_holds_the_claim_and_a_tick_without_boards_is_the_old_tick ... ok
+test a_submitter_who_refunds_before_the_claim_is_not_paid_and_the_revert_is_read_from_the_board ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/hardening.rs (target/debug/deps/hardening-6f6d9ee45f6bd3ce)
+
+running 9 tests
+test stage_one_limits_let_holders_leave_inside_the_timelocks_delay ... ok
+test the_operators_nft_drain_is_refused_at_the_target_and_at_the_cap ... ok
+test stage_zero_is_what_the_launch_gates_say_and_passes_every_install_check ... ok
+test a_pause_freezes_the_limiter_and_only_the_resume_lifts_it_a_tripwire_freeze_included ... ok
+test the_operator_cannot_record_an_nft_target_above_the_cap_or_for_a_collection_custody_does_not_list ... ok
+test a_leaked_delivery_is_conflicted_out_by_spending_its_fee_input_back_to_custody ... ok
+test the_verifier_accepts_what_the_real_builder_builds_for_the_tickets_destination ... ok
+test a_delivery_built_for_another_address_is_refused_against_the_ticket ... ok
+test forged_tickets_meet_the_rate_limit_then_the_freeze_and_nothing_else_leaves ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/loop.rs (target/debug/deps/loop-977b8f698a493265)
+
+running 20 tests
+test a_vault_purchase_that_is_not_ours_is_refused ... ok
+test a_quote_that_is_not_the_order_is_not_recorded ... ok
+test a_mined_revert_stops_the_purchase_rather_than_signing_it_again ... ok
+test a_call_that_would_revert_now_is_not_signed ... ok
+test a_venue_that_vanishes_mid_purchase_stops_it ... ok
+test a_lost_reply_is_answered_by_the_chain_never_by_a_second_call ... ok
+test one_evm_transaction_in_flight_across_all_purchases ... ok
+test one_purchase_at_a_time ... ok
+test a_listing_paused_after_the_quote_signs_nothing ... ok
+test providers_that_disagree_mean_wait_and_nothing_is_signed_or_saved ... ok
+test dying_after_the_save_and_before_the_send_sends_the_same_bytes_on_restart ... ok
+test a_quote_that_pays_anywhere_but_the_listings_address_is_never_recorded ... ok
+test with_no_venue_or_no_bridge_nothing_is_announced ... ok
+test a_used_nonce_with_our_transaction_invisible_is_a_wait_not_a_guess ... ok
+test a_purchase_runs_end_to_end_with_nobody_calling_each_step ... ok
+test the_fake_listing_is_encoded_as_foundry_encodes_it ... ok
+test a_quote_that_would_spend_more_than_the_released_eth_is_worth_is_never_recorded ... ok
+test a_venue_psbt_listing_a_custody_output_as_ours_is_refused_because_it_is_not_ours ... ok
+test past_the_deadline_with_no_bitcoin_the_money_goes_back ... ok
+test a_venue_psbt_spending_an_inscribed_or_runed_output_of_ours_is_refused_before_anything_is_signed_or_bound ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/ordapi.rs (target/debug/deps/ordapi-3bd5238d9890e93f)
+
+running 4 tests
+test a_provider_down_or_rate_limited_is_unverified_not_the_other_ones_word ... ok
+test disagree_is_unverified_and_the_frog_neither_moves_nor_mints ... ok
+test agree_the_keyless_pair_locates_the_frog_and_ord_plus_unisat_verify_its_contents ... ok
+test a_reorg_or_a_stale_indexer_is_unverified_until_the_providers_are_at_one_height_again ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/policy_loop.rs (target/debug/deps/policy_loop-d3b0c3215000be65)
+
+running 3 tests
+test the_policy_opens_what_the_vault_says_is_owed_at_the_vaults_next_id ... ok
+test too_many_payers_halves_the_amount_until_the_vault_can_charge_it ... ok
+test it_opens_nothing_while_a_purchase_runs_without_a_route_or_for_another_vaults_listing ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/providers.rs (target/debug/deps/providers-90a1fe626fbb99c9)
+
+running 6 tests
+test a_provider_a_finality_step_behind_is_fine_one_far_behind_is_refused_by_name_and_the_scan_says_so ... ok
+test audit_d_the_old_finalized_reads_are_refused_by_providers_with_the_measured_limits ... ok
+test the_fast_pin_is_inside_robinhoods_window_and_both_providers_serve_state_there ... ok
+test after_an_idle_stretch_the_scan_starts_near_the_idle_pin_not_at_a_blind_lookback ... ok
+test providers_that_disagree_fail_the_page_loudly_it_retries_smaller_and_recovers ... ok
+test ticket_events_are_read_in_pages_under_ordofis_limit_from_a_stored_cursor_and_only_once_final ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/redeem.rs (target/debug/deps/redeem-c06224ed7dd638d4)
+
+running 29 tests
+test a_delivery_whose_ticket_was_refunded_anyway_is_recorded_as_a_lost_race_and_never_retried ... ok
+test a_canister_that_dies_between_save_and_send_wakes_and_sends_the_same_bytes ... ok
+test a_fee_input_already_spent_by_a_confirmed_third_transaction_settles_without_a_conflict ... ok
+test a_delivery_asks_the_limiter_counts_once_saved_and_frees_its_room_under_the_caps_when_done ... ok
+test a_frog_not_safely_in_custody_is_stuck_loudly_and_ord_lagging_is_a_wait ... ok
+test a_delivery_to_a_destination_the_final_redeemed_event_does_not_name_is_refused_before_anything_is_saved_or_sent ... ok
+test a_final_resolved_event_naming_another_item_is_refused_too ... ok
+test a_lost_reply_is_covered_by_reading_bitcoin_and_an_evicted_transaction_goes_back_through_the_rule ... ok
+test a_resolved_ticket_is_delivered_confirmed_and_then_recorded_by_the_keeper ... ok
+test a_refused_redemption_is_attested_undeliverable_to_the_wrapper_and_only_by_the_custodian ... ok
+test a_leaked_delivery_with_no_change_is_conflicted_out_with_one_more_clean_custody_utxo ... ok
+test a_ticket_whose_events_are_not_final_yet_waits_and_nothing_is_signed_until_they_are ... ok
+test a_delivery_confirmed_while_paused_is_still_recorded_and_nothing_new_leaves ... ok
+test a_delivery_evicted_and_then_refused_ends_with_its_fee_input_spent_to_custody ... ok
+test a_leaked_delivery_back_in_a_mempool_is_replaced_by_the_conflict ... ok
+test as_the_keeper_it_records_its_own_delivery_saving_the_bytes_first_one_evm_transaction_at_a_time ... ok
+test a_relist_ticket_to_custody_itself_is_never_delivered_nor_asked_of_the_limiter ... ok
+test a_ticket_refunded_between_the_first_read_and_the_send_is_refused_after_signing_and_nothing_is_saved_or_sent ... ok
+test an_earlier_version_of_a_re_priced_delivery_confirming_is_recorded_with_its_own_txid ... ok
+test the_conflict_runs_while_paused_never_touches_the_limiter_and_keeps_the_item_counted ... ok
+test inside_the_margin_nothing_is_built_signed_or_sent_and_the_refusal_is_final ... ok
+test the_leaked_delivery_confirming_first_takes_the_record_path_and_is_a_lost_race_when_the_ticket_refunds ... ok
+test a_restart_or_an_upgrade_mid_conflict_resends_the_saved_conflict_and_never_signs_twice ... ok
+test saved_bytes_never_seen_are_not_resent_once_the_ticket_is_inside_the_margin ... ok
+test discovery_walks_in_order_stops_at_the_first_pinned_ticket_and_never_duplicates ... ok
+test the_fee_never_comes_from_a_runes_utxo_an_inscribed_one_or_another_deliverys_input ... ok
+test two_conflicts_at_once_never_share_an_input_and_neither_is_signed_twice ... ok
+test forged_tickets_drain_six_frogs_then_the_tripwire_freezes_custody_and_nothing_else_leaves ... ok
+test audit_d_a_delivery_stuck_in_a_mempool_is_re_priced_then_conflicted_out_before_its_deadline_and_never_lost ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/review2.rs (target/debug/deps/review2-1776380ba8431f56)
+
+running 14 tests
+test audit2_a_delivery_bumped_to_its_cap_can_still_be_replaced_by_the_conflict_out ... ok
+test audit2_one_explorer_reporting_a_low_estimate_no_longer_sets_the_custody_rate ... ok
+test audit2_a_stale_buy_at_the_judges_fee_bound_can_be_conflicted_out ... ok
+test audit2_a_failure_that_is_not_about_size_still_halves_and_stops ... ok
+test audit2_the_bitcoin_checkpoint_gates_the_frog_pass_as_well_as_the_custodian ... ok
+test audit2_one_unreadable_fee_pool_entry_is_skipped_counted_and_the_delivery_signs ... ok
+test audit2_a_pool_with_no_usable_entry_falls_back_to_the_listing ... ok
+test audit2_a_ticket_waiting_behind_a_failing_scan_never_counts_toward_the_tripwire ... ok
+test audit2_returns_are_rate_limited_but_never_trip_whatever_their_number ... ok
+test audit2_a_burst_of_redemptions_in_one_block_no_longer_stalls_the_ticket_log_scanner ... ok
+test audit2_a_redeemer_who_pins_a_truc_delivery_in_a_spike_is_outbid_by_the_re_priced_conflict_and_gets_no_frog ... ok
+test audit2_residual_a_pin_in_a_spike_past_the_conflict_ceiling_costs_the_redeemer_its_child_fee ... ok
+test audit2_even_one_ticket_too_big_to_read_alone_does_not_stop_the_cursor ... ok
+test audit2_a_block_past_the_largest_cap_is_read_by_ticket_and_the_cursor_always_advances ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.72s
+
+     Running tests/sales.rs (target/debug/deps/sales-c3b7703aea6ed6a4)
+
+running 8 tests
+test a_stranger_relist_ticket_and_a_refunded_one_are_not_listed ... ok
+test a_restart_between_the_send_and_the_save_resumes_from_the_saved_step ... ok
+test no_policy_no_low_reserve_no_inventory_no_seed_or_a_stale_floor_sells_nothing ... ok
+test a_low_reserve_sells_an_inventory_item_and_reports_the_real_net_proceeds_with_the_eth_once_bridged ... ok
+test the_limiter_makes_a_second_listing_in_a_day_wait_and_a_frozen_one_signs_nothing ... ok
+test a_delisted_relist_is_moved_to_a_fresh_outpoint_re_deposited_to_the_vault_and_reclaimed ... ok
+test a_vaults_relist_ticket_is_listed_at_the_vaults_ask_recorded_and_its_sale_reported_with_record_sale ... ok
+test the_report_waits_while_the_floor_rose_past_the_net_proceeds_and_a_fill_reorganised_out_goes_back_to_watching ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/wrapper_abi.rs (target/debug/deps/wrapper_abi-613af294a45f9ee6)
+
+running 2 tests
+test every_wrapper_selector_the_canister_uses_is_in_foundrys_artifact ... ok
+test mark_undeliverable_is_the_committed_wrappers_calldata ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests etch_autobuyer
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+EXIT 0

@@ -1,0 +1,12 @@
+{
+ "kind": "v8",
+ "note": "FIXTURE. Nothing here is deployed. A Milady vault of 20 items and 9 tickets, drawn with REAL drand evmnet beacons (rounds served by api.drand.sh and api2.drand.sh on 2026-09-27) through EthNftWrapper's own formula, over an invented Robinhood Chain and Ethereum. The collection's address is Milady's; the wrapper, custodian, module, transactions and every trait are invented, and the explorer links point at nothing. Ticket 4's burn is made to look back-dated and ticket 5's batch unreadable, to show the verifier's timing flag.",
+ "generatedAt": 1790550030,
+ "files": {
+  "/v1/v8": "v8.json",
+  "/v1/v8/reserves/milady": "reserves-milady.json",
+  "/v1/v8/draws/milady": "draws-milady.json",
+  "/v1/v8/snapshots/milady": "snapshot-milady.json",
+  "selfcheck/milady": "selfcheck-milady.json"
+ }
+}

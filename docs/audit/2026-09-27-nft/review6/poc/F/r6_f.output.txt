@@ -1,0 +1,17 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running tests/r6_f.rs (target/debug/deps/r6_f-7629ee4b2cfd1808)
+
+running 5 tests
+test r6_f6_i1_a_two_step_chain_move_keeps_the_old_chains_ethereum_floors ... ok
+test r6_f6_l1_control_at_a_60_s_cadence_or_on_an_archive_provider_it_is_identified ... ok
+test r6_f6_l1_at_the_runners_cadence_the_identification_is_out_of_the_providers_state_depth ... ok
+test r6_f6_l2_one_provider_that_disagrees_on_the_receipt_halts_the_home_line_with_no_exit_and_no_unseen_page ... ok
+test r6_f6_i3_a_refused_mint_estimate_admits_every_waiting_deposit_of_the_collection_into_custody ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.01s
+
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (6600 blocks back, the provider keeps 6200)); read again (its effect is read back 3600 s after 1790513493 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (13200 blocks back, the provider keeps 6200)); read again (its effect is read back 3600 s after 1790513493 at the earliest, F5-M-1)
+  | eth: waits: nonce 1 is used but Deposit { buy: 0 } is not visible (chain 4663: eth_getTransactionCount at block 70166016: historical state not available (19800 blocks back, the provider keeps 6200)); read again (its effect is read back 3600 s after 1790513493 at the earliest, F5-M-1)
+  | eth: waits: providers disagree on eth_getTransactionReceipt at the pin; nothing is believed
+  | eth: waits: providers disagree on eth_getTransactionReceipt at the pin; nothing is believed

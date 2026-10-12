@@ -1,0 +1,176 @@
+--- tests/audit_nft_r5.rs	2026-09-28 06:18:16
++++ tests/r6_f.rs	2026-09-28 07:11:25
+@@ -193,6 +193,14 @@
+     item_of_err: u32,
+     /// round 5: each wrapper item's `(sourceTx, deposit)`, as the wrapper's `item(id)` says
+     item_src: HashMap<([u8; 20], usize), (Word, bool)>,
++    // ---- review round 6, part F (review6/poc/F) -----------------------------------------------------------------------------------
++    /// F6: the 4663 pin advances with the clock at 10 blocks a second (measured: 1,000 blocks = 100 s) from this time
++    live_pin: Option<u64>,
++    /// F6: the providers keep historical STATE this many blocks back (rpc.mainnet.chain.robinhood.com: ~6,200); `home_nonce_tx` needs
++    /// our nonce count at `from` (HomeTx.pin), so it fails once the pin is further than this past it
++    state_depth: Option<u64>,
++    /// F6: every wrapper mintDeposit's estimate reverts (a paused listing: `ListingPaused`; or `MintRateLimited`)
++    mint_estimate_refuse: bool,
+ }
+ 
+ fn word(v: u128) -> Vec<u8> {
+@@ -240,6 +248,7 @@
+             sale_moves: HashMap::new(), payouts: HashMap::new(),
+             hide: vec![], unsure: false, real_advance: false, identify: false, sent_tx: HashMap::new(), payout_balance_fail: false,
+             bal_fail: None, big_sale_blocks: vec![], dense_blocks: vec![], odd_blocks: vec![], receipt_bytes: 0, mint_revert: 0, mint_log: vec![], item_of_err: 0, item_src: HashMap::new(),
++            live_pin: None, state_depth: None, mint_estimate_refuse: false,
+         }
+     }
+     fn m(&mut self, module: [u8; 20]) -> &mut Module {
+@@ -449,6 +458,9 @@
+         }
+         if self.real_advance && data.len() >= 4 && sel(data) == rc::RETURN_ADVANCE && self.modules.get(&to).is_some_and(|m| !m.transit) {
+             return Err("would not succeed now: execution reverted: NoAdvance()".into());
++        }
++        if self.mint_estimate_refuse && (to == WRAPPER || to == WRAPPER2) && data.len() >= 4 && sel(data) == en::MINT_DEPOSIT {
++            return Err("would not succeed now: execution reverted: ListingPaused()".into());
+         }
+         // the real home_sign estimates first: a mint of a token the wrapper already holds reverts (AlreadyHeld / AlreadyMinted)
+         if (to == WRAPPER || to == WRAPPER2) && data.len() >= 36 && (sel(data) == en::MINT || sel(data) == en::MINT_DEPOSIT) {
+@@ -491,6 +503,9 @@
+     }
+     async fn home_nonce(&mut self) -> Result<u64, String> { Ok(self.home_nonce - self.home_back.map_or(0, |b| b.1)) }
+     async fn home_pin(&mut self) -> Result<Option<u64>, String> {
++        if let Some(t0) = self.live_pin {
++            return Ok(Some(HOME_PIN + self.now.saturating_sub(t0) * 10));
++        }
+         Ok(self.home_pin_known.then(|| HOME_PIN - self.home_back.map_or(0, |_| 1_024)))
+     }
+     async fn eth_sale_moves(&mut self, _collection: [u8; 20], block: u64) -> Result<Vec<en::Move>, String> {
+@@ -505,6 +520,13 @@
+     fn logs_bytes(&self) -> u64 { self.logs_bytes }
+     fn receipt_bytes(&self) -> u64 { self.receipt_bytes }
+     async fn home_nonce_tx(&mut self, nonce: u64, _from: Option<u64>) -> Result<Option<[u8; 32]>, String> {
++        if let (Some(d), Some(t0)) = (self.state_depth, self.live_pin) {
++            let pin = HOME_PIN + self.now.saturating_sub(t0) * 10;
++            let lo = _from.unwrap_or(pin.saturating_sub(ef::HOME_NONCE_SEARCH_BLOCKS));
++            if pin.saturating_sub(lo) > d {
++                return Err(format!("chain 4663: eth_getTransactionCount at block {lo}: historical state not available ({} blocks back, the provider keeps {d})", pin - lo));
++            }
++        }
+         if !self.identify {
+             return Err("chain 4663: eth_getTransactionCount: missing trie node (the provider keeps no state that deep)".into());
+         }
+@@ -2228,3 +2250,116 @@
+     let fixture = include_str!("fixtures/eth-state-round5.hex").trim();
+     assert_eq!(hex::encode(&bytes), fixture, "tests/fixtures/eth-state-round5.hex is stale: write the new bytes there (and run the monitor's and ops' tests)");
+ }
++
++// =====================================================================================================================================
++// Review round 6, part F (review6/poc/F): the PoCs. Each passing test shows the weakness is present.
++// =====================================================================================================================================
++
++/// hidden_deposit with the 4663 pin advancing at 10 blocks a second from now, the chain able to tell what used the nonce (`identify`)
++/// but its STATE kept only `depth` blocks back (None: archive).
++fn hidden_deposit_live(depth: Option<u64>) -> (Fake, EthState) {
++    let mut f = Fake::new(false);
++    f.live_pin = Some(f.now);
++    f.state_depth = depth;
++    f.identify = true;
++    let mut st = EthState::default();
++    hidden_deposit(&mut f, &mut st, E);
++    (f, st)
++}
++
++#[test]
++fn r6_f6_l1_at_the_runners_cadence_the_identification_is_out_of_the_providers_state_depth() {
++    // rpc.mainnet.chain.robinhood.com keeps ~6,200 blocks of state (review6/poc/F/depth_probe.output.txt: 6,100 back answers, 6,300
++    // back "historical state ... not available"); 4663 makes 10 blocks a second, so that is ~620 s. The runner ticks every
++    // RUNNER_TICK_EVERY_S (600 s default) AFTER each cycle ends (ops/src/runner.ts:192-195), and HomeTx.pin is the signing tick's
++    // START pin (EthNet's cached pin). A 60 s cycle puts the first resolving tick 660 s = 6,600 blocks after HomeTx.pin.
++    let (mut f, mut st) = hidden_deposit_live(Some(6_200));
++    let pin = st.pending.as_ref().unwrap().pin.unwrap();
++    let mut lines = Vec::new();
++    for _ in 0..(6 * 24) {
++        lines.extend(run_for(&mut f, &mut st, 1, 660));
++    }
++    assert!(lines.iter().any(|l| l.contains("historical state not available")), "identification fails on the state depth");
++    assert!(!lines.iter().any(|l| l.contains("nonce count")), "never identified, although the chain holds the transaction");
++    assert!(lines.iter().any(|l| l.contains("UNIDENTIFIED")), "every such deposit waits for the operator");
++    assert!(st.pending.is_some() && matches!(phase(&st), BPhase::Depositing { .. }), "the 4663 line (and the frog side's) halted a day");
++    println!("HomeTx.pin {pin}; the first resolving tick's pin {} ({} blocks on)", pin + 6_600, 6_600);
++}
++
++#[test]
++fn r6_f6_l1_control_at_a_60_s_cadence_or_on_an_archive_provider_it_is_identified() {
++    for (depth, step) in [(Some(6_200u64), 60u64), (None, 660)] {
++        let (mut f, mut st) = hidden_deposit_live(depth);
++        let l = run_for(&mut f, &mut st, 1, step).join("\n");
++        assert!(l.contains("MINED") && l.contains("nonce count"), "{l}");
++        assert!(matches!(phase(&st), BPhase::Bridging { .. }));
++    }
++}
++
++#[test]
++fn r6_f6_l2_one_provider_that_disagrees_on_the_receipt_halts_the_home_line_with_no_exit_and_no_unseen_page() {
++    // The likelier index failure is ONE provider missing the receipt (or answering it differently): evm_seen then returns Unsure
++    // (canister.rs:992-997), which resets used_since (ethflow.rs:3595-3600) and never runs the nonce identification (NotYet only).
++    // eth_home_clear needs used_since an hour old: refused for ever. The monitor's eth-home-unseen needs used_since too.
++    let (mut f, mut st) = hidden_deposit_live(None);
++    f.unsure = true;
++    let nonce = st.pending.as_ref().unwrap().nonce;
++    // a floor post falls due and waits behind the pending deposit
++    f.m(MODULE).posted_at = f.now;
++    let lines = run_for(&mut f, &mut st, 6 * 24, 600);
++    assert!(st.pending.as_ref().is_some_and(|p| p.used_since.is_none()), "never 'seen nowhere': the clock never starts");
++    assert!(ef::home_clear(&mut st, nonce, true, f.now).unwrap_err().contains("not yet seen nowhere"), "the operator's exit is refused");
++    assert!(!lines.iter().any(|l| l.contains("postFloor") || l.contains("mintDeposit") || l.contains("recordDelivery")),
++        "nothing else is signed on 4663 for a day");
++    assert!(!lines.iter().any(|l| l.contains("nonce count")), "the identification (which would succeed: identify = true, archive) never runs");
++    assert_eq!(relay_deposits(&f), 1);
++}
++
++#[test]
++fn r6_f6_i1_a_two_step_chain_move_keeps_the_old_chains_ethereum_floors() {
++    // F5-L-1's reset keys on saved_init.eth_nft → arg.eth_nft; an upgrade that DROPS eth_nft (allowed when nothing is open) and a later
++    // one that adds it on another chain both read `from` or `to` as None: chain_moved is false both times, and the old chain's floors
++    // (pin 26 M on Ethereum) refuse every pin of a chain whose head is lower, for good
++    let mut fl = etch_autobuyer::pin::PinFloors::default();
++    fl.eth.admit_pin("Ethereum", ETH_PIN).unwrap();
++    fl.eth.admit_nonce("Ethereum", 40).unwrap();
++    let mut st = EthState::default();
++    st.last_mined = Some((39, ETH_PIN - 5));
++    assert!(!ef::chain_moved(&mut st, &mut fl, Some(1), None), "drop: kept");
++    assert!(!ef::chain_moved(&mut st, &mut fl, None, Some(11_155_111)), "re-add on Sepolia: kept");
++    assert!(fl.eth.admit_pin("Ethereum", 9_300_000).is_err(), "every Sepolia pin is refused");
++    assert!(fl.eth.admit_nonce("Ethereum", 0).is_err(), "and every nonce");
++    assert!(st.last_mined.is_some());
++}
++
++#[test]
++fn r6_f6_i3_a_refused_mint_estimate_admits_every_waiting_deposit_of_the_collection_into_custody() {
++    // E5-L-1's fix: any send_home error of a deposit's mint is `own` (ethflow.rs:3419-3428), so step 3 goes on to the collection's next
++    // deposit, and each is admitted to the custody book (ethflow.rs:3406-3410) BEFORE its (failing) signature. A paused listing
++    // (ListingPaused) or the wrapper's own MintRateLimited refuses every one: all are admitted, none minted.
++    let mut f = Fake::new(true);
++    launch_limits(&mut f);
++    f.deposits_on = true;
++    f.finalized = ETH_PIN;
++    f.m(MODULE).accepted = 93 * E / 100;
++    let mut st = EthState::default();
++    f.mint_estimate_refuse = true;
++    let _ = milady_deposits(&mut f, &mut st, 4, 0x90);
++    let mut pending_admits = 0;
++    let mut lines = Vec::new();
++    for _ in 0..40 {
++        lines.extend(step(&mut f, &mut st, 600));
++    }
++    assert_eq!(st.deposits.iter().filter(|d| d.phase == ef::XPhase::Mint).count(), 4, "{:?}", st.deposits.iter().map(|d| d.phase.clone()).collect::<Vec<_>>());
++    assert!(lines.iter().any(|l| l.contains("ListingPaused")));
++    for d in &st.deposits {
++        let held = held_id(MILADY, 5_000 + d.tx[0] as u128);
++        if f.book.contains(&held) && d.phase == ef::XPhase::Mint {
++            pending_admits += 1;
++        }
++    }
++    let admitted: Vec<String> = f.book.entries.iter().map(|e| e.id.clone()).collect();
++    println!("custody book entries: {admitted:?}");
++    assert!(f.items.is_empty(), "nothing minted");
++    assert!(pending_admits >= 2, "more than the first waiting deposit holds custody room without a mint: {pending_admits}");
++}

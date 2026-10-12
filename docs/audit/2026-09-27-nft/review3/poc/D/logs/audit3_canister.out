@@ -1,0 +1,9 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 29.47s
+     Running tests/ethnft.rs (target/debug/deps/ethnft-3f07a2d059200b51)
+
+running 1 test
+test d3_h1_a_redeemer_who_moves_the_nft_before_finality_is_never_recorded_and_the_ticket_stays_refundable ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
+
+EXIT 0

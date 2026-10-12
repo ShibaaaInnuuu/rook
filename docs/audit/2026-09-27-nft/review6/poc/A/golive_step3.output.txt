@@ -1,0 +1,6 @@
+ok   the proposal's custody caps and outflow limits are step 3 (caps back to J7) of the launch file
+ok   the running configuration (the baseline argument) is step 2 (outflow raise)
+ok   the change is step 3's alone (the custody caps' item counts), nothing else in the caps or limits
+ok   every other field of the Init is the baseline's (identity, operator, providers, chains, eth_nft, deposits)
+ok   the proposal's pair fits the exit rule: every item can leave within the timelock's 72 h less a day (A4-L-1)
+ALL CHECKS PASS (--proposal: step 3 of the launch plan)

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relay rehearsal</title>
+<style>
+  :root { --bg: #fff; --fg: #111; --muted: #666; --line: #ddd; --accent: #2a5bd7; --bad: #b00020; --good: #0a7a3d; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #121212; --fg: #eee; --muted: #999; --line: #333; --accent: #7aa2ff; --bad: #ff6b81; --good: #4cd38a; } }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, sans-serif; margin: 0; padding: 24px 16px; }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; } h2 { font-size: 16px; margin: 0; }
+  p { margin: 6px 0; } .muted { color: var(--muted); font-size: 13px; }
+  button { margin: 8px 8px 0 0; padding: 8px 14px; font-size: 14px; border: 0; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer; }
+  button:disabled { opacity: .45; cursor: default; }
+  code, pre { font: 12px ui-monospace, monospace; word-break: break-all; white-space: pre-wrap; }
+  pre { max-height: 260px; overflow: auto; border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
+  .leg { border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-top: 14px; }
+  .bad { color: var(--bad); } .good { color: var(--good); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Relay rehearsal</h1>
+  <p class="muted">The go-live runbook's item 2 (C5-I-1): a real Relay transfer each way between Robinhood Chain and Ethereum, and a forced refund each way, from your own wallet to your own address. Each quote is checked by the canister's own rules before you sign; each payout is run through the canister's own payout judge. About 0.008 ETH moves in all and nearly all of it comes back to you.</p>
+  <button id="connect">Connect wallet</button>
+  <p id="acct" class="muted"></p>
+  <p id="cfg" class="muted"></p>
+  <div id="legs"></div>
+  <h2 style="margin-top:20px">For the runbook</h2>
+  <p class="muted">Each verdict line, to record in docs/v7/phase1-nft.md §5.1 under C5-I-1. Copy it to Claude.</p>
+  <pre id="record">(nothing verified yet)</pre>
+</main>
+<script>
+const LEGS = [
+  { id: "out", title: "1. Robinhood Chain → Ethereum", dir: "out", wei: "2000000000000000", refund: false, needs: "0.002 ETH on Robinhood Chain" },
+  { id: "back", title: "2. Ethereum → Robinhood Chain", dir: "back", wei: "2000000000000000", refund: false, needs: "0.002 ETH on Ethereum (0.001 is refused: Relay's fee puts its minimum 3.95 % under, past the canister's 3 %)" },
+  { id: "refund-out", title: "3. Forced refund, from Robinhood Chain", dir: "out", wei: "2000000000000000", refund: true, needs: "0.002 ETH on Robinhood Chain; refunded there" },
+  { id: "refund-back", title: "4. Forced refund, from Ethereum", dir: "back", wei: "2000000000000000", refund: true, needs: "0.002 ETH on Ethereum; refunded there" },
+];
+const CHAINS = { 1: { name: "Ethereum", explorer: "https://etherscan.io", rpc: "https://ethereum-rpc.publicnode.com" },
+  4663: { name: "Robinhood Chain", explorer: "https://robinhoodchain.blockscout.com", rpc: "https://rpc.mainnet.chain.robinhood.com" } };
+const $ = (id) => document.getElementById(id);
+const eth = (w) => (Number(BigInt(w)) / 1e18).toFixed(6) + " ETH";
+let account = null;
+const S = {};                                        // per leg: { quote, deposit, payout, status, verdict }
+try { Object.assign(S, JSON.parse(localStorage.getItem("relay-rehearsal") || "{}")); } catch {}
+const save = () => { try { localStorage.setItem("relay-rehearsal", JSON.stringify(S)); } catch {} };
+
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) } : {});
+  const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status); return j;
+}
+async function onChain(id) {
+  const hex = "0x" + id.toString(16), c = CHAINS[id];
+  try { await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: hex }] }); }
+  catch (e) { if (e.code !== 4902) throw e;
+    await window.ethereum.request({ method: "wallet_addEthereumChain", params: [{ chainId: hex, chainName: c.name, rpcUrls: [c.rpc], nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 }, blockExplorerUrls: [c.explorer] }] }); }
+}
+const link = (chain, h) => `<a href="${CHAINS[chain].explorer}/tx/${h}" target="_blank" rel="noopener"><code>${h}</code></a>`;
+
+function render() {
+  $("legs").innerHTML = LEGS.map((L) => {
+    const s = S[L.id] || {}, q = s.quote;
+    let body = `<p class="muted">Needs ${L.needs}.</p>`;
+    if (q) body += `<p>Pay <b>${eth(BigInt(q.tx.value))}</b> on ${CHAINS[q.origin].name} to Relay's depository <code>${q.tx.to}</code>. ${q.forceRefund
+      ? `Relay is told to refund it on ${CHAINS[q.origin].name}.` : `Expected out on ${CHAINS[q.destination].name}: ${eth(q.expectedOut)} (minimum ${eth(q.minOut)}).`}</p><p class="muted good">Checked by the canister's rules: depository, depositNative(you, order), order id recomputed, output and refunds to you.</p>`;
+    if (s.deposit) body += `<p>Deposit: ${link(q.origin, s.deposit)}</p>`;
+    if (s.status) body += `<p>Relay: <b>${s.status}</b>${s.payout ? ` → payout ${link(q.payoutChain, s.payout)}` : ""}</p>`;
+    if (s.verdict) body += `<pre>${s.verdict.replace(/[<&]/g, (c) => ({ "<": "&lt;", "&": "&amp;" }[c]))}</pre>`;
+    if (s.error) body += `<p class="bad">${s.error}</p>`;
+    const can = !!account;
+    body += `<button data-act="quote" data-leg="${L.id}" ${can && !s.deposit ? "" : "disabled"}>Check</button>`
+      + `<button data-act="send" data-leg="${L.id}" ${can && q && !s.deposit ? "" : "disabled"}>Send</button>`
+      + `<button data-act="verify" data-leg="${L.id}" ${s.payout && !s.verdict ? "" : "disabled"}>Verify payout</button>`
+      + (s.deposit ? `<button data-act="reset" data-leg="${L.id}" style="background:var(--muted)">Forget this row</button>` : "");
+    return `<div class="leg"><h2>${L.title}</h2>${body}</div>`;
+  }).join("");
+  const lines = LEGS.map((L) => [L, (S[L.id] || {}).verdict]).filter(([, v]) => v)
+    .map(([L, v]) => `${L.title}: ${(v.split("\n").find((x) => /^VERDICT/.test(x.trim())) || v.split("\n").find((x) => /^refused/.test(x.trim())) || v.split("\n").filter(Boolean).pop() || "").trim()}`);
+  $("record").textContent = lines.length ? lines.join("\n") : "(nothing verified yet)";
+}
+
+async function act(name, id) {
+  const L = LEGS.find((x) => x.id === id), s = (S[id] ||= {});
+  s.error = null;
+  try {
+    if (name === "reset") { if (confirmReset(L)) delete S[id]; }
+    if (name === "quote") s.quote = await api("/api/quote", { user: account, dir: L.dir, amountWei: L.wei, forceRefund: L.refund });
+    if (name === "send") {
+      const q = s.quote; await onChain(q.origin);
+      const tx = { from: account, to: q.tx.to, data: q.tx.data, value: q.tx.value };
+      await window.ethereum.request({ method: "eth_estimateGas", params: [tx] });
+      s.deposit = await window.ethereum.request({ method: "eth_sendTransaction", params: [tx] });
+      s.status = "sent"; save(); render(); poll(id);
+    }
+    if (name === "verify") {
+      s.verdict = "verifying (the canister's judge is compiled the first time: a minute or two)…"; render();
+      const q = s.quote, r = await api("/api/verify", { us: account, deposit: s.deposit, depositChain: q.origin, payout: s.payout, payoutChain: q.payoutChain, requestId: q.requestId });
+      s.verdict = r.text;
+    }
+  } catch (e) { s.error = e.message || String(e); if (name === "verify") s.verdict = null; }
+  save(); render();
+}
+function confirmReset(L) { return true; }            // no browser dialogs: the row's data is only this browser's notes
+async function poll(id) {
+  const s = S[id]; if (!s?.quote || s.payout) return;
+  try {
+    const st = await api("/api/status?requestId=" + s.quote.requestId);
+    s.status = st.status || "waiting";
+    if ((st.status === "success" || st.status === "refund") && st.txHashes?.length) s.payout = st.txHashes[st.txHashes.length - 1];
+    save(); render();
+  } catch (e) { s.error = e.message; render(); }
+  if (!S[id]?.payout && !["failure"].includes(S[id]?.status)) setTimeout(() => poll(id), 10000);
+}
+
+$("legs").addEventListener("click", (e) => { const b = e.target.closest("button[data-act]"); if (b && !b.disabled) act(b.dataset.act, b.dataset.leg); });
+$("connect").onclick = async () => {
+  if (!window.ethereum) { $("acct").textContent = "No wallet found in this browser."; $("acct").className = "bad"; return; }
+  try { [account] = await window.ethereum.request({ method: "eth_requestAccounts" }); account = account.toLowerCase(); $("acct").textContent = "Connected: " + account; $("acct").className = "muted good"; }
+  catch (e) { $("acct").textContent = e.message; $("acct").className = "bad"; }
+  render();
+};
+api("/api/config").then((c) => { $("cfg").textContent = c.key ? "Relay key: set on the server." : "Relay key: NOT set on the server; rows 3 and 4 (forced refunds) will be refused."; $("cfg").className = c.key ? "muted good" : "bad"; }).catch(() => {});
+render();
+for (const L of LEGS) if (S[L.id]?.deposit && !S[L.id]?.payout) poll(L.id);
+</script>
+</body>
+</html>

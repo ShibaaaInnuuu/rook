@@ -1,0 +1,16 @@
+{
+  "name": "Wrapped Okay Bears",
+  "symbol": "wOKAYBEAR",
+  "description": "Rook's wrapped Okay Bears token: each whole token is backed either by a Okay Bears NFT held by Rook's custodian or by SOL the custodian holds for the collection, counted at the floor price.",
+  "image": "https://userook.fun/wx/img/okay_bears.png",
+  "external_url": "https://userook.fun/#/collection/okay_bears",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://userook.fun/wx/img/okay_bears.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

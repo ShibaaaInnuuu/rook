@@ -1,0 +1,53 @@
+{
+  "id": 39,
+  "kind": "inscriptions",
+  "name": "Ordinal Smokes",
+  "ref": "ordinal-smokes",
+  "divisibility": 0,
+  "vault": "0x9b9ce1DeE0845BE2E5451e60F89435f50Dd1B49E",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-ordinal-smokes",
+  "membershipRoot": "0x6e09a32374ff9855dc83de96d225d2c7cd944e14c1abfcf7280bf2dbb2146b30",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "61625339236247955",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "61625339236247955",
+    "attributedWei": "61625339236247955",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "61625339236247955",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0xbAB3b5B0aB262161D5b0f012533F75c96D2c4C5E",
+      "symbol": "SHAL4SIM",
+      "depositedWei": "61625339236247955"
+    }
+  ]
+}

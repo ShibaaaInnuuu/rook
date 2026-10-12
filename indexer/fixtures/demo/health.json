@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "deployment": true,
+  "chainId": 9466301,
+  "demo": true,
+  "cursor": 69024760,
+  "head": 69024760,
+  "lagBlocks": 0,
+  "confirmations": 0,
+  "events": 13904,
+  "lastPassAt": 1790043341,
+  "lastError": null,
+  "reorgs": 0,
+  "version": "1"
+}

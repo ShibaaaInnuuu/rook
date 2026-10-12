@@ -1,0 +1,28 @@
+TAP version 13
+# Subtest: control: the exact steps are EXPECTED and pass --proposal
+ok 1 - control: the exact steps are EXPECTED and pass --proposal
+  ---
+  duration_ms: 12.924792
+  type: 'test'
+  ...
+# Subtest: holds: near-steps are not EXPECTED (other Init field, a lowering, a trip factor, a removed collection, a value/item cap, global value)
+ok 2 - holds: near-steps are not EXPECTED (other Init field, a lowering, a trip factor, a removed collection, a value/item cap, global value)
+  ---
+  duration_ms: 11.706291
+  type: 'test'
+  ...
+# Subtest: WEAKNESS (A7-I-1): the runbook's --proposal command (no --phase1) passes a step 2 that also replaces the operator: only a note
+ok 3 - WEAKNESS (A7-I-1): the runbook's --proposal command (no --phase1) passes a step 2 that also replaces the operator: only a note
+  ---
+  duration_ms: 1.936
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 127.983625

@@ -1,0 +1,101 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling version_check v0.9.5
+   Compiling serde_core v1.0.229
+   Compiling find-msvc-tools v0.1.13
+   Compiling object v0.39.1
+   Compiling shlex v2.0.1
+   Compiling libc v0.2.189
+   Compiling memchr v2.8.3
+   Compiling typenum v1.20.1
+   Compiling autocfg v1.5.1
+   Compiling cc v1.4.7
+   Compiling serde v1.0.229
+   Compiling generic-array v0.14.7
+   Compiling cfg-if v1.0.5
+   Compiling crc32fast v1.5.2
+   Compiling num-traits v0.2.19
+   Compiling binrw_derive v0.15.2
+   Compiling thiserror v1.0.69
+   Compiling syn v2.0.119
+   Compiling syn v3.0.6
+   Compiling stacker v0.1.25
+   Compiling cpufeatures v0.2.17
+   Compiling paste v1.0.15
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling digest v0.10.7
+   Compiling anyhow v1.0.104
+   Compiling either v1.18.0
+   Compiling rustversion v1.0.23
+   Compiling binrw v0.15.2
+   Compiling sha2 v0.10.9
+   Compiling bytemuck v1.25.2
+   Compiling typed-arena v2.0.2
+   Compiling num-integer v0.1.47
+   Compiling lazy_static v1.5.0
+   Compiling fnv v1.0.7
+   Compiling array-init v2.1.0
+   Compiling arrayvec v0.5.2
+   Compiling ident_case v1.0.1
+   Compiling data-encoding v2.11.1
+   Compiling unicode-width v0.2.2
+   Compiling strsim v0.11.1
+   Compiling pretty v0.12.5
+   Compiling serde_bytes v0.11.19
+   Compiling slotmap v1.1.1
+   Compiling heck v0.5.0
+   Compiling hex v0.4.3
+   Compiling leb128 v0.2.7
+   Compiling byteorder v1.5.0
+   Compiling thiserror v2.0.20
+   Compiling ic-cdk-executor v2.0.0
+   Compiling ic0 v1.2.0
+   Compiling smallvec v1.16.1
+   Compiling pin-project-lite v0.2.17
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling ar_archive_writer v0.5.3
+   Compiling darling_core v0.20.11
+   Compiling psm v0.1.32
+   Compiling thiserror-impl v1.0.69
+   Compiling candid_derive v0.10.36
+   Compiling strum_macros v0.26.4
+   Compiling darling_macro v0.20.11
+   Compiling darling v0.20.11
+   Compiling num-bigint v0.4.8
+   Compiling ic_principal v0.1.5
+   Compiling strum v0.26.3
+   Compiling ic-error-types v0.2.0
+   Compiling candid v0.10.36
+   Compiling ic-management-canister-types v0.5.0
+   Compiling ic-cdk-macros v0.19.0
+   Compiling ic-cdk v0.19.0
+   Compiling etch_timelock v0.1.0 (/Users/jlohayon/Documents/Rook-rev3/autobuyer/timelock-rs)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.64s
+     Running unittests src/lib.rs (target/debug/deps/etch_timelock-ffe4057e139fd830)
+
+running 12 tests
+test rules::tests::a_stale_resume_vote_expires_with_its_round ... ok
+test rules::tests::it_is_installed_only_with_a_delay_at_the_floor_and_sound_roles ... ok
+test rules::tests::ingress_is_admitted_by_role_and_an_upgrade_that_did_not_happen_returns_to_pending ... ok
+test rules::tests::any_guardian_pauses_and_resuming_takes_the_threshold ... ok
+test rules::tests::a_proposer_withdraws_only_its_own_and_one_guardian_cannot_veto_alone ... ok
+test rules::tests::roles_change_like_code_and_a_removed_proposer_stops_proposing ... ok
+test rules::tests::any_proposer_proposes_one_pending_each_and_the_hash_is_published ... ok
+test rules::tests::nothing_runs_before_the_delay_anyone_runs_it_after_once_and_a_stale_one_fails ... ok
+test rules::tests::a_proposal_being_executed_can_still_be_vetoed_withdrawn_or_pruned_and_a_failed_stop_never_revives_it ... ok
+test canister::tests::every_update_method_is_one_the_design_names ... ok
+test rules::tests::a_proposal_must_be_something_the_ic_would_accept ... ok
+test rules::tests::a_state_saved_before_running_existed_decodes_with_nothing_running ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests etch_timelock
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+EXIT 0

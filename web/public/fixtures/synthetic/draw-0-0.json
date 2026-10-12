@@ -1,0 +1,154 @@
+{
+  "id": "0-0",
+  "listingId": 0,
+  "acquisitionId": 0,
+  "type": "draw",
+  "state": "delivered",
+  "mode": "draw-weighted",
+  "assetRef": "abci0",
+  "openedAt": 1800000684,
+  "challengeEnds": 1800005000,
+  "challengeEndsIn": null,
+  "root": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+  "uri": "ipfs://list",
+  "total": "1000",
+  "verifySnapshot": {
+    "tool": "tools/snapshot",
+    "command": "npm run snapshot -- --coin 0xC0C0c0c0C0C0c0c0c0C0c0C0C0C0C0C0C0C0c0c0 --block <block from the published file> --kind weighted",
+    "note": "The published file at `uri` names the block and the other inputs. Run the command with your own RPC and compare its root with `root`. What it cannot prove: that the block was the one promised."
+  },
+  "draw": {
+    "round": 777,
+    "pinnedAt": 1800000696,
+    "drandUrl": "https://api.drand.sh/04f1e9062b8a81f848fded9c12306733282b2727ecced50032187751166ec8c3/public/777",
+    "winningTicket": "412",
+    "resolvedAt": 1800000708,
+    "winner": "0xf1f1f1F1f1f1F1F1f1F1f1F1F1F1F1f1F1f1f1F1",
+    "destination": "bc1pfixed",
+    "destinationSetAt": 1800000732,
+    "deliveredTxid": "7777777777777777777777777777777777777777777777777777777777777777",
+    "deliveredAt": 1800000768,
+    "overdue": true,
+    "voided": null
+  },
+  "distribution": null,
+  "timeline": [
+    {
+      "at": 1800000576,
+      "block": 148,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Receipted",
+      "detail": {
+        "id": "0",
+        "acquisitionId": "0",
+        "coin": "0xc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0",
+        "assetRef": "abci0",
+        "amount": "1",
+        "btcTxid": "0x4242424242424242424242424242424242424242424242424242424242424242",
+        "satsPaid": "150000"
+      }
+    },
+    {
+      "at": 1800000672,
+      "block": 156,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Chosen",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0",
+        "mode": 3,
+        "named": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "at": 1800000684,
+      "block": 157,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DrawOpened",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0",
+        "root": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+        "totalTickets": "1000",
+        "uri": "ipfs://list",
+        "challengeEnds": "1800005000"
+      }
+    },
+    {
+      "at": 1800000696,
+      "block": 158,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DrawPinned",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0",
+        "round": "777"
+      }
+    },
+    {
+      "at": 1800000708,
+      "block": 159,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DrawResolved",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0",
+        "winningTicket": "412"
+      }
+    },
+    {
+      "at": 1800000720,
+      "block": 160,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Won",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0",
+        "winner": "0xf1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      }
+    },
+    {
+      "at": 1800000732,
+      "block": 161,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DestinationSet",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0",
+        "destination": "bc1pfirst"
+      }
+    },
+    {
+      "at": 1800000744,
+      "block": 162,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DestinationSet",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0",
+        "destination": "bc1pfixed"
+      }
+    },
+    {
+      "at": 1800000756,
+      "block": 163,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "DeliveryOverdue",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0"
+      }
+    },
+    {
+      "at": 1800000768,
+      "block": 164,
+      "tx": "0x9999999999999999999999999999999999999999999999999999999999999999",
+      "event": "Delivered",
+      "detail": {
+        "listingId": "0",
+        "acquisitionId": "0",
+        "txid": "0x7777777777777777777777777777777777777777777777777777777777777777"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# 4663 keyless providers: state depth 2026-09-28 11:37:21 UTC
+https://rpc.mainnet.chain.robinhood.com: chain 4663 head 74766846; nonce at depth 6000:ok, 10000:ERR historical state 18cd28989beebdcb153b701, 30000:ERR historical state 4d7be09a3764a520427dc64, 100000:ERR historical state 6c98eb94452a058e6fde192, 1000000:ERR historical state b1a6e45fc1735d4ef53ef60
+https://rpc.ordofi.network: chain 4663 head 74766851; nonce at depth 6000:ok, 10000:ok, 30000:ok, 100000:ok, 1000000:ok
+https://robinhood.drpc.org: chain 4663 head 74766856; nonce at depth 6000:ERR Unknown state. First available state is , 10000:ERR Unknown state. First available state is , 30000:ERR Unknown state. First available state is , 100000:ERR Unknown state. First available state is , 1000000:ERR Unknown state. First available state is 
+https://robinhood-rpc.publicnode.com: chain 4663 head 74766856; nonce at depth 6000:ERR Archive requests require a personal toke, 10000:ERR Archive requests require a personal toke, 30000:ERR Archive requests require a personal toke, 100000:ERR Archive requests require a personal toke, 1000000:ERR Archive requests require a personal toke
+https://4663.rpc.thirdweb.com: no chainId (HTTP 200 b'{"jsonrpc": "2.0","error": {"code": -32001,"message": "Invalid chain"}}')
+https://rpc.ankr.com/robinhood: no chainId (HTTP 403 b'{"error":"message: API key is not allowed to access blockchain, json-rpc code: -')
+https://robinhood.gateway.tenderly.co: no chainId (HTTP 404 b'')
+https://robinhood-mainnet.gateway.tenderly.co: no chainId (HTTP 404 b'')
+https://robinhood.api.onfinality.io/public: no chainId (HTTP 0 b'<urlopen error [Errno 8] nodename nor servname provided, or not known>')
+https://robinhood.blockpi.network/v1/rpc/public: no chainId (HTTP 503 b'{"jsonrpc":"2.0","error":{"code":100021,"message":"Apikey not found"}}')
+https://rpc.robinhood.xyz: no chainId (HTTP 0 b'<urlopen error [Errno 8] nodename nor servname provided, or not known>')
+https://robinhood-mainnet.public.blastapi.io: no chainId (HTTP 0 b'<urlopen error [Errno 8] nodename nor servname provided, or not known>')
+https://robinhood.rpc.subquery.network/public: no chainId (HTTP 0 b'<urlopen error [Errno 8] nodename nor servname provided, or not known>')
+https://1rpc.io/robinhood: no chainId (HTTP 400 b'unknown network')
+https://robinhood.nodies.app: no chainId (HTTP 0 b'<urlopen error [Errno 8] nodename nor servname provided, or not known>')
+https://rpc.chain.robinhood.com: no chainId (HTTP 0 b'<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake fail')
+https://mainnet.rpc.robinhood.com: no chainId (HTTP 0 b'<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake fail')

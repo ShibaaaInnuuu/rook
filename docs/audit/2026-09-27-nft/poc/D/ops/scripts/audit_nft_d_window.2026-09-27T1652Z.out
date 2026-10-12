@@ -1,0 +1,3 @@
+{"collection":"milady","head":26070099,"transferTxsIn2Days":54,"saleTxsIn2Days":11,"windows":43,"windowsUnder3Sales":21,"shareUnder3":0.488,"min":1,"max":5,"evidencePoints20min":73,"pointsWithNoPost":45,"longestNoPostRunMinutes":700}
+{"collection":"azuki","head":26070099,"transferTxsIn2Days":65,"saleTxsIn2Days":18,"windows":54,"windowsUnder3Sales":27,"shareUnder3":0.5,"min":1,"max":7,"evidencePoints20min":73,"pointsWithNoPost":18,"longestNoPostRunMinutes":360}
+{"collection":"mayc","head":26070099,"transferTxsIn2Days":217,"saleTxsIn2Days":52,"windows":206,"windowsUnder3Sales":107,"shareUnder3":0.519,"min":0,"max":9,"evidencePoints20min":73,"pointsWithNoPost":26,"longestNoPostRunMinutes":520}

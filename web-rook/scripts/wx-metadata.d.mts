@@ -1,0 +1,21 @@
+/** Types for scripts/wx-metadata.mjs, which test/wx.test.ts imports. */
+export const SIZE: number;
+export const WX_BASE: string;
+export const IMG_BASE: string;
+export const NAME_BYTES: number;
+export const SYMBOL_BYTES: number;
+export const URI_BYTES: number;
+export const MARK_PX: number;
+export const MARK_TOP: number;
+export const TEXT_PX: number;
+export const BASELINE: number;
+export type OrderEntry = { slug: string; symbol: string; name: string; source: string };
+export type WxEntry = { slug: string; name: string; symbol: string; collection: string; page?: string };
+export type WxMetadata = { name: string; symbol: string; description: string; image: string; external_url: string; properties: { files: { uri: string; type: string }[]; category: string } };
+export function parseOrder(rust: string): OrderEntry[];
+export function registry(root?: URL): (WxEntry & { page: string })[];
+export function metadataOf(e: WxEntry): WxMetadata;
+export function metadataText(e: WxEntry): string;
+export function plexMono(): { unitsPerEm: number; advance: number; glyphOf: (ch: string) => number; pathOf: (ch: string) => string };
+export function wxPixels(symbol: string): Buffer;
+export function wxPng(symbol: string): Buffer;

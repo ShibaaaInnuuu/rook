@@ -1,0 +1,22 @@
+    Finished `release` profile [optimized] target(s) in 33.29s
+     Running tests/audit4_nft_e.rs (target/release/deps/audit4_nft_e-63222919d7e3c2e1)
+
+running 5 tests
+test e4_control_eight_deposits_wait_for_the_days_room_without_a_freeze ...
+ok
+test e4_control_without_the_home_pin_moving_back_the_fill_arrives ...
+ok
+test e4_h1_nine_deposits_of_one_collection_in_a_day_trip_the_mint_tripwire_and_pause_the_canister ...
+AUDIT4-E after 4 ticks (2400 s): minted 3 deposits; mint asks 9; frozen Some(Tripwire { collection: "1:0x5af0d9827e0c53e4799bb226655a1de152a425a5", flow: Mint, demanded: 9, limit: 3 }); paused true
+ok
+test e4_l1_j7_custody_cannot_all_leave_within_the_delay_at_the_global_item_limit ... AUDIT4-E J7: 61 items in all at 24 a day: exit_fits = false; the default 30 at 6 a day: false
+ok
+test e4_m1_a_home_pin_that_moves_back_reads_our_own_relay_deposit_as_a_refund ...
+AUDIT4-E: Milady's deposit took 500000000000000000 wei on 4663 (advanced 500200000000000000)
+AUDIT4-E after one tick at the lower home pin: Funded { wei: 500000000000000000, since: 1790512833 }, watch false; eth buy 0: REFUNDED: 500000000000000000 wei back; attempt 2 of 3 next
+AUDIT4-E the new quote: Some("eth: the home-chain act waits: eth buy 0: our balance 2200000000000000 is under the deposit's 500000000000000000")
+AUDIT4-E give back: buy 0: 2000000000000000 wei goes back to the module at the next tick; returned 2000000000000000 of 500200000000000000 advanced; our Ethereum balance 508443962449863321 of which earmarked 0, leftover booked 0
+ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

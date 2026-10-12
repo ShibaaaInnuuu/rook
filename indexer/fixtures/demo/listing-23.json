@@ -1,0 +1,53 @@
+{
+  "id": 23,
+  "kind": "inscriptions",
+  "name": "Ordinal Bears",
+  "ref": "ordinal-bears",
+  "divisibility": 0,
+  "vault": "0x56DEc1718094C118967A24C9Cd14f00b9ECd4217",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-ordinal-bears",
+  "membershipRoot": "0x76453bea861f0ac2296b10b80a41ad6201b43b5474c89d3143ce9cb08c2ba2b6",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "203744680851063829",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "203744680851063829",
+    "attributedWei": "203744680851063829",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "203744680851063829",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x03B1537AFB256812f2a5A3185f6bEC3bed03d294",
+      "symbol": "SLAT3SIM",
+      "depositedWei": "203744680851063829"
+    }
+  ]
+}

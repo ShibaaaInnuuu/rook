@@ -1,0 +1,11 @@
+# against bb713fe's .did (= e04fa16's: git diff e04fa16 bb713fe -- etch_autobuyer.did is empty)
+service_compatible(HEAD .did, OLD .did): Ok(())
+ok: eth-state-round6.hex: 2732 bytes; differences []
+ok: eth-state-round5.hex: 2913 bytes; differences []
+ok: eth-state-round4.hex: 2896 bytes; differences []
+ok: eth-state-round2.hex: 2656 bytes; differences []
+# against e04fa16's .did
+service_compatible(HEAD .did, OLD .did): Ok(())
+# control: the fixtures through bb713fe's .did (OLD=1) name the round-6 fields
+service_compatible(HEAD .did, OLD .did): Ok(())
+MISMATCH: eth-state-round6.hex: 2732 bytes; differences [".736_925_783.3_006_842_042: in the Rust type, not in the .did", ".1_527_319_925[0].5_690_856: in the Rust type, not in the .did", ".1_527_319_925[0].1_158_859_072: in the Rust type, not in the .did", ".1_527_319_925[0].1_203_218_916: in the R

@@ -1,0 +1,53 @@
+{
+  "id": 18,
+  "kind": "inscriptions",
+  "name": "BTC Land",
+  "ref": "btc-land",
+  "divisibility": 0,
+  "vault": "0x38Ab0997cF3F08d1d4b00aA4Bdd17295CBBFc843",
+  "btcVault": "bc1p-staging-fixture-not-a-real-address-btc-land",
+  "membershipRoot": "0xe979ed3a063a3fdff18aca7fdbd37fd446edf363d174d22a303644e346398131",
+  "paused": false,
+  "coins": 1,
+  "depositedWei": "256538934550376203",
+  "acquisitions": 0,
+  "capWei": null,
+  "capExpiry": null,
+  "capExpired": null,
+  "openDeclarations": 0,
+  "live": {
+    "balanceWei": "256538934550376203",
+    "attributedWei": "256538934550376203",
+    "waitingWei": "0",
+    "reservedWei": "0",
+    "spendableWei": "256538934550376203",
+    "bondWei": "0",
+    "outstandingWei": "0",
+    "requiredBondWei": "0",
+    "blockedByPurchase": null,
+    "error": null
+  },
+  "bondCoverageBps": null,
+  "bondEvents": [],
+  "capHistory": [],
+  "declarations": [],
+  "acquisitionsRecent": [],
+  "writtenOffWei": "0",
+  "timeToDeliver": {
+    "count": 0,
+    "medianS": null,
+    "maxS": null
+  },
+  "minimumPayout": null,
+  "pending": {
+    "root": null,
+    "btcVault": null
+  },
+  "coinsList": [
+    {
+      "address": "0x6B63cF81D1996d9f4dF14D9BebEa8a8D89169127",
+      "symbol": "OBSI2SIM",
+      "depositedWei": "256538934550376203"
+    }
+  ]
+}

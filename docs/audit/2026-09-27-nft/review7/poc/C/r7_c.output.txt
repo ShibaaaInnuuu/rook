@@ -1,0 +1,9 @@
+test r7_c_i1_every_execution_paying_us_in_one_transaction_is_summed_whatever_its_id ... ok
+test r7_c_i2_a_claim_waiting_behind_its_buys_4663_transaction_goes_stale_after_600_s_and_is_dropped ... ok
+test r7_c_l1_a_the_real_event_id_is_the_call_requests_struct_hash_so_a_real_depository_payout_never_names_the_order ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.04s
+real RelayCallExecuted id = 0x0x84334077101689714321be1e7c88eeaf265d4d8b7c5b91cbc197b6704cbe6659 = struct hash of the CallRequest
+a real-shape depository refund to us, no amount stated: Err("the transaction does not name order 0x0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d (neither the order id nor Relay's request id is in its input; Relay's solver alone is every order's sender)")
+the same, the operator stating the record's amount:   Err("the transaction does not name order 0x0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d (neither the order id nor Relay's request id is in its input; Relay's solver alone is every order's sender)")
+two executions paying us, 3 + 2 ETH, credited to one order: Ok(5000000000000000000)
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 14 filtered out; finished in 0.10s

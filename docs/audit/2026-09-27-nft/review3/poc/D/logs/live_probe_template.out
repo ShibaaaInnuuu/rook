@@ -1,0 +1,23 @@
+# 2026-09-27 read-only probes of the launch monitor template's references and Ethereum providers (deployments/launch/monitor-nft.json)
+Sun Sep 27 20:49:51 UTC 2026
+head 26071278
+== https://eth.drpc.org eth_getLogs over 7200 blocks (the monitor's deposit scan asks DEPOSIT_SCAN_BLOCKS = 7200 on eth_rpc[0])
+{"id":1,"jsonrpc":"2.0","error":{"message":"ranges over 10000 blocks are not supported on free plan","code":35}}
+== https://eth.drpc.org eth_getLogs over 100 blocks (the monitor's deposit scan asks DEPOSIT_SCAN_BLOCKS = 7200 on eth_rpc[0])
+{"id":1,"jsonrpc":"2.0","result":[]}
+== https://xrpc.cl/eth eth_getLogs over 7200 blocks (the monitor's deposit scan asks DEPOSIT_SCAN_BLOCKS = 7200 on eth_rpc[0])
+{"jsonrpc":"2.0","id":1,"result":[]}
+== https://xrpc.cl/eth eth_getLogs over 100 blocks (the monitor's deposit scan asks DEPOSIT_SCAN_BLOCKS = 7200 on eth_rpc[0])
+{"jsonrpc":"2.0","id":1,"result":[]}
+== CoinGecko /nfts/<id> (contract, platform, floor)
+milady-maker 0x5af0d9827e0c53e4799bb226655a1de152a425a5 ethereum 0.929
+azuki 0xed5af388653567af2f388e6224dc7c4b3241c544 ethereum 0.673989
+mutant-ape-yacht-club 0x60e4d786628fea6478f785a6d7e704777c86a7c6 ethereum 0.857782
+pudgy-penguins 0xBd3531dA5CF5857e7CfAA92426877b022e612cf8 ethereum 3.29
+bored-ape-yacht-club 0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d ethereum 6.3
+== OpenSea /collections/<slug>/stats keyless (floor)
+milady 0.92899988
+azuki 0.673989
+mutant-ape-yacht-club 0.85769136
+pudgypenguins 3.2862
+boredapeyachtclub 6.2999
