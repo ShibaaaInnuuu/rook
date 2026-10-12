@@ -53,8 +53,8 @@ test("friendly wording: SOL rounded, the token in plain words, wX as the precise
 });
 
 test("the live line in the other unit says it is at the recorded floor", () => {
-  assert.equal(otherUnitText(27_420_000_000n, "SOL", az), "≈ 2 Azuki tokens (2 wAZUKI) at the recorded floor of 13.71 SOL");
-  assert.equal(otherUnitText(27_400_000_000n, "SOL", az), "≈ 1.9985 Azuki tokens (1.9985 wAZUKI) at the recorded floor of 13.71 SOL");
+  assert.equal(otherUnitText(27_420_000_000n, "SOL", az), "27.4 SOL, paid as 2 wAZUKI from your wallet (at the recorded floor of 13.71 SOL)");
+  assert.equal(otherUnitText(27_400_000_000n, "SOL", az), "27.4 SOL, paid as 1.9985 wAZUKI from your wallet (at the recorded floor of 13.71 SOL)");
   assert.equal(otherUnitText(2_000_000_000n, "wX", az), "≈ 27.4 SOL at the recorded floor of 13.71 SOL");
   assert.equal(otherUnitText(10_000_000n, "wX", az), "≈ 0.1371 SOL at the recorded floor of 13.71 SOL", "4 decimals under 1 SOL");
   assert.equal(otherUnitText(0n, "SOL", az), null);

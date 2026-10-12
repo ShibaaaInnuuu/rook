@@ -56,13 +56,14 @@ export function firstBuyWx(typed: bigint, unit: BuyUnit, floor: bigint | null): 
   return unit === "SOL" && floor ? solToWx(typed, floor) : typed;
 }
 
-/** The live line under the field, in the other unit: "≈ 2 Azuki tokens (2 wAZUKI) at the recorded floor of 13.71 SOL" or "≈ 27.4 SOL at …". */
+/** The live line under the field: "27.4 SOL, paid as 2 wAZUKI from your wallet (at the recorded floor of 13.71 SOL)" or, typed in wX, "≈ 27.4 SOL at …". */
 export function otherUnitText(typed: bigint, unit: BuyUnit, t: Tok): string | null {
   if (!t.floor || typed <= 0n) return null;
   const at = `at the recorded floor of ${floorText(t.floor)} SOL`;
   if (unit === "wX") return `≈ ${solApprox(wxToSol(typed, t.floor))} SOL ${at}`;
+  // SOL mode: lead with the SOL the creator chose; the wX it is paid in is the detail (operator, 2026-10-12)
   const f = friendlyWx(t, solToWx(typed, t.floor));
-  return `≈ ${f.plain} (${f.label}) ${at}`;
+  return `${solApprox(typed)} SOL, paid as ${f.label} from your wallet (${at})`;
 }
 
 /** "≈ 27.4 SOL": a wX amount's SOL estimate at the floor; null without a floor. */

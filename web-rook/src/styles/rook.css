@@ -946,3 +946,47 @@ a.cbadge:hover { color: var(--ink); }
 .cmosaic__tile:hover { z-index: 1; transform: translateY(-5px) scale(1.06); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 65%, var(--line)), 0 16px 28px -12px rgba(0, 0, 0, 0.8); }
 .cmosaic__tile:nth-child(5n + 2):hover, .cmosaic__tile:nth-child(5n + 4):hover { transform: translateY(43px) scale(1.06); }
 @media (prefers-reduced-motion: reduce) { .cmosaic__grid { animation: none; transform: translate(-50%, -50%) rotate(-12deg); } }
+
+/* ---- the front page hero's collections band: two rows of tiles drifting in opposite directions (src/ui/CollectionMarquee.tsx, 2026-10-12) -- */
+/* Under the hero's two halves, the hero's full width, its rails out to the hero's own edges and faded there. Each track holds its row twice
+   and slides by half its width, so the loop is seamless; tiles are spaced with margin (not gap) so the two halves are exactly equal. */
+.cmarq { grid-column: 1 / -1; min-width: 0; display: grid; gap: 0.5rem; }
+.cmarq__head { max-width: none; display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; flex-wrap: wrap; margin: 0; }
+.cmarq__head .hero3__k { margin: 0; }
+.cmarq__head a { font-size: var(--t-1); text-decoration: none; color: var(--accent); white-space: nowrap; }
+.cmarq__head a:hover { text-decoration: underline; }
+.cmarq__rail { overflow: hidden; margin: 0 calc(-1 * var(--gutter)); padding: 4px 0;
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); }
+.cmarq__track { display: flex; list-style: none; margin: 0; padding: 0; max-width: none; width: max-content; animation: cmarq-slide 90s linear infinite; }
+.cmarq__rail--rev .cmarq__track { animation-direction: reverse; }
+.cmarq:hover .cmarq__track, .cmarq__track:focus-within { animation-play-state: paused; }
+@keyframes cmarq-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.cmarq__tile { flex: none; margin-right: 0.6rem; }
+.cmarq__tile a { display: flex; align-items: center; gap: 0.6rem; padding: 0.35rem 0.85rem 0.35rem 0.35rem; border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--ink);
+  background: color-mix(in srgb, var(--surface) 92%, transparent); transition: border-color var(--fast) var(--ease), transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease); }
+.cmarq__tile a:hover, .cmarq__tile a:focus-visible { border-color: color-mix(in srgb, var(--accent) 70%, var(--line)); transform: translateY(-2px); box-shadow: 0 10px 22px -14px rgba(0, 0, 0, 0.6); }
+.cmarq__tile .cat__pic, .cmarq__tile .cat__tile { flex: none; object-fit: cover; }
+.cmarq__tile--soon a { border-style: dashed; }
+.cmarq__tile--soon .cat__pic { filter: saturate(0.6); }
+.cmarq__say { display: grid; gap: 0.1rem; white-space: nowrap; }
+.cmarq__say strong { font-size: var(--t-1); font-weight: 600; line-height: 1.2; }
+.cmarq__say small { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.cmarq__chain { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; padding: 0.05rem 0.3rem; border-radius: 4px; border: 1px solid currentColor; line-height: 1.3; }
+.cmarq__chain--eth { color: var(--sheen-2); }
+.cmarq__chain--sol { color: var(--accent); }
+.cmarq__chain--ord { color: var(--warn); }
+.cmarq__chain--hood { color: var(--good); }
+.cmarq__tile--soon small { color: var(--good); }
+/* a phone: smaller tiles, same two rows */
+@media (max-width: 719px) {
+  .cmarq__soon { display: none; }
+  .cmarq__tile a { gap: 0.45rem; padding: 0.25rem 0.65rem 0.25rem 0.25rem; border-radius: 11px; }
+  .cmarq__tile .cat__pic, .cmarq__tile .cat__tile { width: 34px !important; height: 34px !important; border-radius: 9px !important; font-size: 12px !important; }
+  .cmarq__say small { font-size: 0.66rem; }
+}
+/* no motion: the rows stand still, each scrolls sideways inside its own rail, and the loop's second copy is gone */
+@media (prefers-reduced-motion: reduce) {
+  .cmarq__track { animation: none; }
+  .cmarq__rail { overflow-x: auto; scrollbar-width: thin; }
+  .cmarq__tile[aria-hidden="true"] { display: none; }
+}

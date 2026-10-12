@@ -4,6 +4,7 @@ import { COLLECTIONS, PINNED_COLLECTIONS } from "../rook/sol/collections";
 import { HOW_IT_WORKS } from "../rook/routes";
 import { DEMO, SITE as SOL, useRookRow } from "../rook/sol/hooks";
 import { GenesisCard } from "../ui/GenesisCard";
+import { CollectionMarquee } from "../ui/CollectionMarquee";
 import { useActivity, useMarket, type FeedItem, type Market } from "../rook/sol/hooksMarket";
 import { changeText, coinFromRow, columnsOf, compact, filterCoins, marketStats, progressOf, topByMcapOf, trendingOf, type MarketCoin } from "../rook/sol/market";
 import { quoteOf } from "../rook/sol/graduation";
@@ -65,6 +66,7 @@ function Hero({ m, feed, now }: { m: Market; feed: FeedItem[]; now: number }) {
             : <p className="small muted">{m.source === "rpc" ? NEED_INDEXER : m.source === "none" ? "Trades stream here once coins launch." : "Waiting for the first trade…"}</p>}
         </div>
       </div>
+      <CollectionMarquee hrefOf={(slug) => href("collection", slug)} allHref={href("collections")} count={PINNED_COLLECTIONS.length} />
       <Genesis m={m} />
       <Ticker items={live} now={now} />
     </section>
